@@ -136,6 +136,8 @@ Første elpris-deploy: dpl_9kzvBYzHxAisopJgJuQRkACNjm3w (26. okt. 2026).
 3. `python3 src/refresh_elpris.py --verify-live` – tjekker at /elpris/ giver 200 og indeholder dagens (og evt. morgendagens) dato i HTML, og at alle sitemap-URL'er giver 200.
 4. `python3 src/refresh_elpris.py --mark-deployed <dpl-id>` – gemmer baseline, så næste kørsel kun uploader ændrede filer.
 
+Instagram-story: når `refresh_elpris.py` har givet exit 0, kør `node social/bin/elpris-story.js`. Scriptet opdaterer selv kilderegisteret (`social/data/export_sources.py`) og skriver morgendagens spotpriser for Vestdanmark (DK1) og Østdanmark (DK2) som story-PNG'er til `social/out/stories/<dato>/` (`elpris-DK1.png`, `elpris-DK2.png`; begge eller ingen). Exit 3 = datoen mangler i elpris-data, intet skrives; exit 4 = eksport-, render-/layoutfejl eller manglende lydfil. Fredag efter 13:45 køres `node social/bin/elpris-story.js --reel` (morgendagen er lørdag), som også laver `reel-<dato>.mp4` til fredagens 19:30-slot; musikken vælges på skift fra `social/audio/` efter dato.
+
 By-rutinen kl. 08:00 bruger samme kommando i stedet for `cd src && python3 build.py` (efter nye byer er lagt ind), så bysiderne får friske elpriser. Kommandoen er idempotent og låst mod samtidige kørsler (`deploy/.lock`).
 
 ## Egen cookiefri statistik (26. okt. 2026)

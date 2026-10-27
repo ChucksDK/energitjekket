@@ -1,0 +1,113 @@
+<style>
+.row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.ig{width:216px;height:270px;border-radius:6px;overflow:hidden;position:relative;font-family:Inter,system-ui,sans-serif;box-shadow:0 2px 10px rgba(0,0,0,.15);flex:none}
+.ig.s{height:384px}
+.bars{display:flex;align-items:flex-end;gap:2px;height:70px}
+.bars i{flex:1;border-radius:2px 2px 0 0;display:block}
+.handle{position:absolute;bottom:8px;left:12px;font-size:8px;opacity:.75;letter-spacing:.04em}
+/* A */
+.a{background:#f2f8f5;color:#13201d}
+.a .tag{background:#0b4f43;color:#fff;font-size:8px;font-weight:700;padding:3px 7px;border-radius:20px;display:inline-block;letter-spacing:.05em}
+.a h4{font-size:21px;line-height:1.05;margin:8px 0 6px;font-weight:800;letter-spacing:-.02em}
+.a .big{font-size:40px;font-weight:900;color:#0b4f43;letter-spacing:-.03em;line-height:1}
+.a .y{background:#f5b700;padding:0 4px}
+/* B */
+.b{color:#fff;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(0,0,0,.75)),linear-gradient(160deg,#5f7380,#2b3a44 60%,#1b2228)}
+.b .photo{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:9px;opacity:.45;text-align:center;padding:30px}
+.b h4{position:absolute;left:12px;right:12px;bottom:34px;font-size:22px;line-height:1.05;font-weight:900;margin:0;text-transform:uppercase;letter-spacing:-.01em}
+.b h4 em{font-style:normal;background:#f5b700;color:#13201d;padding:0 4px}
+/* C */
+.c{background:#fffdf6;color:#13201d;font-family:"Courier New",monospace}
+.c .rc{position:absolute;inset:14px 18px;background:#fff;border:1px dashed #bbb;padding:12px;font-size:9px;line-height:1.5}
+.c .rc b{font-size:11px}
+.c .line{display:flex;justify-content:space-between}
+.c .hand{font-family:"Marker Felt","Comic Sans MS",cursive;color:#c0392b;font-size:15px;transform:rotate(-4deg);display:inline-block;margin-top:6px}
+.c .strike{text-decoration:line-through;text-decoration-color:#c0392b;text-decoration-thickness:2px}
+.cap{font-size:11px;color:#666;text-align:center;margin-top:4px}
+</style>
+
+<h2>Which visual style should the Energitjekket feed have?</h2>
+<p class="subtitle">Same two posts in each style: the daily price post (real DK1 prices from today) and a carousel cover with the calculator's oil boiler number. Danish text only, no voice.</p>
+
+<div class="cards">
+
+<div class="card" data-choice="a" onclick="toggleSelect(this)">
+<div class="card-image" style="padding:16px;background:#e9eceb">
+<div class="row">
+ <div class="ig a" style="padding:14px">
+  <span class="tag">ELPRIS · TIRSDAG 27/10 · DK1</span>
+  <h4>Tænd vaskemaskinen kl. <span class="y">06</span></h4>
+  <div style="font-size:9px;color:#4f5e5a;margin-bottom:8px">Spotpris: 0,24 kr. kl. 06 mod 1,15 kr. kl. 21</div>
+  <div class="bars"><i style="height:28%;background:#0f6b55"></i><i style="height:36%;background:#0f6b55"></i><i style="height:34%;background:#0f6b55"></i><i style="height:30%;background:#0f6b55"></i><i style="height:23%;background:#f5b700"></i><i style="height:22%;background:#f5b700"></i><i style="height:20%;background:#f5b700"></i><i style="height:50%;background:#0f6b55"></i><i style="height:71%;background:#0f6b55"></i><i style="height:69%;background:#0f6b55"></i><i style="height:54%;background:#0f6b55"></i><i style="height:42%;background:#0f6b55"></i><i style="height:35%;background:#0f6b55"></i><i style="height:43%;background:#0f6b55"></i><i style="height:45%;background:#0f6b55"></i><i style="height:67%;background:#0f6b55"></i><i style="height:80%;background:#0f6b55"></i><i style="height:95%;background:#c0392b"></i><i style="height:96%;background:#c0392b"></i><i style="height:96%;background:#c0392b"></i><i style="height:95%;background:#c0392b"></i><i style="height:100%;background:#c0392b"></i><i style="height:99%;background:#c0392b"></i><i style="height:97%;background:#c0392b"></i></div>
+  <div style="display:flex;justify-content:space-between;font-size:7px;color:#4f5e5a;margin-top:3px"><span>00</span><span>06</span><span>12</span><span>18</span><span>23</span></div>
+  <div style="margin-top:10px;font-size:8.5px;font-weight:700;color:#0b4f43">Se din pris i dag → energitjekket.dk/elpris</div>
+  <div class="handle">@energitjekket</div>
+ </div>
+ <div class="ig a" style="padding:16px;background:#0b4f43;color:#fff">
+  <span class="tag" style="background:#f5b700;color:#13201d">VARMEPUMPE · 1/6</span>
+  <h4 style="color:#fff;margin-top:22px">Har du oliefyr?<br>Så betaler du ca.</h4>
+  <div class="big" style="color:#f5b700">32.388 kr.</div>
+  <div style="font-size:11px;margin-top:4px">om året for varme i et 130 m² hus.</div>
+  <div style="position:absolute;bottom:26px;right:14px;font-size:10px;font-weight:700">Swipe →</div>
+  <div class="handle">Kilde: Bolius</div>
+ </div>
+</div>
+</div>
+<div class="card-body"><h3>A · Clean data, brand colors</h3><p>Uses the site's own green and yellow and real numbers, with one big point per slide. It looks like the site and is fully automatable in JS, so it suits daily elpris posts and data carousels. It risks looking a bit "official".</p></div>
+</div>
+
+<div class="card" data-choice="b" onclick="toggleSelect(this)">
+<div class="card-image" style="padding:16px;background:#e9eceb">
+<div class="row">
+ <div class="ig b">
+  <div class="photo">[Higgsfield: Danish kitchen at dawn, washing machine, blue morning light]</div>
+  <div style="position:absolute;top:12px;left:12px;font-size:8px;font-weight:800;background:#fff;color:#13201d;padding:3px 6px">I MORGEN · DK1</div>
+  <h4>Billigste time:<br><em>kl. 06</em> · 0,24 kr.</h4>
+  <div class="handle">@energitjekket · energitjekket.dk/elpris</div>
+ </div>
+ <div class="ig b" style="background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(0,0,0,.8)),linear-gradient(160deg,#6b4a2e,#3a2a1c 60%,#1c140d)">
+  <div class="photo">[Higgsfield: old oil boiler in a Danish basement, warm lamp light]</div>
+  <h4>Dit oliefyr koster dig <em>32.388 kr.</em> om året</h4>
+  <div class="handle">1/6 · swipe →</div>
+ </div>
+</div>
+</div>
+<div class="card-body"><h3>B · Photo + bold text</h3><p>A Higgsfield image as the background with a big, punchy headline. It stops thumbs best in the feed and is the most "Instagram". Every post needs an image, and it can drift toward looking like an ad.</p></div>
+</div>
+
+<div class="card" data-choice="c" onclick="toggleSelect(this)">
+<div class="card-image" style="padding:16px;background:#e9eceb">
+<div class="row">
+ <div class="ig c">
+  <div class="rc">
+   <b>ELPRIS I MORGEN · DK1</b><br>-------------------------
+   <div class="line"><span>kl. 06</span><span>0,24 kr.</span></div>
+   <div class="line"><span>kl. 12</span><span>0,41 kr.</span></div>
+   <div class="line"><span>kl. 18</span><span>1,11 kr.</span></div>
+   <div class="line"><span>kl. 21</span><span>1,15 kr.</span></div>
+   -------------------------<br>
+   <span class="hand">Vask kl. 06 ✓</span><br>
+   <div class="bars" style="height:40px;margin-top:6px"><i style="height:28%;background:#9aa5a2"></i><i style="height:36%;background:#9aa5a2"></i><i style="height:34%;background:#9aa5a2"></i><i style="height:30%;background:#9aa5a2"></i><i style="height:23%;background:#13201d"></i><i style="height:22%;background:#13201d"></i><i style="height:20%;background:#13201d"></i><i style="height:50%;background:#9aa5a2"></i><i style="height:71%;background:#9aa5a2"></i><i style="height:69%;background:#9aa5a2"></i><i style="height:54%;background:#9aa5a2"></i><i style="height:42%;background:#9aa5a2"></i><i style="height:35%;background:#9aa5a2"></i><i style="height:43%;background:#9aa5a2"></i><i style="height:45%;background:#9aa5a2"></i><i style="height:67%;background:#9aa5a2"></i><i style="height:80%;background:#9aa5a2"></i><i style="height:95%;background:#13201d"></i><i style="height:96%;background:#13201d"></i><i style="height:96%;background:#13201d"></i><i style="height:95%;background:#13201d"></i><i style="height:100%;background:#13201d"></i><i style="height:99%;background:#13201d"></i><i style="height:97%;background:#13201d"></i></div>
+  </div>
+  <div class="handle">@energitjekket</div>
+ </div>
+ <div class="ig c">
+  <div class="rc">
+   <b>VARMEREGNING · 130 m²</b><br>-------------------------
+   <div class="line"><span>Oliefyr</span><span class="strike">32.388</span></div>
+   <div class="line"><span>Elradiatorer</span><span>30.974</span></div>
+   <div class="line"><span>Gasfyr</span><span>18.433</span></div>
+   <div class="line"><span>Fjernvarme</span><span>16.953</span></div>
+   -------------------------<br>
+   <span class="hand">Og varmepumpen? →</span>
+   <div style="font-size:7px;margin-top:14px;color:#777">kr./år · Kilde: Bolius</div>
+  </div>
+  <div class="handle">1/6</div>
+ </div>
+</div>
+</div>
+<div class="card-body"><h3>C · Receipt / bill</h3><p>Each post looks like a bill with handwritten notes. It ties straight to "your energy bill" and is a distinctive, recognizable series, still automatable in JS. Less polished, and more of a niche look.</p></div>
+</div>
+
+</div>
+<p class="subtitle" style="margin-top:14px">Feel free to say "A, but with photos from B on the hook slide". Mixes are fine.</p>
