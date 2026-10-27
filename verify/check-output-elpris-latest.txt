@@ -1,0 +1,46 @@
+Sider: 64 | interne links tjekket: 12543 (66 unikke URL) | brudte: 0
+JSON-LD blokke OK: 64 | fejl: 0 []
+Schema-typer: {'Organization': 64, 'WebPage': 62, 'WebSite': 64, 'BreadcrumbList': 63, 'CollectionPage': 2, 'FAQPage': 58, 'Service': 43, 'WebApplication': 1, 'Dataset': 1}
+Eksterne kildelinks (unikke): 145
+On-page issues: [('/404.html', 'description 18 tegn'), ('/tak/', 'description 32 tegn')]
+Interlink-krav opfyldt (21 bysider, 22 lokale undersider, 12 guides, 2 hubs)
+og:image+twitter+dato på alle sider: ja | billedstørrelser: {(1200, 630)} | byer uden diagrammer: ingen
+Sider uden indgående links: ingen | min. indgående for undersider: 63
+Sitemap: 62 URL | mangler: ingen
+Lighed, GAMMEL metode (hele siden minus header/footer/form/links)
+  Bysider solceller: lighed gns 45%, maks 53% | ord 1165-1356
+  Undersider regler-og-byggetilladelse: lighed gns 32%, maks 41% | ord 547-967
+  Bysider varmepumpe: lighed gns 44%, maks 58% | ord 968-1343
+  Undersider fjernvarme-eller-varmepumpe: lighed gns 38%, maks 52% | ord 751-1930
+  Guides (4 nationale): lighed gns 24%, maks 31% | ord 743-1137
+  Alle guides og tilbudssider (12): lighed gns 23%, maks 52% | ord 697-1137
+  Byside vs egen underside: gns 16%, maks 39%
+  Nye sider (naestved, silkeborg) mod de eksisterende sider af samme type:
+    /solceller/naestved/: gns 42%, maks 53% (/solceller/viborg/) | 1346 ord
+    /solceller/silkeborg/: gns 44%, maks 50% (/solceller/vejle/) | 1342 ord
+    /solceller/naestved/regler-og-byggetilladelse/: gns 28%, maks 31% (/solceller/viborg/regler-og-byggetilladelse/) | 859 ord
+    /solceller/silkeborg/regler-og-byggetilladelse/: gns 32%, maks 34% (/solceller/randers/regler-og-byggetilladelse/) | 793 ord
+    /varmepumpe/naestved/: gns 41%, maks 47% (/varmepumpe/odense/) | 1343 ord
+    /varmepumpe/silkeborg/: gns 42%, maks 49% (/varmepumpe/aalborg/) | 1208 ord
+    /varmepumpe/naestved/fjernvarme-eller-varmepumpe/: gns 34%, maks 44% (/varmepumpe/silkeborg/fjernvarme-eller-varmepumpe/) | 994 ord
+    /varmepumpe/silkeborg/fjernvarme-eller-varmepumpe/: gns 35%, maks 44% (/varmepumpe/naestved/fjernvarme-eller-varmepumpe/) | 943 ord
+Lighed, NY metode (kun hovedindhold; uden nav, TOC, side-CTA, trust-linje, hero-knapper, formular, linkblok, CTA-boks, footer)
+  Bysider solceller: lighed gns 29%, maks 39% | ord 846-1037
+  Undersider regler-og-byggetilladelse: lighed gns 18%, maks 24% | ord 402-816
+  Bysider varmepumpe: lighed gns 26%, maks 42% | ord 673-1047
+  Undersider fjernvarme-eller-varmepumpe: lighed gns 28%, maks 43% | ord 603-1648
+  Guides (4 nationale): lighed gns 13%, maks 21% | ord 599-985
+  Alle guides og tilbudssider (12): lighed gns 13%, maks 33% | ord 476-985
+  Byside vs egen underside: gns 11%, maks 34%
+  Nye sider (naestved, silkeborg) mod de eksisterende sider af samme type:
+    /solceller/naestved/: gns 26%, maks 39% (/solceller/viborg/) | 1026 ord
+    /solceller/silkeborg/: gns 28%, maks 35% (/solceller/vejle/) | 1023 ord
+    /solceller/naestved/regler-og-byggetilladelse/: gns 15%, maks 19% (/solceller/viborg/regler-og-byggetilladelse/) | 713 ord
+    /solceller/silkeborg/regler-og-byggetilladelse/: gns 18%, maks 23% (/solceller/randers/regler-og-byggetilladelse/) | 649 ord
+    /varmepumpe/naestved/: gns 25%, maks 31% (/varmepumpe/odense/) | 1047 ord
+    /varmepumpe/silkeborg/: gns 23%, maks 32% (/varmepumpe/aalborg/) | 913 ord
+    /varmepumpe/naestved/fjernvarme-eller-varmepumpe/: gns 23%, maks 35% (/varmepumpe/silkeborg/fjernvarme-eller-varmepumpe/) | 846 ord
+    /varmepumpe/silkeborg/fjernvarme-eller-varmepumpe/: gns 24%, maks 36% (/varmepumpe/naestved/fjernvarme-eller-varmepumpe/) | 795 ord
+Elpris: side, links og bokse på alle bysider: ok
+Google-verifikationsfil: OK
+GATE: OK

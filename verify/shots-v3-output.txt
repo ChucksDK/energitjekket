@@ -1,0 +1,13 @@
+Sticky CTA synlig midt på siden: True | skjult ved formularen: True
+Uden valg: Vælg en af mulighederne for at fortsætte.
+Trin-tæller på trin 2: Trin 2 af 3
+Uden samtykke: Du skal give samtykke, før vi kan sende din forespørgsel videre.
+Med samtykke: [PLADSHOLDER] Formularen er ikke koblet til en backend endnu, så intet er sendt. Tak for testen.
+scrollWidth / 390
+scrollWidth /solceller/kolding/ 390
+scrollWidth /varmepumpe/odense/ 390
+scrollWidth /varmepumpe/aalborg/fjernvarme-eller-varmepumpe/ 390
+scrollWidth /solceller/pris/ 390
+scrollWidth /solceller/ 390
+scrollWidth /om-os/ 390
+Konsolfejl: ingen

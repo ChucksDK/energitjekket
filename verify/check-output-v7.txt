@@ -1,0 +1,25 @@
+Sider: 48 | interne links tjekket: 7118 (49 unikke URL) | brudte: 0
+JSON-LD blokke OK: 48 | fejl: 0 []
+Schema-typer: {'Organization': 48, 'WebPage': 46, 'WebSite': 48, 'BreadcrumbList': 47, 'CollectionPage': 2, 'FAQPage': 42, 'Service': 28, 'WebApplication': 1}
+Eksterne kildelinks (unikke): 91
+On-page issues: [('/404.html', 'description 18 tegn'), ('/tak/', 'description 32 tegn')]
+Interlink-krav opfyldt (14 bysider, 14 lokale undersider, 12 guides, 2 hubs)
+og:image+twitter+dato på alle sider: ja | billedstørrelser: {(1200, 630)} | byer uden diagrammer: ingen
+Sider uden indgående links: ingen | min. indgående for undersider: 47
+Sitemap: 46 URL | mangler: ingen
+Lighed, GAMMEL metode (hele siden minus header/footer/form/links)
+  Bysider solceller: lighed gns 40%, maks 44% | ord 1012-1094
+  Undersider regler-og-byggetilladelse: lighed gns 34%, maks 41% | ord 547-780
+  Bysider varmepumpe: lighed gns 39%, maks 52% | ord 844-1074
+  Undersider fjernvarme-eller-varmepumpe: lighed gns 47%, maks 52% | ord 751-867
+  Guides (4 nationale): lighed gns 24%, maks 31% | ord 743-1137
+  Alle guides og tilbudssider (12): lighed gns 23%, maks 52% | ord 697-1137
+  Byside vs egen underside: gns 18%, maks 42%
+Lighed, NY metode (kun hovedindhold; uden nav, TOC, side-CTA, trust-linje, hero-knapper, formular, linkblok, CTA-boks, footer)
+  Bysider solceller: lighed gns 30%, maks 35% | ord 846-928
+  Undersider regler-og-byggetilladelse: lighed gns 19%, maks 24% | ord 402-638
+  Bysider varmepumpe: lighed gns 27%, maks 42% | ord 673-903
+  Undersider fjernvarme-eller-varmepumpe: lighed gns 36%, maks 43% | ord 603-719
+  Guides (4 nationale): lighed gns 13%, maks 21% | ord 599-985
+  Alle guides og tilbudssider (12): lighed gns 13%, maks 33% | ord 476-985
+  Byside vs egen underside: gns 12%, maks 34%

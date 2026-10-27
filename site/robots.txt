@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /tak/
+
+Sitemap: https://energitjekket.dk/sitemap.xml

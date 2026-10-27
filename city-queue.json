@@ -1,0 +1,546 @@
+[
+  {
+    "rank": 1,
+    "city": "Aarhus",
+    "slug": "aarhus",
+    "kommune": "Aarhus Kommune",
+    "region": "Region Midtjylland",
+    "reason": "70.889 beboede parcel/rækkehuse; 93% fjernvarme; 1.794 med olie/gas/elvarme; mest solceller; høj fjernvarme",
+    "status": "done",
+    "date": "2026-10-26"
+  },
+  {
+    "rank": 2,
+    "city": "Viborg",
+    "slug": "viborg",
+    "kommune": "Viborg Kommune",
+    "region": "Region Midtjylland",
+    "reason": "34.597 beboede parcel/rækkehuse; 54% fjernvarme; 8.838 med olie/gas/elvarme; begge services",
+    "status": "done",
+    "date": "2026-10-26"
+  },
+  {
+    "rank": 3,
+    "city": "Næstved",
+    "slug": "naestved",
+    "kommune": "Næstved Kommune",
+    "region": "Region Sjælland",
+    "reason": "28.476 beboede parcel/rækkehuse; 32% fjernvarme; 12.792 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "done",
+    "date": "2026-10-27"
+  },
+  {
+    "rank": 4,
+    "city": "Silkeborg",
+    "slug": "silkeborg",
+    "kommune": "Silkeborg Kommune",
+    "region": "Region Midtjylland",
+    "reason": "32.953 beboede parcel/rækkehuse; 53% fjernvarme; 8.180 med olie/gas/elvarme; begge services",
+    "status": "done",
+    "date": "2026-10-27"
+  },
+  {
+    "rank": 5,
+    "city": "Holbæk",
+    "slug": "holbaek",
+    "kommune": "Holbæk Kommune",
+    "region": "Region Sjælland",
+    "reason": "23.593 beboede parcel/rækkehuse; 9% fjernvarme; 13.765 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 6,
+    "city": "Slagelse",
+    "slug": "slagelse",
+    "kommune": "Slagelse Kommune",
+    "region": "Region Sjælland",
+    "reason": "23.356 beboede parcel/rækkehuse; 30% fjernvarme; 9.996 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 7,
+    "city": "Roskilde",
+    "slug": "roskilde",
+    "kommune": "Roskilde Kommune",
+    "region": "Region Sjælland",
+    "reason": "24.133 beboede parcel/rækkehuse; 44% fjernvarme; 9.056 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 8,
+    "city": "Sønderborg",
+    "slug": "soenderborg",
+    "kommune": "Sønderborg Kommune",
+    "region": "Region Syddanmark",
+    "reason": "26.095 beboede parcel/rækkehuse; 60% fjernvarme; 6.579 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 9,
+    "city": "Køge",
+    "slug": "koege",
+    "kommune": "Køge Kommune",
+    "region": "Region Sjælland",
+    "reason": "18.564 beboede parcel/rækkehuse; 14% fjernvarme; 11.535 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 10,
+    "city": "Svendborg",
+    "slug": "svendborg",
+    "kommune": "Svendborg Kommune",
+    "region": "Region Syddanmark",
+    "reason": "21.017 beboede parcel/rækkehuse; 24% fjernvarme; 9.512 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 11,
+    "city": "Faaborg",
+    "slug": "faaborg",
+    "kommune": "Faaborg-Midtfyn Kommune",
+    "region": "Region Syddanmark",
+    "reason": "21.725 beboede parcel/rækkehuse; 35% fjernvarme; 7.749 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 12,
+    "city": "Aabenraa",
+    "slug": "aabenraa",
+    "kommune": "Aabenraa Kommune",
+    "region": "Region Syddanmark",
+    "reason": "21.980 beboede parcel/rækkehuse; 52% fjernvarme; 6.952 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 13,
+    "city": "Herning",
+    "slug": "herning",
+    "kommune": "Herning Kommune",
+    "region": "Region Midtjylland",
+    "reason": "28.491 beboede parcel/rækkehuse; 78% fjernvarme; 1.953 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 14,
+    "city": "Greve",
+    "slug": "greve",
+    "kommune": "Greve Kommune",
+    "region": "Region Sjælland",
+    "reason": "16.177 beboede parcel/rækkehuse; 24% fjernvarme; 10.023 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 15,
+    "city": "Hjørring",
+    "slug": "hjoerring",
+    "kommune": "Hjørring Kommune",
+    "region": "Region Nordjylland",
+    "reason": "24.066 beboede parcel/rækkehuse; 63% fjernvarme; 3.826 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 16,
+    "city": "Holte",
+    "slug": "holte",
+    "kommune": "Rudersdal Kommune",
+    "region": "Region Hovedstaden",
+    "reason": "14.955 beboede parcel/rækkehuse; 15% fjernvarme; 9.824 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 17,
+    "city": "Nykøbing Falster",
+    "slug": "nykoebing-falster",
+    "kommune": "Guldborgsund Kommune",
+    "region": "Region Sjælland",
+    "reason": "22.377 beboede parcel/rækkehuse; 57% fjernvarme; 4.550 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 18,
+    "city": "Haderslev",
+    "slug": "haderslev",
+    "kommune": "Haderslev Kommune",
+    "region": "Region Syddanmark",
+    "reason": "18.947 beboede parcel/rækkehuse; 39% fjernvarme; 6.736 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 19,
+    "city": "Frederikshavn",
+    "slug": "frederikshavn",
+    "kommune": "Frederikshavn Kommune",
+    "region": "Region Nordjylland",
+    "reason": "22.478 beboede parcel/rækkehuse; 64% fjernvarme; 4.191 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 20,
+    "city": "Hedensted",
+    "slug": "hedensted",
+    "kommune": "Hedensted Kommune",
+    "region": "Region Midtjylland",
+    "reason": "19.042 beboede parcel/rækkehuse; 36% fjernvarme; 6.330 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 21,
+    "city": "Ringkøbing",
+    "slug": "ringkoebing",
+    "kommune": "Ringkøbing-Skjern Kommune",
+    "region": "Region Midtjylland",
+    "reason": "21.989 beboede parcel/rækkehuse; 61% fjernvarme; 3.916 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 22,
+    "city": "Helsingør",
+    "slug": "helsingoer",
+    "kommune": "Helsingør Kommune",
+    "region": "Region Hovedstaden",
+    "reason": "15.640 beboede parcel/rækkehuse; 36% fjernvarme; 7.588 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 23,
+    "city": "Stenløse",
+    "slug": "stenloese",
+    "kommune": "Egedal Kommune",
+    "region": "Region Hovedstaden",
+    "reason": "15.655 beboede parcel/rækkehuse; 35% fjernvarme; 7.555 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 24,
+    "city": "Frederikssund",
+    "slug": "frederikssund",
+    "kommune": "Frederikssund Kommune",
+    "region": "Region Hovedstaden",
+    "reason": "14.988 beboede parcel/rækkehuse; 24% fjernvarme; 7.783 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 25,
+    "city": "Skanderborg",
+    "slug": "skanderborg",
+    "kommune": "Skanderborg Kommune",
+    "region": "Region Midtjylland",
+    "reason": "21.893 beboede parcel/rækkehuse; 68% fjernvarme; 3.012 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 26,
+    "city": "Vordingborg",
+    "slug": "vordingborg",
+    "kommune": "Vordingborg Kommune",
+    "region": "Region Sjælland",
+    "reason": "16.629 beboede parcel/rækkehuse; 32% fjernvarme; 6.096 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 27,
+    "city": "København",
+    "slug": "koebenhavn",
+    "kommune": "København Kommune",
+    "region": "Region Hovedstaden",
+    "reason": "24.524 beboede parcel/rækkehuse; 94% fjernvarme; 812 med olie/gas/elvarme; mest solceller; høj fjernvarme",
+    "status": "pending"
+  },
+  {
+    "rank": 28,
+    "city": "Vejen",
+    "slug": "vejen",
+    "kommune": "Vejen Kommune",
+    "region": "Region Syddanmark",
+    "reason": "17.266 beboede parcel/rækkehuse; 45% fjernvarme; 5.257 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 29,
+    "city": "Varde",
+    "slug": "varde",
+    "kommune": "Varde Kommune",
+    "region": "Region Syddanmark",
+    "reason": "18.944 beboede parcel/rækkehuse; 56% fjernvarme; 4.137 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 30,
+    "city": "Faxe",
+    "slug": "faxe",
+    "kommune": "Faxe Kommune",
+    "region": "Region Sjælland",
+    "reason": "14.741 beboede parcel/rækkehuse; 20% fjernvarme; 6.829 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 31,
+    "city": "Kalundborg",
+    "slug": "kalundborg",
+    "kommune": "Kalundborg Kommune",
+    "region": "Region Sjælland",
+    "reason": "18.422 beboede parcel/rækkehuse; 47% fjernvarme; 4.185 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 32,
+    "city": "Skive",
+    "slug": "skive",
+    "kommune": "Skive Kommune",
+    "region": "Region Midtjylland",
+    "reason": "16.402 beboede parcel/rækkehuse; 45% fjernvarme; 5.189 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 33,
+    "city": "Gladsaxe",
+    "slug": "gladsaxe",
+    "kommune": "Gladsaxe Kommune",
+    "region": "Region Hovedstaden",
+    "reason": "13.224 beboede parcel/rækkehuse; 37% fjernvarme; 7.113 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 34,
+    "city": "Kongens Lyngby",
+    "slug": "kongens-lyngby",
+    "kommune": "Lyngby-Taarbæk Kommune",
+    "region": "Region Hovedstaden",
+    "reason": "11.278 beboede parcel/rækkehuse; 18% fjernvarme; 8.024 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 35,
+    "city": "Holstebro",
+    "slug": "holstebro",
+    "kommune": "Holstebro Kommune",
+    "region": "Region Midtjylland",
+    "reason": "20.576 beboede parcel/rækkehuse; 79% fjernvarme; 1.801 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 36,
+    "city": "Fredensborg",
+    "slug": "fredensborg",
+    "kommune": "Fredensborg Kommune",
+    "region": "Region Hovedstaden",
+    "reason": "13.294 beboede parcel/rækkehuse; 36% fjernvarme; 6.494 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 37,
+    "city": "Nakskov",
+    "slug": "nakskov",
+    "kommune": "Lolland Kommune",
+    "region": "Region Sjælland",
+    "reason": "16.610 beboede parcel/rækkehuse; 54% fjernvarme; 4.118 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 38,
+    "city": "Assens",
+    "slug": "assens",
+    "kommune": "Assens Kommune",
+    "region": "Region Syddanmark",
+    "reason": "16.767 beboede parcel/rækkehuse; 52% fjernvarme; 3.938 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 39,
+    "city": "Hinnerup",
+    "slug": "hinnerup",
+    "kommune": "Favrskov Kommune",
+    "region": "Region Midtjylland",
+    "reason": "18.299 beboede parcel/rækkehuse; 67% fjernvarme; 2.722 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 40,
+    "city": "Helsinge",
+    "slug": "helsinge",
+    "kommune": "Gribskov Kommune",
+    "region": "Region Hovedstaden",
+    "reason": "14.386 beboede parcel/rækkehuse; 32% fjernvarme; 5.217 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 41,
+    "city": "Middelfart",
+    "slug": "middelfart",
+    "kommune": "Middelfart Kommune",
+    "region": "Region Syddanmark",
+    "reason": "15.832 beboede parcel/rækkehuse; 54% fjernvarme; 4.157 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 42,
+    "city": "Tønder",
+    "slug": "toender",
+    "kommune": "Tønder Kommune",
+    "region": "Region Syddanmark",
+    "reason": "14.680 beboede parcel/rækkehuse; 43% fjernvarme; 4.778 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 43,
+    "city": "Rønne",
+    "slug": "roenne",
+    "kommune": "Bornholm Kommune",
+    "region": "Region Hovedstaden",
+    "reason": "17.099 beboede parcel/rækkehuse; 61% fjernvarme; 3.089 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 44,
+    "city": "Hobro",
+    "slug": "hobro",
+    "kommune": "Mariagerfjord Kommune",
+    "region": "Region Nordjylland",
+    "reason": "15.927 beboede parcel/rækkehuse; 54% fjernvarme; 3.869 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 45,
+    "city": "Ebeltoft",
+    "slug": "ebeltoft",
+    "kommune": "Syddjurs Kommune",
+    "region": "Region Midtjylland",
+    "reason": "16.600 beboede parcel/rækkehuse; 53% fjernvarme; 3.218 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 46,
+    "city": "Thisted",
+    "slug": "thisted",
+    "kommune": "Thisted Kommune",
+    "region": "Region Nordjylland",
+    "reason": "16.884 beboede parcel/rækkehuse; 60% fjernvarme; 3.010 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 47,
+    "city": "Farum",
+    "slug": "farum",
+    "kommune": "Furesø Kommune",
+    "region": "Region Hovedstaden",
+    "reason": "12.241 beboede parcel/rækkehuse; 36% fjernvarme; 5.920 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 48,
+    "city": "Aabybro",
+    "slug": "aabybro",
+    "kommune": "Jammerbugt Kommune",
+    "region": "Region Nordjylland",
+    "reason": "16.097 beboede parcel/rækkehuse; 60% fjernvarme; 3.054 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 49,
+    "city": "Ballerup",
+    "slug": "ballerup",
+    "kommune": "Ballerup Kommune",
+    "region": "Region Hovedstaden",
+    "reason": "10.104 beboede parcel/rækkehuse; 21% fjernvarme; 6.800 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 50,
+    "city": "Nykøbing Sjælland",
+    "slug": "nykoebing-sjaelland",
+    "kommune": "Odsherred Kommune",
+    "region": "Region Sjælland",
+    "reason": "12.279 beboede parcel/rækkehuse; 30% fjernvarme; 5.092 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 51,
+    "city": "Sorø",
+    "slug": "soroe",
+    "kommune": "Sorø Kommune",
+    "region": "Region Sjælland",
+    "reason": "11.559 beboede parcel/rækkehuse; 19% fjernvarme; 5.564 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 52,
+    "city": "Tårnby",
+    "slug": "taarnby",
+    "kommune": "Tårnby Kommune",
+    "region": "Region Hovedstaden",
+    "reason": "8.786 beboede parcel/rækkehuse; 5% fjernvarme; 7.146 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 53,
+    "city": "Hillerød",
+    "slug": "hilleroed",
+    "kommune": "Hillerød Kommune",
+    "region": "Region Hovedstaden",
+    "reason": "13.871 beboede parcel/rækkehuse; 57% fjernvarme; 3.696 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 54,
+    "city": "Lejre",
+    "slug": "lejre",
+    "kommune": "Lejre Kommune",
+    "region": "Region Sjælland",
+    "reason": "10.787 beboede parcel/rækkehuse; 13% fjernvarme; 5.344 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 55,
+    "city": "Gentofte",
+    "slug": "gentofte",
+    "kommune": "Gentofte Kommune",
+    "region": "Region Hovedstaden",
+    "reason": "12.680 beboede parcel/rækkehuse; 64% fjernvarme; 3.905 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 56,
+    "city": "Ikast",
+    "slug": "ikast",
+    "kommune": "Ikast-Brande Kommune",
+    "region": "Region Midtjylland",
+    "reason": "15.260 beboede parcel/rækkehuse; 66% fjernvarme; 1.985 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 57,
+    "city": "Hvidovre",
+    "slug": "hvidovre",
+    "kommune": "Hvidovre Kommune",
+    "region": "Region Hovedstaden",
+    "reason": "10.137 beboede parcel/rækkehuse; 37% fjernvarme; 5.361 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 58,
+    "city": "Grenaa",
+    "slug": "grenaa",
+    "kommune": "Norddjurs Kommune",
+    "region": "Region Midtjylland",
+    "reason": "14.215 beboede parcel/rækkehuse; 62% fjernvarme; 2.420 med olie/gas/elvarme; begge services",
+    "status": "pending"
+  },
+  {
+    "rank": 59,
+    "city": "Lillerød",
+    "slug": "lilleroed",
+    "kommune": "Allerød Kommune",
+    "region": "Region Hovedstaden",
+    "reason": "8.783 beboede parcel/rækkehuse; 12% fjernvarme; 5.765 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  },
+  {
+    "rank": 60,
+    "city": "Store Heddinge",
+    "slug": "store-heddinge",
+    "kommune": "Stevns Kommune",
+    "region": "Region Sjælland",
+    "reason": "9.342 beboede parcel/rækkehuse; 1% fjernvarme; 5.297 med olie/gas/elvarme; stærkt varmepumpemarked",
+    "status": "pending"
+  }
+]

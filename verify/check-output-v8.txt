@@ -1,0 +1,41 @@
+Sider: 55 | interne links tjekket: 9316 (56 unikke URL) | brudte: 0
+JSON-LD blokke OK: 55 | fejl: 0 []
+Schema-typer: {'Organization': 55, 'WebPage': 53, 'WebSite': 55, 'BreadcrumbList': 54, 'CollectionPage': 2, 'FAQPage': 49, 'Service': 35, 'WebApplication': 1}
+Eksterne kildelinks (unikke): 113
+On-page issues: [('/404.html', 'description 18 tegn'), ('/tak/', 'description 32 tegn')]
+Interlink-krav opfyldt (17 bysider, 18 lokale undersider, 12 guides, 2 hubs)
+og:image+twitter+dato på alle sider: ja | billedstørrelser: {(1200, 630)} | byer uden diagrammer: ingen
+Sider uden indgående links: ingen | min. indgående for undersider: 54
+Sitemap: 53 URL | mangler: ingen
+Lighed, GAMMEL metode (hele siden minus header/footer/form/links)
+  Bysider solceller: lighed gns 39%, maks 45% | ord 1012-1181
+  Undersider regler-og-byggetilladelse: lighed gns 33%, maks 41% | ord 547-967
+  Bysider varmepumpe: lighed gns 39%, maks 52% | ord 844-1089
+  Undersider fjernvarme-eller-varmepumpe: lighed gns 41%, maks 52% | ord 751-1806
+  Guides (4 nationale): lighed gns 24%, maks 31% | ord 743-1137
+  Alle guides og tilbudssider (12): lighed gns 23%, maks 52% | ord 697-1137
+  Byside vs egen underside: gns 18%, maks 42%
+  Nye sider (aarhus, viborg) mod de eksisterende sider af samme type:
+    /solceller/aarhus/: gns 37%, maks 40% (/solceller/odense/) | 1181 ord
+    /solceller/viborg/: gns 39%, maks 45% (/solceller/esbjerg/) | 1099 ord
+    /solceller/aarhus/regler-og-byggetilladelse/: gns 29%, maks 33% (/solceller/horsens/regler-og-byggetilladelse/) | 967 ord
+    /solceller/viborg/regler-og-byggetilladelse/: gns 33%, maks 36% (/solceller/horsens/regler-og-byggetilladelse/) | 736 ord
+    /varmepumpe/viborg/: gns 39%, maks 45% (/varmepumpe/esbjerg/) | 1089 ord
+    /varmepumpe/aarhus/fjernvarme-eller-varmepumpe/: gns 29%, maks 33% (/varmepumpe/odense/fjernvarme-eller-varmepumpe/) | 1806 ord
+    /varmepumpe/viborg/fjernvarme-eller-varmepumpe/: gns 35%, maks 39% (/varmepumpe/randers/fjernvarme-eller-varmepumpe/) | 1021 ord
+Lighed, NY metode (kun hovedindhold; uden nav, TOC, side-CTA, trust-linje, hero-knapper, formular, linkblok, CTA-boks, footer)
+  Bysider solceller: lighed gns 29%, maks 36% | ord 846-1015
+  Undersider regler-og-byggetilladelse: lighed gns 19%, maks 24% | ord 402-816
+  Bysider varmepumpe: lighed gns 27%, maks 42% | ord 673-918
+  Undersider fjernvarme-eller-varmepumpe: lighed gns 31%, maks 43% | ord 603-1648
+  Guides (4 nationale): lighed gns 13%, maks 21% | ord 599-985
+  Alle guides og tilbudssider (12): lighed gns 13%, maks 33% | ord 476-985
+  Byside vs egen underside: gns 12%, maks 34%
+  Nye sider (aarhus, viborg) mod de eksisterende sider af samme type:
+    /solceller/aarhus/: gns 28%, maks 31% (/solceller/odense/) | 1015 ord
+    /solceller/viborg/: gns 30%, maks 36% (/solceller/esbjerg/) | 933 ord
+    /solceller/aarhus/regler-og-byggetilladelse/: gns 17%, maks 22% (/solceller/horsens/regler-og-byggetilladelse/) | 816 ord
+    /solceller/viborg/regler-og-byggetilladelse/: gns 19%, maks 23% (/solceller/horsens/regler-og-byggetilladelse/) | 589 ord
+    /varmepumpe/viborg/: gns 28%, maks 35% (/varmepumpe/esbjerg/) | 918 ord
+    /varmepumpe/aarhus/fjernvarme-eller-varmepumpe/: gns 22%, maks 25% (/varmepumpe/odense/fjernvarme-eller-varmepumpe/) | 1648 ord
+    /varmepumpe/viborg/fjernvarme-eller-varmepumpe/: gns 24%, maks 29% (/varmepumpe/esbjerg/fjernvarme-eller-varmepumpe/) | 873 ord

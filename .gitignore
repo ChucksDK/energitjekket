@@ -1,0 +1,17 @@
+# Scratch, backups og store filer
+screenshots/
+*.zip
+_backup-*/
+_v*-backup*/
+deploy/
+verify/lh-*.json
+__pycache__/
+*.pyc
+node_modules/
+.vercel/
+# Hemmeligheder
+.env*
+*.pem
+*.key
+supabase/.temp/
+supabase/.branches/

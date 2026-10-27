@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Hjemmesiden er midlertidigt nede</title>
+<style>
+  :root { --ink:#17324a; --muted:#56687a; --rule:#2b5f8a; --dot:#b87a2c; --bg:#f6f8f8; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:"Inter","Helvetica Neue",Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:820px; padding:3rem 1.75rem 4rem; }
+  .status { display:flex; align-items:center; gap:.7rem; font-size:.8rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); }
+  .status::before { content:""; width:11px; height:11px; border-radius:50%; background:var(--dot); }
+  h1 { font-size:clamp(2.4rem,7vw,4.6rem); line-height:1.08; letter-spacing:-.045em; font-weight:800; margin:1.75rem 0 2rem; }
+  .rule { width:75px; height:3px; background:var(--rule); margin-bottom:2.25rem; }
+  .lead { font-size:1.3rem; line-height:1.6; font-weight:500; margin:0 0 1.5rem; }
+  p { font-size:1.1rem; line-height:1.75; color:var(--muted); margin:0 0 1.5rem; }
+</style>
+</head>
+<body>
+<main class="wrap">
+  
+  <div class="status">Vedligeholdelse</div>
+  <h1>Hjemmesiden er midlertidigt nede</h1>
+  <div class="rule"></div>
+
+  <p class="lead">Vi opdaterer i øjeblikket systemet.</p>
+  <p>Hjemmesiden er tilgængelig igen hurtigst muligt. Vi beklager ulejligheden.</p>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,4 @@
+solceller/naestved {'performance': 100, 'accessibility': 100, 'best-practices': 96, 'seo': 100} LCP 1.4 s TBT 80 ms CLS 0
+varmepumpe/silkeborg/fjernvarme-eller-varmepumpe {'performance': 100, 'accessibility': 100, 'best-practices': 96, 'seo': 100} LCP 1.5 s TBT 0 ms CLS 0.026
+https://energitjekket.dk/solceller/naestved/ {'performance': 100, 'accessibility': 100, 'best-practices': 100, 'seo': 100}
+https://administratortjekket.dk/ejendomsadministration/kolding/ {'performance': 98, 'accessibility': 100, 'best-practices': 100, 'seo': 100}

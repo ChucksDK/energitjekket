@@ -1,0 +1,5 @@
+Sider: 55 | interne links tjekket: 9316 (56 unikke URL) | brudte: 0
+JSON-LD blokke OK: 55 | fejl: 0 []
+Schema-typer: {'Organization': 55, 'WebPage': 53, 'WebSite': 55, 'BreadcrumbList': 54, 'CollectionPage': 2, 'FAQPage': 49, 'Service': 35, 'WebApplication': 1}
+Eksterne kildelinks (unikke): 113
+On-page issues: [('/404.html', 'description 18 tegn'), ('/tak/', 'description 32 tegn')]

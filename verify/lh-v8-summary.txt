@@ -1,0 +1,2 @@
+varmepumpe/aarhus/fjernvarme-eller-varmepumpe {'performance': 100, 'accessibility': 100, 'best-practices': 100, 'seo': 100} LCP 1.4 s TBT 0 ms CLS 0.026
+solceller/viborg {'performance': 100, 'accessibility': 100, 'best-practices': 100, 'seo': 100} LCP 1.5 s TBT 0 ms CLS 0

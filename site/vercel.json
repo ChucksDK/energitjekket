@@ -1,0 +1,57 @@
+{
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "energitjekket-preview.vercel.app"
+        }
+      ],
+      "destination": "https://energitjekket.dk/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "energitjekket-preview-chucksdks-projects.vercel.app"
+        }
+      ],
+      "destination": "https://energitjekket.dk/$1",
+      "permanent": true
+    },
+    {
+      "source": "/varmepumpe/aarhus",
+      "destination": "/varmepumpe/aarhus/fjernvarme-eller-varmepumpe/",
+      "permanent": false
+    },
+    {
+      "source": "/varmepumpe/aarhus/",
+      "destination": "/varmepumpe/aarhus/fjernvarme-eller-varmepumpe/",
+      "permanent": false
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
+        }
+      ]
+    },
+    {
+      "source": "/og/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+Sider: 40 | interne links tjekket: 4747 (40 unikke URL) | brudte: 0
+JSON-LD blokke OK: 40 | fejl: 0 []
+Schema-typer: {'Organization': 40, 'BreadcrumbList': 39, 'WebSite': 33, 'CollectionPage': 2, 'FAQPage': 34, 'WebPage': 32, 'Service': 28}
+Eksterne kildelinks (unikke): 42
+On-page issues: [('/404.html', 'description 18 tegn'), ('/tak/', 'description 11 tegn')]
+Interlink-krav opfyldt (14 bysider, 14 lokale undersider, 4 guides, 2 hubs)
+Sider uden indgående links: ingen | min. indgående for undersider: 39
+Sitemap: 38 URL | mangler: ingen
+Bysider solceller: lighed gns 52%, maks 57% | ord i hovedindhold 574-655
+Undersider regler-og-byggetilladelse: lighed gns 33%, maks 39% | ord i hovedindhold 499-730
+Bysider varmepumpe: lighed gns 51%, maks 56% | ord i hovedindhold 575-716
+Undersider fjernvarme-eller-varmepumpe: lighed gns 56%, maks 61% | ord i hovedindhold 619-768
+Guides (4 nationale): lighed gns 24%, maks 30% | ord i hovedindhold 729-948
+Byside vs egen underside: gns 27%, maks 47%

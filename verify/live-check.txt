@@ -1,0 +1,9 @@
+robots.txt 200 | Allow: / -> True | sitemap line -> True
+sitemap.xml 200 37 URLs, all apex: True
+pages 200: 37 / 37 | X-Robots-Tag: 0 | meta noindex: 0 | canonical mismatches: 0
+internal links: 39 broken: []
+https://www.energitjekket.dk/ 308 https://energitjekket.dk/
+https://www.energitjekket.dk/varmepumpe/aalborg/ 308 https://energitjekket.dk/varmepumpe/aalborg/
+https://energitjekket-preview.vercel.app/ 308 https://energitjekket.dk/
+https://energitjekket-preview-chucksdks-projects.vercel.app/ 302 https://vercel.com/sso-api?url=https%3A%2F%2Fenergitjekket-p
+https://energitjekket-preview-nd47m15ta-chucksdks-projects.vercel.app/ 302 https://vercel.com/sso-api?url=https%3A%2F%2Fenergitjekket-p
