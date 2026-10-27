@@ -171,6 +171,15 @@ export function validatePost(post, sources) {
       const n = `slide ${i + 1}`;
       if (!LAYOUTS.includes(slide.layout)) errors.push(`${n}: ukendt layout "${slide.layout}"`);
       if (slide.bg && i > 0) errors.push(`${n}: bg kun på første slide`);
+      if (slide.layout === 'bars') {
+        // Søjlerne tegnes ud fra registerets timepriser. Datoen skal findes nu, ellers kan opslaget ikke bygges igen.
+        const { date, area } = isObj(slide.bars) ? slide.bars : {};
+        if (!isObj(slide.bars) || typeof date !== 'string' || typeof area !== 'string') {
+          errors.push(`${n}: bars mangler {date, area}`);
+        } else if (!Array.isArray(sources.elpris?.[date]?.[area]?.hours)) {
+          errors.push(`${n}: ingen elpriser for ${date} ${area} i kilderegisteret (elpris-opslag hører til elpris-story.js, ikke ugens brief)`);
+        }
+      }
     });
   }
   return errors;

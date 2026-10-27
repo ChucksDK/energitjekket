@@ -1,17 +1,22 @@
 #!/usr/bin/env node
-// Dagens elpris-story (DK1 + DK2) og lørdagens reel. Bruger kun tal fra kilderegisteret.
-// Exit: 0 ok, 3 datoen findes ikke i sources.elpris (intet skrives), 4 render-/layoutfejl eller --reel på en ikke-lørdag.
+// Dagens elpris-story (DK1 + DK2) og lørdagens reel. Bruger kun tal fra kilderegisteret,
+// som scriptet selv opdaterer først (export_sources.py), ligesom build-week.
+// Exit: 0 ok, 3 datoen findes ikke i sources.elpris (intet skrives),
+//       4 render-/layoutfejl, eksportfejl, manglende lyd eller --reel på en ikke-lørdag.
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
-import { loadSources } from '../lib/sources.js';
+import { loadSources, DEFAULT_SOURCES } from '../lib/sources.js';
 import { validatePost, resolvePost } from '../lib/brief.js';
-import { SOCIAL_ROOT } from '../lib/paths.js';
+import { REPO_ROOT, SOCIAL_ROOT } from '../lib/paths.js';
 import { renderStory } from '../render/png.js';
 import { renderShort } from '../render/short.js';
 
 const WEEKDAYS = ['søndag', 'mandag', 'tirsdag', 'onsdag', 'torsdag', 'fredag', 'lørdag'];
 const AREAS = ['DK1', 'DK2'];
+// Prisområderne skrives med navn på slidet; filnavnene beholder DK1/DK2.
+const AREA_NAMES = { DK1: 'VESTDANMARK', DK2: 'ØSTDANMARK' };
 const TARGET_URL = 'https://energitjekket.dk/elpris/';
 const CTA = 'Se alle priser på energitjekket.dk/elpris';
 
@@ -47,10 +52,8 @@ export function barsSlide(date, area, isTomorrow) {
   };
 }
 
-const withTag = (slide, date, area) => ({
-  ...slide,
-  tag: `ELPRIS · ${danishWeekday(date).toUpperCase()} ${dayMonth(date)} · ${area}`,
-});
+export const storyTag = (date, area) => `ELPRIS · ${danishWeekday(date).toUpperCase()} ${dayMonth(date)} · ${AREA_NAMES[area]}`;
+const withTag = (slide, date, area) => ({ ...slide, tag: storyTag(date, area) });
 
 function buildPost(id, type, slides, extra, sources) {
   const post = { id, type, target_url: TARGET_URL, slides, ...extra };
@@ -73,7 +76,7 @@ function parseArgs(argv) {
   for (let i = 0; i < argv.length; i += 1) {
     const a = argv[i];
     if (a === '--reel') o.reel = true;
-    else if (['--date', '--sources', '--out', '--audio', '--audio-dir'].includes(a)) {
+    else if (['--date', '--sources', '--elpris', '--out', '--audio', '--audio-dir'].includes(a)) {
       if (argv[i + 1] === undefined) throw new Error(`${a} kræver en værdi`);
       o[a.slice(2).replace(/-(\w)/, (_, c) => c.toUpperCase())] = argv[++i];
     } else throw new Error(`Ukendt argument: ${a}`);
@@ -81,17 +84,52 @@ function parseArgs(argv) {
   return o;
 }
 
-function pickAudio(o) {
+/** Vælger musik til reelen: roterer deterministisk gennem social/audio/ efter dato (samme dato = samme fil). */
+export function pickAudio(o, date) {
   if (o.audio) return o.audio;
   const dir = o.audioDir ?? path.join(SOCIAL_ROOT, 'audio');
   const files = fs.existsSync(dir)
     ? fs.readdirSync(dir).filter((f) => /\.(mp3|m4a|wav)$/i.test(f)).sort()
     : [];
-  if (!files.length) throw new Error(`Ingen lydfil i ${dir}; læg en musikfil dér eller angiv --audio`);
-  return files[0];
+  if (!files.length) throw Object.assign(new Error(`Ingen lydfil i ${dir}; læg en musikfil dér eller angiv --audio`), { code: 4 });
+  const day = Math.floor(utc(date).getTime() / 86400000);
+  return files[day % files.length];
 }
 
-export async function main(argv) {
+/** Opdaterer kilderegisteret (samme eksport som build-week). --sources/--elpris kan pege andre steder hen (tests). */
+function exportSources(sourcesFile, elpris) {
+  const args = [path.join(REPO_ROOT, 'social', 'data', 'export_sources.py'), '--out', sourcesFile];
+  if (elpris) args.push('--elpris', path.resolve(elpris));
+  try {
+    execFileSync('python3', args, { stdio: 'pipe' });
+  } catch (e) {
+    const msg = String(e.stderr || e.message).trim().split('\n').pop();
+    throw Object.assign(new Error(`Kilderegisteret kunne ikke opdateres: ${msg}`), { code: 4 });
+  }
+}
+
+/** Renderer i en temp-mappe ved siden af out og flytter først filerne, når alle er lavet (ingen halve sæt). */
+async function renderAll(out, jobs) {
+  const parent = path.dirname(path.resolve(out));
+  fs.mkdirSync(parent, { recursive: true });
+  const tmp = fs.mkdtempSync(path.join(parent, '.story-tmp-'));
+  try {
+    const files = [];
+    for (const [name, render] of jobs) files.push([name, await render(path.join(tmp, name))]);
+    fs.mkdirSync(out, { recursive: true });
+    return files.map(([name]) => {
+      const dest = path.join(out, name);
+      fs.renameSync(path.join(tmp, name), dest);
+      return dest;
+    });
+  } finally {
+    fs.rmSync(tmp, { recursive: true, force: true });
+  }
+}
+
+export async function main(argv, deps = {}) {
+  const story = deps.renderStory ?? renderStory;
+  const short = deps.renderShort ?? renderShort;
   const o = parseArgs(argv);
   const date = o.date ?? tomorrowCopenhagen();
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) throw Object.assign(new Error(`Ugyldig dato: ${date}`), { code: 4 });
@@ -100,21 +138,29 @@ export async function main(argv) {
   if (o.reel && danishWeekday(date) !== 'lørdag') {
     throw Object.assign(new Error(`--reel er kun tilladt på en lørdag (${date} er ${danishWeekday(date)}): kun lørdag`), { code: 4 });
   }
-  const audio = o.reel ? pickAudio(o) : undefined;
 
-  const sources = loadSources(o.sources);
+  const sourcesFile = o.sources ? path.resolve(o.sources) : DEFAULT_SOURCES;
+  exportSources(sourcesFile, o.elpris);
+  const sources = loadSources(sourcesFile);
   const day = sources.elpris?.[date];
   if (!day || !AREAS.every((a) => Array.isArray(day[a]?.hours) && day[a].hours.length === 24)) {
     throw Object.assign(new Error(`Ingen elpriser for ${date} i kilderegisteret; skriver ingenting`), { code: 3 });
   }
+  // Først når datoen findes: vælg lyd (en manglende lydfil er exit 4, en manglende dato altid exit 3).
+  const audio = o.reel ? pickAudio(o, date) : undefined;
 
   const out = o.out ?? path.join(SOCIAL_ROOT, 'out', 'stories', date);
-  const written = [];
-  for (const area of AREAS) {
-    const post = buildPost(`elpris-${area}`, 'carousel', [barsSlide(date, area, isTomorrow)], {}, sources);
-    post.slides = [withTag(post.slides[0], date, area)];
-    written.push(await renderStory(post, path.join(out, `elpris-${area}.png`), { elpris: sources.elpris }));
-  }
+  const written = await renderAll(
+    out,
+    AREAS.map((area) => [
+      `elpris-${area}.png`,
+      (file) => {
+        const post = buildPost(`elpris-${area}`, 'carousel', [barsSlide(date, area, isTomorrow)], {}, sources);
+        post.slides = [withTag(post.slides[0], date, area)];
+        return story(post, file, { elpris: sources.elpris });
+      },
+    ]),
+  );
 
   if (o.reel) {
     const slides = [
@@ -131,7 +177,9 @@ export async function main(argv) {
     ];
     const post = buildPost('elpris-reel', 'short', slides, { audio }, sources);
     post.slides = post.slides.map((s, i) => (i === 1 || i === 2 ? withTag(s, date, AREAS[i - 1]) : { ...s, tag: `ELPRIS · LØRDAG ${dayMonth(date)}` }));
-    written.push(await renderShort(post, path.join(out, `reel-${date}.mp4`), { elpris: sources.elpris, audioDir: o.audioDir }));
+    written.push(
+      ...(await renderAll(out, [[`reel-${date}.mp4`, (file) => short(post, file, { elpris: sources.elpris, audioDir: o.audioDir })]])),
+    );
   }
   return written;
 }

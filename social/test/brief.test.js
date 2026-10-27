@@ -230,3 +230,11 @@ test('bars slide gets the elpris source on the slide and in the post (finding 1)
   assert.deepEqual(r.slides[3].sources, [name]);
   assert.ok(r.sources.includes(name));
 });
+
+test('bars slide must point at a date and area that exist in sources.elpris (finding 5)', () => {
+  const withBars = (bars) => mod((p) => (p.slides[3] = { layout: 'bars', tag: 'ELPRIS', title: 'Spotpris time for time', bars }));
+  assert.deepEqual(withBars({ date: '2026-10-27', area: 'DK1' }), []);
+  assert.ok(has(withBars({ date: '2026-10-20', area: 'DK1' }), 'slide 4: ingen elpriser for 2026-10-20 DK1'), withBars({ date: '2026-10-20', area: 'DK1' }).join('|'));
+  assert.ok(has(withBars({ date: '2026-10-27', area: 'DK3' }), 'ingen elpriser for 2026-10-27 DK3'));
+  assert.ok(has(withBars(undefined), 'slide 4: bars mangler'));
+});

@@ -171,24 +171,6 @@
       "hashtags": ["#aalborg", "#solceller", "#nordjylland", "#boligejer"]
     },
     {
-      "id": "2026-11-06-pm",
-      "slot": "2026-11-06T19:30",
-      "type": "short",
-      "pillar": "elpris",
-      "angle": "Elprisen svinger over døgnet (eksempeldag)",
-      "quote": false,
-      "target_url": "https://energitjekket.dk/elpris/",
-      "audio": "melodic-guitar-02.m4a",
-      "slides": [
-        {"layout": "cover", "tag": "ELPRIS", "title": "Elprisen svinger over døgnet", "body": "Sådan så det ud en tirsdag i oktober."},
-        {"layout": "bars", "tag": "ELPRIS · VESTDANMARK", "title": "Spotpris time for time", "body": "Vestdanmark, en tirsdag i oktober.", "bars": {"date": "2026-10-27", "area": "DK1"}},
-        {"layout": "kpi2", "tag": "SAMME DØGN", "title": "Billigste og dyreste time", "kpis": [{"label": "Billigst {elpris.2026-10-27.DK1.billigste_time}", "value": "{elpris.2026-10-27.DK1.billigste_pris}", "unit": "kr./kWh"}, {"label": "Dyrest {elpris.2026-10-27.DK1.dyreste_time}", "value": "{elpris.2026-10-27.DK1.dyreste_pris}", "unit": "kr./kWh"}]},
-        {"layout": "end", "tag": "ELPRIS", "title": "Se morgendagens priser", "body": "Priserne for i morgen kommer hver eftermiddag."}
-      ],
-      "caption": "Spotprisen kan være flere gange højere om aftenen end om morgenen.\nEn tirsdag i oktober var den billigste time i Vestdanmark {elpris.2026-10-27.DK1.billigste_time} og den dyreste {elpris.2026-10-27.DK1.dyreste_time}.\nOpvask, tøjvask og elbil kan ofte flyttes til de billige timer.\nSe dagens og morgendagens priser på energitjekket.dk/elpris (link i bio).",
-      "hashtags": ["#elpris", "#strømpris", "#spotpris", "#boligejer"]
-    },
-    {
       "id": "2026-11-07-am",
       "slot": "2026-11-07T07:30",
       "type": "carousel",

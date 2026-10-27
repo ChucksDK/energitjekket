@@ -113,5 +113,31 @@ class RegisterTest(unittest.TestCase):
                 export_sources.build_register(REPO, elpris_path=f)
 
 
+
+class AtomicWriteTest(unittest.TestCase):
+    def test_main_writes_via_temp_file_and_os_replace(self):
+        import os
+        from unittest import mock
+        calls = []
+        real = os.replace
+
+        def spy(src, dst):
+            calls.append((str(src), str(dst)))
+            # Midt i skrivningen må målfilen ikke findes halvt skrevet: kun temp-filen findes.
+            self.assertFalse(Path(dst).exists())
+            self.assertTrue(json.loads(Path(src).read_text(encoding="utf-8"))["facts"])
+            real(src, dst)
+
+        with tempfile.TemporaryDirectory() as t:
+            out = Path(t) / "sources.json"
+            with mock.patch.object(export_sources.os, "replace", side_effect=spy):
+                export_sources.main(["--elpris", str(FIXTURE), "--out", str(out)])
+            self.assertEqual(len(calls), 1)
+            self.assertEqual(Path(calls[0][0]).parent, out.parent)
+            self.assertEqual(calls[0][1], str(out))
+            self.assertTrue(json.loads(out.read_text(encoding="utf-8"))["facts"])
+            self.assertEqual(sorted(p.name for p in Path(t).iterdir()), ["sources.json"])
+
+
 if __name__ == "__main__":
     unittest.main()

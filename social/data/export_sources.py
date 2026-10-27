@@ -2,8 +2,10 @@
 """Byg kilderegisteret social/data/sources.json ud fra repoets egne data."""
 import argparse
 import json
+import os
 import re
 import sys
+import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -133,7 +135,17 @@ def main(argv=None):
     reg = build_register(repo_root, elpris_path=a.elpris)
     out = Path(a.out)
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps(reg, ensure_ascii=False, indent=1), encoding="utf-8")
+    # Atomisk: skriv til en temp-fil i samme mappe og erstat. Story-scriptet (13:45) og build-week
+    # kan køre samtidig, og en læser må aldrig se en halvt skrevet fil.
+    fd, tmp = tempfile.mkstemp(prefix=f".{out.name}.", suffix=".tmp", dir=out.parent)
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            f.write(json.dumps(reg, ensure_ascii=False, indent=1))
+        os.chmod(tmp, 0o644)
+        os.replace(tmp, out)
+    except BaseException:
+        Path(tmp).unlink(missing_ok=True)
+        raise
     print(f"skrev {out} ({len(reg['facts'])} fakta)")
 
 
