@@ -4,6 +4,7 @@ import { pathToFileURL } from 'node:url';
 import { chromium } from 'playwright';
 import { SOCIAL_ROOT } from '../lib/paths.js';
 import { slideHtml } from '../templates/slides.js';
+import { checkLayout, LayoutError } from './layout-check.js';
 
 export const SIZES = { carousel: { width: 1080, height: 1350 }, story: { width: 1080, height: 1920 }, short: { width: 1080, height: 1920 } };
 
@@ -93,6 +94,8 @@ export async function renderCarousel(post, outDir, opts = {}) {
         screenshotPath,
       });
       await loadSlide(page, html);
+      const issues = await checkLayout(page);
+      if (issues.length) throw new LayoutError(issues, `${post.id} slide ${index + 1}/${total}`);
       const file = path.join(outDir, `${post.id}-${String(index + 1).padStart(2, '0')}.png`);
       await page.screenshot({ path: file });
       files.push(file);
