@@ -17,7 +17,8 @@ export function danishSlot(slot) {
 const TYPE = { carousel: 'Carousel', short: 'Short' };
 const enc = (rel) => rel.split('/').map(encodeURIComponent).join('/');
 
-function postHtml(p, approvals) {
+function postHtml(p, approvals, requireApproval) {
+  const dis = requireApproval ? '' : ' disabled';
   const media =
     p.type === 'short'
       ? p.files.map((f) => `<video controls preload="metadata" src="${esc(enc(f))}"></video>`).join('')
@@ -29,7 +30,7 @@ function postHtml(p, approvals) {
   ${media}
   <pre class="caption">${esc(p.caption)}</pre>
   <p class="src">Kilder: ${p.sources.length ? esc(p.sources.join(', ')) : 'ingen'}</p>
-  <div class="actions"><button class="ok" data-approve="true">Godkend</button><button class="no" data-approve="false">Afvis</button></div>
+  <div class="actions"><button class="ok" data-approve="true"${dis}>Godkend</button><button class="no" data-approve="false"${dis}>Afvis</button></div>
   <p class="note" hidden></p>
 </section>`;
 }
@@ -38,7 +39,7 @@ function postHtml(p, approvals) {
  * posts: [{id, slot, type, files (relative), caption, sources[]}] i slot-rækkefølge
  * errors: [{id, errors[]}]; approvals: {id: boolean}
  */
-export function previewHtml({ week, posts, errors = [], approvals = {} }) {
+export function previewHtml({ week, posts, errors = [], approvals = {}, buildId = '', requireApproval = true }) {
   const errHtml = errors.length
     ? `<section class="errors"><h2>Opslag der ikke blev bygget</h2>${errors
         .map((e) => `<div class="err"><strong>${esc(e.id)}</strong><ul>${e.errors.map((m) => `<li>${esc(m)}</li>`).join('')}</ul></div>`)
@@ -59,15 +60,18 @@ header{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline;margin-bott
 video{max-height:560px;max-width:100%;border-radius:8px;background:#000}
 .caption{white-space:pre-wrap;font:inherit;background:var(--mint);border-radius:8px;padding:12px;margin:14px 0 8px}.src{color:var(--muted);margin:0 0 12px;font-size:14px}
 button{font:inherit;font-weight:600;border:0;border-radius:8px;padding:10px 22px;cursor:pointer;margin-right:10px;color:#fff}.ok{background:var(--green)}.no{background:#6b7773}
+.off{background:#fff3cd;border:1px solid #f5b700;border-radius:8px;padding:10px 14px;font-weight:600}button:disabled{opacity:.4;cursor:not-allowed}
 .note{color:var(--red);font-weight:600;margin:10px 0 0}
 .errors{background:#fff;border:2px solid var(--red);border-radius:12px;padding:16px 20px;margin-bottom:24px}.errors h2,.err strong,.err li{color:var(--red)}
 </style></head><body><main>
 <h1>Ugens opslag ${esc(week)}</h1>
 <p class="sub">${posts.length} opslag klar til godkendelse. Godkend eller afvis hvert opslag; kun godkendte havner i planen.</p>
+${requireApproval ? '' : '<p class="off">Godkendelse er slået fra (require_approval er false): alle byggede opslag kommer direkte i planen, og knapperne er slået fra.</p>'}
 ${errHtml}
-${posts.map((p) => postHtml(p, approvals)).join('\n')}
+${posts.map((p) => postHtml(p, approvals, requireApproval)).join('\n')}
 </main>
 <script>
+const BUILD_ID=${JSON.stringify(String(buildId))};
 const NOSERVER='Preview-serveren kører ikke. Start den med: node social/bin/preview-server.js ${esc(week)} - og åbn siden på http://127.0.0.1:8787/';
 document.querySelectorAll('.post').forEach((sec)=>{
   const note=sec.querySelector('.note');
@@ -75,7 +79,8 @@ document.querySelectorAll('.post').forEach((sec)=>{
     const approved=b.dataset.approve==='true';
     try{
       if(location.protocol==='file:')throw new Error('file');
-      const r=await fetch('/approve',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:sec.dataset.id,approved})});
+      const r=await fetch('/approve',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:sec.dataset.id,approved,buildId:BUILD_ID})});
+      if(r.status===409)throw new Error('Opslagene er genbygget eller godkendelse er slået fra. Genindlæs siden.');
       if(!r.ok)throw new Error(await r.text());
       sec.className='post '+(approved?'approved':'rejected');
       sec.querySelector('.status').textContent=approved?'Godkendt':'Afvist';

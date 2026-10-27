@@ -5,7 +5,7 @@ import http from 'node:http';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { SOCIAL_ROOT } from '../lib/paths.js';
-import { loadConfig, readJson, readManifest, writeJsonAtomic, writeSchedule } from '../lib/schedule.js';
+import { computeSchedule, loadConfig, readBuildId, readJson, readManifest, writeJsonAtomic } from '../lib/schedule.js';
 
 const TYPES = {
   '.html': 'text/html; charset=utf-8', '.json': 'application/json; charset=utf-8', '.txt': 'text/plain; charset=utf-8',
@@ -13,7 +13,7 @@ const TYPES = {
 };
 const MAX_BODY = 4096;
 
-export function startServer(weekDir, { port = 8787, requireApproval = true } = {}) {
+export function startServer(weekDir, { port = 8787, requireApproval, configFile } = {}) {
   const root = fs.realpathSync(weekDir);
 
   const send = (res, status, body, type = 'text/plain; charset=utf-8', extra = {}) => {
@@ -77,15 +77,32 @@ export function startServer(weekDir, { port = 8787, requireApproval = true } = {
       } catch {
         return send(res, 400, 'Ugyldig JSON');
       }
+      const needApproval = requireApproval ?? loadConfig(configFile).require_approval;
+      if (!needApproval) return send(res, 409, 'Godkendelse er slået fra (require_approval er false)');
+      if (typeof data?.buildId !== 'string' || data.buildId !== readBuildId(root)) {
+        return send(res, 409, 'Opslagene er genbygget. Genindlæs siden.');
+      }
       if (!data || typeof data.id !== 'string' || typeof data.approved !== 'boolean') {
         return send(res, 400, 'Forventer {id: tekst, approved: boolean}');
       }
       if (!readManifest(root).some((p) => p.id === data.id)) return send(res, 404, `Ukendt opslag: ${data.id}`);
       const file = path.join(root, 'approvals.json');
-      const approvals = readJson(file, {});
-      approvals[data.id] = data.approved;
-      writeJsonAtomic(file, approvals);
-      const schedule = writeSchedule(root, { requireApproval });
+      const before = readJson(file, null);
+      const approvals = { ...(before ?? {}), [data.id]: data.approved };
+      let schedule;
+      try {
+        schedule = computeSchedule(root, approvals, { requireApproval: true });
+        writeJsonAtomic(file, approvals);
+        try {
+          writeJsonAtomic(path.join(root, 'schedule.json'), schedule);
+        } catch (e) {
+          if (before === null) fs.rmSync(file, { force: true });
+          else writeJsonAtomic(file, before);
+          throw e;
+        }
+      } catch (e) {
+        return send(res, 500, `Kunne ikke gemme: ${e.message}`);
+      }
       send(res, 200, JSON.stringify({ ok: true, scheduled: schedule.map((s) => s.id) }), 'application/json; charset=utf-8');
     });
   };
@@ -122,7 +139,7 @@ async function main(argv) {
   if (!Number.isInteger(port) || port < 0 || port > 65535) throw new Error('Ugyldig port');
   const weekDir = path.join(outRoot, week);
   if (!fs.existsSync(path.join(weekDir, 'manifest.json'))) throw new Error(`Ugen er ikke bygget: ${weekDir}`);
-  const server = await startServer(weekDir, { port, requireApproval: loadConfig().require_approval });
+  const server = await startServer(weekDir, { port });
   console.log(`Preview: http://127.0.0.1:${server.address().port}/  (Ctrl+C for at stoppe)`);
 }
 

@@ -55,6 +55,12 @@ export async function buildWeek(argv, log = console.log) {
 
   const weekDir = path.join(path.resolve(o.outRoot ?? path.join(SOCIAL_ROOT, 'out')), brief.week);
   fs.mkdirSync(path.join(weekDir, 'screens'), { recursive: true });
+  // Før noget renderes: ryd godkendelser og plan, så et afbrudt byg aldrig efterlader gamle godkendelser
+  // der peger på nye, ugodkendte filer. Nyt build-id gør åbne preview-faner ugyldige.
+  const buildId = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+  fs.rmSync(path.join(weekDir, 'approvals.json'), { force: true });
+  for (const f of ['manifest.json', 'schedule.json', 'errors.json']) writeJsonAtomic(path.join(weekDir, f), []);
+  writeJsonAtomic(path.join(weekDir, 'build.json'), { buildId });
   const base = o.base ?? 'https://energitjekket.dk';
 
   const built = [];
@@ -108,14 +114,9 @@ export async function buildWeek(argv, log = console.log) {
   });
 
   built.sort((a, b) => slotKey(a).localeCompare(slotKey(b)));
-  // Nye filer kræver ny godkendelse: gamle godkendelser nulstilles.
-  fs.rmSync(path.join(weekDir, 'approvals.json'), { force: true });
   writeJsonAtomic(path.join(weekDir, 'manifest.json'), built.map(({ id, slot, type, files }) => ({ id, slot, type, files })));
   writeJsonAtomic(path.join(weekDir, 'errors.json'), errors);
-  fs.writeFileSync(path.join(weekDir, 'preview.html'), previewHtml({ week: brief.week, posts: built, errors }));
-  if (!config.require_approval) {
-    writeJsonAtomic(path.join(weekDir, 'approvals.json'), Object.fromEntries(built.map((p) => [p.id, true])));
-  }
+  fs.writeFileSync(path.join(weekDir, 'preview.html'), previewHtml({ week: brief.week, posts: built, errors, buildId, requireApproval: config.require_approval }));
   writeSchedule(weekDir, { requireApproval: config.require_approval });
   log(`Uge ${brief.week}: ${built.length} bygget, ${errors.length} fejlede. ${path.join(weekDir, 'preview.html')}`);
   return { weekDir, built, errors };

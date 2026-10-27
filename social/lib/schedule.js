@@ -27,9 +27,8 @@ export function readManifest(weekDir) {
 }
 
 /** Skriver schedule.json: kun godkendte opslag (eller alle, hvis require_approval er false). */
-export function writeSchedule(weekDir, { requireApproval = true } = {}) {
-  const approvals = readJson(path.join(weekDir, 'approvals.json'), {});
-  const schedule = readManifest(weekDir)
+export function computeSchedule(weekDir, approvals, { requireApproval = true } = {}) {
+  return readManifest(weekDir)
     .filter((p) => !requireApproval || approvals[p.id] === true)
     .map((p) => ({
       id: p.id,
@@ -38,6 +37,13 @@ export function writeSchedule(weekDir, { requireApproval = true } = {}) {
       files: p.files.map((f) => path.resolve(weekDir, f)),
       caption: fs.readFileSync(path.join(weekDir, p.id, 'caption.txt'), 'utf8'),
     }));
+}
+
+export function writeSchedule(weekDir, { requireApproval = true } = {}) {
+  const schedule = computeSchedule(weekDir, readJson(path.join(weekDir, 'approvals.json'), {}), { requireApproval });
   writeJsonAtomic(path.join(weekDir, 'schedule.json'), schedule);
   return schedule;
 }
+
+/** build.json: id for den aktuelle bygning. Preview-siden sender det med, så en gammel fane ikke kan godkende nyt indhold. */
+export const readBuildId = (weekDir) => readJson(path.join(weekDir, 'build.json'), {}).buildId ?? null;

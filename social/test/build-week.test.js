@@ -53,8 +53,11 @@ const args = (brief, extra = []) => [
   '--audio-dir', path.join(tmp, 'audio'), '--out-root', outRoot, ...extra,
 ];
 const readJson = (f) => JSON.parse(fs.readFileSync(path.join(weekDir, f), 'utf8'));
+const buildId = () => readJson('build.json').buildId;
 const post = (port, body) =>
-  fetch(`http://127.0.0.1:${port}/approve`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  fetch(`http://127.0.0.1:${port}/approve`, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ buildId: buildId(), ...body }),
+  });
 
 function seedAssets() {
   fs.mkdirSync(path.join(weekDir, 'assets'), { recursive: true });
@@ -152,7 +155,7 @@ test('preview-server approves, rejects and regenerates schedule.json', async () 
     const wrongType = await fetch(`http://127.0.0.1:${port}/approve`, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: '{}' });
     assert.equal(wrongType.status, 415);
     const foreign = await fetch(`http://127.0.0.1:${port}/approve`, {
-      method: 'POST', headers: { 'Content-Type': 'application/json', Origin: 'http://evil.example' }, body: JSON.stringify({ id: AM, approved: true }),
+      method: 'POST', headers: { 'Content-Type': 'application/json', Origin: 'http://evil.example' }, body: JSON.stringify({ buildId: buildId(), id: AM, approved: true }),
     });
     assert.equal(foreign.status, 403);
     assert.equal((await fetch(`http://127.0.0.1:${port}/approve`)).status, 405);
@@ -196,6 +199,50 @@ test('preview-server serves the week dir without path traversal', async () => {
   }
 });
 
+test('rebuild invalidates approvals (require_approval:true)', async () => {
+  const cfg = path.join(tmp, 'config-closed.json');
+  fs.writeFileSync(cfg, JSON.stringify({ require_approval: true }));
+  const brief = writeBrief('brief-rebuild.json', [carousel()]);
+  await run('node', args(brief, ['--config', cfg]), { cwd: REPO_ROOT, maxBuffer: 1 << 24 });
+  const oldId = buildId();
+  const server = await startServer(weekDir, { port: 0, configFile: cfg });
+  const { port } = server.address();
+  try {
+    assert.equal((await post(port, { id: AM, approved: true })).status, 200);
+    assert.deepEqual(readJson('schedule.json').map((s) => s.id), [AM]);
+    assert.ok(fs.existsSync(path.join(weekDir, 'approvals.json')));
+
+    await run('node', args(brief, ['--config', cfg]), { cwd: REPO_ROOT, maxBuffer: 1 << 24 });
+    assert.deepEqual(readJson('schedule.json'), []);
+    assert.ok(!fs.existsSync(path.join(weekDir, 'approvals.json')));
+    assert.notEqual(buildId(), oldId);
+
+    // En gammel fane (gammelt build-id) kan ikke godkende genbygget indhold.
+    const stale = await post(port, { id: AM, approved: true, buildId: oldId });
+    assert.equal(stale.status, 409);
+    assert.deepEqual(readJson('schedule.json'), []);
+    assert.ok(!fs.existsSync(path.join(weekDir, 'approvals.json')));
+    assert.equal((await post(port, { id: AM, approved: true })).status, 200);
+
+    // Fejl ved beregning af planen: 500 og intet ændres.
+    assert.equal((await post(port, { id: AM, approved: false })).status, 200);
+    const approvalsBefore = fs.readFileSync(path.join(weekDir, 'approvals.json'), 'utf8');
+    const scheduleBefore = fs.readFileSync(path.join(weekDir, 'schedule.json'), 'utf8');
+    const cap = path.join(weekDir, AM, 'caption.txt');
+    const saved = fs.readFileSync(cap);
+    fs.rmSync(cap);
+    try {
+      assert.equal((await post(port, { id: AM, approved: true })).status, 500);
+    } finally {
+      fs.writeFileSync(cap, saved);
+    }
+    assert.equal(fs.readFileSync(path.join(weekDir, 'approvals.json'), 'utf8'), approvalsBefore);
+    assert.equal(fs.readFileSync(path.join(weekDir, 'schedule.json'), 'utf8'), scheduleBefore);
+  } finally {
+    server.close();
+  }
+});
+
 test('require_approval:false writes every built post into schedule.json', async () => {
   const cfg = path.join(tmp, 'config-open.json');
   fs.writeFileSync(cfg, JSON.stringify({ require_approval: false }));
@@ -204,6 +251,18 @@ test('require_approval:false writes every built post into schedule.json', async 
   const sched = readJson('schedule.json');
   assert.deepEqual(sched.map((s) => s.id), [AM]);
   assert.equal(sched[0].files.length, 5);
+  assert.ok(!fs.existsSync(path.join(weekDir, 'approvals.json')));
+  const html = fs.readFileSync(path.join(weekDir, 'preview.html'), 'utf8');
+  assert.match(html, /Godkendelse er slået fra/);
+  assert.match(html, /data-approve="true" disabled/);
+  // Serveren læser konfigurationen pr. anmodning og afviser godkendelser.
+  const server = await startServer(weekDir, { port: 0, configFile: cfg });
+  try {
+    assert.equal((await post(server.address().port, { id: AM, approved: true })).status, 409);
+  } finally {
+    server.close();
+  }
+  assert.deepEqual(readJson('schedule.json').map((s) => s.id), [AM]);
   // Gamle godkendelser og det gamle short-opslag er væk efter ombygning.
   assert.ok(!readJson('manifest.json').some((p) => p.id === PM));
 });
