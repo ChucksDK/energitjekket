@@ -6,7 +6,9 @@ import path from 'node:path';
 import { spawnSync, execFileSync } from 'node:child_process';
 import { SOCIAL_ROOT } from '../lib/paths.js';
 import { ensureSources } from './helpers.js';
-import { danishWeekday, tomorrowCopenhagen } from '../bin/elpris-story.js';
+import { danishWeekday, tomorrowCopenhagen, barsSlide } from '../bin/elpris-story.js';
+import { loadSources } from '../lib/sources.js';
+import { resolvePost } from '../lib/brief.js';
 
 const BIN = path.join(SOCIAL_ROOT, 'bin', 'elpris-story.js');
 let sourcesFile;
@@ -85,4 +87,11 @@ test('--reel without any audio file exits 4 naming the problem', () => {
   fs.mkdirSync(emptyDir);
   const r = run('--reel', '--date', '2026-10-31', '--sources', sourcesFile, '--out', path.join(tmp, 'x'), '--audio-dir', emptyDir);
   assert.equal(r.status, 4);
+});
+
+test('story text names the price as spotpris (finding 2)', () => {
+  const src = loadSources(sourcesFile);
+  const post = resolvePost({ id: 'x', type: 'carousel', slides: [barsSlide('2026-10-27', 'DK1', false)] }, src);
+  assert.match(post.slides[0].body, /^Spotpris: billigst \d+,\d\d kr\. pr\. kWh kl\. \d\d, dyrest -?\d+,\d\d kr\. kl\. \d\d\.$/);
+  assert.ok(post.slides[0].sources.every((n) => /spotpris/.test(n)));
 });

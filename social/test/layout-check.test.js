@@ -159,3 +159,26 @@ test('text overlapping .phone or .chart is flagged', async () => {
   const b = await check('<div class="chart" style="width:300px;height:300px"></div><div style="position:absolute;top:100px;left:50px">Hej verden</div>');
   assert.ok(b.some((i) => i.kind === 'overlap' && /diagram/.test(i.text)), JSON.stringify(b));
 });
+
+// --- kildelinjen (finding 3) ---
+test('flags a wrapped footer source line', async () => {
+  const issues = await check('<div class="foot"><span class="src" style="display:block;width:200px">Kilde: Danmarks Statistik · PVGIS (EU JRC)</span></div>');
+  assert.ok(issues.some((i) => i.kind === 'wrap' && /Kilde/.test(i.text)), JSON.stringify(issues));
+});
+
+test('footer with two long sources stays on one line with Swipe, carousel and story', async () => {
+  const names = ['Danmarks Statistik BOL102 (2026)', 'Energi Data Service (Energinet), spotpris'];
+  const slide = { layout: 'text', tag: 'TEST', title: 'Kort titel', body: 'Lidt tekst.', sources: names };
+  assert.deepEqual(await checkSlide(slide), []);
+  assert.deepEqual(await checkSlide(slide, { format: 'story', size: { width: 1080, height: 1920 } }), []);
+  const lines = await withPage(async (page) => {
+    await loadSlide(page, slideHtml(slide, { index: 0, total: 2, format: 'carousel' }));
+    return page.evaluate(() => {
+      const el = document.querySelector('.foot .src');
+      const r = document.createRange();
+      r.selectNodeContents(el);
+      return new Set([...r.getClientRects()].map((x) => Math.round(x.top))).size;
+    });
+  });
+  assert.equal(lines, 1);
+});

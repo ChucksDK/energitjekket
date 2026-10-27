@@ -3,11 +3,20 @@ import { getFact } from './sources.js';
 
 const PLACEHOLDER = /\{([^{}]+)\}/g;
 const YEAR = /\b20(2\d|3[0-5])\b/g;
-const BANNED = ['!', 'book nu', 'begrænset', 'skynd dig', 'gratis', 'garanti', 'kun i dag', 'spar op til'];
+export const BANNED = ['!', 'book nu', 'begrænset', 'skynd dig', 'gratis', 'garanti', 'kun i dag', 'spar op til'];
 const LAYOUTS = ['cover', 'stat', 'kpi2', 'bars', 'text', 'screenshot', 'end'];
 const TYPES = ['carousel', 'short'];
 const LIMITS = { tag: 24, title: 60, body: 160 };
 const URL_PREFIX = 'https://energitjekket.dk/';
+export const ELPRIS_SOURCE_NAME = 'Energi Data Service (Energinet), spotpris';
+
+// Kilden til et søjlediagram: samme kilde som elpris-fakta for dagen (faldback: registerets elpris-kilde).
+function barsSource(sources, bars) {
+  const id = `elpris.${bars?.date}.${bars?.area}.billigste_pris`;
+  if (Object.hasOwn(sources.facts, id)) return sources.facts[id].source.name;
+  const any = Object.entries(sources.facts).find(([k]) => k.startsWith('elpris.'));
+  return any ? any[1].source.name : ELPRIS_SOURCE_NAME;
+}
 
 // Fjerner enheden fra en formateret værdi ("32.388 kr." -> "32.388").
 const stripUnit = (s) => (/^[\d.,-]+ \S+$/.test(s) ? s.replace(/ \S+$/, '') : s);
@@ -184,7 +193,16 @@ export function resolvePost(post, sources) {
     return r.text;
   };
   const out = walkPost(post, visit, () => {});
-  out.slides = out.slides.map((s, i) => ({ ...s, sources: [...(perSlide.get(i) || [])] }));
+  out.slides = out.slides.map((s, i) => {
+    const names = new Set(perSlide.get(i) || []);
+    // Søjlerne er tal, selv om de ikke står som pladsholder: kilden skal stå på slidet.
+    if (s.layout === 'bars') {
+      const name = barsSource(sources, s.bars);
+      names.add(name);
+      all.add(name);
+    }
+    return { ...s, sources: [...names] };
+  });
   out.sources = [...all];
   return out;
 }

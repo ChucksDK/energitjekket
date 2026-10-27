@@ -31,7 +31,7 @@ export function tomorrowCopenhagen(now = new Date()) {
 
 const fid = (date, area, key) => `{elpris.${date}.${area}.${key}}`;
 
-function barsSlide(date, area, isTomorrow) {
+export function barsSlide(date, area, isTomorrow) {
   const day = isTomorrow ? 'i morgen' : danishWeekday(date);
   return {
     layout: 'bars',
@@ -40,7 +40,8 @@ function barsSlide(date, area, isTomorrow) {
     tag: 'ELPRIS',
     title: `Billigste time ${day}: ${fid(date, area, 'billigste_time')}`,
     highlight: fid(date, area, 'billigste_time'),
-    body: `Billigst ${fid(date, area, 'billigste_pris')} pr. kWh, dyrest ${fid(date, area, 'dyreste_pris')} ${fid(date, area, 'dyreste_time')}.`,
+    // Elpris-tal er altid spotpris (uden afgifter og nettarif) og skal hedde det.
+    body: `Spotpris: billigst ${fid(date, area, 'billigste_pris')} pr. kWh ${fid(date, area, 'billigste_time')}, dyrest ${fid(date, area, 'dyreste_pris')} ${fid(date, area, 'dyreste_time')}.`,
     cta: CTA,
     bars: { date, area },
   };

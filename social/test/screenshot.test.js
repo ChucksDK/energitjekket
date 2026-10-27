@@ -88,3 +88,16 @@ test('shootPage: 404 på live-siden afvises og skærmbilledet gemmes ikke', asyn
   await assert.rejects(shootPage('by:aalborg:solceller', out, EMPTY_BASE), /Ukendt side: by:aalborg:solceller \(HTTP 404\)/);
   assert.equal(fs.existsSync(out), false);
 });
+
+// Finding 4: ingen salgstekst i skærmbilledet (det synlige udsnit af siden).
+const SALES = /gratis|tilbud|book nu|begrænset|skynd dig|garanti|kun i dag|spar op til/i;
+for (const key of ['by:aalborg:solceller', 'by:viborg:varmepumpe', 'by:naestved:solceller', 'beregner', 'elpris']) {
+  test(`shootPage ${key}: no sales text or lead form in the captured viewport`, async () => {
+    const out = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'shot-')), 's.png');
+    const seen = {};
+    assert.equal(await shootPage(key, out, BASE, seen), out);
+    assert.ok(seen.text.length > 50, seen.text);
+    assert.doesNotMatch(seen.text, SALES, seen.text);
+    assert.equal(seen.formVisible, false);
+  });
+}

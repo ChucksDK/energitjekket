@@ -8,7 +8,7 @@ const FONTS = path.join(REPO_ROOT, 'src', 'fonts');
 const HANDLE = '@energitjekket';
 
 // Minimumsstørrelser for fitText (px ved 1080 bredde).
-const MIN = { title: 40, value: 72, body: 28, kpi: 44 };
+const MIN = { title: 40, value: 72, body: 28, kpi: 44, src: 24, cta: 34 };
 
 const COLORS = { cheap: '#f5b700', normal: '#0f6b55', dear: '#c0392b' };
 
@@ -43,8 +43,19 @@ function marked(text, highlight) {
   return `${a}<span class="y">${h}</span>${b}`;
 }
 
-// Kildelinjen viser udgiveren: "Bolius: pris på …" -> "Bolius".
-export const shortSource = (name) => String(name).split(/[:,]/)[0].trim();
+// Kildelinjen viser et kort visningsnavn, så den kan stå på én linje. Elpris skal altid hedde spotpris.
+const SOURCE_LABELS = [
+  [/^Danmarks Statistik/i, 'Danmarks Statistik'],
+  [/^Energi Data Service/i, 'Energi Data Service · spotpris'],
+  [/^PVGIS/i, 'PVGIS (EU JRC)'],
+  [/^Bolius/i, 'Bolius'],
+];
+export function sourceLabel(name) {
+  const n = String(name).trim();
+  for (const [re, label] of SOURCE_LABELS) if (re.test(n)) return label;
+  // Ellers udgiveren: "Energisparer.dk: varmepumpe pris …" -> "Energisparer.dk".
+  return n.split(/[:,(]/)[0].trim();
+}
 
 const fileUrl = (p) => pathToFileURL(p).href;
 
@@ -140,12 +151,12 @@ const LAYOUTS = {
   }),
 };
 
+// Bund: kildelinjen på sin egen linje i fuld bredde (krymper i stedet for at bryde), derunder @energitjekket (+ Swipe →).
 function footHtml(slide, ctx) {
-  const names = [...new Set((slide.sources || []).map(shortSource))];
-  const src = names.length ? `Kilde: ${esc(names.join(' · '))}` : '';
+  const names = [...new Set((slide.sources || []).map(sourceLabel))];
+  const src = names.length ? `<span class="src" data-fit="src" data-min="${MIN.src}">Kilde: ${esc(names.join(' · '))}</span>` : '';
   const swipe = ctx.format === 'carousel' && ctx.index < ctx.total - 1;
-  if (swipe) return `<div class="foot"><span>${src ? `${src}<br>` : ''}${HANDLE}</span><b>Swipe →</b></div>`;
-  return `<div class="foot"><span>${src}</span><span>${HANDLE}</span></div>`;
+  return `<div class="foot">${src}<div class="fr"><span>${HANDLE}</span>${swipe ? '<b>Swipe →</b>' : ''}</div></div>`;
 }
 
 /**

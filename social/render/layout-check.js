@@ -92,8 +92,8 @@ function inPage({ SAFE, OVERLAP_TOL, OUTSIDE_TOL }) {
     if (phone.getBoundingClientRect().height < 0.4 * ch) add('outside', `telefonbillede er presset sammen (${Math.round(phone.getBoundingClientRect().height)} px)`);
   }
 
-  // 4) wrap: tal må kun fylde én linje.
-  for (const el of document.querySelectorAll('.value, .kpi .v')) {
+  // 4) wrap: tal og kildelinjen må kun fylde én linje.
+  for (const el of document.querySelectorAll('.value, .kpi .v, .foot .src')) {
     const rects = items.filter((it) => el.contains(it.node)).map((it) => it.r);
     const lines = [];
     for (const r of rects) {

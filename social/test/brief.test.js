@@ -220,3 +220,13 @@ test('length limits are measured on resolved text (R6)', () => {
   assert.ok(has(unk, 'Ukendt fakta-id'));
   assert.ok(has(unk, 'for langt'));
 });
+
+test('bars slide gets the elpris source on the slide and in the post (finding 1)', () => {
+  const p = clone(valid.posts[0]);
+  p.slides[3] = { layout: 'bars', tag: 'ELPRIS', title: 'Spotpris time for time', bars: { date: '2026-10-27', area: 'DK1' } };
+  const r = resolvePost(p, s);
+  const name = s.facts['elpris.2026-10-27.DK1.billigste_pris'].source.name;
+  assert.match(name, /spotpris/);
+  assert.deepEqual(r.slides[3].sources, [name]);
+  assert.ok(r.sources.includes(name));
+});

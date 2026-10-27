@@ -115,3 +115,14 @@ test('cover bg: missing file throws', () => {
     /Baggrundsbillede mangler/,
   );
 });
+
+test('footer shows short display names for sources (finding 2/3)', async () => {
+  const { sourceLabel } = await import('../templates/slides.js');
+  assert.equal(sourceLabel('Danmarks Statistik BOL102 (2026)'), 'Danmarks Statistik');
+  assert.equal(sourceLabel('Energi Data Service (Energinet), spotpris'), 'Energi Data Service · spotpris');
+  assert.equal(sourceLabel('PVGIS 5.3 (EU JRC)'), 'PVGIS (EU JRC)');
+  assert.equal(sourceLabel('Bolius: pris på opvarmningsformer'), 'Bolius');
+  assert.equal(sourceLabel('Energisparer.dk: varmepumpe pris 2026 (kommerciel kilde, okt. 2026)'), 'Energisparer.dk');
+  const html = slideHtml({ layout: 'text', tag: 'T', title: 'x', sources: ['Energi Data Service (Energinet), spotpris'] }, { index: 0, total: 1, format: 'story' });
+  assert.match(html, /Kilde: Energi Data Service · spotpris/);
+});
