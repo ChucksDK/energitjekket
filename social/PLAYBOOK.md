@@ -153,10 +153,14 @@ giver boksen "Læs guiden → energitjekket.dk/varmepumpe/skift-oliefyr".
 
 ## Higgsfield-billeder
 
-- Kun som `bg` på et cover (carousel slide 1) eller hook-frame i en short. Datasider er altid rene slides uden foto.
-- Højst ét eller to billeder om ugen. Ingen billede er bedre end et dårligt billede.
-- Promptregler: danske huse og interiører (parcelhus, kælder med fyr, køkken ved daggry, tag med solceller i gråvejr), naturligt lys, ingen ansigter mod kameraet, **ingen tekst i billedet** (teksten lægges på af rendereren), ingen logoer, mærker eller produkter, der kan forveksles med et rigtigt firma.
-- Format: stående 4:5 til carousel, 9:16 til short. Motivet skal kunne tåle mørk gradient i bunden, hvor teksten står.
+Fotos viser virkeligheden bag tallet: det gamle oliefyr i kælderen, radiatoren under vinduet, varmepumpen ved husmuren. Casper vil have dem med hver uge (beslutning 27. oktober 2026). Eksemplet er coveret på `social/briefs/EXAMPLE-2026-W45.json` (oliefyr i kælder, tekst og gult tal ovenpå).
+
+- **4–6 billeder om ugen**, som `bg` på et cover (carousel slide 1) eller på første slide i en short. Mindst 3 af dem på carousels. Datasiderne efter coveret er altid rene slides uden foto.
+- **Motivet hører til emnet:** oliefyr- og gasfyrsopslag viser fyret, solcelleopslag taget, byopslag et typisk hus fra den slags kvarter. Ingen stemningsbilleder, der ikke siger noget.
+- **Promptregler:** danske huse og interiører (parcelhus, kælder med fyr, bryggers, køkken ved daggry, tag med solceller i gråvejr), naturligt lys, fotorealistisk og lidt hverdagsslidt, ingen ansigter mod kameraet, **ingen tekst i billedet** (teksten lægges på af rendereren), ingen logoer, mærker eller produkter, der kan forveksles med et rigtigt firma.
+- **Komposition:** motivet i den øverste halvdel; nederste halvdel rolig (gulv, væg, himmel), fordi teksten og tallet står dér oven på en mørk gradient.
+- **Format:** stående 4:5 til carousel, 9:16 til short.
+- **Ingen billede er bedre end et dårligt billede.** Ser det kunstigt ud, har det tekst eller forvrængede rør/paneler, så lav et nyt eller drop det.
 - Gem filen i `social/briefs/assets/<uge>/<navn>.png` (den committes sammen med briefen) og skriv `"bg": "assets/<uge>/<navn>.png"` i briefen. `build-week` kopierer den ind i ugemappen, så ugen kan bygges igen fra et rent checkout.
 
 ## Caption-regler
@@ -181,7 +185,7 @@ node social/bin/facts.js bolius
 node social/bin/facts.js pv.aalborg
 node social/bin/facts.js heat.viborg
 
-# 3. (Claude) Læg eventuelle Higgsfield-billeder i social/briefs/assets/<uge>/
+# 3. (Claude) Læg ugens 4–6 Higgsfield-billeder i social/briefs/assets/<uge>/
 
 # 4. Byg ugen: validering, screenshots fra live-sitet, PNG/MP4, captions, preview
 node social/bin/build-week.js social/briefs/<uge>.json
