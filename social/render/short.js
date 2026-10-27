@@ -7,6 +7,7 @@ import { REPO_ROOT, SOCIAL_ROOT } from '../lib/paths.js';
 import { slideHtml } from '../templates/slides.js';
 import { checkLayout, LayoutError } from './layout-check.js';
 import { SIZES, withPage, loadSlide } from './png.js';
+import { screenFile } from './screenshot.js';
 
 const run = promisify(execFile);
 
@@ -68,7 +69,7 @@ export async function renderShort(post, outPath, opts = {}) {
       targetUrl: post.target_url,
       baseDir: opts.baseDir,
       screenshotPath:
-        slide.layout === 'screenshot' ? path.join(opts.baseDir ?? path.dirname(outPath), 'screens', `${slide.screenshot}.png`) : undefined,
+        slide.layout === 'screenshot' ? path.join(opts.baseDir ?? path.dirname(outPath), 'screens', screenFile(slide.screenshot)) : undefined,
     }),
   );
   // Sluttilstanden skal være pæn, før der tages et eneste billede.

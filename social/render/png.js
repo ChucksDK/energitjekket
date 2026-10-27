@@ -4,6 +4,7 @@ import { pathToFileURL } from 'node:url';
 import { chromium } from 'playwright';
 import { SOCIAL_ROOT } from '../lib/paths.js';
 import { slideHtml } from '../templates/slides.js';
+import { screenFile } from './screenshot.js';
 import { checkLayout, LayoutError } from './layout-check.js';
 
 export const SIZES = { carousel: { width: 1080, height: 1350 }, story: { width: 1080, height: 1920 }, short: { width: 1080, height: 1920 } };
@@ -45,12 +46,12 @@ export async function withBrowser(fn) {
   }
 }
 
-/** Kører fn(page) på en side i den givne størrelse (deviceScaleFactor 1). */
-export async function withPage(fn, { width = 1080, height = 1350 } = {}) {
+/** Kører fn(page) på en side i den givne størrelse (deviceScaleFactor som angivet, standard 1). */
+export async function withPage(fn, { width = 1080, height = 1350, deviceScaleFactor = 1 } = {}) {
   const browser = await acquire();
   let context;
   try {
-    context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1 });
+    context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor });
     const page = await context.newPage();
     return await fn(page);
   } finally {
@@ -83,7 +84,7 @@ export async function renderCarousel(post, outDir, opts = {}) {
     const files = [];
     for (const [index, slide] of post.slides.entries()) {
       const screenshotPath =
-        slide.layout === 'screenshot' ? path.join(opts.baseDir ?? outDir, 'screens', `${slide.screenshot}.png`) : undefined;
+        slide.layout === 'screenshot' ? path.join(opts.baseDir ?? outDir, 'screens', screenFile(slide.screenshot)) : undefined;
       const html = slideHtml(slide, {
         index,
         total,
