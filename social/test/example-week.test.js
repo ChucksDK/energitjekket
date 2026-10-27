@@ -1,0 +1,68 @@
+import { test, before } from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import { loadSources } from '../lib/sources.js';
+import { SOCIAL_ROOT } from '../lib/paths.js';
+import { validatePost, resolvePost } from '../lib/brief.js';
+import { slideDuration, CROSSFADE } from '../render/short.js';
+import { pagePath } from '../render/screenshot.js';
+import { ensureSources } from './helpers.js';
+
+const BRIEF = path.join(SOCIAL_ROOT, 'briefs', 'EXAMPLE-2026-W45.json');
+let s;
+let brief;
+before(() => {
+  s = loadSources(ensureSources());
+  brief = JSON.parse(fs.readFileSync(BRIEF, 'utf8'));
+});
+
+const area = (p) => {
+  const url = p.target_url || '';
+  if (p.pillar === 'varmepumpe' || (p.city && url.includes('/varmepumpe/'))) return 'varmepumpe';
+  if (p.pillar === 'solceller' || (p.city && url.includes('/solceller/'))) return 'solceller';
+  return p.pillar;
+};
+
+test('example week has 14 posts: 7 carousels at 07:30 and 7 shorts at 19:30, one of each per day', () => {
+  assert.equal(brief.week, 'EXAMPLE-2026-W45');
+  assert.equal(brief.posts.length, 14);
+  const carousels = brief.posts.filter((p) => p.type === 'carousel');
+  const shorts = brief.posts.filter((p) => p.type === 'short');
+  assert.equal(carousels.length, 7);
+  assert.equal(shorts.length, 7);
+  assert.ok(carousels.every((p) => p.slot.endsWith('T07:30')), 'carousels kl. 07:30');
+  assert.ok(shorts.every((p) => p.slot.endsWith('T19:30')), 'shorts kl. 19:30');
+  const days = new Set(brief.posts.map((p) => p.slot.slice(0, 10)));
+  assert.equal(days.size, 7);
+  assert.equal(new Set(brief.posts.map((p) => p.id)).size, 14);
+});
+
+test('every post in the example week validates', () => {
+  for (const p of brief.posts) assert.deepEqual(validatePost(p, s), [], p.id);
+});
+
+test('pillar mix: at least 8 heat pump posts, at most 6 solar posts', () => {
+  const count = (a) => brief.posts.filter((p) => area(p) === a).length;
+  assert.ok(count('varmepumpe') >= 8, `varmepumpe: ${count('varmepumpe')}`);
+  assert.ok(count('solceller') <= 6, `solceller: ${count('solceller')}`);
+});
+
+test('week contains two city posts, a quiz, a calculator short with screenshot and an elpris bars post', () => {
+  const cities = new Set(brief.posts.filter((p) => p.city).map((p) => p.city));
+  assert.ok(cities.size >= 2, [...cities].join(','));
+  assert.ok(brief.posts.some((p) => p.angle && /quiz/i.test(p.angle)));
+  assert.ok(brief.posts.some((p) => p.type === 'short' && p.slides.some((sl) => sl.layout === 'screenshot' && sl.screenshot === 'beregner')));
+  assert.ok(brief.posts.some((p) => p.slides.some((sl) => sl.layout === 'bars' && s.elpris[sl.bars.date]?.[sl.bars.area])));
+});
+
+test('screenshots, audio and short durations are buildable', () => {
+  for (const p of brief.posts) {
+    for (const sl of p.slides) if (sl.layout === 'screenshot') assert.ok(pagePath(sl.screenshot), `${p.id}: ${sl.screenshot}`);
+    if (p.type !== 'short') continue;
+    assert.ok(fs.existsSync(path.join(SOCIAL_ROOT, 'audio', p.audio)), `${p.id}: ${p.audio}`);
+    const { slides } = resolvePost(p, s);
+    const total = slides.reduce((a, sl) => a + slideDuration(sl), 0) - CROSSFADE * (slides.length - 1);
+    assert.ok(total >= 10 && total <= 20, `${p.id}: ${total.toFixed(1)} s`);
+  }
+});
