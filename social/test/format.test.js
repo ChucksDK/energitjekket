@@ -26,3 +26,9 @@ test('formats kwp and count units', () => {
 test('throws on unknown unit', () => {
   assert.throws(() => formatFact(1, 'furlong'), /unknown unit/i);
 });
+
+test('formatFact normalizes negative zero after rounding', () => {
+  assert.equal(formatFact(-0.001, 'kr_per_kwh'), '0,00 kr.');
+  assert.equal(formatFact(-0.004, 'kr'), '0 kr.');
+  assert.equal(formatFact(-0.006, 'kr_per_kwh'), '-0,01 kr.');
+});

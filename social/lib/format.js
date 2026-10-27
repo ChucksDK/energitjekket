@@ -1,9 +1,20 @@
-const nf = (decimals) =>
+const intl = (decimals) =>
   new Intl.NumberFormat('da-DK', {
     minimumFractionDigits: decimals,
     maximumFractionDigits: decimals,
     useGrouping: 'always',
   });
+
+// Værdier der runder til nul (fx -0,001) skal vises som "0,00", ikke "-0,00".
+const nf = (decimals) => {
+  const f = intl(decimals);
+  return {
+    format: (v) => {
+      const s = f.format(v);
+      return /^[-\u2212][0.,]+$/.test(s) ? s.slice(1) : s;
+    },
+  };
+};
 
 const RULES = {
   kr: (v) => `${nf(0).format(v)} kr.`,
