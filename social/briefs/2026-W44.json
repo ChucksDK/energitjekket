@@ -1,0 +1,609 @@
+{
+  "week": "2026-W44",
+  "posts": [
+    {
+      "id": "2026-10-27-pm",
+      "slot": "2026-10-27T19:30",
+      "type": "short",
+      "pillar": "varmepumpe",
+      "angle": "Myte: strøm er strøm, så elradiatorer og varmepumpe koster det samme",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/varmepumpe/pris/",
+      "audio": "bright-explainer-01.m4a",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "MYTE",
+          "title": "Strøm er strøm, ikke?",
+          "body": "Elradiatorer og varmepumpe bruger begge strøm. Regningen er alligevel meget forskellig."
+        },
+        {
+          "layout": "kpi2",
+          "tag": "SAMME HUS",
+          "title": "Elradiatorer eller varmepumpe",
+          "kpis": [
+            {
+              "label": "Elradiatorer",
+              "value": "{bolius.elradiator}",
+              "unit": "kr./år"
+            },
+            {
+              "label": "Varmepumpe",
+              "value": "{bolius.ltv_radiator}",
+              "unit": "kr./år"
+            }
+          ]
+        },
+        {
+          "layout": "text",
+          "tag": "FORKLARINGEN",
+          "title": "Pumpen henter varme i luften",
+          "highlight": "luften",
+          "body": "Én kWh strøm giver ca. {beregner.scop} kWh varme over et år. En elradiator giver én."
+        },
+        {
+          "layout": "end",
+          "tag": "LÆS GUIDEN",
+          "title": "Hvad koster en varmepumpe?",
+          "body": "Pris, drift og tilskud i én guide. Link i bio."
+        }
+      ],
+      "caption": "Elradiatorer og varmepumpe kører begge på strøm, men regningen er ikke den samme.\nI Bolius' standardhus koster elradiatorer ca. {bolius.elradiator} om året og en varmepumpe med radiatorer ca. {bolius.ltv_radiator}.\nForskellen er, at varmepumpen henter det meste af varmen i luften.\nGuiden om varmepumpens pris ligger på energitjekket.dk/varmepumpe/pris (link i bio).",
+      "hashtags": [
+        "#varmepumpe",
+        "#elvarme",
+        "#boligejer",
+        "#varmeregning"
+      ]
+    },
+    {
+      "id": "2026-10-28-am",
+      "slot": "2026-10-28T07:30",
+      "type": "carousel",
+      "pillar": "solceller",
+      "angle": "Egetforbrug: hvor meget af solstrømmen bruger du selv",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/solceller/med-batteri/",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "SOLCELLER",
+          "title": "Hvor meget solstrøm bruger du selv?",
+          "body": "Det betyder mere for regnestykket, end man skulle tro."
+        },
+        {
+          "layout": "stat",
+          "tag": "EGETFORBRUG",
+          "title": "Så meget bruger du selv",
+          "value": "{beregner.egetforbrug_pct}",
+          "body": "af strømmen uden batteri, fra et typisk anlæg på {beregner.anlaeg_kwp}."
+        },
+        {
+          "layout": "text",
+          "tag": "RESTEN",
+          "title": "Resten sælges til nettet",
+          "highlight": "sælges",
+          "body": "Den strøm, du sælger, er mindre værd end den strøm, du slipper for at købe."
+        },
+        {
+          "layout": "text",
+          "tag": "DAGTIMER",
+          "title": "Brug strømmen, mens solen skinner",
+          "highlight": "solen",
+          "body": "Vaskemaskine, opvaskemaskine og elbil midt på dagen hæver dit egetforbrug."
+        },
+        {
+          "layout": "text",
+          "tag": "BATTERI",
+          "title": "Et batteri gemmer til aftenen",
+          "highlight": "aftenen",
+          "body": "Så bruger du selv mere af strømmen. Om det kan betale sig, afhænger af prisen og dit forbrug."
+        },
+        {
+          "layout": "end",
+          "tag": "LÆS GUIDEN",
+          "title": "Solceller med batteri",
+          "body": "Hvornår et batteri giver mening, i én guide. Linket står i bio."
+        }
+      ],
+      "caption": "Uden batteri bruger du selv ca. {beregner.egetforbrug_pct} af strømmen fra et typisk solcelleanlæg.\nResten sælges til nettet, og den strøm er mindre værd end den, du slipper for at købe.\nFlyt vaskemaskine og opvask til dagtimerne, eller regn på et batteri.\nGuiden om solceller med batteri ligger på energitjekket.dk/solceller/med-batteri (link i bio).",
+      "hashtags": [
+        "#solceller",
+        "#egetforbrug",
+        "#batteri",
+        "#boligejer"
+      ]
+    },
+    {
+      "id": "2026-10-28-pm",
+      "slot": "2026-10-28T19:30",
+      "type": "short",
+      "pillar": "solceller",
+      "angle": "Samme emne som morgenen, animeret",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/solceller/med-batteri/",
+      "audio": "melodic-guitar-01.m4a",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "SOLCELLER",
+          "title": "Så meget solstrøm bruger du selv",
+          "value": "{beregner.egetforbrug_pct}",
+          "body": "uden batteri. Resten sælges."
+        },
+        {
+          "layout": "text",
+          "tag": "RESTEN",
+          "title": "Resten sælges til nettet",
+          "highlight": "sælges",
+          "body": "Og den strøm er mindre værd end den, du slipper for at købe."
+        },
+        {
+          "layout": "text",
+          "tag": "DAGTIMER",
+          "title": "Brug strømmen, mens solen skinner",
+          "highlight": "solen",
+          "body": "Vask og opvask midt på dagen hæver dit egetforbrug."
+        },
+        {
+          "layout": "end",
+          "tag": "LÆS GUIDEN",
+          "title": "Solceller med batteri",
+          "body": "Hvornår et batteri giver mening. Link i bio."
+        }
+      ],
+      "caption": "Uden batteri bruger du selv ca. {beregner.egetforbrug_pct} af strømmen fra dine solceller.\nResten sælges, og den er mindre værd end den strøm, du slipper for at købe.\nGuiden om solceller med batteri ligger på energitjekket.dk/solceller/med-batteri (link i bio).",
+      "hashtags": [
+        "#solceller",
+        "#egetforbrug",
+        "#boligejer"
+      ]
+    },
+    {
+      "id": "2026-10-29-am",
+      "slot": "2026-10-29T07:30",
+      "type": "carousel",
+      "pillar": "varmepumpe",
+      "angle": "Varmeregningen med seks opvarmningsformer side om side",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/beregner/",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "VARMEREGNINGEN",
+          "title": "Hvad koster varmen med dit fyr?",
+          "body": "Bolius' tal for samme standardhus på {bolius.hus.m2}, med seks slags varme."
+        },
+        {
+          "layout": "kpi2",
+          "tag": "OLIE OG EL",
+          "title": "Oliefyr og elradiatorer",
+          "kpis": [
+            {
+              "label": "Oliefyr",
+              "value": "{bolius.oliefyr}",
+              "unit": "kr./år"
+            },
+            {
+              "label": "Elradiatorer",
+              "value": "{bolius.elradiator}",
+              "unit": "kr./år"
+            }
+          ]
+        },
+        {
+          "layout": "kpi2",
+          "tag": "GAS OG FJERNVARME",
+          "title": "Gasfyr og fjernvarme",
+          "body": "Fjernvarme er landsgennemsnittet.",
+          "kpis": [
+            {
+              "label": "Gasfyr",
+              "value": "{bolius.gasfyr}",
+              "unit": "kr./år"
+            },
+            {
+              "label": "Fjernvarme",
+              "value": "{bolius.fjernvarme}",
+              "unit": "kr./år"
+            }
+          ]
+        },
+        {
+          "layout": "kpi2",
+          "tag": "VARMEPUMPER",
+          "title": "Varmepumper med radiatorer",
+          "kpis": [
+            {
+              "label": "Luft til vand",
+              "value": "{bolius.ltv_radiator}",
+              "unit": "kr./år"
+            },
+            {
+              "label": "Jordvarme",
+              "value": "{bolius.jordvarme_radiator}",
+              "unit": "kr./år"
+            }
+          ]
+        },
+        {
+          "layout": "text",
+          "tag": "HUSK",
+          "title": "Det er udgiften til drift",
+          "highlight": "drift",
+          "body": "Tallene viser varmen om året. Prisen for et nyt anlæg skal regnes med for sig."
+        },
+        {
+          "layout": "end",
+          "tag": "BEREGN SELV",
+          "title": "Hvad koster varmen i dit hus?",
+          "body": "Skriv din egen varmeregning ind i beregneren. Linket står i bio."
+        }
+      ],
+      "caption": "Samme hus, seks slags varme.\nI Bolius' standardhus på {bolius.hus.m2} koster oliefyr ca. {bolius.oliefyr} om året, en varmepumpe med radiatorer ca. {bolius.ltv_radiator}.\nSwipe for gasfyr, fjernvarme, elradiatorer og jordvarme.\nRegn på dit eget hus på energitjekket.dk/beregner (link i bio).",
+      "hashtags": [
+        "#varmepumpe",
+        "#varmeregning",
+        "#boligejer",
+        "#opvarmning"
+      ]
+    },
+    {
+      "id": "2026-10-29-pm",
+      "slot": "2026-10-29T19:30",
+      "type": "short",
+      "pillar": "varmepumpe",
+      "angle": "Tre ting du skal finde frem, før du bruger beregneren",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/beregner/",
+      "audio": "bright-explainer-02.m4a",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "BEREGNER",
+          "title": "Find tre ting frem først",
+          "body": "Så giver beregneren et tal for netop dit hus."
+        },
+        {
+          "layout": "text",
+          "tag": "DET SKAL DU BRUGE",
+          "title": "Regning, fyr og husets størrelse",
+          "body": "Din seneste varmeregning, hvad du varmer med i dag, og hvor mange kvadratmeter huset har."
+        },
+        {
+          "layout": "screenshot",
+          "tag": "BEREGNEREN",
+          "title": "Skriv tallene ind her",
+          "screenshot": "beregner"
+        },
+        {
+          "layout": "end",
+          "tag": "BEREGN SELV",
+          "title": "Prøv med dit eget hus",
+          "body": "Beregneren gemmer intet. Link i bio."
+        }
+      ],
+      "caption": "Vil du vide, hvad en varmepumpe betyder for dit hus, så find tre ting frem først.\nDin seneste varmeregning, hvad du varmer med i dag, og husets størrelse.\nUden dem regner beregneren med Bolius' standardhus på {bolius.hus.m2}.\nDu finder den på energitjekket.dk/beregner (link i bio).",
+      "hashtags": [
+        "#varmepumpe",
+        "#beregner",
+        "#boligejer"
+      ]
+    },
+    {
+      "id": "2026-10-30-am",
+      "slot": "2026-10-30T07:30",
+      "type": "carousel",
+      "pillar": "by",
+      "city": "esbjerg",
+      "angle": "Solceller i Esbjerg: produktion pr. kWp, også i efteråret",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/solceller/esbjerg/",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "ESBJERG",
+          "title": "Solceller i Esbjerg",
+          "body": "Så meget strøm giver et anlæg mod syd, også nu i efteråret."
+        },
+        {
+          "layout": "stat",
+          "tag": "HELE ÅRET",
+          "title": "Et år pr. kWp mod syd",
+          "value": "{pv.esbjerg.syd}",
+          "body": "i Esbjerg ifølge PVGIS. Et typisk anlæg er på {beregner.anlaeg_kwp}."
+        },
+        {
+          "layout": "kpi2",
+          "tag": "SOMMER OG VINTER",
+          "title": "Juni og december pr. kWp",
+          "kpis": [
+            {
+              "label": "Juni",
+              "value": "{pv.esbjerg.month.6}",
+              "unit": "kWh"
+            },
+            {
+              "label": "December",
+              "value": "{pv.esbjerg.month.12}",
+              "unit": "kWh"
+            }
+          ]
+        },
+        {
+          "layout": "kpi2",
+          "tag": "LIGE NU",
+          "title": "Efteråret pr. kWp",
+          "kpis": [
+            {
+              "label": "Oktober",
+              "value": "{pv.esbjerg.month.10}",
+              "unit": "kWh"
+            },
+            {
+              "label": "November",
+              "value": "{pv.esbjerg.month.11}",
+              "unit": "kWh"
+            }
+          ]
+        },
+        {
+          "layout": "text",
+          "tag": "HVAD BETYDER DET",
+          "title": "Sommeren bærer regnestykket",
+          "highlight": "bærer",
+          "body": "Det meste af årets strøm kommer fra april til september. Derfor betyder dit forbrug om sommeren mest."
+        },
+        {
+          "layout": "end",
+          "tag": "SE TALLENE",
+          "title": "Solceller i Esbjerg",
+          "body": "Produktion og regler for Esbjerg på bysiden. Linket står i bio."
+        }
+      ],
+      "caption": "Et solcelleanlæg mod syd i Esbjerg giver ca. {pv.esbjerg.syd} pr. kWp om året, viser PVGIS.\nI juni er det ca. {pv.esbjerg.month.6} pr. kWp, i december ca. {pv.esbjerg.month.12}.\nDet meste af strømmen kommer om sommeren, så dit forbrug i de måneder betyder mest.\nSe tallene for Esbjerg på energitjekket.dk/solceller/esbjerg (link i bio).",
+      "hashtags": [
+        "#solceller",
+        "#esbjerg",
+        "#solenergi",
+        "#boligejer"
+      ]
+    },
+    {
+      "id": "2026-10-31-am",
+      "slot": "2026-10-31T07:30",
+      "type": "carousel",
+      "pillar": "varmepumpe",
+      "angle": "Quiz: hvor mange boliger har varmepumpe?",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/varmepumpe/",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "QUIZ",
+          "title": "Hvor mange boliger har varmepumpe?",
+          "body": "Gæt, hvor stor en andel af de danske boliger der varmes med varmepumpe. Swipe for svaret."
+        },
+        {
+          "layout": "stat",
+          "tag": "SVARET",
+          "title": "Boliger med varmepumpe",
+          "value": "{heat.dk.varmepumpe_pct}",
+          "body": "af boligerne i Danmark, ifølge Danmarks Statistik. Gættede du rigtigt?"
+        },
+        {
+          "layout": "stat",
+          "tag": "FJERNVARME",
+          "title": "Boliger med fjernvarme",
+          "value": "{heat.dk.fjernvarme_pct}",
+          "body": "af boligerne. Fjernvarme er den mest udbredte varme i Danmark."
+        },
+        {
+          "layout": "kpi2",
+          "tag": "FORSKEL PÅ KOMMUNER",
+          "title": "Varmepumpe i to kommuner",
+          "kpis": [
+            {
+              "label": "Vejle",
+              "value": "{heat.vejle.varmepumpe_pct}",
+              "unit": "% af boligerne"
+            },
+            {
+              "label": "Aarhus",
+              "value": "{heat.aarhus.varmepumpe_pct}",
+              "unit": "% af boligerne"
+            }
+          ]
+        },
+        {
+          "layout": "text",
+          "tag": "HVORFOR",
+          "title": "Det afhænger af fjernvarmen",
+          "highlight": "afhænger",
+          "body": "Hvor fjernvarmenettet når ud til de fleste, er der færre varmepumper. Uden for nettet er varmepumpen et godt bud."
+        },
+        {
+          "layout": "end",
+          "tag": "LÆS GUIDEN",
+          "title": "Er en varmepumpe noget for dig?",
+          "body": "Typer, pris og tilskud samlet ét sted. Linket står i bio."
+        }
+      ],
+      "caption": "Hvad gættede du på?\nCa. {heat.dk.varmepumpe_pct} af de danske boliger varmes med varmepumpe, og ca. {heat.dk.fjernvarme_pct} med fjernvarme, viser Danmarks Statistik.\nForskellen mellem kommunerne er stor, og den følger fjernvarmenettet.\nLæs om varmepumper på energitjekket.dk/varmepumpe (link i bio).",
+      "hashtags": [
+        "#quiz",
+        "#varmepumpe",
+        "#fjernvarme",
+        "#boligejer"
+      ]
+    },
+    {
+      "id": "2026-10-31-pm",
+      "slot": "2026-10-31T19:30",
+      "type": "short",
+      "pillar": "varmepumpe",
+      "angle": "Jordvarme mod luft til vand: driften",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/varmepumpe/jordvarme-pris/",
+      "audio": "melodic-guitar-02.m4a",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "JORDVARME",
+          "title": "Jordvarme eller luft til vand?",
+          "body": "Driften i samme standardhus, ifølge Bolius."
+        },
+        {
+          "layout": "kpi2",
+          "tag": "MED RADIATORER",
+          "title": "Varme om året med radiatorer",
+          "kpis": [
+            {
+              "label": "Luft til vand",
+              "value": "{bolius.ltv_radiator}",
+              "unit": "kr./år"
+            },
+            {
+              "label": "Jordvarme",
+              "value": "{bolius.jordvarme_radiator}",
+              "unit": "kr./år"
+            }
+          ]
+        },
+        {
+          "layout": "text",
+          "tag": "HUSK",
+          "title": "Jordvarme kræver plads i haven",
+          "highlight": "haven",
+          "body": "Slangerne graves ned i jorden, og anlægget koster mere at etablere. Driften er lidt billigere."
+        },
+        {
+          "layout": "end",
+          "tag": "LÆS GUIDEN",
+          "title": "Hvad koster jordvarme?",
+          "body": "Pris, plads og drift i én guide. Link i bio."
+        }
+      ],
+      "caption": "Jordvarme eller luft til vand? I Bolius' standardhus med radiatorer koster driften ca. {bolius.jordvarme_radiator} med jordvarme og ca. {bolius.ltv_radiator} med luft til vand.\nJordvarme kræver plads til slangerne og koster mere at etablere.\nGuiden om jordvarme ligger på energitjekket.dk/varmepumpe/jordvarme-pris (link i bio).",
+      "hashtags": [
+        "#jordvarme",
+        "#varmepumpe",
+        "#boligejer"
+      ]
+    },
+    {
+      "id": "2026-11-01-am",
+      "slot": "2026-11-01T07:30",
+      "type": "carousel",
+      "pillar": "varmepumpe",
+      "angle": "Varmepumpe eller solceller først?",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/beregner/",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "VARME ELLER STRØM",
+          "title": "Varmepumpe eller solceller først?",
+          "body": "Har du oliefyr eller gasfyr, er svaret ofte varmen. Her er hvorfor."
+        },
+        {
+          "layout": "stat",
+          "tag": "OLIEFYR",
+          "title": "Varmen med oliefyr koster ca.",
+          "value": "{bolius.oliefyr}",
+          "body": "om året i et standardhus på {bolius.hus.m2}."
+        },
+        {
+          "layout": "stat",
+          "tag": "VARMEPUMPE",
+          "title": "Med varmepumpe og radiatorer",
+          "value": "{bolius.ltv_radiator}",
+          "body": "om året i samme hus. Varmen er den største energipost for mange."
+        },
+        {
+          "layout": "text",
+          "tag": "SOLCELLER",
+          "title": "Solceller giver mest om sommeren",
+          "highlight": "sommeren",
+          "body": "Varmepumpen bruger mest strøm om vinteren, hvor solcellerne giver mindst."
+        },
+        {
+          "layout": "text",
+          "tag": "HAR DU FJERNVARME?",
+          "title": "Så er elregningen stedet at starte",
+          "highlight": "elregningen",
+          "body": "Med fjernvarme er varmen allerede ordnet. Så kan solceller være næste skridt."
+        },
+        {
+          "layout": "end",
+          "tag": "BEREGN SELV",
+          "title": "Regn på dit eget hus",
+          "body": "Se, hvad varmen koster i dit hus i dag. Linket står i bio."
+        }
+      ],
+      "caption": "Varmepumpe eller solceller først?\nHar du oliefyr, er varmen ofte den store post: ca. {bolius.oliefyr} om året i Bolius' standardhus mod ca. {bolius.ltv_radiator} med varmepumpe.\nHar du fjernvarme, er varmen ordnet, og så kan solceller være næste skridt.\nRegn på dit eget hus på energitjekket.dk/beregner (link i bio).",
+      "hashtags": [
+        "#varmepumpe",
+        "#solceller",
+        "#boligejer",
+        "#oliefyr"
+      ]
+    },
+    {
+      "id": "2026-11-01-pm",
+      "slot": "2026-11-01T19:30",
+      "type": "short",
+      "pillar": "by",
+      "city": "kolding",
+      "angle": "Fjernvarme eller varmepumpe i Kolding",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/varmepumpe/kolding/fjernvarme-eller-varmepumpe/",
+      "audio": "bright-explainer-01.m4a",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "KOLDING KOMMUNE",
+          "title": "Fjernvarme eller varmepumpe?",
+          "body": "Sådan varmes boligerne i Kolding op i dag."
+        },
+        {
+          "layout": "kpi2",
+          "tag": "KOLDING",
+          "title": "Sådan varmes boligerne op",
+          "kpis": [
+            {
+              "label": "Fjernvarme",
+              "value": "{heat.kolding.fjernvarme_pct}",
+              "unit": "% af boligerne"
+            },
+            {
+              "label": "Varmepumpe",
+              "value": "{heat.kolding.varmepumpe_pct}",
+              "unit": "% af boligerne"
+            }
+          ]
+        },
+        {
+          "layout": "text",
+          "tag": "FØRST",
+          "title": "Tjek varmeplanen for din adresse",
+          "highlight": "varmeplanen",
+          "body": "Ligger huset uden for fjernvarmen, kan en varmepumpe være næste skridt."
+        },
+        {
+          "layout": "end",
+          "tag": "SE TALLENE",
+          "title": "Varme i Kolding",
+          "body": "Fjernvarme og varmepumpe i Kolding på én side. Link i bio."
+        }
+      ],
+      "caption": "I Kolding Kommune har ca. {heat.kolding.fjernvarme_pct} af boligerne fjernvarme og ca. {heat.kolding.varmepumpe_pct} varmepumpe, viser Danmarks Statistik.\nLigger dit hus uden for fjernvarmen, så tjek kommunens varmeplan, før du vælger.\nSe tallene for Kolding på energitjekket.dk (link i bio).",
+      "hashtags": [
+        "#kolding",
+        "#varmepumpe",
+        "#fjernvarme",
+        "#boligejer"
+      ]
+    }
+  ]
+}
