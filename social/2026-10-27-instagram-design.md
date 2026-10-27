@@ -2,6 +2,8 @@
 
 Dato: 27. oktober 2026. Status: udkast til godkendelse.
 
+> **Ændring 27. oktober 2026 (Casper):** Claude laver nu hele ugen selv (analyse, brief, produktion) og planlægger de godkendte opslag i Zernio med `social/bin/publish.js`. Grok tager kun den daglige elpris-story og fredagens elpris-reel kl. 19:30. Den gældende rollefordeling står i `social/ROLLER.md`; hvor dette dokument siger andet om Grok, gælder `ROLLER.md`.
+
 ## Hvorfor
 
 Energitjekket.dk er en lead-side for solceller og varmepumper til danske boligejere (formular → ét firma pr. lead). Instagram skal give organisk dansk trafik til siden, især til `/beregner/`, `/elpris/`, guides og bysider.

@@ -1,6 +1,6 @@
 # Playbook: Instagram for @energitjekket
 
-Fast instruks for Grok (brief og planlægning) og Claude (produktion). Designet bag står i `social/2026-10-27-instagram-design.md`. Et komplet eksempel på en uge ligger i `social/briefs/EXAMPLE-2026-W45.json` og bygger uden fejl.
+Fast instruks for alle, der laver indhold til @energitjekket. **Hvem der gør hvad står i `social/ROLLER.md`**: Claude laver og planlægger ugens 13 faste opslag; Grok tager kun den daglige elpris-story og fredagens elpris-reel kl. 19:30. Designet bag står i `social/2026-10-27-instagram-design.md`. Et komplet eksempel på en uge ligger i `social/briefs/EXAMPLE-2026-W45.json` og bygger uden fejl.
 
 ## Første gang (opsætning)
 
@@ -15,14 +15,16 @@ python3 --version                         # bruges af social/data/export_sources
 npm test                                  # ca. 2–3 min.; alt skal bestå
 ```
 
+Zernio: konto-id og tidszone står i `social/publish.json`. Nøglen (`ZERNIO_API_KEY`) ligger lokalt i den fil, `keyFile` peger på, eller i miljøet, aldrig i repoet. `node social/bin/queue.js list` tjekker, at adgangen virker.
+
 ## Roller
 
 | Hvem | Hvad | Hvornår |
 |---|---|---|
-| **Grok** | Skriver ugens brief `social/briefs/<uge>.json` efter denne playbook: emne, vinkel, tal (som fakta-id'er), by og mål-URL pr. slot. | Senest søndag før ugen |
-| **Claude** | Bygger ugen: tjekker og strammer teksterne, laver Higgsfield-billeder til covers, kører `build-week`, retter tekst indtil `errors.json` er tom, ser alle slides igennem og kører captions gennem humanizer-reglerne. | Søndag/mandag tidligt |
-| **Casper** | Godkender eller afviser hvert opslag i previewet. Godkendelsen kan slås fra i `social/config.json` (`"require_approval": false`). | Før første slot |
-| **Grok** | Planlægger de godkendte opslag fra `social/out/<uge>/schedule.json` i Zernio (se "schedule.json" nedenfor). Planlægger også den daglige elpris-story og fredagens elpris-reel kl. 19:30 fra `social/out/stories/<dato>/`. | Efter godkendelse / dagligt |
+| **Claude** | Analyserer tidligere uger og Zernio-køen, skriver ugens brief `social/briefs/<uge>.json`, laver Higgsfield-billeder til covers, kører `build-week`, retter tekst indtil `errors.json` er tom, ser alle slides igennem og kører captions gennem humanizer-reglerne. | Én gang om ugen, før ugen starter |
+| **Casper** | Godkender eller afviser hvert opslag i previewet. Godkendelsen kan slås fra i `social/config.json` (`"require_approval": false`). | Før Claude planlægger |
+| **Claude** | Planlægger de godkendte opslag i Zernio på @energitjekket med `social/bin/publish.js` og læser dem tilbage. | Efter godkendelse |
+| **Grok** | Kun den daglige elpris-story og fredagens elpris-reel kl. 19:30 (kan ikke laves på forhånd). Se `social/ROLLER.md`. | Dagligt / fredag |
 
 ## Ugeplan
 
@@ -45,7 +47,7 @@ Morgen kl. 07:30 = carousel. Aften kl. 19:30 = short (10–20 sek., musik, ingen
 ## Hårde regler
 
 1. **Tal kun som `{fakta.id}`.** Ingen cifre i slide-tekst, caption eller hashtags, undtagen inde i en pladsholder og årstal 2020–2035. Det gælder også "m²" (brug `{bolius.hus.m2}`), "DK1"/"DK2" (skriv "Vestdanmark"/"Østdanmark") og datoer ("en tirsdag i oktober", ikke "27/10").
-2. **Find fakta-id'er** med `node social/bin/facts.js <prefix>`, fx `facts.js bolius`, `facts.js pv.aalborg`, `facts.js heat.`, `facts.js elpris`. Findes et tal ikke i registeret, bruges det ikke. Grok må aldrig finde på tal eller hente dem fra nettet.
+2. **Find fakta-id'er** med `node social/bin/facts.js <prefix>`, fx `facts.js bolius`, `facts.js pv.aalborg`, `facts.js heat.`, `facts.js elpris`. Findes et tal ikke i registeret, bruges det ikke. Ingen må finde på tal eller hente dem fra nettet.
 3. **Ingen salgssnak.** Forbudt (uanset store/små bogstaver): `!`, `book nu`, `begrænset`, `skynd dig`, `gratis`, `garanti`, `kun i dag`, `spar op til`. Ingen superlativer uden tal. Tal aldrig ned til fjernvarme eller andre opvarmningsformer.
 4. **`tilbud`** (og URL'er under `/tilbud/`) er kun tilladt i opslag med `"quote": true`, altså opslag der handler om at få et tilbud.
 5. **Én side pr. opslag.** `target_url` starter med `https://energitjekket.dk/` og peger på den konkrete side (guide, byside, `/beregner/`, `/elpris/`).
@@ -190,10 +192,15 @@ node social/bin/build-week.js social/briefs/<uge>.json
 node social/bin/preview-server.js <uge>          # åbn http://127.0.0.1:8787/
 #    Godkendte opslag skrives til social/out/<uge>/schedule.json
 
-# 6. (Grok) Planlæg schedule.json i Zernio (carousels 07:30, shorts 19:30)
+# 6. (Claude) Planlæg de godkendte opslag i Zernio på @energitjekket
+node social/bin/queue.js list                     # hvad ligger der allerede? sammenstød?
+node social/bin/publish.js <uge>                  # tørløb: viser hvad der sendes
+node social/bin/publish.js <uge> --send           # uploader, planlægger og læser hvert opslag tilbage
+#    Planlagte opslag skrives i social/out/<uge>/sent.json og sendes aldrig igen.
+#    Flyt/aflys: queue.js move <zernio-id> <YYYY-MM-DDTHH:MM> --send / queue.js cancel <zernio-id> --send
 ```
 
-### schedule.json (til Grok)
+### schedule.json (det publish.js sender)
 
 Hvert opslag i `social/out/<uge>/schedule.json` har:
 
@@ -204,7 +211,7 @@ Hvert opslag i `social/out/<uge>/schedule.json` har:
 ```
 
 - `slot` har eksplicit offset for Europe/Copenhagen: `+01:00` om vinteren, `+02:00` om sommeren. Brug tidspunktet præcis som det står.
-- `files` er absolutte stier på maskinen, i den rækkefølge de skal postes (carousel: slide 1, 2, …; short: én MP4). Upload filerne fra de stier; kopier dem ikke rundt først.
+- `files` er absolutte stier på maskinen, i den rækkefølge de skal postes (carousel: slide 1, 2, …; short: én MP4). `publish.js` uploader filerne fra de stier.
 - `caption` er den færdige tekst inkl. kildelinje og hashtags.
 - Kun godkendte opslag står i filen. Bygges ugen igen, tømmes den, til Casper har godkendt igen.
 
@@ -221,7 +228,7 @@ Scriptet opdaterer selv kilderegisteret først (samme eksport som `build-week`).
 
 - Exit 3: morgendagens priser findes ikke endnu. Så laves der ingen story (ingen gætte-tal); prøv igen senere.
 - Exit 4: eksport-, render- eller layoutfejl, manglende lydfil, eller `--reel` på en dato, der ikke er en lørdag.
-- Grok planlægger storyen samme dag og reelen **fredag kl. 19:30** (det tomme slot i ugen) med filen `social/out/stories/<lørdagens dato>/reel-<lørdagens dato>.mp4` og en kort caption i stil med: "Lørdagens billigste timer på elmarkedet (spotpris) for Vestdanmark og Østdanmark. Se alle timepriser på energitjekket.dk/elpris (link i bio). Kilde: Energi Data Service." plus `#elpris #spotpris #strømpris`. Ingen tal i captionen: tallene står i videoen.
+- Grok planlægger (se `social/ROLLER.md`) storyen samme dag og reelen **fredag kl. 19:30** (det tomme slot i ugen) med filen `social/out/stories/<lørdagens dato>/reel-<lørdagens dato>.mp4` og en kort caption i stil med: "Lørdagens billigste timer på elmarkedet (spotpris) for Vestdanmark og Østdanmark. Se alle timepriser på energitjekket.dk/elpris (link i bio). Kilde: Energi Data Service." plus `#elpris #spotpris #strømpris`. Ingen tal i captionen: tallene står i videoen.
 - Link-sticker kan ikke sættes via API, så storyen siger "Se alle priser på energitjekket.dk/elpris".
 - Musikken til reelen vælges på skift fra `social/audio/` efter dato.
 

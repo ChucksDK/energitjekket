@@ -23,11 +23,12 @@ const stripUnit = (s) => (/^[\d.,-]+ \S+$/.test(s) ? s.replace(/ \S+$/, '') : s)
 
 export function resolveText(text, sources, { stripUnits = false } = {}) {
   const factIds = [];
-  const out = String(text).replace(PLACEHOLDER, (_, id) => {
+  const out = String(text).replace(PLACEHOLDER, (_, id, offset, whole) => {
     const fact = getFact(sources, id);
     if (!factIds.includes(id)) factIds.push(id);
-    const f = formatFact(fact.value, fact.unit);
-    return stripUnits ? stripUnit(f) : f;
+    const f = stripUnits ? stripUnit(formatFact(fact.value, fact.unit)) : formatFact(fact.value, fact.unit);
+    // "ca. {x}." med x = "9.386 kr." må ikke give "kr..": sætningens punktum genbruger forkortelsens.
+    return f.endsWith('.') && whole[offset + id.length + 2] === '.' ? f.slice(0, -1) : f;
   });
   return { text: out, factIds };
 }

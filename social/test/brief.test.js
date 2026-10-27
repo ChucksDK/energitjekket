@@ -31,6 +31,11 @@ test('resolveText formats placeholders and reports fact ids', () => {
   assert.deepEqual(r.factIds, ['bolius.oliefyr']);
 });
 
+test('resolveText: a fact ending in "kr." before the full stop gives one period, not "kr.."', () => {
+  assert.equal(resolveText('ca. {bolius.oliefyr}.', s).text, 'ca. 32.388 kr.');
+  assert.equal(resolveText('ca. {bolius.oliefyr} om året.', s).text, 'ca. 32.388 kr. om året.');
+});
+
 test('resolveText throws on unknown fact id', () => {
   assert.throws(() => resolveText('{nope.x}', s), /Ukendt fakta-id: nope\.x/);
 });
