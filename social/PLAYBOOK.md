@@ -111,13 +111,12 @@ Alle eksempler er fra eksempel-ugen.
   "screenshot": "beregner" }
 ```
 
-**`end`** – slutslide med link-boks ("Regn på dit eget hus → energitjekket.dk/beregner") og "Gem opslaget til senere".
+**`end`** – slutslide med link-boks og "Gem opslaget til senere". Linket i boksen laves automatisk ud fra opslagets `target_url` (skriv det ikke selv), og teksten foran følger sidetypen: guides under `/varmepumpe/` og `/solceller/` → "Læs guiden", bysider → "Se tallene for <By>", `/beregner/` → "Regn på dit eget hus", `/elpris/` → "Se dagens priser". Lange adresser brydes efter `/` og krymper, så de altid står inde i boksen. Skriv "Link i bio" i brødteksten: links i Instagram-opslag kan ikke klikkes.
 ```json
-{ "layout": "end", "tag": "BEREGN SELV", "title": "Hvad koster varmen i dit hus?",
-  "body": "Skriv din egen varmeregning ind i beregneren." }
+{ "layout": "end", "tag": "LÆS GUIDEN", "title": "Skift oliefyr til varmepumpe",
+  "body": "Økonomi, tilskud og olietanken i én guide. Linket står i bio." }
 ```
-
-> **Kendt begrænsning:** link-boksen på `end` kan i dag kun rumme korte adresser (`/beregner/` og `/elpris/`). Længere adresser (guides og bysider) fejler i layouttjekket. Til dem bruges indtil videre en `text`-slide som sidste slide med tag `LINK I BIO`, sidens navn som titel og "… på energitjekket.dk. Linket står i bio." i brødteksten. Se eksempel-ugen.
+giver boksen "Læs guiden → energitjekket.dk/varmepumpe/skift-oliefyr".
 
 ### Et helt opslag (short)
 
@@ -131,7 +130,7 @@ Alle eksempler er fra eksempel-ugen.
     { "layout": "cover", "tag": "GASFYR", "title": "Har du gasfyr? Det koster ca.", "value": "{bolius.gasfyr}", "body": "om året i et standardhus." },
     { "layout": "stat", "tag": "VARMEPUMPE", "title": "Med varmepumpe og radiatorer", "value": "{bolius.ltv_radiator}", "body": "om året i samme hus." },
     { "layout": "text", "tag": "FØRST", "title": "Kommer der fjernvarme til dig?", "body": "Tjek kommunens varmeplan for din adresse, før du vælger varmepumpe." },
-    { "layout": "text", "tag": "LINK I BIO", "title": "Skift gasfyr i tre trin", "body": "Varmeplan, økonomi og tilskud i én guide på energitjekket.dk. Link i bio." }
+    { "layout": "end", "tag": "LÆS GUIDEN", "title": "Skift gasfyr i tre trin", "body": "Varmeplan, økonomi og tilskud i én guide. Link i bio." }
   ],
   "caption": "Gasfyr: ca. {bolius.gasfyr} om året. Varmepumpe med radiatorer: ca. {bolius.ltv_radiator}.\nTallene er Bolius' for et standardhus på {bolius.hus.m2}.\nStart med varmeplanen for din adresse. Guiden om at skifte gasfyr ligger på energitjekket.dk (link i bio).",
   "hashtags": ["#varmepumpe", "#gasfyr", "#boligejer"]

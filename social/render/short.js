@@ -11,7 +11,17 @@ import { screenFile } from './screenshot.js';
 
 const run = promisify(execFile);
 
-export const CROSSFADE = 0.3; // s
+export const CROSSFADE = 0.3; // s: overlap mellem to slides (indgår i den samlede længde)
+const HALF = CROSSFADE / 2;
+
+/**
+ * Opacitet k sekunder inde i overgangen: det udgående slide fader ud på 0,15 s, og først derefter
+ * fader det indkommende slides tekst ind på 0,15 s (dets baggrund ligger klar nedenunder).
+ */
+export function fadeAt(k) {
+  if (k < HALF) return { out: 1 - k / HALF, in: 0 };
+  return { out: 0, in: Math.min(1, (k - HALF) / HALF) };
+}
 const MIN_TOTAL = 10;
 const MAX_TOTAL = 20;
 const FINAL_T = 60; // langt efter alle animationer
@@ -98,14 +108,15 @@ export async function renderShort(post, outPath, opts = {}) {
             if (i < htmls.length - 1) await page.evaluate((m) => window.mountNext(m), slideBody(htmls[i + 1]));
             loaded = i;
           }
-          const k = i < htmls.length - 1 ? g - starts[i + 1] : -1; // sekunder inde i krydsfaden
+          const k = i < htmls.length - 1 ? g - starts[i + 1] : -1; // sekunder inde i overgangen
+          const fade = k >= 0 ? fadeAt(k) : { out: 1, in: 0 };
           await page.evaluate(
-            ([t, nextT, opacity]) => {
+            ([t, nextT, out, inn]) => {
               window.seek(t);
               if (nextT !== null) window.seekNext(nextT);
-              window.setFade(opacity);
+              window.setFade(out, inn);
             },
-            [g - starts[i], k >= 0 ? k : null, k >= 0 ? 1 - Math.min(1, k / CROSSFADE) : 1],
+            [g - starts[i], k >= 0 ? k : null, fade.out, fade.in],
           );
           await page.screenshot({ path: path.join(frames, `${String(n + 1).padStart(5, '0')}.png`) });
         }

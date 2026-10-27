@@ -66,7 +66,7 @@ const easeOut = (p) => 1 - (1 - p) * (1 - p) * (1 - p);
 
 const NUM_RE = /[-−]?(?:\d{1,3}(?:\.\d{3})+|\d+)(?:,\d+)?/;
 
-// Finder første tal i elementet og gemmer det, så det kan tælles op og skrives tilbage.
+// Finder første tal i elementet og gemmer det, så det kan tælles op og skrives tilbage (null = tælles ikke op).
 function prepCounter(el) {
   const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
   for (let n = walker.nextNode(); n; n = walker.nextNode()) {
@@ -77,6 +77,9 @@ function prepCounter(el) {
     const digits = token.replace(/^[-−]/, '');
     const dec = digits.includes(',') ? digits.split(',')[1].length : 0;
     const grouped = /\./.test(digits);
+    // Kun hele tal tælles op (kr., kWh, %). Priser med decimaler, klokkeslæt og årstal står fra start
+    // med deres rigtige værdi (kun fade), så der aldrig vises et tal, som ikke findes i kilden.
+    if (dec > 0 || /kl\./.test(el.textContent) || (!grouped && /^20(2\d|3[0-5])$/.test(digits))) return null;
     const value = Number(digits.replace(/\./g, '').replace(',', '.'));
     const before = n.nodeValue.slice(0, m.index);
     const after = n.nodeValue.slice(m.index + token.length);
@@ -146,6 +149,8 @@ window.mountNext = async (markup) => {
   wrap.style.cssText = 'position:absolute;left:0;top:0;width:100%;height:100%;z-index:0';
   wrap.innerHTML = markup;
   document.body.prepend(wrap);
+  // Næste slides baggrund ligger klar under det nuværende; dets tekst er skjult, til det nuværende er fadet helt ud.
+  wrap.querySelector('.slide-safe').style.opacity = '0';
   document.body.style.position = 'relative';
   const cur = document.querySelector('.slide:not(#under .slide)');
   cur.style.position = 'relative';
@@ -166,6 +171,10 @@ window.mountNext = async (markup) => {
   fitAll();
 };
 window.seekNext = (t) => seekSlide(document.querySelector('#under .slide'), t);
-window.setFade = (opacity) => {
-  document.querySelector('.slide:not(#under .slide)').style.opacity = String(opacity);
+// Overgang i to trin (se fadeAt i render/short.js): først fader det nuværende slide helt ud,
+// derefter fader næste slides tekst ind. Der er aldrig tekst fra to slides synlig samtidig.
+window.setFade = (outOpacity, inOpacity = 0) => {
+  document.querySelector('.slide:not(#under .slide)').style.opacity = String(outOpacity);
+  const next = document.querySelector('#under .slide-safe');
+  if (next) next.style.opacity = String(inOpacity);
 };

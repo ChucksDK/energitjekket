@@ -6,7 +6,8 @@ import { loadSources } from '../lib/sources.js';
 import { resolvePost } from '../lib/brief.js';
 import { REPO_ROOT, SOCIAL_ROOT } from '../lib/paths.js';
 import { ensureSources } from './helpers.js';
-import { slideHtml } from '../templates/slides.js';
+import { slideHtml, glue } from '../templates/slides.js';
+import { checkLayout } from '../render/layout-check.js';
 import { renderCarousel, withPage, loadSlide } from '../render/png.js';
 
 const OUT = path.join(SOCIAL_ROOT, 'out', 'test');
@@ -48,7 +49,7 @@ test('slideHtml appends position to the tag and builds the bottom bar', () => {
   const last = slideHtml(post.slides[4], { index: 4, total: 5, format: 'carousel', targetUrl: post.target_url });
   assert.doesNotMatch(last, /<b>Swipe →<\/b>/);
   assert.match(last, /Regn på dit eget hus →/);
-  assert.match(last, /energitjekket\.dk\/beregner/);
+  assert.match(last, /energitjekket\.dk\/<wbr>beregner/);
 });
 
 test('bars chart clamps negative values to baseline', async () => {
@@ -125,4 +126,63 @@ test('footer shows short display names for sources (finding 2/3)', async () => {
   assert.equal(sourceLabel('Energisparer.dk: varmepumpe pris 2026 (kommerciel kilde, okt. 2026)'), 'Energisparer.dk');
   const html = slideHtml({ layout: 'text', tag: 'T', title: 'x', sources: ['Energi Data Service (Energinet), spotpris'] }, { index: 0, total: 1, format: 'story' });
   assert.match(html, /Kilde: Energi Data Service · spotpris/);
+});
+
+// --- finding 10: sammensatte ord med bindestreg brækker ikke ---
+test('glue joins letter-hyphen-letter with a non-breaking hyphen, not elsewhere', () => {
+  assert.equal(glue('luft til vand-varmepumpe'), 'luft til vand\u2011varmepumpe');
+  assert.equal(glue('vand-/varmepumpe'), 'vand\u2011/\u2060varmepumpe');
+  assert.equal(glue('olie- eller gasfyr'), 'olie- eller gasfyr');
+  assert.equal(glue('-0,05 kr.'), '-0,05\u00a0kr.');
+  const html = slideHtml({ layout: 'kpi2', tag: 'T', title: 'Luft til vand-varmepumpe', kpis: [{ label: 'Luft til vand-varmepumpe', value: '1', unit: 'x' }, { label: 'b', value: '2' }] }, { index: 0, total: 1, format: 'story' });
+  assert.ok(html.includes('Luft til vand\u2011varmepumpe</h1>'), 'titel');
+  assert.ok(html.includes('<div class="k">Luft til vand\u2011varmepumpe</div>'), 'KPI-label');
+});
+
+test('a hyphenated compound in a narrow KPI label never splits at the hyphen', async () => {
+  const slide = { layout: 'kpi2', tag: 'T', title: 'Varme', kpis: [{ label: 'Luft til vand-varmepumpe', value: '12.345', unit: 'kr./år' }, { label: 'Jordvarme', value: '11.000', unit: 'kr./år' }] };
+  const lines = await withPage(async (page) => {
+    await loadSlide(page, slideHtml(slide, { index: 0, total: 1, format: 'carousel' }));
+    return page.evaluate(() => {
+      const k = document.querySelector('.kpi .k');
+      const r = document.createRange();
+      const t = k.firstChild;
+      const i = t.nodeValue.indexOf('vand');
+      r.setStart(t, i);
+      r.setEnd(t, t.nodeValue.length);
+      return new Set([...r.getClientRects()].map((x) => Math.round(x.top))).size;
+    });
+  });
+  assert.equal(lines, 1);
+});
+
+// --- finding 11: slutslidets link-boks klarer lange adresser ---
+test('end CTA: lead text by page type and <wbr> after each slash', () => {
+  const cta = (url) => /<div class="cta box"[^>]*>(.*?)<\/div>/.exec(slideHtml({ layout: 'end', tag: 'T', title: 'x' }, { index: 0, total: 1, format: 'story', targetUrl: url }))[1];
+  assert.match(cta('https://energitjekket.dk/varmepumpe/skift-oliefyr/'), /^Læs guiden →<br>energitjekket\.dk\/<wbr>varmepumpe\/<wbr>skift-oliefyr$/);
+  assert.match(cta('https://energitjekket.dk/solceller/kan-det-betale-sig/'), /^Læs guiden →/);
+  assert.match(cta('https://energitjekket.dk/beregner/'), /^Regn på dit eget hus →<br>energitjekket\.dk\/<wbr>beregner$/);
+  assert.match(cta('https://energitjekket.dk/elpris/'), /^Se dagens priser →/);
+  assert.match(cta('https://energitjekket.dk/solceller/aalborg/'), /^Se tallene for Aalborg →/);
+  assert.match(cta('https://energitjekket.dk/solceller/naestved/'), /^Se tallene for Næstved →/);
+  assert.match(cta('https://energitjekket.dk/varmepumpe/viborg/fjernvarme-eller-varmepumpe/'), /^Se tallene for Viborg →/);
+});
+
+test('end slides with long URLs pass the layout check (carousel and short)', async () => {
+  const urls = [
+    'https://energitjekket.dk/varmepumpe/viborg/fjernvarme-eller-varmepumpe/',
+    'https://energitjekket.dk/varmepumpe/aarhus/fjernvarme-eller-varmepumpe/',
+    'https://energitjekket.dk/solceller/fladt-tag-og-carport/',
+    'https://energitjekket.dk/varmepumpe/luft-til-luft-pris/',
+  ];
+  const slide = { layout: 'end', tag: 'LÆS MERE', title: 'Status for fjernvarmen i Viborg', body: 'Status, priser og tal for hele kommunen. Linket står i bio.' };
+  for (const [format, size] of [['carousel', { width: 1080, height: 1350 }], ['short', { width: 1080, height: 1920 }]]) {
+    for (const targetUrl of urls) {
+      const issues = await withPage(async (page) => {
+        await loadSlide(page, slideHtml(slide, { index: 4, total: 5, format, targetUrl }));
+        return checkLayout(page);
+      }, size);
+      assert.deepEqual(issues, [], `${format} ${targetUrl}`);
+    }
+  }
 });

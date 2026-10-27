@@ -12,7 +12,8 @@ const MIN = { title: 40, value: 72, body: 28, kpi: 44, src: 24, cta: 34 };
 
 const COLORS = { cheap: '#f5b700', normal: '#0f6b55', dear: '#c0392b' };
 
-const CTA_LEAD = { beregner: 'Regn på dit eget hus', elpris: 'Se dagens priser' };
+const SITE = path.join(REPO_ROOT, 'site');
+const CTA_LEAD = { beregner: 'Regn på dit eget hus', elpris: 'Se dagens priser', varmepumpe: 'Læs guiden', solceller: 'Læs guiden' };
 
 let cached;
 function assets() {
@@ -32,7 +33,14 @@ export const esc = (s) =>
   String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
 // Tal og enhed må ikke deles over to linjer: "130 m²", "32.388 kr.", "kl. 06".
-export const glue = (s) => String(s ?? '').replace(/(\d) (?=[^\s\d])/g, '$1\u00a0').replace(/\bkl\. (?=\d)/g, 'kl.\u00a0');
+// Sammensatte ord med bindestreg ("vand-varmepumpe", "vand-/varmepumpe") må heller ikke brække:
+// bogstav-bindestreg-bogstav får en hård bindestreg (U+2011), og "-/" en ordsammenbinder efter skråstregen.
+export const glue = (s) =>
+  String(s ?? '')
+    .replace(/(\d) (?=[^\s\d])/g, '$1\u00a0')
+    .replace(/\bkl\. (?=\d)/g, 'kl.\u00a0')
+    .replace(/(\p{L})-\/(?=\p{L})/gu, '$1\u2011/\u2060')
+    .replace(/(\p{L})-(?=\p{L})/gu, '$1\u2011');
 
 // Escaper teksten og lægger gul markering på første forekomst af highlight.
 function marked(text, highlight) {
@@ -91,13 +99,24 @@ function barsHtml(hours) {
   );
 }
 
+// Bysiden (og dens undersider) har byens navn i formularens data-city; guides har en tom data-city.
+function cityOf(pathname) {
+  const file = path.join(SITE, ...pathname.split('/').filter(Boolean), 'index.html');
+  if (!file.startsWith(SITE + path.sep) || !fs.existsSync(file)) return null;
+  const m = /data-city="([^"]+)"/.exec(fs.readFileSync(file, 'utf8'));
+  return m ? m[1] : null;
+}
+
+// "Læs guiden →<br>energitjekket.dk/<wbr>varmepumpe/<wbr>skift-oliefyr": må brydes efter hver skråstreg.
 function ctaFromUrl(targetUrl) {
   if (!targetUrl) throw new Error('end-slide kræver ctx.targetUrl');
   const u = new URL(targetUrl);
   const p = u.pathname.replace(/\/+$/, '');
   const first = p.split('/').filter(Boolean)[0] || '';
-  const lead = CTA_LEAD[first] || 'Læs mere';
-  return `${esc(lead)} →<br>${esc(u.host + p)}`;
+  const city = first === 'solceller' || first === 'varmepumpe' ? cityOf(p) : null;
+  const lead = city ? `Se tallene for ${city}` : CTA_LEAD[first] || 'Læs mere';
+  const shown = (u.host + p).split('/').map(esc).join('/<wbr>');
+  return `${esc(lead)} →<br>${shown}`;
 }
 
 function bgStyle(slide, ctx) {
@@ -119,7 +138,7 @@ const LAYOUTS = {
     const kpis = (s.kpis || [])
       .map(
         (k) =>
-          `<div class="kpi box"><div class="k">${esc(k.label)}</div>` +
+          `<div class="kpi box"><div class="k">${esc(glue(k.label))}</div>` +
           `<div class="v" data-fit="kpi" data-min="${MIN.kpi}">${esc(k.value)}</div>` +
           (k.unit ? `<div class="u">${esc(k.unit)}</div>` : '') +
           '</div>',
@@ -146,7 +165,7 @@ const LAYOUTS = {
   end: (s, ctx) => ({
     html:
       `<div class="content center">${title(s)}${body(s)}` +
-      `<div class="cta box">${ctaFromUrl(ctx.targetUrl)}</div>` +
+      `<div class="cta box" data-fit="cta" data-min="${MIN.cta}">${ctaFromUrl(ctx.targetUrl)}</div>` +
       '<div class="note">Gem opslaget til senere</div></div>',
   }),
 };

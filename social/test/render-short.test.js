@@ -10,7 +10,7 @@ import { REPO_ROOT, SOCIAL_ROOT } from '../lib/paths.js';
 import { ensureSources } from './helpers.js';
 import { slideHtml } from '../templates/slides.js';
 import { withPage, loadSlide } from '../render/png.js';
-import { renderShort, slideDuration, slideBody } from '../render/short.js';
+import { renderShort, slideDuration, slideBody, fadeAt, CROSSFADE } from '../render/short.js';
 
 const BASE = path.join(SOCIAL_ROOT, 'out', 'test-week-short');
 let sources;
@@ -147,4 +147,82 @@ test('renderShort cleans up its temp frames dir on LayoutError', async () => {
     /Layoutfejl/,
   );
   assert.equal(frameDirs(), before);
+});
+
+// --- finding 9: ingen frame med tekst fra to slides ---
+test('fadeAt: outgoing slide is gone before the incoming text appears', () => {
+  const steps = 300;
+  let prevOut = 1;
+  for (let i = 0; i <= steps; i += 1) {
+    const k = (CROSSFADE * i) / steps;
+    const { out, in: inn } = fadeAt(k);
+    assert.ok(!(out > 0.05 && inn > 0.05), `k=${k.toFixed(3)}: out=${out} in=${inn}`);
+    assert.ok(out <= prevOut + 1e-9, 'udgående fader kun ud');
+    prevOut = out;
+  }
+  assert.deepEqual(fadeAt(0), { out: 1, in: 0 });
+  assert.equal(fadeAt(CROSSFADE).out, 0);
+  assert.equal(fadeAt(CROSSFADE).in, 1);
+});
+
+test('transition frames never show text from both slides (30 fps through the crossfade)', async () => {
+  const a = slideHtml({ layout: 'stat', tag: 'A', title: 'Første slide', value: '32.388 kr.', body: 'om året.' }, { index: 0, total: 2, format: 'short' });
+  const b = slideHtml({ layout: 'text', tag: 'B', title: 'Andet slide', body: 'Noget andet.' }, { index: 1, total: 2, format: 'short' });
+  const frames = await withPage(
+    async (page) => {
+      await loadSlide(page, a);
+      await page.evaluate((m) => window.mountNext(m), slideBody(b));
+      const out = [];
+      for (let n = 0; n <= Math.ceil(CROSSFADE * 30); n += 1) {
+        const k = n / 30;
+        const f = fadeAt(Math.min(k, CROSSFADE));
+        out.push(
+          await page.evaluate(
+            ([kk, o, i]) => {
+              window.seek(3 + kk);
+              window.seekNext(kk);
+              window.setFade(o, i);
+              // Effektiv opacitet = produktet op gennem forfædrene.
+              const eff = (el) => {
+                let v = 1;
+                for (let e = el; e; e = e.parentElement) v *= Number(getComputedStyle(e).opacity);
+                return v;
+              };
+              const cur = document.querySelector('.slide:not(#under .slide) .title');
+              const nxt = document.querySelector('#under .slide .title');
+              return { k: kk, cur: eff(cur), next: eff(nxt) };
+            },
+            [k, f.out, f.in],
+          ),
+        );
+      }
+      return out;
+    },
+    { width: 1080, height: 1920 },
+  );
+  for (const f of frames) assert.ok(!(f.cur > 0.05 && f.next > 0.05), JSON.stringify(f));
+  assert.ok(frames[0].cur > 0.95);
+  assert.ok(frames.at(-1).next > 0.95 || frames.at(-1).k >= CROSSFADE, JSON.stringify(frames.at(-1)));
+});
+
+// --- finding 12: tal, der aldrig har eksisteret, vises ikke ---
+test('seek: prices, hours and years appear at full value (no count-up); integers still count', async () => {
+  const read = (value) =>
+    withPage(
+      async (page) => {
+        await loadSlide(page, slideHtml({ layout: 'stat', tag: 'T', title: 'Titel', value, body: 'x' }, { index: 0, total: 1, format: 'short' }));
+        return page.evaluate(() => {
+          window.seek(0.2);
+          return document.querySelector('.value').textContent;
+        });
+      },
+      { width: 1080, height: 1920 },
+    );
+  assert.equal(await read('0,45 kr.'), '0,45\u00a0kr.');
+  assert.equal(await read('-0,05 kr.'), '-0,05\u00a0kr.');
+  assert.equal(await read('kl. 06'), 'kl.\u00a006');
+  assert.equal(await read('2028'), '2028');
+  assert.equal(await read('3,2'), '3,2');
+  assert.notEqual(await read('32.388 kr.'), '32.388\u00a0kr.');
+  assert.notEqual(await read('47 %'), '47\u00a0%');
 });

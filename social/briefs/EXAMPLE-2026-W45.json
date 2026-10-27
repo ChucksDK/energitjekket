@@ -15,7 +15,7 @@
         {"layout": "kpi2", "tag": "SAMME HUS", "title": "Oliefyr eller varmepumpe", "body": "Varmepumpen er luft til vand. Begge med radiatorer.", "kpis": [{"label": "Oliefyr", "value": "{bolius.oliefyr}", "unit": "kr./år"}, {"label": "Varmepumpe", "value": "{bolius.ltv_radiator}", "unit": "kr./år"}]},
         {"layout": "text", "tag": "HUSK", "title": "Det er udgiften til drift", "highlight": "drift", "body": "Tallene viser varmen om året. Prisen for selve varmepumpen skal regnes med for sig."},
         {"layout": "text", "tag": "FØR DU SKIFTER", "title": "Kommer der fjernvarme til dig?", "body": "Ligger huset i et fjernvarmeområde, kan du ikke få tilskud til en varmepumpe. Tjek kommunens varmeplan for din adresse."},
-        {"layout": "text", "tag": "LINK I BIO", "title": "Skift oliefyr til varmepumpe", "body": "Guiden om økonomi, tilskud og olietanken finder du på energitjekket.dk. Linket står i bio."}
+        {"layout": "end", "tag": "LÆS GUIDEN", "title": "Skift oliefyr til varmepumpe", "body": "Økonomi, tilskud og olietanken i én guide. Linket står i bio."}
       ],
       "caption": "Et standardhus på {bolius.hus.m2} med oliefyr bruger ca. {bolius.oliefyr} om året på varme, viser Bolius' tal.\nMed en varmepumpe (luft til vand) og de samme radiatorer er tallet ca. {bolius.ltv_radiator}.\nPrisen for selve anlægget kommer oveni, så regn altid på dit eget hus.\nGuiden om at skifte oliefyr ligger på energitjekket.dk/varmepumpe/skift-oliefyr (link i bio).",
       "hashtags": ["#varmepumpe", "#oliefyr", "#boligejer", "#varmeregning"]
@@ -33,7 +33,7 @@
         {"layout": "cover", "tag": "OLIEFYR", "title": "Varme med oliefyr koster ca.", "value": "{bolius.oliefyr}", "body": "om året i et standardhus."},
         {"layout": "stat", "tag": "VARMEPUMPE", "title": "Samme hus med varmepumpe", "value": "{bolius.ltv_radiator}", "body": "om året, også med radiatorer."},
         {"layout": "text", "tag": "HUSK", "title": "Anlægget er ikke regnet med", "body": "Tallene er drift om året. Prisen for selve varmepumpen kommer oveni."},
-        {"layout": "text", "tag": "LINK I BIO", "title": "Se hele regnestykket", "body": "Guiden om at skifte oliefyr ligger på energitjekket.dk. Link i bio."}
+        {"layout": "end", "tag": "LÆS GUIDEN", "title": "Se hele regnestykket", "body": "Guiden om at skifte oliefyr. Link i bio."}
       ],
       "caption": "Oliefyr: ca. {bolius.oliefyr} om året. Varmepumpe i samme hus: ca. {bolius.ltv_radiator}.\nTallene er Bolius' driftstal for et standardhus på {bolius.hus.m2}.\nHele regnestykket står i guiden om at skifte oliefyr på energitjekket.dk (link i bio).",
       "hashtags": ["#varmepumpe", "#oliefyr", "#boligejer"]
@@ -53,7 +53,7 @@
         {"layout": "stat", "tag": "HELE LANDET", "title": "I hele landet har", "value": "{heat.dk.fjernvarme_pct}", "body": "af boligerne fjernvarme. Viborg ligger tæt på landsgennemsnittet."},
         {"layout": "text", "tag": "FJERNVARME", "title": "Bor du i et fjernvarmeområde?", "body": "Så kan du ikke få tilskud til en varmepumpe. Tjek din adresse i kommunens varmeplan."},
         {"layout": "text", "tag": "OLIE ELLER GAS", "title": "Har du olie- eller gasfyr?", "body": "Viborg Varme konverterer gasområder kvarter for kvarter. Tjek status for din adresse, før du vælger."},
-        {"layout": "text", "tag": "LINK I BIO", "title": "Status for fjernvarmen i Viborg", "body": "Status, priser og tal for hele kommunen på energitjekket.dk. Linket står i bio."}
+        {"layout": "end", "tag": "VIBORG", "title": "Status for fjernvarmen i Viborg", "body": "Status, priser og tal for hele kommunen. Linket står i bio."}
       ],
       "caption": "I Viborg Kommune har {heat.viborg.fjernvarme_pct} af boligerne fjernvarme og {heat.viborg.varmepumpe_pct} varmepumpe.\nBor du i et fjernvarmeområde, er der ikke tilskud til en varmepumpe, så start med din adresse.\nPå siden om fjernvarme eller varmepumpe i Viborg kan du se status for kommunen (link i bio).",
       "hashtags": ["#viborg", "#fjernvarme", "#varmepumpe", "#boligejer"]
@@ -71,7 +71,7 @@
         {"layout": "cover", "tag": "MYTE", "title": "Kræver en varmepumpe gulvvarme?", "body": "Nej. Se Bolius' tal for et standardhus."},
         {"layout": "kpi2", "tag": "LUFT TIL VAND", "title": "Varme om året", "kpis": [{"label": "Radiatorer", "value": "{bolius.ltv_radiator}", "unit": "kr./år"}, {"label": "Gulvvarme", "value": "{bolius.ltv_gulvvarme}", "unit": "kr./år"}]},
         {"layout": "text", "tag": "FORKLARING", "title": "Gulvvarme er lidt billigere i drift", "body": "Gulvvarme kører med lavere temperatur og giver en højere SCOP. Radiatorer kan sagtens bruges."},
-        {"layout": "text", "tag": "LINK I BIO", "title": "Hvad koster en varmepumpe?", "body": "Pris, drift og tilskud samlet på energitjekket.dk. Link i bio."}
+        {"layout": "end", "tag": "LÆS GUIDEN", "title": "Hvad koster en varmepumpe?", "body": "Pris, drift og tilskud samlet. Link i bio."}
       ],
       "caption": "En varmepumpe kan sagtens køre på radiatorer.\nBolius regner med ca. {bolius.ltv_radiator} om året med radiatorer og ca. {bolius.ltv_gulvvarme} med gulvvarme.\nPris og drift for en varmepumpe (luft til vand) finder du på energitjekket.dk/varmepumpe/pris (link i bio).",
       "hashtags": ["#varmepumpe", "#gulvvarme", "#radiatorer", "#boligejer"]
@@ -90,7 +90,7 @@
         {"layout": "stat", "tag": "HELE ÅRET", "title": "Et helt år pr. kWp", "value": "{pv.odense.syd}", "body": "mod syd i Odense. Det meste kommer fra april til august."},
         {"layout": "stat", "tag": "EGETFORBRUG", "title": "Så meget bruger du selv", "value": "{beregner.egetforbrug_pct}", "body": "af strømmen uden batteri. Resten sælges, og den strøm er mindre værd."},
         {"layout": "text", "tag": "HVAD BETYDER DET", "title": "Regnestykket afgøres om sommeren", "highlight": "sommeren", "body": "Og af, hvor meget af strømmen du selv bruger. Vintermånederne betyder lidt for økonomien."},
-        {"layout": "text", "tag": "LINK I BIO", "title": "Kan solceller betale sig?", "body": "Guiden viser, hvad en kWh solstrøm er værd for dig. Find den på energitjekket.dk via linket i bio."}
+        {"layout": "end", "tag": "LÆS GUIDEN", "title": "Kan solceller betale sig?", "body": "Guiden viser, hvad en kWh solstrøm er værd for dig. Linket står i bio."}
       ],
       "caption": "Et solcelleanlæg mod syd i Odense giver ca. {pv.odense.month.6} pr. kWp i juni og ca. {pv.odense.month.12} i december.\nOver et helt år bliver det ca. {pv.odense.syd} pr. kWp.\nDerfor er sommeren og dit eget forbrug det, der afgør regnestykket.\nLæs guiden om, hvorvidt solceller kan betale sig, på energitjekket.dk (link i bio).",
       "hashtags": ["#solceller", "#solenergi", "#boligejer", "#odense"]
@@ -108,7 +108,7 @@
         {"layout": "cover", "tag": "SOLCELLER", "title": "I juni giver hver kWp ca.", "value": "{pv.odense.month.6}", "body": "i Odense, mod syd."},
         {"layout": "stat", "tag": "DECEMBER", "title": "December giver kun", "value": "{pv.odense.month.12}", "body": "Samme anlæg, samme tag."},
         {"layout": "stat", "tag": "EGETFORBRUG", "title": "Uden batteri bruger du selv ca.", "value": "{beregner.egetforbrug_pct}", "body": "af strømmen."},
-        {"layout": "text", "tag": "LINK I BIO", "title": "Kan det betale sig for dig?", "body": "Se regnestykket på energitjekket.dk. Link i bio."}
+        {"layout": "end", "tag": "LÆS GUIDEN", "title": "Kan det betale sig for dig?", "body": "Se regnestykket i guiden. Link i bio."}
       ],
       "caption": "Juni: ca. {pv.odense.month.6} pr. kWp. December: ca. {pv.odense.month.12}.\nTallene er fra PVGIS for et anlæg mod syd i Odense.\nSe, hvad det betyder for regnestykket, på energitjekket.dk/solceller/kan-det-betale-sig (link i bio).",
       "hashtags": ["#solceller", "#solenergi", "#boligejer"]
@@ -127,7 +127,7 @@
         {"layout": "kpi2", "tag": "MED RADIATORER", "title": "Varme om året", "kpis": [{"label": "Luft til vand", "value": "{bolius.ltv_radiator}", "unit": "kr./år"}, {"label": "Jordvarme", "value": "{bolius.jordvarme_radiator}", "unit": "kr./år"}]},
         {"layout": "kpi2", "tag": "MED GULVVARME", "title": "Varme om året", "kpis": [{"label": "Luft til vand", "value": "{bolius.ltv_gulvvarme}", "unit": "kr./år"}, {"label": "Jordvarme", "value": "{bolius.jordvarme_gulvvarme}", "unit": "kr./år"}]},
         {"layout": "text", "tag": "FORSKELLEN", "title": "Jordvarme kræver en grund", "highlight": "kræver", "body": "Slangerne skal graves ned, og kommunen skal give tilladelse. Tjek grunden og reglerne, før du vælger."},
-        {"layout": "text", "tag": "LINK I BIO", "title": "Hvad koster jordvarme?", "body": "Pris, drift, grund og tilladelse i én guide på energitjekket.dk. Linket står i bio."}
+        {"layout": "end", "tag": "LÆS GUIDEN", "title": "Hvad koster jordvarme?", "body": "Pris, drift, grund og tilladelse i én guide. Linket står i bio."}
       ],
       "caption": "Jordvarme koster lidt mindre i drift end luft til vand, viser Bolius' tal for et standardhus.\nMed radiatorer: ca. {bolius.jordvarme_radiator} mod ca. {bolius.ltv_radiator} om året.\nTil gengæld skal der være plads på grunden, og kommunen skal sige ja.\nGuiden om jordvarme ligger på energitjekket.dk/varmepumpe/jordvarme-pris (link i bio).",
       "hashtags": ["#varmepumpe", "#jordvarme", "#boligejer", "#varmeregning"]
@@ -165,7 +165,7 @@
         {"layout": "kpi2", "tag": "SOMMER OG VINTER", "title": "Pr. kWp i Aalborg", "kpis": [{"label": "Juni", "value": "{pv.aalborg.month.6}", "unit": "kWh"}, {"label": "December", "value": "{pv.aalborg.month.12}", "unit": "kWh"}]},
         {"layout": "text", "tag": "DIT TAG", "title": "Vender dit tag en anden vej?", "body": "Tallene gælder et tag mod syd. Har du et andet tal for dit tag, så brug det i beregneren."},
         {"layout": "screenshot", "tag": "AALBORG", "title": "Regler og priser for Aalborg", "screenshot": "by:aalborg:solceller"},
-        {"layout": "text", "tag": "LINK I BIO", "title": "Solceller i Aalborg", "body": "Lokale regler, pris og produktion for kommunen på energitjekket.dk. Linket står i bio."}
+        {"layout": "end", "tag": "AALBORG", "title": "Solceller i Aalborg", "body": "Lokale regler, pris og produktion for kommunen. Linket står i bio."}
       ],
       "caption": "I Aalborg giver et solcelleanlæg mod syd ca. {pv.aalborg.syd} pr. kWp om året, viser PVGIS.\nJuni står for ca. {pv.aalborg.month.6} og december for ca. {pv.aalborg.month.12}.\nRegler, pris og produktion for kommunen står på siden om solceller i Aalborg (link i bio).",
       "hashtags": ["#aalborg", "#solceller", "#nordjylland", "#boligejer"]
@@ -202,7 +202,7 @@
         {"layout": "cover", "tag": "GASFYR", "title": "Har du gasfyr? Det koster ca.", "value": "{bolius.gasfyr}", "body": "om året i et standardhus."},
         {"layout": "stat", "tag": "VARMEPUMPE", "title": "Med varmepumpe og radiatorer", "value": "{bolius.ltv_radiator}", "body": "om året i samme hus."},
         {"layout": "text", "tag": "FØRST", "title": "Kommer der fjernvarme til dig?", "body": "Tjek kommunens varmeplan for din adresse, før du vælger varmepumpe."},
-        {"layout": "text", "tag": "LINK I BIO", "title": "Skift gasfyr i tre trin", "body": "Varmeplan, økonomi og tilskud i én guide på energitjekket.dk. Link i bio."}
+        {"layout": "end", "tag": "LÆS GUIDEN", "title": "Skift gasfyr i tre trin", "body": "Varmeplan, økonomi og tilskud i én guide. Link i bio."}
       ],
       "caption": "Gasfyr: ca. {bolius.gasfyr} om året. Varmepumpe med radiatorer: ca. {bolius.ltv_radiator}.\nTallene er Bolius' for et standardhus på {bolius.hus.m2}.\nStart med varmeplanen for din adresse. Guiden om at skifte gasfyr ligger på energitjekket.dk (link i bio).",
       "hashtags": ["#varmepumpe", "#gasfyr", "#boligejer"]
@@ -221,7 +221,7 @@
         {"layout": "text", "tag": "ANDET TJEK", "title": "Hvor meget bruger du?", "body": "Find dit forbrug på årsopgørelsen. Bolius' standardhus bruger ca. {bolius.hus.kwh} varme om året."},
         {"layout": "text", "tag": "TREDJE TJEK", "title": "Radiatorer eller gulvvarme?", "body": "Begge dele kan bruges. Med radiatorer regner Bolius med ca. {bolius.ltv_radiator} om året for en varmepumpe."},
         {"layout": "text", "tag": "FJERDE TJEK", "title": "Tilsagn før kontrakt", "highlight": "før", "body": "Vent med at skrive under, til du har fået tilsagn om tilskud. Ellers kan du miste det."},
-        {"layout": "text", "tag": "LINK I BIO", "title": "Varmepumpepuljen 2026", "body": "Status, krav og frist samlet på energitjekket.dk. Linket står i bio."}
+        {"layout": "end", "tag": "LÆS GUIDEN", "title": "Varmepumpepuljen 2026", "body": "Status, krav og frist samlet ét sted. Linket står i bio."}
       ],
       "caption": "Fire ting, der er værd at tjekke, før du skifter olie- eller gasfyr ud.\nVarmeplanen, dit forbrug, dine radiatorer og rækkefølgen for tilskud.\nGem opslaget, så har du listen klar, når du går i gang.\nStatus og krav for Varmepumpepuljen står på energitjekket.dk/varmepumpe/tilskud (link i bio).",
       "hashtags": ["#varmepumpe", "#tjekliste", "#varmepumpepuljen", "#boligejer"]
@@ -240,7 +240,7 @@
         {"layout": "cover", "tag": "NÆSTVED", "title": "Solceller i Næstved i november", "value": "{pv.naestved.month.11}", "body": "pr. kWp mod syd."},
         {"layout": "stat", "tag": "JUNI", "title": "I juni giver samme anlæg", "value": "{pv.naestved.month.6}", "body": "pr. kWp."},
         {"layout": "stat", "tag": "HELE ÅRET", "title": "Et helt år i Næstved", "value": "{pv.naestved.syd}", "body": "pr. kWp. Det højeste af byerne på energitjekket.dk."},
-        {"layout": "text", "tag": "LINK I BIO", "title": "Solceller i Næstved", "body": "Produktion, regler og stråtage for kommunen på energitjekket.dk. Link i bio."}
+        {"layout": "end", "tag": "NÆSTVED", "title": "Solceller i Næstved", "body": "Produktion, regler og stråtage for kommunen. Link i bio."}
       ],
       "caption": "November giver ca. {pv.naestved.month.11} pr. kWp i Næstved. Juni giver ca. {pv.naestved.month.6}.\nHele året ender på ca. {pv.naestved.syd} pr. kWp mod syd, viser PVGIS.\nProduktion og lokale regler står på siden om solceller i Næstved (link i bio).",
       "hashtags": ["#næstved", "#solceller", "#sydsjælland", "#boligejer"]
