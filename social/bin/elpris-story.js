@@ -46,13 +46,15 @@ export function barsSlide(date, area, isTomorrow) {
     title: `Billigste time ${day}: ${fid(date, area, 'billigste_time')}`,
     highlight: fid(date, area, 'billigste_time'),
     // Elpris-tal er altid spotpris (uden afgifter og nettarif) og skal hedde det.
-    body: `Spotpris: billigst ${fid(date, area, 'billigste_pris')} pr. kWh ${fid(date, area, 'billigste_time')}, dyrest ${fid(date, area, 'dyreste_pris')} ${fid(date, area, 'dyreste_time')}.`,
+    // Billigste time står i titlen (gul); brødteksten gentager den ikke, så kun ét tal er gult.
+    body: `Spotpris: billigst ${fid(date, area, 'billigste_pris')} pr. kWh, dyrest ${fid(date, area, 'dyreste_pris')} ${fid(date, area, 'dyreste_time')}.`,
     cta: CTA,
     bars: { date, area },
   };
 }
 
-export const storyTag = (date, area) => `ELPRIS · ${danishWeekday(date).toUpperCase()} ${dayMonth(date)} · ${AREA_NAMES[area]}`;
+// Ugedagen står i titlen; tagget holdes kort, så pillen bliver inden for den sikre margin.
+export const storyTag = (date, area) => `ELPRIS · ${dayMonth(date)} · ${AREA_NAMES[area]}`;
 const withTag = (slide, date, area) => ({ ...slide, tag: storyTag(date, area) });
 
 function buildPost(id, type, slides, extra, sources) {

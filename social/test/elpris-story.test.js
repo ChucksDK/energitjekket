@@ -106,13 +106,13 @@ test('--reel without any audio file exits 4 naming the problem', () => {
 test('story text names the price as spotpris (finding 2)', () => {
   const src = loadSources(sourcesFile);
   const post = resolvePost({ id: 'x', type: 'carousel', slides: [barsSlide('2026-10-27', 'DK1', false)] }, src);
-  assert.match(post.slides[0].body, /^Spotpris: billigst \d+,\d\d kr\. pr\. kWh kl\. \d\d, dyrest -?\d+,\d\d kr\. kl\. \d\d\.$/);
+  assert.match(post.slides[0].body, /^Spotpris: billigst -?\d+,\d\d kr\. pr\. kWh, dyrest -?\d+,\d\d kr\. kl\. \d\d\.$/);
   assert.ok(post.slides[0].sources.every((n) => /spotpris/.test(n)));
 });
 
 test('story tag names the price area, not DK1/DK2 (finding 7)', () => {
-  assert.equal(storyTag('2026-10-27', 'DK1'), 'ELPRIS · TIRSDAG 27/10 · VESTDANMARK');
-  assert.equal(storyTag('2026-10-27', 'DK2'), 'ELPRIS · TIRSDAG 27/10 · ØSTDANMARK');
+  assert.equal(storyTag('2026-10-27', 'DK1'), 'ELPRIS · 27/10 · VESTDANMARK');
+  assert.equal(storyTag('2026-10-27', 'DK2'), 'ELPRIS · 27/10 · ØSTDANMARK');
 });
 
 test('pickAudio rotates through the folder by date, deterministically (finding 7)', () => {
