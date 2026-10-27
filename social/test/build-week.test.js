@@ -323,3 +323,19 @@ test('/approve answers 500 JSON on malformed build.json, config or manifest and 
     server.close();
   }
 });
+
+test('bg images next to the brief are copied into the week dir (finding 17)', async () => {
+  const p = carousel();
+  p.slides[0].bg = 'assets/brief-own/cover-b.png';
+  fs.mkdirSync(path.join(tmp, 'assets', 'brief-own'), { recursive: true });
+  fs.copyFileSync(path.join(REPO_ROOT, 'site', 'og', 'beregner.png'), path.join(tmp, 'assets', 'brief-own', 'cover-b.png'));
+  const brief = writeBrief('brief-assets.json', [p]);
+  await run('node', args(brief), { cwd: REPO_ROOT, maxBuffer: 1 << 24 });
+  assert.deepEqual(readJson('errors.json'), []);
+  assert.ok(fs.existsSync(path.join(weekDir, 'assets', 'brief-own', 'cover-b.png')));
+  // En sti ud af mappen afvises.
+  const bad = carousel();
+  bad.slides[0].bg = '../../outside.png';
+  await assert.rejects(run('node', args(writeBrief('brief-assets-bad.json', [bad])), { cwd: REPO_ROOT, maxBuffer: 1 << 24 }), (e) => e.code === 1);
+  assert.match(readJson('errors.json')[0].errors.join('|'), /bg skal være en relativ sti/);
+});

@@ -41,9 +41,25 @@ export const captionText = (post) =>
 
 const slotKey = (p) => String(p.slot);
 
+/**
+ * Billeder (bg) ligger ved siden af briefen, fx social/briefs/assets/<uge>/oliefyr.png med
+ * "bg": "assets/<uge>/oliefyr.png". De kopieres til samme relative sti i ugemappen, så ugen er
+ * selvstændig og kan bygges igen fra et rent checkout. Ligger billedet kun i ugemappen, bruges det dér.
+ */
+function copyBriefAsset(bg, briefDir, weekDir) {
+  const rel = path.normalize(String(bg));
+  if (path.isAbsolute(rel) || rel.split(path.sep).includes('..')) throw new Error(`bg skal være en relativ sti uden "..": ${bg}`);
+  const src = path.join(briefDir, rel);
+  if (!fs.existsSync(src)) return;
+  const dest = path.join(weekDir, rel);
+  fs.mkdirSync(path.dirname(dest), { recursive: true });
+  fs.copyFileSync(src, dest);
+}
+
 export async function buildWeek(argv, log = console.log) {
   const o = parseArgs(argv);
   const brief = JSON.parse(fs.readFileSync(o.briefs[0], 'utf8'));
+  const briefDir = path.dirname(path.resolve(o.briefs[0]));
   if (typeof brief.week !== 'string' || !SAFE_WEEK.test(brief.week)) throw new Error(`Briefen mangler et gyldigt "week"`);
   if (!Array.isArray(brief.posts)) throw new Error('Briefen mangler "posts"');
 
@@ -90,6 +106,7 @@ export async function buildWeek(argv, log = console.log) {
           errors.push({ id, errors: errs });
           continue;
         }
+        for (const sl of post.slides) if (sl?.bg) copyBriefAsset(sl.bg, briefDir, weekDir);
         const resolved = resolvePost(post, sources);
         for (const s of resolved.slides) if (s.layout === 'screenshot') await shoot(s.screenshot);
 

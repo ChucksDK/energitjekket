@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { loadSources } from '../lib/sources.js';
-import { SOCIAL_ROOT } from '../lib/paths.js';
+import { REPO_ROOT, SOCIAL_ROOT } from '../lib/paths.js';
 import { validatePost, resolvePost } from '../lib/brief.js';
 import { slideDuration, CROSSFADE } from '../render/short.js';
 import { pagePath } from '../render/screenshot.js';
@@ -68,4 +68,39 @@ test('screenshots, audio and short durations are buildable', () => {
     const total = slides.reduce((a, sl) => a + slideDuration(sl), 0) - CROSSFADE * (slides.length - 1);
     assert.ok(total >= 10 && total <= 20, `${p.id}: ${total.toFixed(1)} s`);
   }
+});
+
+// --- finding 21 ---
+test('captions: 3-6 lines, mention "link i bio"; 3-5 hashtags', () => {
+  for (const p of brief.posts) {
+    const lines = p.caption.split('\n').filter((l) => l.trim());
+    assert.ok(lines.length >= 3 && lines.length <= 6, `${p.id}: ${lines.length} linjer`);
+    assert.match(p.caption, /link i bio/i, p.id);
+    assert.ok(p.hashtags.length >= 3 && p.hashtags.length <= 5, `${p.id}: ${p.hashtags.length} hashtags`);
+  }
+});
+
+test('every target_url is a page under site/', () => {
+  for (const p of brief.posts) {
+    const rel = new URL(p.target_url).pathname.split('/').filter(Boolean);
+    assert.ok(fs.existsSync(path.join(REPO_ROOT, 'site', ...rel, 'index.html')), `${p.id}: ${p.target_url}`);
+  }
+});
+
+test('bg images exist next to the brief (tracked in git)', () => {
+  const bgs = brief.posts.flatMap((p) => p.slides.filter((sl) => sl.bg).map((sl) => [p.id, sl.bg]));
+  assert.ok(bgs.length >= 1);
+  for (const [id, bg] of bgs) assert.ok(fs.existsSync(path.join(path.dirname(BRIEF), bg)), `${id}: ${bg}`);
+});
+
+test('city posts use different cities', () => {
+  const cities = brief.posts.filter((p) => p.city).map((p) => p.city);
+  assert.equal(new Set(cities).size, cities.length, cities.join(','));
+});
+
+test('posts end on an end slide (link from target_url), not a "LINK I BIO" text slide', () => {
+  for (const p of brief.posts) {
+    assert.ok(!p.slides.some((sl) => sl.tag === 'LINK I BIO'), p.id);
+  }
+  assert.ok(brief.posts.filter((p) => p.slides.at(-1).layout === 'end').length >= 10);
 });

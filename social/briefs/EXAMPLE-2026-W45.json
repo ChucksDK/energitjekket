@@ -10,7 +10,7 @@
       "quote": false,
       "target_url": "https://energitjekket.dk/varmepumpe/skift-oliefyr/",
       "slides": [
-        {"layout": "cover", "tag": "VARMEPUMPE", "title": "Har du stadig oliefyr?", "value": "{bolius.oliefyr}", "body": "Så meget koster varmen om året i et standardhus på {bolius.hus.m2}.", "bg": "assets/oliefyr.png"},
+        {"layout": "cover", "tag": "VARMEPUMPE", "title": "Har du stadig oliefyr?", "value": "{bolius.oliefyr}", "body": "Så meget koster varmen om året i et standardhus på {bolius.hus.m2}.", "bg": "assets/EXAMPLE-2026-W45/oliefyr.png"},
         {"layout": "stat", "tag": "OLIEFYR", "title": "Varme og varmt vand med oliefyr", "value": "{bolius.oliefyr}", "body": "om året. Huset er på {bolius.hus.m2} og bruger ca. {bolius.hus.kwh} varme."},
         {"layout": "kpi2", "tag": "SAMME HUS", "title": "Oliefyr eller varmepumpe", "body": "Varmepumpen er luft til vand. Begge med radiatorer.", "kpis": [{"label": "Oliefyr", "value": "{bolius.oliefyr}", "unit": "kr./år"}, {"label": "Varmepumpe", "value": "{bolius.ltv_radiator}", "unit": "kr./år"}]},
         {"layout": "text", "tag": "HUSK", "title": "Det er udgiften til drift", "highlight": "drift", "body": "Tallene viser varmen om året. Prisen for selve varmepumpen skal regnes med for sig."},
@@ -70,7 +70,7 @@
       "slides": [
         {"layout": "cover", "tag": "MYTE", "title": "Kræver en varmepumpe gulvvarme?", "body": "Nej. Se Bolius' tal for et standardhus."},
         {"layout": "kpi2", "tag": "LUFT TIL VAND", "title": "Varme om året", "kpis": [{"label": "Radiatorer", "value": "{bolius.ltv_radiator}", "unit": "kr./år"}, {"label": "Gulvvarme", "value": "{bolius.ltv_gulvvarme}", "unit": "kr./år"}]},
-        {"layout": "text", "tag": "FORKLARING", "title": "Gulvvarme er lidt billigere i drift", "body": "Gulvvarme kører med lavere temperatur og giver en højere SCOP. Radiatorer kan sagtens bruges."},
+        {"layout": "text", "tag": "FORKLARING", "title": "Gulvvarme er lidt billigere i drift", "body": "Det viser Bolius' tal for samme hus. Radiatorer kan sagtens bruges."},
         {"layout": "end", "tag": "LÆS GUIDEN", "title": "Hvad koster en varmepumpe?", "body": "Pris, drift og tilskud samlet. Link i bio."}
       ],
       "caption": "En varmepumpe kan sagtens køre på radiatorer.\nBolius regner med ca. {bolius.ltv_radiator} om året med radiatorer og ca. {bolius.ltv_gulvvarme} med gulvvarme.\nPris og drift for en varmepumpe (luft til vand) finder du på energitjekket.dk/varmepumpe/pris (link i bio).",
@@ -87,12 +87,12 @@
       "slides": [
         {"layout": "cover", "tag": "SOLCELLER", "title": "Hvad laver solcellerne i vinter?", "body": "Ikke ret meget. Her er tallene for et anlæg mod syd i Odense."},
         {"layout": "kpi2", "tag": "SOMMER OG VINTER", "title": "Produktion pr. kWp i Odense", "kpis": [{"label": "Juni", "value": "{pv.odense.month.6}", "unit": "kWh"}, {"label": "December", "value": "{pv.odense.month.12}", "unit": "kWh"}]},
-        {"layout": "stat", "tag": "HELE ÅRET", "title": "Et helt år pr. kWp", "value": "{pv.odense.syd}", "body": "mod syd i Odense. Det meste kommer fra april til august."},
+        {"layout": "stat", "tag": "HELE ÅRET", "title": "Et helt år pr. kWp", "value": "{pv.odense.syd}", "body": "mod syd i Odense. Maj giver ca. {pv.odense.month.5}, november ca. {pv.odense.month.11}."},
         {"layout": "stat", "tag": "EGETFORBRUG", "title": "Så meget bruger du selv", "value": "{beregner.egetforbrug_pct}", "body": "af strømmen uden batteri. Resten sælges, og den strøm er mindre værd."},
-        {"layout": "text", "tag": "HVAD BETYDER DET", "title": "Regnestykket afgøres om sommeren", "highlight": "sommeren", "body": "Og af, hvor meget af strømmen du selv bruger. Vintermånederne betyder lidt for økonomien."},
+        {"layout": "text", "tag": "HVAD BETYDER DET", "title": "Sommeren giver mest strøm", "highlight": "mest", "body": "Sådan ser PVGIS' månedstal ud. Og det betyder meget, hvor meget af strømmen du selv bruger."},
         {"layout": "end", "tag": "LÆS GUIDEN", "title": "Kan solceller betale sig?", "body": "Guiden viser, hvad en kWh solstrøm er værd for dig. Linket står i bio."}
       ],
-      "caption": "Et solcelleanlæg mod syd i Odense giver ca. {pv.odense.month.6} pr. kWp i juni og ca. {pv.odense.month.12} i december.\nOver et helt år bliver det ca. {pv.odense.syd} pr. kWp.\nDerfor er sommeren og dit eget forbrug det, der afgør regnestykket.\nLæs guiden om, hvorvidt solceller kan betale sig, på energitjekket.dk (link i bio).",
+      "caption": "Et solcelleanlæg mod syd i Odense giver ca. {pv.odense.month.6} pr. kWp i juni og ca. {pv.odense.month.12} i december.\nOver et helt år bliver det ca. {pv.odense.syd} pr. kWp.\nSommeren giver mest strøm, og hvor meget du selv bruger, betyder meget for regnestykket.\nLæs guiden om, hvorvidt solceller kan betale sig, på energitjekket.dk (link i bio).",
       "hashtags": ["#solceller", "#solenergi", "#boligejer", "#odense"]
     },
     {
@@ -239,7 +239,7 @@
       "slides": [
         {"layout": "cover", "tag": "NÆSTVED", "title": "Solceller i Næstved i november", "value": "{pv.naestved.month.11}", "body": "pr. kWp mod syd."},
         {"layout": "stat", "tag": "JUNI", "title": "I juni giver samme anlæg", "value": "{pv.naestved.month.6}", "body": "pr. kWp."},
-        {"layout": "stat", "tag": "HELE ÅRET", "title": "Et helt år i Næstved", "value": "{pv.naestved.syd}", "body": "pr. kWp. Det højeste af byerne på energitjekket.dk."},
+        {"layout": "stat", "tag": "HELE ÅRET", "title": "Et helt år i Næstved", "value": "{pv.naestved.syd}", "body": "pr. kWp mod syd, ifølge PVGIS."},
         {"layout": "end", "tag": "NÆSTVED", "title": "Solceller i Næstved", "body": "Produktion, regler og stråtage for kommunen. Link i bio."}
       ],
       "caption": "November giver ca. {pv.naestved.month.11} pr. kWp i Næstved. Juni giver ca. {pv.naestved.month.6}.\nHele året ender på ca. {pv.naestved.syd} pr. kWp mod syd, viser PVGIS.\nProduktion og lokale regler står på siden om solceller i Næstved (link i bio).",
