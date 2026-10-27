@@ -1,0 +1,17 @@
+[
+ {"id":"bolius.hus.m2","value":130,"unit":"m2","label":"Bolius' standardhus, størrelse","source_key":"bolius_varme","site_text":"130 m²"},
+ {"id":"bolius.hus.kwh","value":18100,"unit":"kwh","label":"Bolius' standardhus, årligt varmeforbrug","source_key":"bolius_varme","site_text":"18.100 kWh"},
+ {"id":"bolius.oliefyr","value":32388,"unit":"kr","label":"Årlig varmeudgift, oliefyr","source_key":"bolius_varme","site_text":"32.388 kr."},
+ {"id":"bolius.gasfyr","value":18433,"unit":"kr","label":"Årlig varmeudgift, gasfyr","source_key":"bolius_varme","site_text":"18.433 kr."},
+ {"id":"bolius.elradiator","value":30974,"unit":"kr","label":"Årlig varmeudgift, elradiatorer","source_key":"bolius_varme","site_text":"30.974 kr."},
+ {"id":"bolius.fjernvarme","value":16953,"unit":"kr","label":"Årlig varmeudgift, fjernvarme","source_key":"bolius_varme","site_text":"16.953 kr."},
+ {"id":"bolius.ltv_radiator","value":9386,"unit":"kr","label":"Årlig varmeudgift, luft-til-vand-varmepumpe med radiatorer","source_key":"bolius_varme","site_text":"9.386 kr."},
+ {"id":"bolius.ltv_gulvvarme","value":7288,"unit":"kr","label":"Årlig varmeudgift, luft-til-vand-varmepumpe med gulvvarme","source_key":"bolius_varme","site_text":"7.288 kr."},
+ {"id":"bolius.jordvarme_radiator","value":8725,"unit":"kr","label":"Årlig varmeudgift, jordvarme med radiatorer","source_key":"bolius_varme","site_text":"8.725 kr."},
+ {"id":"bolius.jordvarme_gulvvarme","value":6960,"unit":"kr","label":"Årlig varmeudgift, jordvarme med gulvvarme","source_key":"bolius_varme","site_text":"6.960 kr."},
+ {"id":"beregner.scop","value":3.5,"unit":"scop","label":"Varmepumpens SCOP (beregnerens standard)","source_key":"es_vp","site_text":"name=\"scop\" value=\"3.5\""},
+ {"id":"beregner.elpris_dk1","value":1.45,"unit":"kr_per_kwh","label":"Samlet elpris i DK1, fyringssæsonen 2026","source_key":"es_vp","site_text":"1,45 kr. i DK1"},
+ {"id":"beregner.elpris_dk2","value":1.55,"unit":"kr_per_kwh","label":"Samlet elpris i DK2, fyringssæsonen 2026","source_key":"es_vp","site_text":"1,55 kr. i DK2"},
+ {"id":"beregner.anlaeg_kwp","value":6,"unit":"kwp","label":"Typisk parcelhusanlæg","source_key":"es_sol","site_text":"Et typisk parcelhusanlæg er 6 kWp"},
+ {"id":"beregner.egetforbrug_pct","value":35,"unit":"pct","label":"Egetforbrug uden batteri","source_key":"es_sol","site_text":"35 % uden batteri"}
+]
