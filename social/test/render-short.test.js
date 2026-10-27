@@ -84,7 +84,10 @@ test('seek: values count up with Danish formatting, end exactly on the final tex
     },
     { width: 1080, height: 1920 },
   );
-  for (const k of ['a', 'b']) assert.match(res[k].text, /^\d{1,2}(\.\d{3})? kr\.$/.replace ? /^[\d.]+ kr\.$/ : /./, `${k}: ${res[k].text}`);
+  for (const k of ['a', 'b']) {
+    assert.match(res[k].text, /^[\d.]+\u00a0kr\.$/, `${k}: ${res[k].text}`);
+    assert.notEqual(res[k].text, res.end.text, `${k} er allerede sluttallet`);
+  }
   assert.notEqual(res.a.text, res.end.text);
   assert.equal(res.end.text, '32.388 kr.');
   assert.equal(res.a.w, res.end.w);
