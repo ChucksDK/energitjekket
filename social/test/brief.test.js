@@ -120,9 +120,72 @@ test('short requires audio', () => {
   assert.ok(has(validatePost(sh, s), 'audio'));
 });
 
-test('brief-bad.json: every post has at least one error', () => {
-  assert.ok(bad.posts.length >= 5);
-  for (const p of bad.posts) assert.ok(validatePost(p, s).length > 0, p.id);
+test('brief-bad.json: each post yields its specific error', () => {
+  const expected = {
+    'bad-digits': 'tal uden kilde: "30.000"',
+    'bad-banned': 'forbudt: "book nu"',
+    'bad-quote': 'tilbud',
+    'bad-url': 'target_url skal starte med',
+    'bad-count': 'carousel skal have 5-7 slides',
+    'bad-bg': 'bg kun på første slide',
+    'bad-lengths': 'for langt',
+    'bad-fact': 'Ukendt fakta-id: bolius.findes.ikke',
+    'bad-short-count': 'short skal have 3-6 slides',
+  };
+  assert.deepEqual(bad.posts.map((p) => p.id).sort(), Object.keys(expected).sort());
+  for (const p of bad.posts) assert.ok(has(validatePost(p, s), expected[p.id]), p.id);
+});
+
+test('digits in highlight and kpi label/value/unit', () => {
+  assert.ok(has(mod((p) => (p.slides[1].highlight = 'ca. 500')), 'highlight: tal uden kilde: "500"'));
+  assert.ok(has(mod((p) => (p.slides[2].kpis[0].label = 'Over 40')), 'kpis[0].label: tal uden kilde'));
+  assert.ok(has(mod((p) => (p.slides[2].kpis[0].value = '123')), 'kpis[0].value: tal uden kilde'));
+  assert.ok(has(mod((p) => (p.slides[2].kpis[0].unit = 'kr./9')), 'kpis[0].unit: tal uden kilde'));
+});
+
+test('non-string text fields are errors', () => {
+  assert.ok(has(mod((p) => (p.slides[0].value = 32388)), 'value: skal være tekst'));
+  assert.ok(has(mod((p) => (p.slides[1].title = 30000)), 'title: skal være tekst'));
+  assert.ok(has(mod((p) => (p.slides[2].kpis[0].value = 5)), 'kpis[0].value: skal være tekst'));
+  assert.ok(has(mod((p) => (p.slides[2].kpis[0].unit = 5)), 'kpis[0].unit: skal være tekst'));
+  assert.ok(has(mod((p) => (p.caption = 7)), 'caption: skal være tekst'));
+  assert.ok(has(mod((p) => (p.hashtags = [1])), 'hashtag 1: skal være tekst'));
+});
+
+test('unicode digits and lookalikes', () => {
+  assert.ok(has(mod((p) => (p.caption = 'Spar ３０ kr')), 'tal uden kilde'));
+  assert.ok(has(mod((p) => (p.caption = 'Spar ٣٠ kr')), 'tal uden kilde'));
+  assert.ok(has(mod((p) => (p.caption = 'Halv ½ pris')), 'tal uden kilde'));
+  assert.ok(has(mod((p) => (p.caption = 'Se nu！')), 'forbudt: "!"'));
+  assert.ok(has(mod((p) => (p.caption = 'gra\u00adtis')), 'forbudt: "gratis"'));
+  assert.ok(has(mod((p) => (p.caption = 'gra\u200btis')), 'forbudt: "gratis"'));
+});
+
+test('placeholders are not allowed in hashtags or kpi unit', () => {
+  assert.ok(has(mod((p) => (p.hashtags = ['#{nope.x}'])), 'hashtag 1'));
+  assert.ok(has(mod((p) => (p.hashtags = ['#{bolius.oliefyr}'])), 'pladsholdere'));
+  assert.ok(has(mod((p) => (p.slides[2].kpis[0].unit = '{bolius.oliefyr}')), 'kpis[0].unit: pladsholdere'));
+});
+
+test('malformed posts return errors instead of throwing', () => {
+  for (const fn of [
+    (p) => (p.slides[1] = null),
+    (p) => (p.slides[2].kpis = 'x'),
+    (p) => (p.slides[2].kpis = [null]),
+    (p) => (p.hashtags = 'x'),
+    (p) => (p.slides = 'x'),
+    (p) => delete p.slides,
+  ]) {
+    const e = mod(fn);
+    assert.ok(e.length > 0);
+  }
+  assert.ok(validatePost(null, s).length > 0);
+});
+
+test('tilbud path detection: encoded and prefix', () => {
+  assert.ok(has(mod((p) => (p.target_url = 'https://energitjekket.dk/%74ilbud/')), 'tilbud'));
+  assert.ok(has(mod((p) => (p.target_url = 'https://energitjekket.dk/tilbud')), 'tilbud'));
+  assert.ok(!has(mod((p) => (p.target_url = 'https://energitjekket.dk/beregner/?ref=tilbud')), 'target_url peger'));
 });
 
 test('resolvePost resolves text, kpi values without unit, and collects sources', () => {

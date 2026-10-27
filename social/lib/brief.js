@@ -23,123 +23,157 @@ export function resolveText(text, sources, { stripUnits = false } = {}) {
   return { text: out, factIds };
 }
 
-// Alle tekstfelter på en slide: [sti, tekst, stripUnits]
-function slideFields(slide) {
-  const f = [];
-  for (const k of ['tag', 'title', 'value', 'body', 'highlight']) {
-    if (typeof slide[k] === 'string') f.push([k, slide[k], false]);
-  }
-  (slide.kpis || []).forEach((k, i) => {
-    const hasUnit = Boolean(k.unit);
-    if (typeof k.label === 'string') f.push([`kpis[${i}].label`, k.label, false]);
-    if (typeof k.value === 'string') f.push([`kpis[${i}].value`, k.value, hasUnit]);
-    if (typeof k.unit === 'string') f.push([`kpis[${i}].unit`, k.unit, false]);
+const isObj = (x) => x !== null && typeof x === 'object' && !Array.isArray(x);
+const norm = (s) => s.normalize('NFKC').replace(/\p{Cf}/gu, '');
+
+// EN tabel over tekstfelter: bruges af både validering og opløsning.
+// visit(path, value, {placeholders, strip}, ctx) returnerer ny værdi; struktur-fejl rapporteres via report(msg).
+function walkPost(post, visit, report) {
+  const out = { ...post };
+  const field = (obj, key, path, opts) => {
+    if (obj[key] === undefined || obj[key] === null) return;
+    obj[key] = visit(path, obj[key], opts);
+  };
+
+  if (post.slides !== undefined && !Array.isArray(post.slides)) report('slides skal være en liste');
+  const slides = Array.isArray(post.slides) ? post.slides : [];
+  out.slides = slides.map((slide, i) => {
+    const n = `slide ${i + 1}`;
+    if (!isObj(slide)) {
+      report(`${n}: skal være et objekt`);
+      return slide;
+    }
+    const s = { ...slide };
+    for (const k of ['tag', 'title', 'value', 'body', 'highlight']) {
+      field(s, k, `${n} ${k}`, { placeholders: true, slide: i });
+    }
+    if (s.kpis !== undefined) {
+      if (!Array.isArray(s.kpis)) {
+        report(`${n}: kpis skal være en liste`);
+      } else {
+        s.kpis = s.kpis.map((kpi, j) => {
+          if (!isObj(kpi)) {
+            report(`${n} kpis[${j}]: skal være et objekt`);
+            return kpi;
+          }
+          const k = { ...kpi };
+          const p = `${n} kpis[${j}]`;
+          field(k, 'label', `${p}.label`, { placeholders: true, slide: i });
+          field(k, 'value', `${p}.value`, { placeholders: true, strip: Boolean(kpi.unit), slide: i });
+          field(k, 'unit', `${p}.unit`, { placeholders: false, slide: i });
+          return k;
+        });
+      }
+    }
+    return s;
   });
-  return f;
+  field(out, 'caption', 'caption', { placeholders: true });
+  if (out.hashtags !== undefined) {
+    if (!Array.isArray(out.hashtags)) report('hashtags skal være en liste');
+    else out.hashtags = out.hashtags.map((h, i) => visit(`hashtag ${i + 1}`, h, { placeholders: false }));
+  }
+  return out;
 }
 
 function textErrors(where, text, post, errors) {
-  const lower = text.toLowerCase();
+  const clean = norm(text);
+  const lower = clean.toLowerCase();
   for (const w of BANNED) if (lower.includes(w)) errors.push(`${where}: forbudt: "${w}"`);
   if (post.quote !== true && lower.includes('tilbud')) {
     errors.push(`${where}: "tilbud" er kun tilladt når quote er true`);
   }
-  const stripped = text.replace(PLACEHOLDER, ' ').replace(YEAR, ' ');
-  for (const m of stripped.match(/\d[\d.,]*\d|\d/g) || []) {
+  const stripped = clean.replace(PLACEHOLDER, ' ').replace(YEAR, ' ');
+  for (const m of stripped.match(/\p{N}[\p{N}.,]*\p{N}|\p{N}/gu) || []) {
     errors.push(`${where}: tal uden kilde: "${m}"`);
   }
 }
 
 export function validatePost(post, sources) {
   const errors = [];
-  const slides = Array.isArray(post.slides) ? post.slides : [];
+  if (!isObj(post)) return ['post skal være et objekt'];
+  const slideCount = Array.isArray(post.slides) ? post.slides.length : 0;
 
   if (!TYPES.includes(post.type)) errors.push(`type skal være carousel eller short (fik "${post.type}")`);
-  if (post.type === 'carousel' && (slides.length < 5 || slides.length > 7)) {
-    errors.push(`carousel skal have 5-7 slides (har ${slides.length})`);
+  if (post.type === 'carousel' && (slideCount < 5 || slideCount > 7)) {
+    errors.push(`carousel skal have 5-7 slides (har ${slideCount})`);
   }
   if (post.type === 'short') {
-    if (slides.length < 3 || slides.length > 6) errors.push(`short skal have 3-6 slides (har ${slides.length})`);
+    if (slideCount < 3 || slideCount > 6) errors.push(`short skal have 3-6 slides (har ${slideCount})`);
     if (!post.audio) errors.push('short mangler audio');
   }
 
   if (typeof post.target_url !== 'string' || !post.target_url.startsWith(URL_PREFIX)) {
     errors.push(`target_url skal starte med ${URL_PREFIX}`);
-  } else if (post.quote !== true && /\/tilbud(\/|$|\?|#)/i.test(post.target_url)) {
-    errors.push('target_url peger på tilbud, men quote er ikke true');
+  } else if (post.quote !== true) {
+    let p = post.target_url.slice(URL_PREFIX.length - 1).split(/[?#]/)[0];
+    try {
+      p = decodeURIComponent(p);
+    } catch {
+      errors.push('target_url kan ikke afkodes');
+    }
+    if (/^\/tilbud(\/|$)/i.test(p) || /\/tilbud(\/|$)/i.test(p)) {
+      errors.push('target_url peger på tilbud, men quote er ikke true');
+    }
   }
 
   const unknown = new Set();
-  const checkFacts = (where, text) => {
-    for (const [, id] of text.matchAll(PLACEHOLDER)) {
-      try {
-        getFact(sources, id);
-      } catch (e) {
-        if (!unknown.has(id)) {
-          unknown.add(id);
-          errors.push(`${where}: ${e.message}`);
+  const visit = (where, value, opts) => {
+    if (typeof value !== 'string') {
+      errors.push(`${where}: skal være tekst (fik ${typeof value})`);
+      return value;
+    }
+    textErrors(where, value, post, errors);
+    if (!opts.placeholders) {
+      if (/[{}]/.test(value)) errors.push(`${where}: pladsholdere er ikke tilladt her`);
+    } else {
+      for (const [, id] of value.matchAll(PLACEHOLDER)) {
+        try {
+          getFact(sources, id);
+        } catch (e) {
+          if (!unknown.has(id)) {
+            unknown.add(id);
+            errors.push(`${where}: ${e.message}`);
+          }
         }
       }
     }
+    const m = /^(slide \d+) (tag|title|body)$/.exec(where);
+    if (m && value.length > LIMITS[m[2]]) {
+      errors.push(`${where}: for langt (${value.length} tegn, max ${LIMITS[m[2]]})`);
+    }
+    return value;
   };
+  walkPost(post, visit, (msg) => errors.push(msg));
 
-  slides.forEach((slide, i) => {
-    const n = `slide ${i + 1}`;
-    if (!LAYOUTS.includes(slide.layout)) errors.push(`${n}: ukendt layout "${slide.layout}"`);
-    if (slide.bg && i > 0) errors.push(`${n}: bg kun på første slide`);
-    for (const [k, text] of slideFields(slide)) {
-      textErrors(`${n} ${k}`, text, post, errors);
-      checkFacts(`${n} ${k}`, text);
-    }
-    for (const [k, max] of Object.entries(LIMITS)) {
-      if (typeof slide[k] === 'string' && slide[k].length > max) {
-        errors.push(`${n} ${k}: for langt (${slide[k].length} tegn, max ${max})`);
-      }
-    }
-  });
-
-  if (typeof post.caption === 'string') {
-    textErrors('caption', post.caption, post, errors);
-    checkFacts('caption', post.caption);
+  if (Array.isArray(post.slides)) {
+    post.slides.forEach((slide, i) => {
+      if (!isObj(slide)) return;
+      const n = `slide ${i + 1}`;
+      if (!LAYOUTS.includes(slide.layout)) errors.push(`${n}: ukendt layout "${slide.layout}"`);
+      if (slide.bg && i > 0) errors.push(`${n}: bg kun på første slide`);
+    });
   }
-  (post.hashtags || []).forEach((h, i) => textErrors(`hashtag ${i + 1}`, String(h), post, errors));
-
   return errors;
 }
 
 export function resolvePost(post, sources) {
   const all = new Set();
-  const used = (ids) => ids.forEach((id) => all.add(getFact(sources, id).source.name));
-
-  const slides = (post.slides || []).map((slide) => {
-    const names = new Set();
-    const res = (text, strip = false) => {
-      const r = resolveText(text, sources, { stripUnits: strip });
-      r.factIds.forEach((id) => names.add(getFact(sources, id).source.name));
-      return r.text;
-    };
-    const out = { ...slide };
-    for (const k of ['tag', 'title', 'value', 'body', 'highlight']) {
-      if (typeof slide[k] === 'string') out[k] = res(slide[k]);
+  const perSlide = new Map();
+  const visit = (_where, value, opts) => {
+    if (typeof value !== 'string' || !opts.placeholders) return value;
+    const r = resolveText(value, sources, { stripUnits: Boolean(opts.strip) });
+    for (const id of r.factIds) {
+      const name = getFact(sources, id).source.name;
+      all.add(name);
+      if (opts.slide !== undefined) {
+        if (!perSlide.has(opts.slide)) perSlide.set(opts.slide, new Set());
+        perSlide.get(opts.slide).add(name);
+      }
     }
-    if (slide.kpis) {
-      out.kpis = slide.kpis.map((k) => ({
-        ...k,
-        label: typeof k.label === 'string' ? res(k.label) : k.label,
-        value: typeof k.value === 'string' ? res(k.value, Boolean(k.unit)) : k.value,
-      }));
-    }
-    out.sources = [...names];
-    names.forEach((n) => all.add(n));
-    return out;
-  });
-
-  const out = { ...post, slides };
-  if (typeof post.caption === 'string') {
-    const r = resolveText(post.caption, sources);
-    used(r.factIds);
-    out.caption = r.text;
-  }
+    return r.text;
+  };
+  const out = walkPost(post, visit, () => {});
+  out.slides = out.slides.map((s, i) => ({ ...s, sources: [...(perSlide.get(i) || [])] }));
   out.sources = [...all];
   return out;
 }
