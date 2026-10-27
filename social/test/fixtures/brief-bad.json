@@ -1,0 +1,561 @@
+{
+  "week": "2026-W45",
+  "posts": [
+    {
+      "id": "bad-digits",
+      "slot": "2026-11-02T07:30",
+      "type": "carousel",
+      "pillar": "varmepumpe",
+      "city": "viborg",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/beregner/",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "VARMEPUMPE",
+          "title": "Har du oliefyr? Så betaler du ca.",
+          "value": "{bolius.oliefyr}",
+          "body": "om året for varme i et {bolius.hus.m2} hus.",
+          "bg": "assets/cover.png"
+        },
+        {
+          "layout": "stat",
+          "tag": "OLIEFYR",
+          "title": "Spar 30.000 kr.",
+          "value": "{bolius.oliefyr}",
+          "body": "Beregnet for et standardhus på {bolius.hus.m2}.",
+          "highlight": "{bolius.oliefyr}"
+        },
+        {
+          "layout": "kpi2",
+          "tag": "SAMMENLIGNING",
+          "title": "Oliefyr mod gasfyr om året",
+          "kpis": [
+            {
+              "label": "Oliefyr",
+              "value": "{bolius.oliefyr}",
+              "unit": "kr./år"
+            },
+            {
+              "label": "Gasfyr",
+              "value": "{bolius.gasfyr}",
+              "unit": "kr./år"
+            }
+          ]
+        },
+        {
+          "layout": "text",
+          "tag": "HVAD NU?",
+          "title": "Prisen afhænger af dit hus",
+          "body": "Tallene gælder et standardhus. Dit eget forbrug kan ligge både højere og lavere."
+        },
+        {
+          "layout": "end",
+          "tag": "BEREGN SELV",
+          "title": "Se hvad det kan give i dit hus",
+          "body": "Prøv beregneren på energitjekket.dk."
+        }
+      ],
+      "caption": "Oliefyr er dyrt at have i et standardhus på {bolius.hus.m2}: ca. {bolius.oliefyr} om året. Se tallene i beregneren. Kilde: Bolius.",
+      "hashtags": [
+        "#varmepumpe",
+        "#oliefyr",
+        "#viborg"
+      ]
+    },
+    {
+      "id": "bad-banned",
+      "slot": "2026-11-02T07:30",
+      "type": "carousel",
+      "pillar": "varmepumpe",
+      "city": "viborg",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/beregner/",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "VARMEPUMPE",
+          "title": "Har du oliefyr? Så betaler du ca.",
+          "value": "{bolius.oliefyr}",
+          "body": "om året for varme i et {bolius.hus.m2} hus.",
+          "bg": "assets/cover.png"
+        },
+        {
+          "layout": "stat",
+          "tag": "OLIEFYR",
+          "title": "Årlig varmeudgift med oliefyr",
+          "value": "{bolius.oliefyr}",
+          "body": "Beregnet for et standardhus på {bolius.hus.m2}.",
+          "highlight": "{bolius.oliefyr}"
+        },
+        {
+          "layout": "kpi2",
+          "tag": "SAMMENLIGNING",
+          "title": "Oliefyr mod gasfyr om året",
+          "kpis": [
+            {
+              "label": "Oliefyr",
+              "value": "{bolius.oliefyr}",
+              "unit": "kr./år"
+            },
+            {
+              "label": "Gasfyr",
+              "value": "{bolius.gasfyr}",
+              "unit": "kr./år"
+            }
+          ]
+        },
+        {
+          "layout": "text",
+          "tag": "HVAD NU?",
+          "title": "Prisen afhænger af dit hus",
+          "body": "Tallene gælder et standardhus. Dit eget forbrug kan ligge både højere og lavere."
+        },
+        {
+          "layout": "end",
+          "tag": "BEREGN SELV",
+          "title": "Se hvad det kan give i dit hus",
+          "body": "Prøv beregneren på energitjekket.dk."
+        }
+      ],
+      "caption": "Book nu!",
+      "hashtags": [
+        "#varmepumpe",
+        "#oliefyr",
+        "#viborg"
+      ]
+    },
+    {
+      "id": "bad-quote",
+      "slot": "2026-11-02T07:30",
+      "type": "carousel",
+      "pillar": "varmepumpe",
+      "city": "viborg",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/solceller/tilbud/",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "VARMEPUMPE",
+          "title": "Har du oliefyr? Så betaler du ca.",
+          "value": "{bolius.oliefyr}",
+          "body": "om året for varme i et {bolius.hus.m2} hus.",
+          "bg": "assets/cover.png"
+        },
+        {
+          "layout": "stat",
+          "tag": "OLIEFYR",
+          "title": "Årlig varmeudgift med oliefyr",
+          "value": "{bolius.oliefyr}",
+          "body": "Beregnet for et standardhus på {bolius.hus.m2}.",
+          "highlight": "{bolius.oliefyr}"
+        },
+        {
+          "layout": "kpi2",
+          "tag": "SAMMENLIGNING",
+          "title": "Oliefyr mod gasfyr om året",
+          "kpis": [
+            {
+              "label": "Oliefyr",
+              "value": "{bolius.oliefyr}",
+              "unit": "kr./år"
+            },
+            {
+              "label": "Gasfyr",
+              "value": "{bolius.gasfyr}",
+              "unit": "kr./år"
+            }
+          ]
+        },
+        {
+          "layout": "text",
+          "tag": "HVAD NU?",
+          "title": "Prisen afhænger af dit hus",
+          "body": "Tallene gælder et standardhus. Dit eget forbrug kan ligge både højere og lavere."
+        },
+        {
+          "layout": "end",
+          "tag": "BEREGN SELV",
+          "title": "Se hvad det kan give i dit hus",
+          "body": "Prøv beregneren på energitjekket.dk."
+        }
+      ],
+      "caption": "Oliefyr er dyrt at have i et standardhus på {bolius.hus.m2}: ca. {bolius.oliefyr} om året. Se tallene i beregneren. Kilde: Bolius.",
+      "hashtags": [
+        "#varmepumpe",
+        "#oliefyr",
+        "#viborg"
+      ]
+    },
+    {
+      "id": "bad-url",
+      "slot": "2026-11-02T07:30",
+      "type": "carousel",
+      "pillar": "varmepumpe",
+      "city": "viborg",
+      "quote": false,
+      "target_url": "https://example.com/",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "VARMEPUMPE",
+          "title": "Har du oliefyr? Så betaler du ca.",
+          "value": "{bolius.oliefyr}",
+          "body": "om året for varme i et {bolius.hus.m2} hus.",
+          "bg": "assets/cover.png"
+        },
+        {
+          "layout": "stat",
+          "tag": "OLIEFYR",
+          "title": "Årlig varmeudgift med oliefyr",
+          "value": "{bolius.oliefyr}",
+          "body": "Beregnet for et standardhus på {bolius.hus.m2}.",
+          "highlight": "{bolius.oliefyr}"
+        },
+        {
+          "layout": "kpi2",
+          "tag": "SAMMENLIGNING",
+          "title": "Oliefyr mod gasfyr om året",
+          "kpis": [
+            {
+              "label": "Oliefyr",
+              "value": "{bolius.oliefyr}",
+              "unit": "kr./år"
+            },
+            {
+              "label": "Gasfyr",
+              "value": "{bolius.gasfyr}",
+              "unit": "kr./år"
+            }
+          ]
+        },
+        {
+          "layout": "text",
+          "tag": "HVAD NU?",
+          "title": "Prisen afhænger af dit hus",
+          "body": "Tallene gælder et standardhus. Dit eget forbrug kan ligge både højere og lavere."
+        },
+        {
+          "layout": "end",
+          "tag": "BEREGN SELV",
+          "title": "Se hvad det kan give i dit hus",
+          "body": "Prøv beregneren på energitjekket.dk."
+        }
+      ],
+      "caption": "Oliefyr er dyrt at have i et standardhus på {bolius.hus.m2}: ca. {bolius.oliefyr} om året. Se tallene i beregneren. Kilde: Bolius.",
+      "hashtags": [
+        "#varmepumpe",
+        "#oliefyr",
+        "#viborg"
+      ]
+    },
+    {
+      "id": "bad-count",
+      "slot": "2026-11-02T07:30",
+      "type": "carousel",
+      "pillar": "varmepumpe",
+      "city": "viborg",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/beregner/",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "VARMEPUMPE",
+          "title": "Har du oliefyr? Så betaler du ca.",
+          "value": "{bolius.oliefyr}",
+          "body": "om året for varme i et {bolius.hus.m2} hus.",
+          "bg": "assets/cover.png"
+        },
+        {
+          "layout": "stat",
+          "tag": "OLIEFYR",
+          "title": "Årlig varmeudgift med oliefyr",
+          "value": "{bolius.oliefyr}",
+          "body": "Beregnet for et standardhus på {bolius.hus.m2}.",
+          "highlight": "{bolius.oliefyr}"
+        },
+        {
+          "layout": "kpi2",
+          "tag": "SAMMENLIGNING",
+          "title": "Oliefyr mod gasfyr om året",
+          "kpis": [
+            {
+              "label": "Oliefyr",
+              "value": "{bolius.oliefyr}",
+              "unit": "kr./år"
+            },
+            {
+              "label": "Gasfyr",
+              "value": "{bolius.gasfyr}",
+              "unit": "kr./år"
+            }
+          ]
+        },
+        {
+          "layout": "text",
+          "tag": "HVAD NU?",
+          "title": "Prisen afhænger af dit hus",
+          "body": "Tallene gælder et standardhus. Dit eget forbrug kan ligge både højere og lavere."
+        }
+      ],
+      "caption": "Oliefyr er dyrt at have i et standardhus på {bolius.hus.m2}: ca. {bolius.oliefyr} om året. Se tallene i beregneren. Kilde: Bolius.",
+      "hashtags": [
+        "#varmepumpe",
+        "#oliefyr",
+        "#viborg"
+      ]
+    },
+    {
+      "id": "bad-bg",
+      "slot": "2026-11-02T07:30",
+      "type": "carousel",
+      "pillar": "varmepumpe",
+      "city": "viborg",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/beregner/",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "VARMEPUMPE",
+          "title": "Har du oliefyr? Så betaler du ca.",
+          "value": "{bolius.oliefyr}",
+          "body": "om året for varme i et {bolius.hus.m2} hus.",
+          "bg": "assets/cover.png"
+        },
+        {
+          "layout": "stat",
+          "tag": "OLIEFYR",
+          "title": "Årlig varmeudgift med oliefyr",
+          "value": "{bolius.oliefyr}",
+          "body": "Beregnet for et standardhus på {bolius.hus.m2}.",
+          "highlight": "{bolius.oliefyr}",
+          "bg": "assets/x.png"
+        },
+        {
+          "layout": "kpi2",
+          "tag": "SAMMENLIGNING",
+          "title": "Oliefyr mod gasfyr om året",
+          "kpis": [
+            {
+              "label": "Oliefyr",
+              "value": "{bolius.oliefyr}",
+              "unit": "kr./år"
+            },
+            {
+              "label": "Gasfyr",
+              "value": "{bolius.gasfyr}",
+              "unit": "kr./år"
+            }
+          ]
+        },
+        {
+          "layout": "text",
+          "tag": "HVAD NU?",
+          "title": "Prisen afhænger af dit hus",
+          "body": "Tallene gælder et standardhus. Dit eget forbrug kan ligge både højere og lavere."
+        },
+        {
+          "layout": "end",
+          "tag": "BEREGN SELV",
+          "title": "Se hvad det kan give i dit hus",
+          "body": "Prøv beregneren på energitjekket.dk."
+        }
+      ],
+      "caption": "Oliefyr er dyrt at have i et standardhus på {bolius.hus.m2}: ca. {bolius.oliefyr} om året. Se tallene i beregneren. Kilde: Bolius.",
+      "hashtags": [
+        "#varmepumpe",
+        "#oliefyr",
+        "#viborg"
+      ]
+    },
+    {
+      "id": "bad-lengths",
+      "slot": "2026-11-02T07:30",
+      "type": "carousel",
+      "pillar": "varmepumpe",
+      "city": "viborg",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/beregner/",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "VARMEPUMPE",
+          "title": "Har du oliefyr? Så betaler du ca.",
+          "value": "{bolius.oliefyr}",
+          "body": "om året for varme i et {bolius.hus.m2} hus.",
+          "bg": "assets/cover.png"
+        },
+        {
+          "layout": "stat",
+          "tag": "CCCCCCCCCCCCCCCCCCCCCCCCC",
+          "title": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "value": "{bolius.oliefyr}",
+          "body": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "highlight": "{bolius.oliefyr}"
+        },
+        {
+          "layout": "kpi2",
+          "tag": "SAMMENLIGNING",
+          "title": "Oliefyr mod gasfyr om året",
+          "kpis": [
+            {
+              "label": "Oliefyr",
+              "value": "{bolius.oliefyr}",
+              "unit": "kr./år"
+            },
+            {
+              "label": "Gasfyr",
+              "value": "{bolius.gasfyr}",
+              "unit": "kr./år"
+            }
+          ]
+        },
+        {
+          "layout": "text",
+          "tag": "HVAD NU?",
+          "title": "Prisen afhænger af dit hus",
+          "body": "Tallene gælder et standardhus. Dit eget forbrug kan ligge både højere og lavere."
+        },
+        {
+          "layout": "end",
+          "tag": "BEREGN SELV",
+          "title": "Se hvad det kan give i dit hus",
+          "body": "Prøv beregneren på energitjekket.dk."
+        }
+      ],
+      "caption": "Oliefyr er dyrt at have i et standardhus på {bolius.hus.m2}: ca. {bolius.oliefyr} om året. Se tallene i beregneren. Kilde: Bolius.",
+      "hashtags": [
+        "#varmepumpe",
+        "#oliefyr",
+        "#viborg"
+      ]
+    },
+    {
+      "id": "bad-fact",
+      "slot": "2026-11-02T07:30",
+      "type": "carousel",
+      "pillar": "varmepumpe",
+      "city": "viborg",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/beregner/",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "VARMEPUMPE",
+          "title": "Har du oliefyr? Så betaler du ca.",
+          "value": "{bolius.oliefyr}",
+          "body": "om året for varme i et {bolius.hus.m2} hus.",
+          "bg": "assets/cover.png"
+        },
+        {
+          "layout": "stat",
+          "tag": "OLIEFYR",
+          "title": "Årlig varmeudgift med oliefyr",
+          "value": "{bolius.findes.ikke}",
+          "body": "Beregnet for et standardhus på {bolius.hus.m2}.",
+          "highlight": "{bolius.oliefyr}"
+        },
+        {
+          "layout": "kpi2",
+          "tag": "SAMMENLIGNING",
+          "title": "Oliefyr mod gasfyr om året",
+          "kpis": [
+            {
+              "label": "Oliefyr",
+              "value": "{bolius.oliefyr}",
+              "unit": "kr./år"
+            },
+            {
+              "label": "Gasfyr",
+              "value": "{bolius.gasfyr}",
+              "unit": "kr./år"
+            }
+          ]
+        },
+        {
+          "layout": "text",
+          "tag": "HVAD NU?",
+          "title": "Prisen afhænger af dit hus",
+          "body": "Tallene gælder et standardhus. Dit eget forbrug kan ligge både højere og lavere."
+        },
+        {
+          "layout": "end",
+          "tag": "BEREGN SELV",
+          "title": "Se hvad det kan give i dit hus",
+          "body": "Prøv beregneren på energitjekket.dk."
+        }
+      ],
+      "caption": "Oliefyr er dyrt at have i et standardhus på {bolius.hus.m2}: ca. {bolius.oliefyr} om året. Se tallene i beregneren. Kilde: Bolius.",
+      "hashtags": [
+        "#varmepumpe",
+        "#oliefyr",
+        "#viborg"
+      ]
+    },
+    {
+      "id": "bad-short-count",
+      "slot": "2026-11-02T19:30",
+      "type": "short",
+      "pillar": "varmepumpe",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/beregner/",
+      "audio": "rolig-01.mp3",
+      "slides": [
+        {
+          "layout": "stat",
+          "tag": "GASFYR",
+          "title": "Gasfyr koster ca.",
+          "value": "{bolius.gasfyr}",
+          "body": "om året."
+        },
+        {
+          "layout": "stat",
+          "tag": "GASFYR",
+          "title": "Gasfyr koster ca.",
+          "value": "{bolius.gasfyr}",
+          "body": "om året."
+        },
+        {
+          "layout": "stat",
+          "tag": "GASFYR",
+          "title": "Gasfyr koster ca.",
+          "value": "{bolius.gasfyr}",
+          "body": "om året."
+        },
+        {
+          "layout": "stat",
+          "tag": "GASFYR",
+          "title": "Gasfyr koster ca.",
+          "value": "{bolius.gasfyr}",
+          "body": "om året."
+        },
+        {
+          "layout": "stat",
+          "tag": "GASFYR",
+          "title": "Gasfyr koster ca.",
+          "value": "{bolius.gasfyr}",
+          "body": "om året."
+        },
+        {
+          "layout": "stat",
+          "tag": "GASFYR",
+          "title": "Gasfyr koster ca.",
+          "value": "{bolius.gasfyr}",
+          "body": "om året."
+        },
+        {
+          "layout": "stat",
+          "tag": "GASFYR",
+          "title": "Gasfyr koster ca.",
+          "value": "{bolius.gasfyr}",
+          "body": "om året."
+        }
+      ],
+      "caption": "Oliefyr og gasfyr sammenlignet. Kilde: Bolius.",
+      "hashtags": [
+        "#varmepumpe",
+        "#energitjekket"
+      ]
+    }
+  ]
+}
