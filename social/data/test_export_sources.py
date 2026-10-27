@@ -54,18 +54,63 @@ class RegisterTest(unittest.TestCase):
         self.assertIn("bolius.dk", f["source"]["url"])
         self.assertEqual(self.facts["beregner.scop"]["unit"], "scop")
 
-    def test_missing_site_text_raises(self):
+    def _tmp_repo(self, t, entry, html="<p>hej 32.388 kr.</p>"):
+        t = Path(t)
+        (t / "social" / "data").mkdir(parents=True)
+        (t / "site").mkdir()
+        (t / "site" / "a.html").write_text(html)
+        base = {"id": "x.y", "value": 32388, "unit": "kr", "label": "l",
+                "source_key": "bolius_varme", "site_text": "32.388 kr.", "page": "a.html"}
+        base.update(entry)
+        (t / "social" / "data" / "manual_facts.json").write_text(json.dumps([base]))
+        return t
+
+    def _build(self, entry, **kw):
         with tempfile.TemporaryDirectory() as t:
-            t = Path(t)
-            (t / "social" / "data").mkdir(parents=True)
-            (t / "site").mkdir()
-            (t / "site" / "a.html").write_text("<p>hej</p>")
-            (t / "social" / "data" / "manual_facts.json").write_text(json.dumps([
-                {"id": "x.y", "value": 1, "unit": "kr", "label": "l",
-                 "source_key": "bolius_varme", "site_text": "findes ikke"}]))
-            with self.assertRaises(ValueError) as cm:
-                export_sources.build_register(t, elpris_path=FIXTURE, src_dir=REPO / "src")
-            self.assertIn("x.y", str(cm.exception))
+            t = self._tmp_repo(t, entry, **kw)
+            return export_sources.build_register(t, elpris_path=FIXTURE, src_dir=REPO / "src")
+
+    def test_valid_temp_fact(self):
+        self.assertEqual(self._build({})["facts"]["x.y"]["value"], 32388)
+
+    def test_missing_site_text_raises(self):
+        with self.assertRaises(ValueError) as cm:
+            self._build({"site_text": "findes ikke"})
+        self.assertIn("x.y", str(cm.exception))
+
+    def test_value_text_mismatch_raises(self):
+        with self.assertRaises(ValueError) as cm:
+            self._build({"value": 99999})
+        self.assertIn("x.y", str(cm.exception))
+
+    def test_text_on_other_page_raises(self):
+        with self.assertRaises(ValueError) as cm:
+            self._build({"page": "b.html"})
+        self.assertIn("x.y", str(cm.exception))
+
+    def test_raw_attribute_value_ok(self):
+        r = self._build({"value": 3.5, "unit": "scop", "site_text": 'value="3.5"'}, html='<input value="3.5">')
+        self.assertEqual(r["facts"]["x.y"]["value"], 3.5)
+
+    def test_unknown_source_key_raises(self):
+        with self.assertRaises(ValueError) as cm:
+            self._build({"source_key": "findes_ikke"})
+        self.assertIn("x.y", str(cm.exception))
+
+    def test_format_da(self):
+        self.assertEqual(export_sources.format_da(32388, "kr"), "32.388 kr.")
+        self.assertEqual(export_sources.format_da(1.45, "kr_per_kwh"), "1,45 kr.")
+        self.assertEqual(export_sources.format_da(6, "hour"), "kl. 06")
+
+    def test_quarter_guard(self):
+        raw = json.loads(FIXTURE.read_text())
+        day = next(iter(raw["days"].values()))
+        day["areas"]["DK1"]["spot"] = day["areas"]["DK1"]["spot"][:95]
+        with tempfile.TemporaryDirectory() as t:
+            f = Path(t) / "e.json"
+            f.write_text(json.dumps(raw))
+            with self.assertRaises(ValueError):
+                export_sources.build_register(REPO, elpris_path=f)
 
 
 if __name__ == "__main__":

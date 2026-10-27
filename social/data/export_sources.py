@@ -2,6 +2,7 @@
 """Byg kilderegisteret social/data/sources.json ud fra repoets egne data."""
 import argparse
 import json
+import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -66,17 +67,43 @@ def _elpris(elpris_path):
     return facts, hours_out
 
 
-def _site_html(repo_root):
-    return "\n".join(p.read_text(encoding="utf-8", errors="replace") for p in sorted((Path(repo_root) / "site").rglob("*.html")))
+_DA_RULES = {
+    "kr": (0, " kr."), "kr_per_kwh": (2, " kr."), "kwh": (0, " kWh"), "kwh_per_kwp": (0, " kWh"),
+    "pct": (0, " %"), "m2": (0, " m²"), "kwp": (0, " kWp"), "count": (0, ""), "scop": (1, ""),
+}
+
+
+def format_da(value, unit):
+    """Samme danske formatering som social/lib/format.js formatFact."""
+    if unit == "hour":
+        return f"kl. {int(value):02d}"
+    if unit not in _DA_RULES:
+        raise ValueError(f"format_da: ukendt enhed {unit!r}")
+    decimals, suffix = _DA_RULES[unit]
+    s = f"{value:,.{decimals}f}".replace(",", "_").replace(".", ",").replace("_", ".")
+    return s + suffix
+
+
+def _value_matches(value, unit, text):
+    """Værdien skal stå i teksten: dansk formateret, eller som rå value="..."-attribut."""
+    formatted = format_da(value, unit)
+    if re.search(r"(?<![\d.,])" + re.escape(formatted), text):
+        return True
+    return f'value="{value}"' in text
 
 
 def _manual_facts(repo_root, S):
     items = json.loads((Path(repo_root) / "social" / "data" / "manual_facts.json").read_text(encoding="utf-8"))
-    html = _site_html(repo_root)
+    site = Path(repo_root) / "site"
     facts = {}
     for m in items:
-        if m["site_text"] not in html:
-            raise ValueError(f"{m['id']}: site_text {m['site_text']!r} findes ikke i site/**/*.html")
+        page = site / m["page"]
+        if not page.is_file():
+            raise ValueError(f"{m['id']}: siden {m['page']} findes ikke")
+        if m["site_text"] not in page.read_text(encoding="utf-8", errors="replace"):
+            raise ValueError(f"{m['id']}: site_text {m['site_text']!r} findes ikke i site/{m['page']}")
+        if not _value_matches(m["value"], m["unit"], m["site_text"]):
+            raise ValueError(f"{m['id']}: værdien {m['value']!r} ({m['unit']}) står ikke i site_text {m['site_text']!r}")
         if m["source_key"] not in S:
             raise ValueError(f"{m['id']}: ukendt source_key {m['source_key']!r}")
         name, url = S[m["source_key"]]
