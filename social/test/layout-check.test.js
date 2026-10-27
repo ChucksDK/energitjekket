@@ -52,7 +52,7 @@ test('flags a CTA box placed over a source line', async () => {
 
 test('text inside its own CTA is not an overlap; multi-line heading is not an overlap', async () => {
   const issues = await check(
-    '<h1 style="width:400px;line-height:1.15;margin:0">Et ret langt overskrift der brydes over flere linjer</h1>' +
+    '<h1 style="width:400px;line-height:.8;margin:0;padding-top:30px">Et ret langt overskrift der brydes over flere linjer</h1>' +
       '<div class="cta" style="margin-top:300px">Se dagens priser →</div>',
   );
   assert.deepEqual(issues, []);
