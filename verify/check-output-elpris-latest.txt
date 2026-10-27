@@ -16,7 +16,7 @@ Lighed, GAMMEL metode (hele siden minus header/footer/form/links)
   Alle guides og tilbudssider (12): lighed gns 23%, maks 52% | ord 697-1137
   Byside vs egen underside: gns 16%, maks 39%
   Nye sider (naestved, silkeborg) mod de eksisterende sider af samme type:
-    /solceller/naestved/: gns 42%, maks 53% (/solceller/viborg/) | 1346 ord
+    /solceller/naestved/: gns 42%, maks 52% (/solceller/viborg/) | 1346 ord
     /solceller/silkeborg/: gns 44%, maks 50% (/solceller/vejle/) | 1342 ord
     /solceller/naestved/regler-og-byggetilladelse/: gns 28%, maks 31% (/solceller/viborg/regler-og-byggetilladelse/) | 859 ord
     /solceller/silkeborg/regler-og-byggetilladelse/: gns 32%, maks 34% (/solceller/randers/regler-og-byggetilladelse/) | 793 ord
