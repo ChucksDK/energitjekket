@@ -138,8 +138,19 @@ export function validatePost(post, sources) {
       }
     }
     const m = /^(slide \d+) (tag|title|body)$/.exec(where);
-    if (m && value.length > LIMITS[m[2]]) {
-      errors.push(`${where}: for langt (${value.length} tegn, max ${LIMITS[m[2]]})`);
+    if (m) {
+      // Længden måles på den opløste tekst; ukendt fakta-id er allerede rapporteret, så mål da den rå tekst.
+      let measured = value;
+      if (opts.placeholders) {
+        try {
+          measured = resolveText(value, sources).text;
+        } catch {
+          measured = value;
+        }
+      }
+      if (measured.length > LIMITS[m[2]]) {
+        errors.push(`${where}: for langt (${measured.length} tegn, max ${LIMITS[m[2]]})`);
+      }
     }
     return value;
   };

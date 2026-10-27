@@ -200,3 +200,23 @@ test('resolvePost resolves text, kpi values without unit, and collects sources',
   assert.ok(r.caption.includes('32.388 kr.'));
   assert.equal(valid.posts[0].slides[0].value, '{bolius.oliefyr}', 'input not mutated');
 });
+
+test('length limits are measured on resolved text (R6)', () => {
+  const id = 'elpris.2026-10-27.DK1.billigste_time';
+  // Rå titel > 60 tegn pga. pladsholderen, men opløst er den kort.
+  const ok = mod((p) => {
+    p.slides[1].title = `Billigste time i morgen er kl. {${id}}`;
+  });
+  assert.equal(has(ok, 'for langt'), false, ok.join('\n'));
+  // Opløst tekst > 60 tegn fejler stadig.
+  const bad = mod((p) => {
+    p.slides[1].title = `Billigst kl. {${id}} ${'x'.repeat(60)}`;
+  });
+  assert.ok(has(bad, 'slide 2 title: for langt'), bad.join('\n'));
+  // Ukendt id: rå tekst måles, og ukendt-fejlen rapporteres.
+  const unk = mod((p) => {
+    p.slides[1].title = `{elpris.2026-10-27.DK1.nowhere_${'y'.repeat(50)}}`;
+  });
+  assert.ok(has(unk, 'Ukendt fakta-id'));
+  assert.ok(has(unk, 'for langt'));
+});
