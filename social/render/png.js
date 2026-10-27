@@ -104,3 +104,27 @@ export async function renderCarousel(post, outDir, opts = {}) {
     return files;
   }, SIZES.carousel);
 }
+
+/**
+ * Renderer ét slide som story-PNG (1080x1920) til outFile. Layout-tjekket kører som for carousels.
+ * opts: { elpris?, baseDir? }
+ */
+export async function renderStory(post, outFile, opts = {}) {
+  fs.mkdirSync(path.dirname(outFile), { recursive: true });
+  const slide = post.slides[0];
+  const html = slideHtml(slide, {
+    index: 0,
+    total: 1,
+    format: 'story',
+    elpris: opts.elpris,
+    targetUrl: post.target_url,
+    baseDir: opts.baseDir,
+  });
+  return withPage(async (page) => {
+    await loadSlide(page, html);
+    const issues = await checkLayout(page);
+    if (issues.length) throw new LayoutError(issues, `${post.id} story`);
+    await page.screenshot({ path: outFile });
+    return outFile;
+  }, SIZES.story);
+}
