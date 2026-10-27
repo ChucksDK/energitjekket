@@ -91,8 +91,8 @@ function ctaFromUrl(targetUrl) {
 
 function bgStyle(slide, ctx) {
   if (!slide.bg) return '';
-  const p = path.isAbsolute(slide.bg) ? slide.bg : ctx.baseDir ? path.resolve(ctx.baseDir, slide.bg) : null;
-  if (!p) return '';
+  if (!path.isAbsolute(slide.bg) && !ctx.baseDir) throw new Error(`Baggrundsbillede kræver baseDir: ${slide.bg}`);
+  const p = path.isAbsolute(slide.bg) ? slide.bg : path.resolve(ctx.baseDir, slide.bg);
   if (!fs.existsSync(p)) throw new Error(`Baggrundsbillede mangler: ${p}`);
   return (
     ' style="background:linear-gradient(rgba(11,79,67,.15),rgba(11,79,67,.85)),' +

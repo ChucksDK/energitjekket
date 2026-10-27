@@ -4,12 +4,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { loadSources } from '../lib/sources.js';
 import { resolvePost } from '../lib/brief.js';
-import { SOCIAL_ROOT } from '../lib/paths.js';
+import { REPO_ROOT, SOCIAL_ROOT } from '../lib/paths.js';
 import { ensureSources } from './helpers.js';
 import { slideHtml } from '../templates/slides.js';
 import { renderCarousel, withPage, loadSlide } from '../render/png.js';
 
 const OUT = path.join(SOCIAL_ROOT, 'out', 'test');
+const BASE = path.join(SOCIAL_ROOT, 'out', 'test-week');
 let sources;
 let post;
 
@@ -17,6 +18,9 @@ before(() => {
   sources = loadSources(ensureSources());
   const brief = JSON.parse(fs.readFileSync(path.join(SOCIAL_ROOT, 'test', 'fixtures', 'brief-valid.json'), 'utf8'));
   post = resolvePost(brief.posts[0], sources);
+  // Ugemappe med assets/cover.png (fixturens bg) – et vilkårligt PNG fra repoet.
+  fs.mkdirSync(path.join(BASE, 'assets'), { recursive: true });
+  fs.copyFileSync(path.join(REPO_ROOT, 'site', 'og', 'beregner.png'), path.join(BASE, 'assets', 'cover.png'));
 });
 
 const pngSize = (file) => {
@@ -26,7 +30,7 @@ const pngSize = (file) => {
 
 test('renderCarousel writes one 1080x1350 PNG per slide', async () => {
   fs.rmSync(OUT, { recursive: true, force: true });
-  const files = await renderCarousel(post, OUT, { elpris: sources.elpris });
+  const files = await renderCarousel(post, OUT, { elpris: sources.elpris, baseDir: BASE });
   assert.ok(files.length >= 5 && files.length <= 7, `fik ${files.length} filer`);
   assert.equal(files.length, post.slides.length);
   files.forEach((f, i) => {
@@ -87,7 +91,7 @@ test('bars chart clamps negative values to baseline', async () => {
   assert.equal(res[23].bg, 'rgb(192, 57, 43)');
 });
 
-test('fitText leaves values that fit at their start size; number and unit never split', async () => {
+test('KPI values keep their 88px start size when they fit; stat body joins number and unit with NBSP', async () => {
   const kpi = slideHtml(post.slides[2], { index: 2, total: 5, format: 'carousel' });
   const stat = slideHtml(post.slides[1], { index: 1, total: 5, format: 'carousel' });
   assert.match(stat, /130 m²/);
@@ -96,4 +100,18 @@ test('fitText leaves values that fit at their start size; number and unit never 
     return page.evaluate(() => [...document.querySelectorAll('.kpi .v')].map((el) => getComputedStyle(el).fontSize));
   });
   assert.deepEqual(sizes, ['88px', '88px']);
+});
+
+test('cover bg: relative path without baseDir throws', () => {
+  assert.throws(
+    () => slideHtml(post.slides[0], { index: 0, total: 5, format: 'carousel' }),
+    /Baggrundsbillede kræver baseDir/,
+  );
+});
+
+test('cover bg: missing file throws', () => {
+  assert.throws(
+    () => slideHtml({ ...post.slides[0], bg: 'assets/findes-ikke.png' }, { index: 0, total: 5, format: 'carousel', baseDir: BASE }),
+    /Baggrundsbillede mangler/,
+  );
 });
