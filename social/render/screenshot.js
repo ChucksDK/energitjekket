@@ -4,7 +4,6 @@ import { REPO_ROOT } from '../lib/paths.js';
 import { withPage } from './png.js';
 
 const SITE = path.join(REPO_ROOT, 'site');
-const SERVICES = { solceller: 'solceller', varmepumpe: 'varmepumpe' };
 
 /** Filnavn til en skærmbilledenøgle: ':' → '-' + .png (by:aalborg:solceller → by-aalborg-solceller.png). */
 export function screenFile(key) {
@@ -18,7 +17,7 @@ export function pagePath(key) {
   const m = /^by:([a-z0-9-]+):(solceller|varmepumpe)$/.exec(key);
   if (m) {
     const [, city, service] = m;
-    if (fs.existsSync(path.join(SITE, SERVICES[service], city, 'index.html'))) return `/${service}/${city}/`;
+    if (fs.existsSync(path.join(SITE, service, city, 'index.html'))) return `/${service}/${city}/`;
   }
   return null;
 }
@@ -33,7 +32,8 @@ export async function shootPage(key, outPath, base = 'https://energitjekket.dk')
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
   await withPage(
     async (page) => {
-      await page.goto(base.replace(/\/$/, '') + p, { waitUntil: 'networkidle' });
+      const r = await page.goto(base.replace(/\/$/, '') + p, { waitUntil: 'networkidle' });
+      if (!r || !r.ok()) throw new Error(`Ukendt side: ${key} (HTTP ${r ? r.status() : 'ingen svar'})`);
       await page.addStyleTag({ content: HIDE_CTA });
       await page.screenshot({ path: outPath });
     },

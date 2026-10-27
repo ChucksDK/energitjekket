@@ -8,26 +8,51 @@ import { spawn } from 'node:child_process';
 import { REPO_ROOT } from '../lib/paths.js';
 import { shootPage, screenFile } from '../render/screenshot.js';
 
-const PORT = 8765;
-const BASE = `http://localhost:${PORT}`;
 let server;
+let emptyServer;
+let BASE;
+let EMPTY_BASE;
 
-const canConnect = () =>
+const freePort = () =>
+  new Promise((resolve, reject) => {
+    const s = net.createServer();
+    s.on('error', reject);
+    s.listen(0, '127.0.0.1', () => {
+      const { port } = s.address();
+      s.close(() => resolve(port));
+    });
+  });
+
+const canConnect = (port) =>
   new Promise((resolve) => {
-    const s = net.connect(PORT, '127.0.0.1');
+    const s = net.connect(port, '127.0.0.1');
     s.on('connect', () => (s.destroy(), resolve(true)));
     s.on('error', () => resolve(false));
   });
 
-before(async () => {
-  server = spawn('python3', ['-m', 'http.server', String(PORT), '--bind', '127.0.0.1'], {
-    cwd: path.join(REPO_ROOT, 'site'),
-    stdio: 'ignore',
+async function serve(dir) {
+  const port = await freePort();
+  const proc = spawn('python3', ['-m', 'http.server', String(port), '--bind', '127.0.0.1'], { cwd: dir, stdio: 'ignore' });
+  for (let i = 0; i < 50 && !(await canConnect(port)); i++) await new Promise((r) => setTimeout(r, 100));
+  return { proc, base: `http://127.0.0.1:${port}` };
+}
+
+const stop = (proc) =>
+  new Promise((resolve) => {
+    if (!proc || proc.exitCode !== null) return resolve();
+    proc.once('exit', resolve);
+    proc.kill();
   });
-  for (let i = 0; i < 50 && !(await canConnect()); i++) await new Promise((r) => setTimeout(r, 100));
+
+before(async () => {
+  ({ proc: server, base: BASE } = await serve(path.join(REPO_ROOT, 'site')));
+  // Tom mappe: alle sider giver 404 (som en by, der ikke er udrullet endnu).
+  ({ proc: emptyServer, base: EMPTY_BASE } = await serve(fs.mkdtempSync(path.join(os.tmpdir(), 'empty-site-'))));
 });
 
-after(() => server?.kill());
+after(async () => {
+  await Promise.all([stop(server), stop(emptyServer)]);
+});
 
 const pngSize = (file) => {
   const b = fs.readFileSync(file);
@@ -56,4 +81,10 @@ test('shootPage: bysider findes ud fra site/', async () => {
 
 test('shootPage: ukendt nøgle afvises', async () => {
   await assert.rejects(shootPage('nope', '/tmp/x.png', BASE), /Ukendt side/);
+});
+
+test('shootPage: 404 på live-siden afvises og skærmbilledet gemmes ikke', async () => {
+  const out = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'shot-')), 'x.png');
+  await assert.rejects(shootPage('by:aalborg:solceller', out, EMPTY_BASE), /Ukendt side: by:aalborg:solceller \(HTTP 404\)/);
+  assert.equal(fs.existsSync(out), false);
 });
