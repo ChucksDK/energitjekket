@@ -113,3 +113,49 @@ test('renderCarousel throws LayoutError and writes no PNG for a broken slide', a
   );
   assert.deepEqual(fs.existsSync(out) ? fs.readdirSync(out) : [], []);
 });
+
+// --- bars / screenshot ---
+const hoursOf = () => sources.elpris['2026-10-27'].DK1.hours;
+const barsSlide = (extra = {}) => ({
+  layout: 'bars', tag: 'ELPRIS', title: 'Billigste time i morgen', body: 'Se hvornår strømmen er billig.',
+  bars: { date: '2026-10-27', area: 'DK1', hours: hoursOf() }, sources: ['Energi Data Service'], ...extra,
+});
+const checkSlide = (slide, { format = 'carousel', size } = {}) =>
+  withPage(
+    async (page) => {
+      await loadSlide(page, slideHtml(slide, { index: 0, total: 2, format, targetUrl: post.target_url, baseDir: BASE, screenshotPath: path.join(REPO_ROOT, 'site', 'og', 'beregner.png') }));
+      return checkLayout(page);
+    },
+    size ?? { width: 1080, height: 1350 },
+  );
+const LONG = 'Dette er en meget lang titel om elprisen i morgen som fylder rigtig mange linjer og presser alt andet ned i bunden af sliden '.repeat(3);
+
+test('bars slides (with and without CTA, carousel and story) have zero issues', async () => {
+  assert.deepEqual(await checkSlide(barsSlide()), []);
+  assert.deepEqual(await checkSlide(barsSlide({ cta: 'Se dagens priser' })), []);
+  assert.deepEqual(await checkSlide(barsSlide(), { format: 'story', size: { width: 1080, height: 1920 } }), []);
+  assert.deepEqual(await checkSlide(barsSlide({ cta: 'Se dagens priser' }), { format: 'story', size: { width: 1080, height: 1920 } }), []);
+});
+
+test('screenshot slide has zero issues', async () => {
+  const slide = { layout: 'screenshot', tag: 'BEREGNER', title: 'Sådan ser det ud', screenshot: 'x', sources: ['Bolius'] };
+  assert.deepEqual(await checkSlide(slide), []);
+});
+
+test('a long title that pushes chart/CTA into the footer is flagged', async () => {
+  const issues = await checkSlide(barsSlide({ title: LONG, cta: 'Se dagens priser' }));
+  assert.ok(issues.length > 0, 'skulle være flagget');
+});
+
+test('a squeezed phone screenshot is flagged', async () => {
+  const slide = { layout: 'screenshot', tag: 'BEREGNER', title: LONG, screenshot: 'x', sources: ['Bolius'] };
+  const issues = await checkSlide(slide);
+  assert.ok(issues.some((i) => /telefonbillede/.test(i.text)), JSON.stringify(issues));
+});
+
+test('text overlapping .phone or .chart is flagged', async () => {
+  const a = await check('<div class="phone" style="width:300px;height:300px"></div><div style="position:absolute;top:100px;left:50px">Hej verden</div>');
+  assert.ok(a.some((i) => i.kind === 'overlap' && /telefonbillede/.test(i.text)), JSON.stringify(a));
+  const b = await check('<div class="chart" style="width:300px;height:300px"></div><div style="position:absolute;top:100px;left:50px">Hej verden</div>');
+  assert.ok(b.some((i) => i.kind === 'overlap' && /diagram/.test(i.text)), JSON.stringify(b));
+});

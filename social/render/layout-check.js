@@ -75,13 +75,21 @@ function inPage({ SAFE, OVERLAP_TOL, OUTSIDE_TOL }) {
       if (hit(a.r, b.r)) add('overlap', `"${a.text}" / "${b.text}"`);
     }
   }
-  for (const el of document.querySelectorAll('.bars, .cta, .kpi')) {
+  for (const el of document.querySelectorAll('.bars, .cta, .kpi, .phone, .shot, .chart')) {
     const er = el.getBoundingClientRect();
-    const name = el.classList.contains('bars') ? 'søjlediagram' : el.classList.contains('cta') ? 'knap' : 'boks';
+    const names = { bars: 'søjlediagram', cta: 'knap', kpi: 'boks', phone: 'telefonbillede', shot: 'screenshot-felt', chart: 'diagram' };
+    const name = names[[...el.classList].find((c) => names[c])];
     for (const it of items) {
       if (el.contains(it.node)) continue;
       if (hit(it.r, er)) add('overlap', `"${it.text}" / ${name}`);
     }
+  }
+
+  // 3b) screenshot må ikke presses sammen: telefonen skal fylde mindst 40 % af indholdshøjden.
+  for (const phone of document.querySelectorAll('.phone')) {
+    const content = phone.closest('.content');
+    const ch = content ? content.getBoundingClientRect().height : vh;
+    if (phone.getBoundingClientRect().height < 0.4 * ch) add('outside', `telefonbillede er presset sammen (${Math.round(phone.getBoundingClientRect().height)} px)`);
   }
 
   // 4) wrap: tal må kun fylde én linje.
