@@ -140,7 +140,7 @@ function seekSlide(slide, t) {
 window.seek = (t) => seekSlide(document.querySelector('.slide:not(#under .slide)'), t);
 
 // Lægger næste slide under det nuværende (til krydsfade) og tilpasser dets tekst.
-window.mountNext = (markup) => {
+window.mountNext = async (markup) => {
   const wrap = document.createElement('div');
   wrap.id = 'under';
   wrap.style.cssText = 'position:absolute;left:0;top:0;width:100%;height:100%;z-index:0';
@@ -150,6 +150,19 @@ window.mountNext = (markup) => {
   const cur = document.querySelector('.slide:not(#under .slide)');
   cur.style.position = 'relative';
   cur.style.zIndex = '1';
+  // Vent på <img> og CSS-baggrundsbilleder, så første krydsfade-billede er komplet.
+  const urls = new Set();
+  for (const el of [wrap.querySelector('.slide'), ...wrap.querySelectorAll('*')]) {
+    for (const m of getComputedStyle(el).backgroundImage.matchAll(/url\(["']?([^"')]+)["']?\)/g)) urls.add(m[1]);
+  }
+  await Promise.all([
+    ...[...wrap.querySelectorAll('img')].map((img) => img.decode()),
+    ...[...urls].map((u) => {
+      const im = new Image();
+      im.src = u;
+      return im.decode();
+    }),
+  ]);
   fitAll();
 };
 window.seekNext = (t) => seekSlide(document.querySelector('#under .slide'), t);

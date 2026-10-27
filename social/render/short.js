@@ -25,6 +25,9 @@ export function slideDuration(slide) {
   return Math.min(5, Math.max(2.5, 2.5 + n * 0.25));
 }
 
+/** Selve .slide-elementet fra et slideHtml-dokument. */
+export const slideBody = (html) => html.slice(html.indexOf('<div class="slide '), html.lastIndexOf('<script>'));
+
 const da = (n) => n.toFixed(1).replace('.', ',');
 
 async function ffprobeDuration(file) {
@@ -41,6 +44,7 @@ export async function renderShort(post, outPath, opts = {}) {
   const audioDir = opts.audioDir ?? path.join(SOCIAL_ROOT, 'audio');
 
   if (!post.audio) throw new Error(`Short ${post.id} mangler feltet audio`);
+  if (/[\\/]/.test(post.audio) || post.audio.includes('..')) throw new Error(`Ugyldigt lydfilnavn: ${post.audio} (kun filnavn, ingen sti)`);
   const audioFile = path.join(audioDir, post.audio);
   if (!fs.existsSync(audioFile)) throw new Error(`Lydfil mangler: ${path.relative(REPO_ROOT, audioFile)}`);
 
@@ -68,7 +72,6 @@ export async function renderShort(post, outPath, opts = {}) {
     }),
   );
   // Sluttilstanden skal være pæn, før der tages et eneste billede.
-  const body = (html) => html.slice(html.indexOf('<div class="slide '), html.lastIndexOf('<script>'));
 
   const frames = fs.mkdtempSync(path.join(os.tmpdir(), 'short-frames-'));
   try {
@@ -91,7 +94,7 @@ export async function renderShort(post, outPath, opts = {}) {
           if (i < 0) i = htmls.length - 1;
           if (i !== loaded) {
             await loadSlide(page, htmls[i]);
-            if (i < htmls.length - 1) await page.evaluate((m) => window.mountNext(m), body(htmls[i + 1]));
+            if (i < htmls.length - 1) await page.evaluate((m) => window.mountNext(m), slideBody(htmls[i + 1]));
             loaded = i;
           }
           const k = i < htmls.length - 1 ? g - starts[i + 1] : -1; // sekunder inde i krydsfaden

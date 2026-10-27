@@ -10,7 +10,7 @@ import { REPO_ROOT, SOCIAL_ROOT } from '../lib/paths.js';
 import { ensureSources } from './helpers.js';
 import { slideHtml } from '../templates/slides.js';
 import { withPage, loadSlide } from '../render/png.js';
-import { renderShort, slideDuration } from '../render/short.js';
+import { renderShort, slideDuration, slideBody } from '../render/short.js';
 
 const BASE = path.join(SOCIAL_ROOT, 'out', 'test-week-short');
 let sources;
@@ -92,4 +92,56 @@ test('seek: values count up with Danish formatting, end exactly on the final tex
   assert.equal(res.a.h, res.end.h);
   assert.equal(res.end.op, '1');
   assert.ok(!res.final.html.includes('inline-block'), res.final.html);
+});
+
+test('mountNext resolves only when the next slide background and images are loaded', async () => {
+  const bgSlide = { ...post.slides[0] }; // cover med bg
+  const shotFile = path.join(BASE, 'assets', 'cover.png');
+  const next = slideHtml(bgSlide, { index: 1, total: 3, format: 'short', baseDir: BASE, targetUrl: post.target_url });
+  const cur = slideHtml(post.slides[1], { index: 0, total: 3, format: 'short', baseDir: BASE, targetUrl: post.target_url });
+  const res = await withPage(
+    async (page) => {
+      await loadSlide(page, cur);
+      return page.evaluate(async ([m, img]) => {
+        const markup = m.replace('<div class="slide-safe">', `<div class="slide-safe"><img id="probe" src="${img}" style="width:10px;height:10px">`);
+        const decoded = [];
+        const RealImage = window.Image;
+        window.Image = function () {
+          const im = new RealImage();
+          const d = im.decode.bind(im);
+          im.decode = () => d().then((r) => (decoded.push(im.src), r));
+          return im;
+        };
+        await window.mountNext(markup);
+        window.Image = RealImage;
+        const probe = document.getElementById('probe');
+        const bgUrl = /url\("?([^")]+)"?\)/.exec(document.querySelector('#under .slide').style.background)?.[1];
+                return { complete: probe.complete, w: probe.naturalWidth, bgUrl: !!bgUrl, bgDone: decoded.includes(bgUrl) };
+      }, [slideBody(next), 'file://' + shotFile]);
+    },
+    { width: 1080, height: 1920 },
+  );
+  assert.ok(res.complete && res.w > 0, JSON.stringify(res));
+  assert.ok(res.bgUrl && res.bgDone, JSON.stringify(res));
+});
+
+test('renderShort rejects audio names with path separators or ..', async () => {
+  for (const name of ['../x.mp3', 'a/b.mp3', 'a\\b.mp3', '..']) {
+    await assert.rejects(
+      renderShort({ ...post, audio: name }, path.join(tmp, 'y.mp4'), { baseDir: BASE, elpris: sources.elpris, audioDir: tmp }),
+      /Ugyldigt lydfilnavn/,
+      name,
+    );
+  }
+});
+
+test('renderShort cleans up its temp frames dir on LayoutError', async () => {
+  const frameDirs = () => fs.readdirSync(os.tmpdir()).filter((f) => f.startsWith('short-frames-')).length;
+  const before = frameDirs();
+  const bad = { ...post, slides: post.slides.map((s, i) => (i === 1 ? { ...s, value: 'X'.repeat(45) } : s)) };
+  await assert.rejects(
+    renderShort(bad, path.join(tmp, 'bad.mp4'), { baseDir: BASE, elpris: sources.elpris, audioDir: tmp }),
+    /Layoutfejl/,
+  );
+  assert.equal(frameDirs(), before);
 });
