@@ -1,0 +1,777 @@
+{
+  "week": "2026-W45",
+  "posts": [
+    {
+      "id": "2026-11-02-am",
+      "slot": "2026-11-02T07:30",
+      "type": "carousel",
+      "pillar": "varmepumpe",
+      "angle": "Skift oliefyr: driften før og efter i Bolius' standardhus",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/varmepumpe/skift-oliefyr/",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "VARMEPUMPE",
+          "title": "Har du stadig oliefyr?",
+          "value": "{bolius.oliefyr}",
+          "body": "Så meget koster varmen om året i et standardhus på {bolius.hus.m2}.",
+          "bg": "assets/2026-W45/oliefyr-45.png"
+        },
+        {
+          "layout": "kpi2",
+          "tag": "SAMME HUS",
+          "title": "Oliefyr eller varmepumpe",
+          "body": "Varmepumpen er luft til vand. Begge med radiatorer.",
+          "kpis": [
+            {
+              "label": "Oliefyr",
+              "value": "{bolius.oliefyr}",
+              "unit": "kr./år"
+            },
+            {
+              "label": "Varmepumpe",
+              "value": "{bolius.ltv_radiator}",
+              "unit": "kr./år"
+            }
+          ]
+        },
+        {
+          "layout": "stat",
+          "tag": "FORBRUGET",
+          "title": "Så meget varme bruger huset",
+          "value": "{bolius.hus.kwh}",
+          "body": "om året i Bolius' standardhus på {bolius.hus.m2}. Dit eget forbrug står på olieregningen."
+        },
+        {
+          "layout": "text",
+          "tag": "HUSK",
+          "title": "Det er udgiften til drift",
+          "highlight": "drift",
+          "body": "Tallene viser varmen om året. Prisen for selve varmepumpen skal regnes med for sig."
+        },
+        {
+          "layout": "text",
+          "tag": "FØR DU SKIFTER",
+          "title": "Kommer der fjernvarme til dig?",
+          "body": "Ligger huset i et fjernvarmeområde, kan du ikke få tilskud til en varmepumpe. Tjek kommunens varmeplan."
+        },
+        {
+          "layout": "end",
+          "tag": "LÆS GUIDEN",
+          "title": "Skift oliefyr til varmepumpe",
+          "body": "Økonomi, tilskud og olietanken i én guide. Linket står i bio."
+        }
+      ],
+      "caption": "Et standardhus på {bolius.hus.m2} med oliefyr bruger ca. {bolius.oliefyr} om året på varme, viser Bolius' tal.\nMed en varmepumpe (luft til vand) og de samme radiatorer er tallet ca. {bolius.ltv_radiator}.\nPrisen for selve anlægget kommer oveni, så regn altid på dit eget hus.\nGuiden om at skifte oliefyr ligger på energitjekket.dk/varmepumpe/skift-oliefyr (link i bio).",
+      "hashtags": [
+        "#varmepumpe",
+        "#oliefyr",
+        "#boligejer",
+        "#varmeregning"
+      ]
+    },
+    {
+      "id": "2026-11-02-pm",
+      "slot": "2026-11-02T19:30",
+      "type": "short",
+      "pillar": "varmepumpe",
+      "angle": "Samme emne som morgenen, animeret",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/varmepumpe/skift-oliefyr/",
+      "audio": "melodic-guitar-02.m4a",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "OLIEFYR",
+          "title": "Varmen med oliefyr koster",
+          "value": "{bolius.oliefyr}",
+          "body": "om året i et standardhus.",
+          "bg": "assets/2026-W45/oliefyr-kaelder-916.png"
+        },
+        {
+          "layout": "stat",
+          "tag": "VARMEPUMPE",
+          "title": "Med varmepumpe og radiatorer",
+          "value": "{bolius.ltv_radiator}",
+          "body": "om året i samme hus."
+        },
+        {
+          "layout": "text",
+          "tag": "FØRST",
+          "title": "Kommer der fjernvarme til dig?",
+          "body": "Tjek kommunens varmeplan for din adresse, før du vælger varmepumpe."
+        },
+        {
+          "layout": "end",
+          "tag": "LÆS GUIDEN",
+          "title": "Skift oliefyr i tre trin",
+          "body": "Varmeplan, økonomi og tilskud i én guide. Link i bio."
+        }
+      ],
+      "caption": "Oliefyr: ca. {bolius.oliefyr} om året. Varmepumpe med radiatorer: ca. {bolius.ltv_radiator}.\nTallene er Bolius' for et standardhus på {bolius.hus.m2}.\nStart med varmeplanen for din adresse. Guiden om at skifte oliefyr ligger på energitjekket.dk (link i bio).",
+      "hashtags": [
+        "#varmepumpe",
+        "#oliefyr",
+        "#boligejer"
+      ]
+    },
+    {
+      "id": "2026-11-03-am",
+      "slot": "2026-11-03T07:30",
+      "type": "carousel",
+      "pillar": "by",
+      "city": "viborg",
+      "angle": "Fjernvarme eller varmepumpe i Viborg",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/varmepumpe/viborg/fjernvarme-eller-varmepumpe/",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "VIBORG KOMMUNE",
+          "title": "Fjernvarme eller varmepumpe?",
+          "body": "Sådan varmes boligerne i Viborg op i dag.",
+          "bg": "assets/2026-W45/villavej.png"
+        },
+        {
+          "layout": "kpi2",
+          "tag": "VIBORG",
+          "title": "Sådan varmes boligerne op",
+          "kpis": [
+            {
+              "label": "Fjernvarme",
+              "value": "{heat.viborg.fjernvarme_pct}",
+              "unit": "% af boligerne"
+            },
+            {
+              "label": "Varmepumpe",
+              "value": "{heat.viborg.varmepumpe_pct}",
+              "unit": "% af boligerne"
+            }
+          ]
+        },
+        {
+          "layout": "kpi2",
+          "tag": "HELE LANDET",
+          "title": "Til sammenligning i Danmark",
+          "kpis": [
+            {
+              "label": "Fjernvarme",
+              "value": "{heat.dk.fjernvarme_pct}",
+              "unit": "% af boligerne"
+            },
+            {
+              "label": "Varmepumpe",
+              "value": "{heat.dk.varmepumpe_pct}",
+              "unit": "% af boligerne"
+            }
+          ]
+        },
+        {
+          "layout": "text",
+          "tag": "UDEN FOR NETTET",
+          "title": "Bor du uden for fjernvarmen?",
+          "highlight": "uden",
+          "body": "Så er varmepumpen det oplagte at regne på. Tjek først kommunens varmeplan for din adresse."
+        },
+        {
+          "layout": "end",
+          "tag": "SE TALLENE",
+          "title": "Varme i Viborg",
+          "body": "Fjernvarme og varmepumpe i Viborg på én side. Linket står i bio."
+        }
+      ],
+      "caption": "I Viborg Kommune har ca. {heat.viborg.fjernvarme_pct} af boligerne fjernvarme og ca. {heat.viborg.varmepumpe_pct} varmepumpe, viser Danmarks Statistik.\nDet ligner landsgennemsnittet ret præcist.\nBor du uden for fjernvarmen, så tjek varmeplanen, før du vælger.\nSe tallene for Viborg på energitjekket.dk (link i bio).",
+      "hashtags": [
+        "#viborg",
+        "#varmepumpe",
+        "#fjernvarme",
+        "#boligejer"
+      ]
+    },
+    {
+      "id": "2026-11-03-pm",
+      "slot": "2026-11-03T19:30",
+      "type": "short",
+      "pillar": "varmepumpe",
+      "angle": "Myte: en varmepumpe virker ikke i frost",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/varmepumpe/",
+      "audio": "bright-explainer-01.m4a",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "MYTE",
+          "title": "Virker en varmepumpe i frost?",
+          "body": "Ja. Den bruger bare mere strøm, når det er koldt.",
+          "bg": "assets/2026-W45/varmepumpe-frost-916.png"
+        },
+        {
+          "layout": "stat",
+          "tag": "SCOP",
+          "title": "Én kWh strøm giver over et år",
+          "value": "{beregner.scop}",
+          "body": "kWh varme. Tallet er et gennemsnit for hele året, frostdage med."
+        },
+        {
+          "layout": "text",
+          "tag": "HUSK",
+          "title": "Spørg installatøren om SCOP",
+          "highlight": "SCOP",
+          "body": "Det tal siger mere end en effekt målt på en mild dag."
+        },
+        {
+          "layout": "end",
+          "tag": "LÆS GUIDEN",
+          "title": "Er en varmepumpe noget for dig?",
+          "body": "Typer, pris og tilskud i én guide. Link i bio."
+        }
+      ],
+      "caption": "Virker en varmepumpe, når det fryser? Ja. Den bruger mere strøm på de kolde dage.\nOver et helt år giver én kWh strøm ca. {beregner.scop} kWh varme. Det tal hedder SCOP og tæller frostdagene med.\nLæs om varmepumper på energitjekket.dk/varmepumpe (link i bio).",
+      "hashtags": [
+        "#varmepumpe",
+        "#myte",
+        "#boligejer"
+      ]
+    },
+    {
+      "id": "2026-11-04-am",
+      "slot": "2026-11-04T07:30",
+      "type": "carousel",
+      "pillar": "solceller",
+      "angle": "Solceller i hele landet: forskellen mellem byerne er lille",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/solceller/kan-det-betale-sig/",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "SOLCELLER",
+          "title": "Giver solceller mindre i Nordjylland?",
+          "body": "Kun en smule. Her er PVGIS' tal for tre byer.",
+          "bg": "assets/2026-W45/tag-solceller.png"
+        },
+        {
+          "layout": "kpi2",
+          "tag": "PR. KWP OM ÅRET",
+          "title": "Odense og Aalborg",
+          "kpis": [
+            {
+              "label": "Odense",
+              "value": "{pv.odense.syd}",
+              "unit": "kWh"
+            },
+            {
+              "label": "Aalborg",
+              "value": "{pv.aalborg.syd}",
+              "unit": "kWh"
+            }
+          ]
+        },
+        {
+          "layout": "stat",
+          "tag": "AARHUS",
+          "title": "Et år pr. kWp i Aarhus",
+          "value": "{pv.aarhus.syd}",
+          "body": "mod syd, ifølge PVGIS. Forskellen mellem byerne er få procent."
+        },
+        {
+          "layout": "text",
+          "tag": "DET BETYDER MERE",
+          "title": "Taget betyder mere end byen",
+          "highlight": "Taget",
+          "body": "Retning, hældning og skygge fra træer flytter mere end, om du bor i Odense eller Aalborg."
+        },
+        {
+          "layout": "text",
+          "tag": "OG FORBRUGET",
+          "title": "Det, du selv bruger, tæller mest",
+          "highlight": "selv",
+          "body": "Strøm, du bruger i huset, er mere værd end strøm, du sælger. Regn med dit eget forbrug."
+        },
+        {
+          "layout": "end",
+          "tag": "LÆS GUIDEN",
+          "title": "Kan solceller betale sig?",
+          "body": "Guiden viser, hvad en kWh solstrøm er værd for dig. Linket står i bio."
+        }
+      ],
+      "caption": "Et solcelleanlæg mod syd giver ca. {pv.odense.syd} pr. kWp om året i Odense, ca. {pv.aalborg.syd} i Aalborg og ca. {pv.aarhus.syd} i Aarhus, viser PVGIS.\nForskellen mellem byerne er lille. Taget og dit eget forbrug betyder mere.\nLæs guiden om, hvorvidt solceller kan betale sig, på energitjekket.dk (link i bio).",
+      "hashtags": [
+        "#solceller",
+        "#solenergi",
+        "#boligejer"
+      ]
+    },
+    {
+      "id": "2026-11-04-pm",
+      "slot": "2026-11-04T19:30",
+      "type": "short",
+      "pillar": "solceller",
+      "angle": "Samme emne som morgenen, animeret",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/solceller/kan-det-betale-sig/",
+      "audio": "bright-explainer-02.m4a",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "SOLCELLER",
+          "title": "Nord eller syd i Danmark?",
+          "body": "Solcellerne giver næsten det samme."
+        },
+        {
+          "layout": "kpi2",
+          "tag": "PR. KWP OM ÅRET",
+          "title": "Odense og Aalborg",
+          "kpis": [
+            {
+              "label": "Odense",
+              "value": "{pv.odense.syd}",
+              "unit": "kWh"
+            },
+            {
+              "label": "Aalborg",
+              "value": "{pv.aalborg.syd}",
+              "unit": "kWh"
+            }
+          ]
+        },
+        {
+          "layout": "text",
+          "tag": "DET BETYDER MERE",
+          "title": "Taget betyder mere end byen",
+          "highlight": "Taget",
+          "body": "Retning, hældning og skygge flytter mest."
+        },
+        {
+          "layout": "end",
+          "tag": "LÆS GUIDEN",
+          "title": "Kan solceller betale sig?",
+          "body": "Regnestykket i én guide. Link i bio."
+        }
+      ],
+      "caption": "Solceller mod syd giver ca. {pv.odense.syd} pr. kWp om året i Odense og ca. {pv.aalborg.syd} i Aalborg, viser PVGIS.\nByen betyder lidt. Taget, skyggen og dit eget forbrug betyder mere.\nGuiden ligger på energitjekket.dk/solceller/kan-det-betale-sig (link i bio).",
+      "hashtags": [
+        "#solceller",
+        "#solenergi",
+        "#boligejer"
+      ]
+    },
+    {
+      "id": "2026-11-05-am",
+      "slot": "2026-11-05T07:30",
+      "type": "carousel",
+      "pillar": "varmepumpe",
+      "angle": "Radiatorer eller gulvvarme med varmepumpe",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/varmepumpe/pris/",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "VARMEPUMPE",
+          "title": "Radiatorer eller gulvvarme?",
+          "body": "Begge dele virker med en varmepumpe. Driften er bare forskellig.",
+          "bg": "assets/2026-W45/radiator.png"
+        },
+        {
+          "layout": "kpi2",
+          "tag": "LUFT TIL VAND",
+          "title": "Varme om året, samme hus",
+          "kpis": [
+            {
+              "label": "Radiatorer",
+              "value": "{bolius.ltv_radiator}",
+              "unit": "kr./år"
+            },
+            {
+              "label": "Gulvvarme",
+              "value": "{bolius.ltv_gulvvarme}",
+              "unit": "kr./år"
+            }
+          ]
+        },
+        {
+          "layout": "kpi2",
+          "tag": "JORDVARME",
+          "title": "Og med jordvarme",
+          "kpis": [
+            {
+              "label": "Radiatorer",
+              "value": "{bolius.jordvarme_radiator}",
+              "unit": "kr./år"
+            },
+            {
+              "label": "Gulvvarme",
+              "value": "{bolius.jordvarme_gulvvarme}",
+              "unit": "kr./år"
+            }
+          ]
+        },
+        {
+          "layout": "text",
+          "tag": "HVORFOR",
+          "title": "Gulvvarme klarer sig med lunt vand",
+          "highlight": "lunt",
+          "body": "Jo lavere temperatur på vandet, jo mindre strøm bruger pumpen."
+        },
+        {
+          "layout": "text",
+          "tag": "HAR DU RADIATORER",
+          "title": "Behold dem og regn på det",
+          "highlight": "Behold",
+          "body": "Store radiatorer kan klare lavere temperatur. Få installatøren til at tjekke dem."
+        },
+        {
+          "layout": "end",
+          "tag": "LÆS GUIDEN",
+          "title": "Hvad koster en varmepumpe?",
+          "body": "Pris, drift og tilskud i én guide. Linket står i bio."
+        }
+      ],
+      "caption": "En varmepumpe (luft til vand) i Bolius' standardhus koster ca. {bolius.ltv_radiator} om året med radiatorer og ca. {bolius.ltv_gulvvarme} med gulvvarme.\nGulvvarme klarer sig med lunere vand, så pumpen bruger mindre strøm.\nHar du radiatorer, så behold dem og få dem tjekket.\nGuiden om varmepumpens pris ligger på energitjekket.dk/varmepumpe/pris (link i bio).",
+      "hashtags": [
+        "#varmepumpe",
+        "#gulvvarme",
+        "#radiatorer",
+        "#boligejer"
+      ]
+    },
+    {
+      "id": "2026-11-05-pm",
+      "slot": "2026-11-05T19:30",
+      "type": "short",
+      "pillar": "by",
+      "city": "silkeborg",
+      "angle": "Sådan finder du tallene for din kommune (byside-screenshot)",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/varmepumpe/silkeborg/",
+      "audio": "melodic-guitar-01.m4a",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "SILKEBORG",
+          "title": "Hvordan varmer naboerne?",
+          "body": "Hver kommune har sine egne tal på energitjekket.dk."
+        },
+        {
+          "layout": "kpi2",
+          "tag": "SILKEBORG KOMMUNE",
+          "title": "Sådan varmes boligerne op",
+          "kpis": [
+            {
+              "label": "Fjernvarme",
+              "value": "{heat.silkeborg.fjernvarme_pct}",
+              "unit": "% af boligerne"
+            },
+            {
+              "label": "Varmepumpe",
+              "value": "{heat.silkeborg.varmepumpe_pct}",
+              "unit": "% af boligerne"
+            }
+          ]
+        },
+        {
+          "layout": "screenshot",
+          "tag": "BYSIDEN",
+          "title": "Sådan ser siden ud",
+          "screenshot": "by:silkeborg:varmepumpe"
+        },
+        {
+          "layout": "end",
+          "tag": "SE TALLENE",
+          "title": "Varmepumpe i Silkeborg",
+          "body": "Tal og tilskud for Silkeborg. Link i bio."
+        }
+      ],
+      "caption": "I Silkeborg Kommune har ca. {heat.silkeborg.fjernvarme_pct} af boligerne fjernvarme og ca. {heat.silkeborg.varmepumpe_pct} varmepumpe, viser Danmarks Statistik.\nPå bysiden står tallene for kommunen samlet.\nSe siden for Silkeborg på energitjekket.dk (link i bio).",
+      "hashtags": [
+        "#silkeborg",
+        "#varmepumpe",
+        "#boligejer"
+      ]
+    },
+    {
+      "id": "2026-11-06-am",
+      "slot": "2026-11-06T07:30",
+      "type": "carousel",
+      "pillar": "by",
+      "city": "aalborg",
+      "angle": "Solceller i Aalborg: produktion pr. kWp, sommer mod vinter",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/solceller/aalborg/",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "AALBORG",
+          "title": "Solceller i Aalborg",
+          "body": "Så meget strøm giver et anlæg mod syd, sommer og vinter."
+        },
+        {
+          "layout": "stat",
+          "tag": "HELE ÅRET",
+          "title": "Et år pr. kWp mod syd",
+          "value": "{pv.aalborg.syd}",
+          "body": "i Aalborg ifølge PVGIS. Et typisk anlæg er på {beregner.anlaeg_kwp}."
+        },
+        {
+          "layout": "kpi2",
+          "tag": "SOMMER OG VINTER",
+          "title": "Juni og december pr. kWp",
+          "kpis": [
+            {
+              "label": "Juni",
+              "value": "{pv.aalborg.month.6}",
+              "unit": "kWh"
+            },
+            {
+              "label": "December",
+              "value": "{pv.aalborg.month.12}",
+              "unit": "kWh"
+            }
+          ]
+        },
+        {
+          "layout": "text",
+          "tag": "HVAD BETYDER DET",
+          "title": "Det meste kommer om sommeren",
+          "highlight": "sommeren",
+          "body": "Juni giver mange gange så meget som december. Brug strømmen i huset, mens solen står højt."
+        },
+        {
+          "layout": "end",
+          "tag": "SE TALLENE",
+          "title": "Solceller i Aalborg",
+          "body": "Produktion og regler for Aalborg på bysiden. Linket står i bio."
+        }
+      ],
+      "caption": "Et solcelleanlæg mod syd i Aalborg giver ca. {pv.aalborg.syd} pr. kWp om året, viser PVGIS.\nI juni er det ca. {pv.aalborg.month.6} pr. kWp, i december ca. {pv.aalborg.month.12}.\nSe tallene og reglerne for Aalborg på energitjekket.dk/solceller/aalborg (link i bio).",
+      "hashtags": [
+        "#solceller",
+        "#aalborg",
+        "#solenergi",
+        "#boligejer"
+      ]
+    },
+    {
+      "id": "2026-11-07-am",
+      "slot": "2026-11-07T07:30",
+      "type": "carousel",
+      "pillar": "varmepumpe",
+      "angle": "Quiz: hvad koster et år med gasfyr?",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/varmepumpe/skift-gasfyr/",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "QUIZ",
+          "title": "Hvad koster et år med gasfyr?",
+          "body": "Huset er på {bolius.hus.m2}. Gæt, før du swiper."
+        },
+        {
+          "layout": "stat",
+          "tag": "SVARET",
+          "title": "Et år med gasfyr koster",
+          "value": "{bolius.gasfyr}",
+          "body": "om året i Bolius' standardhus."
+        },
+        {
+          "layout": "kpi2",
+          "tag": "OG VARMEPUMPE?",
+          "title": "Samme hus med varmepumpe",
+          "kpis": [
+            {
+              "label": "Radiatorer",
+              "value": "{bolius.ltv_radiator}",
+              "unit": "kr./år"
+            },
+            {
+              "label": "Gulvvarme",
+              "value": "{bolius.ltv_gulvvarme}",
+              "unit": "kr./år"
+            }
+          ]
+        },
+        {
+          "layout": "text",
+          "tag": "HUSK",
+          "title": "Det er udgiften til drift",
+          "highlight": "drift",
+          "body": "Prisen for en ny varmepumpe skal regnes med for sig. Det samme gælder at lukke gasstikket."
+        },
+        {
+          "layout": "text",
+          "tag": "FØRST",
+          "title": "Kommer der fjernvarme til dig?",
+          "body": "Mange gasområder får fjernvarme. Tjek kommunens varmeplan for din adresse, før du vælger."
+        },
+        {
+          "layout": "end",
+          "tag": "LÆS GUIDEN",
+          "title": "Skift gasfyr i tre trin",
+          "body": "Varmeplan, økonomi og tilskud i én guide. Linket står i bio."
+        }
+      ],
+      "caption": "Hvad gættede du på?\nI Bolius' standardhus på {bolius.hus.m2} koster et år med gasfyr ca. {bolius.gasfyr}.\nMed en varmepumpe og radiatorer er tallet ca. {bolius.ltv_radiator}.\nGuiden om at skifte gasfyr ligger på energitjekket.dk/varmepumpe/skift-gasfyr (link i bio).",
+      "hashtags": [
+        "#quiz",
+        "#gasfyr",
+        "#varmepumpe",
+        "#boligejer"
+      ]
+    },
+    {
+      "id": "2026-11-07-pm",
+      "slot": "2026-11-07T19:30",
+      "type": "short",
+      "pillar": "varmepumpe",
+      "angle": "Før du skifter fyr: tre ting at tjekke",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/varmepumpe/tilskud/",
+      "audio": "melodic-guitar-02.m4a",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "FØR DU SKIFTER",
+          "title": "Tre ting at tjekke først",
+          "body": "Før du skifter fyr til varmepumpe."
+        },
+        {
+          "layout": "text",
+          "tag": "VARMEPLANEN",
+          "title": "Kommer der fjernvarme?",
+          "body": "I et fjernvarmeområde kan du ikke få tilskud til en varmepumpe."
+        },
+        {
+          "layout": "text",
+          "tag": "RADIATORERNE",
+          "title": "Kan de klare lunere vand?",
+          "body": "Store radiatorer giver lavere drift. Spørg installatøren."
+        },
+        {
+          "layout": "end",
+          "tag": "LÆS GUIDEN",
+          "title": "Tilskud til varmepumpe",
+          "body": "Hvem kan få tilskud, og hvordan. Link i bio."
+        }
+      ],
+      "caption": "Tre ting at tjekke, før du skifter fyr til varmepumpe.\nFørst varmeplanen: i et fjernvarmeområde kan du ikke få tilskud. Så radiatorerne, og til sidst SCOP-tallet, når du får en pris.\nGuiden om tilskud ligger på energitjekket.dk/varmepumpe/tilskud (link i bio).",
+      "hashtags": [
+        "#varmepumpe",
+        "#tilskud",
+        "#boligejer"
+      ]
+    },
+    {
+      "id": "2026-11-08-am",
+      "slot": "2026-11-08T07:30",
+      "type": "carousel",
+      "pillar": "varmepumpe",
+      "angle": "Gem til senere: tjekliste før du skifter fyr",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/varmepumpe/tilskud/",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "GEM TIL SENERE",
+          "title": "Tjekliste før du skifter fyr",
+          "body": "Fem ting at have styr på, før du taler med en installatør."
+        },
+        {
+          "layout": "text",
+          "tag": "VARMEPLANEN",
+          "title": "Kommer der fjernvarme?",
+          "body": "Tjek kommunens varmeplan for din adresse. I et fjernvarmeområde kan du ikke få tilskud."
+        },
+        {
+          "layout": "text",
+          "tag": "FORBRUGET",
+          "title": "Find dit forbrug frem",
+          "highlight": "forbrug",
+          "body": "Olie-, gas- eller elregningen for et helt år. Bolius' standardhus bruger ca. {bolius.hus.kwh} varme."
+        },
+        {
+          "layout": "text",
+          "tag": "RADIATORERNE",
+          "title": "Se på radiatorerne",
+          "highlight": "radiatorerne",
+          "body": "Kan de varme huset med lunere vand? Store radiatorer giver lavere drift."
+        },
+        {
+          "layout": "text",
+          "tag": "INSTALLATØREN",
+          "title": "Spørg efter SCOP",
+          "highlight": "SCOP",
+          "body": "Tallet viser varmen pr. kWh strøm over et helt år. Beregneren regner med ca. {beregner.scop}."
+        },
+        {
+          "layout": "end",
+          "tag": "LÆS GUIDEN",
+          "title": "Tilskud til varmepumpe",
+          "body": "Hvem kan få tilskud, og hvordan du søger. Linket står i bio."
+        }
+      ],
+      "caption": "Gem den til den dag, du skal skifte fyr.\nTjek varmeplanen, find et års forbrug frem, se på radiatorerne og spørg installatøren om SCOP.\nBolius' standardhus bruger ca. {bolius.hus.kwh} varme om året; dit eget tal står på regningen.\nGuiden om tilskud ligger på energitjekket.dk/varmepumpe/tilskud (link i bio).",
+      "hashtags": [
+        "#varmepumpe",
+        "#tjekliste",
+        "#boligejer",
+        "#tilskud"
+      ]
+    },
+    {
+      "id": "2026-11-08-pm",
+      "slot": "2026-11-08T19:30",
+      "type": "short",
+      "pillar": "by",
+      "city": "naestved",
+      "angle": "Fjernvarme eller varmepumpe i Næstved",
+      "quote": false,
+      "target_url": "https://energitjekket.dk/varmepumpe/naestved/fjernvarme-eller-varmepumpe/",
+      "audio": "bright-explainer-01.m4a",
+      "slides": [
+        {
+          "layout": "cover",
+          "tag": "NÆSTVED KOMMUNE",
+          "title": "Fjernvarme eller varmepumpe?",
+          "body": "I Næstved har langt færre fjernvarme end i resten af landet."
+        },
+        {
+          "layout": "kpi2",
+          "tag": "NÆSTVED",
+          "title": "Sådan varmes boligerne op",
+          "kpis": [
+            {
+              "label": "Fjernvarme",
+              "value": "{heat.naestved.fjernvarme_pct}",
+              "unit": "% af boligerne"
+            },
+            {
+              "label": "Varmepumpe",
+              "value": "{heat.naestved.varmepumpe_pct}",
+              "unit": "% af boligerne"
+            }
+          ]
+        },
+        {
+          "layout": "text",
+          "tag": "UDEN FOR NETTET",
+          "title": "Tjek varmeplanen for din adresse",
+          "highlight": "varmeplanen",
+          "body": "Ligger huset uden for fjernvarmen, kan en varmepumpe være næste skridt."
+        },
+        {
+          "layout": "end",
+          "tag": "SE TALLENE",
+          "title": "Varme i Næstved",
+          "body": "Fjernvarme og varmepumpe i Næstved på én side. Link i bio."
+        }
+      ],
+      "caption": "I Næstved Kommune har ca. {heat.naestved.fjernvarme_pct} af boligerne fjernvarme og ca. {heat.naestved.varmepumpe_pct} varmepumpe, viser Danmarks Statistik.\nDet er langt under landsgennemsnittet for fjernvarme.\nLigger dit hus uden for nettet, så tjek varmeplanen og se tallene for Næstved på energitjekket.dk (link i bio).",
+      "hashtags": [
+        "#naestved",
+        "#varmepumpe",
+        "#fjernvarme",
+        "#boligejer"
+      ]
+    }
+  ]
+}
