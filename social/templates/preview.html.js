@@ -81,7 +81,7 @@ document.querySelectorAll('.post').forEach((sec)=>{
       if(location.protocol==='file:')throw new Error('file');
       const r=await fetch('/approve',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:sec.dataset.id,approved,buildId:BUILD_ID})});
       if(r.status===409)throw new Error('Opslagene er genbygget eller godkendelse er slået fra. Genindlæs siden.');
-      if(!r.ok)throw new Error(await r.text());
+      if(!r.ok){const t=await r.text();let m=t;try{m=JSON.parse(t).error||t}catch{}throw new Error(m)}
       sec.className='post '+(approved?'approved':'rejected');
       sec.querySelector('.status').textContent=approved?'Godkendt':'Afvist';
       note.hidden=true;

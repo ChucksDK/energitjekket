@@ -7,6 +7,7 @@ import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { loadSources, DEFAULT_SOURCES } from '../lib/sources.js';
 import { validatePost, resolvePost } from '../lib/brief.js';
+import { weekErrors } from '../lib/week.js';
 import { REPO_ROOT, SOCIAL_ROOT } from '../lib/paths.js';
 import { CONFIG_FILE, loadConfig, writeJsonAtomic, writeSchedule } from '../lib/schedule.js';
 import { renderCarousel, withBrowser } from '../render/png.js';
@@ -73,15 +74,18 @@ export async function buildWeek(argv, log = console.log) {
     return shot.get(key);
   };
 
+  // Tjek på tværs af ugen: dublerede slots, id/slot-dato, tidspunkt pr. type, fredag 19:30 (elpris-reel).
+  const week = weekErrors(brief.posts);
+
   await withBrowser(async () => {
-    for (const post of brief.posts) {
+    for (const [i, post] of brief.posts.entries()) {
       const id = post && typeof post.id === 'string' ? post.id : '(uden id)';
       try {
         if (!SAFE_ID.test(id)) throw new Error(`Ugyldigt opslags-id: ${id}`);
         if (seen.has(id)) throw new Error(`Opslags-id er brugt flere gange: ${id}`);
         seen.add(id);
         if (!SLOT.test(String(post.slot))) throw new Error(`slot skal have formen YYYY-MM-DDTHH:MM (fik "${post.slot}")`);
-        const errs = validatePost(post, sources);
+        const errs = [...week[i], ...validatePost(post, sources)];
         if (errs.length) {
           errors.push({ id, errors: errs });
           continue;

@@ -136,7 +136,7 @@ test('preview-server approves, rejects and regenerates schedule.json', async () 
     const sched = readJson('schedule.json');
     assert.equal(sched.length, 1);
     assert.equal(sched[0].id, AM);
-    assert.equal(sched[0].slot, '2026-11-02T07:30');
+    assert.equal(sched[0].slot, '2026-11-02T07:30:00+01:00');
     assert.equal(sched[0].type, 'carousel');
     assert.equal(sched[0].files.length, 5);
     assert.ok(sched[0].files.every((f) => path.isAbsolute(f) && fs.existsSync(f)));
@@ -272,4 +272,54 @@ test('build-week exits 1 when no post could be built', async () => {
   await assert.rejects(run('node', args(brief), { cwd: REPO_ROOT }), (e) => e.code === 1);
   assert.deepEqual(readJson('schedule.json'), []);
   assert.equal(readJson('errors.json')[0].id, BAD);
+});
+
+test('week-level errors are reported per post and the rest is skipped (finding 14)', async () => {
+  const friday = { ...short(), id: '2026-11-06-pm', slot: '2026-11-06T19:30' };
+  const dupA = { ...carousel(), id: '2026-11-04-am', slot: '2026-11-04T07:30' };
+  const dupB = { ...carousel(), id: '2026-11-04-am2', slot: '2026-11-04T07:30' };
+  const wrongTime = { ...carousel(), id: '2026-11-05-pm', slot: '2026-11-05T19:30' };
+  const brief = writeBrief('brief-week.json', [friday, dupA, dupB, wrongTime]);
+  await assert.rejects(run('node', args(brief), { cwd: REPO_ROOT, maxBuffer: 1 << 24 }), (e) => e.code === 1);
+  const errors = Object.fromEntries(readJson('errors.json').map((e) => [e.id, e.errors.join(' | ')]));
+  assert.match(errors['2026-11-06-pm'], /fredag kl\. 19:30 er reserveret/);
+  assert.match(errors['2026-11-04-am'], /brugt af flere opslag/);
+  assert.match(errors['2026-11-04-am2'], /brugt af flere opslag/);
+  assert.match(errors['2026-11-05-pm'], /carousel skal ligge kl\. 07:30/);
+  assert.deepEqual(readJson('manifest.json'), []);
+});
+
+test('/approve answers 500 JSON on malformed build.json, config or manifest and the server stays up (finding 13)', async () => {
+  const brief = writeBrief('brief-500.json', [carousel()]);
+  await run('node', args(brief), { cwd: REPO_ROOT, maxBuffer: 1 << 24 });
+  const cfg = path.join(tmp, 'config-500.json');
+  fs.writeFileSync(cfg, JSON.stringify({ require_approval: true }));
+  const server = await startServer(weekDir, { port: 0, configFile: cfg });
+  const { port } = server.address();
+  const id = buildId();
+  const approve = () =>
+    fetch(`http://127.0.0.1:${port}/approve`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ buildId: id, id: AM, approved: true }) });
+  const broken = async (file, restore) => {
+    const saved = fs.readFileSync(file);
+    fs.writeFileSync(file, '{ikke json');
+    try {
+      const r = await approve();
+      assert.equal(r.status, 500, file);
+      assert.match(r.headers.get('content-type'), /application\/json/);
+      const body = await r.json();
+      assert.equal(body.ok, false);
+      assert.ok(body.error.length > 0);
+      assert.equal((await fetch(`http://127.0.0.1:${port}/preview.html`)).status, 200, 'serveren kører videre');
+    } finally {
+      fs.writeFileSync(file, restore ?? saved);
+    }
+  };
+  try {
+    await broken(path.join(weekDir, 'build.json'));
+    await broken(cfg);
+    await broken(path.join(weekDir, 'manifest.json'));
+    assert.equal((await approve()).status, 200);
+  } finally {
+    server.close();
+  }
 });
