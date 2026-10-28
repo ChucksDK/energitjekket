@@ -425,3 +425,73 @@ CONTACTS["naestved"] = {"sol": [("Næstved Kommune, Center for Teknik og Miljø"
                         "vp":  [("Næstved Fjernvarme", "55 72 56 65 · info@naestvedfjernvarme.dk", "nae_nord")]}
 CONTACTS["silkeborg"] = {"sol": [("Silkeborg Kommune, Team Byg", "89 70 14 14 · byg@silkeborg.dk", "sil_byg")],
                          "vp":  [("Silkeborg Forsyning", "89 20 64 00", "sil_kontakt")]}
+
+# ---------- daglig by-rutine 28. okt. 2026: Holbæk og Slagelse ----------
+S.update({
+ "hol_sol": ("Holbæk Kommune: solcelle- og solfangeranlæg (opdateret 5/7 2026)", "https://holbaek.dk/service-og-selvbetjening/bolig-og-byggeri/byggeri/solcelle-og-solfangeranlaeg"),
+ "hol_disp": ("Holbæk Kommune, Udvalget for Klima og Miljø 22/11 2011: retningslinjer for dispensationer til solceller (PDF)", "https://cdn1.gopublic.dk/holbaekkommune/media/65468/kmu_solceller.pdf"),
+ "hol_pkn": ("Planklagenævnet: afslag på dispensation til solceller efter lokalplan nr. 3.14 i Holbæk ophævet (gengivet på Lovguiden.dk)", "https://www.lovguiden.dk/dokument/planklagenaevnet/22-17349-oph%C3%A6velse-af-afslag-p%C3%A5-dispensation-til-solceller-p%C3%A5-grund-af-kommunes-forkerte-retsopfattelse"),
+ "hol_fv": ("Holbæk Kommune: fjernvarmeplaner (opdateret 25/3 2026)", "https://holbaek.dk/service-og-selvbetjening/teknik-og-miljoe/klima-og-energi-/opvarmning-/fjernvarmeplaner"),
+ "hol_ext": ("Holbæk Kommune 18/6 2026: fjernvarmetilmelding forlænges til maj 2027", "https://holbaek.dk/om-kommunen/nyheder-og-presse/nyheder/2026/jun/fjernvarmetilmelding-forlaenges-til-maj-2027"),
+ "fors_hol": ("Fors: fjernvarme til Holbæk by (projektstatus og tilslutningsprocent pr. 4/8 2026)", "https://www.fors.dk/fjernvarme/fjernvarme-til-holbaek-by/"),
+ "slg_sol": ("Slagelse Kommune: vil du opsætte solcelleanlæg?", "https://www.slagelse.dk/da/service-og-selvbetjening/bolig-og-byggeri/el-og-varme/solcelleanlaeg/"),
+ "slg_adm": ("Slagelse Kommune: administrationsgrundlag for solfangere og solcelleanlæg (rev. 19/9 2022, PDF)", "https://www.slagelse.dk/media/a2mmalxi/solfanger-og-solcelleanlaeg-administrationsgrundlag-webtil.pdf"),
+ "slg_fv": ("Slagelse Kommune: kan jeg få fjernvarme? (status pr. lokalområde)", "https://www.slagelse.dk/da/service-og-selvbetjening/bolig-og-byggeri/el-og-varme/fjernvarme/"),
+ "slg_byg": ("Slagelse Kommune: få hjælp af en byggesagsbehandler", "https://www.slagelse.dk/da/service-og-selvbetjening/erhverv/erhvervsarealer-boligarealer-og-byggeri/faa-hjaelp-af-en-byggesagsbehandler/"),
+ "env_ve": ("Envafors: vi leverer fjernvarme på 95 % VE (Slagelse og Korsør)", "https://www.envafors.dk/slagelse/klima---milj%c3%b8/vi-leverer-fjernvarme-p%c3%a5-95---ve"),
+ "sn_skae": ("Sjællandske Nyheder 29/8 2026: forslag om fjernvarme til ca. 1.600 kunder i Skælskør", "https://www.sn.dk/art6631532/slagelse-kommune/nyhed/forsyningsselskab-vil-levere-fjernvarme-til-1600-kunder/"),
+})
+CITIES["holbaek"] = {
+  "name": "Holbæk", "kommune": "Holbæk Kommune", "updated": ("28. oktober 2026", "2026-10-28"),
+  "sol_intro": "Solceller i Holbæk: følger panelerne tagets hældning på en privat bolig, kræver de som udgangspunkt ikke byggetilladelse. Står de på stativ eller på jorden, skal du altid søge. Lokalplaner, deklarationer og grundejerforeningens vedtægter kan dog sætte grænser. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Solceller, der <strong>følger tagets hældning</strong> på en privat bolig eller en sekundær bygning, kræver som udgangspunkt ikke byggetilladelse i Holbæk Kommune.", ["hol_sol"]),
+    ("Solceller på <strong>stativ på taget</strong> og alle anlæg <strong>på jorden</strong> kræver altid byggetilladelse. Står et jordanlæg i landzone, skal det også have landzonetilladelse.", ["hol_sol"]),
+    ("Byplanvedtægter, lokalplaner, tinglyste deklarationer, grundejerforeningens vedtægter, fredning og naturbeskyttelseslinjer kan kræve dispensation. Den søges via Byg og Miljø eller på mail.", ["hol_sol"]),
+    ("Kræver anlægget ikke tilladelse, skal du efter monteringen sende antal paneler, areal i m² og ydelse i kW til kommunen, så det kan registreres i BBR.", ["hol_sol"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Holbæk?", "Som udgangspunkt ikke, hvis panelerne følger tagets hældning. Står de på stativ eller på jorden, kræver det altid byggetilladelse. Tjek også lokalplan, deklarationer og grundejerforeningens vedtægter, før du bestiller.", ["hol_sol"]),
+    ("Hvordan kommer mine solceller i BBR i Holbæk Kommune?", "Kræver anlægget ikke tilladelse, sender du efter monteringen antal paneler, areal i m² og ydelse i kW (ikke kWh) til byggesag@holb.dk. Kræver det tilladelse, sker registreringen gennem byggesagen.", ["hol_sol"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Holbæk: under hvert tiende hus i kommunen har fjernvarme, og over 40 % har naturgas. Fjernvarmen i Holbæk by mangler stadig tilmeldinger, og kommunen har ingen planer om flere fjernvarmeområder. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("Fjernvarme til <strong>Holbæk by, etape 1</strong> blev godkendt i marts 2024, men kræver, at 70 % af det opvarmede areal tilmelder sig. Tilslutningen var 12,09 % den 4. august 2026, og arbejdet er forlænget til <strong>1. maj 2027</strong>.", ["hol_fv", "fors_hol", "hol_ext"]),
+    ("Ud over Holbæk by har kommunen fjernvarme eller projekter i Jyderup, Mørkøv og St. Merløse. Holbæk Kommune skriver, at der ikke er planer om flere fjernvarmeområder.", ["hol_fv"]),
+    ("Tilslutningspligt til naturgas bortfaldt ved en lovændring 10. maj 2022, også hvis den står i lokalplanen. Du må altså frit skifte gasfyret ud med en luft til vand-varmepumpe.", ["hol_fv"]),
+    ("Varmepumpepuljen giver kun tilskud uden for fjernvarmeområder og områder med planlagt fjernvarme. Etape 1 i Holbæk by er godkendt til fjernvarme, så tjek din adresse, før du søger.", ["se_vpp", "fors_hol"]),
+  ],
+  "vp_faq": [
+    ("Kommer der fjernvarme i Holbæk by?", "Det er uafklaret. Etape 1 er godkendt, men kræver 70 % tilslutning målt på opvarmet areal. Den 4. august 2026 var den 12,09 %, og arbejdet er forlænget til 1. maj 2027. Tilslutning koster 25.000 kr. til kampagnepris, indtil gravemaskinerne har været forbi, og derefter 50.000 kr.", ["fors_hol", "hol_ext"]),
+    ("Skal jeg beholde mit gasfyr, hvis der står tilslutningspligt i lokalplanen?", "Nej. Holbæk Kommune skriver, at al tilslutningspligt til naturgas bortfaldt ved en lovændring 10. maj 2022, også selvom den står i lokalplaner og servitutter. Du kan frit skifte til fx en luft til vand-varmepumpe.", ["hol_fv"]),
+  ],
+}
+CITIES["slagelse"] = {
+  "name": "Slagelse", "kommune": "Slagelse Kommune", "updated": ("28. oktober 2026", "2026-10-28"),
+  "sol_intro": "Solceller i Slagelse: ligger huset uden for en lokalplan, og overholder anlægget byggeretten i bygningsreglementet, skal du ikke søge. Stiller lokalplanen krav til taget, eller ligger huset i en bevarende lokalplan i Slagelse, Korsør eller Skælskør, skal du søge dispensation. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Uden lokalplan skal du ikke søge, hvis anlægget på taget <strong>overholder byggeretten</strong> i bygningsreglementet, bl.a. afstanden til skel. Anlægget skal indberettes til BBR, når det er sat op.", ["slg_adm", "slg_sol"]),
+    ("Kræver lokalplanen en bestemt tagdækning, fx røde teglsten, skal du søge <strong>dispensation</strong>. Kommunen skriver, at den er indstillet på at give den efter en konkret vurdering, normalt efter naboorientering.", ["slg_adm"]),
+    ("I de <strong>bevarende lokalplaner</strong> i Slagelse, Korsør, Skælskør og en række landsbyer vurderes hver sag konkret. Har bygningen SAVE-værdi 1-2, kan der normalt ikke dispenseres.", ["slg_adm"]),
+    ("Anlæg på terræn i <strong>landzone</strong> kræver altid landzonetilladelse, uanset størrelse.", ["slg_adm"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Slagelse?", "Ikke hvis huset ligger uden for en lokalplan med krav til taget, og anlægget overholder byggeretten i bygningsreglementet. Ellers skal du søge byggetilladelse eller dispensation. Anlægget skal altid indberettes til BBR.", ["slg_adm", "slg_sol"]),
+    ("Hvor lang tid tager en dispensation til solceller i Slagelse Kommune?", "Kommunens administrationsgrundlag siger mindst 6 uger, og længere, hvis naboer eller andre parter skal høres.", ["slg_adm"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Slagelse: fjernvarmen bliver udbygget i Slagelse by, men i Skælskør, Vemmelev, Forlev og Sørbymagle er fjernvarmeprojekterne droppet. Dér skal husene have en individuel løsning, fx en varmepumpe. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("<strong>Slagelse SV</strong> (mellem Idagårdsvej, Skælskørvej/Bjergbygade og Vestmotorvejen) nåede 61 % tilslutning og får fjernvarme. I <strong>Slagelse Øst</strong> (øst for Klosterbanken) er projektet planlagt til 2027 og kræver 60 % tilslutning.", ["slg_fv"]),
+    ("Byrådet annullerede i 2025 fjernvarmeprojekterne i det centrale <strong>Skælskør</strong> og i <strong>Vemmelev og Forlev</strong>. Boligejerne dér kan igen søge tilskud til varmepumpe.", ["slg_fv"]),
+    ("I Sørbymagle og Rosted er der ikke udsigt til et fællesvarmeprojekt, og Frølunde Fed er udlagt til individuel opvarmning.", ["slg_fv"]),
+    ("Varmepumpepuljen giver kun tilskud uden for fjernvarmeområder og områder med planlagt fjernvarme. Tjek din adresse på kommunens kort, før du søger.", ["se_vpp", "slg_fv"]),
+  ],
+  "vp_faq": [
+    ("Kommer der fjernvarme i Skælskør?", "Ikke foreløbig. Byrådet annullerede 26. maj 2025 projektet for det centrale Skælskør, fordi den forventede investering var steget fra under 300 til over 500 mio. kr. I august 2026 lå et nyt forslag om fjernvarme til ca. 1.600 kunder fra et andet selskab hos politikerne.", ["slg_fv", "sn_skae"]),
+    ("Kan jeg få tilskud til varmepumpe i Vemmelev eller Forlev?", "Ja, hvis du opfylder de øvrige krav. Byrådet annullerede fjernvarmeprojektet i august 2025, så området igen er udlagt til individuel opvarmning. Varmepumpepuljen lukker senest 30. november 2026.", ["slg_fv", "se_vpp", "vpp_faq"]),
+  ],
+}
+CONTACTS["holbaek"] = {"sol": [("Holbæk Kommune, Byggesag", "72 36 36 36 · byggesag@holb.dk", "hol_sol")],
+                       "vp":  [("Holbæk Kommune, fjernvarmeplaner", "72 36 36 36", "hol_fv")]}
+CONTACTS["slagelse"] = {"sol": [("Slagelse Kommune, Byggeri", "58 57 37 37 · teknik@slagelse.dk", "slg_byg")],
+                        "vp":  [("Envafors (fjernvarme i Slagelse og Korsør)", "58 36 25 00 · kontakt@envafors.dk", "env_ve")]}

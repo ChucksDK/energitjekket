@@ -43,4 +43,5 @@ FP_ANALYTICS_SITE = "energitjekket.dk"
 CROSS_SITE_URL = "https://administratortjekket.dk"
 CROSS_CITY_LINKS = {"aarhus": "/ejendomsadministration/aarhus/", "odense": "/ejendomsadministration/odense/", "aalborg": "/ejendomsadministration/aalborg/",
                     "randers": "/ejendomsadministration/randers/", "naestved": "/ejendomsadministration/naestved/",
-                    "kolding": "/ejendomsadministration/kolding/", "vejle": "/ejendomsadministration/vejle/"}
+                    "kolding": "/ejendomsadministration/kolding/", "vejle": "/ejendomsadministration/vejle/",
+                    "silkeborg": "/ejendomsadministration/silkeborg/"}

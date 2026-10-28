@@ -46,7 +46,8 @@
     "kommune": "Holbæk Kommune",
     "region": "Region Sjælland",
     "reason": "23.593 beboede parcel/rækkehuse; 9% fjernvarme; 13.765 med olie/gas/elvarme; stærkt varmepumpemarked",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-10-28"
   },
   {
     "rank": 6,
@@ -55,7 +56,8 @@
     "kommune": "Slagelse Kommune",
     "region": "Region Sjælland",
     "reason": "23.356 beboede parcel/rækkehuse; 30% fjernvarme; 9.996 med olie/gas/elvarme; stærkt varmepumpemarked",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-10-28"
   },
   {
     "rank": 7,

@@ -30,7 +30,7 @@ def p_city(svc, c):
 def p_hub(svc): return f"/{svc}/"
 def p_reg(c): return f"/solceller/{c}/regler-og-byggetilladelse/"
 def p_fv(c): return f"/varmepumpe/{c}/fjernvarme-eller-varmepumpe/"
-NUMW = {2: "to", 3: "tre", 4: "fire", 5: "fem", 6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv"}
+NUMW = {2: "to", 3: "tre", 4: "fire", 5: "fem", 6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten"}
 def n_byer(): return f"{len(CITIES)} byer"
 def city_list(): ns = [CITIES[c]["name"] for c in CITIES]; return ", ".join(ns[:-1]) + " og " + ns[-1]
 def fit_desc(full, short):
