@@ -158,3 +158,4 @@ By-rutinen kl. 08:00 bruger samme kommando i stedet for `cd src && python3 build
 - Flow: byg (`python3 src/refresh_elpris.py` eller `cd src && python3 build.py`), kør `verify/check.py`, og så `git add -A && git commit -m "..." && git push origin main`.
 - Fil-deploys via MCP (elpris- og byrutinerne) virker stadig, men så halter GitHub bagefter. Commit og push derfor også efter hver rutine-kørsel, så repoet altid svarer til det, der er live.
 - Ikke i git (`.gitignore`): `screenshots/`, `*.zip`, `_backup-*/`, `_v*-backup*/`, `deploy/` (upload-manifest og base64), `verify/lh-*.json`, `.env*`, `.vercel/`. Ingen hemmeligheder i repoet; nøgler ligger som Supabase-secrets.
+- 2026-10-29: krydslinks Viborg og Roskilde -> administratortjekket (begge 200 live).

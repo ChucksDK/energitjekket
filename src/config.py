@@ -44,4 +44,5 @@ CROSS_SITE_URL = "https://administratortjekket.dk"
 CROSS_CITY_LINKS = {"aarhus": "/ejendomsadministration/aarhus/", "odense": "/ejendomsadministration/odense/", "aalborg": "/ejendomsadministration/aalborg/",
                     "randers": "/ejendomsadministration/randers/", "naestved": "/ejendomsadministration/naestved/",
                     "kolding": "/ejendomsadministration/kolding/", "vejle": "/ejendomsadministration/vejle/",
-                    "silkeborg": "/ejendomsadministration/silkeborg/"}
+                    "silkeborg": "/ejendomsadministration/silkeborg/",
+                    "viborg": "/ejendomsadministration/viborg/", "roskilde": "/ejendomsadministration/roskilde/"}

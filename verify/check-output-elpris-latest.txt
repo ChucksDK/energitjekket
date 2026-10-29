@@ -1,7 +1,7 @@
 Sider: 80 | interne links tjekket: 19247 (82 unikke URL) | brudte: 0
 JSON-LD blokke OK: 80 | fejl: 0 []
 Schema-typer: {'Organization': 80, 'WebPage': 78, 'WebSite': 80, 'BreadcrumbList': 79, 'CollectionPage': 2, 'FAQPage': 74, 'Service': 59, 'WebApplication': 1, 'Dataset': 1}
-Eksterne kildelinks (unikke): 187
+Eksterne kildelinks (unikke): 189
 On-page issues: [('/404.html', 'description 18 tegn'), ('/tak/', 'description 32 tegn')]
 Interlink-krav opfyldt (29 bysider, 30 lokale undersider, 12 guides, 2 hubs)
 og:image+twitter+dato på alle sider: ja | billedstørrelser: {(1200, 630)} | byer uden diagrammer: ingen
@@ -16,8 +16,8 @@ Lighed, GAMMEL metode (hele siden minus header/footer/form/links)
   Alle guides og tilbudssider (12): lighed gns 23%, maks 52% | ord 697-1137
   Byside vs egen underside: gns 16%, maks 39%
   Nye sider (roskilde, soenderborg) mod de eksisterende sider af samme type:
-    /solceller/roskilde/: gns 44%, maks 49% (/solceller/naestved/) | 1278 ord
-    /solceller/soenderborg/: gns 48%, maks 56% (/solceller/viborg/) | 1234 ord
+    /solceller/roskilde/: gns 45%, maks 49% (/solceller/naestved/) | 1300 ord
+    /solceller/soenderborg/: gns 48%, maks 55% (/solceller/viborg/) | 1234 ord
     /solceller/roskilde/regler-og-byggetilladelse/: gns 33%, maks 37% (/solceller/soenderborg/regler-og-byggetilladelse/) | 747 ord
     /solceller/soenderborg/regler-og-byggetilladelse/: gns 33%, maks 37% (/solceller/roskilde/regler-og-byggetilladelse/) | 678 ord
     /varmepumpe/roskilde/: gns 44%, maks 49% (/varmepumpe/kolding/) | 1154 ord
@@ -31,10 +31,10 @@ Lighed, NY metode (kun hovedindhold; uden nav, TOC, side-CTA, trust-linje, hero-
   Undersider fjernvarme-eller-varmepumpe: lighed gns 29%, maks 43% | ord 603-1648
   Guides (4 nationale): lighed gns 13%, maks 21% | ord 599-985
   Alle guides og tilbudssider (12): lighed gns 13%, maks 33% | ord 476-985
-  Byside vs egen underside: gns 11%, maks 34%
+  Byside vs egen underside: gns 10%, maks 34%
   Nye sider (roskilde, soenderborg) mod de eksisterende sider af samme type:
-    /solceller/roskilde/: gns 28%, maks 34% (/solceller/naestved/) | 958 ord
-    /solceller/soenderborg/: gns 31%, maks 42% (/solceller/viborg/) | 915 ord
+    /solceller/roskilde/: gns 28%, maks 34% (/solceller/naestved/) | 980 ord
+    /solceller/soenderborg/: gns 31%, maks 41% (/solceller/viborg/) | 915 ord
     /solceller/roskilde/regler-og-byggetilladelse/: gns 19%, maks 24% (/solceller/soenderborg/regler-og-byggetilladelse/) | 601 ord
     /solceller/soenderborg/regler-og-byggetilladelse/: gns 18%, maks 24% (/solceller/roskilde/regler-og-byggetilladelse/) | 532 ord
     /varmepumpe/roskilde/: gns 27%, maks 34% (/varmepumpe/kolding/) | 858 ord
