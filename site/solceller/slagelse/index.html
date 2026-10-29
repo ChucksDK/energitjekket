@@ -63,8 +63,8 @@
 <fieldset class="step" data-step="3"><legend>Hvordan kan installatøren kontakte dig?</legend>
 <div class="row2"><label class="fld">Postnummer<input type="text" name="postnummer" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" required autocomplete="postal-code"></label>
 <label class="fld">Telefon<input type="tel" name="telefon" required autocomplete="tel" pattern="[0-9 +]{8,}"></label></div>
-<label class="fld">Fulde navn<input type="text" name="navn" required autocomplete="name"></label>
-<label class="fld">E-mail<input type="email" name="email" required autocomplete="email"></label>
+<label class="fld">Fulde navn<input type="text" name="navn" required autocomplete="name" minlength="2" maxlength="120"></label>
+<label class="fld">E-mail<input type="email" name="email" required autocomplete="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" maxlength="254"></label>
 <label class="fld">Adresse <span class="opt-l">(valgfrit, hjælper installatøren)</span><input type="text" name="adresse" autocomplete="street-address" maxlength="150"></label>
 <div class="hp" aria-hidden="true"><label>Lad dette felt være tomt<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
 <label class="consent"><input type="checkbox" name="samtykke" value="ja" required> <span class="consent-txt">Ja tak. Jeg giver ANGU ApS (Energitjekket) samtykke til at give mit navn, telefonnummer, e-mail, postnummer, eventuelle adresse og mine svar videre til <strong>én udvalgt installatør</strong> i mit område, så installatøren kan kontakte mig <strong>på telefon og e-mail</strong> med et tilbud på solceller. Så snart mine oplysninger er sendt, får jeg en e-mail med installatørens navn og CVR-nummer. Jeg kan altid trække samtykket tilbage ved at skrive til kontakt@energitjekket.dk.</span></label>

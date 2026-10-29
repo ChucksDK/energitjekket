@@ -29,24 +29,28 @@
   if(!f) return;
   var steps=[].slice.call(f.querySelectorAll('.step')), i=0, sl=[].slice.call(f.querySelectorAll('.stepper li')), cnt=f.querySelector('.step-count');
   var bar=f.querySelector('.progress span'), prev=f.querySelector('[data-prev]'), next=f.querySelector('[data-next]'), sub=f.querySelector('[data-submit]'), msg=f.querySelector('.form-msg');
+  function track(e,x){ try{ x=x||{}; x.service=f.getAttribute('data-service')||''; x.city=f.getAttribute('data-city')||''; if(window.etT) window.etT(e,x); }catch(_){} }
   function show(n,focus){ steps.forEach(function(s,k){s.classList.toggle('on',k===n)}); i=n;
     sl.forEach(function(li,k){ li.classList.toggle('on',k===n); li.classList.toggle('done',k<n); });
     if(cnt) cnt.textContent='Trin '+(n+1)+' af '+steps.length;
     bar.style.width=((n+1)/steps.length*100)+'%';
     prev.style.display=n>0?'inline-flex':'none'; next.style.display=n<steps.length-1?'inline-flex':'none'; sub.style.display=n===steps.length-1?'inline-flex':'none'; msg.textContent=''; msg.className='form-msg';
+    if(focus) track('form_step',{step:n+1});
     if(focus){ var l=steps[n].querySelector('legend'); var r=f.getBoundingClientRect(); if(r.top<60) f.scrollIntoView({block:'start'}); var el=steps[n].querySelector('input:not([type=hidden]),select'); if(el && window.innerWidth>=960) el.focus({preventScroll:true}); } }
   function valid(s){ var bad=null; [].slice.call(s.querySelectorAll('input,select')).forEach(function(el){ if(!bad && !el.checkValidity()) bad=el; });
-    if(bad){ msg.textContent= bad.type==='checkbox' ? 'Du skal give samtykke, før vi kan sende din forespørgsel videre.' : (bad.type==='radio' ? 'Vælg en af mulighederne for at fortsætte.' : 'Tjek feltet: '+((bad.closest('label')||{}).textContent||'').trim().split('\n')[0].split('(')[0].trim()); msg.className='form-msg err'; if(bad.focus) bad.focus(); return false;} return true; }
+    if(bad){ msg.textContent= bad.type==='checkbox' ? 'Du skal give samtykke, før vi kan sende din forespørgsel videre.' : (bad.type==='radio' ? 'Vælg en af mulighederne for at fortsætte.' : bad.type==='email' ? 'Tjek din e-mailadresse. Den skal have formen navn@domæne.dk.' : 'Tjek feltet: '+((bad.closest('label')||{}).textContent||'').trim().split('\n')[0].split('(')[0].trim()); msg.className='form-msg err'; if(bad.focus) bad.focus(); return false;} return true; }
   next.addEventListener('click',function(){ if(valid(steps[i])) show(i+1,true); });
   prev.addEventListener('click',function(){ show(i-1,true); });
   var SB_URL='https://ckdrjxjdxprezsvfdpet.supabase.co', SB_KEY='sb_publishable_aRI1q3wllbs5kT-nIaYp1w_VtVo_mJR', CV='2026-10-25-v2', busy=false;
   function val(n){ var el=f.elements[n]; if(!el) return ''; if(el.length!==undefined && !el.tagName){ for(var k=0;k<el.length;k++){ if(el[k].checked) return el[k].value; } return ''; } return (el.value||'').trim(); }
   function utm(){ var o={}; try{ var q=new URLSearchParams(location.search); ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid'].forEach(function(k){ var v=q.get(k); if(v) o[k]=v.slice(0,100); }); }catch(_){} return o; }
   f.addEventListener('submit',function(e){ e.preventDefault(); if(busy || !valid(steps[i])) return;
+    // Enter i et felt før sidste trin: gå videre til næste trin i stedet for at sende
+    if(i<steps.length-1){ show(i+1,true); return; }
     // honeypot: udfyldt af bots -> lad som om alt gik godt, men send intet
     if(val('website')){ location.href='/tak/'; return; }
     var skip={service:1,by:1,navn:1,email:1,telefon:1,postnummer:1,samtykke:1,website:1}, ans={};
-    [].slice.call(f.elements).forEach(function(el){ if(!el.name || skip[el.name] || el.type==='button' || el.type==='submit') return; if((el.type==='radio'||el.type==='checkbox') && !el.checked) return; var v=(el.value||'').trim(); if(v) ans[el.name]=v.slice(0,200); });
+    [].slice.call(f.elements).forEach(function(el){ if(!el.name || skip[el.name] || el.type==='button' || el.type==='submit') return; if((el.type==='radio'||el.type==='checkbox') && !el.checked) return; var v=(el.value||'').trim(); if(!v) return; if(el.type==='checkbox' && ans[el.name]) v=ans[el.name]+', '+v; ans[el.name]=v.slice(0,200); });
     var ct=f.querySelector('.consent-txt'), row={ service:f.getAttribute('data-service'), city:(f.getAttribute('data-city')||'').slice(0,60)||null,
       page_url:(location.origin+location.pathname).slice(0,500), answers:ans, name:val('navn').slice(0,120), email:val('email').slice(0,254),
       phone:val('telefon').replace(/[^0-9 +]/g,'').slice(0,20), postal_code:val('postnummer'), consent_text:ct?ct.textContent.replace(/\s+/g,' ').trim():'',
@@ -54,7 +58,8 @@
     busy=true; sub.disabled=true; msg.className='form-msg'; msg.textContent='Sender …';
     fetch(SB_URL+'/rest/v1/leads',{method:'POST',headers:{'apikey':SB_KEY,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify(row)})
       .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); try{ sessionStorage.setItem('et_fs',JSON.stringify({service:row.service||'',city:row.city||'',p:location.pathname})); }catch(_){} location.href='/tak/'; })
-      .catch(function(){ busy=false; sub.disabled=false; msg.className='form-msg err';
+      .catch(function(err){ busy=false; sub.disabled=false; msg.className='form-msg err';
+        var st=/^HTTP (\d+)$/.exec((err&&err.message)||''); track('form_error',{status:st?+st[1]:0});
         msg.textContent='Beklager, vi kunne ikke sende din forespørgsel lige nu. Tjek dine oplysninger og prøv igen om lidt, eller skriv til kontakt@energitjekket.dk.'; });
   });
   show(0);
