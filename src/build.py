@@ -582,7 +582,7 @@ def city_page(svc, c):
         local_h = f"Det skal du vide om solceller i {n}"
         order = L.SOL_ORDER[c]
     else:
-        title = f"Varmepumpe {n}: luft til vand, tilskud og pris | {BRAND}"
+        title = d.get("vp_title") or f"Varmepumpe {n}: luft til vand, tilskud og pris | {BRAND}"  # vp_title: kun når bynavnet gør titlen > 68 tegn
         desc = f"Luft til vand-varmepumpe i {n}: fjernvarmestatus i {d['kommune']}, lokal fjernvarmepris og tilskud på 27.000 kr. (frist 30/11 2026). Få tilbud."
         h1 = f"Luft til vand-varmepumpe i {n}"
         intro, facts = d["vp_intro"], d["vp_facts"]
@@ -650,7 +650,7 @@ def reg_page(c):
 
 def fv_page(c):
     d = CITIES[c]; n = d["name"]; f = FV_PAGE[c]; path = p_fv(c)
-    title = f"Fjernvarme eller varmepumpe i {n}? Priser 2026 | {BRAND}"
+    title = CITIES[c].get("fv_title") or f"Fjernvarme eller varmepumpe i {n}? Priser 2026 | {BRAND}"
     desc = f"Fjernvarme eller luft til vand-varmepumpe i {n}? Lokale fjernvarmepriser pr. værk, status for udbygningen og tilskudsregler, med kilder."
     h1 = f"Fjernvarme eller varmepumpe i {n}?"
     crumbs = [("Forside", "/"), ("Varmepumpe", p_hub("varmepumpe"))] + ([(n, p_city("varmepumpe", c))] if has_vp(c) else []) + [("Fjernvarme eller varmepumpe", path)]

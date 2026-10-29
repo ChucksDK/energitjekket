@@ -495,3 +495,80 @@ CONTACTS["holbaek"] = {"sol": [("Holbæk Kommune, Byggesag", "72 36 36 36 · byg
                        "vp":  [("Holbæk Kommune, fjernvarmeplaner", "72 36 36 36", "hol_fv")]}
 CONTACTS["slagelse"] = {"sol": [("Slagelse Kommune, Byggeri", "58 57 37 37 · teknik@slagelse.dk", "slg_byg")],
                         "vp":  [("Envafors (fjernvarme i Slagelse og Korsør)", "58 36 25 00 · kontakt@envafors.dk", "env_ve")]}
+
+# ---------- daglig by-rutine 29. okt. 2026: Roskilde og Sønderborg ----------
+S.update({
+ "ros_byg": ("Roskilde Kommune: jeg vil bygge nyt hus eller bygge til mit hus (afsnit om solceller/solfangere)", "https://www.roskilde.dk/da-dk/service-og-selvbetjening/borger/bolig-og-byggeri/byggeri/byg-og-miljo-jeg-vil-bygge-nyt-hus-eller-bygge-til-mit-hus/"),
+ "ros_lz": ("Roskilde Kommune: Landzonestrategi, endeligt vedtaget december 2021 (PDF)", "https://www.roskilde.dk/media/c2wmj23c/landzonestrategi-endelig-vedtagelse-dec-2021.pdf"),
+ "ros_ve": ("Roskilde Kommune: etablering af større vedvarende energianlæg (opdateret 26/5 2026)", "https://www.roskilde.dk/da-dk/service-og-selvbetjening/erhverv/erhvervsaffald-energi-og-miljo/etablering-af-storre-vedvarende-energianlaeg-solenergi-ogeller-vindmoller-over-25-meter/"),
+ "ros_tjek": ("Roskilde Kommune: tjekliste til ansøgningsmateriale, enfamiliehuse og mindre rækkehuse (PDF)", "https://www.roskilde.dk/media/u1hfiml4/tjekliste_vedr_ansoegningsmateriale_enfamiliehuse_og_mindre_raekkehuse_0.pdf"),
+ "ros_varme": ("Roskilde Kommune: varmeforsyning (opdateret 28/9 2026)", "https://www.roskilde.dk/da-dk/service-og-selvbetjening/borger/bolig-og-byggeri/energi-og-miljo/varmeforsyning/"),
+ "ros_jyl": ("Roskilde Kommune 5/8 2026: afgørelse om bortfald af fjernvarmeprojektet for Jyllinge (PDF)", "https://www.roskilde.dk/media/sdokjnhm/afgorelse-om-bortfald-af-projektgodkendelse-for-fjernvarmeforsyning-jyllinge.pdf"),
+ "fors_ref": ("Fors: bestyrelsesreferat 10/3 2026, status på fjernvarmeudrulningen (PDF)", "https://www.fors.dk/media/xq5m5nfe/10-03-2026-bestyrelsesreferat.pdf"),
+ "fors_ved": ("Fors: fjernvarme til Veddelev (projektstatus 23/10 2026)", "https://www.fors.dk/fjernvarme/fjernvarmeprojekter/veddelev/"),
+ "fors_aar": ("Fors Varme Roskilde A/S: årsrapport 2025", "https://www.fors.dk/om-os/publikationer/aarsrapporter/aarsrapport-fors-varme-roskilde-as-2025/"),
+ "sk_sol": ("Sønderborg Kommune: varmekilder og energi (solceller, varmepumper)", "https://sonderborgkommune.dk/varmekilder-energi"),
+ "pz_varme": ("ProjectZero: skift til grønnere varme (varmekilde og forsyningsselskab pr. by i Sønderborg Kommune)", "https://projectzero.dk/skift-til-groen-varme-2/"),
+ "df_blans": ("Dansk Fjernvarme 16/3 2026: Avnbøl, Ullerup og Blans melder klar til fjernvarmen", "https://danskfjernvarme.dk/aktuelt/nyheder/2026/avnboel-ullerup-og-blans-melder-klar-til-fjernvarmen"),
+ "sn_blans": ("SønderborgNYT: grønt lys til fjernvarme i Blans", "https://www.sonderborgnyt.dk/nu-er-der-groent-lys-til-fjernvarme-i-blans/"),
+ "df_sv29": ("Dansk Fjernvarme 2026: Sønderborg Varme stræber efter at blive CO2-neutrale i 2029", "https://danskfjernvarme.dk/aktuelt/nyheder/2026/soenderborg-varme-straeber-efter-at-blive-co2-neutrale-i-2029"),
+ "sonfor_na": ("SONFOR: fjernvarme på Nordals (Nordborg til Guderup, Dyndved)", "https://sonfor.dk/projekter/fjernvarme-paa-nordals/"),
+ "sonfor_halm": ("Sønderborg Forsyning 2023: næste skridt med potentielle fjernvarmeområder på Nordals (PDF)", "https://sonfor.dk/wp-content/uploads/2023/08/090223-soenderborg-forsyning-tager-naeste-skridt-med-potentielle-fjernvarmeomrader.pdf"),
+ "sv_nyb": ("Sønderborg Varme: fjernvarme til Nybøl og Vester Sottrup (etableringsplan)", "https://www.sonderborg-varme.dk/overvejer-du-fjernvarme/vaerd-at-vide-om-fjernvarme/fjernvarme-til-nyboel-og-vester-sottrup/"),
+})
+CITIES["roskilde"] = {
+  "name": "Roskilde", "kommune": "Roskilde Kommune", "updated": ("29. oktober 2026", "2026-10-29"),
+  "sol_intro": "Solceller i Roskilde: sætter du panelerne på det eksisterende tag på dit enfamiliehus, kræver det som udgangspunkt ikke tilladelse efter byggeloven. Højde- og afstandsreglerne i bygningsreglementet, lokalplaner, deklarationer og bevaringshensyn gælder dog stadig. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Solceller og solfangere på det <strong>eksisterende tag på et enfamiliehus</strong> kræver som udgangspunkt ikke tilladelse efter byggeloven i Roskilde Kommune.", ["ros_byg"]),
+    ("Anlægget må ikke stride mod bygningsreglementets regler om <strong>højde og afstand</strong>. Roskilde Kommune regner solceller og solfangere for det samme i denne sammenhæng.", ["ros_byg"]),
+    ("Før du bestiller, beder kommunen dig gennemgå lokalplan, tinglyste deklarationer, regler om fredning og bevaring af bygninger og naturbeskyttelse.", ["ros_byg"]),
+    ("Et mindre solcelleanlæg <strong>på terræn i landzone</strong> kræver landzonetilladelse. Anlæg på erhvervsbygninger kræver altid byggetilladelse.", ["ros_lz", "ros_byg"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Roskilde?", "Som udgangspunkt ikke, når panelerne sidder på det eksisterende tag på et enfamiliehus og overholder bygningsreglementets højde- og afstandsregler. Lokalplan, deklarationer, fredning, bevaring og naturbeskyttelse kan dog kræve en tilladelse eller dispensation.", ["ros_byg"]),
+    ("Må jeg sætte solceller på jorden ved mit hus på landet i Roskilde Kommune?", "Det kræver landzonetilladelse. Kommunen lægger bl.a. vægt på, at anlægget ikke generer naboer eller påvirker landskabet, at det er afskærmet, og at det ligger i tilknytning til ejendommens øvrige bygninger.", ["ros_lz"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Roskilde: fjernvarmeprojekterne i Jyllinge, Viby-Dåstrup, Gadstrup-Snoldelev og Store Valby-Ågerup er aflyst i 2026, og områderne er tilbage på naturgas. Kommunen skriver selv, at en varmepumpe for de fleste vil være den oplagte løsning dér. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("Roskilde Kommune har i 2026 truffet endelig afgørelse om, at fjernvarmeprojekterne i <strong>Jyllinge, Viby-Dåstrup, Gadstrup-Snoldelev og Store Valby-Ågerup</strong> er bortfaldet, fordi der ikke var tilslutning nok.", ["ros_varme", "ros_jyl"]),
+    ("Fors oplyste i marts 2026, at tilslutningen i de fire byer lå mellem 29 og 38 % og stod stille eller faldt svagt, bl.a. fordi flere havde valgt en individuel varmepumpe.", ["fors_ref"]),
+    ("Fjernvarme bliver fortsat lagt ud i <strong>Veddelev</strong> (fra 2026), og udrulningen i <strong>Himmelev</strong> og <strong>Vindinge</strong> er i gang.", ["ros_varme", "fors_ved"]),
+    ("Boligejere i de aflyste områder kan søge Varmepumpepuljen, hvis de i øvrigt opfylder betingelserne.", ["ros_varme", "se_vpp"]),
+  ],
+  "vp_faq": [
+    ("Kommer der fjernvarme i Jyllinge eller Viby?", "Nej, ikke efter de nuværende planer. Roskilde Kommune traf 5. august 2026 afgørelse om, at projektgodkendelserne er bortfaldet, fordi den forudsatte tilslutning på 70 % ikke kunne nås. Områderne er dermed igen udlagt til naturgas.", ["ros_jyl", "ros_varme"]),
+    ("Må jeg skifte til elvarme i stedet for en varmepumpe i Roskilde?", "Roskilde Kommune skriver, at du ikke må etablere elvarme som hovedopvarmning i nye huse eller i eksisterende huse med vandbårent centralvarmesystem. Forbuddet gælder ikke eldrevne varmepumper.", ["ros_varme"]),
+  ],
+}
+CITIES["soenderborg"] = {
+  "name": "Sønderborg", "kommune": "Sønderborg Kommune", "updated": ("29. oktober 2026", "2026-10-29"),
+  "vp_title": "Varmepumpe Sønderborg: luft til vand, tilskud, pris | Energitjekket",
+  "fv_title": "Fjernvarme eller varmepumpe i Sønderborg? Pris 2026 | Energitjekket",
+  "sol_intro": "Solceller i Sønderborg: sidder panelerne direkte på tagfladen af dit hus, kræver de ikke byggetilladelse. Står de på stativ, skal du altid have kommunens tilladelse. Lokalplaner, bevaringsværdige bygninger, beskyttelseslinjer og kirkelandskaber kan dog kræve dispensation. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Solceller og solfangere <strong>direkte på tagfladen</strong> kræver ikke byggetilladelse i Sønderborg Kommune, medmindre det er en erhvervsbygning eller en etageejendom.", ["sk_sol"]),
+    ("Solceller på <strong>stativ</strong>, både fritstående og på taget, kræver altid kommunens tilladelse: en landzonetilladelse eller en byggetilladelse.", ["sk_sol"]),
+    ("Er ejendommen omfattet af en lokalplan eller byplanvedtægt, skal du kontakte kommunen. Ved ukomplicerede dispensationssager forsøger kommunen at svare inden for <strong>2 uger</strong>.", ["sk_sol"]),
+    ("Ligger huset i et <strong>kirkelandskab</strong>, kræver solceller tilladelse fra Haderslev Stift.", ["sk_sol"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Sønderborg?", "Ikke hvis panelerne sidder direkte på tagfladen, og huset ikke er berørt af lokalplan, bevaringsværdi, fredning, beskyttelseslinjer eller kirkelandskab. Det kan du se på kommunens digitale kort. Husk at indberette anlægget til BBR.", ["sk_sol"]),
+    ("Hvad skal en ansøgning om solceller i Sønderborg Kommune indeholde?", "Adresse, anlæggets størrelse i m², effekt, en begrundelse for placeringen og en tegning af placeringen med højde. Ansøgningen kan sendes på mail til byg-bolig@sonderborg.dk.", ["sk_sol"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Sønderborg: tre ud af fem huse har allerede fjernvarme, og nettet bliver udbygget mod vest til Nybøl, Vester Sottrup, Avnbøl, Ullerup og Blans. I flere landsbyer på Nordals blev fjernvarmen droppet, og dér er en varmepumpe det oplagte valg. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("Sønderborg Varme lægger fjernvarme ud i <strong>Nybøl og Vester Sottrup</strong> og har sat gang i <strong>Avnbøl, Ullerup og Blans</strong>. Varmen ventes frem i Avnbøl og Ullerup i 2027 og i Blans i 2028.", ["sv_nyb", "df_blans"]),
+    ("På Nordals leverer SONFOR fjernvarme fra Nordborg til Guderup. I <strong>Dyndved</strong> blev projektet ikke gennemført, og i Oksbøl, Broballe, Mjels og Elstrup var der ikke tilslutning nok.", ["sonfor_na", "sonfor_halm"]),
+    ("Sønderborg Kommune skriver, at du ikke skal have tilladelse til en varmepumpe, men anbefaler at placere den, så hverken familien eller naboerne generes af støjen.", ["sk_sol"]),
+    ("Varmepumpepuljen giver kun tilskud uden for fjernvarmeområder og områder med planlagt fjernvarme. Tjek din by hos ProjectZero, før du søger.", ["se_vpp", "pz_varme"]),
+  ],
+  "vp_faq": [
+    ("Kommer der fjernvarme i Blans?", "Ja. Natur-, Klima- og Miljøudvalget sænkede kravet til tilslutning fra 75 til 65 %, og med 67 % tilmeldt er der grønt lys til anlægsstart i 2027. Sønderborg Varme forventer at levere varme i Blans i 2028.", ["sn_blans", "df_blans"]),
+    ("Skal jeg have tilladelse til en varmepumpe i Sønderborg Kommune?", "Nej. Kommunen skriver, at en varmepumpe ikke kræver tilladelse, men anbefaler en faguddannet installatør og en placering, hvor støjen ikke generer dig eller naboerne. Et jordvarmeanlæg kræver derimod tilladelse.", ["sk_sol"]),
+  ],
+}
+CONTACTS["roskilde"] = {"sol": [("Roskilde Kommune, Byggesag", "46 31 30 00 · byggesag@roskilde.dk", "ros_varme")],
+                        "vp":  [("Roskilde Kommune, Klima- og Energiteamet", "46 31 30 00 · klima@roskilde.dk", "ros_varme")]}
+CONTACTS["soenderborg"] = {"sol": [("Sønderborg Kommune, Byg (Kvik-Caféen)", "88 72 40 82 · byg-bolig@sonderborg.dk", "sk_sol")],
+                           "vp":  [("Sønderborg Varme", "73 43 50 00 · post@sfjv.dk", "pz_varme")]}

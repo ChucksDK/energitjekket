@@ -1,0 +1,2 @@
+solceller/roskilde {'performance': 100, 'accessibility': 100, 'best-practices': 96, 'seo': 100} LCP 1.7 s TBT 0 ms CLS 0
+varmepumpe/soenderborg {'performance': 99, 'accessibility': 100, 'best-practices': 96, 'seo': 100} LCP 1.8 s TBT 0 ms CLS 0

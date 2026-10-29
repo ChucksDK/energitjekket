@@ -831,3 +831,105 @@ FV_PAGE["slagelse"] = {
    ("Hvornår kommer der fjernvarme i det nordøstlige Slagelse?", "Ifølge Slagelse Kommune oplyser Envafors, at de gasforsynede områder i den nordøstlige del af Slagelse by først kan få fjernvarme omkring 2029/30, fordi det kræver et større forsyningsrør.", ["slg_fv"]),
   ],
 }
+
+# ---------- daglig by-rutine 29. okt. 2026: Roskilde og Sønderborg ----------
+# Forsyningstilsynet, prisstatistik januar 2026 (CSV): værker i de to kommuner (navne og postnr. som i statistikken)
+FV_PRICES["roskilde"] = [("Svogerslev Fjernvarmecentral", "4000", "14.575", "735"), ("Fors Varme Roskilde A/S", "4000", "18.367", "704")]
+FV_PRICES["soenderborg"] = [("Sønderborg Varme A/S", "6400", "14.760", "580"), ("SONFOR Varme A/S", "6400", "23.694", "845")]
+SOL_REG["roskilde"] = {
+  "kw": "solceller roskilde kommune / byggetilladelse solceller roskilde",
+  "evidence": "Roskilde Kommune beskriver reglerne for solceller og solfangere på enfamiliehuse på sin byggeside, solcelleanlæg på terræn i Landzonestrategien (2021) og større anlæg på en særskilt side (opdateret 26/5 2026).",
+  "intro": "Roskilde Kommune kræver som udgangspunkt ingen tilladelse til solceller på det eksisterende tag på et enfamiliehus. Det er bygningsreglementets højde- og afstandsregler, lokalplanen og bevaringshensyn, der sætter grænserne. Her er reglerne, kravene til anlæg på jorden i landzone og hvordan du søger.",
+  "sections": [
+   ("På taget af et enfamiliehus", [
+     ("ul", [("Solceller og solfangere på det <strong>eksisterende bygningstag</strong> kræver som udgangspunkt ikke tilladelse efter byggeloven.", ["ros_byg"]),
+             ("Anlægget skal overholde bygningsreglementets regler om <strong>højde og afstand</strong>, bl.a. til skel.", ["ros_byg", "br18_179"]),
+             ("Solceller og solfangere behandles ens: de samme regler gælder for begge.", ["ros_byg"]),
+             ("Anlæg på <strong>erhvervsbygninger</strong> kræver altid byggetilladelse.", ["ros_byg"])]),
+   ]),
+   ("Tjek dette, før du bestiller", [
+     ("p", "Roskilde Kommune beder dig gennemgå fire ting: bestemmelser i en eventuel <strong>lokalplan</strong>, <strong>tinglyste deklarationer</strong>, regler om <strong>fredning eller bevaring</strong> af bygningen og regler om <strong>naturbeskyttelse</strong>. Rammer en af dem dit hus, kan anlægget kræve tilladelse eller dispensation efter anden lovgivning.", ["ros_byg"]),
+   ]),
+   ("Solceller på terræn i landzone", [
+     ("p", "Et mindre solcelleanlæg på jorden i landzone kræver landzonetilladelse, og større anlæg kan udløse lokalplanpligt. Kommunen lægger især vægt på, at anlægget ikke påvirker landskab, udsigter, natur eller kulturmiljøer negativt, ikke er til gene for naboer, er visuelt afskærmet og ligger i tilknytning til ejendommens øvrige bebyggelse.", ["ros_lz"]),
+     ("note", "Anlæg på over 1 hektar kræver lokalplan, kommuneplantillæg og miljøvurdering, og ansøgningerne behandles i to runder om året med frist 1. marts og 1. september. Det er for solcelleparker, ikke for et anlæg i haven.", ["ros_ve"]),
+   ]),
+   ("Sådan søger du", [
+     ("p", "Kræver anlægget tilladelse, søger du via Byg & Miljø. Skal du have dispensation fra en lokalplan, vedlægger du en dispensationsansøgning med begrundelse og ejers underskrift, og facadetegningerne skal vise eventuelle solcelleanlæg.", ["ros_tjek"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller byggetilladelse i Roskilde Kommune?", "Ikke som udgangspunkt på det eksisterende tag på et enfamiliehus, hvis højde- og afstandsreglerne i bygningsreglementet overholdes. På erhvervsbygninger kræver det altid byggetilladelse, og lokalplan, deklarationer og bevaring kan kræve dispensation.", ["ros_byg"]),
+   ("Hvad lægger Roskilde Kommune vægt på ved solceller på jorden i landzone?", "At anlægget ikke påvirker landskab, udsigter, natur eller kulturmiljøer negativt, ikke generer naboerne, er visuelt afskærmet og ligger i tilknytning til ejendommens øvrige bebyggelse. Det fremgår af kommunens landzonestrategi.", ["ros_lz"]),
+   ("Hvad skal jeg vedlægge, hvis jeg skal have dispensation til solceller i Roskilde?", "En dispensationsansøgning med begrundelse og ejers underskrift, som sendes sammen med ansøgningen i Byg & Miljø. Facadetegningerne skal vise solcelleanlægget.", ["ros_tjek"]),
+   ("Hvem kontakter jeg om solceller i Roskilde Kommune?", "Byggesag i Roskilde Kommune på byggesag@roskilde.dk eller kommunens hovednummer 46 31 30 00.", ["ros_varme"]),
+  ],
+}
+SOL_REG["soenderborg"] = {
+  "kw": "solceller sønderborg kommune / tilladelse solceller sønderborg",
+  "evidence": "Sønderborg Kommune beskriver på sin side om varmekilder og energi, hvornår solceller kræver tilladelse, hvilke korttemaer man skal tjekke, og hvad en ansøgning skal indeholde (tjekket 29/10 2026).",
+  "intro": "Sønderborg Kommune skelner mellem solceller direkte på tagfladen, som ikke kræver byggetilladelse, og anlæg på stativ, som altid kræver tilladelse. Om dit hus er berørt af lokalplan, bevaring, fredning, beskyttelseslinjer eller kirkelandskab, kan du se på kommunens kort. Her er reglerne og hvordan du søger.",
+  "sections": [
+   ("Direkte på tagfladen: ingen byggetilladelse", [
+     ("ul", [("Solceller og solfangere direkte på tagfladen af et hus kræver <strong>ikke byggetilladelse</strong>.", ["sk_sol"]),
+             ("Undtaget er <strong>erhvervsbygninger, landbrugsbygninger og etageejendomme</strong>, hvor det altid kræver kommunens tilladelse.", ["sk_sol"]),
+             ("Anlægget skal stadig overholde bygningsreglementet, lokalplaner og tinglyste deklarationer.", ["sk_sol"]),
+             ("Er ejendommen ikke berørt af kommunens korttemaer, skal du ikke søge, men anlægget skal indberettes til BBR.", ["sk_sol"])]),
+   ]),
+   ("På stativ: altid tilladelse", [
+     ("p", "Placerer du solcellerne eller solfangerne på <strong>stativ</strong>, fritstående eller på taget, kræver det altid kommunens tilladelse. I landzone er det en landzonetilladelse, i byzone en byggetilladelse.", ["sk_sol"]),
+   ]),
+   ("Tjek kortet: fem forhold kræver tilladelse", [
+     ("ul", [("<strong>Fredet bygning:</strong> kræver tilladelse fra Kulturstyrelsen, og normalt kan der ikke sættes solceller op.", ["sk_sol"]),
+             ("<strong>Bevaringsværdig bygning:</strong> kontakt kommunen, så bevaringsværdien ikke ødelægges.", ["sk_sol"]),
+             ("<strong>Lokalplan eller byplanvedtægt:</strong> der kan være forbud, og så skal du søge dispensation. Ukomplicerede sager forsøger kommunen at svare på inden for 2 uger.", ["sk_sol"]),
+             ("<strong>Arealfredning eller beskyttelseslinje:</strong> kræver en konkret ansøgning.", ["sk_sol"]),
+             ("<strong>Kirkelandskab:</strong> kræver tilladelse fra Haderslev Stift. Skal sagen også have kommunens tilladelse, tilbyder kommunen at sende den videre til stiftet.", ["sk_sol"])]),
+   ]),
+   ("Sådan søger du", [
+     ("p", "Ansøgningen skal indeholde adresse, anlæggets størrelse i m², effekt, en begrundelse for placeringen og en tegning af placeringen med angivelse af højde. Tegningen kan laves på kommunens digitale kort og sendes som pdf til byg-bolig@sonderborg.dk.", ["sk_sol"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller byggetilladelse i Sønderborg Kommune?", "Ikke når de sidder direkte på tagfladen af et hus. På stativ kræver det altid tilladelse, og på erhvervsbygninger, landbrugsbygninger og etageejendomme kræver det også kommunens tilladelse.", ["sk_sol"]),
+   ("Må jeg sætte solceller op, hvis mit hus ligger i et kirkelandskab?", "Det kræver tilladelse fra Haderslev Stift. Kræver anlægget også tilladelse eller dispensation fra Sønderborg Kommune, tilbyder kommunen at sende sagen videre til stiftet.", ["sk_sol"]),
+   ("Hvor hurtigt får jeg dispensation fra en lokalplan til solceller i Sønderborg?", "Ved ukomplicerede sager forsøger kommunen at give svar inden for 2 uger.", ["sk_sol"]),
+   ("Hvem kontakter jeg om solceller i Sønderborg Kommune?", "Byg i Sønderborg Kommune (Kvik-Caféen) på 88 72 40 82. Ansøgninger kan sendes til byg-bolig@sonderborg.dk.", ["sk_sol"]),
+  ],
+}
+FV_PAGE["roskilde"] = {
+  "kw": "fjernvarme roskilde / fors fjernvarme roskilde / varmepumpe roskilde",
+  "evidence": "Roskilde Kommune har en side om varmeforsyning (opdateret 28/9 2026) med status for Himmelev, Veddelev, Vindinge og de fire aflyste projekter, og Fors offentliggør projektstatus for Veddelev (senest 23/10 2026).",
+  "intro": "I Roskilde Kommune har 44 % af husene fjernvarme, og nettet bliver udbygget i Veddelev, Himmelev og Vindinge. I Jyllinge, Viby-Dåstrup, Gadstrup-Snoldelev og Store Valby-Ågerup er projekterne aflyst. Her er status, de to værkers priser og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Himmelev:</strong> udrulningen er i sin afsluttende fase og ventes færdig i løbet af 2026.", ["ros_varme"]),
+   ("<strong>Veddelev:</strong> gravearbejdet er i gang. Fors forventer at koble etape 1 på i varmesæsonen 2026/27 og etape 4 i foråret 2027.", ["fors_ved", "ros_varme"]),
+   ("<strong>Vindinge:</strong> projektet fortsætter efter skift af entreprenør, og arbejdet genoptages, når den nye entreprenør er på plads.", ["ros_varme"]),
+   ("<strong>Jyllinge, Viby-Dåstrup, Gadstrup-Snoldelev og Store Valby-Ågerup:</strong> projektgodkendelserne er bortfaldet, og områderne er tilbage på naturgas.", ["ros_varme", "ros_jyl"]),
+  ],
+  "local_take": "Svogerslev Fjernvarmecentral hører til de 20 % billigste værker i landet, mens Fors Varme Roskilde ligger ca. 1.400 kr. over landsgennemsnittet for et standardhus. Bor du i Jyllinge, Viby, Gadstrup eller Store Valby, kommer fjernvarmen ikke foreløbig, og en luft til vand-varmepumpe med tilskud er det oplagte valg. I Veddelev er fjernvarmen på vej.",
+  "contact": ("Fors", "70 20 20 66 · fors@fors.dk", "fors_ved"),
+  "faq": [
+   ("Hvad koster fjernvarme i Roskilde?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus på 130 m² med 18,1 MWh 18.367 kr. om året inkl. moms hos Fors Varme Roskilde og 14.575 kr. hos Svogerslev Fjernvarmecentral. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+   ("Hvor kommer fjernvarmen i Roskilde fra?", "Ifølge Fors Varme Roskildes årsrapport for 2025 leveres varmen fra VEKS, primært som overskudsvarme fra kraftvarmeværket i Avedøre og fra affaldsforbrændingen hos ARGO i Roskilde. Fors producerer selv varme med en varmepumpe, der udnytter spildevand fra Bjergmarken Renseanlæg.", ["fors_aar"]),
+   ("Hvad koster det at få fjernvarme i Veddelev?", "Fors skriver, at tilslutning koster 25.000 kr. til kampagnepris, hvis du tilmelder dig, før der graves på din vej, og 50.000 kr. bagefter.", ["fors_ved"]),
+  ],
+}
+FV_PAGE["soenderborg"] = {
+  "kw": "fjernvarme sønderborg / sønderborg varme / varmepumpe sønderborg",
+  "evidence": "ProjectZero viser varmekilde og forsyningsselskab for hver by i Sønderborg Kommune, og Sønderborg Varme og SONFOR beskriver udbygningen mod vest og på Nordals (tjekket 29/10 2026).",
+  "intro": "I Sønderborg Kommune har tre ud af fem huse fjernvarme, og Sønderborg Varme udbygger mod vest til Nybøl, Vester Sottrup, Avnbøl, Ullerup og Blans. På Nordals leverer SONFOR varmen. Her er status by for by, de to selskabers priser og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Nybøl og Vester Sottrup:</strong> fjernvarmen lægges ud i etaper, og de sidste etaper er planlagt til 2026.", ["sv_nyb"]),
+   ("<strong>Avnbøl, Ullerup og Blans:</strong> Sønderborg Varme ventes at levere varme i Avnbøl og Ullerup i 2027 og i Blans i 2028. I Blans blev tilslutningskravet sænket fra 75 til 65 %, og 67 % er tilmeldt.", ["df_blans", "sn_blans"]),
+   ("<strong>Skodsbøl:</strong> Sønderborg Varme arbejder på et projektforslag, men det afhænger af lokal opbakning.", ["pz_varme"]),
+   ("<strong>Nordals:</strong> SONFOR forsyner fra Nordborg til Guderup. Projektet i Dyndved blev ikke gennemført, og i Oksbøl, Broballe, Mjels og Elstrup var tilslutningen for lav.", ["sonfor_na", "sonfor_halm"]),
+  ],
+  "local_take": "Sønderborg Varme hører til den billigste fjerdedel af landets værker, mens SONFOR Varme på Nordals er blandt de 10 % dyreste. Bor du i Sønderborg Varmes område eller i en af de nye byer mod vest, er fjernvarmen svær at slå. Bor du i en landsby uden fjernvarmeplaner, fx Oksbøl, Broballe eller Elstrup, er en luft til vand-varmepumpe med tilskud det oplagte valg.",
+  "contact": ("Sønderborg Varme", "73 43 50 00 · post@sfjv.dk", "pz_varme"),
+  "faq": [
+   ("Hvad koster fjernvarme i Sønderborg?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus på 130 m² med 18,1 MWh 14.760 kr. om året inkl. moms hos Sønderborg Varme og 23.694 kr. hos SONFOR Varme. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+   ("Hvor kommer fjernvarmen i Sønderborg fra?", "Sønderborg Varme bygger et system med tre ben: elbaseret varme, biomasse og affaldsenergi. En elkedel på 25 MW ved kraftvarmeværket i Sønderborg ventes i drift i 2026, og værket i Gråsten får en luft-vand-varmepumpe på 13 MW i 2027. Selskabet stræber efter at være CO2-neutralt i 2029.", ["df_sv29"]),
+   ("Hvor kommer fjernvarmen på Nordals fra?", "Sønderborg Forsyning (SONFOR) skrev i 2023, at fjernvarmeanlægget i Nordborg udelukkende fyrer med halm. Nettet løber fra Nordborg til Guderup.", ["sonfor_halm", "sonfor_na"]),
+  ],
+}

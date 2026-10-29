@@ -1,0 +1,6 @@
+2026-10-29 by-rutine: Roskilde (265) og Sønderborg (540). DST BOL102/BOL101/BYGB50/BY3 2026 + PVGIS 5.3 (SARAH3), flettet ind i research/v4/*.json (samme metode som fetch_new.py).
+Roskilde 24133 huse, ejer 19149, B {'før 1960': 5545, '1960-1979': 8430, '1980-1999': 5057, '2000+': 5062, 'uoplyst': 39}
+Sønderborg 26095 huse, ejer 17546, B {'før 1960': 8974, '1960-1979': 9057, '1980-1999': 4710, '2000+': 3354, 'uoplyst': 0}
+PVGIS roskilde (55.6415,12.0803) syd35 1027, øst 798, vest 803, opt 1031 @41°
+PVGIS soenderborg (54.9138,9.7922) syd35 1000, øst 781, vest 790, opt 1003 @40°
+Forsyningstilsynet prisstatistik jan. 2026: Fors Varme Roskilde 18.367, Svogerslev Fjernvarmecentral 14.575, Sønderborg Varme 14.760, SONFOR Varme 23.694 (standardhus inkl. moms).

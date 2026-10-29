@@ -17,17 +17,18 @@ def top(f, rev=False):
     """By med højeste (eller laveste, rev=True) værdi blandt sitets byer. Bruges til at tjekke sammenlignende udsagn."""
     return sorted(NAMES, key=f, reverse=not rev)[0]
 def rank(f, c): return sorted(NAMES, key=f, reverse=True).index(c) + 1
-_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende"}
+_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende"}
 def rk(f, c, word, art="den", rev=False):
     """Rangord, fx 'den højeste', 'den næsthøjeste' (rev=True tæller fra bunden). Holder sammenlignende udsagn sande, når nye byer kommer til."""
     r = sorted(NAMES, key=f, reverse=not rev).index(c) + 1
     return f"{art} {_ORDP[r]}{word}"
+_EJ = lambda x: STOCK[x]["ejer"] / STOCK[x]["tot"]
 def above(f, c):
     """Navne på byer med højere værdi end c (til 'Kun X og Y har en højere andel')."""
     a = [NAMES[x] for x in sorted(NAMES, key=f, reverse=True)[:rank(f, c) - 1]]
     return a[0] if len(a) == 1 else ", ".join(a[:-1]) + " og " + a[-1]
 
-NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse"}
+NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg"}
 LOCAL_S = {
  "dst_bol102": ("Danmarks Statistik: BOL102, boliger efter område og opvarmning (2026)", "https://www.statistikbanken.dk/BOL102"),
  "dst_bol101": ("Danmarks Statistik: BOL101, boliger efter opførelsesår og udlejningsforhold (2026)", "https://www.statistikbanken.dk/BOL101"),
@@ -135,7 +136,7 @@ SOL_HOMES = {
  "odense": lambda: f"Odense skiller sig ud ved de mange rækkehuse: {tal(STOCK['odense']['raekke'])} af kommunens {tal(STOCK['odense']['tot'])} beboede parcel- og rækkehuse er række-, kæde- eller dobbelthuse ({pct(STOCK['odense']['raekke'],STOCK['odense']['tot'])}). Odense Kommune kræver tilladelse eller dispensation, hvis en lokalplan, byplanvedtægt eller servitut regulerer solceller eller tagets udseende. Siden gælder også Bellinge, Sankt Klemens, Fraugde og Over Holluf.",
  "aalborg": lambda: f"Aalborg Kommune har {tal(STOCK['aalborg']['tot'])} beboede parcel- og rækkehuse, næstflest af de {nw()} kommuner på dette site efter Aarhus. Siden gælder hele kommunen: Aalborg og Nørresundby ({tal(town('aalborg','Nørresundby'))} indbyggere) og forstæder som Svenstrup, Klarup, Vodskov og Gistrup samt Nibe.",
  "randers": lambda: f"I Randers Kommune er {pct(STOCK['randers']['ejer'],STOCK['randers']['tot'])} af de {tal(STOCK['randers']['tot'])} beboede parcel- og rækkehuse ejerboliger, og {pct(STOCK['randers']['B']['før 1960'],STOCK['randers']['tot'])} er bygget før 1960. Har huset bevaringsværdi 1-3 i et kulturmiljø, giver Randers Kommune som udgangspunkt ikke tilladelse til solceller. Siden gælder også Assentoft, Langå, Stevnstrup og Spentrup.",
- "horsens": lambda: f"Horsens har den højeste andel ejerboliger af de {nw()} kommuner: {pct(STOCK['horsens']['ejer'],STOCK['horsens']['tot'])} af de {tal(STOCK['horsens']['tot'])} beboede parcel- og rækkehuse bebos af ejeren. {pct(STOCK['horsens']['B']['2000+'],STOCK['horsens']['tot'])} er bygget i 2000 eller senere. Siden gælder også Brædstrup, Lund, Egebjerg, Østbirk og Gedved.",
+ "horsens": lambda: f"Horsens har {rk(_EJ, 'horsens', 'højeste')} andel ejerboliger af de {nw()} kommuner: {pct(STOCK['horsens']['ejer'],STOCK['horsens']['tot'])} af de {tal(STOCK['horsens']['tot'])} beboede parcel- og rækkehuse bebos af ejeren. {pct(STOCK['horsens']['B']['2000+'],STOCK['horsens']['tot'])} er bygget i 2000 eller senere. Siden gælder også Brædstrup, Lund, Egebjerg, Østbirk og Gedved.",
 }
 SOL_HOMES_H = {
  "kolding": "Boliger og byer i Kolding Kommune", "vejle": "Nyere huse i Vejle Kommune", "esbjerg": "Huse fra 60'erne og 70'erne i Esbjerg",
@@ -271,7 +272,7 @@ def reg_age_note(c, kommune):
         "odense": (f"Odense har {tal(s['raekke'])} beboede række-, kæde- og dobbelthuse. Bor du i et af dem, så tjek også ejer- eller grundejerforeningens regler, ikke kun lokalplanen.", []),
         "aalborg": (f"Aalborg Kommune har {tal(t)} beboede parcel- og rækkehuse, og {pct(B['1960-1979'], t)} af dem er fra 1960-1979. Er dit tag fra den tid, så få det vurderet, før du bestiller.", []),
         "randers": (f"{pct(B['før 1960'], t)} af husene i Randers Kommune er bygget før 1960. Bor du i et ældre kvarter, så slå adressen op i kommunens lokalplaner.", []),
-        "horsens": (f"Horsens har den største ejerandel blandt de {nw()} kommuner på sitet: {pct(s['ejer'], t)} af de beboede huse er ejerboliger. Som lejer skal du altid have udlejers accept først.", []),
+        "horsens": (f"Horsens har {rk(_EJ, 'horsens', 'største')} ejerandel blandt de {nw()} kommuner på sitet: {pct(s['ejer'], t)} af de beboede huse er ejerboliger. Som lejer skal du altid have udlejers accept først.", []),
     }
     return notes[c]
 
@@ -550,20 +551,112 @@ def reg_age_note(c, kommune):
         return (f"{tal(B['før 1960'])} af kommunens beboede huse ({pct(B['før 1960'], t)}) er bygget før 1960. Ligger dit hus i en bevarende lokalplan, afhænger svaret af bygningens SAVE-værdi.", ["slg_adm"])
     return _reg_age_old3(c, kommune)
 
+# ---------- daglig by-rutine 29. okt. 2026: Roskilde (DK2, Region Sjælland) og Sønderborg (DK1, Region Syddanmark) ----------
+_FIB = lambda x: ROOF[x]["T"]["06"] / ROOF[x]["tot"]
+SOL_ORDER.update({
+ "roskilde": ["boliger", "produktion", "lokalt", "tage", "faq", "guides"],
+ "soenderborg": ["tage", "lokalt", "produktion", "boliger", "faq", "guides"],
+})
+VP_ORDER.update({
+ "roskilde": ["lokale-byer", "lokalt", "opvarmning", "pris", "guides", "faq"],
+ "soenderborg": ["opvarmning", "lokale-byer", "lokalt", "pris", "faq", "guides"],
+})
+FV_ORDER.update({
+ "roskilde": ["status", "priser", "andel", "varmekilder", "billigst", "faq"],
+ "soenderborg": ["andel", "status", "varmekilder", "priser", "billigst", "faq"],
+})
+SOL_PROD.update({
+ "roskilde": ("Solproduktion ved Roskilde Fjord",
+   lambda: f"PVGIS beregner ca. {tal(PV['roskilde']['syd'])} kWh pr. kWp om året for et sydvendt tag med 35° hældning i Roskilde, {rk(_PVY, 'roskilde', 'højeste')} af de {nw()} byer på dette site. Ved den optimale hældning på {PV['roskilde']['opt_angle']}° bliver det ca. {tal(PV['roskilde']['opt'])} kWh. Et 6 kWp-anlæg mod syd giver ca. {tal(PV['roskilde']['syd']*6)} kWh om året."),
+ "soenderborg": ("Sol over Als: produktion i Sønderborg",
+   lambda: f"For et sydvendt tag med 35° hældning i Sønderborg beregner PVGIS ca. <strong>{tal(PV['soenderborg']['syd'])} kWh pr. kWp om året</strong>, {rk(_PVY, 'soenderborg', 'højeste')} af de {nw()} byer på dette site. Fra april til august giver et 6 kWp-anlæg ca. {tal(sum(PV['soenderborg']['months'][3:8])*6)} kWh, mens november, december og januar tilsammen kun giver ca. {tal((PV['soenderborg']['months'][10]+PV['soenderborg']['months'][11]+PV['soenderborg']['months'][0])*6)} kWh."),
+})
+SOL_PROD_SRC_NEW.update({"roskilde": ["pv_roskilde", "pvgis"], "soenderborg": ["pv_soenderborg"]})
+SOL_ROOF.update({
+ "roskilde": ("Tegl, eternit og cementsten i Roskilde Kommune",
+   lambda: f"Tagene på parcel- og rækkehusene i Roskilde Kommune er ret ligeligt fordelt: {rp('roskilde','10')} har tegl, {rp('roskilde','06')} fibercement og {rp('roskilde','08')} cementsten. {rp('roskilde','04')} har tagpap med hældning og {rp('roskilde','02')} fladt tag. Sidder panelerne på det eksisterende tag, kræver det som udgangspunkt ikke tilladelse, hvis højde- og afstandsreglerne er overholdt.",
+   ["dst_bygb50", "ros_byg"]),
+ "soenderborg": ("Eternit og tegl i Sønderborg Kommune",
+   lambda: f"{rp('soenderborg','06')} af parcel- og rækkehusene i Sønderborg Kommune har fibercement, og {rp('soenderborg','10')} har tegl. {rp('soenderborg','08')} har cementsten. Er taget af ældre fibercement, så få det vurderet, før panelerne skrues fast: ifølge Bolius kan det indeholde asbest.",
+   ["dst_bygb50", "bolius_asb"]),
+})
+SOL_HOMES.update({
+ "roskilde": lambda: f"{pct(STOCK['roskilde']['ejer'],STOCK['roskilde']['tot'])} af de {tal(STOCK['roskilde']['tot'])} beboede parcel- og rækkehuse i Roskilde Kommune er ejerboliger, {rk(_EJ, 'roskilde', 'højeste')} andel af de {nw()} kommuner på sitet, og {pct(STOCK['roskilde']['B']['1960-1979'],STOCK['roskilde']['tot'])} er bygget i 1960-1979. Siden gælder også Jyllinge, Viby, Svogerslev, Vindinge og Gundsømagle.",
+ "soenderborg": lambda: f"{pct(STOCK['soenderborg']['B']['før 1960'],STOCK['soenderborg']['tot'])} af de {tal(STOCK['soenderborg']['tot'])} beboede parcel- og rækkehuse i Sønderborg Kommune er bygget før 1960, {rk(_OLD, 'soenderborg', 'største')} andel af de {nw()} byer. Er huset registreret som bevaringsværdigt, skal du kontakte kommunen, før du sætter solceller op. Siden gælder også Nordborg, Gråsten, Broager, Augustenborg og Høruphav.",
+})
+SOL_HOMES_SRC_NEW.update({"roskilde": [], "soenderborg": ["sk_sol"]})
+SOL_HOMES_H.update({"roskilde": "Ejerboliger fra Roskilde til Jyllinge", "soenderborg": "Ældre huse fra Gråsten til Nordborg"})
+SOL_XFAQ.update({
+ "roskilde": [("Hvor meget giver solceller i Roskilde om sommeren?", lambda: f"PVGIS beregner ca. {tal(PV['roskilde']['months'][5]*6)} kWh i juni og {tal(PV['roskilde']['months'][6]*6)} kWh i juli fra et 6 kWp-anlæg mod syd. Over hele året giver det ca. {tal(PV['roskilde']['syd']*6)} kWh.", ["pv_roskilde"])],
+ "soenderborg": [("Hvor meget mister jeg med et østvendt tag i Sønderborg?", lambda: f"PVGIS beregner ca. {tal(PV['soenderborg']['oest'])} kWh pr. kWp om året mod øst og {tal(PV['soenderborg']['vest'])} kWh mod vest, mod {tal(PV['soenderborg']['syd'])} kWh mod syd ved 35° hældning. Et østvendt 6 kWp-anlæg giver dermed ca. {tal((PV['soenderborg']['syd']-PV['soenderborg']['oest'])*6)} kWh mindre om året end et sydvendt.", ["pvo_soenderborg", "pvv_soenderborg", "pv_soenderborg"])],
+})
+VP_HEAT.update({
+ "roskilde": ("Naturgas i mere end hvert fjerde hus i Roskilde Kommune",
+   lambda: f"{tal(HEAT['roskilde']['CN'])} beboede parcel- og rækkehuse i Roskilde Kommune ({hp('roskilde','CN',1)}) har naturgas, {rk(_CN, 'roskilde', 'højeste')} andel af de {nw()} byer, mens {hp('roskilde','FJ',1)} har fjernvarme. {tal(HEAT['roskilde']['VP'])} huse ({hp('roskilde','VP',1)}) har allerede varmepumpe, mod {hp('dk','VP',1)} på landsplan."),
+ "soenderborg": ("Tre ud af fem huse har fjernvarme i Sønderborg Kommune",
+   lambda: f"{hp('soenderborg','FJ',1)} af de {tal(hs('soenderborg'))} beboede parcel- og rækkehuse i Sønderborg Kommune har fjernvarme, mod {hp('dk','FJ',1)} på landsplan. {tal(HEAT['soenderborg']['CN'])} har naturgas, {tal(HEAT['soenderborg']['CO'])} oliefyr og {tal(HEAT['soenderborg']['CA'])} anden centralvarme end olie og gas. Kun {hp('soenderborg','VP',1)} har varmepumpe, {rk(_VP, 'soenderborg', 'laveste', rev=True)} andel af de {nw()} byer."),
+})
+VP_HEAT_SRC_NEW.update({"roskilde": ["ros_varme"], "soenderborg": ["pz_varme"]})
+VP_TOWNS.update({
+ "roskilde": [("Roskilde", "Fjernvarme fra Fors. Himmelev afsluttes i 2026", ["ros_varme", "fors_aar"]),
+              ("Jyllinge", "Fjernvarmeprojektet bortfaldet i 2026. Naturgasområde igen", ["ros_jyl", "ros_varme"]),
+              ("Viby", "Projektet (Viby-Dåstrup) bortfaldet i 2026", ["ros_varme"]),
+              ("Svogerslev", "Eget værk: Svogerslev Fjernvarmecentral", ["ros_varme", "ft_pris"]),
+              ("Vindinge", "Fjernvarme under udrulning. Arbejdet genoptages med ny entreprenør", ["ros_varme"]),
+              ("Gadstrup", "Projektet (Gadstrup-Snoldelev) bortfaldet i 2026", ["ros_varme"]),
+              ("Veddelev", "Fjernvarme under etablering. Første tilkoblinger i 2026/27", ["fors_ved"])],
+ "soenderborg": [("Sønderborg", "Fjernvarme fra Sønderborg Varme", ["pz_varme"]),
+                 ("Nordborg", "Fjernvarme fra SONFOR (halm)", ["pz_varme", "sonfor_halm"]),
+                 ("Gråsten", "Sønderborg Varme. Ny varmepumpe på 13 MW ventes i 2027", ["pz_varme", "df_sv29"]),
+                 ("Augustenborg", "Fjernvarme fra Sønderborg Varme", ["pz_varme"]),
+                 ("Guderup", "Fjernvarme fra SONFOR via ledning fra Nordborg", ["pz_varme", "sonfor_na"]),
+                 ("Vester Sottrup", "Fjernvarme under udrulning. Sidste etape i 2026", ["sv_nyb"]),
+                 ("Blans", "Fjernvarme på vej. Varme ventes i 2028", ["df_blans", "pz_varme"])],
+})
+VP_TOWNS_NOTE.update({
+ "roskilde": "Bor du i Store Valby, Ågerup, Gundsømagle eller en af landsbyerne, så slå adressen op på kommunens varmeplankort eller Plandata.dk, før du søger tilskud.",
+ "soenderborg": "Bor du i Oksbøl, Broballe, Mjels, Elstrup eller en anden landsby, så tjek din by på ProjectZeros kort, før du søger tilskud.",
+})
+VP_XFAQ.update({
+ "roskilde": [("Hvor mange huse i Roskilde Kommune har allerede varmepumpe?", lambda: f"{tal(HEAT['roskilde']['VP'])} beboede parcel- og rækkehuse ({hp('roskilde','VP',1)}) ifølge Danmarks Statistik, 2026, mod {hp('dk','VP',1)} på landsplan. {tal(HEAT['roskilde']['CN'])} har stadig naturgas og {tal(HEAT['roskilde']['CO'])} oliefyr.", ["dst_bol102"])],
+ "soenderborg": [("Hvor mange huse i Sønderborg Kommune har stadig olie- eller gasfyr?", lambda: f"Danmarks Statistik registrerer {tal(HEAT['soenderborg']['CO'])} beboede parcel- og rækkehuse med oliefyr og {tal(HEAT['soenderborg']['CN'])} med naturgas i 2026, ud af {tal(hs('soenderborg'))}. {tal(HEAT['soenderborg']['ELV'])} har elvarme og {tal(HEAT['soenderborg']['VP'])} varmepumpe.", ["dst_bol102"])],
+})
+FV_SOURCES.update({
+ "roskilde": [("Fors Varme Roskilde får varmen fra <strong>VEKS</strong>, primært som overskudsvarme fra kraftvarmeværket i Avedøre og fra affaldsforbrændingen hos <strong>ARGO</strong> i Roskilde. I perioder med spidsbelastning suppleres med egen produktion.", ["fors_aar"]),
+              ("Fors producerer selv fjernvarme på et <strong>varmepumpeanlæg</strong>, der udnytter overskudsvarme fra spildevand på Bjergmarken Renseanlæg. Selskabet har ca. 10.328 kunder i Roskilde by og omegn.", ["fors_aar"])],
+ "soenderborg": [("Sønderborg Varme bygger et system med tre ben: <strong>elbaseret varme, biomasse og affaldsenergi</strong>. En elkedel på 25 MW ved kraftvarmeværket i Sønderborg ventes i drift i 2026, og værket i Gråsten får en luft-vand-varmepumpe på 13 MW i 2027.", ["df_sv29"]),
+                 ("På Nordals fyrer SONFORs anlæg i Nordborg ifølge selskabet <strong>udelukkende med halm</strong>, og nettet løber fra Nordborg til Guderup.", ["sonfor_halm", "sonfor_na"])],
+})
+FV_SHARE.update({
+ "roskilde": lambda: f"{hp('roskilde','FJ',1)} af de beboede parcel- og rækkehuse i Roskilde Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. {tal(HEAT['roskilde']['CN'])} huse har naturgas, {tal(HEAT['roskilde']['ELV'])} elvarme og {tal(HEAT['roskilde']['CO'])} oliefyr.",
+ "soenderborg": lambda: f"{hp('soenderborg','FJ',1)} af de beboede parcel- og rækkehuse i Sønderborg Kommune har fjernvarme, {rk(_FJ, 'soenderborg', 'højeste')} andel af de {nw()} byer på dette site, mod {hp('dk','FJ',1)} i hele landet. {tal(HEAT['soenderborg']['CN']+HEAT['soenderborg']['CO']+HEAT['soenderborg']['ELV'])} huse har gas, olie eller elvarme.",
+})
+FV_SOURCES_H.update({"roskilde": "Avedøre, ARGO og spildevand i Roskilde", "soenderborg": "Elkedel, varmepumpe og halm i Sønderborg og på Nordals"})
+_reg_age_old4 = reg_age_note
+def reg_age_note(c, kommune):
+    s = STOCK[c]; B = s["B"]; t = s["tot"]
+    if c == "roskilde":
+        return (f"{tal(B['1960-1979'])} af de beboede huse i Roskilde Kommune ({pct(B['1960-1979'], t)}) er bygget i 1960-1979. Uanset alder skal du tjekke lokalplan og tinglyste deklarationer, før du bestiller.", ["ros_byg"])
+    if c == "soenderborg":
+        return (f"{tal(B['før 1960'])} af kommunens beboede huse ({pct(B['før 1960'], t)}) er bygget før 1960. Er bygningen fredet, kræver solceller tilladelse fra Kulturstyrelsen, og normalt kan det ikke lade sig gøre.", ["sk_sol"])
+    return _reg_age_old4(c, kommune)
+
 # ---------- tjek af sammenlignende udsagn: bygget fejler, hvis en ny by gør et udsagn forkert ----------
 _PVs = lambda c: PV[c]["syd"]; _rt = lambda k: (lambda c: ROOF[c]["T"][k] / ROOF[c]["tot"]); _hf = lambda k: (lambda c: HEAT[c][k] / hs(c)); _sb = lambda k: (lambda c: STOCK[c]["B"][k] / STOCK[c]["tot"])
 CLAIMS = [
- ("Esbjerg top 3 PV", rank(_PVs, "esbjerg") <= 3),
- ("Aalborg top 3 juni", rank(lambda c: PV[c]["months"][5], "aalborg") <= 3),
+ ("Esbjerg top 4 PV", rank(_PVs, "esbjerg") <= 4),
+ ("Aalborg top 4 juni", rank(lambda c: PV[c]["months"][5], "aalborg") <= 4),
  ("Odense flest tegl", top(_rt("10")) == "odense"), ("Aalborg flest fibercement", top(_rt("06")) == "aalborg"),
  ("Vejle ikke nr. 1 nyere huse", rank(_sb("2000+"), "vejle") > 1),
  ("Esbjerg flest 1960-79", top(_sb("1960-1979")) == "esbjerg"),
  ("Aarhus flest huse", top(lambda c: STOCK[c]["tot"]) == "aarhus"), ("Aalborg nr. 2 huse", rank(lambda c: STOCK[c]["tot"], "aalborg") == 2),
- ("Horsens højeste ejerandel", top(lambda c: STOCK[c]["ejer"] / STOCK[c]["tot"]) == "horsens"),
+ ("Horsens top 2 ejerandel (dynamisk tekst)", rank(_EJ, "horsens") <= 2),
  ("Odense højeste FJ", top(_hf("FJ")) == "odense"), ("Aarhus nr. 2 FJ", rank(_hf("FJ"), "aarhus") == 2),
 
  ("Viborg højeste olie, Randers nr. 2", top(_hf("CO")) == "viborg" and rank(_hf("CO"), "randers") == 2),
  ("Næstved gas tæt på fjernvarme (overskrift)", abs(HEAT["naestved"]["CN"] - HEAT["naestved"]["FJ"]) / HEAT["naestved"]["FJ"] < 0.05),
+ ("Sønderborg tre ud af fem FJ (overskrift)", 0.58 <= HEAT["soenderborg"]["FJ"] / hs("soenderborg") <= 0.62),
+ ("Roskilde mere end hvert fjerde gas (overskrift)", HEAT["roskilde"]["CN"] / hs("roskilde") > 0.25),
  ("Holbæk flest gasfyr og laveste FJ (overskrift)", top(_hf("CN")) == "holbaek" and top(_hf("FJ"), rev=True) == "holbaek"),
 ]
 _bad = [n for n, ok in CLAIMS if not ok]

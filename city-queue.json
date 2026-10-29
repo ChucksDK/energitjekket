@@ -66,7 +66,8 @@
     "kommune": "Roskilde Kommune",
     "region": "Region Sjælland",
     "reason": "24.133 beboede parcel/rækkehuse; 44% fjernvarme; 9.056 med olie/gas/elvarme; stærkt varmepumpemarked",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-10-29"
   },
   {
     "rank": 8,
@@ -75,7 +76,8 @@
     "kommune": "Sønderborg Kommune",
     "region": "Region Syddanmark",
     "reason": "26.095 beboede parcel/rækkehuse; 60% fjernvarme; 6.579 med olie/gas/elvarme; begge services",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-10-29"
   },
   {
     "rank": 9,
