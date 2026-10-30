@@ -572,3 +572,79 @@ CONTACTS["roskilde"] = {"sol": [("Roskilde Kommune, Byggesag", "46 31 30 00 · b
                         "vp":  [("Roskilde Kommune, Klima- og Energiteamet", "46 31 30 00 · klima@roskilde.dk", "ros_varme")]}
 CONTACTS["soenderborg"] = {"sol": [("Sønderborg Kommune, Byg (Kvik-Caféen)", "88 72 40 82 · byg-bolig@sonderborg.dk", "sk_sol")],
                            "vp":  [("Sønderborg Varme", "73 43 50 00 · post@sfjv.dk", "pz_varme")]}
+
+# ---------- daglig by-rutine 30. okt. 2026: Køge og Svendborg ----------
+S.update({
+ "koe_energi": ("Køge Kommune: energikilder og opvarmning (solenergi, varmepumpe, naturgas, oliefyr)", "https://www.koege.dk/borger/bolig-og-byggeri/energi-varme-og-miljoe/energikilder-og-opvarmning"),
+ "koe_disp": ("Køge Kommune: dispensationer fra lokalplaner", "https://www.koege.dk/virksomhed/opstart-og-aendring-af-virksomhed/plantilladelser/dispensationer"),
+ "koe_lz": ("Køge Kommune: landzone og landzonetilladelser", "https://www.koege.dk/borger/bolig-og-byggeri/byggeri/landzone-og-landzonetilladelser"),
+ "kfv_pm": ("Køge Fjernvarme 5/10 2026: gentænker fjernvarmeprojektet omkring midtbyen (K05, K06, K08), FAQ opdateret 26/10 2026", "https://www.koegefjernvarme.dk/nyheder/pressemeddelelse"),
+ "kfv_nyl": ("Køge Fjernvarme 20/3 2026: fjernvarmeudbygningen omkring Nylandsvej (K02)", "https://www.koegefjernvarme.dk/nyheder/fjernvarmeudbygningen-omkring-nylandsvej"),
+ "kfv_grav": ("Køge Fjernvarme 20/4 2026: gravestart Ølsemaglevej Øst og Strandlodsvej", "https://www.koegefjernvarme.dk/nyheder/gravestart-oelsemaglevej-oest-og-strandlodsvej"),
+ "df_bjae": ("Dansk Fjernvarme 1/10 2026: fra nul til 850 fjernvarmekunder i Bjæverskov", "https://danskfjernvarme.dk/aktuelt/nyheder/2026/fra-nul-til-850-fjernvarmekunder-i-bjaeverskov"),
+ "koe_borup": ("Køge Kommune: VVM-screeningsafgørelse for Borup Varmeværk, ny elkedel", "https://www.koege.dk/om-koege-kommune/presse-og-kommunikation/nyheder-og-aktuelt/nyheder/vvm-screeningsafgoerelse-vedroerende-borup-varmevaerk-ny-elkedel"),
+ "kv_aar": ("Køge Varme A/S: årsrapport 2025 (PDF, KLAR Forsyning)", "https://klarforsyning.dk/files/media/document/K%C3%B8ge%20Varme%20-%20%C3%85rsrapport%202025_489070_0.2.pdf"),
+ "svb_sol": ("Svendborg Kommune: overvejer du solceller? (tilladelser på tag, landbrugsbygninger og terræn)", "https://www.svendborg.dk/borger/bolig-og-byggeri/el-og-varme/overvejer-du-solceller/"),
+ "svb_vp": ("Svendborg Kommune: varmepumper (tilladelse, støj og tilskud)", "https://www.svendborg.dk/borger/bolig-og-byggeri/el-og-varme/varmepumper/"),
+ "svb_fv": ("Svendborg Kommune: fjernvarme og Varmeplan 2030", "https://www.svendborg.dk/borger/bolig-og-byggeri/el-og-varme/fjernvarme/"),
+ "svb_vp2030": ("Svendborg Kommune: kommer der fjernvarme i dit område? (revideret Varmeplan 2030)", "https://www.svendborg.dk/nyheder/kommer-der-fjernvarme-i-dit-omraade/"),
+ "svb_oll": ("Svendborg Kommune: Ollerup, Vester Skerninge og Ulbølle ikke længere udlagt til fjernvarme", "https://www.svendborg.dk/nyheder/nu-kan-du-soege-tilskud-til-varmepumpe-i-ollerup-vester-skerninge-og-ulboelle/"),
+ "svb_lund": ("Svendborg Kommune 26/11 2025: afgørelse om individuel varmeforsyning i Lundeborg", "https://www.svendborg.dk/hoeringer-og-afgoerelser/individuel-varmeforsyning-i-lundeborg/"),
+ "svb_elv": ("Svendborg Kommune: elvarmeforbud", "https://www.svendborg.dk/borger/bolig-og-byggeri/el-og-varme/elvarmeforbud/"),
+ "sfv_ud": ("Svendborg Fjernvarme: få fjernvarme (plan for nye områder)", "https://svendborgfjernvarme.dk/faa-fjernvarme"),
+ "df_svb": ("Dansk Fjernvarme 8/5 2026: elektrificering gør Svendborg klar til fremtiden", "https://danskfjernvarme.dk/aktuelt/nyheder/2026/elektrificering-goer-svendborg-klar-til-fremtiden"),
+})
+CITIES["koege"] = {
+  "name": "Køge", "kommune": "Køge Kommune", "updated": ("30. oktober 2026", "2026-10-30"),
+  "sol_intro": "Solceller i Køge: Køge Kommune kræver som udgangspunkt ingen tilladelse til solceller eller solfangere på taget af et enfamiliehus. Lokalplanen og bygningsreglementet skal dog overholdes, og særlige forhold kan kræve dispensation eller landzonetilladelse. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Solcelle- og solfangeranlæg <strong>på taget af et enfamiliehus</strong> kræver som udgangspunkt ikke tilladelse fra Køge Kommune.", ["koe_energi"]),
+    ("Anlægget skal tage hensyn til bestemmelserne i <strong>lokalplanen</strong> og bygningsreglementet.", ["koe_energi"]),
+    ("Særlige forhold kan betyde, at anlægget kræver <strong>dispensation fra lokalplanen</strong> eller en landzonetilladelse.", ["koe_energi"]),
+    ("Kommunen kan kun i mindre grad dispensere fra en lokalplan, og aldrig fra planens principper om formål og anvendelse.", ["koe_disp"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Køge?", "Som udgangspunkt ikke, når anlægget sidder på taget af et enfamiliehus. Du skal dog overholde lokalplanen og bygningsreglementet, og særlige forhold kan kræve dispensation eller landzonetilladelse.", ["koe_energi"]),
+    ("Hvordan søger jeg dispensation fra lokalplanen i Køge Kommune?", "Sammen med en ansøgning om byggetilladelse i Byg og Miljø, eller som en begrundet ansøgning på mail til tmf@koege.dk.", ["koe_disp"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Køge: halvdelen af husene i kommunen varmes op med naturgas, og i oktober 2026 bad Køge Fjernvarme om at annullere fjernvarmeprojektet for kvartererne omkring midtbyen. I Bjæverskov er et nyt fjernvarmeværk derimod åbnet. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("Køge Fjernvarme vil anmode Køge Kommune om at annullere projektforslaget for <strong>K05, K06 og K08</strong> omkring midtbyen og venter et nyt projektforslag i løbet af 2027.", ["kfv_pm"]),
+    ("Områderne K05, K06 og K08 er fortsat udlagt til fjernvarme, og Køge Fjernvarme forventer ikke, at varmeplanerne ændres i mellemtiden.", ["kfv_pm"]),
+    ("Omkring <strong>Nylandsvej</strong> (K02) er gravearbejdet i gang ved Ølsemaglevej Øst og Strandlodsvej, mens Forsythiavej, Tranholmsvej og Stevnsbovej er sendt i nyt udbud.", ["kfv_grav", "kfv_nyl"]),
+    ("Ved naboklager over støj bruger Køge Kommune Miljøstyrelsens vejledende grænser: i de fleste tilfælde <strong>35 dB(A)</strong> ved naboens skel om natten.", ["koe_energi"]),
+  ],
+  "vp_faq": [
+    ("Kan jeg få tilskud til en varmepumpe i K05, K06 eller K08 i Køge?", "Køge Fjernvarme skriver, at områderne fortsat er udlagt til fjernvarme, fordi projektforslaget endnu ikke er annulleret, og at varmeplanerne ikke ventes at blive ændret i mellemtiden. Varmepumpepuljen giver ikke tilskud i fjernvarmeområder.", ["kfv_pm", "se_vpp"]),
+    ("Må jeg skifte mit gasfyr ud med en varmepumpe, hvis jeg bor i et område med tilslutningspligt til naturgas?", "Køge Kommune skriver, at du skal søge dispensation hos Plan, hvis du bor i et område med tilslutningspligt til naturgasnettet og vil bruge en anden energikilde.", ["koe_energi"]),
+  ],
+}
+CITIES["svendborg"] = {
+  "name": "Svendborg", "kommune": "Svendborg Kommune", "updated": ("30. oktober 2026", "2026-10-30"),
+  "sol_intro": "Solceller i Svendborg: på et almindeligt parcelhus kræver solceller umiddelbart hverken byggetilladelse eller landzonetilladelse. Lokalplaner, byplanvedtægter og tinglyste deklarationer kan dog have særlige regler for tagmateriale eller solceller. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Solceller på et <strong>almindeligt parcelhus</strong> kræver umiddelbart ikke byggetilladelse eller landzonetilladelse i Svendborg Kommune.", ["svb_sol"]),
+    ("Tjek om der er en <strong>lokalplan, byplanvedtægt eller tinglyst deklaration</strong>, der har særlige regler for tagmateriale eller solceller.", ["svb_sol"]),
+    ("Solceller på <strong>terræn</strong> under 40 m² kræver ikke byggetilladelse, hvis de højst er 1,8 m høje og ikke strider mod deklarationer, lokalplan og naturbeskyttelseslovens afstandslinjer.", ["svb_sol"]),
+    ("På landbrugsbygninger kræver de fleste anlæg byggetilladelse, fordi de øger lasten på taget med mere end 5 %.", ["svb_sol"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Svendborg?", "Umiddelbart ikke på et almindeligt parcelhus. Kommunen beder dig dog tjekke lokalplan, byplanvedtægt og tinglyste deklarationer, som kan have særlige regler for tagmateriale eller solceller.", ["svb_sol"]),
+    ("Må jeg sætte solceller op i haven i Svendborg Kommune?", "Ja, uden byggetilladelse, hvis anlægget er under 40 m², højst 1,8 m højt på stativ og ikke strider mod deklarationer, lokalplan eller naturbeskyttelseslovens afstandslinjer. I landzone skal det også ligge højst 20 m fra hovedbygningen for at undgå landzonetilladelse.", ["svb_sol"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Svendborg: kun hvert fjerde hus i kommunen har fjernvarme, og Svendborg Fjernvarme skal først have en ny stor varmepumpe i drift, før nettet kan udvides. I Ollerup, Vester Skerninge, Ulbølle og Lundeborg er fjernvarmen droppet. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("Luft til luft- og luft til vand-varmepumper kan sættes op <strong>uden tilladelse</strong> fra Svendborg Kommune, men servitutter og lokalplaner kan have retningslinjer.", ["svb_vp"]),
+    ("Udedelen må højst støje <strong>35 dB</strong> ind mod naboen i nattetimerne, og den må ikke stå inde i et skur eller en garage.", ["svb_vp"]),
+    ("Ollerup, Vester Skerninge og Ulbølle er ikke længere udlagt til fjernvarme, og i Lundeborg blev fjernvarmeprojektet annulleret i november 2025. Her kan du søge tilskud fra Varmepumpepuljen.", ["svb_oll", "svb_lund"]),
+    ("I områder med <strong>vedtaget fjernvarme</strong> i Varmeplan 2030 kan du ikke få tilskud fra Varmepumpepuljen.", ["svb_vp2030", "se_vpp"]),
+  ],
+  "vp_faq": [
+    ("Kommer der fjernvarme i mit kvarter i Svendborg?", "Svendborg Fjernvarme har en plan for boliger i Nordøst, Sydøst, Tved, Øst og Christiansminde samt Ryttermarken, Frederiksø og Kogtved. Først skal en ny varmepumpe på Bodøvej bygges, og selskabet regner med omkring fem år, til den sidste ejendom er tilsluttet. Slå din adresse op på kommunens varmeplanskort.", ["sfv_ud", "svb_fv"]),
+    ("Må jeg skifte til elradiatorer i stedet for en varmepumpe i Svendborg?", "Ikke som primær opvarmning i fjernvarme- og naturgasforsynede områder, hvor der er elvarmeforbud. Forbuddet gælder ikke varmepumper og jordvarme.", ["svb_elv"]),
+  ],
+}
+CONTACTS["koege"] = {"sol": [("Køge Kommune, Byggesag", "56 67 24 55 · byg@koege.dk", "koe_energi")],
+                     "vp":  [("Køge Kommune, Plan (naturgas og varmeplan)", "56 67 21 11 · plan@koege.dk", "koe_energi")]}
+CONTACTS["svendborg"] = {"sol": [("Svendborg Kommune, Byg og BBR", "62 23 33 33", "svb_sol")],
+                         "vp":  [("Svendborg Fjernvarme", "62 21 33 21 · info@svendborgfjernvarme.dk", "sfv_ud")]}

@@ -1,0 +1,6 @@
+2026-10-30 by-rutine: Køge (259) og Svendborg (479). DST BOL102/BOL101/BYGB50/BY3 2026 + PVGIS 5.3 (SARAH3), flettet ind i research/v4/*.json (fetch_new.py).
+Køge 18564 huse, ejer 13281, B {'før 1960': 4654, '1960-1979': 6384, '1980-1999': 3919, '2000+': 3600, 'uoplyst': 7}
+Svendborg 21017 huse, ejer 15004, B {'før 1960': 8561, '1960-1979': 5828, '1980-1999': 3792, '2000+': 2835, 'uoplyst': 1}
+PVGIS koege (55.4580,12.1821) syd35 1009, øst 789, vest 793, opt 1013 @41°
+PVGIS svendborg (55.0598,10.6068) syd35 1058, øst 811, vest 832, opt 1063 @41°
+Forsyningstilsynet prisstatistik jan. 2026: Borup Varmeværk 13.892, Køge Varme A/S 23.912, Svendborg Fjernvarme 16.486, Stenstrup Fjernvarme 14.097, Skårup Fjernvarme 26.627 (standardhus inkl. moms). Køge Fjernvarme (VEKS) findes ikke i statistikken.

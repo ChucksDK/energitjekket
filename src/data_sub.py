@@ -933,3 +933,95 @@ FV_PAGE["soenderborg"] = {
    ("Hvor kommer fjernvarmen på Nordals fra?", "Sønderborg Forsyning (SONFOR) skrev i 2023, at fjernvarmeanlægget i Nordborg udelukkende fyrer med halm. Nettet løber fra Nordborg til Guderup.", ["sonfor_halm", "sonfor_na"]),
   ],
 }
+
+# ---------- daglig by-rutine 30. okt. 2026: Køge og Svendborg ----------
+# Forsyningstilsynet, prisstatistik januar 2026 (CSV): værker i de to kommuner (navne og postnr. som i statistikken). Køge Fjernvarme (VEKS) indgår ikke i statistikken.
+FV_PRICES["koege"] = [("Borup Varmeværk", "4140", "13.892", "510"), ("Køge Varme A/S", "4600", "23.912", "678")]
+FV_PRICES["svendborg"] = [("Svendborg Fjernvarme", "5700", "16.486", "735"), ("Stenstrup Fjernvarme", "5771", "14.097", "570"), ("Skårup Fjernvarme", "5881", "26.627", "1.150")]
+SOL_REG["koege"] = {
+  "kw": "solceller køge kommune / tilladelse solceller køge",
+  "evidence": "Køge Kommune beskriver reglerne for solceller og solfangere på enfamiliehuse på siden om energikilder og opvarmning, og dispensation og landzone på særskilte sider (tjekket 30/10 2026).",
+  "intro": "Køge Kommune kræver som udgangspunkt ingen tilladelse til solceller eller solfangere på taget af et enfamiliehus. Det er lokalplanen og bygningsreglementet, der sætter grænserne, og ligger huset i landzone, kan det kræve landzonetilladelse. Her er reglerne og hvordan du søger.",
+  "sections": [
+   ("På taget af et enfamiliehus", [
+     ("ul", [("Solcelle- og solfangeranlæg på taget af et <strong>enfamiliehus</strong> kræver som udgangspunkt ikke tilladelse fra kommunen.", ["koe_energi"]),
+             ("Anlægget skal overholde bestemmelserne i <strong>lokalplanen</strong> og bygningsreglementet, bl.a. om højde og afstand.", ["koe_energi", "br18_179"]),
+             ("Solfangere (varme) og solceller (strøm) er omfattet af de samme regler.", ["koe_energi"])]),
+   ]),
+   ("Når lokalplanen siger nej", [
+     ("p", "Kommunalbestyrelsen kan kun <strong>i mindre grad</strong> dispensere fra en lokalplan, og der kan ikke dispenseres fra planens principper, som typisk står under formål og anvendelse. Du kan søge dispensation sammen med en ansøgning om byggetilladelse eller sende en begrundet ansøgning til tmf@koege.dk.", ["koe_disp"]),
+   ]),
+   ("Huse i landzone", [
+     ("p", "Ligger ejendommen i landzone, kan anlægget kræve <strong>landzonetilladelse</strong>. Du kan slå op på kommunens kort, om din ejendom ligger i landzone. En ansøgning skal bl.a. indeholde en beskrivelse, et luftfoto med placering og en situationsplan.", ["koe_lz", "koe_energi"]),
+     ("note", "Skal projektet kun anmeldes, har Køge Kommune 14 dage til at vurdere, om det er undtaget fra kravet om landzonetilladelse. Fristen løber først, når kommunen har alle oplysninger.", ["koe_lz"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller byggetilladelse i Køge Kommune?", "Som udgangspunkt ikke på taget af et enfamiliehus. Anlægget skal dog overholde lokalplanen og bygningsreglementet, og særlige forhold kan kræve dispensation eller landzonetilladelse.", ["koe_energi"]),
+   ("Kan Køge Kommune dispensere fra en lokalplan, der forbyder solceller?", "Kun i mindre grad. Der kan ikke dispenseres fra lokalplanens principper. Du søger sammen med byggeansøgningen eller med en begrundet ansøgning til tmf@koege.dk.", ["koe_disp"]),
+   ("Hvad skal en ansøgning om landzonetilladelse i Køge indeholde?", "En beskrivelse af projektet, et luftfoto med placering, en situationsplan, tegninger før og efter og eventuelt fotos. Søger du for en anden, skal du vedlægge fuldmagt.", ["koe_lz"]),
+   ("Hvem kontakter jeg om solceller i Køge Kommune?", "Byggesag på byg@koege.dk eller 56 67 24 55. Spørgsmål om lokalplaner går til Plan på plan@koege.dk eller 56 67 21 11.", ["koe_energi"]),
+  ],
+}
+SOL_REG["svendborg"] = {
+  "kw": "solceller svendborg kommune / byggetilladelse solceller svendborg",
+  "evidence": "Svendborg Kommune beskriver på siden 'Overvejer du solceller?', hvornår anlæg på tag, landbrugsbygninger og terræn kræver bygge- eller landzonetilladelse (tjekket 30/10 2026).",
+  "intro": "Svendborg Kommune kræver umiddelbart hverken byggetilladelse eller landzonetilladelse til solceller på et almindeligt parcelhus. Anlæg på terræn og på landbrugsbygninger har egne regler med grænser for areal, højde og last. Her er reglerne og hvordan du søger.",
+  "sections": [
+   ("På et almindeligt parcelhus", [
+     ("ul", [("Solceller på et almindeligt parcelhus kræver <strong>umiddelbart ikke byggetilladelse eller landzonetilladelse</strong>.", ["svb_sol"]),
+             ("Tjek om ejendommen har en <strong>lokalplan, byplanvedtægt eller tinglyste deklarationer</strong> med særlige regler for tagmateriale eller solceller.", ["svb_sol"]),
+             ("På tag af andre bygninger end driftsbygninger kræver det ikke landzonetilladelse, så længe panelerne følger tagets hældning og ikke står på stativ.", ["svb_sol"])]),
+   ]),
+   ("Solceller i haven: grænsen går ved 40 m²", [
+     ("ul", [("Et anlæg på terræn kræver ikke byggetilladelse, hvis det er <strong>under 40 m²</strong> og højst <strong>1,8 m</strong> højt på stativ.", ["svb_sol"]),
+             ("Det må ikke stride mod deklarationer eller lokalplan og skal overholde naturbeskyttelseslovens afstandslinjer.", ["svb_sol"]),
+             ("For at undgå landzonetilladelse skal det også ligge i nær tilknytning til bebyggelsen, højst 20 m fra hovedbygningen.", ["svb_sol"])]),
+   ]),
+   ("Landbrugs- og erhvervsbygninger", [
+     ("p", "På eksisterende erhvervs- og landbrugsbygninger kræver solceller ikke byggetilladelse, hvis de bærende konstruktioner ikke belastes med mere end <strong>5 %</strong> ekstra, brandforholdene er uændrede, og lokalplan, deklarationer og fredning ikke er til hinder. Kommunen skriver, at de fleste anlæg på landbrugsbygninger øger lasten med mere end 5 % og derfor kræver byggetilladelse.", ["svb_sol"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller byggetilladelse i Svendborg Kommune?", "Umiddelbart ikke på et almindeligt parcelhus. Lokalplan, byplanvedtægt og tinglyste deklarationer kan dog have særlige regler for tagmateriale eller solceller.", ["svb_sol"]),
+   ("Hvor store solceller må jeg sætte op i haven uden tilladelse i Svendborg?", "Under 40 m² og højst 1,8 m høje på stativ, uden at stride mod deklarationer, lokalplan og naturbeskyttelseslovens afstandslinjer. I landzone skal anlægget også ligge højst 20 m fra hovedbygningen.", ["svb_sol"]),
+   ("Kræver solceller på en landbrugsbygning tilladelse i Svendborg?", "Ofte. Øger anlægget lasten på de bærende konstruktioner med mere end 5 %, kræver det byggetilladelse, og det gør de fleste anlæg på landbrugsbygninger ifølge kommunen.", ["svb_sol"]),
+   ("Hvem kontakter jeg om solceller i Svendborg Kommune?", "Byg og BBR i Svendborg Kommune på 62 23 33 33.", ["svb_sol"]),
+  ],
+}
+FV_PAGE["koege"] = {
+  "kw": "fjernvarme køge / køge fjernvarme / varmepumpe køge",
+  "evidence": "Køge Fjernvarme meldte 5/10 2026 ud, at projektforslaget for K05, K06 og K08 skal annulleres (FAQ opdateret 26/10 2026), og Dansk Fjernvarme beskrev 1/10 2026 det nye værk i Bjæverskov.",
+  "intro": "Kun 14 % af husene i Køge Kommune har fjernvarme, og halvdelen har naturgas. Omkring Nylandsvej bliver nettet udbygget, mens projektet for kvartererne omkring midtbyen skal regnes om. I Bjæverskov er et helt nyt værk åbnet. Her er status, værkernes priser og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Omkring Nylandsvej (K02):</strong> gravearbejdet ved Ølsemaglevej Øst og Strandlodsvej er i gang. Forsythiavej, Tranholmsvej og Stevnsbovej er sendt i nyt udbud.", ["kfv_grav", "kfv_nyl"]),
+   ("<strong>Kvartererne omkring midtbyen (K05, K06 og K08):</strong> Køge Fjernvarme vil have projektforslaget annulleret på grund af stigende renter og omkostninger og venter et nyt forslag i løbet af 2027.", ["kfv_pm"]),
+   ("<strong>Bjæverskov:</strong> byens første varmeværk blev indviet 19. september 2026. 850 husstande er tilmeldt, ca. 80 % af byen, og de sidste ventes koblet på i begyndelsen af 2027.", ["df_bjae"]),
+   ("<strong>Borup:</strong> Køge Kommune har VVM-screenet en ny elkedel ved Borup Varmeværk på Bækgårdsvej og vurderet, at den ikke kræver miljøvurdering.", ["koe_borup"]),
+  ],
+  "local_take": "Borup Varmeværk hører til de 15 % billigste værker i landet, mens Køge Varme A/S, der forsyner et mindre område i Køge, er blandt de 10 % dyreste. Køge Fjernvarme indgår ikke i Forsyningstilsynets statistik. Bor du i K05, K06 eller K08, er du fortsat i et fjernvarmeområde uden adgang til Varmepumpepuljen, så vent på det nye projektforslag, før du vælger. Uden for fjernvarmeplanerne er en luft til vand-varmepumpe det oplagte alternativ til gasfyret.",
+  "contact": ("Køge Fjernvarme", "43 64 44 00 · koegefjernvarme@veks.dk", "kfv_pm"),
+  "faq": [
+   ("Hvad koster fjernvarme i Køge?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus på 130 m² med 18,1 MWh 13.892 kr. om året inkl. moms hos Borup Varmeværk og 23.912 kr. hos Køge Varme A/S. Landsgennemsnittet er 16.953 kr. Køge Fjernvarme indgår ikke i statistikken.", ["ft_pris"]),
+   ("Hvad koster det at blive tilsluttet fjernvarme omkring Nylandsvej?", "Køge Fjernvarme skriver, at tilmeldte er omfattet af kampagneprisen på 10.000 kr. inkl. moms for 20 meter stikledning (normalpris 56.000 kr.) og sparer 50 % på effektbidraget de første 5 år.", ["kfv_nyl"]),
+   ("Hvor kommer fjernvarmen i Bjæverskov fra?", "Fra Energinets transformerstation lige vest for byen. Værket henter ca. 40 °C varmt vand fra stationens køling, og to varmepumper løfter det til ca. 70 °C. En gaskedel på 6 MW er backup.", ["df_bjae"]),
+  ],
+}
+FV_PAGE["svendborg"] = {
+  "kw": "fjernvarme svendborg / svendborg fjernvarme / varmepumpe svendborg",
+  "evidence": "Svendborg Kommune beskriver fjernvarmen og Varmeplan 2030 på sin side om fjernvarme, og Svendborg Fjernvarme viser planen for nye områder (tjekket 30/10 2026). Dansk Fjernvarme beskrev 8/5 2026 selskabets nye produktion.",
+  "intro": "I Svendborg Kommune har kun hvert fjerde hus fjernvarme, som produceres på værkerne i Svendborg, Skårup og Stenstrup. Svendborg Fjernvarme vil udbygge i flere bydele, men først skal en ny stor varmepumpe i drift. Her er status, de tre værkers priser og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Ny produktion på Bodøvej:</strong> en 25 MW varmepumpe, en 25 MW elkedel og en ny akkumuleringstank ventes i fuld drift fra midten af 2028. Svendborg Fjernvarme skriver, at det er en forudsætning for at udbrede fjernvarmen.", ["df_svb"]),
+   ("<strong>Svendborg by:</strong> planen omfatter boliger i Nordøst (ca. 576), Sydøst (ca. 432), Tved (ca. 411), Øst og Christiansminde (ca. 445) samt Ryttermarken, Frederiksø og Kogtved. Selskabet regner med omkring fem år i alt.", ["sfv_ud"]),
+   ("<strong>Ollerup, Vester Skerninge og Ulbølle:</strong> ikke længere udlagt til fjernvarme, fordi projektet blev langt dyrere end ventet. Området er nu individuel varmeforsyning.", ["svb_oll"]),
+   ("<strong>Lundeborg:</strong> fjernvarmeprojektet fra maj 2024 blev annulleret i november 2025, og området er udlagt til individuel varmeforsyning.", ["svb_lund"]),
+  ],
+  "local_take": "Stenstrup Fjernvarme hører til de 20 % billigste værker i landet, og Svendborg Fjernvarme ligger under landsgennemsnittet, mens Skårup Fjernvarme er blandt de 5 % dyreste. Bor du i en af de bydele, Svendborg Fjernvarme vil udbygge til, kan det betale sig at vente på tilbuddet. Bor du i Ollerup, Vester Skerninge, Ulbølle eller Lundeborg, er en luft til vand-varmepumpe med tilskud det oplagte valg.",
+  "contact": ("Svendborg Fjernvarme", "62 21 33 21 · info@svendborgfjernvarme.dk", "sfv_ud"),
+  "faq": [
+   ("Hvad koster fjernvarme i Svendborg?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus på 130 m² med 18,1 MWh 16.486 kr. om året inkl. moms hos Svendborg Fjernvarme, 14.097 kr. hos Stenstrup Fjernvarme og 26.627 kr. hos Skårup Fjernvarme. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+   ("Hvor kommer fjernvarmen i Svendborg fra?", "Svendborg Fjernvarme har i dag en 16 MW ammoniak-varmepumpe, en 25 MW elkedel, tre gasmotorer og gaskedler. Cirka en tredjedel af varmen kommer fra gas, og selskabet vil nedbringe gasandelen fra ca. 35 til ca. 5 %.", ["df_svb"]),
+   ("Hvorfor kan Svendborg Fjernvarme ikke bare udvide nu?", "Selskabet forklarer, at projektbekendtgørelsen hidtil har stået i vejen, fordi fossile brændsler har udgjort for stor en del af produktionen. De nye elektriske anlæg er en forudsætning for at udbrede fjernvarmen til nye områder.", ["df_svb"]),
+  ],
+}

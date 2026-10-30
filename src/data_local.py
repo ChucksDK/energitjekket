@@ -11,13 +11,13 @@ def hs(c): return sum(HEAT[c].values())            # beboede parcel- og rækkehu
 def hp(c, k, d=0): return pct(HEAT[c][k], hs(c), d)
 def rp(c, k, d=0): return pct(ROOF[c]["T"][k], ROOF[c]["tot"], d)
 def town(c, name): return dict(TOWNS[c])[name]
-_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten"}
+_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten"}
 def nw(k=0): return _NUMW[len(NAMES) - k]          # "ni" for 9 byer, nw(1) = "otte" (de andre)
 def top(f, rev=False):
     """By med højeste (eller laveste, rev=True) værdi blandt sitets byer. Bruges til at tjekke sammenlignende udsagn."""
     return sorted(NAMES, key=f, reverse=not rev)[0]
 def rank(f, c): return sorted(NAMES, key=f, reverse=True).index(c) + 1
-_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende"}
+_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende"}
 def rk(f, c, word, art="den", rev=False):
     """Rangord, fx 'den højeste', 'den næsthøjeste' (rev=True tæller fra bunden). Holder sammenlignende udsagn sande, når nye byer kommer til."""
     r = sorted(NAMES, key=f, reverse=not rev).index(c) + 1
@@ -28,7 +28,7 @@ def above(f, c):
     a = [NAMES[x] for x in sorted(NAMES, key=f, reverse=True)[:rank(f, c) - 1]]
     return a[0] if len(a) == 1 else ", ".join(a[:-1]) + " og " + a[-1]
 
-NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg"}
+NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg"}
 LOCAL_S = {
  "dst_bol102": ("Danmarks Statistik: BOL102, boliger efter område og opvarmning (2026)", "https://www.statistikbanken.dk/BOL102"),
  "dst_bol101": ("Danmarks Statistik: BOL101, boliger efter opførelsesår og udlejningsforhold (2026)", "https://www.statistikbanken.dk/BOL101"),
@@ -168,7 +168,7 @@ VP_HEAT = {
  "aalborg": ("Opvarmning i Aalborg Kommune i tal",
    lambda: f"{hp('aalborg','FJ')} af de beboede parcel- og rækkehuse i Aalborg Kommune har fjernvarme. {tal(HEAT['aalborg']['CO'])} huse har stadig oliefyr, flere end naturgas ({tal(HEAT['aalborg']['CN'])}). Kommunen udbygger ikke fjernvarmen yderligere lige nu og peger selv på varmepumper i områderne uden for nettet."),
  "randers": ("Randers har mange gas- og oliefyr tilbage",
-   lambda: f"Kun {hp('randers','FJ')} af de beboede parcel- og rækkehuse i Randers Kommune har fjernvarme, {rk(lambda x: HEAT[x]['FJ'] / hs(x), 'randers', 'laveste', rev=True)} andel af de {nw()} byer. {tal(HEAT['randers']['CN'])} huse har naturgas, og {tal(HEAT['randers']['CO'])} har oliefyr ({hp('randers','CO',1)}, kun Viborg har en højere andel blandt byerne på sitet). Verdo udbygger lige nu i Assentoft, Harridslev, Stevnstrup og Spentrup. Uden for de byer er en varmepumpe alternativet."),
+   lambda: f"Kun {hp('randers','FJ')} af de beboede parcel- og rækkehuse i Randers Kommune har fjernvarme, {rk(lambda x: HEAT[x]['FJ'] / hs(x), 'randers', 'laveste', rev=True)} andel af de {nw()} byer. {tal(HEAT['randers']['CN'])} huse har naturgas, og {tal(HEAT['randers']['CO'])} har oliefyr ({hp('randers','CO',1)}, kun {above(lambda x: HEAT[x]['CO'] / hs(x), 'randers')} har en højere andel blandt byerne på sitet). Verdo udbygger lige nu i Assentoft, Harridslev, Stevnstrup og Spentrup. Uden for de byer er en varmepumpe alternativet."),
  "horsens": ("Opvarmningen af husene i Horsens Kommune",
    lambda: f"{hp('horsens','FJ')} af de beboede parcel- og rækkehuse i Horsens Kommune har fjernvarme efter Fjernvarme Horsens' store udbygning. {tal(HEAT['horsens']['VP'])} huse har varmepumpe, mens {tal(HEAT['horsens']['CN'])} stadig har naturgas og {tal(HEAT['horsens']['CO'])} oliefyr."),
 }
@@ -501,7 +501,7 @@ SOL_XFAQ.update({
  "slagelse": [("Hvor meget giver solceller i Slagelse om vinteren?", lambda: f"PVGIS beregner ca. {tal(PV['slagelse']['months'][11]*6)} kWh i december og {tal(PV['slagelse']['months'][0]*6)} kWh i januar fra et 6 kWp-anlæg mod syd, mod ca. {tal(PV['slagelse']['months'][5]*6)} kWh i juni. Over hele året giver det ca. {tal(PV['slagelse']['syd']*6)} kWh.", ["pv_slagelse"])],
 })
 VP_HEAT.update({
- "holbaek": ("Holbæk har flest gasfyr og færrest med fjernvarme på sitet",
+ "holbaek": ("Mange gasfyr og færrest med fjernvarme på sitet i Holbæk",
    lambda: f"{tal(HEAT['holbaek']['CN'])} beboede parcel- og rækkehuse i Holbæk Kommune ({hp('holbaek','CN',1)}) har naturgas, {rk(_CN, 'holbaek', 'højeste')} andel af de {nw()} byer, og kun {hp('holbaek','FJ',1)} har fjernvarme. Samtidig har {tal(HEAT['holbaek']['VP'])} huse ({hp('holbaek','VP',1)}) allerede varmepumpe, {rk(_VP, 'holbaek', 'højeste')} andel på sitet, mod {hp('dk','VP',1)} på landsplan."),
  "slagelse": ("Gas, olie og elvarme i Slagelse Kommune",
    lambda: f"{hp('slagelse','FJ',1)} af de {tal(hs('slagelse'))} beboede parcel- og rækkehuse i Slagelse Kommune har fjernvarme, mens {tal(HEAT['slagelse']['CN'])} ({hp('slagelse','CN',1)}) har naturgas, {tal(HEAT['slagelse']['CO'])} oliefyr og {tal(HEAT['slagelse']['ELV'])} elvarme. {tal(HEAT['slagelse']['VP'])} huse ({hp('slagelse','VP',1)}) har allerede varmepumpe, {rk(_VP, 'slagelse', 'højeste')} andel af de {nw()} byer."),
@@ -641,11 +641,99 @@ def reg_age_note(c, kommune):
         return (f"{tal(B['før 1960'])} af kommunens beboede huse ({pct(B['før 1960'], t)}) er bygget før 1960. Er bygningen fredet, kræver solceller tilladelse fra Kulturstyrelsen, og normalt kan det ikke lade sig gøre.", ["sk_sol"])
     return _reg_age_old4(c, kommune)
 
+
+# ---------- daglig by-rutine 30. okt. 2026: Køge (DK2, Region Sjælland) og Svendborg (DK1, Region Syddanmark) ----------
+SOL_ORDER.update({
+ "koege": ["lokalt", "boliger", "tage", "produktion", "faq", "guides"],
+ "svendborg": ["produktion", "boliger", "lokalt", "tage", "guides", "faq"],
+})
+VP_ORDER.update({
+ "koege": ["opvarmning", "lokalt", "lokale-byer", "pris", "guides", "faq"],
+ "svendborg": ["lokale-byer", "opvarmning", "pris", "lokalt", "faq", "guides"],
+})
+FV_ORDER.update({
+ "koege": ["andel", "status", "priser", "varmekilder", "billigst", "faq"],
+ "svendborg": ["status", "varmekilder", "andel", "priser", "billigst", "faq"],
+})
+SOL_PROD.update({
+ "koege": ("Solproduktion ved Køge Bugt",
+   lambda: f"PVGIS beregner ca. {tal(PV['koege']['syd'])} kWh pr. kWp om året for et sydvendt tag med 35° hældning i Køge. Et vestvendt tag giver ca. {tal(PV['koege']['vest'])} kWh og et østvendt ca. {tal(PV['koege']['oest'])} kWh pr. kWp. Med et 6 kWp-anlæg mod syd bliver det ca. {tal(PV['koege']['syd']*6)} kWh om året, heraf ca. {tal(PV['koege']['months'][4]*6)} kWh i maj alene."),
+ "svendborg": ("Sydfyn har sol: produktion i Svendborg",
+   lambda: f"For et sydvendt tag med 35° hældning i Svendborg beregner PVGIS ca. <strong>{tal(PV['svendborg']['syd'])} kWh pr. kWp om året</strong>, {rk(_PVY, 'svendborg', 'højeste')} af de {nw()} byer på dette site. Ved den optimale hældning på {PV['svendborg']['opt_angle']}° bliver det ca. {tal(PV['svendborg']['opt'])} kWh. Maj er den bedste måned med ca. {tal(PV['svendborg']['months'][4]*6)} kWh fra et 6 kWp-anlæg, december den svageste med ca. {tal(PV['svendborg']['months'][11]*6)} kWh."),
+})
+SOL_PROD_SRC_NEW.update({"koege": ["pv_koege", "pvo_koege", "pvv_koege"], "svendborg": ["pv_svendborg", "pvgis"]})
+SOL_ROOF.update({
+ "koege": ("Fibercement og tegl i Køge Kommune",
+   lambda: f"{rp('koege','06')} af parcel- og rækkehusene i Køge Kommune har tag af fibercement, og {rp('koege','10')} har tegl. {rp('koege','08')} har cementsten og {rp('koege','02')} fladt tag. Sidder panelerne på taget af et enfamiliehus, kræver det som udgangspunkt ikke kommunens tilladelse, men lokalplanen kan stille krav.",
+   ["dst_bygb50", "koe_energi"]),
+ "svendborg": ("Stråtag og eternit i Svendborg Kommune",
+   lambda: f"{rp('svendborg','06')} af parcel- og rækkehusene i Svendborg Kommune har fibercement og {rp('svendborg','10')} tegl. {tal(ROOF['svendborg']['T']['14'])} huse har <strong>stråtag</strong> ({rp('svendborg','14',1)}), mod {rp('dk','14',1)} i hele landet. Er taget af ældre fibercement, så få det vurderet, før panelerne skrues fast: ifølge Bolius kan det indeholde asbest.",
+   ["dst_bygb50", "bolius_asb"]),
+})
+SOL_HOMES.update({
+ "koege": lambda: f"Køge Kommune har {tal(STOCK['koege']['tot'])} beboede parcel- og rækkehuse, og {pct(STOCK['koege']['ejer'],STOCK['koege']['tot'])} er ejerboliger. {pct(STOCK['koege']['B']['1960-1979'],STOCK['koege']['tot'])} er bygget i 1960-1979. Siden gælder også Borup ({tal(town('koege','Borup'))} indbyggere), Bjæverskov, Ejby, Lellinge og Lille Skensved.",
+ "svendborg": lambda: f"{pct(STOCK['svendborg']['B']['før 1960'],STOCK['svendborg']['tot'])} af de {tal(STOCK['svendborg']['tot'])} beboede parcel- og rækkehuse i Svendborg Kommune er bygget før 1960, {rk(_OLD, 'svendborg', 'største')} andel af de {nw()} byer. Tjek lokalplan, byplanvedtægt og deklarationer, før du bestiller. Siden gælder også Thurø, Tåsinge (Vindeby og Troense), Stenstrup, Skårup og Gudme.",
+})
+SOL_HOMES_SRC_NEW.update({"koege": [], "svendborg": ["svb_sol"]})
+SOL_HOMES_H.update({"koege": "Huse fra Køge til Borup og Bjæverskov", "svendborg": "Ældre huse på Sydfyn og Tåsinge"})
+SOL_XFAQ.update({
+ "koege": [("Hvor meget mindre giver et østvendt tag i Køge?", lambda: f"PVGIS beregner ca. {tal(PV['koege']['oest'])} kWh pr. kWp om året mod øst og {tal(PV['koege']['vest'])} kWh mod vest, mod {tal(PV['koege']['syd'])} kWh mod syd ved 35° hældning. Et østvendt 6 kWp-anlæg giver dermed ca. {tal((PV['koege']['syd']-PV['koege']['oest'])*6)} kWh mindre om året.", ["pvo_koege", "pvv_koege", "pv_koege"])],
+ "svendborg": [("Hvor meget giver solceller i Svendborg om sommeren?", lambda: f"PVGIS beregner ca. {tal(PV['svendborg']['months'][5]*6)} kWh i juni og {tal(PV['svendborg']['months'][6]*6)} kWh i juli fra et 6 kWp-anlæg mod syd. Over hele året giver det ca. {tal(PV['svendborg']['syd']*6)} kWh.", ["pv_svendborg"])],
+})
+VP_HEAT.update({
+ "koege": ("Halvdelen af husene i Køge Kommune har naturgas",
+   lambda: f"{tal(HEAT['koege']['CN'])} beboede parcel- og rækkehuse i Køge Kommune ({hp('koege','CN',1)}) har naturgas, {rk(_CN, 'koege', 'højeste')} andel af de {nw()} byer, mod {hp('dk','CN',1)} på landsplan. Kun {hp('koege','FJ',1)} har fjernvarme. {tal(HEAT['koege']['VP'])} huse ({hp('koege','VP',1)}) har allerede varmepumpe, og {tal(HEAT['koege']['CO'])} har stadig oliefyr."),
+ "svendborg": ("Gas, varmepumper og fjernvarme i Svendborg Kommune",
+   lambda: f"{hp('svendborg','CN',1)} af de {tal(hs('svendborg'))} beboede parcel- og rækkehuse i Svendborg Kommune har naturgas, og {hp('svendborg','FJ',1)} har fjernvarme. {tal(HEAT['svendborg']['VP'])} huse ({hp('svendborg','VP',1)}) har allerede varmepumpe, {rk(_VP, 'svendborg', 'højeste')} andel af de {nw()} byer, mod {hp('dk','VP',1)} på landsplan."),
+})
+VP_HEAT_SRC_NEW.update({"koege": ["koe_energi"], "svendborg": ["svb_vp2030"]})
+VP_TOWNS.update({
+ "koege": [("Køge (Nylandsvej, K02)", "Fjernvarme under udbygning. Gravning ved Ølsemaglevej Øst og Strandlodsvej", ["kfv_grav"]),
+           ("Køge (K05, K06, K08)", "Projektforslaget søges annulleret. Nyt forslag ventes i 2027", ["kfv_pm"]),
+           ("Borup", "Eget værk: Borup Varmeværk", ["ft_pris", "koe_borup"]),
+           ("Bjæverskov", "Nyt værk indviet 19/9 2026. Overskudsvarme fra Energinet", ["df_bjae"]),
+           ("Ejby", "Tjek adressen i kommunens varmeplan", ["koe_energi"]),
+           ("Lille Skensved", "Tjek adressen i kommunens varmeplan", ["koe_energi"])],
+ "svendborg": [("Svendborg", "Svendborg Fjernvarme. Nye områder efter ny varmepumpe (2028)", ["sfv_ud", "df_svb"]),
+               ("Stenstrup", "Eget værk: Stenstrup Fjernvarme", ["svb_fv", "ft_pris"]),
+               ("Skårup", "Eget værk: Skårup Fjernvarme", ["svb_fv", "ft_pris"]),
+               ("Ollerup", "Ikke længere fjernvarmeområde. Tilskud til varmepumpe muligt", ["svb_oll"]),
+               ("Vester Skerninge", "Ikke længere fjernvarmeområde. Tilskud til varmepumpe muligt", ["svb_oll"]),
+               ("Lundeborg", "Fjernvarmeprojektet annulleret 2025. Individuel varme", ["svb_lund"])],
+})
+VP_TOWNS_NOTE.update({
+ "koege": "Bor du i Ejby, Lille Skensved, Vemmedrup eller en af landsbyerne, så slå adressen op i kommunens varmeplan, før du søger tilskud. Har du tilslutningspligt til naturgas, skal du søge dispensation hos Plan.",
+ "svendborg": "Bor du på Thurø, Tåsinge eller i en landsby, så slå adressen op på kommunens varmeplanskort, før du søger tilskud. Kortet viser vedtaget fjernvarme, fjernvarmepotentiale og områder til individuel opvarmning.",
+})
+VP_XFAQ.update({
+ "koege": [("Hvor mange huse i Køge Kommune har stadig gas- eller oliefyr?", lambda: f"Danmarks Statistik registrerer {tal(HEAT['koege']['CN'])} beboede parcel- og rækkehuse med naturgas og {tal(HEAT['koege']['CO'])} med oliefyr i 2026, ud af {tal(hs('koege'))}. {tal(HEAT['koege']['ELV'])} har elvarme og {tal(HEAT['koege']['VP'])} varmepumpe.", ["dst_bol102"])],
+ "svendborg": [("Hvor mange huse i Svendborg Kommune har allerede varmepumpe?", lambda: f"{tal(HEAT['svendborg']['VP'])} beboede parcel- og rækkehuse ({hp('svendborg','VP',1)}) ifølge Danmarks Statistik, 2026, mod {hp('dk','VP',1)} på landsplan. {tal(HEAT['svendborg']['CN'])} har stadig naturgas og {tal(HEAT['svendborg']['CO'])} oliefyr.", ["dst_bol102"])],
+})
+FV_SOURCES.update({
+ "koege": [("Det nye værk i <strong>Bjæverskov</strong> henter ca. 40 °C varmt vand fra kølingen af Energinets transformerstation vest for byen, og to varmepumper løfter det til ca. 70 °C. En gaskedel på 6 MW og et lager på 4.500 m³ er backup.", ["df_bjae"]),
+           ("Til <strong>Borup Varmeværk</strong> er en ny elkedel ved værket på Bækgårdsvej VVM-screenet. Køge Kommune vurderede, at projektet ikke vil påvirke miljøet væsentligt.", ["koe_borup"])],
+ "svendborg": [("<strong>Svendborg Fjernvarme</strong> har i dag en 16 MW ammoniak-varmepumpe, en 25 MW elkedel, tre gasmotorer og gaskedler. Cirka en tredjedel af varmen kommer fra gas, efter at affaldsforbrændingen lukkede i 2023.", ["df_svb"]),
+               ("Med en ny 25 MW varmepumpe og en ny 25 MW elkedel skal gasandelen ned fra ca. 35 til ca. 5 %, og 80-90 % af varmen skal komme fra el. Anlæggene ventes i fuld drift fra midten af 2028.", ["df_svb"])],
+})
+FV_SHARE.update({
+ "koege": lambda: f"Kun {hp('koege','FJ',1)} af de beboede parcel- og rækkehuse i Køge Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. {tal(HEAT['koege']['CN'])} huse ({hp('koege','CN',1)}) har naturgas, {tal(HEAT['koege']['CO'])} oliefyr og {tal(HEAT['koege']['ELV'])} elvarme.",
+ "svendborg": lambda: f"{hp('svendborg','FJ',1)} af de beboede parcel- og rækkehuse i Svendborg Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. Svendborg Kommune opgør selv 7.757 gasopvarmede og 1.939 olieopvarmede bygninger og har som mål, at 90 % af oliefyrene og 65 % af gasfyrene er skiftet ud senest i 2030.",
+})
+FV_SOURCES_H.update({"koege": "Overskudsvarme i Bjæverskov og elkedel i Borup", "svendborg": "Varmepumper, elkedler og gas i Svendborg"})
+_reg_age_old5 = reg_age_note
+def reg_age_note(c, kommune):
+    s = STOCK[c]; B = s["B"]; t = s["tot"]
+    if c == "koege":
+        return (f"{tal(B['1960-1979'])} af de beboede huse i Køge Kommune ({pct(B['1960-1979'], t)}) er bygget i 1960-1979. Tjek lokalplanen for dit kvarter, før du bestiller: kommunen kan kun i mindre grad dispensere.", ["koe_disp"])
+    if c == "svendborg":
+        return (f"{tal(B['før 1960'])} af kommunens beboede huse ({pct(B['før 1960'], t)}) er bygget før 1960. Bor du i et ældre kvarter, så tjek byplanvedtægt og deklarationer for regler om tagmateriale.", ["svb_sol"])
+    return _reg_age_old5(c, kommune)
+
 # ---------- tjek af sammenlignende udsagn: bygget fejler, hvis en ny by gør et udsagn forkert ----------
 _PVs = lambda c: PV[c]["syd"]; _rt = lambda k: (lambda c: ROOF[c]["T"][k] / ROOF[c]["tot"]); _hf = lambda k: (lambda c: HEAT[c][k] / hs(c)); _sb = lambda k: (lambda c: STOCK[c]["B"][k] / STOCK[c]["tot"])
 CLAIMS = [
- ("Esbjerg top 4 PV", rank(_PVs, "esbjerg") <= 4),
- ("Aalborg top 4 juni", rank(lambda c: PV[c]["months"][5], "aalborg") <= 4),
+ ("Esbjerg top 5 PV", rank(_PVs, "esbjerg") <= 5),
+ ("Aalborg top 6 juni", rank(lambda c: PV[c]["months"][5], "aalborg") <= 6),
  ("Odense flest tegl", top(_rt("10")) == "odense"), ("Aalborg flest fibercement", top(_rt("06")) == "aalborg"),
  ("Vejle ikke nr. 1 nyere huse", rank(_sb("2000+"), "vejle") > 1),
  ("Esbjerg flest 1960-79", top(_sb("1960-1979")) == "esbjerg"),
@@ -653,11 +741,14 @@ CLAIMS = [
  ("Horsens top 2 ejerandel (dynamisk tekst)", rank(_EJ, "horsens") <= 2),
  ("Odense højeste FJ", top(_hf("FJ")) == "odense"), ("Aarhus nr. 2 FJ", rank(_hf("FJ"), "aarhus") == 2),
 
- ("Viborg højeste olie, Randers nr. 2", top(_hf("CO")) == "viborg" and rank(_hf("CO"), "randers") == 2),
+ ("Viborg højeste olie, Randers top 3 (dynamisk tekst)", top(_hf("CO")) == "viborg" and rank(_hf("CO"), "randers") <= 3),
  ("Næstved gas tæt på fjernvarme (overskrift)", abs(HEAT["naestved"]["CN"] - HEAT["naestved"]["FJ"]) / HEAT["naestved"]["FJ"] < 0.05),
  ("Sønderborg tre ud af fem FJ (overskrift)", 0.58 <= HEAT["soenderborg"]["FJ"] / hs("soenderborg") <= 0.62),
  ("Roskilde mere end hvert fjerde gas (overskrift)", HEAT["roskilde"]["CN"] / hs("roskilde") > 0.25),
- ("Holbæk flest gasfyr og laveste FJ (overskrift)", top(_hf("CN")) == "holbaek" and top(_hf("FJ"), rev=True) == "holbaek"),
+ ("Holbæk top 2 gasfyr og laveste FJ (overskrift)", rank(_hf("CN"), "holbaek") <= 2 and top(_hf("FJ"), rev=True) == "holbaek"),
+ ("Køge halvdelen gas og flest gasfyr (overskrift)", 0.47 <= HEAT["koege"]["CN"] / hs("koege") <= 0.53 and top(_hf("CN")) == "koege"),
+ ("Svendborg hvert fjerde FJ (overskrift)", 0.23 <= HEAT["svendborg"]["FJ"] / hs("svendborg") <= 0.27),
+ ("Svendborg top 2 PV (dynamisk tekst)", rank(_PVs, "svendborg") <= 2),
 ]
 _bad = [n for n, ok in CLAIMS if not ok]
 assert not _bad, f"Sammenlignende udsagn passer ikke længere: {_bad}"

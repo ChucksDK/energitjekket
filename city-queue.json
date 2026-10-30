@@ -86,7 +86,8 @@
     "kommune": "Køge Kommune",
     "region": "Region Sjælland",
     "reason": "18.564 beboede parcel/rækkehuse; 14% fjernvarme; 11.535 med olie/gas/elvarme; stærkt varmepumpemarked",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-10-30"
   },
   {
     "rank": 10,
@@ -95,7 +96,8 @@
     "kommune": "Svendborg Kommune",
     "region": "Region Syddanmark",
     "reason": "21.017 beboede parcel/rækkehuse; 24% fjernvarme; 9.512 med olie/gas/elvarme; stærkt varmepumpemarked",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-10-30"
   },
   {
     "rank": 11,

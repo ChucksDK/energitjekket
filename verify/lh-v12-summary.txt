@@ -1,0 +1,2 @@
+solceller/koege {'performance': 100, 'accessibility': 100, 'best-practices': 96, 'seo': 100} LCP 1.4 s TBT 80 ms CLS 0
+varmepumpe/svendborg {'performance': 100, 'accessibility': 100, 'best-practices': 96, 'seo': 100} LCP 1.5 s TBT 0 ms CLS 0
