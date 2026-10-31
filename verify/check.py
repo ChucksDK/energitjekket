@@ -1,6 +1,7 @@
 import os, re, json, urllib.request, html
 from html.parser import HTMLParser
-ROOT='/workspace/leadsites/energi-landingssider/site'; BASE=os.environ.get('CHECK_BASE','http://localhost:8765')
+ROOT=os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','site'))  # 31/10 2026: relativ, så en worktree tjekker sin egen site/
+BASE=os.environ.get('CHECK_BASE','http://localhost:8765')
 class P(HTMLParser):
     def __init__(s): super().__init__(); s.links=[]; s.ld=[]; s._ld=False; s.h1=0; s.title=''; s._t=False; s.meta={}; s.canon=None; s.ids=set()
     def handle_starttag(s,t,a):
@@ -28,6 +29,10 @@ for dp,_,fs in os.walk(ROOT):
             rel='/'+os.path.relpath(os.path.join(dp,f),ROOT).replace('index.html','')
             p=P(); p.feed(open(os.path.join(dp,f),encoding='utf-8').read()); pages[rel]=p
 checked={}; broken=[]; nlinks=0; ext=set()
+# 31/10 2026: uden lokal server (fx python3 -m http.server 8765 i site/) bliver ALLE interne links 'brudte' (Connection refused). Stop tidligt med en klar besked i stedet.
+try: urllib.request.urlopen(BASE+'/',timeout=5)
+except Exception as e:
+    if not getattr(e,'code',None): import sys as _x; print(f'FEJL: ingen server på {BASE} ({e}). Start: cd site && python3 -m http.server 8765, eller sæt CHECK_BASE.'); print('GATE: FEJL ingen lokal server'); _x.exit(2)
 for rel,p in pages.items():
     for h in p.links:
         if h.startswith('http'): ext.add(h); continue
