@@ -71,9 +71,12 @@ def city_label(svc, c):
     return f"Solceller i {n}" if svc == "solceller" else f"Varmepumpe i {n}"
 
 
+def crumb_name(n, p):
+    """31/10 2026: forsiden hedder brandnavnet i brødkrummen, så ankerteksten til / er "Energitjekket" (brand-SEO)."""
+    return BRAND if p == "/" and n == "Forside" else n
 def ld_breadcrumbs(items):
     return {"@type": "BreadcrumbList", "@id": url(items[-1][1]) + "#breadcrumbs",
-            "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": n, "item": url(p)} for i, (n, p) in enumerate(items)]}
+            "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": crumb_name(n, p), "item": url(p)} for i, (n, p) in enumerate(items)]}
 
 def ld_org():
     o = {"@type": "Organization", "@id": SITE_URL + "/#org", "name": BRAND, "url": SITE_URL + "/", "description": BRAND_TAGLINE}
@@ -167,7 +170,7 @@ def og_spec(path, title):
     parts = path.strip("/").split("/")
     if path == "/": return "forside", "Solceller og varmepumpe: lokale regler og tilbud i din by", "Regler, fjernvarme, tilskud og priser med kilder", "both"
     if path in NATIONAL:
-        g = NATIONAL[path]; return "guide-" + "-".join(parts), g["h1"], ("Tilbud · " if path.endswith("/tilbud/") else "Guide · ") + SERVICES[g["svc"]]["name"], "sol" if g["svc"] == "solceller" else "vp"
+        g = NATIONAL[path]; return "guide-" + "-".join(parts), g["h1"], g.get("og_sub") or (("Tilbud · " if path.endswith("/tilbud/") else "Guide · ") + SERVICES[g["svc"]]["name"]), "sol" if g["svc"] == "solceller" else "vp"
     if path == "/elpris/": return "elpris", "Elprisen i dag og i morgen", "Spotpris og anslået samlet pris · DK1 og DK2", "both"
     if path == "/beregner/": return "beregner", "Beregner: kan solceller og varmepumpe betale sig?", "Ret selv tallene. Alle antagelser har en kilde.", "both"
     if len(parts) >= 2 and parts[1] in CITIES:
@@ -237,7 +240,7 @@ def footer(mcta=None):
 <div><p class="fh">Solceller: lokale regler</p><ul>{reg}</ul></div>
 <div><p class="fh"><a href="/varmepumpe/">Varmepumpe</a></p><ul>{vp}</ul></div>
 <div><p class="fh">Fjernvarme eller varmepumpe</p><ul>{fv}</ul></div>
-<div><p class="fh">Guides</p><ul>{guides}</ul><p class="fh">{esc(BRAND)}</p><ul><li><a href="/">Forside</a></li><li><a href="/om-os/">Om os og metode</a></li><li><a href="/privatlivspolitik/">Privatlivspolitik</a></li></ul></div>
+<div><p class="fh">Guides</p><ul>{guides}</ul><p class="fh">{esc(BRAND)}</p><ul><li><a href="/">{esc(BRAND)} forside</a></li><li><a href="/om-os/">Om os og metode</a></li><li><a href="/privatlivspolitik/">Privatlivspolitik</a></li></ul></div>
 </nav>
 <p class="small muted fbase">Tal og regler senest faktatjekket {esc(LAST_CHECKED)}. Ingen cookies. Vi måler kun anonym, samlet besøgsstatistik.</p>
 </div></footer>
@@ -250,7 +253,7 @@ def breadcrumbs(items):
     lis = []
     for i, (name, path) in enumerate(items):
         if i == len(items) - 1: lis.append(f'<li aria-current="page">{esc(name)}</li>')
-        else: lis.append(f'<li><a href="{path}">{esc(name)}</a></li>')
+        else: lis.append(f'<li><a href="{path}">{esc(crumb_name(name, path))}</a></li>')
     return f'<nav class="crumbs" aria-label="Brødkrumme"><ol>{"".join(lis)}</ol></nav>'
 
 # ---------- komponenter ----------
@@ -275,9 +278,9 @@ def side_cta(svc, c=None):
 <ul class="mini-usp"><li>{ic("check")}Gratis og uforpligtende</li><li>{ic("check")}Tager ca. 1 minut</li><li>{ic("check")}Du vælger selv</li></ul>
 <a class="btn btn-block" href="#lead-form">Få gratis tilbud</a></div>"""
 
-def layout(toc_items, inner, svc, c=None):
+def layout(toc_items, inner, svc, c=None, side=None):
     return f"""<div class="wrap layout">
-<aside class="side">{toc(toc_items)}{side_cta(svc, c)}</aside>
+<aside class="side">{toc(toc_items)}{side_cta(svc, c) if side is None else side}</aside>
 <div class="content">{inner}</div>
 </div>"""
 
@@ -707,10 +710,10 @@ def fv_page(c):
     return path, body
 
 def national_page(path):
-    g = NATIONAL[path]; svc = g["svc"]; o = OTHER[svc]
+    g = NATIONAL[path]; svc = g["svc"]; o = OTHER[svc]; noform = g.get("noform", False)
     title = f"{g['title']} | {BRAND}"
     if len(title) > 68: title = g["title"]
-    crumbs = [("Forside", "/"), (SERVICES[svc]["name"], p_hub(svc)), (g["crumb"], path)]
+    crumbs = [("Forside", "/"), (SERVICES[svc]["name"], p_hub(svc)), (g["crumb"], path)] if path.startswith(p_hub(svc)) else [("Forside", "/"), (g["crumb"], path)]
     upd = page_upd(g)
     graph = ld_page(path, title, g["desc"], crumbs, upd=upd) + [ld_faq(path, g["faq"])]
     is_offer = path.endswith("/tilbud/")
@@ -723,19 +726,49 @@ def national_page(path):
     inner = f"""{secs}{extra}
 <p class="small muted">Faktatjekket {esc(checked)}. Priser er vejledende spænd fra de angivne kilder, ikke tilbud.</p>
 <section id="faq"><h2>Ofte stillede spørgsmål</h2>{faq_html(g['faq'])}</section>
-{"" if g.get("checklist") else short_how(svc)}
+{"" if g.get("checklist") or noform else short_how(svc)}
 <section class="links" id="mere" aria-labelledby="mere-h"><h2 id="mere-h">Lokale regler og tilbud i din by</h2>
 <h3>{ic(SVC_IC[svc])}{esc(SERVICES[svc]['name'])} i din by</h3><ul class="citylist">{city_cards}</ul>
 <h3>{ic("book")}Flere guides</h3><div class="rgrid">{others}</div>
 <p><a class="more" href="{p_hub(o)}">{esc(SERVICES[o]['name'])} i de samme byer{ic("arrow")}</a> <a class="more" href="{p_hub(svc)}">Overblik: {esc(SERVICES[svc]['name_lc'])} i alle byer{ic("arrow")}</a></p></section>"""
     tocs = [(i, h) for i, (h, _) in zip(ids, g["sections"])] + ([("tjekliste", "Tjekliste til tilbud"), ("saadan-virker-det", "Sådan virker det")] if g.get("checklist") else []) + [("faq", "Spørgsmål og svar"), ("mere", "Find din by")]
+    if noform:
+        body = f"""{head(title, g['desc'], path, graph, section="guides", cta=("/solceller/tilbud/", "Tilbud på solceller"))}
+<main id="main">
+{hero_noform(crumbs, g, ids, upd)}
+{layout(tocs, inner, svc, side=noform_side())}
+</main>
+{footer()}"""
+        return path, body
     body = f"""{head(title, g['desc'], path, graph, section="guides", cta=("#lead-form", "Få tilbud"))}
 <main id="main">
-{hero(crumbs, g['h1'], esc(g['intro']), svc, None, usp=is_offer, eyebrow=f"{'Tilbud' if is_offer else 'Guide'} · {SERVICES[svc]['name']}", jump=(ids[0], "Se priser og tjekliste" if is_offer else "Læs guiden"), upd=upd)}
+{hero(crumbs, g['h1'], esc(g['intro']), svc, None, usp=is_offer, eyebrow=g.get("eyebrow") or f"{'Tilbud' if is_offer else 'Guide'} · {SERVICES[svc]['name']}", jump=(ids[0], "Se priser og tjekliste" if is_offer else "Læs guiden"), upd=upd)}
 {layout(tocs, inner, svc)}
 </main>
 {footer(("#lead-form", "Få gratis tilbud"))}"""
     return path, body
+
+def hero_noform(crumbs, g, ids, upd):
+    """Hero uden tilbudsformular: til emner, vi ikke formidler (formular og backend kender kun solceller og varmepumpe)."""
+    box = (f'<div class="hero-pick"><p class="hp-h">{ic("shield")}Vi formidler ikke ladebokse</p>'
+           f'<p class="hp-f">{esc(BRAND)} sender i dag kun forespørgsler på solceller og luft til vand-varmepumper videre. Til en ladeboks skal du selv kontakte en autoriseret elinstallatør.</p>'
+           f'<p class="hp-l">{ic("sun")}Skal du også have solceller?</p>'
+           f'<div class="hero-actions show"><a class="btn" href="/solceller/tilbud/">Tilbud på solceller{ic("arrow")}</a></div></div>')
+    return f"""<section class="hero"><div class="wrap hero-grid">
+<div class="hero-txt">
+{breadcrumbs(crumbs)}
+<p class="eyebrow">{ic("bolt")}{esc(g.get("eyebrow", "Guide"))}</p><h1>{esc(g['h1'])}</h1>
+<p class="lead-p">{esc(g['intro'])}</p>
+<div class="hero-actions show"><a class="btn btn-lg" href="#{ids[0]}">Læs guiden{ic("chev")}</a></div>
+{trust_line(upd, how=False)}
+</div>
+{box}
+</div></section>"""
+
+def noform_side():
+    return f"""<div class="side-cta"><p class="sc-h">Solceller og elbil?</p>
+<ul class="mini-usp"><li>{ic("check")}Gratis og uforpligtende</li><li>{ic("check")}Én udvalgt installatør</li><li>{ic("check")}Du vælger selv</li></ul>
+<a class="btn btn-block" href="/solceller/tilbud/">Tilbud på solceller</a></div>"""
 
 def hub_page(svc):
     path = p_hub(svc); s = SERVICES[svc]; o = OTHER[svc]
@@ -791,7 +824,7 @@ def home():
 <section class="hero hero-home"><div class="wrap hero-grid">
 <div class="hero-txt">
 <p class="eyebrow">{ic("pin")}{" · ".join(esc(CITIES[c]["name"]) for c in CITIES)}</p>
-<h1>Solceller og varmepumpe: lokale regler og tilbud i din by</h1>
+<h1>{esc(BRAND)}: lokale regler og tilbud på solceller og varmepumpe</h1>
 <p class="lead-p">{esc(BRAND)} samler det, du skal vide før du køber, og formidler din forespørgsel til installatører. Det gælder kommunens regler, fjernvarmestatus, tilskud og typiske priser, alt sammen med kilder.</p>
 <div class="svc-grid">{svc_cards}</div>
 <ul class="usp usp-row"><li>{ic("check")}Gratis og uforpligtende</li><li>{ic("check")}Lokale regler og tilskud med kilder</li><li>{ic("check")}Du vælger selv, om du vil sige ja</li></ul>
@@ -1150,8 +1183,8 @@ if(T){var i=T.DK1.t.indexOf(q);if(i<0)i=T.DK1.t.indexOf(hm.slice(0,3)+'00');
 
 def pages_static():
     src_list = "".join(f'<li><a href="{esc(u)}" target="_blank" rel="noopener nofollow">{esc(n)}</a></li>' for n, u in S.values())
-    om = simple_page("/om-os/", f"Om {BRAND}: hvem vi er og hvordan vi arbejder", f"Hvem står bag {BRAND}, hvordan vi vælger installatører, og hvordan vi faktatjekker regler, priser og tilskud.", f"Om {BRAND}", f"""
-<p>{esc(BRAND)} drives af {esc(COMPANY_NAME)} (CVR {esc(CVR)}), {esc(COMPANY_ADDRESS)}. Vi har lavet sitet, fordi lokale regler, fjernvarmeplaner og tilskud er svære at finde samlet ét sted, når man overvejer solceller eller en varmepumpe.</p>
+    om = simple_page("/om-os/", f"Om os: hvem står bag, og hvordan vi arbejder | {BRAND}", f"Hvem står bag {BRAND}, hvordan vi vælger installatører, og hvordan vi faktatjekker regler, priser og tilskud.", "Om os og vores metode", f"""
+<p><a href="/">{esc(BRAND)}</a> drives af {esc(COMPANY_NAME)} (CVR {esc(CVR)}), {esc(COMPANY_ADDRESS)}. Vi har lavet sitet, fordi lokale regler, fjernvarmeplaner og tilskud er svære at finde samlet ét sted, når man overvejer solceller eller en varmepumpe.</p>
 <h2>Vi er en formidlingstjeneste</h2>
 <p>Vi sælger, installerer og servicerer ikke selv solceller eller varmepumper. Når du udfylder formularen og giver samtykke, sender vi din forespørgsel til én installatør, der dækker dit område. Så snart det er sket, får du en e-mail med firmaets navn og CVR-nummer.</p>
 <h2>Hvem vi arbejder sammen med</h2>
