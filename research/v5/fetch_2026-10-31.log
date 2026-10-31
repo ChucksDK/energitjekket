@@ -1,0 +1,7 @@
+2026-10-31 by-rutine: Faaborg (430, Faaborg-Midtfyn) og Aabenraa (580). DST BOL102/BOL101/BYGB50/BY3 2026 + PVGIS 5.3 (SARAH3), flettet ind i research/v4/*.json (fetch_new.py).
+Faaborg-Midtfyn 21725 huse, ejer 15032, B {'før 1960': 9023, '1960-1979': 6380, '1980-1999': 2893, '2000+': 3429, 'uoplyst': 0}
+Aabenraa 21980 huse, ejer 14914, B {'før 1960': 7257, '1960-1979': 7333, '1980-1999': 4501, '2000+': 2886, 'uoplyst': 3}
+PVGIS faaborg (55.0950,10.2420) syd35 1037, øst 793, vest 808, opt 1042 @41°
+PVGIS aabenraa (55.0443,9.4174) syd35 974, øst 766, vest 775, opt 977 @40°
+Forsyningstilsynet prisstatistik jan. 2026 (standardhus inkl. moms): Kværndrup Fjernvarme 9.256, Midtfyns Fjernvarme/Ringe Fjernvarmeselskab 15.766, FFV Varme A/S 18.548; Aabenraa - Rødekro Fjernvarme 11.624 (nr. 15 af 374 fra billigste), Hjordkær 15.881, Padborg 16.318, Løjt Kirkeby 18.119, Genner-Hellevad-Hovslund 19.129.
+Kilder læst 31/10 2026: fmk.dk (el og varme, varmeplan, Korinth-projektgodkendelse 10/12 2025), ffv.dk (fjernvarmeprojekter, pause 5/12 2025, Rugagervej 26/8 2026), Dansk Fjernvarme 5/5 2026 (Midtfyns Energi), aabenraa-fjernvarme.dk (Bolderslev 21/10 2026, Varnæs 20/8 2026, priser 2026, fra gylle til varme), aabenraa.dk (solenergianlæg, byggetilladelse, Byg og Miljø-vejledning, støjgener fra private, varmeplanlægning; aabenraa.dk afviser direkte hentning fra boksen, indhold læst via søgeindeks).

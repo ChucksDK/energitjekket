@@ -1,6 +1,6 @@
 """Genererer src/data_local_gen.py ud fra rådata hentet 24/10 2026 (PVGIS 5.3 og Danmarks Statistik)."""
 import json, itertools, pprint
-CODE={"461":"odense","561":"esbjerg","621":"kolding","630":"vejle","615":"horsens","730":"randers","851":"aalborg","751":"aarhus","791":"viborg","370":"naestved","740":"silkeborg","316":"holbaek","330":"slagelse","265":"roskilde","540":"soenderborg","259":"koege","479":"svendborg","000":"dk"}
+CODE={"461":"odense","561":"esbjerg","621":"kolding","630":"vejle","615":"horsens","730":"randers","851":"aalborg","751":"aarhus","791":"viborg","370":"naestved","740":"silkeborg","316":"holbaek","330":"slagelse","265":"roskilde","540":"soenderborg","259":"koege","479":"svendborg","430":"faaborg","580":"aabenraa","000":"dk"}
 pv=json.load(open("pvgis.json"))
 PV={c:{"syd":round(v["syd35"]["E_y"]),"oest":round(v["oest_vest"]["E_y"]),"vest":round(v["vest"]["E_y"]),
        "opt":round(v["opt"]["E_y"]),"opt_angle":v["opt"]["angle"],"months":[round(m) for m in v["syd35"]["months"]],

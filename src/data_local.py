@@ -11,13 +11,13 @@ def hs(c): return sum(HEAT[c].values())            # beboede parcel- og rækkehu
 def hp(c, k, d=0): return pct(HEAT[c][k], hs(c), d)
 def rp(c, k, d=0): return pct(ROOF[c]["T"][k], ROOF[c]["tot"], d)
 def town(c, name): return dict(TOWNS[c])[name]
-_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten"}
+_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten", 19: "nitten", 20: "tyve"}
 def nw(k=0): return _NUMW[len(NAMES) - k]          # "ni" for 9 byer, nw(1) = "otte" (de andre)
 def top(f, rev=False):
     """By med højeste (eller laveste, rev=True) værdi blandt sitets byer. Bruges til at tjekke sammenlignende udsagn."""
     return sorted(NAMES, key=f, reverse=not rev)[0]
 def rank(f, c): return sorted(NAMES, key=f, reverse=True).index(c) + 1
-_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende"}
+_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende"}
 def rk(f, c, word, art="den", rev=False):
     """Rangord, fx 'den højeste', 'den næsthøjeste' (rev=True tæller fra bunden). Holder sammenlignende udsagn sande, når nye byer kommer til."""
     r = sorted(NAMES, key=f, reverse=not rev).index(c) + 1
@@ -28,7 +28,7 @@ def above(f, c):
     a = [NAMES[x] for x in sorted(NAMES, key=f, reverse=True)[:rank(f, c) - 1]]
     return a[0] if len(a) == 1 else ", ".join(a[:-1]) + " og " + a[-1]
 
-NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg"}
+NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa"}
 LOCAL_S = {
  "dst_bol102": ("Danmarks Statistik: BOL102, boliger efter område og opvarmning (2026)", "https://www.statistikbanken.dk/BOL102"),
  "dst_bol101": ("Danmarks Statistik: BOL101, boliger efter opførelsesår og udlejningsforhold (2026)", "https://www.statistikbanken.dk/BOL101"),
@@ -729,10 +729,98 @@ def reg_age_note(c, kommune):
         return (f"{tal(B['før 1960'])} af kommunens beboede huse ({pct(B['før 1960'], t)}) er bygget før 1960. Bor du i et ældre kvarter, så tjek byplanvedtægt og deklarationer for regler om tagmateriale.", ["svb_sol"])
     return _reg_age_old5(c, kommune)
 
+# ---------- daglig by-rutine 31. okt. 2026: Faaborg (DK1, Faaborg-Midtfyn Kommune) og Aabenraa (DK1, Region Syddanmark) ----------
+_CA = lambda x: HEAT[x]["CA"] / hs(x); _STR = lambda x: ROOF[x]["T"]["14"] / ROOF[x]["tot"]; _MET = lambda x: ROOF[x]["T"]["12"] / ROOF[x]["tot"]
+SOL_ORDER.update({
+ "faaborg": ["boliger", "lokalt", "produktion", "tage", "faq", "guides"],
+ "aabenraa": ["tage", "lokalt", "boliger", "produktion", "guides", "faq"],
+})
+VP_ORDER.update({
+ "faaborg": ["lokale-byer", "lokalt", "opvarmning", "pris", "faq", "guides"],
+ "aabenraa": ["lokalt", "opvarmning", "pris", "lokale-byer", "guides", "faq"],
+})
+FV_ORDER.update({
+ "faaborg": ["status", "andel", "priser", "billigst", "varmekilder", "faq"],
+ "aabenraa": ["priser", "status", "andel", "varmekilder", "billigst", "faq"],
+})
+SOL_PROD.update({
+ "faaborg": ("Solproduktion på Sydfyn: Faaborg",
+   lambda: f"PVGIS beregner ca. <strong>{tal(PV['faaborg']['syd'])} kWh pr. kWp om året</strong> for et sydvendt tag med 35° hældning i Faaborg, {rk(_PVY, 'faaborg', 'højeste')} af de {nw()} byer på dette site. Et 6 kWp-anlæg mod syd giver dermed ca. {tal(PV['faaborg']['syd']*6)} kWh om året. Maj er den bedste måned med ca. {tal(PV['faaborg']['months'][4]*6)} kWh, mens december kun giver ca. {tal(PV['faaborg']['months'][11]*6)} kWh."),
+ "aabenraa": ("Øst, vest eller syd: produktion i Aabenraa",
+   lambda: f"For et sydvendt tag med 35° hældning i Aabenraa beregner PVGIS ca. {tal(PV['aabenraa']['syd'])} kWh pr. kWp om året. Vender taget mod vest, bliver det ca. {tal(PV['aabenraa']['vest'])} kWh, og mod øst ca. {tal(PV['aabenraa']['oest'])} kWh pr. kWp. Ved den optimale hældning på {PV['aabenraa']['opt_angle']}° når et sydvendt anlæg ca. {tal(PV['aabenraa']['opt'])} kWh pr. kWp."),
+})
+SOL_PROD_SRC_NEW.update({"faaborg": ["pv_faaborg", "pvgis"], "aabenraa": ["pv_aabenraa", "pvo_aabenraa", "pvv_aabenraa"]})
+SOL_ROOF.update({
+ "faaborg": ("Stråtag og cementsten i Faaborg-Midtfyn",
+   lambda: f"{tal(ROOF['faaborg']['T']['14'])} parcel- og rækkehuse i Faaborg-Midtfyn Kommune har <strong>stråtag</strong> ({rp('faaborg','14',1)}), {rk(_STR, 'faaborg', 'største')} andel af de {nw()} byer og mod {rp('dk','14',1)} i hele landet. {rp('faaborg','08')} har cementsten, {rp('faaborg','06')} fibercement og {rp('faaborg','10')} tegl. Er taget af ældre fibercement, så få det vurderet, før panelerne skrues fast: ifølge Bolius kan det indeholde asbest.",
+   ["dst_bygb50", "bolius_asb"]),
+ "aabenraa": ("Metaltage, eternit og tegl i Aabenraa Kommune",
+   lambda: f"{rp('aabenraa','12',1)} af parcel- og rækkehusene i Aabenraa Kommune har tag af <strong>metalplader</strong>, {rk(_MET, 'aabenraa', 'største')} andel af de {nw()} byer. {rp('aabenraa','06')} har fibercement, {rp('aabenraa','08')} cementsten og {rp('aabenraa','10')} tegl, mens {rp('aabenraa','02',1)} har fladt tag. Monteringen afhænger af tagtypen, så få installatøren til at se taget, før du får et tilbud.",
+   ["dst_bygb50", "bolius_mont"]),
+})
+SOL_HOMES.update({
+ "faaborg": lambda: f"{pct(STOCK['faaborg']['B']['før 1960'],STOCK['faaborg']['tot'])} af de {tal(STOCK['faaborg']['tot'])} beboede parcel- og rækkehuse i Faaborg-Midtfyn Kommune er bygget før 1960, {rk(_OLD, 'faaborg', 'største')} andel af de {nw()} byer. Kommunens største by er Ringe med {tal(town('faaborg','Ringe'))} indbyggere, tæt fulgt af Faaborg med {tal(town('faaborg','Faaborg'))}. Siden gælder også Årslev, Nørre Lyndelse, Ryslinge og Kværndrup.",
+ "aabenraa": lambda: f"Aabenraa Kommune har {tal(STOCK['aabenraa']['tot'])} beboede parcel- og rækkehuse, og {pct(STOCK['aabenraa']['ejer'],STOCK['aabenraa']['tot'])} er ejerboliger. {pct(STOCK['aabenraa']['B']['1960-1979'],STOCK['aabenraa']['tot'])} er bygget i 1960-1979. Siden gælder også Rødekro ({tal(town('aabenraa','Rødekro'))} indbyggere), Padborg, Tinglev, Løjt Kirkeby og Kruså.",
+})
+SOL_HOMES_SRC_NEW.update({"faaborg": ["fmk_elv"], "aabenraa": []})
+SOL_HOMES_H.update({"faaborg": "Ældre huse fra Faaborg til Ringe", "aabenraa": "Huse fra Aabenraa til Padborg og Tinglev"})
+SOL_XFAQ.update({
+ "faaborg": [("Hvor meget giver solceller i Faaborg om sommeren?", lambda: f"PVGIS beregner ca. {tal(PV['faaborg']['months'][5]*6)} kWh i juni og {tal(PV['faaborg']['months'][6]*6)} kWh i juli fra et 6 kWp-anlæg mod syd. Over hele året giver det ca. {tal(PV['faaborg']['syd']*6)} kWh.", ["pv_faaborg"])],
+ "aabenraa": [("Kan det betale sig med solceller på et vestvendt tag i Aabenraa?", lambda: f"Et vestvendt tag giver ifølge PVGIS ca. {tal(PV['aabenraa']['vest'])} kWh pr. kWp om året mod {tal(PV['aabenraa']['syd'])} kWh mod syd. Et vestvendt 6 kWp-anlæg giver dermed ca. {tal(PV['aabenraa']['vest']*6)} kWh om året, og mere af strømmen kommer sidst på eftermiddagen.", ["pvv_aabenraa", "pv_aabenraa"])],
+})
+VP_HEAT.update({
+ "faaborg": ("Gas, træpiller og varmepumper i Faaborg-Midtfyn",
+   lambda: f"Kun {hp('faaborg','FJ',1)} af de {tal(hs('faaborg'))} beboede parcel- og rækkehuse i Faaborg-Midtfyn Kommune har fjernvarme, mod {hp('dk','FJ',1)} på landsplan. {tal(HEAT['faaborg']['CN'])} ({hp('faaborg','CN',1)}) har naturgas, og {tal(HEAT['faaborg']['CA'])} ({hp('faaborg','CA',1)}) har centralvarme med en anden kilde end olie og gas, fx træpiller, {rk(_CA, 'faaborg', 'største')} andel af de {nw()} byer. {tal(HEAT['faaborg']['VP'])} huse ({hp('faaborg','VP',1)}) har allerede varmepumpe."),
+ "aabenraa": ("Elvarme i hvert ellevte hus i Aabenraa Kommune",
+   lambda: f"{tal(HEAT['aabenraa']['ELV'])} beboede parcel- og rækkehuse i Aabenraa Kommune ({hp('aabenraa','ELV',1)}) har elvarme, {rk(_EL, 'aabenraa', 'højeste')} andel af de {nw()} byer, mod {hp('dk','ELV',1)} på landsplan. {hp('aabenraa','FJ',1)} har fjernvarme, {tal(HEAT['aabenraa']['CN'])} naturgas og {tal(HEAT['aabenraa']['CO'])} oliefyr. Elvarme er en af de varmekilder, Varmepumpepuljen giver tilskud til at skifte ud."),
+})
+VP_HEAT_SRC_NEW.update({"faaborg": ["fmk_vp"], "aabenraa": ["se_vpp"]})
+VP_TOWNS.update({
+ "faaborg": [("Faaborg", "FFV Varme. Udvidelsen i Faaborg nordvest er sat på pause", ["ffv_proj"]),
+             ("Ringe", "Midtfyns Fjernvarme", ["ft_pris", "df_mfe"]),
+             ("Kværndrup", "Eget værk: Kværndrup Fjernvarme", ["fmk_elv", "ft_pris"]),
+             ("Korinth", "Fjernvarmeprojektet aflyst 10/12 2025. Tilskud til varmepumpe muligt", ["fmk_kor"]),
+             ("Espe", "Fjernvarmeprojektet afsluttet uden fjernvarme", ["ffv_proj"]),
+             ("Brobyværk, Horne, Vester Åby", "Fjernvarmeprojekterne sat på pause i ca. et år", ["ffv_pause"])],
+ "aabenraa": [("Aabenraa og Rødekro", "Aabenraa Fjernvarme", ["afv_pris", "ft_pris"]),
+              ("Bolderslev", "Fjernvarme på vej. De første forbrugere ventes i 1. kvartal 2027", ["afv_bol"]),
+              ("Varnæs og Bovrup", "Fjernvarme under udrulning. Konverteringsbidrag 3.700 kr. om året", ["afv_var", "afv_pris"]),
+              ("Tinglev", "Aabenraa Fjernvarme med transmissionsbidrag", ["afv_pris"]),
+              ("Padborg", "Eget værk: Padborg Fjernvarme", ["ft_pris"]),
+              ("Tumbøl og Felsted", "Overskudsvarme fra en biogasgård i Tumbøl", ["afv_gylle"])],
+})
+VP_TOWNS_NOTE.update({
+ "faaborg": "Bor du i en af de mange landsbyer uden for fjernvarmen, så tjek kommunens varmeplan, før du søger tilskud. Planen er kun vejledende, men tilskuddet bortfalder, når et konkret fjernvarmeprojekt er godkendt og sat i gang.",
+ "aabenraa": "Bor du uden for byerne med fjernvarme, så slå adressen op i kommunens varmeplanlægning, før du søger tilskud. Områder, hvor fjernvarmen ikke kan nå ud, udpeges til individuel opvarmning.",
+})
+VP_XFAQ.update({
+ "faaborg": [("Hvor mange huse i Faaborg-Midtfyn har stadig gas- eller oliefyr?", lambda: f"Danmarks Statistik registrerer {tal(HEAT['faaborg']['CN'])} beboede parcel- og rækkehuse med naturgas og {tal(HEAT['faaborg']['CO'])} med oliefyr i 2026, ud af {tal(hs('faaborg'))}. {tal(HEAT['faaborg']['ELV'])} har elvarme og {tal(HEAT['faaborg']['VP'])} varmepumpe.", ["dst_bol102"])],
+ "aabenraa": [("Hvor mange huse i Aabenraa Kommune har allerede varmepumpe?", lambda: f"{tal(HEAT['aabenraa']['VP'])} beboede parcel- og rækkehuse ({hp('aabenraa','VP',1)}) ifølge Danmarks Statistik, 2026, mod {hp('dk','VP',1)} på landsplan. {tal(HEAT['aabenraa']['ELV'])} har elvarme og {tal(HEAT['aabenraa']['CN'])} naturgas.", ["dst_bol102"])],
+})
+FV_SOURCES.update({
+ "faaborg": [("Faaborg-Midtfyn Kommune beskriver forsyningen som <strong>et net af små og mellemstore kraftvarmeværker</strong>, og den kollektive varmeforsyning dækkes af fjernvarmeselskaberne.", ["fmk_elv"]),
+             ("Ifølge varmeplanen skal ny fjernvarme hovedsageligt bygge på <strong>lokal spildvarme og varmepumper</strong>. Hvor fjernvarme ikke er muligt, peger kommunen overvejende på individuelle varmepumper.", ["fmk_vp"])],
+ "aabenraa": [("På en gård i <strong>Tumbøl</strong> kører gasmotorer på biogas fra gylle. Om sommeren ventes overskudsvarmen at kunne forsyne både Tumbøl og Felsted via Aabenraa Fjernvarmes net.", ["afv_gylle"]),
+              ("Kommunens varmeplan fra 2022 åbner for <strong>ø-løsninger</strong>, hvor nye varmekilder forsyner et lukket net i byer langt fra det eksisterende fjernvarmenet.", ["abr_vp22"])],
+})
+FV_SHARE.update({
+ "faaborg": lambda: f"{hp('faaborg','FJ',1)} af de beboede parcel- og rækkehuse i Faaborg-Midtfyn Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. Kommunens varmeplan regnede med, at ca. 12.675 af kommunens 25.992 ejendomme ville have fjernvarme, når de besluttede udbygninger var færdige, og at 2.813 ejendomme allerede havde egen varmepumpe.",
+ "aabenraa": lambda: f"{hp('aabenraa','FJ',1)} af de beboede parcel- og rækkehuse i Aabenraa Kommune har fjernvarme, tæt på landsgennemsnittet på {hp('dk','FJ',1)}. {tal(HEAT['aabenraa']['CN'])} huse ({hp('aabenraa','CN',1)}) har naturgas og {tal(HEAT['aabenraa']['ELV'])} ({hp('aabenraa','ELV',1)}) elvarme.",
+})
+FV_SOURCES_H.update({"faaborg": "Kraftvarme, spildvarme og varmepumper i Faaborg-Midtfyn", "aabenraa": "Biogas i Tumbøl og nye net i Aabenraa"})
+_reg_age_old6 = reg_age_note
+def reg_age_note(c, kommune):
+    s = STOCK[c]; B = s["B"]; t = s["tot"]
+    if c == "faaborg":
+        return (f"{tal(B['før 1960'])} af kommunens beboede huse ({pct(B['før 1960'], t)}) er bygget før 1960. Ligger dit hus i en bevarende lokalplan eller byplanvedtægt, skal du søge dispensation, før du sætter solceller op.", ["fmk_elv"])
+    if c == "aabenraa":
+        return (f"{tal(B['1960-1979'])} af de beboede huse i Aabenraa Kommune ({pct(B['1960-1979'], t)}) er bygget i 1960-1979. Tjek fanen med lokal- og kommuneplaner i Byg og Miljø for dit kvarter, før du bestiller.", ["abr_bom"])
+    return _reg_age_old6(c, kommune)
+
 # ---------- tjek af sammenlignende udsagn: bygget fejler, hvis en ny by gør et udsagn forkert ----------
 _PVs = lambda c: PV[c]["syd"]; _rt = lambda k: (lambda c: ROOF[c]["T"][k] / ROOF[c]["tot"]); _hf = lambda k: (lambda c: HEAT[c][k] / hs(c)); _sb = lambda k: (lambda c: STOCK[c]["B"][k] / STOCK[c]["tot"])
 CLAIMS = [
- ("Esbjerg top 5 PV", rank(_PVs, "esbjerg") <= 5),
+ ("Esbjerg top 6 PV", rank(_PVs, "esbjerg") <= 6),
  ("Aalborg top 6 juni", rank(lambda c: PV[c]["months"][5], "aalborg") <= 6),
  ("Odense flest tegl", top(_rt("10")) == "odense"), ("Aalborg flest fibercement", top(_rt("06")) == "aalborg"),
  ("Vejle ikke nr. 1 nyere huse", rank(_sb("2000+"), "vejle") > 1),
@@ -749,6 +837,10 @@ CLAIMS = [
  ("Køge halvdelen gas og flest gasfyr (overskrift)", 0.47 <= HEAT["koege"]["CN"] / hs("koege") <= 0.53 and top(_hf("CN")) == "koege"),
  ("Svendborg hvert fjerde FJ (overskrift)", 0.23 <= HEAT["svendborg"]["FJ"] / hs("svendborg") <= 0.27),
  ("Svendborg top 2 PV (dynamisk tekst)", rank(_PVs, "svendborg") <= 2),
+ ("Faaborg hvert tredje FJ (tekst)", 0.32 <= HEAT["faaborg"]["FJ"] / hs("faaborg") <= 0.36),
+ ("Aabenraa halvdelen FJ (tekst)", 0.48 <= HEAT["aabenraa"]["FJ"] / hs("aabenraa") <= 0.54),
+ ("Aabenraa hvert ellevte elvarme (overskrift)", 0.085 <= HEAT["aabenraa"]["ELV"] / hs("aabenraa") <= 0.096),
+ ("Aabenraa FJ tæt på landsgennemsnit (tekst)", abs(HEAT["aabenraa"]["FJ"] / hs("aabenraa") - HEAT["dk"]["FJ"] / hs("dk")) < 0.04),
 ]
 _bad = [n for n, ok in CLAIMS if not ok]
 assert not _bad, f"Sammenlignende udsagn passer ikke længere: {_bad}"

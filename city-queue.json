@@ -106,7 +106,8 @@
     "kommune": "Faaborg-Midtfyn Kommune",
     "region": "Region Syddanmark",
     "reason": "21.725 beboede parcel/rækkehuse; 35% fjernvarme; 7.749 med olie/gas/elvarme; stærkt varmepumpemarked",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-10-31"
   },
   {
     "rank": 12,
@@ -115,7 +116,8 @@
     "kommune": "Aabenraa Kommune",
     "region": "Region Syddanmark",
     "reason": "21.980 beboede parcel/rækkehuse; 52% fjernvarme; 6.952 med olie/gas/elvarme; begge services",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-10-31"
   },
   {
     "rank": 13,

@@ -648,3 +648,82 @@ CONTACTS["koege"] = {"sol": [("Køge Kommune, Byggesag", "56 67 24 55 · byg@koe
                      "vp":  [("Køge Kommune, Plan (naturgas og varmeplan)", "56 67 21 11 · plan@koege.dk", "koe_energi")]}
 CONTACTS["svendborg"] = {"sol": [("Svendborg Kommune, Byg og BBR", "62 23 33 33", "svb_sol")],
                          "vp":  [("Svendborg Fjernvarme", "62 21 33 21 · info@svendborgfjernvarme.dk", "sfv_ud")]}
+
+# ---------- daglig by-rutine 31. okt. 2026: Faaborg (Faaborg-Midtfyn) og Aabenraa ----------
+S.update({
+ "fmk_elv": ("Faaborg-Midtfyn Kommune: el og varme (solenergianlæg, varmepumper, fjernvarmeselskaber)", "https://www.fmk.dk/borger/natur-og-miljoe/energi-og-miljoe/el-og-varme/"),
+ "fmk_vp": ("Faaborg-Midtfyn Kommune: Varmeplan 2022-2030", "https://www.fmk.dk/politik/politikker-planer-og-strategier/varmeplan/"),
+ "fmk_kor": ("Faaborg-Midtfyn Kommune 10/12 2025: projektgodkendelse, aflysning af fjernvarme til Korinth (PDF)", "https://www.fmk.dk/media/4hmn3xwf/projektgodkendelse-for-aflysning-af-fjernvarmeforsyning-til-korinth.pdf"),
+ "fmk_byg": ("Faaborg-Midtfyn Kommune: tilladelse til erhvervsbyggeri (kontakt BYG)", "https://www.fmk.dk/erhverv/byggeri-og-erhvervsgrunde/tilladelse-til-erhvervsbyggeri/"),
+ "ffv_proj": ("FFV Varme A/S: fjernvarmeprojekter (Faaborg nordvest, landsbyer, Korinth, Espe)", "https://www.ffv.dk/fjernvarme/fjernvarmeprojekter/"),
+ "ffv_pause": ("FFV 5/12 2025: fjernvarmeprojekter sættes på pause pga. manglende tilslutning", "https://www.ffv.dk/nyheder/artikler/fjernvarmeprojekter-saettes-paa-pause-pga-manglende-tilslutning/"),
+ "ffv_rug": ("FFV Varme 26/8 2026: gravearbejde på Rugagervej i Faaborg", "https://www.ffv.dk/nyheder/artikler/gravearbejde-paa-rugagervej-ny-fjernvarmeledning-paa-vej/"),
+ "df_mfe": ("Dansk Fjernvarme 5/5 2026: fynboer kan få fjernvarme og spare penge (Midtfyns Energi)", "https://danskfjernvarme.dk/aktuelt/nyheder/2026/fynboer-kan-faa-fjernvarme-og-spare-penge"),
+ "abr_sol": ("Aabenraa Kommune: solenergianlæg", "https://aabenraa.dk/borger/flytning-bolig-og-byggeri/andre-anlaeg-og-konstruktioner/solenergianlaeg"),
+ "abr_byg": ("Aabenraa Kommune: søg om byggetilladelse og tilladelse til nedrivning", "https://aabenraa.dk/borger/flytning-bolig-og-byggeri/byggeri-og-nedrivning/soeg-om-byggetilladelse"),
+ "abr_bom": ("Aabenraa Kommune: vejledning til brug af Byg og Miljø (PDF)", "https://aabenraa.dk/media/4ekpya0x/vejledning-til-brug-af-byg-og-miljoe.pdf"),
+ "abr_stoej": ("Aabenraa Kommune: støjgener fra private (støj fra varmepumper)", "https://aabenraa.dk/borger/klima-natur-og-miljoe/miljoe/miljoe-i-dagligdagen/stoejgener-fra-private"),
+ "abr_vpl": ("Aabenraa Kommune: varmeplanlægning for forsyningsområder (udfasning af gas)", "https://aabenraa.dk/borger/klima-natur-og-miljoe/miljoe/varmeforsyning/varmeplanlaegning"),
+ "abr_vp22": ("Aabenraa Kommune: Varmeplan for områder med kollektiv varmeforsyning 2022 (PDF)", "https://aabenraa.dk/media/mdrl4ay3/wt-kollektiv-varmeforsyning-2022.pdf"),
+ "afv_bol": ("Aabenraa Fjernvarme: tidsplan for Bolderslev (opdateret 21/10 2026)", "https://www.aabenraa-fjernvarme.dk/tidsplaner/bolderslev"),
+ "afv_bol_op": ("Aabenraa Fjernvarme: opstart i Bolderslev (transmissionsledning og ny fjernvarmecentral)", "https://www.aabenraa-fjernvarme.dk/om-os/nyheder/opstart-i-bolderslev"),
+ "afv_var": ("Aabenraa Fjernvarme: tidsplan for Varnæs (opdateret 20/8 2026)", "https://www.aabenraa-fjernvarme.dk/tidsplaner/varnaes"),
+ "afv_pris": ("Aabenraa Fjernvarme: priser 2026, konverterings- og transmissionsbidrag", "https://www.aabenraa-fjernvarme.dk/priser"),
+ "afv_gylle": ("Aabenraa Fjernvarme: fra gylle til varme (overskudsvarme til Tumbøl og Felsted)", "https://www.aabenraa-fjernvarme.dk/om-os/nyheder/fra-gylle-til-varme"),
+ "ens_stoej": ("Energistyrelsen: støjberegner for varmepumper", "https://ens.dk/forsyning-og-forbrug/stoejberegner-varmepumper"),
+})
+CITIES["faaborg"] = {
+  "name": "Faaborg", "kommune": "Faaborg-Midtfyn Kommune", "updated": ("31. oktober 2026", "2026-10-31"),
+  "reg_title": "Solceller Faaborg-Midtfyn: regler og byggetilladelse | Energitjekket",
+  "sol_intro": "Solceller i Faaborg: på den eksisterende tagkonstruktion af et parcelhus, dobbelthus, rækkehus eller sommerhus kræver solceller ikke byggetilladelse i Faaborg-Midtfyn Kommune, så længe byggeretten overholdes. Lokalplaner, servitutter og strandbeskyttelseslinjen kan dog stille krav. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Solceller på den <strong>eksisterende tagkonstruktion</strong> af et enfamiliehus, dobbelthus, rækkehus eller sommerhus kræver ikke byggetilladelse.", ["fmk_elv"]),
+    ("På et <strong>fladt tag</strong> må anlægget være op til 1,5 m højt uden byggetilladelse.", ["fmk_elv"]),
+    ("Anlægget skal overholde byggeretten, fx det skrå højdegrænseplan og <strong>mindst 2,5 m til skel</strong> ved enfamiliehuse. Ellers kræver det byggetilladelse.", ["fmk_elv"]),
+    ("Ligger ejendommen inden for <strong>strandbeskyttelseslinjen</strong>, kræver solceller altid tilladelse fra Kystdirektoratet.", ["fmk_elv"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Faaborg?", "Ikke når anlægget sidder på den eksisterende tagkonstruktion af et enfamiliehus, dobbelthus, rækkehus eller sommerhus, og byggeretten er overholdt. Lokalplan, byplanvedtægt, servitutter, fredning og strandbeskyttelseslinjen kan dog kræve dispensation eller tilladelse.", ["fmk_elv"]),
+    ("Skal jeg melde mine solceller til BBR i Faaborg-Midtfyn Kommune?", "Ja. Kræver anlægget ikke byggetilladelse, skal du selv sende areal, opførelsesår, effekt i kW, fabrikat/type og en tegning med placeringen, så BBR kan blive ajourført.", ["fmk_elv"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Faaborg: kun hvert tredje hus i Faaborg-Midtfyn Kommune har fjernvarme, og flere planlagte fjernvarmeprojekter er sat på pause eller aflyst. I Korinth og Espe bliver der ikke fjernvarme. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("Faaborg-Midtfyn Kommune har godkendt, at fjernvarmeprojektet i <strong>Korinth</strong> annulleres, så husejerne i stedet kan få tilskud til en individuel løsning.", ["fmk_kor"]),
+    ("Fjernvarmeprojekterne i <strong>Brobyværk, Vester Åby, Horne, Falsled og Millinge/Svanninge</strong> er sat på pause i ca. et år, og i Espe er projektet afsluttet uden fjernvarme.", ["ffv_pause", "ffv_proj"]),
+    ("Udvidelsen af fjernvarmen i <strong>Faaborg nordvest</strong> er sat midlertidigt på pause, fordi de lave gaspriser gør det svært at få nok tilslutninger.", ["ffv_proj"]),
+    ("Varmeplanen er kun vejledende. Først når et konkret fjernvarmeprojekt er godkendt, og anlægsfasen går i gang, <strong>bortfalder muligheden for statstilskud</strong> til fx en varmepumpe.", ["fmk_vp"]),
+  ],
+  "vp_faq": [
+    ("Kan jeg få tilskud til en varmepumpe i Korinth?", "Ja, det er formålet med aflysningen: projektforslaget blev sendt ind, så forbrugerne i området i stedet kan få tilskud til en individuel løsning. Tilskuddet kræver, at du skifter olie, gas, el eller biokedel ud.", ["fmk_kor", "se_vpp"]),
+    ("Hvad sker der med fjernvarmen i Brobyværk, Horne og Vester Åby?", "Projekterne er sat på pause, ikke skrinlagt. FFV, kommunen og de lokale arbejdsgrupper har udskudt den endelige beslutning i ca. et år og venter på den politiske aftale om varmeforsyningen i 2026.", ["ffv_pause"]),
+  ],
+}
+CITIES["aabenraa"] = {
+  "name": "Aabenraa", "kommune": "Aabenraa Kommune", "updated": ("31. oktober 2026", "2026-10-31"),
+  "sol_intro": "Solceller i Aabenraa: Aabenraa Kommune beder dig undersøge byggelovgivningen og en eventuel lokalplan, før du sætter solceller op. I Byg og Miljø kan du se, om din ejendom har en lokalplan eller andre bindinger. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Før du sætter solceller op, skal du tjekke de forhold i <strong>byggelovgivningen og en eventuel lokalplan</strong>, som skal overholdes.", ["abr_sol"]),
+    ("I <strong>Byg og Miljø</strong> kan du se, om der er en lokalplan eller andre bindinger på din ejendom.", ["abr_byg"]),
+    ("Kræver dit anlæg tilladelse, søger du byggetilladelse digitalt via Byg og Miljø, og alle bilag skal være i pdf-format.", ["abr_sol", "abr_byg"]),
+    ("Elinstallationen skal altid udføres af en <strong>autoriseret elinstallatør</strong>.", ["abr_sol"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Aabenraa?", "Det afhænger af byggelovgivningen og en eventuel lokalplan for din ejendom. Kommunen henviser til vejledningen 'Gode råd inden du opsætter solenergianlæg', og i Byg og Miljø kan du se lokalplaner og andre bindinger. Er du i tvivl, kan du kontakte Team Byg.", ["abr_sol", "abr_byg"]),
+    ("Hvad koster en byggesag om solceller i Aabenraa Kommune?", "Kræver anlægget tilladelse, opkræver kommunen et byggesagsgebyr efter den tid, sagen tager. Det har været reglen siden 1. januar 2015, og taksterne står i kommunens gebyrvedtægt.", ["abr_byg"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Aabenraa: halvdelen af husene i kommunen har fjernvarme, og Aabenraa Fjernvarme er i gang med Bolderslev og Varnæs. Uden for fjernvarmen skal gasfyrene skiftes til fx varmepumper, og kommunen advarer om støj. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("Aabenraa Kommune støtter målet om, at der i <strong>2035 ikke bruges gas til rumopvarmning</strong>. Gasområder skal enten have fjernvarme eller individuel opvarmning, fx med varmepumper.", ["abr_vpl"]),
+    ("Kommunen har ingen faste afstandsregler, men den vejledende <strong>støjgrænse om natten</strong> i boligområder er lav, og varmepumper kører i døgndrift.", ["abr_stoej"]),
+    ("Får naboen medhold i en klage, kan du blive pålagt at <strong>dokumentere støjen</strong> og betale for støjdæmpning. Kommunen skriver, at billige varmepumper ofte støjer mere end dyrere.", ["abr_stoej"]),
+    ("Energistyrelsens <strong>støjberegner</strong> kan hjælpe med at finde den bedste placering af udedelen på grunden.", ["abr_stoej", "ens_stoej"]),
+  ],
+  "vp_faq": [
+    ("Kommer der fjernvarme til Bolderslev?", "Ja. Aabenraa Fjernvarme tog første spadestik på transmissionsledningen 4. maj 2026, og ledningen ventes færdig i december 2026. De første forbrugere ventes at få fjernvarme i 1. kvartal 2027.", ["afv_bol"]),
+    ("Kan Aabenraa Kommune kræve, at jeg flytter min varmepumpe?", "Kommunen kan regulere støj fra varmepumper efter miljøaktivitetsbekendtgørelsen og miljøbeskyttelsesloven, hvis den vurderer, at støjen er en væsentlig gene for naboerne, og kan give påbud om at sænke støjen.", ["abr_stoej"]),
+  ],
+}
+CONTACTS["faaborg"] = {"sol": [("Faaborg-Midtfyn Kommune, BYG", "72 53 21 04 · byg@fmk.dk", "fmk_byg")],
+                       "vp":  [("FFV Varme A/S", "62 61 16 66 · ffv@ffv.dk", "ffv_proj")]}
+CONTACTS["aabenraa"] = {"sol": [("Aabenraa Kommune, Team Byg", "73 76 73 47 · byg@aabenraa.dk", "abr_sol")],
+                        "vp":  [("Aabenraa Fjernvarme", "74 62 40 98 · info@aabenraa-fjernvarme.dk", "afv_pris")]}

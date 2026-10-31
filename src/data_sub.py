@@ -1025,3 +1025,104 @@ FV_PAGE["svendborg"] = {
    ("Hvorfor kan Svendborg Fjernvarme ikke bare udvide nu?", "Selskabet forklarer, at projektbekendtgørelsen hidtil har stået i vejen, fordi fossile brændsler har udgjort for stor en del af produktionen. De nye elektriske anlæg er en forudsætning for at udbrede fjernvarmen til nye områder.", ["df_svb"]),
   ],
 }
+
+# ---------- daglig by-rutine 31. okt. 2026: Faaborg og Aabenraa ----------
+# Forsyningstilsynet, prisstatistik januar 2026 (CSV): værker i de to kommuner (navne og postnr. som i statistikken).
+FV_PRICES["faaborg"] = [("Kværndrup Fjernvarme", "5772", "9.256", "468"), ("Midtfyns Fjernvarme (Ringe)", "5750", "15.766", "731"), ("FFV Varme A/S", "5750", "18.548", "862")]
+FV_PRICES["aabenraa"] = [("Aabenraa - Rødekro Fjernvarme", "6200", "11.624", "511"), ("Hjordkær Fjernvarmeværk", "6230", "15.881", "660"), ("Padborg Fjernvarme", "6330", "16.318", "687"), ("Løjt Kirkeby Fjernvarmeselskab", "6200", "18.119", "766"), ("Genner, Hellevad og Hovslund Forenede Kraftvarmeværker", "6230", "19.129", "695")]
+SOL_REG["faaborg"] = {
+  "kw": "solceller faaborg-midtfyn kommune / byggetilladelse solceller faaborg",
+  "evidence": "Faaborg-Midtfyn Kommune beskriver på siden 'El og varme', hvilke solcelleanlæg der kræver byggetilladelse, hvornår en lokalplan kræver dispensation, og hvad der skal meldes til BBR (tjekket 31/10 2026).",
+  "intro": "Faaborg-Midtfyn Kommune kræver ikke byggetilladelse til solceller på den eksisterende tagkonstruktion af et parcelhus, dobbelthus, rækkehus eller sommerhus, når byggeretten er overholdt. Anlæg på terræn kræver altid tilladelse, og en lokalplan kan kræve dispensation. Her er reglerne og hvordan du søger.",
+  "sections": [
+   ("På taget af dit hus: ingen byggetilladelse", [
+     ("ul", [("Solceller på den <strong>eksisterende tagkonstruktion</strong> af et enfamiliehus, dobbelthus, rækkehus eller sommerhus kræver ikke byggetilladelse.", ["fmk_elv"]),
+             ("På <strong>flade tage</strong> på boliger må anlægget være op til 1,5 m højt uden byggetilladelse.", ["fmk_elv"]),
+             ("Anlægget skal overholde byggeretten, fx det skrå højdegrænseplan og mindst 2,5 m til skel ved enfamiliehuse. Kan det ikke overholdes, kræver det byggetilladelse.", ["fmk_elv", "br18_179"])]),
+   ]),
+   ("Det kræver altid byggetilladelse", [
+     ("ul", [("Solceller på <strong>terræn</strong>, fx i haven.", ["fmk_elv"]),
+             ("Solceller på taget af <strong>erhvervsbygninger, etageboliger og landbrugsbygninger</strong>.", ["fmk_elv"]),
+             ("I landzone kræver et anlæg på terræn også <strong>landzonetilladelse</strong>, og det skal normalt placeres i tilknytning til ejendommens bebyggelse.", ["fmk_elv"])]),
+   ]),
+   ("Lokalplan: dispensation ved mere end 75 % af tagfladen", [
+     ("p", "Lokalplaner og byplanvedtægter har ofte regler om tagets materiale, farve og refleksioner. Du skal søge dispensation, hvis planen er bevarende, skal sikre et ensartet arkitektonisk udtryk, eller kræver bestemte tagmaterialer eller farver og anlægget fylder <strong>mere end 75 % af den enkelte tagflade</strong>. Ansøgningen sendes via Byg og Miljø med en begrundelse, oplysninger om anlægget og en tegning af placeringen.", ["fmk_elv"]),
+   ]),
+   ("Servitutter, fredning og kysten", [
+     ("ul", [("Tjek at der ikke er <strong>tinglyste servitutter</strong>, som forhindrer solceller. Ved servitutter kontakter du den påtaleberettigede.", ["fmk_elv"]),
+             ("En <strong>fredet bygning</strong> kræver tilladelse fra Kulturstyrelsen, og en bevaringsværdig bygning kræver en konkret vurdering hos BYG.", ["fmk_elv"]),
+             ("Inden for <strong>strandbeskyttelseslinjen</strong> kræver solceller altid tilladelse fra Kystdirektoratet.", ["fmk_elv"])]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller byggetilladelse i Faaborg-Midtfyn Kommune?", "Ikke på den eksisterende tagkonstruktion af et enfamiliehus, dobbelthus, rækkehus eller sommerhus, når byggeretten er overholdt. Solceller på terræn og på erhverv, etageboliger og landbrugsbygninger kræver byggetilladelse.", ["fmk_elv"]),
+   ("Hvornår skal jeg søge dispensation fra lokalplanen til solceller i Faaborg-Midtfyn?", "Bl.a. hvis lokalplanen er bevarende, skal sikre et ensartet udtryk, eller kræver bestemte tagmaterialer eller farver og anlægget fylder mere end 75 % af tagfladen. Du søger via Byg og Miljø.", ["fmk_elv"]),
+   ("Må jeg sætte solceller op på et hus tæt ved kysten i Faaborg?", "Ligger ejendommen inden for strandbeskyttelseslinjen, kræver det altid tilladelse fra Kystdirektoratet, før du sætter solceller op.", ["fmk_elv"]),
+   ("Hvem kontakter jeg om solceller i Faaborg-Midtfyn Kommune?", "BYG i Faaborg-Midtfyn Kommune på byg@fmk.dk eller 72 53 21 04.", ["fmk_byg"]),
+  ],
+}
+SOL_REG["aabenraa"] = {
+  "kw": "solceller aabenraa kommune / tilladelse solceller aabenraa",
+  "evidence": "Aabenraa Kommune beskriver på siden om solenergianlæg og siden om byggetilladelse, hvordan man undersøger reglerne og søger via Byg og Miljø (tjekket 31/10 2026). Kommunens vejledning til Byg og Miljø viser, hvilke forhold på grunden portalen tjekker.",
+  "intro": "Aabenraa Kommune beder husejere undersøge byggelovgivningen og en eventuel lokalplan, før de sætter solceller op, og henviser til vejledningen 'Gode råd inden du opsætter solenergianlæg'. Kræver anlægget tilladelse, søger du i Byg og Miljø, som også viser bindinger på din grund. Her er reglerne og hvordan du søger.",
+  "sections": [
+   ("Tjek byggelovgivning og lokalplan først", [
+     ("ul", [("Når du vil sætte et solenergianlæg op, skal du være opmærksom på de forhold i <strong>byggelovgivningen og en eventuel lokalplan</strong>, som skal overholdes.", ["abr_sol"]),
+             ("Kommunens vejledning <strong>'Gode råd inden du opsætter solenergianlæg'</strong> samler de generelle retningslinjer, byggeloven og lokalplanforhold.", ["abr_sol"]),
+             ("Bygningsreglementet kræver, at solceller ved parcel-, række- og dobbelthuse holder <strong>mindst 2,5 m til skel</strong> mod nabo, sti og vej.", ["br18_179"])]),
+   ]),
+   ("Byg og Miljø viser bindinger på din grund", [
+     ("p", "Under <strong>Forhold på projektstedet</strong> i Byg og Miljø kan du klikke dig gennem fire faner: lokal- og kommuneplaner, bygge- og beskyttelseslinjer, fredning og forurening. Her ser du fx, om projektet kræver dispensation fra en lokalplan, og kommunen skriver, at det kan have stor betydning for både sagsbehandlingstiden og afgørelsen.", ["abr_bom"]),
+   ]),
+   ("Når anlægget kræver tilladelse", [
+     ("ul", [("Ansøgningen sendes digitalt via <strong>Byg og Miljø</strong>, hvor du også får oplyst, hvilke bilag der skal med.", ["abr_byg"]),
+             ("Alle bilag skal være i pdf-format, gemt enkeltvis og navngivet efter indholdet, fx situationsplan eller facade.", ["abr_byg"]),
+             ("Søger en installatør for dig, giver du fuldmagt i Byg og Miljø. Kommunen opkræver et <strong>byggesagsgebyr efter tidsforbrug</strong>.", ["abr_byg"])]),
+   ]),
+   ("Sikkerhed og installation", [
+     ("p", "Elinstallationen skal altid udføres af en <strong>autoriseret elinstallatør</strong>. Kommunen gør desuden opmærksom på Sikkerhedsstyrelsens advarsel fra 2013 om brandfare ved solcellesystemet Scheuten Solar Multisol (typerne P6-48, P6-54, P6-60 og P6-66).", ["abr_sol"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller byggetilladelse i Aabenraa Kommune?", "Det afhænger af byggelovgivningen og en eventuel lokalplan for ejendommen. Kommunen henviser til vejledningen 'Gode råd inden du opsætter solenergianlæg', og i Byg og Miljø kan du se, om der er en lokalplan eller andre bindinger.", ["abr_sol", "abr_byg"]),
+   ("Hvordan ser jeg, om min grund i Aabenraa har en lokalplan eller fredning?", "Start en ansøgning i Byg og Miljø og vælg adressen. Under 'Forhold på projektstedet' viser portalen lokal- og kommuneplaner, bygge- og beskyttelseslinjer, fredning og forurening.", ["abr_bom"]),
+   ("Hvad koster det at søge om tilladelse til solceller i Aabenraa?", "Kommunen opkræver et byggesagsgebyr efter den tid, der bliver brugt på sagen. Taksterne står i kommunens gebyrvedtægt.", ["abr_byg"]),
+   ("Hvem kontakter jeg om solceller i Aabenraa Kommune?", "Team Byg i Aabenraa Kommune på 73 76 73 47 eller byg@aabenraa.dk.", ["abr_sol"]),
+  ],
+}
+FV_PAGE["faaborg"] = {
+  "kw": "fjernvarme faaborg / ffv varme faaborg / varmepumpe faaborg",
+  "evidence": "FFV Varme beskriver status for Faaborg nordvest, landsbyerne og Korinth på sin side om fjernvarmeprojekter (tjekket 31/10 2026), og Faaborg-Midtfyn Kommune godkendte 10/12 2025 aflysningen af projektet i Korinth.",
+  "intro": "Kun hvert tredje hus i Faaborg-Midtfyn Kommune har fjernvarme, som leveres af FFV Varme, Midtfyns Fjernvarme, Kværndrup Fjernvarme og Fjernvarme Fyn. Flere udvidelser er sat på pause eller aflyst, fordi for få har tilmeldt sig. Her er status, værkernes priser og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Faaborg by:</strong> FFV Varme lægger en ny fjernvarmeledning på Rugagervej fra Råmosevej til området ved Røde Kro som led i moderniseringen af nettet. Arbejdet ventes færdigt i slutningen af november 2026.", ["ffv_rug"]),
+   ("<strong>Faaborg nordvest</strong> (bl.a. Saugstedgårdsvej, Bjernevej, Kildevej og Frydensbergvej): udvidelsen er sat midlertidigt på pause, fordi de lave gaspriser gør det svært at nå den nødvendige tilslutning.", ["ffv_proj"]),
+   ("<strong>Brobyværk, Vester Åby, Horne, Falsled og Millinge/Svanninge:</strong> projekterne er sat på pause i ca. et år. I <strong>Espe</strong> nåede FFV omkring 86 % af de nødvendige tilslutninger, og projektet er afsluttet.", ["ffv_pause", "ffv_proj"]),
+   ("<strong>Korinth:</strong> kun 126 forhåndstilmeldinger mod de 348, projektet krævede. Kommunen godkendte 10. december 2025, at projektet aflyses.", ["fmk_kor"]),
+  ],
+  "local_take": "Kværndrup Fjernvarme hører til de 2 % billigste værker i landet, og Midtfyns Fjernvarme i Ringe ligger under landsgennemsnittet, mens FFV Varme, der forsyner Faaborg, ligger over. Bor du i Korinth eller Espe, er en luft til vand-varmepumpe med tilskud det oplagte valg. Bor du i en af de landsbyer, hvor projektet er sat på pause, så følg FFV's udmeldinger: tilskuddet til en varmepumpe bortfalder først, hvis et fjernvarmeprojekt bliver godkendt og sat i gang.",
+  "contact": ("FFV Varme A/S", "62 61 16 66 · ffv@ffv.dk", "ffv_proj"),
+  "faq": [
+   ("Hvad koster fjernvarme i Faaborg-Midtfyn?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus på 130 m² med 18,1 MWh 18.548 kr. om året inkl. moms hos FFV Varme, 15.766 kr. hos Midtfyns Fjernvarme og 9.256 kr. hos Kværndrup Fjernvarme. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+   ("Hvorfor blev fjernvarmen i Korinth aflyst?", "Projektet krævede mindst 348 tilslutninger ud af 487 bygninger, men i sensommeren 2025 havde kun 126 meldt sig. En ny beregning viste et samfundsøkonomisk underskud på ca. 40 mio. kr. i forhold til luft til vand-varmepumper over 20 år.", ["fmk_kor"]),
+   ("Hvad tilbød Midtfyns Energi i Ringe i 2026?", "Boligejere i Ringe, Ryslinge, Fjellerup og Gislev, der tilmeldte sig senest 1. juni 2026, fik 10.000 kr. i rabat, så tilslutningen kostede 21.250 kr.", ["df_mfe"]),
+  ],
+}
+FV_PAGE["aabenraa"] = {
+  "kw": "fjernvarme aabenraa / aabenraa fjernvarme / varmepumpe aabenraa",
+  "evidence": "Aabenraa Fjernvarme viser tidsplaner for Bolderslev (opdateret 21/10 2026) og Varnæs (20/8 2026) og priser og konverteringsbidrag for 2026 på sin hjemmeside (tjekket 31/10 2026).",
+  "intro": "Halvdelen af husene i Aabenraa Kommune har fjernvarme, og Aabenraa Fjernvarme er blandt de billigste værker i landet. Nettet bliver lige nu udbygget til Bolderslev og Varnæs, men i de nye områder kommer et årligt konverteringsbidrag oven i prisen. Her er status, værkernes priser og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Bolderslev:</strong> første spadestik på transmissionsledningen blev taget 4. maj 2026, og ledningen ventes færdig i december 2026. De første forbrugere ventes at få fjernvarme i 1. kvartal 2027, og en ny fjernvarmecentral er under opførelse.", ["afv_bol", "afv_bol_op"]),
+   ("<strong>Varnæs:</strong> den sydlige del er færdig, og arbejdet i den nordlige del begyndte 6. juli 2026. Kommende kunder får en sms, når de kan koble på.", ["afv_var"]),
+   ("<strong>Varnæs, Bovrup og Bolderslev</strong> betaler et konverteringsbidrag på 3.700 kr. om året, og <strong>Tinglev</strong> et transmissionsbidrag på 22,50 kr. pr. opvarmet m². Hvornår bidragene udfases, kan værket ikke love på forhånd.", ["afv_pris"]),
+   ("<strong>Tumbøl og Felsted:</strong> overskudsvarme fra gasmotorerne på en biogasgård i Tumbøl bliver nu sendt ud i fjernvarmenettet.", ["afv_gylle"]),
+  ],
+  "local_take": "Aabenraa - Rødekro Fjernvarme er nr. 15 af 374 værker i Forsyningstilsynets statistik regnet fra det billigste, og Hjordkær og Padborg ligger under landsgennemsnittet, mens Løjt Kirkeby og Genner, Hellevad og Hovslund ligger over. I Varnæs, Bovrup og Bolderslev skal konverteringsbidraget med i regnestykket. Uden for fjernvarmeområderne er en luft til vand-varmepumpe det oplagte alternativ til gasfyret, men vælg en støjsvag model og placér udedelen med omtanke.",
+  "contact": ("Aabenraa Fjernvarme", "74 62 40 98 · info@aabenraa-fjernvarme.dk", "afv_pris"),
+  "faq": [
+   ("Hvad koster fjernvarme i Aabenraa?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus på 130 m² med 18,1 MWh 11.624 kr. om året inkl. moms hos Aabenraa - Rødekro Fjernvarme, 15.881 kr. hos Hjordkær, 16.318 kr. hos Padborg og 18.119 kr. hos Løjt Kirkeby. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+   ("Hvad betaler et hus på 125 m² hos Aabenraa Fjernvarme?", "Værkets eget eksempel for 2026: 13,4 MWh til 511 kr. pr. MWh (6.847 kr.), fastbidrag 12,50 kr. pr. m² (1.563 kr.) og abonnement 750 kr., i alt 9.160 kr. om året inkl. moms. I konverteringsområderne kommer konverteringsbidraget oveni.", ["afv_pris"]),
+   ("Hvornår får Bolderslev fjernvarme?", "Aabenraa Fjernvarme venter, at de første forbrugere i Bolderslev får fjernvarme i 1. kvartal 2027. Tidsplanen for gravearbejdet i byen opdateres løbende.", ["afv_bol"]),
+  ],
+}

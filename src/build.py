@@ -625,6 +625,7 @@ def reg_page(c):
     d = CITIES[c]; n = d["name"]; r = SOL_REG[c]; path = p_reg(c)
     title = f"Solceller {d['kommune']}: regler og byggetilladelse | {BRAND}"
     if len(title) > 68: title = f"Solceller {d['kommune']}: regler og tilladelse | {BRAND}"
+    if CITIES[c].get("reg_title"): title = CITIES[c]["reg_title"]  # reg_title: kun når kommunenavnet gør titlen > 68 tegn
     desc = f"Skal du søge byggetilladelse til solceller i {d['kommune']}? Kommunens regler, undtagelser, BBR og kontakt, med kilder. Opdateret {checked_c(c)}."
     h1 = f"Solceller i {d['kommune']}: regler og byggetilladelse"
     crumbs = [("Forside", "/"), ("Solceller", p_hub("solceller")), (n, p_city("solceller", c)), ("Regler og byggetilladelse", path)]
