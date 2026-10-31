@@ -30,12 +30,15 @@
   var steps=[].slice.call(f.querySelectorAll('.step')), i=0, sl=[].slice.call(f.querySelectorAll('.stepper li')), cnt=f.querySelector('.step-count');
   var bar=f.querySelector('.progress span'), prev=f.querySelector('[data-prev]'), next=f.querySelector('[data-next]'), sub=f.querySelector('[data-submit]'), msg=f.querySelector('.form-msg');
   function track(e,x){ try{ x=x||{}; x.service=f.getAttribute('data-service')||''; x.city=f.getAttribute('data-city')||''; if(window.etT) window.etT(e,x); }catch(_){} }
+  // form_step 1 = formularen er set (min. 15 % synlig, fanen er aktiv); senere trin taelles kun fremad, en gang hver
+  var fsMax=1, fsSeen=0; function fsView(){ if(fsSeen) return; fsSeen=1; track('form_step',{step:1}); }
+  if('IntersectionObserver' in window){ var fsIO=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting && document.visibilityState!=='hidden'){ fsView(); fsIO.disconnect(); } }); },{threshold:0.15}); fsIO.observe(f); } else fsView();
   function show(n,focus){ steps.forEach(function(s,k){s.classList.toggle('on',k===n)}); i=n;
     sl.forEach(function(li,k){ li.classList.toggle('on',k===n); li.classList.toggle('done',k<n); });
     if(cnt) cnt.textContent='Trin '+(n+1)+' af '+steps.length;
     bar.style.width=((n+1)/steps.length*100)+'%';
     prev.style.display=n>0?'inline-flex':'none'; next.style.display=n<steps.length-1?'inline-flex':'none'; sub.style.display=n===steps.length-1?'inline-flex':'none'; msg.textContent=''; msg.className='form-msg';
-    if(focus) track('form_step',{step:n+1});
+    if(focus && n+1>fsMax){ fsMax=n+1; track('form_step',{step:n+1}); }
     if(focus){ var l=steps[n].querySelector('legend'); var r=f.getBoundingClientRect(); if(r.top<60) f.scrollIntoView({block:'start'}); var el=steps[n].querySelector('input:not([type=hidden]),select'); if(el && window.innerWidth>=960) el.focus({preventScroll:true}); } }
   function valid(s){ var bad=null; [].slice.call(s.querySelectorAll('input,select')).forEach(function(el){ if(!bad && !el.checkValidity()) bad=el; });
     if(bad){ msg.textContent= bad.type==='checkbox' ? 'Du skal give samtykke, før vi kan sende din forespørgsel videre.' : (bad.type==='radio' ? 'Vælg en af mulighederne for at fortsætte.' : bad.type==='email' ? 'Tjek din e-mailadresse. Den skal have formen navn@domæne.dk.' : 'Tjek feltet: '+((bad.closest('label')||{}).textContent||'').trim().split('\n')[0].split('(')[0].trim()); msg.className='form-msg err'; if(bad.focus) bad.focus(); return false;} return true; }

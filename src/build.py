@@ -1492,12 +1492,15 @@ JS = r"""(function(){
   var steps=[].slice.call(f.querySelectorAll('.step')), i=0, sl=[].slice.call(f.querySelectorAll('.stepper li')), cnt=f.querySelector('.step-count');
   var bar=f.querySelector('.progress span'), prev=f.querySelector('[data-prev]'), next=f.querySelector('[data-next]'), sub=f.querySelector('[data-submit]'), msg=f.querySelector('.form-msg');
   function track(e,x){ try{ x=x||{}; x.service=f.getAttribute('data-service')||''; x.city=f.getAttribute('data-city')||''; if(window.etT) window.etT(e,x); }catch(_){} }
+  // form_step 1 = formularen er set (min. 15 % synlig, fanen er aktiv); senere trin taelles kun fremad, en gang hver
+  var fsMax=1, fsSeen=0; function fsView(){ if(fsSeen) return; fsSeen=1; track('form_step',{step:1}); }
+  if('IntersectionObserver' in window){ var fsIO=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting && document.visibilityState!=='hidden'){ fsView(); fsIO.disconnect(); } }); },{threshold:0.15}); fsIO.observe(f); } else fsView();
   function show(n,focus){ steps.forEach(function(s,k){s.classList.toggle('on',k===n)}); i=n;
     sl.forEach(function(li,k){ li.classList.toggle('on',k===n); li.classList.toggle('done',k<n); });
     if(cnt) cnt.textContent='Trin '+(n+1)+' af '+steps.length;
     bar.style.width=((n+1)/steps.length*100)+'%';
     prev.style.display=n>0?'inline-flex':'none'; next.style.display=n<steps.length-1?'inline-flex':'none'; sub.style.display=n===steps.length-1?'inline-flex':'none'; msg.textContent=''; msg.className='form-msg';
-    if(focus) track('form_step',{step:n+1});
+    if(focus && n+1>fsMax){ fsMax=n+1; track('form_step',{step:n+1}); }
     if(focus){ var l=steps[n].querySelector('legend'); var r=f.getBoundingClientRect(); if(r.top<60) f.scrollIntoView({block:'start'}); var el=steps[n].querySelector('input:not([type=hidden]),select'); if(el && window.innerWidth>=960) el.focus({preventScroll:true}); } }
   function valid(s){ var bad=null; [].slice.call(s.querySelectorAll('input,select')).forEach(function(el){ if(!bad && !el.checkValidity()) bad=el; });
     if(bad){ msg.textContent= bad.type==='checkbox' ? 'Du skal give samtykke, før vi kan sende din forespørgsel videre.' : (bad.type==='radio' ? 'Vælg en af mulighederne for at fortsætte.' : bad.type==='email' ? 'Tjek din e-mailadresse. Den skal have formen navn@domæne.dk.' : 'Tjek feltet: '+((bad.closest('label')||{}).textContent||'').trim().split('\n')[0].split('(')[0].trim()); msg.className='form-msg err'; if(bad.focus) bad.focus(); return false;} return true; }
@@ -1540,7 +1543,8 @@ from config import WEB_ANALYTICS, SPEED_INSIGHTS, FIRST_PARTY_ANALYTICS, FP_ANAL
 # Cookiefri førstepartsstatistik (<1 KB). Sender kun på det rigtige domæne, respekterer Do Not Track og automatiserede browsere.
 FP_JS = ("(function(w,d,n){var E='__E__',S='__S__',H=location.hostname;"
   "if(H!==S&&H!=='www.'+S||n.doNotTrack=='1'||w.doNotTrack=='1'||n.webdriver)return;"
-  "function t(e,x,p){try{var q=new URLSearchParams(location.search),b={s:S,e:e,p:p||location.pathname,r:d.referrer,t:d.title,"
+  "var B=(!n.languages||!n.languages.length||/headless/i.test(n.userAgent||'')||!w.outerWidth||!w.outerHeight)?'1':'';"
+  "function t(e,x,p){try{if(B){x=x||{};x.bot=B}var q=new URLSearchParams(location.search),b={s:S,e:e,p:p||location.pathname,r:d.referrer,t:d.title,"
   "us:q.get('utm_source'),um:q.get('utm_medium'),uc:q.get('utm_campaign')};if(x)b.x=x;b=JSON.stringify(b);"
   "if(!(n.sendBeacon&&n.sendBeacon(E,b)))fetch(E,{method:'POST',body:b,keepalive:true})}catch(_){}}"
   "w.etT=t;t('pageview');"
@@ -1548,9 +1552,10 @@ FP_JS = ("(function(w,d,n){var E='__E__',S='__S__',H=location.hostname;"
   "t('form_submit',{service:k.service||'',city:k.city||''},k.p)}}catch(_){}"
   "d.addEventListener('click',function(e){var a=e.target.closest('a[href*=\"/tilbud/\"]');"
   "if(a)t('cta_click',{href:a.getAttribute('href').slice(0,100)})},true);"
-  "var o=0;function f(e){var m=!o&&e.target.closest('#lead-form');"
-  "if(m){o=1;t('form_open',{service:m.getAttribute('data-service')||'',city:m.getAttribute('data-city')||''})}}"
-  "d.addEventListener('focusin',f,true);d.addEventListener('change',f,true)"
+  "var o=0;function f(e){if(o||!e.isTrusted)return;var el=e.target,m=el&&el.closest&&el.closest('#lead-form');"
+  "if(!m||!el.matches('input,select,textarea')||el.type==='hidden'||el.name==='website')return;"
+  "o=1;t('form_open',{service:m.getAttribute('data-service')||'',city:m.getAttribute('data-city')||''})}"
+  "d.addEventListener('change',f,true);d.addEventListener('input',f,true)"
   "})(window,document,navigator);").replace("__E__", FP_ANALYTICS_ENDPOINT).replace("__S__", FP_ANALYTICS_SITE)
 ANALYTICS_HTML = (("<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script><script defer src=\"/_vercel/insights/script.js\"></script>" if WEB_ANALYTICS else "")
                   + ("<script>window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };</script><script defer src=\"/_vercel/speed-insights/script.js\"></script>" if SPEED_INSIGHTS else "")
