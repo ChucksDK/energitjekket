@@ -539,7 +539,7 @@ NATIONAL["/solceller/med-batteri/"] = {
 }
 
 NATIONAL["/varmepumpe/pris/"] = {
-  "svc": "varmepumpe", "crumb": "Pris",
+  "svc": "varmepumpe", "crumb": "Pris", "updated": ("31. oktober 2026", "2026-10-31"),
   "kw": "luft til vand varmepumpe pris / pris inkl montering",
   "evidence": "Autocomplete 'luft til vand varmepumpe pris': 10 forslag (bl.a. 'inkl montering', 'inkl montering jylland', '200m2', '250 m2', '300 m2'). PAA: 'Hvad koster en varmepumpe til et hus på 150 m2?', 'Kan det betale sig at få en luft til vand varmepumpe?', 'Hvad koster en luft til vand varmepumpe om året?'. Bylokale varianter ('luft til vand varmepumpe pris odense' osv.) gav INGEN forslag i de 7 byer, så der er ingen pris-side pr. by.",
   "title": "Luft til vand-varmepumpe pris 2026 inkl. montering",
@@ -550,7 +550,7 @@ NATIONAL["/varmepumpe/pris/"] = {
    ("Pris inkl. montering", [
      ("table", ["Type", "Pris inkl. montering", "Kilde"],
       [["Luft til vand", "typisk 100.000-130.000 kr.", "SparEnergi"], ["Luft til vand", "ca. 90.000-150.000 kr.", "Energisparer.dk"], ["Jordvarme", "ca. 120.000-180.000 kr.", "Energisparer.dk"], ["Luft til luft (supplement)", "ca. 12.000-25.000 kr.", "Energisparer.dk"]], ["se_vp", "es_vp"]),
-     ("p", "Energisparer.dk omregner til ca. 9.000-15.000 kr. pr. kW, fra ca. 90.000 kr. for 6 kW til ca. 150.000 kr. for 16 kW. Hvor mange kW dit hus skal bruge, afhænger af varmetabet, ikke kun af antallet af kvadratmeter. Derfor bør installatøren dimensionere anlægget.", ["es_vp"]),
+     ("p", "Energisparer.dk omregner til ca. 9.000-15.000 kr. pr. kW, fra ca. 90.000 kr. for 6 kW til ca. 150.000 kr. for 16 kW. Hvor mange kW dit hus skal bruge, afhænger af varmetabet, ikke kun af antallet af kvadratmeter. Derfor bør installatøren dimensionere anlægget. Se typiske priser for et hus på 150 og 200 m² i guiden til <a href=\"/varmepumpe/luft-til-vand/\">luft til vand varmepumpe</a>.", ["es_vp", "es_l2v"]),
    ]),
    ("Poster, du skal spørge ind til", [
      ("ul", [("Opgradering af eltavlen.", ["es_vp"]), ("Buffertank.", ["es_vp"]), ("Fundament til udedelen.", ["es_vp"]),
@@ -569,7 +569,7 @@ NATIONAL["/varmepumpe/pris/"] = {
   ],
   "faq": [
    ("Hvad koster en luft til vand-varmepumpe inkl. montering?", "SparEnergi angiver typisk 100.000-130.000 kr., og Energisparer.dk ca. 90.000-150.000 kr. Prisen afhænger af husets varmebehov og hvor meget ekstra arbejde der skal til.", ["se_vp", "es_vp"]),
-   ("Hvad koster en varmepumpe til et hus på 150 m²?", "Vi har ikke fundet en pålidelig kilde til priser pr. m². Effekten skal passe til husets varmetab, og prisen ligger typisk inden for ca. 90.000-150.000 kr. Bed installatøren om en beregning af varmebehovet.", ["es_vp"]),
+   ("Hvad koster en varmepumpe til et hus på 150 m²?", "Energisparer.dk angiver som tommelfingerregel 110.000-135.000 kr. inkl. installation for et hus på 130-180 m² (8-12 kW). Effekten skal passe til husets varmetab, så bed installatøren om en beregning af varmebehovet.", ["es_l2v"]),
    ("Hvad koster en luft til vand-varmepumpe om året?", "Bolius regner med 9.386 kr. om året i varmeudgift for et 130 m² hus med radiatorer og 7.288 kr. med gulvvarme.", ["bolius_varme"]),
    ("Kan jeg få både tilskud og håndværkerfradrag?", "Nej, ikke for samme varmepumpe. SparEnergi skriver, at du ikke må få støtte fra andre offentlige ordninger, herunder det grønne håndværkerfradrag, når du får tilskud fra Varmepumpepuljen.", ["vpp_faq"]),
   ],

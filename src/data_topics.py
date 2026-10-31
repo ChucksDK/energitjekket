@@ -16,6 +16,18 @@ TOPIC_S = {
  "vor_sol": ("Vordingborg Kommune: solceller og vindmøller", "https://www.vordingborg.dk/borger/bolig-og-byggeri/byggeri-og-bbr/solceller-og-vindmoeller"),
  "installator": ("Installatør 14/10 2026: 19.000 har fået tilskud til varmepumpe, nu er puljen næsten tømt", "https://www.installator.dk/19000-har-faet-tilskud-til-varmepumpe-nu-er-puljen-naesten-tomt"),
  "cvr_virk": ("CVR (Erhvervsstyrelsen): ANGU ApS, CVR 40086560", "https://datacvr.virk.dk/enhed/virksomhed/40086560"),
+ "es_l2v": ("Energisparer.dk: luft til vand varmepumpe 2026 (kommerciel kilde, opdateret 28/10 2026)", "https://energisparer.dk/varmepumpe/luft-til-vand/"),
+ "mst_stoej": ("Energistyrelsen/Miljøstyrelsen: Styr på støjen, guide til installation af luft til vand-varmepumper (PDF)", "https://mst.dk/media/hvue1rh5/ens-styr-paa-stoejen-guide-til-installation-af-luft-til-vandvarmepumper.pdf"),
+ "se_stoej": ("SparEnergi: støjberegner til varmepumper", "https://sparenergi.dk/noise-calculator"),
+ "her_vp": ("Herlev Kommune: alternative varmekilder, varmepumper og støj", "https://herlev.dk/borger/natur-klima-og-miljoe/klima-og-energi/alternativevarmekilder"),
+ "fdm_ll": ("FDM: sammenlign ladeløsninger (FDM Ladeløsning, priser set 31/10 2026)", "https://fdm.dk/ladeloesning"),
+ "fdm_guide": ("FDM: hvilke ladeløsninger findes der? (15/6 2025)", "https://fdm.dk/guides/elbil/mere-info-om-ladeloesninger"),
+ "es_lb": ("Energisparer.dk: ladeboks og ladestander 2026 (kommerciel kilde, opdateret 9/10 2026)", "https://energisparer.dk/ladeboks/"),
+ "es_lbp": ("Energisparer.dk: ladeboks pris 2026 (kommerciel kilde)", "https://energisparer.dk/ladeboks/pris/"),
+ "sik_ev": ("Sikkerhedsstyrelsen: opladning af elbiler", "https://www.sik.dk/erhverv/elinstallationer-og-elanlaeg/vejledninger/elinstallationer/elbiler/opladning-el-biler"),
+ "sik_aut": ("Sikkerhedsstyrelsen: tjek din håndværker i autorisationsregisteret", "https://www.sik.dk/privat/gor-det-sikkert/el/hvad-autoriseret-virksomhed-og-hvornar-skal-du-bruge-dem/tjek-din-handvaerker-autorisationsregisteret"),
+ "elsik_lade": ("Elsikkerhed.dk: installation af ladestander til elbil i boliger", "https://elsikkerhed.dk/ladestandere-i-boliger/"),
+ "mm_lade": ("Motormagasinet: grønt håndværkerfradrag genindføres, men omfatter ikke ladestandere", "https://www.motormagasinet.dk/article/view/1131725/gront_handvaerkerfradrag_genindfores_men_omfatter_ikke_installation_af_ladestandere"),
 }
 
 T = {}
@@ -88,7 +100,7 @@ T["/varmepumpe/luft-til-luft-pris/"] = {
    ]),
    ("Ingen tilskud fra Varmepumpepuljen", [
      ("p", "Varmepumpepuljen giver kun tilskud til luft til vand og væske til vand (jordvarme). En luft til luft-varmepumpe er ikke omfattet.", ["se_vpp"]),
-     ("p", "Har du radiatorer eller gulvvarme med vand og varmer op med olie eller gas, kan en luft til vand-varmepumpe overtage både rumvarme og varmt vand. Den er dyrere, men kan give 27.000 kr. i tilskud, hvis du opfylder kravene.", ["se_vp", "se_vpp"]),
+     ("p", "Har du radiatorer eller gulvvarme med vand og varmer op med olie eller gas, kan en luft til vand-varmepumpe overtage både rumvarme og varmt vand. Den er dyrere, men kan give 27.000 kr. i tilskud, hvis du opfylder kravene. Se forskellen i guiden til <a href=\"/varmepumpe/luft-til-luft/\">luft til luft varmepumpe</a>.", ["se_vp", "se_vpp"]),
    ]),
    ("Krav til selve varmepumpen", [
      ("ul", [("Energimærke A+ opfylder EU's ecodesignkrav. Har kølemidlet en lav klimapåvirkning (GWP under 150), er energimærke A tilladt. SparEnergi anbefaler A+++ for den største besparelse.", ["se_l2l"]),
@@ -321,14 +333,165 @@ T["/varmepumpe/tilbud/"] = {
   ],
 }
 
+# ---- 31. okt. 2026: SEO-gap runde 1 (brief: /workspace/rank-tracking/gap-2026-10-31.md) ----
+UPD2 = ("31. oktober 2026", "2026-10-31")
+
+T["/varmepumpe/luft-til-luft/"] = {
+  "svc": "varmepumpe", "crumb": "Luft til luft", "updated": UPD2,
+  "kw": "luft til luft varmepumpe (14.800/md., DataForSEO 31/10 2026)",
+  "title": "Luft til luft varmepumpe: pris, besparelse og tilbud",
+  "desc": "Hvad er en luft til luft varmepumpe, hvad koster den med montering, og hvor meget sparer du? Se forskellen til luft til vand, støjkrav og håndværkerfradrag.",
+  "h1": "Luft til luft varmepumpe – pris og hvad du sparer",
+  "intro": "En luft til luft varmepumpe henter varme fra udeluften og blæser den ind i huset som varm luft. Den er hurtig at sætte op og koster en brøkdel af en luft til vand-varmepumpe, men den kan ikke lave varmt vand og når sjældent hele huset. Her er hvad den er, hvad den koster, hvad du kan spare, og hvornår du hellere skal vælge luft til vand.",
+  "sections": [
+   ("Hvad er en luft til luft varmepumpe?", [
+     ("p", "Anlægget består af en udedel og en eller flere indedele, der hænger på væggen. Den kræver hverken radiatorer eller gulvvarme med vand og er derfor det oplagte alternativ til elpaneler, også i sommerhuse. For hver kWh strøm giver den 4-6 gange så meget varme som almindelig elvarme.", ["se_l2l"]),
+     ("ul", [("<strong>Rumvarme, ikke brugsvand:</strong> varmt vand skal stadig laves på anden vis, fx med en elvandvarmer.", ["se_l2l"]),
+             ("<strong>Ét rum ad gangen:</strong> varmen bliver i det rum, indedelen sidder i, og spreder sig kun, hvis der er åbne døre til resten af huset.", ["se_l2l"]),
+             ("<strong>Sommerhus:</strong> skal den holde huset frostfrit, så vælg en model, der kan stilles fast på 8-12 °C.", ["se_l2l", "se_l2l_pdf"])]),
+   ]),
+   ("Hvad koster den inkl. montering?", [
+     ("p", "Kilderne giver forskellige spænd: SparEnergi skriver 15.000-30.000 kr. på sin side om luft til luft og typisk 30.000-40.000 kr. i sin sammenligning af varmepumpetyper. Energisparer.dk angiver ca. 12.000-25.000 kr. Forskellen skyldes især antallet af indedele (multisplit).", ["se_l2l", "se_vp", "es_vp"]),
+     ("p", "Til sammenligning koster en luft til vand-varmepumpe typisk 90.000-150.000 kr. Se alle tal og krav til energimærke i <a href=\"/varmepumpe/luft-til-luft-pris/\">prisguiden til luft til luft-varmepumper</a>.", ["es_vp"]),
+     ("note", "Luft til luft giver ikke tilskud fra Varmepumpepuljen. Til gengæld står luft til luft-varmepumper på Skattestyrelsens liste over håndværkerfradrag: du kan trække arbejdslønnen for installation, service og reparation fra, op til 9.000 kr. pr. person i 2026. Fradraget er værd ca. 26 %.", ["se_vpp", "hvfradrag"]),
+   ]),
+   ("Hvor meget sparer du på varmen?", [
+     ("p", "SparEnergi skriver, at en luft til luft varmepumpe kan spare op til 40 % på varmeregningen i forhold til el eller gas. Luft til vand og jordvarme kan spare op til 70 %, fordi de overtager hele huset og det varme vand.", ["se_vp"]),
+     ("p", "I SparEnergis eget regneeksempel fra januar 2024 sparer et elopvarmet hus på 130 m² ca. 13.000 kr. om året, når varmepumpen dækker 70 % af rumvarmen. Elafgiften er siden sat ned til 0,8 øre pr. kWh i 2026 og 2027, så besparelsen i kroner er mindre nu, mens det procentvise forhold er det samme.", ["se_l2l_pdf", "elafgift"]),
+     ("p", "Den største besparelse får du, hvor du i dag varmer op med elpaneler, og hvor husets rum hænger sammen, så varmen kan brede sig.", ["se_l2l"]),
+   ]),
+   ("Luft til luft eller luft til vand?", [
+     ("table", ["", "Luft til luft", "Luft til vand"],
+      [["Varmer", "Luften i ét eller få rum", "Hele huset via radiatorer eller gulvvarme, og brugsvandet"], ["Pris inkl. montering", "ca. 12.000-40.000 kr.", "ca. 90.000-150.000 kr."], ["Tilskud fra Varmepumpepuljen", "Nej", "27.000 kr. (lukker senest 30/11 2026)"], ["Besparelse ift. el eller gas", "op til 40 %", "op til 70 %"]], ["se_l2l", "se_vp", "es_vp", "se_vpp"]),
+     ("p", "Har du olie- eller gasfyr og radiatorer med vand, er <a href=\"/varmepumpe/luft-til-vand/\">en luft til vand varmepumpe</a> som regel det rigtige valg, fordi den kan erstatte fyret helt. Har du elpaneler og ingen vandbåren varme, er luft til luft det billigste sted at starte.", ["se_vp", "se_l2l"]),
+   ]),
+   ("Støj og placering af udedelen", [
+     ("p", "Mange kommuner bruger Miljøstyrelsens vejledende grænse, hvis naboen klager: højst 35 dB(A) i skel om natten. SparEnergis støjberegner kan give en indikation af, om din placering overholder den, før du køber.", ["se_stoej", "se_l2l"]),
+     ("p", "Har varmepumpen mere end 1 kg kølemiddel, skal kølekredsen efterses mindst én gang om året af en fagperson.", ["se_l2l"]),
+   ]),
+   ("Få et tilbud fra en lokal installatør", [
+     ("p", "Vores formular formidler i dag forespørgsler på <strong>luft til vand-varmepumper</strong> til én udvalgt installatør i dit område. Overvejer du at skifte til vandbåren varme, kan du bruge den. Skal du kun have en luft til luft varmepumpe, kan formularen ikke bruges til det endnu, og så er det en god idé selv at indhente flere tilbud.", []),
+     ("ul", [("Bed om en samlet pris med montering, rørføring og eventuel ny gruppe i eltavlen, og få arbejdslønnen opgjort for sig af hensyn til håndværkerfradraget.", ["se_l2l", "hvbeting"]),
+             ("Energisparer.dk ser 20-40 % prisforskel mellem installatører på samme varmepumpeopgave, så sammenlign på samme grundlag.", ["es_vp"]),
+             ("Vælg energimærke A+ eller bedre. SparEnergi anbefaler A+++ for den største besparelse.", ["se_l2l"])]),
+   ]),
+  ],
+  "faq": [
+   ("Hvad er en luft til luft varmepumpe?", "En varmepumpe, der henter varme fra udeluften og blæser den ind som varm luft gennem en indedel på væggen. Den kræver ikke radiatorer og laver ikke varmt vand.", ["se_l2l"]),
+   ("Kan en luft til luft varmepumpe varme et helt hus op?", "Som regel ikke alene. SparEnergi regner i sit eksempel med, at den dækker 70 % af rumvarmen, og at resten klares med elradiatorer.", ["se_l2l_pdf"]),
+   ("Er der fradrag for en luft til luft varmepumpe?", "Ja, håndværkerfradrag for arbejdslønnen til installation, service og reparation, op til 9.000 kr. pr. person i 2026. Der er ikke tilskud fra Varmepumpepuljen.", ["hvfradrag", "se_vpp"]),
+   ("Hvor meget må udedelen støje?", "Mange kommuner bruger Miljøstyrelsens vejledende grænse på 35 dB(A) i skel til naboen om natten.", ["se_stoej"]),
+  ],
+}
+
+T["/varmepumpe/luft-til-vand/"] = {
+  "svc": "varmepumpe", "crumb": "Luft til vand", "updated": UPD2,
+  "kw": "luft til vand varmepumpe (9.900/md.) + varmepumpe pris (880/md.), DataForSEO 31/10 2026",
+  "title": "Luft til vand varmepumpe: pris, tilskud og tilbud",
+  "desc": "Luft til vand varmepumpe: sådan virker den, pris for et hus på 150 og 200 m², tilskud på 27.000 kr. (frist 30/11 2026), støjregler og tilbagebetalingstid.",
+  "h1": "Luft til vand varmepumpe – det skal du vide før du køber",
+  "intro": "En luft til vand varmepumpe kan erstatte et olie- eller gasfyr helt, fordi den varmer både radiatorer, gulvvarme og det varme brugsvand. Den er dyrere end en luft til luft-varmepumpe, men giver adgang til tilskud og den største besparelse. Her er hvordan den virker, hvad den koster til dit hus, tilskud og fradrag, reglerne for støj, og hvor hurtigt den tjener sig hjem.",
+  "sections": [
+   ("Sådan virker en luft til vand varmepumpe", [
+     ("p", "Udedelen trækker varme ud af udeluften, også i frostvejr, og afleverer den til husets vandbårne varmesystem og en varmtvandsbeholder indenfor. Effektiviteten måles som SCOP, altså hvor mange kWh varme pumpen giver for hver kWh strøm over et helt år. Energisparer.dk angiver typisk SCOP 3,5-5,1 for luft til vand.", ["es_l2v"]),
+     ("p", "Pumpen arbejder bedst ved lav fremløbstemperatur. Gulvvarme er derfor ideelt, men radiatorer fungerer også, og jo større radiatorflader, jo bedre økonomi. Den kræver vandbåren varme, så har du elpaneler, skal der enten etableres radiatorer eller gulvvarme, eller også er <a href=\"/varmepumpe/luft-til-luft/\">en luft til luft varmepumpe</a> det billigere valg.", ["es_l2v", "se_vp"]),
+   ]),
+   ("Pris for 150 og 200 m² hus", [
+     ("table", ["Boligens areal", "Typisk effekt", "Pris inkl. installation", "Efter 27.000 kr. i tilskud"],
+      [["Under 130 m²", "6-8 kW", "90.000-110.000 kr.", "63.000-83.000 kr."], ["130-180 m² (fx 150 m²)", "8-12 kW", "110.000-135.000 kr.", "83.000-108.000 kr."], ["Over 180 m² (fx 200 m²)", "12-16 kW", "135.000-150.000 kr.", "108.000-123.000 kr."]], ["es_l2v"]),
+     ("p", "Tabellen er Energisparer.dk's tommelfingerregel. Husets varmetab, isolering og vinduer betyder mindst lige så meget som antallet af kvadratmeter, så bed installatøren om en varmetabsberegning. SparEnergi angiver typisk 100.000-130.000 kr. for en luft til vand-varmepumpe uden at opdele efter husstørrelse.", ["es_l2v", "se_vp"]),
+     ("p", "Se hele prisoverblikket med ekstraposter og driftsudgift i guiden til <a href=\"/varmepumpe/pris/\">varmepumpe pris 2026</a>.", []),
+   ]),
+   ("Tilskud og fradrag i 2026", [
+     ("p", "Varmepumpepuljen giver 27.000 kr., når en helårsbolig, du selv ejer, skifter olie, gas, elvarme eller biokedel ud med luft til vand eller jordvarme. Huset må ikke ligge i et område med fjernvarme eller planlagt fjernvarme, og du må ikke have indgået en bindende aftale, før du har tilsagn.", ["se_vpp"]),
+     ("note", "SparEnergi skriver, at puljen er åben og lukker, når der er søgt for alle midlerne, dog senest 30. november 2026 (siden er opdateret 29. oktober 2026). Se <a href=\"/varmepumpe/tilskud/\">status på Varmepumpepuljen</a>.", ["se_vpp", "vpp_faq"]),
+     ("p", "Får du tilskud, kan du ikke også få det grønne håndværkerfradrag for samme varmepumpe. Søger du ikke tilskud, kan arbejdslønnen give håndværkerfradrag på op til 9.000 kr. pr. person i 2026.", ["vpp_faq", "hvfradrag"]),
+   ]),
+   ("Støj, placering og regler", [
+     ("p", "Det er kommunen, der fastsætter, hvor meget varmepumpen må støje hos naboen, og normalt gælder Miljøstyrelsens vejledende grænser. Om natten, alle dage kl. 22-07, er grænsen 35 dB i parcelhus- og sommerhusområder. Fordi pumpen arbejder mest i de kolde morgentimer, er det som regel natgrænsen, der bestemmer placeringen.", ["mst_stoej"]),
+     ("ul", [("Har støjen en tydelig hyle- eller brummetone, lægges 5 dB til, før den sammenlignes med grænsen.", ["mst_stoej"]),
+             ("En placering tæt på en væg kan forstærke lyden i den modsatte retning. Placer udedelen væk fra naboens soveværelse og terrasse.", ["her_vp", "mst_stoej"]),
+             ("Bygningsreglementet stiller samme krav til støjen ved dine egne vinduer og opholdsarealer, og indendørs må den højst være 30 dB.", ["her_vp"]),
+             ("Kan støjen ikke bringes under grænsen, kan kommunen i sidste instans kræve varmepumpen fjernet. Tjek placeringen i SparEnergis støjberegner før køb.", ["her_vp", "se_stoej"])]),
+   ]),
+   ("Hvor lang er tilbagebetalingstiden?", [
+     ("table", ["Nettopris efter tilskud", "Fra gasfyr", "Fra oliefyr"],
+      [["68.000 kr. (mindre anlæg)", "6,2-6,5 år", "2,7-2,8 år"], ["83.000 kr.", "7,6-8,0 år", "3,3-3,4 år"], ["113.000 kr. (større anlæg)", "10,3-10,8 år", "4,5-4,6 år"]], ["es_vp"]),
+     ("p", "Tallene er Energisparer.dk's regneeksempel for et standardhus på 130 m² med 2026-elpriser og Bolius' driftstal for gas og olie. Service, renter og den højere elafgift fra 2028 er ikke med, så se det som et eksempel og ikke et løfte.", ["es_vp", "bolius_varme"]),
+     ("p", "Regn på dit eget hus i <a href=\"/beregner/#varmepumpe\">beregneren</a>, hvor du kan ændre pris, varmebehov og elpris.", []),
+   ]),
+  ],
+  "faq": [
+   ("Hvad koster en luft til vand varmepumpe til et hus på 150 m²?", "Energisparer.dk angiver 110.000-135.000 kr. inkl. installation for et hus på 130-180 m², eller 83.000-108.000 kr. efter tilskud. Husets varmetab afgør den endelige størrelse.", ["es_l2v"]),
+   ("Hvad koster en luft til vand varmepumpe til et hus på 200 m²?", "Energisparer.dk angiver 135.000-150.000 kr. inkl. installation for huse over 180 m², typisk med en effekt på 12-16 kW.", ["es_l2v"]),
+   ("Kan jeg få tilskud til en luft til vand varmepumpe?", "Ja, 27.000 kr. fra Varmepumpepuljen, hvis huset opfylder de 5 krav, og du har tilsagn, før du skriver under. Puljen lukker senest 30. november 2026.", ["se_vpp", "vpp_faq"]),
+   ("Hvor meget må en luft til vand varmepumpe støje?", "Normalt højst 35 dB hos naboen om natten i parcelhus- og sommerhusområder efter Miljøstyrelsens vejledende grænser.", ["mst_stoej"]),
+  ],
+}
+
+T["/ladeboks/"] = {
+  "svc": "solceller", "crumb": "Ladeboks", "updated": UPD2, "noform": True, "eyebrow": "Guide · Ladeboks til elbil", "og_sub": "Guide · Ladeboks til elbil",
+  "kw": "ladeboks (6.600/md.) + ladeboks uden abonnement (2.900/md.), DataForSEO 31/10 2026",
+  "title": "Ladeboks til elbil: pris, installation og uden abonnement",
+  "desc": "Hvad koster en ladeboks inkl. installation? Se priser, med eller uden abonnement, hvad refusionen af elafgift er værd i 2026, smart opladning og solceller.",
+  "h1": "Ladeboks – sammenlign priser og få den installeret",
+  "intro": "En ladeboks er en fast installeret lader til elbilen på husmuren eller i carporten. Den skal sættes op af en autoriseret elinstallatør, og den store beslutning er, om du vil eje boksen uden abonnement eller betale månedligt til en ladeoperatør. Her er priserne, forskellen på løsningerne, og hvorfor ladetidspunktet betyder mere end refusionen i 2026.",
+  "sections": [
+   ("Hvad koster en ladeboks inkl. installation?", [
+     ("table", ["Kilde", "Pris"],
+      [["FDM (købt boks, standardinstallation)", "typisk 7.000-10.000 kr."], ["Energisparer.dk (boks + standardinstallation)", "ca. 5.000-12.000 kr."], ["FDM Ladeløsning (fast pakkepris, kræver FDM-medlemskab)", "10.999 kr., eller 8.999 kr. med FDM's elaftale"]], ["fdm_guide", "es_lbp", "fdm_ll"]),
+     ("p", "Selve boksen koster ifølge Energisparer.dk ca. 3.000-8.000 kr., og installationen typisk 2.000-5.000 kr. Det er kabellængden og eltavlen, der får prisen til at svinge: lang føringsvej eller gravearbejde kan koste 1.000-4.000 kr. ekstra, og en opgradering af tavlen 1.500-5.000 kr.", ["es_lbp"]),
+     ("p", "FDM's standardinstallation omfatter fx op til 15 meter kabel fra eltavlen, et 6 mm² installationskabel og en kombineret relæ og fejlstrømsafbryder. Gruppetavlen skal sidde i stueplan, og boksen skal have 4G eller stærkt wifi.", ["fdm_ll"]),
+     ("note", "Installationen af en ladeboks giver <strong>ikke</strong> håndværkerfradrag. Ladestandere står ikke på Skattestyrelsens liste over grøn istandsættelse. Sætter elektrikeren samtidig solceller op, kan den del af lønnen give fradrag, hvis den står for sig på fakturaen.", ["hvfradrag", "mm_lade", "hvbeting"]),
+   ]),
+   ("Ladeboks med eller uden abonnement", [
+     ("table", ["Løsning", "Opstart", "Løbende"],
+      [["Købt boks uden serviceaftale", "typisk 7.000-10.000 kr.", "kun strømmen via dit eget elselskab"], ["Købt eller lejet boks med serviceaftale", "fra ca. 1.000 kr. ved leje", "FDM: typisk 70-200 kr. om måneden"], ["Abonnement hos ladeoperatør", "0-7.500 kr.", "fx 799 kr. om måneden, ofte inkl. offentlig opladning"]], ["fdm_guide"]),
+     ("p", "FDM's priser er fra juni 2025. Lejer du boksen, er du bundet til ladeoperatøren og skal betale et nedtagningsgebyr, hvis du skifter. Ejer du en boks, der er godkendt til refusion, kan du frit skifte operatør.", ["fdm_guide"]),
+     ("p", "Abonnementet var tidligere ofte billigt, fordi operatøren kunne søge elafgiften tilbage. I 2026 og 2027 er elafgiften kun 0,8 øre pr. kWh uden moms, og Energisparer.dk regner refusionen til højst ca. 14 kr. om året for en bil, der kører 15.000 km. En <strong>ladeboks uden abonnement</strong> er derfor den billigste løsning for de fleste, så længe den lave afgift gælder.", ["elafgift", "es_lb"]),
+     ("note", "Efter gældende lov stiger elafgiften igen fra 2028. Så får refusionen betydning igen, og Energisparer.dk anbefaler derfor en boks, der kan måle ladestrømmen separat.", ["elafgift_lov", "es_lb"]),
+   ]),
+   ("Hvilke ladebokse findes (Zaptec, Easee, Clever …)?", [
+     ("p", "Ladeboksene fra fx Zaptec, Easee, Wallbox og Webasto bruger alle Type 2-stik, som passer til stort set alle elbiler solgt i EU. Clever og OK er derimod ladeoperatører, der tilbyder abonnement, leje eller køb af boks. FDM Ladeløsning installeres via Spirii.", ["es_lb", "fdm_ll"]),
+     ("ul", [("<strong>11 kW</strong> er standard i et 3-faset hus og lader en typisk elbil på en nat. 22 kW kræver en særlig installation, og mange biler kan kun tage 11 kW.", ["es_lb"]),
+             ("<strong>Lastbalancering</strong> skruer ned for ladningen, når resten af huset bruger meget strøm, så hovedsikringen ikke springer.", ["es_lb", "elsik_lade"]),
+             ("<strong>Fast kabel eller udtag:</strong> fast kabel er nemmest i hverdagen, et udtag er mere fleksibelt, hvis du skifter bil.", ["es_lb"])]),
+     ("p", "Sikkerhedsstyrelsen fraråder daglig opladning fra en almindelig stikkontakt og anbefaler en vægmonteret ladeboks sluttet direkte til den faste installation. Ladeboksen skal have sin egen strømkreds med en særskilt fejlstrømsafbryder, medmindre der er en godkendt indbygget. Arbejdet skal udføres af en autoriseret elinstallatør, som du kan slå op i Sikkerhedsstyrelsens autorisationsregister.", ["sik_ev", "elsik_lade", "es_lb", "sik_aut"]),
+   ]),
+   ("Kan ladeboksen styres efter elprisen?", [
+     ("p", "Ja, de fleste ladebokse med app kan lægge opladningen i døgnets billigste timer. Det kræver en elaftale med timepris. Har du en fast pris pr. kWh, betaler du det samme uanset klokken.", ["es_lb"]),
+     ("table", ["Ladevane, 2.700 kWh om året (DK1)", "Pris pr. kWh", "Pr. år"],
+      [["Kl. 17-21, når du kommer hjem", "ca. 2,18 kr.", "ca. 5.900 kr."], ["Kl. 0-6, om natten", "ca. 1,25 kr.", "ca. 3.400 kr."], ["Dagens 6 billigste timer (smart styring)", "ca. 0,88 kr.", "ca. 2.400 kr."]], ["es_lb"]),
+     ("p", "Tallene er Energisparer.dk's beregning med spotpriser fra oktober 2025 til september 2026 for en bil, der kører 15.000 km om året. Se timepriserne for i dag og i morgen på vores side om <a href=\"/elpris/\">elprisen</a>.", ["es_lb"]),
+   ]),
+   ("Ladeboks og solceller", [
+     ("p", "En elbil, der lader i dagtimerne, øger den andel af solstrømmen, du selv bruger, og det er netop egetforbruget, der gør solceller mest rentable. Nogle ladebokse kan prioritere din egen solstrøm.", ["se_sol", "es_sol", "es_lb"]),
+     ("p", "Se, hvad strømmen fra solceller er værd brugt selv og solgt, i guiden <a href=\"/solceller/kan-det-betale-sig/\">kan solceller betale sig?</a>", []),
+   ]),
+   ("Kan Energitjekket formidle et tilbud på en ladeboks?", [
+     ("p", "Ikke endnu. Vi formidler i dag kun forespørgsler på solceller og luft til vand-varmepumper. Til en ladeboks skal du selv kontakte en autoriseret elinstallatør eller en ladeoperatør.", ["sik_aut"]),
+     ("p", "Overvejer du solceller sammen med ladeboksen, kan du sende en forespørgsel på <a href=\"/solceller/tilbud/\">tilbud på solceller</a> og sætte kryds ved, at du har eller får elbil. Så kan installatøren tage højde for det, når anlægget dimensioneres.", []),
+   ]),
+  ],
+  "faq": [
+   ("Hvad koster en ladeboks inkl. installation?", "FDM angiver typisk 7.000-10.000 kr. for en købt boks med standardinstallation, og Energisparer.dk ca. 5.000-12.000 kr. Lang kabelføring og en ny eltavle trækker prisen op.", ["fdm_guide", "es_lbp"]),
+   ("Kan man få en ladeboks uden abonnement?", "Ja. Du kan købe en ladeboks og betale for strømmen via dit eget elselskab. I 2026 og 2027 er refusionen af elafgift kun få kroner om året værd, så et abonnement skal kunne betale sig på service og app alene.", ["fdm_guide", "es_lb"]),
+   ("Er der håndværkerfradrag for en ladeboks?", "Nej. Ladestandere står ikke på Skattestyrelsens liste over arbejde, der giver håndværkerfradrag.", ["hvfradrag", "mm_lade"]),
+   ("Må jeg selv sætte en ladeboks op?", "Nej. En fast ladeboks skal installeres af en autoriseret elinstallatør, og installationen skal verificeres, før den tages i brug.", ["es_lb", "sik_ev"]),
+  ],
+}
+
 # Navigation: (sti, kort titel, teaser, ikon)
 NAV = {
  "solceller": [("/solceller/kan-det-betale-sig/", "Kan solceller betale sig?", "Tilbagebetaling, værdi pr. kWh og elafgiften.", "scale"),
                ("/solceller/fladt-tag-og-carport/", "Solceller på fladt tag og carport", "Byggetilladelse, skel og montering.", "building"),
-               ("/solceller/tilbud/", "Tilbud på solceller", "Få et uforpligtende tilbud, og se hvad det skal indeholde.", "doc")],
+               ("/solceller/tilbud/", "Tilbud på solceller", "Få et uforpligtende tilbud, og se hvad det skal indeholde.", "doc"),
+               ("/ladeboks/", "Ladeboks til elbil", "Pris, installation og uden abonnement.", "bolt")],
  "varmepumpe": [("/varmepumpe/skift-oliefyr/", "Skift oliefyr til varmepumpe", "Besparelse, tilskud og olietanken.", "flame"),
                 ("/varmepumpe/skift-gasfyr/", "Skift gasfyr til varmepumpe", "Varmeplan, tilskud og afkobling.", "flame"),
                 ("/varmepumpe/jordvarme-pris/", "Jordvarme pris", "Pris, drift, grund og tilladelse.", "pump"),
+                ("/varmepumpe/luft-til-vand/", "Luft til vand varmepumpe", "Sådan virker den, pris efter husstørrelse og støjregler.", "pump"),
+                ("/varmepumpe/luft-til-luft/", "Luft til luft varmepumpe", "Hvad den kan, pris og besparelse.", "pump"),
                 ("/varmepumpe/luft-til-luft-pris/", "Luft til luft-varmepumpe pris", "Pris, besparelse og begrænsninger.", "pump"),
                 ("/varmepumpe/tilbud/", "Tilbud på varmepumpe", "Få et uforpligtende tilbud før fristen.", "doc")],
 }
