@@ -1,0 +1,4 @@
+solceller/herning {'performance': 98, 'accessibility': 100, 'best-practices': 96, 'seo': 100} LCP 1.8 s TBT 100 ms CLS 0
+solceller/greve/regler-og-byggetilladelse {'performance': 100, 'accessibility': 100, 'best-practices': 96, 'seo': 100} LCP 1.7 s TBT 0 ms CLS 0.021
+varmepumpe/greve {'performance': 98, 'accessibility': 100, 'best-practices': 96, 'seo': 100} LCP 1.8 s TBT 100 ms CLS 0
+varmepumpe/herning/fjernvarme-eller-varmepumpe {'performance': 98, 'accessibility': 100, 'best-practices': 96, 'seo': 100} LCP 1.8 s TBT 100 ms CLS 0

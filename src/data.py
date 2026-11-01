@@ -727,3 +727,75 @@ CONTACTS["faaborg"] = {"sol": [("Faaborg-Midtfyn Kommune, BYG", "72 53 21 04 · 
                        "vp":  [("FFV Varme A/S", "62 61 16 66 · ffv@ffv.dk", "ffv_proj")]}
 CONTACTS["aabenraa"] = {"sol": [("Aabenraa Kommune, Team Byg", "73 76 73 47 · byg@aabenraa.dk", "abr_sol")],
                         "vp":  [("Aabenraa Fjernvarme", "74 62 40 98 · info@aabenraa-fjernvarme.dk", "afv_pris")]}
+
+# ---------- daglig by-rutine 1. nov. 2026: Herning (DK1) og Greve (DK2) ----------
+S.update({
+ "her_sol": ("Herning Kommune: solceller, jordvarme og vindmøller", "https://www.herning.dk/borger/byudvikling-byggeri-og-grundsalg/din-ejendom/el-vand-og-varme/solceller-jordvarme-og-vindmoeller"),
+ "her_br18": ("Herning Kommune: hvad er undtaget ifølge BR18", "https://www.herning.dk/borger/byudvikling-byggeri-og-grundsalg/byggeri/kraever-dit-projekt-en-byggetilladelse/hvad-er-undtaget-ifoelge-br18"),
+ "her_soeg": ("Herning Kommune: sådan søger du byggetilladelse", "https://www.herning.dk/borger/byudvikling-byggeri-og-grundsalg/byggeri/ansoegning-om-byggetilladelse/saadan-soeger-du"),
+ "her_faelles": ("Herning Kommune: få en fælles varmeløsning (pulje til fælles varmeløsninger)", "https://www.herning.dk/borger/byudvikling-byggeri-og-grundsalg/din-ejendom/el-vand-og-varme/faa-en-faelles-varmeloesning"),
+ "verdo_her_pris": ("Verdo: fjernvarmepriser og tilslutningsbidrag i Herning (priser pr. 1/4 2026 og fra 1/1 2027)", "https://www.verdo.com/dk/privat/fjernvarme/priserogvilkaar/herning/"),
+ "verdo_her": ("Verdo: skift til fjernvarme i Herning", "https://www.verdo.com/dk/privat/fjernvarme/skift/herning/"),
+ "gre_byg": ("Greve Kommune: skal du søge byggetilladelse?", "https://greve.dk/by-og-bolig/byggeri/skal-du-soege-byggetilladelse"),
+ "gre_tjek": ("Greve Kommune: tjekliste før opsætning af solceller (PDF, rev. 21.11.2019)", "https://greve.dk/media/psepmnwk/tjekliste-foer-opsaetning-af-solceller-i-greve-kommune.pdf"),
+ "gre_varme": ("Greve Kommune: varme (fjernvarme, naturgas, jordvarme og luftvarmepumper)", "https://greve.dk/by-og-bolig/spildevand-el-vand-og-varmeforsyning/varme"),
+ "gre_tune": ("Greve Kommune 2026: Tuneborgerne får ikke fjernvarme", "https://greve.dk/nyheder/2026/tuneborgerne-faar-ikke-fjernvarme"),
+ "gre_vpl": ("Greve Kommune: Varmeplan 2022-2038 (PDF)", "https://greve.dk/media/zz1prqgh/varmeplan-2022-2038.pdf"),
+ "gre_pf1": ("Projektforslag 2022: konvertering fra naturgas til fjernvarme øst for motorvejen, fase 1 (Greve Kommune, PDF)", "https://greve.dk/media/nqlbg0ed/konvertering-fra-naturgas-til-fjernvarme-oest-for-motorvejen-fase-1-2022.pdf"),
+ "gfv_kan": ("Greve Fjernvarme: kan du få fjernvarme? (faser og tilmeldingsstatus, læst 1/11 2026)", "https://grevefjernvarme.dk/ny-kunde/kan-du-faa-fjernvarme"),
+ "gfv_pris": ("Greve Fjernvarme: hvad koster det at få fjernvarme?", "https://grevefjernvarme.dk/ny-kunde/hvad-koster-det-at-faa-fjernvarme"),
+})
+CITIES["herning"] = {
+  "name": "Herning", "kommune": "Herning Kommune", "updated": ("1. november 2026", "2026-11-01"),
+  "sol_intro": "Solceller i Herning: monteres panelerne fladt på den eksisterende tagkonstruktion og øger lasten med højst 5 %, kræver de ikke tilladelse efter byggeloven i Herning Kommune. Lokalplaner, deklarationer og bygningsreglementet skal dog overholdes, og anlæg på jorden kræver altid tilladelse. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Solcellepaneler, der monteres <strong>fladt på en eksisterende tagkonstruktion</strong>, kræver ikke tilladelse efter byggeloven, hvis anlægget højst øger lasten på taget med 5 %.", ["her_sol"]),
+    ("Kommunen anbefaler altid at sende <strong>skitser og en beregning af lasten</strong> via Byg og Miljø, så den kan vurdere, om anlægget kræver tilladelse.", ["her_sol"]),
+    ("Anlægget må ikke stride mod bygningsreglementet, <strong>lokalplaner, byplanvedtægter</strong>, tinglyste deklarationer, fredninger eller grundejervedtægter.", ["her_sol"]),
+    ("Solceller <strong>på jorden</strong> kræver tilladelse og må højst stå 20 m fra ejendommens samlede bygninger. I landzone kræver de også landzonetilladelse.", ["her_sol"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Herning?", "Ikke efter byggeloven, hvis panelerne monteres fladt på den eksisterende tagkonstruktion og højst øger lasten med 5 %. Kommunen skriver, at et anlæg på et enfamiliehus normalt ikke belaster taget så meget, at det ikke kan bære det. Lokalplaner og deklarationer skal stadig overholdes.", ["her_sol"]),
+    ("Hvad gør jeg, hvis naboen kan blive generet af genskin fra mine solceller?", "Herning Kommune anbefaler, at du lader leverandøren af anlægget vurdere risikoen for genskin, før det bliver sat op.", ["her_sol"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Herning: næsten fire ud af fem huse i Herning Kommune har fjernvarme, men i en række landsbyer er der hverken fjernvarme eller planer om det. Her støtter kommunen fælles varmeløsninger med rådgivning, og jordvarme kræver tilladelse. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("Verdo leverer fjernvarme til <strong>35.000 adresser</strong> i Herning og omegn, og 90 % produceres på biomasse.", ["verdo_her"]),
+    ("Kommunen har haft en <strong>pulje på 600.000 kr.</strong> for 2024 og 2025 til fælles varmeløsninger i lokalområder og landsbyer uden fjernvarme.", ["her_faelles"]),
+    ("Støtten gives som <strong>rådgivningstimer</strong>, fx til en teknisk analyse af jordvarme eller en fælles luft-vand-varmepumpe. Der gives ikke penge til selve anlægget.", ["her_faelles"]),
+    ("Et <strong>jordvarmeanlæg</strong> kræver tilladelse fra Herning Kommune, som du søger via Byg og Miljø, før du går i gang.", ["her_sol"]),
+  ],
+  "vp_faq": [
+    ("Kan vores landsby få hjælp til en fælles varmeløsning i Herning Kommune?", "Ja, en lokal arbejdsgruppe kan søge kommunens pulje til fælles varmeløsninger på varme@herning.dk. Kriterierne er bl.a. mindst 10 boliger, at mindst halvdelen i dag har olie- eller gasfyr, og at området ligger uden for fjernvarmen. Puljen var øremærket 2024 og 2025, så spørg kommunen, om der stadig er midler.", ["her_faelles"]),
+    ("Skal jeg have tilladelse til jordvarme i Herning?", "Ja. Du søger via Byg og Miljø med en pdf-skitse af matriklen, hvor bygninger, jordvarmeanlæg og eventuelle boringer er vist, og du må først gå i gang, når du har fået kommunens tilladelse.", ["her_sol"]),
+  ],
+}
+CITIES["greve"] = {
+  "name": "Greve", "kommune": "Greve Kommune", "updated": ("1. november 2026", "2026-11-01"),
+  "sol_intro": "Solceller i Greve: på et skråt tag eller en facade af et parcel- eller rækkehus kræver solceller ikke byggetilladelse i Greve Kommune, når bygningsreglementets højder og afstande overholdes. Dækker anlægget mere end ca. 75 % af en tagflade, skal sagen behandles efter lokalplanen. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Solceller på <strong>skrå tage og facader</strong> af enfamilie- og rækkehuse kræver ikke byggetilladelse, når anlægget holder sig inden for BR18's højder og afstande.", ["gre_tjek"]),
+    ("Anlæg på <strong>terræn</strong> og på erhvervsbyggeri kræver altid byggetilladelse.", ["gre_tjek"]),
+    ("Dækker anlægget <strong>mere end ca. 75 % af en enkelt tagflade</strong>, skal sagen behandles efter lokalplanen. Kommunen træffer afgørelsen uden gebyr.", ["gre_tjek"]),
+    ("Kommunen anbefaler <strong>antirefleksbehandlede</strong> paneler, og det er et krav, hvis lokalplanen forbyder blanke og reflekterende tagmaterialer.", ["gre_tjek"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Greve?", "Ikke hvis anlægget sidder på et skråt tag eller en facade af et enfamilie- eller rækkehus og holder sig inden for bygningsreglementets højder og afstande. Lokalplaner, tinglyste deklarationer, fredning og naturbeskyttelse kan dog kræve tilladelse eller dispensation.", ["gre_tjek"]),
+    ("Skal jeg melde mine solceller til BBR i Greve Kommune?", "Ja. Send en mail til bbrteam@greve.dk med anlæggets størrelse (antal paneler og m²) og ydelsen i kWp.", ["gre_tjek"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Greve: over halvdelen af husene i Greve Kommune har stadig naturgas, og Greve Fjernvarme udbygger nettet øst for motorvejen i faser frem mod 2038. I Tune er fjernvarmeprojektet aflyst, så husejerne igen kan søge tilskud til en varmepumpe. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("Høje Taastrup Fjernvarme har <strong>aflyst fjernvarmen i Tune</strong>, fordi tilslutningen faldt fra 60 % til 46 %. Borgerne kan igen søge tilskud fra statens pulje til varmepumper.", ["gre_tune"]),
+    ("En <strong>luftvarmepumpe</strong> kræver ikke tilladelse, men den skal overholde støjkravene i skel, og Greve Kommune følger normalt Miljøstyrelsens støjgrænser.", ["gre_varme"]),
+    ("Kommunen er <strong>restriktiv med dybe jordvarmeboringer</strong> mellem motorvejen og ca. 1 km fra kysten, fordi boringer gennem lerlagene kan trække saltvand ind i drikkevandet.", ["gre_varme"]),
+    ("<strong>Greve Landsby, Kildebrønde og Karlslunde Landsby</strong> ligger uden for Greve Fjernvarmes forsyningsområde.", ["gfv_kan"]),
+  ],
+  "vp_faq": [
+    ("Får Tune fjernvarme?", "Nej. Høje Taastrup Fjernvarme har aflyst projektet i Tune, Reerslev og Stærkende, fordi tilslutningen faldt til 46 %. Tune er ikke længere udlagt som fjernvarmeområde, og borgerne kan igen søge tilskud fra statens pulje til varmepumper.", ["gre_tune"]),
+    ("Må jeg lave jordvarme med en dyb boring i Greve?", "Det kræver kommunens tilladelse, og i området mellem motorvejen og ca. 1 km fra kysten er kommunen restriktiv, fordi der er risiko for saltvand i vandboringerne. Jordvarme med vandrette slanger kræver også tilladelse, og den normale afstand til en vandboring er 50 m.", ["gre_varme"]),
+  ],
+}
+CONTACTS["herning"] = {"sol": [("Herning Kommune, Byggesag", "96 28 80 15 · byggesag@herning.dk", "her_sol")],
+                       "vp":  [("Herning Kommune, varmeforsyning", "varme@herning.dk", "her_faelles")]}
+CONTACTS["greve"] = {"sol": [("Greve Kommune, Byggesagsbehandling", "43 97 91 96", "gre_byg")],
+                     "vp":  [("Greve Kommune, Natur og Miljø (varme)", "43 97 94 48 · varme@greve.dk", "gre_varme")]}

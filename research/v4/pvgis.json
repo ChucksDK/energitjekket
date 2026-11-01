@@ -1632,5 +1632,177 @@
    "angle": 40,
    "db": "PVGIS-SARAH3"
   }
+ },
+ "herning": {
+  "syd35": {
+   "url": "https://re.jrc.ec.europa.eu/api/v5_3/PVcalc?lat=56.1366&lon=8.9764&peakpower=1&loss=14&angle=35&aspect=0&outputformat=json",
+   "E_y": 938.8,
+   "H_y": 1158.79,
+   "months": [
+    21.32,
+    37.69,
+    83.16,
+    117.79,
+    131.11,
+    130.26,
+    123.39,
+    110.34,
+    85.91,
+    55.33,
+    26.75,
+    15.74
+   ],
+   "angle": 35,
+   "db": "PVGIS-SARAH3"
+  },
+  "oest_vest": {
+   "url": "https://re.jrc.ec.europa.eu/api/v5_3/PVcalc?lat=56.1366&lon=8.9764&peakpower=1&loss=14&angle=35&aspect=-90&outputformat=json",
+   "E_y": 743.41,
+   "H_y": 931.95,
+   "months": [
+    9.7,
+    22.04,
+    56.91,
+    94.98,
+    116.07,
+    118.81,
+    112.06,
+    94.59,
+    65.5,
+    34.46,
+    12.38,
+    5.9
+   ],
+   "angle": 35,
+   "db": "PVGIS-SARAH3"
+  },
+  "vest": {
+   "url": "https://re.jrc.ec.europa.eu/api/v5_3/PVcalc?lat=56.1366&lon=8.9764&peakpower=1&loss=14&angle=35&aspect=90&outputformat=json",
+   "E_y": 745.19,
+   "H_y": 937.52,
+   "months": [
+    9.28,
+    21.38,
+    57.3,
+    92.64,
+    116.92,
+    121.98,
+    115.24,
+    94.37,
+    63.8,
+    33.61,
+    12.51,
+    6.17
+   ],
+   "angle": 35,
+   "db": "PVGIS-SARAH3"
+  },
+  "opt": {
+   "url": "https://re.jrc.ec.europa.eu/api/v5_3/PVcalc?lat=56.1366&lon=8.9764&peakpower=1&loss=14&optimalangles=1&outputformat=json",
+   "E_y": 941.62,
+   "H_y": 1161.15,
+   "months": [
+    22.63,
+    39.22,
+    84.93,
+    118.01,
+    129.25,
+    127.57,
+    121.1,
+    109.59,
+    86.91,
+    57.25,
+    28.29,
+    16.87
+   ],
+   "angle": 40,
+   "db": "PVGIS-SARAH3"
+  }
+ },
+ "greve": {
+  "syd35": {
+   "url": "https://re.jrc.ec.europa.eu/api/v5_3/PVcalc?lat=55.583&lon=12.297&peakpower=1&loss=14&angle=35&aspect=0&outputformat=json",
+   "E_y": 1005.16,
+   "H_y": 1235.89,
+   "months": [
+    25.39,
+    43.34,
+    87.27,
+    126.01,
+    138.46,
+    136.84,
+    132.58,
+    116.56,
+    94.53,
+    58.82,
+    27.81,
+    17.57
+   ],
+   "angle": 35,
+   "db": "PVGIS-SARAH3"
+  },
+  "oest_vest": {
+   "url": "https://re.jrc.ec.europa.eu/api/v5_3/PVcalc?lat=55.583&lon=12.297&peakpower=1&loss=14&angle=35&aspect=-90&outputformat=json",
+   "E_y": 782.19,
+   "H_y": 977.79,
+   "months": [
+    10.78,
+    24.48,
+    59.0,
+    99.24,
+    120.38,
+    124.7,
+    118.89,
+    98.2,
+    70.1,
+    36.45,
+    13.3,
+    6.69
+   ],
+   "angle": 35,
+   "db": "PVGIS-SARAH3"
+  },
+  "vest": {
+   "url": "https://re.jrc.ec.europa.eu/api/v5_3/PVcalc?lat=55.583&lon=12.297&peakpower=1&loss=14&angle=35&aspect=90&outputformat=json",
+   "E_y": 784.12,
+   "H_y": 984.47,
+   "months": [
+    10.24,
+    23.49,
+    59.35,
+    98.61,
+    122.73,
+    127.11,
+    121.61,
+    98.55,
+    68.41,
+    34.77,
+    12.81,
+    6.43
+   ],
+   "angle": 35,
+   "db": "PVGIS-SARAH3"
+  },
+  "opt": {
+   "url": "https://re.jrc.ec.europa.eu/api/v5_3/PVcalc?lat=55.583&lon=12.297&peakpower=1&loss=14&optimalangles=1&outputformat=json",
+   "E_y": 1009.29,
+   "H_y": 1239.34,
+   "months": [
+    27.32,
+    45.48,
+    89.41,
+    126.29,
+    136.21,
+    133.45,
+    129.72,
+    115.65,
+    95.95,
+    61.16,
+    29.62,
+    19.03
+   ],
+   "angle": 41,
+   "db": "PVGIS-SARAH3"
+  }
  }
 }

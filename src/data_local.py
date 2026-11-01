@@ -11,13 +11,13 @@ def hs(c): return sum(HEAT[c].values())            # beboede parcel- og rækkehu
 def hp(c, k, d=0): return pct(HEAT[c][k], hs(c), d)
 def rp(c, k, d=0): return pct(ROOF[c]["T"][k], ROOF[c]["tot"], d)
 def town(c, name): return dict(TOWNS[c])[name]
-_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten", 19: "nitten", 20: "tyve"}
+_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten", 19: "nitten", 20: "tyve", 21: "enogtyve", 22: "toogtyve"}
 def nw(k=0): return _NUMW[len(NAMES) - k]          # "ni" for 9 byer, nw(1) = "otte" (de andre)
 def top(f, rev=False):
     """By med højeste (eller laveste, rev=True) værdi blandt sitets byer. Bruges til at tjekke sammenlignende udsagn."""
     return sorted(NAMES, key=f, reverse=not rev)[0]
 def rank(f, c): return sorted(NAMES, key=f, reverse=True).index(c) + 1
-_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende"}
+_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende", 21: "enogtyvende", 22: "toogtyvende"}
 def rk(f, c, word, art="den", rev=False):
     """Rangord, fx 'den højeste', 'den næsthøjeste' (rev=True tæller fra bunden). Holder sammenlignende udsagn sande, når nye byer kommer til."""
     r = sorted(NAMES, key=f, reverse=not rev).index(c) + 1
@@ -28,7 +28,7 @@ def above(f, c):
     a = [NAMES[x] for x in sorted(NAMES, key=f, reverse=True)[:rank(f, c) - 1]]
     return a[0] if len(a) == 1 else ", ".join(a[:-1]) + " og " + a[-1]
 
-NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa"}
+NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve"}
 LOCAL_S = {
  "dst_bol102": ("Danmarks Statistik: BOL102, boliger efter område og opvarmning (2026)", "https://www.statistikbanken.dk/BOL102"),
  "dst_bol101": ("Danmarks Statistik: BOL101, boliger efter opførelsesår og udlejningsforhold (2026)", "https://www.statistikbanken.dk/BOL101"),
@@ -132,7 +132,7 @@ def _st(c): return STOCK[c]
 SOL_HOMES = {
  "kolding": lambda: f"I Kolding Kommune er der {tal(STOCK['kolding']['parcel'])} beboede parcel- og stuehuse og {tal(STOCK['kolding']['raekke'])} række-, kæde- og dobbelthuse. {pct(STOCK['kolding']['ejer'],STOCK['kolding']['tot'])} bebos af ejeren. Ud over Kolding by gælder siden også Vamdrup, Christiansfeld, Lunderskov, Sønder Bjert og Vester Nebel, der alle hører under Kolding Kommunes regler for solceller.",
  "vejle": lambda: f"Vejle Kommune har {tal(STOCK['vejle']['tot'])} beboede parcel- og rækkehuse, og {pct(STOCK['vejle']['B']['2000+'],STOCK['vejle']['tot'])} er bygget i 2000 eller senere. Kun {above(lambda x: STOCK[x]['B']['2000+'] / STOCK[x]['tot'], 'vejle')} har en højere andel af nyere huse blandt de {nw()} byer på dette site. Kommunens regler gælder også i Børkop, Give, Jelling, Brejning og Egtved.",
- "esbjerg": lambda: f"{pct(STOCK['esbjerg']['B']['1960-1979'],STOCK['esbjerg']['tot'])} af de {tal(STOCK['esbjerg']['tot'])} beboede parcel- og rækkehuse i Esbjerg Kommune er opført 1960-1979, den største andel af de {nw()} byer. Bolius anbefaler at sikre, at taget har tilstrækkelig restlevetid, før solcellerne monteres. Siden gælder også Ribe, Bramming, Tjæreborg, Gørding og Tarp.",
+ "esbjerg": lambda: f"{pct(STOCK['esbjerg']['B']['1960-1979'],STOCK['esbjerg']['tot'])} af de {tal(STOCK['esbjerg']['tot'])} beboede parcel- og rækkehuse i Esbjerg Kommune er opført 1960-1979, {rk(lambda x: STOCK[x]['B']['1960-1979'] / STOCK[x]['tot'], 'esbjerg', 'største')} andel af de {nw()} byer. Bolius anbefaler at sikre, at taget har tilstrækkelig restlevetid, før solcellerne monteres. Siden gælder også Ribe, Bramming, Tjæreborg, Gørding og Tarp.",
  "odense": lambda: f"Odense skiller sig ud ved de mange rækkehuse: {tal(STOCK['odense']['raekke'])} af kommunens {tal(STOCK['odense']['tot'])} beboede parcel- og rækkehuse er række-, kæde- eller dobbelthuse ({pct(STOCK['odense']['raekke'],STOCK['odense']['tot'])}). Odense Kommune kræver tilladelse eller dispensation, hvis en lokalplan, byplanvedtægt eller servitut regulerer solceller eller tagets udseende. Siden gælder også Bellinge, Sankt Klemens, Fraugde og Over Holluf.",
  "aalborg": lambda: f"Aalborg Kommune har {tal(STOCK['aalborg']['tot'])} beboede parcel- og rækkehuse, næstflest af de {nw()} kommuner på dette site efter Aarhus. Siden gælder hele kommunen: Aalborg og Nørresundby ({tal(town('aalborg','Nørresundby'))} indbyggere) og forstæder som Svenstrup, Klarup, Vodskov og Gistrup samt Nibe.",
  "randers": lambda: f"I Randers Kommune er {pct(STOCK['randers']['ejer'],STOCK['randers']['tot'])} af de {tal(STOCK['randers']['tot'])} beboede parcel- og rækkehuse ejerboliger, og {pct(STOCK['randers']['B']['før 1960'],STOCK['randers']['tot'])} er bygget før 1960. Har huset bevaringsværdi 1-3 i et kulturmiljø, giver Randers Kommune som udgangspunkt ikke tilladelse til solceller. Siden gælder også Assentoft, Langå, Stevnstrup og Spentrup.",
@@ -817,6 +817,95 @@ def reg_age_note(c, kommune):
         return (f"{tal(B['1960-1979'])} af de beboede huse i Aabenraa Kommune ({pct(B['1960-1979'], t)}) er bygget i 1960-1979. Tjek fanen med lokal- og kommuneplaner i Byg og Miljø for dit kvarter, før du bestiller.", ["abr_bom"])
     return _reg_age_old6(c, kommune)
 
+# ---------- daglig by-rutine 1. nov. 2026: Herning (DK1, Region Midtjylland) og Greve (DK2, Region Sjælland) ----------
+_B6079 = lambda x: STOCK[x]["B"]["1960-1979"] / STOCK[x]["tot"]; _CEM = lambda x: ROOF[x]["T"]["08"] / ROOF[x]["tot"]; _FLAD = lambda x: ROOF[x]["T"]["02"] / ROOF[x]["tot"]
+_GSTR = "Greve Strand (del af Hovedstadsområdet)"
+SOL_ORDER.update({
+ "herning": ["produktion", "boliger", "lokalt", "tage", "guides", "faq"],
+ "greve": ["lokalt", "tage", "produktion", "boliger", "faq", "guides"],
+})
+VP_ORDER.update({
+ "herning": ["opvarmning", "lokale-byer", "lokalt", "pris", "guides", "faq"],
+ "greve": ["lokalt", "lokale-byer", "opvarmning", "pris", "faq", "guides"],
+})
+FV_ORDER.update({
+ "herning": ["andel", "priser", "status", "billigst", "varmekilder", "faq"],
+ "greve": ["status", "priser", "andel", "billigst", "varmekilder", "faq"],
+})
+SOL_PROD.update({
+ "herning": ("Hvor meget giver solceller i Herning?",
+   lambda: f"PVGIS beregner ca. <strong>{tal(PV['herning']['syd'])} kWh pr. kWp om året</strong> for et sydvendt tag med 35° hældning i Herning, {rk(_PVY, 'herning', 'laveste', rev=True)} af de {nw()} byer på dette site. Et 6 kWp-anlæg mod syd giver dermed ca. {tal(PV['herning']['syd']*6)} kWh om året, og ved den optimale hældning på {PV['herning']['opt_angle']}° ca. {tal(PV['herning']['opt']*6)} kWh."),
+ "greve": ("Syd, øst eller vest: produktion i Greve",
+   lambda: f"For et sydvendt tag med 35° hældning i Greve beregner PVGIS ca. {tal(PV['greve']['syd'])} kWh pr. kWp om året. Et tag mod øst giver ca. {tal(PV['greve']['oest'])} kWh og mod vest ca. {tal(PV['greve']['vest'])} kWh pr. kWp, altså ca. {pct(PV['greve']['vest'], PV['greve']['syd'])} af et sydvendt tag. Maj og juni er de bedste måneder med ca. {tal(PV['greve']['months'][4]*6)} og {tal(PV['greve']['months'][5]*6)} kWh fra et 6 kWp-anlæg mod syd."),
+})
+SOL_PROD_SRC_NEW.update({"herning": ["pv_herning", "pvgis"], "greve": ["pv_greve", "pvo_greve", "pvv_greve"]})
+SOL_ROOF.update({
+ "herning": ("Cementsten og fibercement i Herning Kommune",
+   lambda: f"{rp('herning','08',1)} af parcel- og rækkehusene i Herning Kommune har tag af <strong>cementsten</strong>, {rk(_CEM, 'herning', 'største')} andel af de {nw()} byer, og {rp('herning','06')} har fibercement. Kun {rp('herning','10')} har tegl, mod {rp('dk','10')} i hele landet. Er taget af ældre fibercement, så få det vurderet, før panelerne skrues fast: ifølge Bolius kan det indeholde asbest.",
+   ["dst_bygb50", "bolius_asb"]),
+ "greve": ("Flade tage og fibercement i Greve",
+   lambda: f"{rp('greve','02',1)} af parcel- og rækkehusene i Greve Kommune har <strong>fladt tag</strong>, {rk(_FLAD, 'greve', 'højeste')} andel af de {nw()} byer, mod {rp('dk','02',1)} i hele landet. {rp('greve','06')} har fibercement, {rp('greve','08')} cementsten og {rp('greve','10')} tegl. Greve Kommunes tjekliste for anlæg uden byggetilladelse gælder kun tage, der ikke er flade, så har du fladt tag, så kontakt kommunen, før du bestiller.",
+   ["dst_bygb50", "gre_tjek"]),
+})
+SOL_HOMES.update({
+ "herning": lambda: f"Herning Kommune har {tal(STOCK['herning']['tot'])} beboede parcel- og rækkehuse, og {pct(STOCK['herning']['B']['1960-1979'],STOCK['herning']['tot'])} er bygget i 1960-1979, {rk(_B6079, 'herning', 'største')} andel af de {nw()} byer. Kommunens største by er Herning med {tal(town('herning','Herning'))} indbyggere. Siden gælder også Sunds ({tal(town('herning','Sunds'))}), Vildbjerg ({tal(town('herning','Vildbjerg'))}), Aulum, Kibæk og Sønder Felding.",
+ "greve": lambda: f"{pct(STOCK['greve']['ejer'],STOCK['greve']['tot'])} af de {tal(STOCK['greve']['tot'])} beboede parcel- og rækkehuse i Greve Kommune er ejerboliger, {rk(_EJ, 'greve', 'højeste')} andel af de {nw()} kommuner, og {pct(STOCK['greve']['B']['1960-1979'],STOCK['greve']['tot'])} er bygget i 1960-1979, {rk(_B6079, 'greve', 'største')} andel på sitet. Byområdet Greve Strand har {tal(town('greve',_GSTR))} indbyggere ifølge Danmarks Statistik. Siden gælder også Tune ({tal(town('greve','Tune'))}), Greve Landsby og Kildebrønde.",
+})
+SOL_HOMES_SRC_NEW.update({"herning": [], "greve": []})
+SOL_HOMES_H.update({"herning": "Huse fra Herning til Sunds og Vildbjerg", "greve": "Ejerboliger fra Greve Strand til Tune"})
+SOL_XFAQ.update({
+ "herning": [("Hvor meget giver solceller i Herning om vinteren?", lambda: f"PVGIS beregner ca. {tal(PV['herning']['months'][11]*6)} kWh i december og {tal(PV['herning']['months'][0]*6)} kWh i januar fra et 6 kWp-anlæg mod syd i Herning, mod ca. {tal(PV['herning']['months'][4]*6)} kWh i maj.", ["pv_herning"])],
+ "greve": [("Kan solceller betale sig på et øst-vest-tag i Greve?", lambda: f"Et østvendt tag giver ifølge PVGIS ca. {tal(PV['greve']['oest'])} kWh og et vestvendt ca. {tal(PV['greve']['vest'])} kWh pr. kWp om året i Greve, mod {tal(PV['greve']['syd'])} kWh mod syd. Et 6 kWp-anlæg mod vest giver dermed ca. {tal(PV['greve']['vest']*6)} kWh om året, og mere af strømmen kommer sidst på dagen.", ["pvo_greve", "pvv_greve", "pv_greve"])],
+})
+VP_HEAT.update({
+ "herning": ("Næsten fire ud af fem huse har fjernvarme i Herning Kommune",
+   lambda: f"{hp('herning','FJ',1)} af de {tal(hs('herning'))} beboede parcel- og rækkehuse i Herning Kommune har fjernvarme, mod {hp('dk','FJ',1)} på landsplan. Kun {tal(HEAT['herning']['CN'])} ({hp('herning','CN',1)}) har naturgas og {tal(HEAT['herning']['CO'])} oliefyr, mens {tal(HEAT['herning']['CA'])} ({hp('herning','CA',1)}) har centralvarme med en anden kilde, fx træpiller, {rk(_CA, 'herning', 'største')} andel af de {nw()} byer. {tal(HEAT['herning']['VP'])} huse ({hp('herning','VP',1)}) har allerede varmepumpe."),
+ "greve": ("Over halvdelen af husene i Greve har naturgas",
+   lambda: f"{tal(HEAT['greve']['CN'])} beboede parcel- og rækkehuse i Greve Kommune ({hp('greve','CN',1)}) har naturgas, {rk(_CN, 'greve', 'højeste')} andel af de {nw()} byer, mod {hp('dk','CN',1)} på landsplan. Kun {hp('greve','FJ',1)} har fjernvarme. {tal(HEAT['greve']['VP'])} huse ({hp('greve','VP',1)}) har allerede varmepumpe, og {tal(HEAT['greve']['ELV'])} har elvarme."),
+})
+VP_HEAT_SRC_NEW.update({"herning": [], "greve": []})
+VP_TOWNS.update({
+ "herning": [("Herning", "Verdo. Tilslutning 25.000-40.000 kr. for et enfamiliehus", ["verdo_her_pris"]),
+             ("Vildbjerg", "Eget værk: Vildbjerg Varme", ["ft_pris"]),
+             ("Sunds", "Eget værk: Sunds Vand- og Varmeværk", ["ft_pris"]),
+             ("Aulum", "Eget værk: Aulum Fjernvarme", ["ft_pris"]),
+             ("Kibæk", "Eget værk: Kibæk Varmeværk", ["ft_pris"]),
+             ("Landsbyer uden fjernvarme", "Kommunens pulje til rådgivning om fælles varmeløsninger", ["her_faelles"])],
+ "greve": [("Greve Strand og Hundige", "Greve Fjernvarme. Udbygges i faser frem mod 2038", ["gfv_kan", "gre_vpl"]),
+           ("Åsager, Firhøj m.fl.", "60 %-kravet nået. Gravearbejdet ventes at begynde i starten af 2027", ["gfv_kan"]),
+           ("Mosede", "Mosede Fjernvarmeværk", ["gre_varme", "ft_pris"]),
+           ("Tune", "Fjernvarmeprojektet aflyst i 2026. Tilskud til varmepumpe muligt igen", ["gre_tune"]),
+           ("Greve Landsby og Kildebrønde", "Uden for Greve Fjernvarmes forsyningsområde", ["gfv_kan"]),
+           ("Vest for motorvejen", "Tranegilde Fjernvarme", ["gfv_kan", "gre_varme"])],
+})
+VP_TOWNS_NOTE.update({
+ "herning": "Bor du i en landsby uden fjernvarme, så tal med naboerne om en fælles varmeløsning. Kommunens pulje kræver mindst 10 boliger, hvoraf mindst halvdelen i dag har olie- eller gasfyr.",
+ "greve": "Bor du øst for motorvejen, så tjek Greve Fjernvarmes udbygningsfaser, før du vælger varmepumpe. I Tune kan du igen søge tilskud fra statens varmepumpepulje, efter at fjernvarmeprojektet er aflyst.",
+})
+VP_XFAQ.update({
+ "herning": [("Hvor mange huse i Herning Kommune har stadig olie- eller gasfyr?", lambda: f"Danmarks Statistik registrerer {tal(HEAT['herning']['CO'])} beboede parcel- og rækkehuse med oliefyr og {tal(HEAT['herning']['CN'])} med naturgas i 2026, ud af {tal(hs('herning'))}. {tal(HEAT['herning']['ELV'])} har elvarme og {tal(HEAT['herning']['VP'])} varmepumpe.", ["dst_bol102"])],
+ "greve": [("Hvor mange huse i Greve Kommune har allerede varmepumpe?", lambda: f"{tal(HEAT['greve']['VP'])} beboede parcel- og rækkehuse ({hp('greve','VP',1)}) ifølge Danmarks Statistik, 2026, mod {hp('dk','VP',1)} på landsplan. {tal(HEAT['greve']['CN'])} har stadig naturgas og {tal(HEAT['greve']['CO'])} oliefyr.", ["dst_bol102"])],
+})
+FV_SOURCES.update({
+ "herning": [("Verdo skriver, at 90 % af fjernvarmen til de 35.000 adresser i Herning og omegn produceres på vedvarende energi i form af <strong>biomasse</strong>.", ["verdo_her"]),
+             ("Herning Kommunes pulje til <strong>fælles varmeløsninger</strong> betaler rådgivning om fx jordvarme eller en fælles luft-vand-varmepumpe i lokalområder uden fjernvarme, men ikke selve anlægget.", ["her_faelles"])],
+ "greve": [("Fjernvarmen i Greve produceres i hovedtræk ved <strong>affaldsforbrænding og biomasse</strong> og en smule fossile brændsler i spidsbelastede perioder, og varmen kommer fra VEKS (Vestegnens Kraftvarmeselskab).", ["gre_varme"]),
+           ("Greve er en del af <strong>hovedstadsområdets sammenhængende fjernvarmesystem</strong>, hvor varmen leveres via store transmissionsrør tæt ved Køge Bugt-motorvejen.", ["gfv_kan"])],
+})
+FV_SHARE.update({
+ "herning": lambda: f"{hp('herning','FJ',1)} af de beboede parcel- og rækkehuse i Herning Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. Kun {tal(HEAT['herning']['CN'])} huse ({hp('herning','CN',1)}) har naturgas og {tal(HEAT['herning']['CO'])} oliefyr.",
+ "greve": lambda: f"Kun {hp('greve','FJ',1)} af de beboede parcel- og rækkehuse i Greve Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. {tal(HEAT['greve']['CN'])} huse ({hp('greve','CN',1)}) har naturgas, {rk(_CN, 'greve', 'højeste')} andel af de {nw()} byer.",
+})
+FV_SOURCES_H.update({"herning": "Biomasse i Herning og fælles varme i landsbyerne", "greve": "Affald og biomasse fra VEKS i Greve"})
+_reg_age_old7 = reg_age_note
+def reg_age_note(c, kommune):
+    s = STOCK[c]; B = s["B"]; t = s["tot"]
+    if c == "herning":
+        return (f"{tal(B['1960-1979'])} af de beboede huse i Herning Kommune ({pct(B['1960-1979'], t)}) er bygget i 1960-1979. Er du i tvivl om, hvad taget kan bære, så send skitser og en beregning af lasten via Byg og Miljø, som kommunen anbefaler.", ["her_sol"])
+    if c == "greve":
+        return (f"{tal(B['1960-1979'])} af de beboede huse i Greve Kommune ({pct(B['1960-1979'], t)}) er bygget i 1960-1979. Find lokalplanen for dit kvarter og tjek, om den forbyder blanke og reflekterende tagmaterialer: så skal panelerne være antirefleksbehandlede.", ["gre_tjek"])
+    return _reg_age_old7(c, kommune)
+
 # ---------- tjek af sammenlignende udsagn: bygget fejler, hvis en ny by gør et udsagn forkert ----------
 _PVs = lambda c: PV[c]["syd"]; _rt = lambda k: (lambda c: ROOF[c]["T"][k] / ROOF[c]["tot"]); _hf = lambda k: (lambda c: HEAT[c][k] / hs(c)); _sb = lambda k: (lambda c: STOCK[c]["B"][k] / STOCK[c]["tot"])
 CLAIMS = [
@@ -824,23 +913,26 @@ CLAIMS = [
  ("Aalborg top 6 juni", rank(lambda c: PV[c]["months"][5], "aalborg") <= 6),
  ("Odense flest tegl", top(_rt("10")) == "odense"), ("Aalborg flest fibercement", top(_rt("06")) == "aalborg"),
  ("Vejle ikke nr. 1 nyere huse", rank(_sb("2000+"), "vejle") > 1),
- ("Esbjerg flest 1960-79", top(_sb("1960-1979")) == "esbjerg"),
+ ("Esbjerg top 3 1960-79 (dynamisk tekst)", rank(_sb("1960-1979"), "esbjerg") <= 3),
  ("Aarhus flest huse", top(lambda c: STOCK[c]["tot"]) == "aarhus"), ("Aalborg nr. 2 huse", rank(lambda c: STOCK[c]["tot"], "aalborg") == 2),
- ("Horsens top 2 ejerandel (dynamisk tekst)", rank(_EJ, "horsens") <= 2),
+ ("Horsens top 3 ejerandel (dynamisk tekst)", rank(_EJ, "horsens") <= 3),
  ("Odense højeste FJ", top(_hf("FJ")) == "odense"), ("Aarhus nr. 2 FJ", rank(_hf("FJ"), "aarhus") == 2),
 
  ("Viborg højeste olie, Randers top 3 (dynamisk tekst)", top(_hf("CO")) == "viborg" and rank(_hf("CO"), "randers") <= 3),
  ("Næstved gas tæt på fjernvarme (overskrift)", abs(HEAT["naestved"]["CN"] - HEAT["naestved"]["FJ"]) / HEAT["naestved"]["FJ"] < 0.05),
  ("Sønderborg tre ud af fem FJ (overskrift)", 0.58 <= HEAT["soenderborg"]["FJ"] / hs("soenderborg") <= 0.62),
  ("Roskilde mere end hvert fjerde gas (overskrift)", HEAT["roskilde"]["CN"] / hs("roskilde") > 0.25),
- ("Holbæk top 2 gasfyr og laveste FJ (overskrift)", rank(_hf("CN"), "holbaek") <= 2 and top(_hf("FJ"), rev=True) == "holbaek"),
- ("Køge halvdelen gas og flest gasfyr (overskrift)", 0.47 <= HEAT["koege"]["CN"] / hs("koege") <= 0.53 and top(_hf("CN")) == "koege"),
+ ("Holbæk top 3 gasfyr og laveste FJ (overskrift)", rank(_hf("CN"), "holbaek") <= 3 and top(_hf("FJ"), rev=True) == "holbaek"),
+ ("Køge halvdelen gas, top 2 gasfyr (overskrift, dynamisk tekst)", 0.47 <= HEAT["koege"]["CN"] / hs("koege") <= 0.53 and rank(_hf("CN"), "koege") <= 2),
  ("Svendborg hvert fjerde FJ (overskrift)", 0.23 <= HEAT["svendborg"]["FJ"] / hs("svendborg") <= 0.27),
  ("Svendborg top 2 PV (dynamisk tekst)", rank(_PVs, "svendborg") <= 2),
  ("Faaborg hvert tredje FJ (tekst)", 0.32 <= HEAT["faaborg"]["FJ"] / hs("faaborg") <= 0.36),
  ("Aabenraa halvdelen FJ (tekst)", 0.48 <= HEAT["aabenraa"]["FJ"] / hs("aabenraa") <= 0.54),
  ("Aabenraa hvert ellevte elvarme (overskrift)", 0.085 <= HEAT["aabenraa"]["ELV"] / hs("aabenraa") <= 0.096),
  ("Aabenraa FJ tæt på landsgennemsnit (tekst)", abs(HEAT["aabenraa"]["FJ"] / hs("aabenraa") - HEAT["dk"]["FJ"] / hs("dk")) < 0.04),
+ ("Herning næsten fire ud af fem FJ (overskrift)", 0.76 <= HEAT["herning"]["FJ"] / hs("herning") < 0.80),
+ ("Greve over halvdelen gas (overskrift)", HEAT["greve"]["CN"] / hs("greve") > 0.50),
+ ("Greve hvert fjerde FJ (tekst)", 0.22 <= HEAT["greve"]["FJ"] / hs("greve") <= 0.27),
 ]
 _bad = [n for n, ok in CLAIMS if not ok]
 assert not _bad, f"Sammenlignende udsagn passer ikke længere: {_bad}"

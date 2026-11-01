@@ -1126,3 +1126,103 @@ FV_PAGE["aabenraa"] = {
    ("Hvornår får Bolderslev fjernvarme?", "Aabenraa Fjernvarme venter, at de første forbrugere i Bolderslev får fjernvarme i 1. kvartal 2027. Tidsplanen for gravearbejdet i byen opdateres løbende.", ["afv_bol"]),
   ],
 }
+
+# ---------- daglig by-rutine 1. nov. 2026: Herning og Greve ----------
+# Forsyningstilsynet, prisstatistik januar 2026 (CSV): værker i de to kommuner (navne og postnr. som i statistikken).
+FV_PRICES["herning"] = [("Vildbjerg Varme A/S", "7480", "9.255", "300"), ("Verdo Varme Herning", "8920", "13.045", "462"), ("Kibæk Varmeværk", "6933", "13.096", "368"), ("Sunds Vand- og Varmeværk", "7451", "13.996", "593"), ("Aulum Fjernvarme", "7490", "15.312", "375"), ("Ørnhøj-Grønbjerg Kraftvarmeværk", "6973", "20.377", "718")]
+FV_PRICES["greve"] = [("Greve Fjernvarme A.m.b.a.", "2670", "14.432", "522"), ("Mosede Fjernvarmeværk a.m.b.a.", "2670", "21.594", "1028")]
+SOL_REG["herning"] = {
+  "kw": "solceller herning kommune / byggetilladelse solceller herning",
+  "evidence": "Herning Kommune beskriver på siden 'Solceller, jordvarme og vindmøller', hvornår solceller kræver tilladelse, hvad der gælder for anlæg på terræn og i landzone, og hvordan man søger (tjekket 1/11 2026).",
+  "intro": "Herning Kommune kræver ikke tilladelse efter byggeloven til solceller, der monteres fladt på den eksisterende tagkonstruktion, hvis anlægget højst øger lasten med 5 %. Anlæg på jorden kræver altid tilladelse, og i landzone også landzonetilladelse. Her er reglerne og hvordan du søger.",
+  "sections": [
+   ("Fladt på taget: højst 5 % ekstra last", [
+     ("ul", [("Paneler, der monteres <strong>fladt på en eksisterende tagkonstruktion</strong>, kræver ikke tilladelse efter byggeloven, hvis anlæggets samlede vægt højst er 5 % af tagkonstruktionens nuværende last.", ["her_sol"]),
+             ("Kan det eftervises, hører projektet ikke under en konstruktionsklasse, og så er byggetilladelse ikke nødvendig.", ["her_sol"]),
+             ("Kommunen anbefaler altid at sende <strong>skitser og en beregning</strong> af påvirkningen via Byg og Miljø, så den kan vurdere, om anlægget kræver tilladelse.", ["her_sol"])]),
+   ]),
+   ("Regler, du stadig skal overholde", [
+     ("ul", [("Anlægget må ikke stride mod <strong>bygningsreglementet, lokalplaner eller byplanvedtægter</strong>.", ["her_sol"]),
+             ("Tjek også <strong>tinglyste deklarationer</strong>, fredede bygninger og lokale grundejervedtægter.", ["her_sol"]),
+             ("Kræver et byggearbejde ikke tilladelse, er det ejerens eget ansvar, at det overholder bygningsreglementet og anden lovgivning.", ["her_br18"]),
+             ("Bygningsreglementet kræver, at solceller ved parcel-, række- og dobbelthuse holder <strong>mindst 2,5 m til skel</strong> mod nabo, sti og vej.", ["br18_179"])]),
+   ]),
+   ("Solceller på jorden og i landzone", [
+     ("p", "Et anlæg på terræn kræver tilladelse fra kommunen og må højst stå <strong>20 m fra ejendommens samlede bygninger</strong>. Det gælder kun mindre anlæg til eget forbrug. I landzone skal anlæg til eget forbrug som udgangspunkt placeres på tagflader, og et mindre anlæg på terræn kræver <strong>landzonetilladelse</strong>. Du søger i Byg og Miljø under ansøgningstypen 'Planmæssig forespørgsel'.", ["her_sol"]),
+   ]),
+   ("Genskin og naboer", [
+     ("p", "Solen kan reflekteres fra blanke flader på panelerne og genere naboerne. Herning Kommune anbefaler, at du lader <strong>leverandøren vurdere risikoen for genskin</strong>. Er du i tvivl, om et anlæg må sættes op, kan du ringe til kommunen på 96 28 80 15.", ["her_sol"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller byggetilladelse i Herning Kommune?", "Ikke når panelerne monteres fladt på den eksisterende tagkonstruktion og højst øger lasten med 5 %. Solceller på terræn kræver tilladelse, og i landzone også landzonetilladelse.", ["her_sol"]),
+   ("Hvordan søger jeg om solceller på jorden i Herning?", "I Byg og Miljø under 'Planmæssig forespørgsel'. Anlægget må højst stå 20 m fra bygningerne og kun levere strøm til eget forbrug.", ["her_sol"]),
+   ("Hvad skal en ansøgning om solceller i Herning indeholde?", "Relevant tegningsmateriale i pdf-format, der viser anlæggets størrelse og placering. Søger du for en anden, skal ejeren give fuldmagt i Byg og Miljø.", ["her_sol", "her_soeg"]),
+   ("Hvem kontakter jeg om solceller i Herning Kommune?", "Byggesag i Herning Kommune på 96 28 80 15 eller byggesag@herning.dk.", ["her_sol"]),
+  ],
+}
+SOL_REG["greve"] = {
+  "kw": "solceller greve kommune / byggetilladelse solceller greve",
+  "evidence": "Greve Kommunes 'Tjekliste før opsætning af solceller' (rev. 21.11.2019) og siden 'Skal du søge byggetilladelse?' beskriver, hvornår solceller kræver tilladelse, hvad lokalplanen betyder, og hvad der skal meldes til BBR (tjekket 1/11 2026).",
+  "intro": "Greve Kommune kræver ikke byggetilladelse til solceller på et skråt tag eller en facade af et enfamilie- eller rækkehus, når bygningsreglementets højder og afstande holdes. Anlæg på terræn og på erhverv kræver altid tilladelse, og over ca. 75 % af en tagflade skal sagen behandles efter lokalplanen. Her er reglerne og hvordan du søger.",
+  "sections": [
+   ("Skråt tag på parcel- og rækkehuse: ingen byggetilladelse", [
+     ("ul", [("Anlæg på <strong>facaden eller et tag, der ikke er fladt</strong>, på et enfamilie- eller rækkehus kræver ikke tilladelse eller anmeldelse efter byggeloven.", ["gre_tjek"]),
+             ("Anlægget skal holde sig inden for <strong>BR18 § 177</strong> om højder og afstande.", ["gre_tjek"]),
+             ("Anlæg på <strong>terræn</strong> og på erhvervsbyggeri kræver altid byggetilladelse.", ["gre_tjek"])]),
+   ]),
+   ("Lokalplan: over 75 % af en tagflade skal behandles", [
+     ("p", "Greve Kommune vurderer, at solceller på op til ca. 75 % af en enkelt tagflade ikke er et nyt tag. Fylder anlægget mere, skal sagen som udgangspunkt behandles efter lokalplanen, og du sender en underskrevet ansøgning til byg@greve.dk med en <strong>målfast facadetegning</strong> og anlæggets størrelse i m². Afgørelsen træffes <strong>uden gebyr</strong>, fordi sagen behandles efter planloven.", ["gre_tjek"]),
+   ]),
+   ("Antirefleks, bevarende lokalplaner og fredning", [
+     ("ul", [("Kommunen anbefaler <strong>antirefleksbehandlede</strong> paneler. Forbyder lokalplanen blanke og reflekterende tagmaterialer, er antirefleks et krav.", ["gre_tjek"]),
+             ("Er du omfattet af en <strong>bevarende lokalplan</strong>, skal du sende en ansøgning til byg@greve.dk, og kommunen vurderer den konkret.", ["gre_tjek"]),
+             ("Er bygningen <strong>bevaringsværdig eller fredet</strong>, eller ændrer anlægget bygningens udseende væsentligt, kræver det tilladelse.", ["gre_byg"])]),
+   ]),
+   ("Meld anlægget til BBR", [
+     ("p", "Solceller og solfangere skal meldes til Bygnings- og Boligregistret på <strong>bbrteam@greve.dk</strong>. Mailen skal indeholde anlæggets størrelse (antal paneler og m²) og ydelsen i kWp.", ["gre_tjek"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller byggetilladelse i Greve Kommune?", "Ikke på et skråt tag eller en facade af et enfamilie- eller rækkehus, når BR18's højder og afstande holdes. Solceller på terræn og på erhvervsbyggeri kræver altid byggetilladelse.", ["gre_tjek"]),
+   ("Hvad hvis solcellerne dækker næsten hele taget i Greve?", "Over ca. 75 % af en enkelt tagflade skal sagen som udgangspunkt behandles efter lokalplanen. Send ansøgning, facadetegning og anlæggets størrelse til byg@greve.dk. Afgørelsen er uden gebyr.", ["gre_tjek"]),
+   ("Skal mine solceller være antirefleks i Greve?", "Kommunen anbefaler det altid for at undgå gener for naboerne, og det er et krav, hvis lokalplanen forbyder blanke og reflekterende tagmaterialer.", ["gre_tjek"]),
+   ("Hvem kontakter jeg om solceller i Greve Kommune?", "Byggesagsbehandlingen i Greve Kommune på 43 97 91 96. Spørgsmål om lokalplaner og ansøgninger kan sendes til byg@greve.dk.", ["gre_byg", "gre_tjek"]),
+  ],
+}
+FV_PAGE["herning"] = {
+  "kw": "fjernvarme herning / verdo herning / varmepumpe herning",
+  "evidence": "Verdo oplyser priser pr. 1/4 2026, prisen fra 1/1 2027 og tilslutningsbidrag i Herning på sin hjemmeside, og Herning Kommune beskriver puljen til fælles varmeløsninger (tjekket 1/11 2026).",
+  "intro": "Næsten fire ud af fem huse i Herning Kommune har fjernvarme, og Verdo Varme Herning hører til de 10 % billigste fjernvarmeværker i landet. I landsbyer uden fjernvarme støtter kommunen i stedet fælles varmeløsninger med rådgivning. Her er status, værkernes priser og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Herning by:</strong> Verdo leverer fjernvarme til 35.000 adresser i Herning og omegn, og 90 % af varmen produceres på biomasse.", ["verdo_her"]),
+   ("<strong>Pris fra 1. januar 2027:</strong> varmeregningen for et standardhus i Herning stiger med 215 kr. om året. Prisen bliver 46,12 øre pr. kWh, og et standardhus på 125 m² med 13.400 kWh kommer til at betale 9.989 kr. om året.", ["verdo_her_pris"]),
+   ("<strong>Tilslutning:</strong> et almindeligt enfamiliehus betaler 25.000 kr. inkl. 20 m stikledning, når stikket blev ført ind ved byggemodningen, ellers 40.000 kr. Ekstra stikledning koster 675 kr. pr. meter.", ["verdo_her_pris"]),
+   ("<strong>Landsbyer uden fjernvarme:</strong> kommunen øremærkede 600.000 kr. i 2024 og 2025 til rådgivning om fælles varmeløsninger for mindst 10 boliger, hvor mindst halvdelen har olie- eller gasfyr.", ["her_faelles"]),
+  ],
+  "local_take": "Vildbjerg Varme er nr. 6 af 374 værker i Forsyningstilsynets statistik regnet fra det billigste, og Verdo Varme Herning, Kibæk, Sunds og Aulum ligger alle under landsgennemsnittet, mens Ørnhøj-Grønbjerg ligger over. Har du fjernvarme fra et af de billige værker, er der sjældent penge i at skifte til varmepumpe. Bor du i en landsby uden fjernvarme, er en luft til vand-varmepumpe eller en fælles varmeløsning med naboerne de oplagte alternativer til olie- og gasfyret.",
+  "contact": ("Verdo, fjernvarme Herning", "70 10 02 30 · varmeherning@verdo.com", "verdo_her"),
+  "faq": [
+   ("Hvad koster fjernvarme i Herning?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus på 130 m² med 18,1 MWh 13.045 kr. om året inkl. moms hos Verdo Varme Herning, 9.255 kr. hos Vildbjerg Varme, 13.996 kr. hos Sunds Vand- og Varmeværk og 20.377 kr. hos Ørnhøj-Grønbjerg Kraftvarmeværk. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+   ("Hvad koster det at blive tilsluttet fjernvarme i Herning?", "Hos Verdo koster et almindeligt enfamiliehus 25.000 kr. inkl. 20 m stikledning, hvis stikket blev ført ind ved byggemodningen, og ellers 40.000 kr. Hertil kommer en fjernvarmeunit og VVS-arbejde.", ["verdo_her_pris"]),
+   ("Stiger fjernvarmen i Herning i 2027?", "Ja, lidt. Fra 1. januar 2027 stiger regningen for et standardhus på 125 m² med 13.400 kWh med 215 kr. til 9.989 kr. om året, og kWh-prisen bliver 46,12 øre inkl. moms.", ["verdo_her_pris"]),
+  ],
+}
+FV_PAGE["greve"] = {
+  "kw": "fjernvarme greve / greve fjernvarme / varmepumpe greve",
+  "evidence": "Greve Fjernvarme viser udbygningsfaser og tilmeldingsstatus på siden 'Kan du få fjernvarme?' og priser på siden 'Hvad koster det at få fjernvarme?' (tjekket 1/11 2026), og Greve Kommune meldte aflysningen i Tune ud i 2026.",
+  "intro": "Kun hvert fjerde hus i Greve Kommune har fjernvarme, og over halvdelen har stadig naturgas. Greve Fjernvarme udbygger nettet øst for motorvejen i fem faser frem mod 2038, mens Tune ikke får fjernvarme. Her er status, værkernes priser og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Udbygningsfaser:</strong> Greve Fjernvarme udbygger i fem faser: fase 1 (2023-2026), fase 2 (2025-2030) og fase 3-5 (2028-2038), hvor projektforslagene endnu afventer.", ["gfv_kan"]),
+   ("<strong>Åsager, Firhøj, Rugager, Græsager, Egedal, Hørager og Hirseager:</strong> 63 % har tilmeldt sig, så kravet på 60 % er nået. Gravearbejdet ventes at begynde i starten af 2027, og alle boliger ventes tilsluttet i løbet af 2027. Fugleparken er endnu ikke nået op på 60 %.", ["gfv_kan"]),
+   ("<strong>Eriksmindekvarteret:</strong> Greve Fjernvarme forbereder projektet, og boligejerne kan forvente information i løbet af november 2026.", ["gfv_kan"]),
+   ("<strong>Tune:</strong> Høje Taastrup Fjernvarme har aflyst projektet, fordi tilslutningen faldt fra 60 % til 46 %. Husejerne kan igen søge tilskud til en varmepumpe.", ["gre_tune"]),
+  ],
+  "local_take": "Greve Fjernvarme ligger under landsgennemsnittet i Forsyningstilsynets statistik, mens Mosede Fjernvarmeværk ligger et godt stykke over. Greve Fjernvarmes projektforslag for fase 1 fra 2022 regnede med en årlig besparelse på knap 6.000 kr. for en gennemsnitlig villakunde ved fjernvarme frem for en luft til vand-varmepumpe. Bor du i Tune, Greve Landsby, Kildebrønde eller Karlslunde Landsby, er der ingen fjernvarme på vej fra Greve Fjernvarme, og så er en luft til vand-varmepumpe det oplagte alternativ til gasfyret.",
+  "contact": ("Greve Fjernvarme", "35 29 41 35 · projekt@grevefjernvarme.dk", "gfv_kan"),
+  "faq": [
+   ("Hvad koster fjernvarme i Greve?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus på 130 m² med 18,1 MWh 14.432 kr. om året inkl. moms hos Greve Fjernvarme og 21.594 kr. hos Mosede Fjernvarmeværk. Landsgennemsnittet er 16.953 kr. Tranegilde Fjernvarme indgår ikke i statistikken.", ["ft_pris"]),
+   ("Hvad koster det at blive tilsluttet Greve Fjernvarme?", "Skifter du fra olie, naturgas, varmepumpe eller elvarme, er kampagneprisen 34.995 kr., så længe kampagnen i dit område løber. Derefter er prisen 116.250 kr. Hertil kommer et etableringsbidrag på 30 kr. pr. m² om året i 30 år.", ["gfv_pris"]),
+   ("Hvad koster fjernvarme om året for et hus i Greve?", "Greve Fjernvarmes eget eksempel med et hus på 136 m² og et forbrug på 14,7 MWh giver 17.992 kr. om året inkl. etableringsbidrag.", ["gfv_pris"]),
+  ],
+}

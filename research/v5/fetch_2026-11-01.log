@@ -1,0 +1,7 @@
+2026-11-01 by-rutine: Herning (657) og Greve (253). DST BOL102/BOL101/BYGB50/BY3 2026 + PVGIS 5.3 (SARAH3), flettet ind i research/v4/*.json (fetch_new.py).
+Herning 28491 huse, ejer 21805, B {'før 1960': 7438, '1960-1979': 11262, '1980-1999': 4241, '2000+': 5535}; FJ 22235, CN 562, CO 951, CA 1897, VP 2338, ELV 440
+Greve 16177 huse, ejer 12978, B {'før 1960': 1572, '1960-1979': 9430, '1980-1999': 2862, '2000+': 2313}; FJ 3917, CN 8561, CO 308, VP 2141, ELV 1154
+PVGIS herning (56.1366,8.9764) syd35 939, øst 743, vest 745, opt 942 @40°
+PVGIS greve (55.5830,12.2970) syd35 1005, øst 782, vest 784, opt 1009 @41°
+Forsyningstilsynet prisstatistik jan. 2026 (standardhus inkl. moms, nr. af 374 fra billigste): Vildbjerg Varme 9.255 (6), Verdo Varme Herning 13.045 (28), Kibæk Varmeværk 13.096 (30), Sunds Vand- og Varmeværk 13.996 (51), Aulum Fjernvarme 15.312 (98), Ørnhøj-Grønbjerg 20.377 (294); Greve Fjernvarme 14.432 (63), Mosede Fjernvarmeværk 21.594 (317); Tranegilde Fjernvarme ikke i statistikken.
+Kilder læst 1/11 2026: herning.dk (solceller/jordvarme/vindmøller, BR18-undtagelser, sådan søger du, fælles varmeløsning), verdo.com (priser og tilslutning Herning, skift Herning), greve.dk (skal du søge byggetilladelse, tjekliste solceller PDF rev. 21.11.2019, varme, Tune-nyhed 2026, Varmeplan 2022-2038, projektforslag fase 1 2022), grevefjernvarme.dk (kan du få fjernvarme, hvad koster det; certifikatet udløb 31/10 2026, sider hentet med curl -k). Kopier af kilderne: /workspace/leadsites/research-archive/energitjekket/2026-11-01/ (uden for repoet).

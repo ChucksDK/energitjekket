@@ -46,4 +46,5 @@ CROSS_CITY_LINKS = {"aarhus": "/ejendomsadministration/aarhus/", "odense": "/eje
                     "kolding": "/ejendomsadministration/kolding/", "vejle": "/ejendomsadministration/vejle/",
                     "silkeborg": "/ejendomsadministration/silkeborg/",
                     "viborg": "/ejendomsadministration/viborg/", "roskilde": "/ejendomsadministration/roskilde/",
-                    "holbaek": "/ejendomsadministration/holbaek/"}
+                    "holbaek": "/ejendomsadministration/holbaek/",
+                    "esbjerg": "/ejendomsadministration/esbjerg/", "horsens": "/ejendomsadministration/horsens/"}

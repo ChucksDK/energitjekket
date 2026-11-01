@@ -126,7 +126,8 @@
     "kommune": "Herning Kommune",
     "region": "Region Midtjylland",
     "reason": "28.491 beboede parcel/rækkehuse; 78% fjernvarme; 1.953 med olie/gas/elvarme; begge services",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-01"
   },
   {
     "rank": 14,
@@ -135,7 +136,8 @@
     "kommune": "Greve Kommune",
     "region": "Region Sjælland",
     "reason": "16.177 beboede parcel/rækkehuse; 24% fjernvarme; 10.023 med olie/gas/elvarme; stærkt varmepumpemarked",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-01"
   },
   {
     "rank": 15,
