@@ -11,13 +11,13 @@ def hs(c): return sum(HEAT[c].values())            # beboede parcel- og rækkehu
 def hp(c, k, d=0): return pct(HEAT[c][k], hs(c), d)
 def rp(c, k, d=0): return pct(ROOF[c]["T"][k], ROOF[c]["tot"], d)
 def town(c, name): return dict(TOWNS[c])[name]
-_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten", 19: "nitten", 20: "tyve", 21: "enogtyve", 22: "toogtyve"}
+_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten", 19: "nitten", 20: "tyve", 21: "enogtyve", 22: "toogtyve", 23: "treogtyve", 24: "fireogtyve"}
 def nw(k=0): return _NUMW[len(NAMES) - k]          # "ni" for 9 byer, nw(1) = "otte" (de andre)
 def top(f, rev=False):
     """By med højeste (eller laveste, rev=True) værdi blandt sitets byer. Bruges til at tjekke sammenlignende udsagn."""
     return sorted(NAMES, key=f, reverse=not rev)[0]
 def rank(f, c): return sorted(NAMES, key=f, reverse=True).index(c) + 1
-_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende", 21: "enogtyvende", 22: "toogtyvende"}
+_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende", 21: "enogtyvende", 22: "toogtyvende", 23: "treogtyvende", 24: "fireogtyvende"}
 def rk(f, c, word, art="den", rev=False):
     """Rangord, fx 'den højeste', 'den næsthøjeste' (rev=True tæller fra bunden). Holder sammenlignende udsagn sande, når nye byer kommer til."""
     r = sorted(NAMES, key=f, reverse=not rev).index(c) + 1
@@ -28,7 +28,7 @@ def above(f, c):
     a = [NAMES[x] for x in sorted(NAMES, key=f, reverse=True)[:rank(f, c) - 1]]
     return a[0] if len(a) == 1 else ", ".join(a[:-1]) + " og " + a[-1]
 
-NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve"}
+NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte"}
 LOCAL_S = {
  "dst_bol102": ("Danmarks Statistik: BOL102, boliger efter område og opvarmning (2026)", "https://www.statistikbanken.dk/BOL102"),
  "dst_bol101": ("Danmarks Statistik: BOL101, boliger efter opførelsesår og udlejningsforhold (2026)", "https://www.statistikbanken.dk/BOL101"),
@@ -117,7 +117,7 @@ SOL_ROOF = {
    lambda: f"{rp('odense','10')} af parcel- og rækkehusene i Odense Kommune har tegltag. Det er den højeste andel af de {nw()} byer og langt over landsgennemsnittet på {rp('dk','10')}. Bolius beskriver to måder at montere på tegl: tagkroge, der går ind under stenene, eller ansatsskruer gennem tagbeklædningen. Tagkroge tager længere tid, fordi teglene skal tilpasses for at holde tæt.",
    ["dst_bygb50", "bolius_mont"]),
  "aalborg": ("Eternittage i Aalborg: det skal du vide før solceller",
-   lambda: f"Aalborg Kommune har flest fibercementtage af de {nw()} byer: {rp('aalborg','06')} af parcel- og rækkehusene har et tag, som Danmarks Statistik registrerer som fibercement inkl. asbest. Dansk Eternit havde fabrik i Aalborg, og ifølge Bolius indeholder bølge- og kunstskiferplader fra før 1984 næsten altid asbest. Det er tilladt at montere solceller på et asbesttag, hvis monteringen kun kræver, at der bores huller i pladerne.",
+   lambda: f"Aalborg Kommune har {rk(lambda x: ROOF[x]['T']['06'] / ROOF[x]['tot'], 'aalborg', 'største')} andel af fibercementtage blandt de {nw()} byer: {rp('aalborg','06')} af parcel- og rækkehusene har et tag, som Danmarks Statistik registrerer som fibercement inkl. asbest. Dansk Eternit havde fabrik i Aalborg, og ifølge Bolius indeholder bølge- og kunstskiferplader fra før 1984 næsten altid asbest. Det er tilladt at montere solceller på et asbesttag, hvis monteringen kun kræver, at der bores huller i pladerne.",
    ["dst_bygb50", "bolius_asb"]),
  "randers": ("Fibercement er det mest almindelige tag i Randers",
    lambda: f"{rp('randers','06')} af parcel- og rækkehusene i Randers Kommune har tag af fibercement (eternit), mod {rp('dk','06')} i hele landet. Bølgetage er lette konstruktioner, og Bolius skriver, at lægter og spær derfor måske skal forstærkes. Få leverandøren eller en ingeniør til at regne på det, og husk, at plader fra før 1984 næsten altid indeholder asbest.",
@@ -906,24 +906,113 @@ def reg_age_note(c, kommune):
         return (f"{tal(B['1960-1979'])} af de beboede huse i Greve Kommune ({pct(B['1960-1979'], t)}) er bygget i 1960-1979. Find lokalplanen for dit kvarter og tjek, om den forbyder blanke og reflekterende tagmaterialer: så skal panelerne være antirefleksbehandlede.", ["gre_tjek"])
     return _reg_age_old7(c, kommune)
 
+# ---------- daglig by-rutine 2. nov. 2026: Hjørring (DK1, Region Nordjylland) og Holte (Rudersdal Kommune, DK2, Region Hovedstaden) ----------
+_FIB = lambda x: ROOF[x]["T"]["06"] / ROOF[x]["tot"]; _TEGL = lambda x: ROOF[x]["T"]["10"] / ROOF[x]["tot"]; _CO = lambda x: HEAT[x]["CO"] / hs(x)
+_RHOV = "Rudersdal (del af Hovedstadsområdet)"
+SOL_ORDER.update({
+ "hjoerring": ["tage", "produktion", "lokalt", "boliger", "faq", "guides"],
+ "holte": ["boliger", "lokalt", "tage", "produktion", "guides", "faq"],
+})
+VP_ORDER.update({
+ "hjoerring": ["lokale-byer", "opvarmning", "pris", "lokalt", "faq", "guides"],
+ "holte": ["opvarmning", "lokalt", "pris", "lokale-byer", "guides", "faq"],
+})
+FV_ORDER.update({
+ "hjoerring": ["priser", "status", "billigst", "andel", "faq", "varmekilder"],
+ "holte": ["status", "andel", "varmekilder", "priser", "billigst", "faq"],
+})
+SOL_PROD.update({
+ "hjoerring": ("Lyse sommernætter, mørk vinter: produktion i Hjørring",
+   lambda: f"PVGIS beregner ca. {tal(PV['hjoerring']['syd'])} kWh pr. kWp om året for et sydvendt tag med 35° hældning i Hjørring. Juni giver ca. {tal(PV['hjoerring']['months'][5]*6)} kWh fra et 6 kWp-anlæg mod syd, {rk(lambda x: PV[x]['months'][5], 'hjoerring', 'højeste')} junital af de {nw()} byer, mens december kun giver ca. {tal(PV['hjoerring']['months'][11]*6)} kWh. Ved den optimale hældning på {PV['hjoerring']['opt_angle']}° bliver det ca. {tal(PV['hjoerring']['opt']*6)} kWh om året."),
+ "holte": ("Hvor meget giver solceller i Holte?",
+   lambda: f"For et sydvendt tag med 35° hældning i Holte beregner PVGIS ca. <strong>{tal(PV['holte']['syd'])} kWh pr. kWp om året</strong>. Et 6 kWp-anlæg giver dermed ca. {tal(PV['holte']['syd']*6)} kWh om året mod syd og ca. {tal(PV['holte']['oest']*6)} kWh mod øst. Har du fladt tag, så husk, at stativer kan ændre husets udseende, og at ældre lokalplaner i Rudersdal kan regulere det."),
+})
+SOL_PROD_SRC_NEW.update({"hjoerring": ["pv_hjoerring", "pvgis"], "holte": ["pv_holte", "pvo_holte", "rud_solvp"]})
+SOL_ROOF.update({
+ "hjoerring": ("Næsten halvdelen af tagene i Hjørring er fibercement",
+   lambda: f"{rp('hjoerring','06',1)} af parcel- og rækkehusene i Hjørring Kommune har tag af <strong>fibercement</strong>, {rk(_FIB, 'hjoerring', 'højeste')} andel af de {nw()} byer, mod {rp('dk','06',1)} i hele landet. {rp('hjoerring','10')} har tegl og {rp('hjoerring','08')} cementsten. Ifølge Bolius indeholder bølge- og kunstskiferplader fra før 1984 næsten altid asbest, så få taget vurderet, før panelerne skrues fast.",
+   ["dst_bygb50", "bolius_asb"]),
+ "holte": ("Tegl og flade tage i Rudersdal",
+   lambda: f"{rp('holte','10')} af parcel- og rækkehusene i Rudersdal Kommune har <strong>tegltag</strong>, {rk(_TEGL, 'holte', 'højeste')} andel af de {nw()} byer, og {rp('holte','02',1)} har <strong>fladt tag</strong>, {rk(lambda x: ROOF[x]['T']['02'] / ROOF[x]['tot'], 'holte', 'højeste')} andel på sitet, mod {rp('dk','02',1)} i hele landet. Kun {rp('holte','06')} har fibercement. Kommunen beder dig oplyse, om panelerne ligger oven på taget, er indfældet eller står på stativ, hvis du skal søge dispensation.",
+   ["dst_bygb50", "rud_solvp"]),
+})
+SOL_HOMES.update({
+ "hjoerring": lambda: f"Hjørring Kommune har {tal(STOCK['hjoerring']['tot'])} beboede parcel- og rækkehuse, og kun {pct(STOCK['hjoerring']['B']['2000+'],STOCK['hjoerring']['tot'])} er bygget i 2000 eller senere, {rk(_NEW, 'hjoerring', 'laveste', rev=True)} andel af de {nw()} byer. {pct(STOCK['hjoerring']['B']['før 1960'],STOCK['hjoerring']['tot'])} er fra før 1960. Hjørring by har {tal(town('hjoerring','Hjørring'))} indbyggere, og siden gælder også Hirtshals ({tal(town('hjoerring','Hirtshals'))}), Sindal ({tal(town('hjoerring','Sindal'))}), Vrå, Tårs og Løkken.",
+ "holte": lambda: f"{pct(STOCK['holte']['ejer'],STOCK['holte']['tot'])} af de {tal(STOCK['holte']['tot'])} beboede parcel- og rækkehuse i Rudersdal Kommune er ejerboliger, {rk(_EJ, 'holte', 'højeste')} andel af de {nw()} kommuner, og {pct(STOCK['holte']['B']['1960-1979'],STOCK['holte']['tot'])} er bygget i 1960-1979. Ifølge Danmarks Statistik bor {tal(town('holte',_RHOV))} i den del af Hovedstadsområdet, der ligger i kommunen, og {tal(town('holte','Birkerød'))} i Birkerød. Siden gælder hele Rudersdal Kommune, hvis rådhus ligger i Holte.",
+})
+SOL_HOMES_SRC_NEW.update({"hjoerring": [], "holte": ["rud_fjv"]})
+SOL_HOMES_H.update({"hjoerring": "Ældre huse fra Hjørring til Hirtshals og Løkken", "holte": "Ejerboliger i Holte og resten af Rudersdal"})
+SOL_XFAQ.update({
+ "hjoerring": [("Hvor meget giver solceller i Hjørring om sommeren og vinteren?", lambda: f"PVGIS beregner ca. {tal(PV['hjoerring']['months'][5]*6)} kWh i juni og {tal(PV['hjoerring']['months'][6]*6)} kWh i juli fra et 6 kWp-anlæg mod syd i Hjørring, men kun ca. {tal(PV['hjoerring']['months'][11]*6)} kWh i december og {tal(PV['hjoerring']['months'][0]*6)} kWh i januar.", ["pv_hjoerring"])],
+ "holte": [("Hvor meget giver et øst- eller vestvendt tag i Holte?", lambda: f"Ca. {tal(PV['holte']['oest'])} kWh pr. kWp om året mod øst og {tal(PV['holte']['vest'])} kWh mod vest, mod {tal(PV['holte']['syd'])} kWh mod syd (PVGIS, 35°). Et 6 kWp-anlæg mod vest giver dermed ca. {tal(PV['holte']['vest']*6)} kWh om året.", ["pvo_holte", "pvv_holte", "pv_holte"])],
+})
+VP_HEAT.update({
+ "hjoerring": ("Næsten to ud af tre huse har fjernvarme i Hjørring Kommune",
+   lambda: f"{hp('hjoerring','FJ',1)} af de {tal(hs('hjoerring'))} beboede parcel- og rækkehuse i Hjørring Kommune har fjernvarme, mod {hp('dk','FJ',1)} på landsplan. {tal(HEAT['hjoerring']['CO'])} huse ({hp('hjoerring','CO',1)}) har stadig oliefyr, {rk(_CO, 'hjoerring', 'højeste')} andel af de {nw()} byer, og {tal(HEAT['hjoerring']['CA'])} har centralvarme med en anden kilde, fx træpiller. Kun {tal(HEAT['hjoerring']['CN'])} har naturgas, og {tal(HEAT['hjoerring']['VP'])} ({hp('hjoerring','VP',1)}) har allerede varmepumpe."),
+ "holte": ("Seks ud af ti huse i Rudersdal har naturgas",
+   lambda: f"{tal(HEAT['holte']['CN'])} beboede parcel- og rækkehuse i Rudersdal Kommune ({hp('holte','CN',1)}) har naturgas, {rk(_CN, 'holte', 'højeste')} andel af de {nw()} byer, mod {hp('dk','CN',1)} på landsplan. Kun {hp('holte','FJ',1)} har fjernvarme. {tal(HEAT['holte']['VP'])} huse ({hp('holte','VP',1)}) har allerede varmepumpe, og {tal(HEAT['holte']['CO'])} har oliefyr."),
+})
+VP_HEAT_SRC_NEW.update({"hjoerring": [], "holte": []})
+VP_TOWNS.update({
+ "hjoerring": [("Hjørring", "Hjørring Varmeforsyning. Tilslutning 14.562,50 kr. + stikledning for et standardhus", ["hjv_tilslut"]),
+               ("Hirtshals", "Eget værk: Hirtshals Fjernvarme", ["hjo_vpl", "ft_pris"]),
+               ("Sindal", "Eget værk: Sindal Varmeforsyning", ["hjo_vpl", "ft_pris"]),
+               ("Vrå", "Eget værk: Vrå Varmeværk", ["hjo_vpl", "ft_pris"]),
+               ("Løkken", "Eget værk: Løkken Varmeværk", ["hjo_vpl", "ft_pris"]),
+               ("Tornby, Horne, Bjergby m.fl.", "Hjørring Varmeforsyning har indstillet arbejdet med fjernvarme", ["hjv_status"])],
+ "holte": [("Holte og Øverød", "Fjernvarmeprojektet aflyst i juni 2026", ["rud_fjv"]),
+           ("Gl. Holte, Nærum, Trørød, Søllerød", "Fjernvarmeprojektet aflyst i juni 2026", ["rud_fjv"]),
+           ("Skodsborg", "Med i det aflyste projekt for Gl. Holte m.fl.", ["rud_fjv"]),
+           ("Birkerød", "Norfors' projekt for ca. 4.700 kunder i Birkerød og Bistrup fortsætter", ["rud_fjv"]),
+           ("Vedbæk", "E.ON's projekt for ca. 530 kunder er forsinket", ["rud_fjv"]),
+           ("Eksisterende net i Holte", "Holte Fjernvarme, ejet og drevet af Norfors siden 1. juli 2023", ["nf_holte"])],
+})
+VP_TOWNS_NOTE.update({
+ "hjoerring": "Bor du i en af landsbyerne, hvor Hjørring Varmeforsyning har opgivet fjernvarmen, peger værket selv på varmepumpen som den billigste løsning for husejeren. Har du fået et varmebrev, så brug linket til boliganalysen i brevet.",
+ "holte": "Bor du i Holte, Øverød, Gl. Holte, Nærum, Trørød, Søllerød eller Skodsborg, kommer fjernvarmen ikke foreløbig. Skifter du kun gasfyret ud med en varmepumpe, udløser det ikke tilslutningspligt, og du kan søge Varmepumpepuljen.",
+})
+VP_XFAQ.update({
+ "hjoerring": [("Hvor mange huse i Hjørring Kommune har stadig oliefyr?", lambda: f"Danmarks Statistik registrerer {tal(HEAT['hjoerring']['CO'])} beboede parcel- og rækkehuse med oliefyr og {tal(HEAT['hjoerring']['CN'])} med naturgas i 2026, ud af {tal(hs('hjoerring'))}. {tal(HEAT['hjoerring']['ELV'])} har elvarme og {tal(HEAT['hjoerring']['VP'])} varmepumpe.", ["dst_bol102"])],
+ "holte": [("Hvor mange huse i Rudersdal Kommune har gasfyr?", lambda: f"{tal(HEAT['holte']['CN'])} af de {tal(hs('holte'))} beboede parcel- og rækkehuse ({hp('holte','CN',1)}) har naturgas ifølge Danmarks Statistik, 2026. {tal(HEAT['holte']['VP'])} har allerede varmepumpe, og {tal(HEAT['holte']['FJ'])} har fjernvarme.", ["dst_bol102"])],
+})
+FV_SOURCES.update({
+ "hjoerring": [("Affaldsvarme har i flere år udgjort ca. <strong>60 % af Hjørring Varmeforsynings</strong> varmeproduktion, og prisen på affaldsvarmen fra Nordværk er steget.", ["hjv_status", "df_hjv2026"]),
+               ("Værket bygger en stor <strong>varmepumpe på overskudsvarme fra renseanlægget i Hæstrup</strong> til 2.500 husstande i Hjørring Syd, og næste skridt er en varmepumpe ved vandværket i Bagterp til ca. 200 huse.", ["df_haestrup"])],
+ "holte": [("Norfors har <strong>ikke kapacitet</strong> til at levere mere varme fra Usserødværket til nye fjernvarmeområder i Rudersdal.", ["rud_fjv"]),
+           ("I Vedbæk vil E.ON bruge <strong>overskudsvarme fra spildevandet</strong> fra en energicentral ved rensningsanlægget på Gøngehusvej, og kommunen undersøger fortsat geotermi.", ["rud_fjv"])],
+})
+FV_SHARE.update({
+ "hjoerring": lambda: f"{hp('hjoerring','FJ',1)} af de beboede parcel- og rækkehuse i Hjørring Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. {tal(HEAT['hjoerring']['CO'])} huse har oliefyr og {tal(HEAT['hjoerring']['CN'])} naturgas.",
+ "holte": lambda: f"Kun {hp('holte','FJ',1)} af de beboede parcel- og rækkehuse i Rudersdal Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. {tal(HEAT['holte']['CN'])} huse ({hp('holte','CN',1)}) har naturgas, {rk(_CN, 'holte', 'højeste')} andel af de {nw()} byer.",
+})
+FV_SOURCES_H.update({"hjoerring": "Affaldsvarme og overskudsvarme fra renseanlægget", "holte": "Usserødværket og overskudsvarme fra spildevand"})
+_reg_age_old8 = reg_age_note
+def reg_age_note(c, kommune):
+    s = STOCK[c]; B = s["B"]; t = s["tot"]
+    if c == "hjoerring":
+        return (f"{tal(B['før 1960'])} af de beboede huse i Hjørring Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. Tjek lokalplanen og eventuelle servitutter i Tingbogen for din grund, før du bestiller, som kommunen anbefaler.", ["hjo_sol"])
+    if c == "holte":
+        return (f"{tal(B['1960-1979'])} af de beboede huse i Rudersdal Kommune ({pct(B['1960-1979'], t)}) er bygget i 1960-1979. Er dit kvarter omfattet af en ældre lokalplan fra tidligere Søllerød eller Birkerød, så tjek reglerne for tag og solanlæg, før du bestiller.", ["rud_solvp"])
+    return _reg_age_old8(c, kommune)
+
 # ---------- tjek af sammenlignende udsagn: bygget fejler, hvis en ny by gør et udsagn forkert ----------
 _PVs = lambda c: PV[c]["syd"]; _rt = lambda k: (lambda c: ROOF[c]["T"][k] / ROOF[c]["tot"]); _hf = lambda k: (lambda c: HEAT[c][k] / hs(c)); _sb = lambda k: (lambda c: STOCK[c]["B"][k] / STOCK[c]["tot"])
 CLAIMS = [
- ("Esbjerg top 6 PV", rank(_PVs, "esbjerg") <= 6),
- ("Aalborg top 6 juni", rank(lambda c: PV[c]["months"][5], "aalborg") <= 6),
- ("Odense flest tegl", top(_rt("10")) == "odense"), ("Aalborg flest fibercement", top(_rt("06")) == "aalborg"),
+ ("Esbjerg top 7 PV", rank(_PVs, "esbjerg") <= 7),
+ ("Aalborg top 7 juni", rank(lambda c: PV[c]["months"][5], "aalborg") <= 7),
+ ("Odense flest tegl", top(_rt("10")) == "odense"), ("Aalborg top 2 fibercement (dynamisk tekst)", rank(_rt("06"), "aalborg") <= 2),
  ("Vejle ikke nr. 1 nyere huse", rank(_sb("2000+"), "vejle") > 1),
  ("Esbjerg top 3 1960-79 (dynamisk tekst)", rank(_sb("1960-1979"), "esbjerg") <= 3),
  ("Aarhus flest huse", top(lambda c: STOCK[c]["tot"]) == "aarhus"), ("Aalborg nr. 2 huse", rank(lambda c: STOCK[c]["tot"], "aalborg") == 2),
- ("Horsens top 3 ejerandel (dynamisk tekst)", rank(_EJ, "horsens") <= 3),
+ ("Horsens top 4 ejerandel (dynamisk tekst)", rank(_EJ, "horsens") <= 4),
  ("Odense højeste FJ", top(_hf("FJ")) == "odense"), ("Aarhus nr. 2 FJ", rank(_hf("FJ"), "aarhus") == 2),
 
- ("Viborg højeste olie, Randers top 3 (dynamisk tekst)", top(_hf("CO")) == "viborg" and rank(_hf("CO"), "randers") <= 3),
+ ("Viborg højeste olie, Randers top 4 (dynamisk tekst)", top(_hf("CO")) == "viborg" and rank(_hf("CO"), "randers") <= 4),
  ("Næstved gas tæt på fjernvarme (overskrift)", abs(HEAT["naestved"]["CN"] - HEAT["naestved"]["FJ"]) / HEAT["naestved"]["FJ"] < 0.05),
  ("Sønderborg tre ud af fem FJ (overskrift)", 0.58 <= HEAT["soenderborg"]["FJ"] / hs("soenderborg") <= 0.62),
  ("Roskilde mere end hvert fjerde gas (overskrift)", HEAT["roskilde"]["CN"] / hs("roskilde") > 0.25),
- ("Holbæk top 3 gasfyr og laveste FJ (overskrift)", rank(_hf("CN"), "holbaek") <= 3 and top(_hf("FJ"), rev=True) == "holbaek"),
- ("Køge halvdelen gas, top 2 gasfyr (overskrift, dynamisk tekst)", 0.47 <= HEAT["koege"]["CN"] / hs("koege") <= 0.53 and rank(_hf("CN"), "koege") <= 2),
+ ("Holbæk top 4 gasfyr og laveste FJ (overskrift)", rank(_hf("CN"), "holbaek") <= 4 and top(_hf("FJ"), rev=True) == "holbaek"),
+ ("Køge halvdelen gas, top 3 gasfyr (overskrift, dynamisk tekst)", 0.47 <= HEAT["koege"]["CN"] / hs("koege") <= 0.53 and rank(_hf("CN"), "koege") <= 3),
  ("Svendborg hvert fjerde FJ (overskrift)", 0.23 <= HEAT["svendborg"]["FJ"] / hs("svendborg") <= 0.27),
  ("Svendborg top 2 PV (dynamisk tekst)", rank(_PVs, "svendborg") <= 2),
  ("Faaborg hvert tredje FJ (tekst)", 0.32 <= HEAT["faaborg"]["FJ"] / hs("faaborg") <= 0.36),
@@ -933,6 +1022,10 @@ CLAIMS = [
  ("Herning næsten fire ud af fem FJ (overskrift)", 0.76 <= HEAT["herning"]["FJ"] / hs("herning") < 0.80),
  ("Greve over halvdelen gas (overskrift)", HEAT["greve"]["CN"] / hs("greve") > 0.50),
  ("Greve hvert fjerde FJ (tekst)", 0.22 <= HEAT["greve"]["FJ"] / hs("greve") <= 0.27),
+ ("Hjørring næsten to ud af tre FJ (overskrift)", 0.60 <= HEAT["hjoerring"]["FJ"] / hs("hjoerring") < 0.667),
+ ("Hjørring næsten halvdelen fibercement (overskrift)", 0.45 <= ROOF["hjoerring"]["T"]["06"] / ROOF["hjoerring"]["tot"] < 0.50),
+ ("Holte/Rudersdal seks ud af ti gas (overskrift)", 0.57 <= HEAT["holte"]["CN"] / hs("holte") <= 0.63),
+ ("Holte/Rudersdal 15 pct. FJ (tekst)", round(100 * HEAT["holte"]["FJ"] / hs("holte")) == 15),
 ]
 _bad = [n for n, ok in CLAIMS if not ok]
 assert not _bad, f"Sammenlignende udsagn passer ikke længere: {_bad}"

@@ -551,7 +551,7 @@ def cross_link_html(c):
     p = CROSS_CITY_LINKS.get(c)
     if not p: return ""
     n = CITIES[c]["name"]
-    return f'\n<p class="small">Bor du i en ejer- eller andelsboligforening i {esc(n)}, og skal solceller på foreningens tag? Se også <a href="{CROSS_SITE_URL}{p}">ejendomsadministration i {esc(n)}</a> på Administratortjekket.</p>'
+    return f'\n<p class="small">Bor du i en ejer- eller andelsboligforening i {esc(n)}, og skal solceller på foreningens tag? Se også <a href="{CROSS_SITE_URL}{p}">ejendomsadministration i {esc(CITIES[c].get('cross_name', n))}</a> på Administratortjekket.</p>'
 
 def vp_heat_html(c):
     h, txt = L.VP_HEAT[c]; H = L.HEAT[c]; T = L.hs(c); D = L.HEAT["dk"]; TD = L.hs("dk")

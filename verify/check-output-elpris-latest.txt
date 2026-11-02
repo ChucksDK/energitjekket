@@ -1,46 +1,46 @@
-Sider: 107 | interne links tjekket: 34038 (109 unikke URL) | brudte: 0
-JSON-LD blokke OK: 107 | fejl: 0 []
-Schema-typer: {'Organization': 107, 'WebPage': 105, 'WebSite': 107, 'BreadcrumbList': 106, 'FAQPage': 101, 'CollectionPage': 2, 'Service': 83, 'WebApplication': 1, 'Dataset': 1}
-Eksterne kildelinks (unikke): 274
+Sider: 115 | interne links tjekket: 39130 (117 unikke URL) | brudte: 0
+JSON-LD blokke OK: 115 | fejl: 0 []
+Schema-typer: {'Organization': 115, 'WebPage': 113, 'WebSite': 115, 'BreadcrumbList': 114, 'FAQPage': 109, 'CollectionPage': 2, 'Service': 91, 'WebApplication': 1, 'Dataset': 1}
+Eksterne kildelinks (unikke): 296
 On-page issues: [('/404.html', 'description 18 tegn'), ('/tak/', 'description 32 tegn')]
-Interlink-krav opfyldt (41 bysider, 42 lokale undersider, 15 guides, 2 hubs)
+Interlink-krav opfyldt (45 bysider, 46 lokale undersider, 15 guides, 2 hubs)
 og:image+twitter+dato på alle sider: ja | billedstørrelser: {(1200, 630)} | byer uden diagrammer: ingen
-Sider uden indgående links: ingen | min. indgående for undersider: 106
-Sitemap: 105 URL | mangler: ingen
+Sider uden indgående links: ingen | min. indgående for undersider: 114
+Sitemap: 113 URL | mangler: ingen
 Lighed, GAMMEL metode (hele siden minus header/footer/form/links)
-  Bysider solceller: lighed gns 46%, maks 62% | ord 1187-1364
+  Bysider solceller: lighed gns 46%, maks 61% | ord 1187-1364
   Undersider regler-og-byggetilladelse: lighed gns 33%, maks 44% | ord 547-967
   Bysider varmepumpe: lighed gns 45%, maks 58% | ord 968-1346
   Undersider fjernvarme-eller-varmepumpe: lighed gns 40%, maks 52% | ord 751-1930
   Guides (4 nationale): lighed gns 24%, maks 31% | ord 743-1137
   Alle guides og tilbudssider (15): lighed gns 21%, maks 52% | ord 697-1393
   Byside vs egen underside: gns 16%, maks 39%
-  Nye sider (herning, greve) mod de eksisterende sider af samme type:
-    /solceller/herning/: gns 46%, maks 61% (/solceller/svendborg/) | 1225 ord
-    /solceller/greve/: gns 47%, maks 55% (/solceller/koege/) | 1308 ord
-    /solceller/herning/regler-og-byggetilladelse/: gns 34%, maks 42% (/solceller/koege/regler-og-byggetilladelse/) | 712 ord
-    /solceller/greve/regler-og-byggetilladelse/: gns 33%, maks 37% (/solceller/koege/regler-og-byggetilladelse/) | 722 ord
-    /varmepumpe/herning/: gns 46%, maks 52% (/varmepumpe/esbjerg/) | 1121 ord
-    /varmepumpe/greve/: gns 45%, maks 55% (/varmepumpe/slagelse/) | 1157 ord
-    /varmepumpe/herning/fjernvarme-eller-varmepumpe/: gns 40%, maks 45% (/varmepumpe/aabenraa/fjernvarme-eller-varmepumpe/) | 984 ord
-    /varmepumpe/greve/fjernvarme-eller-varmepumpe/: gns 41%, maks 50% (/varmepumpe/roskilde/fjernvarme-eller-varmepumpe/) | 906 ord
+  Nye sider (hjoerring, holte) mod de eksisterende sider af samme type:
+    /solceller/hjoerring/: gns 48%, maks 55% (/solceller/soenderborg/) | 1232 ord
+    /solceller/holte/: gns 44%, maks 51% (/solceller/aarhus/) | 1333 ord
+    /solceller/hjoerring/regler-og-byggetilladelse/: gns 36%, maks 45% (/solceller/herning/regler-og-byggetilladelse/) | 672 ord
+    /solceller/holte/regler-og-byggetilladelse/: gns 33%, maks 38% (/solceller/koege/regler-og-byggetilladelse/) | 732 ord
+    /varmepumpe/hjoerring/: gns 46%, maks 55% (/varmepumpe/svendborg/) | 1122 ord
+    /varmepumpe/holte/: gns 46%, maks 53% (/varmepumpe/esbjerg/) | 1174 ord
+    /varmepumpe/hjoerring/fjernvarme-eller-varmepumpe/: gns 38%, maks 47% (/varmepumpe/herning/fjernvarme-eller-varmepumpe/) | 1019 ord
+    /varmepumpe/holte/fjernvarme-eller-varmepumpe/: gns 39%, maks 45% (/varmepumpe/vejle/fjernvarme-eller-varmepumpe/) | 890 ord
 Lighed, NY metode (kun hovedindhold; uden nav, TOC, side-CTA, trust-linje, hero-knapper, formular, linkblok, CTA-boks, footer)
-  Bysider solceller: lighed gns 30%, maks 50% | ord 868-1045
-  Undersider regler-og-byggetilladelse: lighed gns 19%, maks 31% | ord 402-816
-  Bysider varmepumpe: lighed gns 27%, maks 42% | ord 673-1050
+  Bysider solceller: lighed gns 30%, maks 49% | ord 868-1045
+  Undersider regler-og-byggetilladelse: lighed gns 20%, maks 31% | ord 402-816
+  Bysider varmepumpe: lighed gns 28%, maks 42% | ord 673-1050
   Undersider fjernvarme-eller-varmepumpe: lighed gns 30%, maks 43% | ord 603-1648
   Guides (4 nationale): lighed gns 13%, maks 21% | ord 599-985
   Alle guides og tilbudssider (15): lighed gns 12%, maks 33% | ord 476-1295
   Byside vs egen underside: gns 11%, maks 34%
-  Nye sider (herning, greve) mod de eksisterende sider af samme type:
-    /solceller/herning/: gns 30%, maks 49% (/solceller/svendborg/) | 906 ord
-    /solceller/greve/: gns 32%, maks 41% (/solceller/koege/) | 988 ord
-    /solceller/herning/regler-og-byggetilladelse/: gns 21%, maks 30% (/solceller/koege/regler-og-byggetilladelse/) | 562 ord
-    /solceller/greve/regler-og-byggetilladelse/: gns 20%, maks 25% (/solceller/herning/regler-og-byggetilladelse/) | 568 ord
-    /varmepumpe/herning/: gns 29%, maks 37% (/varmepumpe/koege/) | 826 ord
-    /varmepumpe/greve/: gns 28%, maks 40% (/varmepumpe/slagelse/) | 861 ord
-    /varmepumpe/herning/fjernvarme-eller-varmepumpe/: gns 31%, maks 37% (/varmepumpe/aabenraa/fjernvarme-eller-varmepumpe/) | 836 ord
-    /varmepumpe/greve/fjernvarme-eller-varmepumpe/: gns 31%, maks 41% (/varmepumpe/roskilde/fjernvarme-eller-varmepumpe/) | 758 ord
+  Nye sider (hjoerring, holte) mod de eksisterende sider af samme type:
+    /solceller/hjoerring/: gns 32%, maks 40% (/solceller/soenderborg/) | 913 ord
+    /solceller/holte/: gns 29%, maks 37% (/solceller/aarhus/) | 1013 ord
+    /solceller/hjoerring/regler-og-byggetilladelse/: gns 23%, maks 34% (/solceller/herning/regler-og-byggetilladelse/) | 527 ord
+    /solceller/holte/regler-og-byggetilladelse/: gns 19%, maks 25% (/solceller/koege/regler-og-byggetilladelse/) | 582 ord
+    /varmepumpe/hjoerring/: gns 29%, maks 41% (/varmepumpe/svendborg/) | 827 ord
+    /varmepumpe/holte/: gns 29%, maks 38% (/varmepumpe/esbjerg/) | 878 ord
+    /varmepumpe/hjoerring/fjernvarme-eller-varmepumpe/: gns 28%, maks 39% (/varmepumpe/herning/fjernvarme-eller-varmepumpe/) | 871 ord
+    /varmepumpe/holte/fjernvarme-eller-varmepumpe/: gns 29%, maks 36% (/varmepumpe/vejle/fjernvarme-eller-varmepumpe/) | 742 ord
 Elpris: side, links og bokse på alle bysider: ok
 Google-verifikationsfil: OK
 GATE: OK

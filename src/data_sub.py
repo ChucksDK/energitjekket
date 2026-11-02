@@ -1226,3 +1226,103 @@ FV_PAGE["greve"] = {
    ("Hvad koster fjernvarme om året for et hus i Greve?", "Greve Fjernvarmes eget eksempel med et hus på 136 m² og et forbrug på 14,7 MWh giver 17.992 kr. om året inkl. etableringsbidrag.", ["gfv_pris"]),
   ],
 }
+
+# ---------- daglig by-rutine 2. nov. 2026: Hjørring og Holte (Rudersdal) ----------
+# Forsyningstilsynet, prisstatistik januar 2026 (CSV): værker i de to kommuner (Hjørring: de 11 værker, som Hjørring Kommune selv lister; Rudersdal: Norfors, som ejer og driver Holte Fjernvarme).
+FV_PRICES["hjoerring"] = [("Hjørring Varmeforsyning", "9800", "12.876", "506"), ("Løkken Varmeværk", "9480", "13.450", "443"), ("Tversted Kraftvarmeværk a.m.b.a.", "9881", "13.956", "500"), ("Hirtshals Fjernvarme", "9850", "14.358", "410"), ("Bindslev Fjernvarme a.m.b.a.", "9881", "15.966", "543"), ("Vrå Varmeværk AMBA", "9760", "16.249", "618"), ("Sindal Varmeforsyning Amba", "9870", "18.365", "781"), ("Tårs Varmeværk", "9830", "18.522", "725"), ("Lønstrup Varmeforsyning AMBA", "9800", "21.523", "830"), ("Løkkensvejens Kraftvarmeværk Amba", "9480", "23.962", "875"), ("Lørslev Fjernvarmeforsyning Amba", "9800", "28.072", "698")]
+FV_PRICES["holte"] = [("I/S Norfors - Norfors Fjernvarme", "2970", "25.084", "937")]
+SOL_REG["hjoerring"] = {
+  "kw": "solceller hjørring kommune / byggetilladelse solceller hjørring",
+  "evidence": "Hjørring Kommunes side 'Solceller (individuelle anlæg)' beskriver, hvornår solceller på tag, facade og terræn kræver tilladelse, hvordan man søger dispensation, og hvad der gælder for batterier (tjekket 2/11 2026).",
+  "intro": "Hjørring Kommune kræver ikke byggetilladelse til private solceller, der følger tagets hældning eller sidder parallelt med facaden. Lokalplan, servitutter og kommuneplanens rammer for solenergi skal dog overholdes, og anlæg på terræn kræver både byggetilladelse og landzonetilladelse. Her er reglerne og hvordan du søger.",
+  "sections": [
+   ("Tag og facade: ingen byggetilladelse", [
+     ("ul", [("Private anlæg, der <strong>følger tagets hældning</strong> eller opsættes parallelt med facaden, kræver ikke byggetilladelse.", ["hjo_sol"]),
+             ("På <strong>flade tage</strong> kan solenergianlæg eventuelt stå på stativer eller bærebeslag, der vinkler panelerne.", ["hjo_sol"]),
+             ("Anlægget skal <strong>indberettes til BBR</strong>, når det er sat op (log på med MitID).", ["hjo_sol"])]),
+   ]),
+   ("Lokalplan, servitutter og kommuneplanens rammer", [
+     ("p", "Anlægget skal overholde byggeretten i bygningsreglementet, den gældende lokalplan og tinglyste servitutter, og det skal udformes og placeres efter <strong>kommuneplanens generelle rammer for solenergianlæg</strong>. Strider det mod lokalplan eller servitut, sender du en begrundet ansøgning om dispensation via en <strong>planmæssig forespørgsel i Byg og Miljø</strong> eller på byggeri@hjoerring.dk.", ["hjo_sol"]),
+     ("p", "Bygningsreglementet kræver, at solceller ved parcel-, række- og dobbelthuse holder <strong>mindst 2,5 m til skel</strong> mod nabo, sti og vej.", ["br18_179"]),
+   ]),
+   ("Solceller på terræn", [
+     ("ul", [("Anlæg på jorden kræver <strong>byggetilladelse og landzonetilladelse</strong>.", ["hjo_sol"]),
+             ("Det skal stå inden for ejendommens bebyggelsesareal, dvs. <strong>op til ca. 20 m</strong> fra den eksisterende hovedbygning, og tage hensyn til naboerne.", ["hjo_sol"]),
+             ("Panelerne skal være <strong>antirefleksbehandlede</strong> og må ikke virke skæmmende i landskabet. Ansøgningen skal have kort med afstande til skel, tegninger med areal og totalhøjde og et datablad.", ["hjo_sol"])]),
+   ]),
+   ("Batteri over 20 kWh", [
+     ("p", "Er der koblet et <strong>batterianlæg på over 20 kWh</strong> til solcellerne, kan det være omfattet af beredskabslovens § 34, stk. 2, og skal i høring hos Nordjyllands Beredskab. Hjørring Kommune står for høringen, så kontakt Team Byggeri eller skriv tydeligt i ansøgningen, at der er et batteri.", ["hjo_sol"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller byggetilladelse i Hjørring Kommune?", "Ikke på et privat hus, når panelerne følger tagets hældning eller sidder parallelt med facaden. Solceller på terræn kræver både byggetilladelse og landzonetilladelse.", ["hjo_sol"]),
+   ("Hvordan søger jeg dispensation fra lokalplanen til solceller i Hjørring?", "Send en begrundet ansøgning via en planmæssig forespørgsel i Byg og Miljø eller en mail til byggeri@hjoerring.dk. Kommunen tager stilling til, om der kan dispenseres.", ["hjo_sol"]),
+   ("Må jeg sætte solcellerne på stativ på et fladt tag i Hjørring?", "Ja, ifølge kommunen kan solenergianlæg på flade tage eventuelt stå på stativer eller bærebeslag, der vinkler anlægget. Lokalplanen og bygningsreglementets højder og afstande gælder stadig.", ["hjo_sol"]),
+   ("Hvem kontakter jeg om solceller i Hjørring Kommune?", "Team Byggeri i Hjørring Kommune på 72 33 65 70 eller byggeri@hjoerring.dk.", ["hjo_sol"]),
+  ],
+}
+SOL_REG["holte"] = {
+  "kw": "solceller rudersdal kommune / solceller holte tilladelse",
+  "evidence": "Rudersdal Kommunes side 'Hvis du vil have solceller eller varmepumpe' beskriver, hvornår solceller kræver tilladelse fra Byplan, hvilke ældre lokalplaner der kan regulere solanlæg, og hvad en ansøgning skal indeholde (tjekket 2/11 2026).",
+  "intro": "I Rudersdal Kommune, som Holte hører under, kræver solceller ikke tilladelse fra Byplan, når huset ikke er fredet eller bevaringsværdigt med værdi 1-3, og anlægget overholder lokalplan, servitutter og bygningsreglementet. Ældre lokalplaner fra før 2000 kan dog regulere solanlæg. Her er reglerne og hvordan du søger.",
+  "sections": [
+   ("Hvornår kræver solceller ikke tilladelse?", [
+     ("ul", [("Bygningen er <strong>ikke fredet eller bevaringsværdig</strong> med værdien 1-3 og ligger ikke inden for en fredning.", ["rud_solvp"]),
+             ("Anlægget overholder <strong>lokalplan eller byplanvedtægt</strong>, deklarationer og servitutter.", ["rud_solvp"]),
+             ("Anlægget overholder bygningsreglementet, bl.a. <strong>BR18 § 177 og § 179</strong> om højder og afstande til vej- og naboskel.", ["rud_solvp", "br18_179"])]),
+   ]),
+   ("Ældre lokalplaner fra Søllerød og Birkerød", [
+     ("p", "Kommunen gør opmærksom på ældre lokalplaner fra før 2000, fx <strong>nr. 10, 31 og 49 fra tidligere Søllerød</strong> og nr. 81 fra tidligere Birkerød. Flere af dem regulerer bygningernes ydre, fx tagbelægning eller solanlæg, og så skal du søge dispensation på byplan@rudersdal.dk. Er ejendommen omfattet af en bevarende lokalplan, en ensartet bebyggelse eller en bebyggelse med værdifuld karakter, så skriv til Byplan først.", ["rud_solvp"]),
+   ]),
+   ("Det skal en ansøgning om dispensation indeholde", [
+     ("ul", [("En <strong>situationsplan</strong>, der viser tagfladen, hvor meget anlægget fylder, og panelernes afstand til skel med mål.", ["rud_solvp"]),
+             ("<strong>Facadetegninger</strong> med eksisterende og fremtidige forhold, samlet højde over terræn og det skrå højdegrænseplan.", ["rud_solvp"]),
+             ("Om panelerne ligger oven på, er indfældet i taget eller står på stativ, samt <strong>datablad</strong>, farver og om panelerne giver generende reflekser.", ["rud_solvp"])]),
+   ]),
+   ("Bevaringsværdige huse og BBR", [
+     ("p", "Har huset <strong>bevaringsværdi 1-3</strong> eller er det fredet, skal du søge Byplan om tilladelse. Kommunens Arkitektur- og Byplanudvalg vedtog i august 2024 principper for solceller på bevaringsværdige bygninger, ensartede bebyggelser og bygninger i landzone. Huse opført efter 31.12.2011 registreres ikke med bevaringsværdi. Når anlægget er sat op, anmelder du det til BBR på BBR@rudersdal.dk.", ["rud_solvp"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller tilladelse i Rudersdal Kommune?", "Ikke fra Byplan, når huset ikke er fredet eller bevaringsværdigt med værdi 1-3, ikke ligger i en fredning, og anlægget overholder lokalplan, servitutter og bygningsreglementet.", ["rud_solvp"]),
+   ("Hvordan finder jeg ud af, om mit hus i Holte er bevaringsværdigt?", "Slå adressen op via kommunens side. Oplysninger om fredning ligger under Rudersdal SAVE. Bevaringsværdien -1 betyder, at ejendommen ikke er registreret.", ["rud_solvp"]),
+   ("Hvor søger jeg dispensation til solceller i Rudersdal?", "Send en mail til byplan@rudersdal.dk med begrundelse, lokalplanens nummer og paragraf, situationsplan, facadetegninger og datablad på panelerne.", ["rud_solvp"]),
+   ("Hvem kontakter jeg om solceller i Holte?", "Byplan i Rudersdal Kommune, Øverødvej 2 i Holte, på 46 11 25 00 (via Kontaktcenter) eller byplan@rudersdal.dk.", ["rud_solvp"]),
+  ],
+}
+FV_PAGE["hjoerring"] = {
+  "kw": "fjernvarme hjørring / hjørring varmeforsyning / varmepumpe hjørring",
+  "evidence": "Hjørring Varmeforsyning oplyser varmepris 2026, tilslutningsafgift og status for fjernvarme til landsbyerne på sin hjemmeside, og Hjørring Kommune lister de lokale varmeværker på siden om varmeplan og varmebreve (tjekket 2/11 2026).",
+  "intro": "Næsten to ud af tre huse i Hjørring Kommune har fjernvarme, og Hjørring Varmeforsyning hører til de billigste værker i landet. Til landsbyerne omkring Hjørring kommer der ikke fjernvarme foreløbig, fordi værket vurderer, at en varmepumpe er billigere for husejeren. Her er status, værkernes priser og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Hjørring by:</strong> forbrugsprisen hos Hjørring Varmeforsyning er 506,25 kr. pr. MWh inkl. moms i 2026 mod 461,25 kr. i 2025.", ["hjv_pris"]),
+   ("<strong>Tilslutning:</strong> et standardhus på op til ca. 125 m² betaler normalt 14.562,50 kr. inkl. moms plus 1.056,25 kr. pr. meter stikledning. I udstykninger fra før 1.1.2009 er prisen højere.", ["hjv_tilslut"]),
+   ("<strong>Hjørring Syd:</strong> en stor varmepumpe ved renseanlægget i Hæstrup skal levere overskudsvarme til 2.500 husstande fra fyringssæsonen 2027-28.", ["df_haestrup"]),
+   ("<strong>Landsbyerne:</strong> arbejdet med fjernvarme til Skibsby, Vidstrup, Harken/Hæstrup Mølleby, Bjergby, Tornby, Horne og Ilbro er indstillet.", ["hjv_status"]),
+  ],
+  "local_take": "Hjørring Varmeforsyning er nr. 26 af 374 værker i Forsyningstilsynets statistik regnet fra det billigste, og Løkken, Tversted og Hirtshals ligger også i den billige ende. Har du fjernvarme fra et af dem, er der sjældent penge i at skifte til varmepumpe. Lønstrup, Løkkensvejens Kraftvarmeværk og Lørslev ligger derimod blandt de dyreste i landet. Bor du i en af landsbyerne, hvor Hjørring Varmeforsyning har opgivet fjernvarmen, peger værket selv på varmepumpen som den billigste løsning.",
+  "contact": ("Hjørring Varmeforsyning", "96 24 15 00 · hv@hjvarme.dk", "hjv_tilslut"),
+  "faq": [
+   ("Hvad koster fjernvarme i Hjørring?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus på 130 m² med 18,1 MWh 12.876 kr. om året inkl. moms hos Hjørring Varmeforsyning, 14.358 kr. hos Hirtshals Fjernvarme, 16.249 kr. hos Vrå Varmeværk og 18.365 kr. hos Sindal Varmeforsyning. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+   ("Hvad koster det at blive tilsluttet fjernvarme i Hjørring?", "Hos Hjørring Varmeforsyning er tilslutningsafgiften for et standardhus på op til ca. 125 m² normalt 14.562,50 kr. inkl. moms plus 1.056,25 kr. pr. meter stikledning. Værket skal bruge tegninger eller en opmåling for at give en præcis pris.", ["hjv_tilslut"]),
+   ("Hvorfor steg fjernvarmen i Hjørring i 2026?", "Hjørring Varmeforsyning forklarede stigningen på ca. 9,7 % med, at affaldsvarmen fra Nordværk Affaldsenergi var blevet markant dyrere. Værkets eget standardhus steg fra 12.137 til 13.303 kr. om året.", ["df_hjv2026"]),
+  ],
+}
+FV_PAGE["holte"] = {
+  "kw": "fjernvarme holte / fjernvarme rudersdal / varmepumpe holte",
+  "evidence": "Rudersdal Kommunes side 'Status på fjernvarme i Rudersdal' beskriver aflysningen af projekterne i Holte, Øverød, Gl. Holte, Nærum, Søllerød, Trørød og Skodsborg og status i Birkerød og Vedbæk, og Norfors oplyser takster for 2026 (tjekket 2/11 2026).",
+  "intro": "Kun 15 % af husene i Rudersdal Kommune har fjernvarme, og seks ud af ti har naturgas. I juni 2026 blev fjernvarmeprojekterne for Holte, Øverød, Gl. Holte, Nærum, Søllerød, Trørød og Skodsborg aflyst, mens Birkerød, Bistrup og Vedbæk stadig er i spil. Her er status, Norfors' priser og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Holte og Øverød:</strong> projektforslaget er trukket tilbage, fordi der ikke er fundet placeringer til nye lokale varmepumpeanlæg.", ["rud_fjv"]),
+   ("<strong>Gl. Holte, Trørød, Nærum, Søllerød og Skodsborg:</strong> projektforslaget er også trukket tilbage og formelt aflyst efter kommunalbestyrelsens møde 24. juni 2026.", ["rud_fjv"]),
+   ("<strong>Birkerød og Bistrup:</strong> Norfors fortsætter med et projekt for ca. 4.700 kunder og en luft-til-vand-varmepumpe på Blokken. Lokalplanen behandles efteråret 2026 og forår 2027.", ["rud_fjv"]),
+   ("<strong>Vedbæk:</strong> E.ON's projekt med overskudsvarme fra spildevandet for ca. 530 kunder er forsinket, og E.ON vil præsentere en mere detaljeret tidsplan inden udgangen af 2026.", ["rud_fjv"]),
+  ],
+  "local_take": "Norfors ligger med 25.084 kr. for et standardhus i Forsyningstilsynets statistik blandt de dyreste værker i landet, nr. 361 af 374 regnet fra det billigste. For de mange gasfyr i Holte, Øverød, Nærum og Trørød er fjernvarme ikke længere på vej, og kommunen peger selv på varmepumpe og jordvarme som alternativer. Bor du i Birkerød, Bistrup eller Vedbæk, kan det betale sig at vente på tidsplanen og et konkret tilbud, før du vælger.",
+  "contact": ("Norfors", "45 16 05 00 · norfors@norfors.dk", "rud_fjv"),
+  "faq": [
+   ("Hvad koster fjernvarme i Rudersdal?", "Norfors, der ejer og driver Holte Fjernvarme, opkræver 937,58 kr. pr. MWh inkl. moms i 2026 plus en fast målerafgift på 1.269,35 kr. og en arealafgift på 52,66 kr. pr. m². Norfors' eget standardhus på 125 m² med 13,4 MWh betaler 20.414,96 kr. om året, 1.839,02 kr. mere end i 2025.", ["nf_takst26", "nf_just26"]),
+   ("Hvem leverer fjernvarme i Holte?", "Holte Fjernvarme overdrog 1. juli 2023 alle aktiver og aktiviteter til I/S Norfors. Afdelingen hedder stadig Holte Fjernvarme, men det er Norfors, der ejer, driver og opkræver betaling.", ["nf_holte"]),
+   ("Skal jeg søge dispensation fra tilslutningspligten for at få varmepumpe i Rudersdal?", "Ikke hvis du kun skifter olie- eller gasfyret ud med en varmepumpe. Dispensation skal kun søges ved nybyggeri, væsentlige ombygninger samtidig med nyt varmeanlæg eller lavenergibyggeri i områder med fjernvarme. Husk at få BBR rettet på bbr@rudersdal.dk bagefter.", ["rud_fjv"]),
+  ],
+}

@@ -146,7 +146,8 @@
     "kommune": "Hjørring Kommune",
     "region": "Region Nordjylland",
     "reason": "24.066 beboede parcel/rækkehuse; 63% fjernvarme; 3.826 med olie/gas/elvarme; begge services",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-02"
   },
   {
     "rank": 16,
@@ -155,7 +156,8 @@
     "kommune": "Rudersdal Kommune",
     "region": "Region Hovedstaden",
     "reason": "14.955 beboede parcel/rækkehuse; 15% fjernvarme; 9.824 med olie/gas/elvarme; stærkt varmepumpemarked",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-02"
   },
   {
     "rank": 17,

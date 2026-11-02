@@ -799,3 +799,74 @@ CONTACTS["herning"] = {"sol": [("Herning Kommune, Byggesag", "96 28 80 15 · byg
                        "vp":  [("Herning Kommune, varmeforsyning", "varme@herning.dk", "her_faelles")]}
 CONTACTS["greve"] = {"sol": [("Greve Kommune, Byggesagsbehandling", "43 97 91 96", "gre_byg")],
                      "vp":  [("Greve Kommune, Natur og Miljø (varme)", "43 97 94 48 · varme@greve.dk", "gre_varme")]}
+
+# ---------- daglig by-rutine 2. nov. 2026: Hjørring (DK1) og Holte/Rudersdal (DK2) ----------
+S.update({
+ "hjo_sol": ("Hjørring Kommune: solceller (individuelle anlæg)", "https://hjoerring.dk/borger/bolig/byggeri/solceller-individuelle-anlaeg"),
+ "hjo_vpl": ("Hjørring Kommune: varmeplan og varmebreve", "https://hjoerring.dk/borger/bolig/energi/varmeplan-og-varmebreve"),
+ "hjo_vpl22": ("Hjørring Kommune: Varmeplan 2022 (PDF)", "https://cdn.hjoerring.dk/hjoerringkommune/Media/638054784607057193/Varmeplan%202022.pdf"),
+ "hjv_status": ("Hjørring Varmeforsyning: status for fjernvarme til omkringliggende byer (læst 2/11 2026)", "https://www.hjvarme.dk/ny-kunde/bliv-fjernvarmekunde/status-for-fjernvarme-til-omkringliggende-byer/"),
+ "hjv_tilslut": ("Hjørring Varmeforsyning: tilslutningsafgifter", "https://www.hjvarme.dk/priser/tilslutningsafgifter/"),
+ "hjv_pris": ("Hjørring Varmeforsyning: varmepris 2024-2026", "https://www.hjvarme.dk/priser/varmepris/"),
+ "df_haestrup": ("Dansk Fjernvarme 27/5 2026: overskudsvarmesamarbejde indgået i Vendsyssel (renseanlægget i Hæstrup)", "https://danskfjernvarme.dk/aktuelt/nyheder/2026/overskudsvarmesamarbejde-indgaaet-i-vendsyssel"),
+ "df_hjv2026": ("Dansk Fjernvarme 5/11 2025: Hjørring Varmeforsyning hæver varmeprisen i 2026", "https://danskfjernvarme.dk/aktuelt/nyheder/2025/hjoerring-varmeforsyning-haever-varmeprisen-i-2026"),
+ "rud_solvp": ("Rudersdal Kommune: hvis du vil have solceller eller varmepumpe", "https://rudersdal.dk/borger/bolig-og-byggeri/varme-og-energi/hvis-du-vil-have-solceller-eller-varmepumpe"),
+ "rud_fjv": ("Rudersdal Kommune: status på fjernvarme i Rudersdal (læst 2/11 2026)", "https://rudersdal.dk/borger/bolig-og-byggeri/varme-og-energi/status-paa-fjernvarme-i-rudersdal"),
+ "nf_holte": ("Norfors: til fjernvarmekunder i Norfors, Holte Fjernvarme", "https://norfors.dk/til-fjernvarmekunder-i-norfors-holte-fjernvarme"),
+ "nf_takst26": ("Norfors: takstblad 1. januar 2026 (PDF)", "https://backend.norfors.dk/sites/default/files/2025-12/Norfors%20Takstblad%202026_0.pdf"),
+ "nf_just26": ("Norfors: sådan justeres fjernvarmepriserne i 2026 (PDF)", "https://backend.norfors.dk/sites/default/files/2025-12/S%C3%A5dan%20justeres%20fjernvarmepriserne%20i%202026.pdf"),
+})
+CITIES["hjoerring"] = {
+  "name": "Hjørring", "kommune": "Hjørring Kommune", "updated": ("2. november 2026", "2026-11-02"),
+  "sol_intro": "Solceller i Hjørring: følger panelerne tagets hældning eller sidder parallelt med facaden, kræver de ikke byggetilladelse i Hjørring Kommune. Lokalplan, tinglyste servitutter og kommuneplanens rammer for solenergi skal dog overholdes, og anlæg på terræn kræver både byggetilladelse og landzonetilladelse. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Private solceller, der <strong>følger tagets hældning</strong> eller sidder parallelt med facaden, kræver ikke byggetilladelse i Hjørring Kommune.", ["hjo_sol"]),
+    ("Anlægget skal overholde bygningsreglementet, <strong>lokalplanen, tinglyste servitutter</strong> og kommuneplanens generelle rammer for solenergianlæg.", ["hjo_sol"]),
+    ("Strider anlægget mod lokalplan eller servitut, søger du <strong>dispensation</strong> via en planmæssig forespørgsel i Byg og Miljø eller på byggeri@hjoerring.dk.", ["hjo_sol"]),
+    ("Solceller <strong>på terræn</strong> kræver byggetilladelse og landzonetilladelse, skal stå inden for ca. 20 m fra hovedbygningen og være antirefleksbehandlede.", ["hjo_sol"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Hjørring?", "Nej, ikke byggetilladelse, hvis panelerne følger tagets hældning eller sidder parallelt med facaden. Lokalplan, servitutter og kommuneplanens rammer for solenergi skal stadig overholdes, og anlægget skal indberettes til BBR, når det er sat op.", ["hjo_sol"]),
+    ("Skal et batteri til mine solceller godkendes i Hjørring Kommune?", "Er der koblet et batterianlæg på over 20 kWh til solcellerne, kan det være omfattet af beredskabsloven og skal i høring hos Nordjyllands Beredskab. Kommunen står for høringen, så kontakt Team Byggeri.", ["hjo_sol"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Hjørring: næsten to ud af tre huse i Hjørring Kommune har fjernvarme, men Hjørring Varmeforsyning har opgivet at føre fjernvarme ud til en række landsbyer, fordi en varmepumpe ifølge værket bliver billigere for husejeren. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("Hjørring Varmeforsyning har undersøgt fjernvarme til <strong>Skibsby, Vidstrup, Harken/Hæstrup Mølleby, Bjergby, Tornby, Horne og Ilbro</strong>, men har indstillet arbejdet.", ["hjv_status"]),
+    ("Værket regnede med en engangsudgift på typisk <strong>150.000-180.000 kr.</strong> inkl. moms pr. ejendom for at konvertere fra naturgas, og ca. 200.000 kr. i alt med ændringerne i huset.", ["hjv_status"]),
+    ("Ifølge Hjørring Varmeforsyning vil det derfor være <strong>billigere for den enkelte husejer at investere i en varmepumpe</strong> i de byer.", ["hjv_status"]),
+    ("Alle boligejere i kommunen uden fjernvarme har fået et <strong>varmebrev</strong> med en boliganalyse, og der kommer ikke nye tilslutningspligtige områder.", ["hjo_vpl"]),
+  ],
+  "vp_faq": [
+    ("Får Tornby, Horne og Bjergby fjernvarme?", "Ikke fra Hjørring Varmeforsyning foreløbig. Værket har indstillet arbejdet med fjernvarme til Skibsby, Vidstrup, Harken/Hæstrup Mølleby, Bjergby, Tornby, Horne og Ilbro, fordi kravet om 70 % tilslutning ikke vurderes realistisk, og en varmepumpe bliver billigere for den enkelte.", ["hjv_status"]),
+    ("Er der tilslutningspligt til fjernvarme i Hjørring Kommune?", "Der kommer ikke nye tilslutningspligtige områder. I naturgasområder bortfalder tilslutningspligten, men i fjernvarmeområder med tilslutningspligt gælder den foreløbig stadig.", ["hjo_vpl"]),
+  ],
+}
+CITIES["holte"] = {
+  "name": "Holte", "kommune": "Rudersdal Kommune", "cross_name": "Rudersdal Kommune", "updated": ("2. november 2026", "2026-11-02"),
+  "sol_intro": "Solceller i Holte: i Rudersdal Kommune kræver solceller ikke tilladelse fra Byplan, når huset ikke er fredet eller bevaringsværdigt (værdi 1-3), og anlægget overholder lokalplan, servitutter og bygningsreglementet. Ældre lokalplaner fra tidligere Søllerød kan dog regulere solanlæg. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Solceller kræver <strong>ikke tilladelse fra Byplan</strong>, når bygningen ikke er fredet eller bevaringsværdig med værdi 1-3, og anlægget overholder lokalplan, servitutter og bygningsreglementet.", ["rud_solvp"]),
+    ("Er du omfattet af en <strong>ældre lokalplan fra før 2000</strong>, fx nr. 10, 31 eller 49 fra tidligere Søllerød Kommune, kan den regulere tagbelægning og solanlæg, så du skal søge dispensation.", ["rud_solvp"]),
+    ("Dispensation og tilladelse til <strong>bevaringsværdige huse</strong> søges ved at skrive til byplan@rudersdal.dk med situationsplan, facadetegninger og datablad.", ["rud_solvp"]),
+    ("Kommunen anbefaler materialer, der <strong>ikke er blanke eller reflekterende</strong>, og nogle lokalplaner forbyder reflekterende materialer.", ["rud_solvp"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Holte?", "Ikke hvis huset hverken er fredet eller bevaringsværdigt med værdi 1-3, ikke ligger i en fredning og anlægget overholder lokalplan eller byplanvedtægt, servitutter og bygningsreglementet. Ellers skal du skrive til Byplan i Rudersdal Kommune.", ["rud_solvp"]),
+    ("Skal solceller meldes til BBR i Rudersdal Kommune?", "Ja. Kommunen beder dig anmelde opsætningen til BBR-afdelingen på BBR@rudersdal.dk.", ["rud_solvp"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Holte: seks ud af ti huse i Rudersdal Kommune har naturgas, og i juni 2026 blev fjernvarmeprojekterne for Holte, Øverød, Gl. Holte, Nærum, Søllerød, Trørød og Skodsborg aflyst. Kommunen peger nu selv på varmepumper som alternativ. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("Projekterne <strong>\"Holte, Øverød\" og \"Gl. Holte, Nærum, Søllerød, Trørød og Skodsborg\"</strong> er formelt aflyst efter kommunalbestyrelsens møde 24. juni 2026.", ["rud_fjv"]),
+    ("Norfors kan ikke levere mere varme fra Usserødværket, og der er ikke fundet <strong>realistiske placeringer til nye lokale varmepumpeanlæg</strong>.", ["rud_fjv"]),
+    ("En varmepumpe af sædvanligt omfang kræver som udgangspunkt <strong>ikke byggetilladelse</strong>, og udedelen må stå tættere på skel end 2,5 m, hvis støjgrænsen overholdes.", ["rud_solvp"]),
+    ("Skifter du kun olie- eller gasfyret til en varmepumpe, <strong>udløser det ikke tilslutningspligt</strong> til fjernvarme, og du skal ikke søge dispensation.", ["rud_fjv"]),
+  ],
+  "vp_faq": [
+    ("Får Holte fjernvarme?", "Ikke foreløbig. Projektforslaget for Holte og Øverød og forslaget for Gl. Holte, Nærum, Søllerød, Trørød og Skodsborg er trukket tilbage, fordi Norfors ikke har fundet placeringer til de nødvendige lokale varmepumpeanlæg. Kommunen henviser til varmepumpe og andre varmekilder, og Varmepumpepuljen er åbnet igen.", ["rud_fjv"]),
+    ("Skal jeg have byggetilladelse til en varmepumpe i Rudersdal Kommune?", "Som udgangspunkt nej. Ligger huset i et værdifuldt kulturmiljø, er det omfattet af en bevarende lokalplan, fredet eller bevaringsværdigt med værdi 1-3, skal du søge Byplan om tilladelse, og står udedelen for tæt på skel i forhold til højden, kræver den byggetilladelse.", ["rud_solvp"]),
+  ],
+}
+CONTACTS["hjoerring"] = {"sol": [("Hjørring Kommune, Team Byggeri", "72 33 65 70 · byggeri@hjoerring.dk", "hjo_sol")],
+                         "vp":  [("Hjørring Varmeforsyning", "96 24 15 00 · hv@hjvarme.dk", "hjv_tilslut")]}
+CONTACTS["holte"] = {"sol": [("Rudersdal Kommune, Byplan", "46 11 25 00 · byplan@rudersdal.dk", "rud_solvp")],
+                     "vp":  [("Rudersdal Kommune, Klima, Natur og Miljø", "46 11 24 00 · knm@rudersdal.dk", "rud_fjv")]}
