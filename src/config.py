@@ -41,7 +41,7 @@ FP_ANALYTICS_SITE = "energitjekket.dk"
 # Krydslinks til administratortjekket.dk (samme ejer). Kun bysider, der svarede 200 live uden noindex (curl), tjekket 27/10 2026.
 # Bruges som én inline-tekstlink i "boliger"-afsnittet på solcelle-bysiden. Tilføj en by først, når siden er live.
 CROSS_SITE_URL = "https://administratortjekket.dk"
-CROSS_CITY_LINKS = {"aarhus": "/ejendomsadministration/aarhus/", "odense": "/ejendomsadministration/odense/", "aalborg": "/ejendomsadministration/aalborg/",
+CROSS_CITY_LINKS = {"aarhus": "/ejendomsadministration/aarhus/", "koege": "/ejendomsadministration/koege/", "odense": "/ejendomsadministration/odense/", "aalborg": "/ejendomsadministration/aalborg/",
                     "randers": "/ejendomsadministration/randers/", "naestved": "/ejendomsadministration/naestved/",
                     "kolding": "/ejendomsadministration/kolding/", "vejle": "/ejendomsadministration/vejle/",
                     "silkeborg": "/ejendomsadministration/silkeborg/",

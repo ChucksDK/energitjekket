@@ -166,7 +166,8 @@
     "kommune": "Guldborgsund Kommune",
     "region": "Region Sjælland",
     "reason": "22.377 beboede parcel/rækkehuse; 57% fjernvarme; 4.550 med olie/gas/elvarme; begge services",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-03"
   },
   {
     "rank": 18,
@@ -175,7 +176,8 @@
     "kommune": "Haderslev Kommune",
     "region": "Region Syddanmark",
     "reason": "18.947 beboede parcel/rækkehuse; 39% fjernvarme; 6.736 med olie/gas/elvarme; stærkt varmepumpemarked",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-03"
   },
   {
     "rank": 19,

@@ -576,7 +576,7 @@ def vp_towns_html(c):
 def city_page(svc, c):
     d = CITIES[c]; n = d["name"]; path = p_city(svc, c)
     if svc == "solceller":
-        title = f"Solceller {n} 2026: regler, pris og tilbud | {BRAND}"
+        title = d.get("sol_title") or f"Solceller {n} 2026: regler, pris og tilbud | {BRAND}"  # sol_title: kun når bynavnet gør titlen > 68 tegn
         desc = f"Solceller i {n}: hvad {d['kommune']} kræver, hvem du kontakter, og hvad et anlæg koster i 2026. Få uforpligtende tilbud fra installatører."
         h1 = f"Solceller i {n}"
         intro, facts = d["sol_intro"], d["sol_facts"]

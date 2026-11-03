@@ -539,18 +539,22 @@ NATIONAL["/solceller/med-batteri/"] = {
 }
 
 NATIONAL["/varmepumpe/pris/"] = {
-  "svc": "varmepumpe", "crumb": "Pris", "updated": ("31. oktober 2026", "2026-10-31"),
+  "svc": "varmepumpe", "crumb": "Pris", "updated": ("3. november 2026", "2026-11-03"),
   "kw": "luft til vand varmepumpe pris / pris inkl montering",
   "evidence": "Autocomplete 'luft til vand varmepumpe pris': 10 forslag (bl.a. 'inkl montering', 'inkl montering jylland', '200m2', '250 m2', '300 m2'). PAA: 'Hvad koster en varmepumpe til et hus på 150 m2?', 'Kan det betale sig at få en luft til vand varmepumpe?', 'Hvad koster en luft til vand varmepumpe om året?'. Bylokale varianter ('luft til vand varmepumpe pris odense' osv.) gav INGEN forslag i de 7 byer, så der er ingen pris-side pr. by.",
   "title": "Luft til vand-varmepumpe pris 2026 inkl. montering",
   "desc": "En luft til vand-varmepumpe koster typisk 90.000-150.000 kr. inkl. montering. Se driftsudgift, tilskud, ekstraposter og hvad tilbuddet skal vise.",
   "h1": "Hvad koster en luft til vand-varmepumpe i 2026?",
-  "intro": "Prisen på en luft til vand-varmepumpe afhænger af husets varmebehov, dit varmesystem og hvor meget ekstra arbejde der skal til. Vi har ikke fundet kilder, der viser regionale prisforskelle i Jylland eller på Fyn. Her er prisspændene fra to kilder, hvad varmen koster om året, og hvordan tilskuddet påvirker regnestykket.",
+  "intro": "Prisen på en luft til vand-varmepumpe afhænger af husets varmebehov, dit varmesystem og hvor meget ekstra arbejde der skal til. Vi har ikke fundet kilder, der viser regionale prisforskelle i Nordjylland, resten af Jylland, på Fyn eller på Sjælland. Her er prisspændene fra to kilder, hvad varmen koster om året, og hvordan tilskuddet påvirker regnestykket.",
   "sections": [
    ("Pris inkl. montering", [
      ("table", ["Type", "Pris inkl. montering", "Kilde"],
       [["Luft til vand", "typisk 100.000-130.000 kr.", "SparEnergi"], ["Luft til vand", "ca. 90.000-150.000 kr.", "Energisparer.dk"], ["Jordvarme", "ca. 120.000-180.000 kr.", "Energisparer.dk"], ["Luft til luft (supplement)", "ca. 12.000-25.000 kr.", "Energisparer.dk"]], ["se_vp", "es_vp"]),
      ("p", "Energisparer.dk omregner til ca. 9.000-15.000 kr. pr. kW, fra ca. 90.000 kr. for 6 kW til ca. 150.000 kr. for 16 kW. Hvor mange kW dit hus skal bruge, afhænger af varmetabet, ikke kun af antallet af kvadratmeter. Derfor bør installatøren dimensionere anlægget. Se typiske priser for et hus på 150 og 200 m² i guiden til <a href=\"/varmepumpe/luft-til-vand/\">luft til vand varmepumpe</a>.", ["es_vp", "es_l2v"]),
+   ]),
+   ("Pris inkl. montering i Nordjylland og på Sjælland", [
+     ("p", "Prisspændene ovenfor er landsdækkende. Vi har ikke fundet offentlige kilder, der viser, at montering koster mere eller mindre i Nordjylland eller på Sjælland. Forskellen ligger i driften: Energisparer.dk regner med ca. 7.500 kr. om året i Vestdanmark og ca. 8.000 kr. i Østdanmark ved en SCOP på 3,5, fordi elprisen er forskellig i de to prisområder.", ["es_vp"]),
+     ("p", "Lokale regler, fjernvarme og tilskud i Nordjylland: <a href=\"/varmepumpe/aalborg/\">Aalborg</a> og <a href=\"/varmepumpe/hjoerring/\">Hjørring</a>. På Sjælland: <a href=\"/varmepumpe/roskilde/\">Roskilde</a>, <a href=\"/varmepumpe/koege/\">Køge</a>, <a href=\"/varmepumpe/holbaek/\">Holbæk</a>, <a href=\"/varmepumpe/slagelse/\">Slagelse</a> og <a href=\"/varmepumpe/naestved/\">Næstved</a>.", []),
    ]),
    ("Poster, du skal spørge ind til", [
      ("ul", [("Opgradering af eltavlen.", ["es_vp"]), ("Buffertank.", ["es_vp"]), ("Fundament til udedelen.", ["es_vp"]),
@@ -1324,5 +1328,105 @@ FV_PAGE["holte"] = {
    ("Hvad koster fjernvarme i Rudersdal?", "Norfors, der ejer og driver Holte Fjernvarme, opkræver 937,58 kr. pr. MWh inkl. moms i 2026 plus en fast målerafgift på 1.269,35 kr. og en arealafgift på 52,66 kr. pr. m². Norfors' eget standardhus på 125 m² med 13,4 MWh betaler 20.414,96 kr. om året, 1.839,02 kr. mere end i 2025.", ["nf_takst26", "nf_just26"]),
    ("Hvem leverer fjernvarme i Holte?", "Holte Fjernvarme overdrog 1. juli 2023 alle aktiver og aktiviteter til I/S Norfors. Afdelingen hedder stadig Holte Fjernvarme, men det er Norfors, der ejer, driver og opkræver betaling.", ["nf_holte"]),
    ("Skal jeg søge dispensation fra tilslutningspligten for at få varmepumpe i Rudersdal?", "Ikke hvis du kun skifter olie- eller gasfyret ud med en varmepumpe. Dispensation skal kun søges ved nybyggeri, væsentlige ombygninger samtidig med nyt varmeanlæg eller lavenergibyggeri i områder med fjernvarme. Husk at få BBR rettet på bbr@rudersdal.dk bagefter.", ["rud_fjv"]),
+  ],
+}
+
+# ---------- daglig by-rutine 3. nov. 2026: Nykøbing Falster (Guldborgsund) og Haderslev ----------
+# Forsyningstilsynet, prisstatistik januar 2026 (CSV): værker med postnumre i Guldborgsund og Haderslev kommuner (standardhus 130 m², 18,1 MWh, inkl. moms; MWh-pris).
+FV_PRICES["nykoebing-falster"] = [("Sakskøbing Fjernvarmeselskab", "4990", "13.256", "521"), ("Sydfalster Varmeværk", "4873", "14.660", "466"), ("Øster Toreby, Sundby og Nagelsti Varmeværk", "4800", "15.518", "521"), ("Guldborgsund Varme", "4800", "15.774", "639"), ("Nysted Varmeværk", "4880", "16.240", "493"), ("Nr. Alslev Fjernvarmeværk", "4840", "17.061", "535"), ("REFA Stubbekøbing Fjernvarme", "4800", "18.867", "503"), ("REFA Horbelev Varmeværk", "4871", "20.082", "643"), ("REFA Gedser Fjernvarme", "4874", "21.314", "740")]
+FV_PRICES["haderslev"] = [("Haderslev Fjernvarme", "6100", "15.187", "665"), ("Vojens Fjernvarme", "6500", "19.063", "846"), ("Gram Fjernvarme", "6510", "21.010", "850")]
+SOL_REG["nykoebing-falster"] = {
+  "kw": "solceller guldborgsund kommune / byggetilladelse solceller nykøbing falster",
+  "evidence": "Guldborgsund Kommunes side med ofte stillede spørgsmål om byggetilladelse beskriver, hvornår solceller kræver byggetilladelse og landzonetilladelse, og hvilke betingelser der gælder for parcel-, række-, dobbelt- og sommerhuse (tjekket 3/11 2026).",
+  "intro": "Guldborgsund Kommune, som Nykøbing Falster hører under, kræver ikke byggetilladelse til solceller på et parcel-, række-, dobbelt- eller sommerhus, når panelerne følger tagets hældning og lasten holdes under 5 %. Fladt tag, terræn og landzone kræver derimod tilladelse. Her er reglerne og hvordan du søger.",
+  "sections": [
+   ("Tre betingelser for at slippe for byggetilladelse", [
+     ("ul", [("Solcellerne <strong>følger tagets hældning</strong>.", ["gul_faq"]),
+             ("<strong>Lastvirkningen</strong> fra solcellerne holdes under 5 % i forhold til husets eksisterende dokumentation.", ["gul_faq"]),
+             ("Anlægget overholder bygningsreglementets krav til <strong>afstand og højde</strong> samt lokalplaner og tinglyste servitutter.", ["gul_faq", "br18_179"])]),
+   ]),
+   ("Her kræver solceller byggetilladelse", [
+     ("ul", [("Solceller på <strong>fladt tag</strong>, også på et parcelhus.", ["gul_faq"]),
+             ("Solceller på <strong>terræn</strong>, altså på jorden.", ["gul_faq"]),
+             ("Solceller på erhvervs-, etage-, kontor- og lagerbygninger, og anlæg, der <strong>ikke overholder bygningsreglementets</strong> krav til højde og afstand.", ["gul_faq"])]),
+   ]),
+   ("Landzone: også landzonetilladelse", [
+     ("p", "Ligger ejendommen i <strong>landzone</strong>, kræver solcelleanlægget også en landzonetilladelse. Kommunen skriver, at sagsbehandlingen så tager længere tid: sagen skal i høring, tilladelsen annonceres på guldborgsund.dk, og først når den <strong>4 uger lange klagefrist</strong> er udløbet, kan der gives byggetilladelse.", ["gul_faq", "gul_lz"]),
+   ]),
+   ("BBR og hvem du kontakter", [
+     ("p", "Kræver anlægget ikke byggetilladelse, skal du <strong>selv sørge for at registrere det i BBR</strong>. Er du i tvivl, om dit anlæg kræver tilladelse, kan du ringe til Bolig & Byggesag på 54 73 20 95. Ansøgninger sendes digitalt via Byg og Miljø med MitID.", ["gul_faq"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller byggetilladelse i Guldborgsund Kommune?", "Ikke på et enfamilie-, række-, dobbelt- eller sommerhus, når panelerne følger tagets hældning, lasten holdes under 5 %, og bygningsreglementet, lokalplanen og servitutterne overholdes. På fladt tag og på terræn kræver det byggetilladelse.", ["gul_faq"]),
+   ("Må jeg sætte solceller på mit flade tag i Nykøbing Falster uden tilladelse?", "Nej. Guldborgsund Kommune kræver byggetilladelse til solceller på fladt tag.", ["gul_faq"]),
+   ("Skal jeg have landzonetilladelse til solceller på taget?", "Ja, hvis ejendommen ligger i landzone. Så kræver solcelleanlægget også en landzonetilladelse, og der er 4 ugers klagefrist, før der kan gives byggetilladelse.", ["gul_faq", "gul_lz"]),
+   ("Hvem kontakter jeg om solceller i Guldborgsund Kommune?", "Bolig & Byggesag i Center for Teknik & Miljø på 54 73 20 95, mandag-onsdag kl. 9-11, torsdag kl. 14-16 og fredag kl. 9-11.", ["gul_faq"]),
+  ],
+}
+SOL_REG["haderslev"] = {
+  "kw": "solceller haderslev kommune / byggetilladelse solceller haderslev",
+  "evidence": "Haderslev Kommunes side 'Solceller' beskriver, hvornår solceller kræver byggetilladelse eller landzonetilladelse, krav til BBR, konstruktion og brand og hvornår et anlæg skal VVM-screenes (tjekket 3/11 2026).",
+  "intro": "Haderslev Kommune kræver ikke byggetilladelse til private solceller på et enfamilie-, tofamilie-, række- eller sommerhus, når panelerne følger tagets hældning, står mindst 2,5 m fra skel og holder sig inden for bygningshøjden. Fredede og bevaringsværdige huse og anlæg på terræn kræver tilladelse. Her er reglerne og hvordan du søger.",
+  "sections": [
+   ("Uden byggetilladelse: tag på dit eget hus", [
+     ("ul", [("Gælder private anlæg på <strong>enfamilie-, tofamilie-, række- og sommerhuse</strong> og småbygninger som carport og garage ved dem.", ["had_sol"]),
+             ("Panelerne skal <strong>følge tagets hældning</strong> og stå mindst 2,5 m fra skel.", ["had_sol", "br18_179"]),
+             ("Solcellerne <strong>tæller med i bygningshøjden</strong>, som stadig skal overholdes.", ["had_sol"])]),
+   ]),
+   ("Her kræver det byggetilladelse", [
+     ("ul", [("Huset er <strong>fredet eller bevaringsværdigt</strong>.", ["had_sol"]),
+             ("Anlægget står på <strong>terræn</strong> eller ændrer husets brand- eller konstruktionsforhold, fx på arealer, der skal holdes fri til redningsberedskabet.", ["had_sol"]),
+             ("Anlægget sidder på erhvervsbygninger, etageejendomme, kontor- eller lagerbygninger.", ["had_sol"])]),
+     ("p", "Står anlægget på stativ på jorden i <strong>landzone</strong>, kræver det landzonetilladelse uanset størrelse.", ["had_sol"]),
+   ]),
+   ("Tag, vægt og placering", [
+     ("p", "Kommunen anbefaler, at en <strong>professionel rådgiver</strong> gennemgår, om tagkonstruktionen kan bære den ekstra vægt. Hører taget til konstruktionsklasse 2 eller højere, skal en certificeret rådgiver tilknyttes. Placér panelerne harmonisk i forhold til kviste, tagvinduer og skorstene, og tjek lokalplanen, som fx kan bestemme tagets farve og materiale.", ["had_sol"]),
+   ]),
+   ("Husk BBR", [
+     ("p", "Opsætningen skal <strong>altid registreres i BBR</strong> på bbr@haderslev.dk, uanset om anlægget kræver byggetilladelse eller ej. Tinglyste servitutter for din grund finder du på Tinglysning.dk.", ["had_sol"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller byggetilladelse i Haderslev Kommune?", "Ikke på et privat enfamilie-, tofamilie-, række- eller sommerhus, når panelerne følger tagets hældning, står mindst 2,5 m fra skel og bygningshøjden overholdes. Lokalplaner og deklarationer kan dog forbyde solceller.", ["had_sol"]),
+   ("Skal mit bevaringsværdige hus i Haderslev have tilladelse til solceller?", "Ja. Er ejendommen fredet eller bevaringsværdig, kræver solceller byggetilladelse i Haderslev Kommune.", ["had_sol"]),
+   ("Skal solceller på jorden have landzonetilladelse i Haderslev?", "Ja. Et solcelleanlæg på stativ på jorden i landzone kræver landzonetilladelse uanset størrelse, og det kræver også byggetilladelse.", ["had_sol"]),
+   ("Hvem kontakter jeg om solceller i Haderslev Kommune?", "Teknik og Klima i Haderslev Kommune, Christian X's Vej 39, på 74 34 34 34. BBR-registreringen sendes til bbr@haderslev.dk.", ["had_sol"]),
+  ],
+}
+FV_PAGE["nykoebing-falster"] = {
+  "kw": "fjernvarme nykøbing falster / guldborgsund varme / varmepumpe nykøbing falster",
+  "evidence": "Guldborgsund Forsyning oplyser forsyningsområde, takster for 2026 og fjernvarmedeklaration for 2025, og Guldborgsund Kommune beskriver forslaget til Varmeplan 2025 på sin høringsside (tjekket 3/11 2026).",
+  "intro": "57 % af husene i Guldborgsund Kommune har fjernvarme, og der er ingen naturgas i husene. Til gengæld har flere end hvert tiende hus elvarme, og næsten lige så mange har oliefyr. Her er status for fjernvarmen, de ni værkers priser og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Nykøbing F. og omegn:</strong> Guldborgsund Varme forsyner ca. 7.000 kunder i Nykøbing F., Ønslev, Eskilstrup, Ovstrup, Gundslevmagle og Systofte.", ["gfo_varme"]),
+   ("<strong>Pris 2026:</strong> 0,562 kr. pr. kWh inkl. moms plus fast målerbidrag (260,67 kr. for de fleste huse) og arealbidrag på 30,27 kr. pr. m² efter BBR.", ["gfo_takst26"]),
+   ("<strong>Tilslutning:</strong> investeringsbidraget for et enfamilie-, kæde- eller rækkehus er 24.940,54 kr. inkl. moms plus 853,99 kr. pr. meter stikledning (PEX op til 40 mm).", ["gfo_takst26"]),
+   ("<strong>Varmeplan 2025:</strong> fjernvarmen i de fleste byer og større landsbyer skal bevares og udbygges, mens oliefyrene uden for fjernvarmen skal udfases.", ["gul_vpl"]),
+  ],
+  "local_take": "Sakskøbing Fjernvarmeselskab er nr. 35 af 374 værker i Forsyningstilsynets statistik regnet fra det billigste, og Guldborgsund Varme ligger som nr. 116 under landsgennemsnittet. REFA's værker i Stubbekøbing, Horbelev og Gedser ligger derimod over gennemsnittet. Har du fjernvarme i Nykøbing F., er der sjældent penge i at skifte. Har du oliefyr eller elvarme i en landsby uden fjernvarme, er en varmepumpe den løsning, kommunen selv peger på, hvis der ikke kommer en fælles løsning.",
+  "contact": ("Guldborgsund Forsyning", "72 44 12 12 · forbrug@guldborgsundforsyning.dk", "gfo_varme"),
+  "faq": [
+   ("Hvad koster fjernvarme i Nykøbing Falster?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus på 130 m² med 18,1 MWh 15.774 kr. om året inkl. moms hos Guldborgsund Varme, 13.256 kr. hos Sakskøbing Fjernvarmeselskab og 18.867 kr. hos REFA Stubbekøbing Fjernvarme. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+   ("Hvad koster det at blive tilsluttet fjernvarme i Nykøbing Falster?", "Guldborgsund Varmes investeringsbidrag for et enfamilie-, kæde- eller rækkehus er 24.940,54 kr. inkl. moms i 2026. Dertil kommer stikledningen, der koster 853,99 kr. pr. meter for de almindelige PEX-rør.", ["gfo_takst26"]),
+   ("Hvad laves fjernvarmen i Nykøbing Falster af?", "I 2025 kom 47,5 % af Guldborgsund Varmes brændsel fra overskudsvarme, 47,4 % fra træ og 5,1 % fra bioolie. Ifølge fjernvarmedeklarationen er andelen af vedvarende energi inkl. el 100 %.", ["gfo_dekl25"]),
+  ],
+}
+FV_PAGE["haderslev"] = {
+  "kw": "fjernvarme haderslev / haderslev fjernvarme udvidelse / varmepumpe haderslev",
+  "evidence": "Haderslev Kommune beskriver fjernvarmeudrulningen og lokalbyerne på sin side om fjernvarme og i Varmeplan for gasområder 2022, og Haderslev Fjernvarme oplyser kampagnepriser og status for udvidelsen (tjekket 3/11 2026).",
+  "intro": "Fire ud af ti huse i Haderslev Kommune har fjernvarme, og hvert fjerde har naturgas. Haderslev Fjernvarme har gravet færdigt i sine udvidelsesområder, Vojens Fjernvarme skulle efter planen være færdig i 2026, mens lokalbyerne med naturgas ikke får fjernvarme. Her er status, værkernes priser og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Haderslev by:</strong> Haderslev Fjernvarme skriver, at gravearbejdet er afsluttet i alle udvidelsesområder. Ved udgangen af 2024 var 2.537 nye kunder tilsluttet, og tilslutningen lå på 83,4 %.", ["hfv_tid", "hfv_gf25"]),
+   ("<strong>Vojens:</strong> projektet for ca. 867 forbrugere i 9 delområder forventes udrullet inden udgangen af 2026.", ["had_fjv", "had_vpl"]),
+   ("<strong>Gram:</strong> fjernvarmen forventedes udrullet inden udgangen af 2023.", ["had_fjv"]),
+   ("<strong>Lokalbyer med naturgas:</strong> fjernvarmeselskaberne ser ikke mulighed for at tilbyde fjernvarme. Undtagelsen er Marstrup, hvor 85 % skulle tilslutte sig frivilligt.", ["had_fjv"]),
+  ],
+  "local_take": "Haderslev Fjernvarme er nr. 93 af 374 værker i Forsyningstilsynets statistik regnet fra det billigste og ligger under landsgennemsnittet, mens Vojens Fjernvarme og Gram Fjernvarme ligger over. Bor du i Haderslev by og har fået tilbudt fjernvarme, er det sjældent en varmepumpe kan konkurrere. Har du gasfyr i en af lokalbyerne, peger kommunens varmeplan på varmepumpe, jordvarme eller biomasse, medmindre I selv går sammen om en fælles løsning.",
+  "contact": ("Haderslev Fjernvarme", "74 52 21 88 · info@haderslev-fjernvarme.dk", "hfv_tid"),
+  "faq": [
+   ("Hvad koster fjernvarme i Haderslev?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus på 130 m² med 18,1 MWh 15.187 kr. om året inkl. moms hos Haderslev Fjernvarme, 19.063 kr. hos Vojens Fjernvarme og 21.010 kr. hos Gram Fjernvarme. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+   ("Hvad koster det at komme på fjernvarme i Haderslevs udvidelsesområder?", "Haderslev Fjernvarmes kampagnepris er et engangsbeløb på 20.000 kr. og 267 kr. om måneden med Komplet-abonnement, eller 55.000 kr. kontant. Da gravearbejdet er afsluttet, kommer et genopgravningsgebyr på 10.000 kr. oveni, og kampagnen gælder kun indtil et år efter, at gravearbejdet startede på din vej.", ["hfv_tid"]),
+   ("Hvorfor får lokalbyerne i Haderslev Kommune ikke fjernvarme?", "Fjernvarmeselskaberne i Haderslev, Vojens og Gram har vurderet, at områderne ligger for langt fra et eksisterende net eller har for få ejendomme med olie eller gas. Kommunen anbefaler i stedet individuelle varmepumper, jordvarme, biomasse eller lokale fælles løsninger som termonet.", ["had_fjv", "had_vpl"]),
   ],
 }

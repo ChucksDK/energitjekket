@@ -1,0 +1,46 @@
+Sider: 123 | interne links tjekket: 44581 (125 unikke URL) | brudte: 0
+JSON-LD blokke OK: 123 | fejl: 0 []
+Schema-typer: {'Organization': 123, 'WebPage': 121, 'WebSite': 123, 'BreadcrumbList': 122, 'FAQPage': 117, 'CollectionPage': 2, 'Service': 99, 'WebApplication': 1, 'Dataset': 1}
+Eksterne kildelinks (unikke): 314
+On-page issues: [('/404.html', 'description 18 tegn'), ('/tak/', 'description 32 tegn')]
+Interlink-krav opfyldt (49 bysider, 50 lokale undersider, 15 guides, 2 hubs)
+og:image+twitter+dato på alle sider: ja | billedstørrelser: {(1200, 630)} | byer uden diagrammer: ingen
+Sider uden indgående links: ingen | min. indgående for undersider: 122
+Sitemap: 121 URL | mangler: ingen
+Lighed, GAMMEL metode (hele siden minus header/footer/form/links)
+  Bysider solceller: lighed gns 46%, maks 61% | ord 1185-1364
+  Undersider regler-og-byggetilladelse: lighed gns 34%, maks 46% | ord 547-967
+  Bysider varmepumpe: lighed gns 45%, maks 58% | ord 968-1346
+  Undersider fjernvarme-eller-varmepumpe: lighed gns 39%, maks 52% | ord 751-1930
+  Guides (4 nationale): lighed gns 23%, maks 30% | ord 743-1137
+  Alle guides og tilbudssider (15): lighed gns 21%, maks 52% | ord 697-1393
+  Byside vs egen underside: gns 16%, maks 39%
+  Nye sider (nykoebing-falster, haderslev) mod de eksisterende sider af samme type:
+    /solceller/nykoebing-falster/: gns 44%, maks 54% (/solceller/naestved/) | 1352 ord
+    /solceller/haderslev/: gns 48%, maks 54% (/solceller/koege/) | 1185 ord
+    /solceller/nykoebing-falster/regler-og-byggetilladelse/: gns 35%, maks 46% (/solceller/haderslev/regler-og-byggetilladelse/) | 718 ord
+    /solceller/haderslev/regler-og-byggetilladelse/: gns 37%, maks 46% (/solceller/nykoebing-falster/regler-og-byggetilladelse/) | 602 ord
+    /varmepumpe/nykoebing-falster/: gns 44%, maks 50% (/varmepumpe/aabenraa/) | 1135 ord
+    /varmepumpe/haderslev/: gns 45%, maks 53% (/varmepumpe/greve/) | 1187 ord
+    /varmepumpe/nykoebing-falster/fjernvarme-eller-varmepumpe/: gns 36%, maks 43% (/varmepumpe/herning/fjernvarme-eller-varmepumpe/) | 973 ord
+    /varmepumpe/haderslev/fjernvarme-eller-varmepumpe/: gns 41%, maks 50% (/varmepumpe/greve/fjernvarme-eller-varmepumpe/) | 915 ord
+Lighed, NY metode (kun hovedindhold; uden nav, TOC, side-CTA, trust-linje, hero-knapper, formular, linkblok, CTA-boks, footer)
+  Bysider solceller: lighed gns 30%, maks 49% | ord 866-1045
+  Undersider regler-og-byggetilladelse: lighed gns 20%, maks 34% | ord 402-816
+  Bysider varmepumpe: lighed gns 27%, maks 42% | ord 673-1050
+  Undersider fjernvarme-eller-varmepumpe: lighed gns 30%, maks 43% | ord 603-1648
+  Guides (4 nationale): lighed gns 13%, maks 20% | ord 599-985
+  Alle guides og tilbudssider (15): lighed gns 12%, maks 33% | ord 476-1295
+  Byside vs egen underside: gns 10%, maks 34%
+  Nye sider (nykoebing-falster, haderslev) mod de eksisterende sider af samme type:
+    /solceller/nykoebing-falster/: gns 28%, maks 42% (/solceller/naestved/) | 1025 ord
+    /solceller/haderslev/: gns 32%, maks 41% (/solceller/koege/) | 866 ord
+    /solceller/nykoebing-falster/regler-og-byggetilladelse/: gns 23%, maks 34% (/solceller/haderslev/regler-og-byggetilladelse/) | 567 ord
+    /solceller/haderslev/regler-og-byggetilladelse/: gns 24%, maks 34% (/solceller/nykoebing-falster/regler-og-byggetilladelse/) | 457 ord
+    /varmepumpe/nykoebing-falster/: gns 27%, maks 36% (/varmepumpe/aabenraa/) | 834 ord
+    /varmepumpe/haderslev/: gns 28%, maks 39% (/varmepumpe/greve/) | 892 ord
+    /varmepumpe/nykoebing-falster/fjernvarme-eller-varmepumpe/: gns 26%, maks 34% (/varmepumpe/herning/fjernvarme-eller-varmepumpe/) | 821 ord
+    /varmepumpe/haderslev/fjernvarme-eller-varmepumpe/: gns 31%, maks 42% (/varmepumpe/greve/fjernvarme-eller-varmepumpe/) | 767 ord
+Elpris: side, links og bokse på alle bysider: ok
+Google-verifikationsfil: OK
+GATE: OK

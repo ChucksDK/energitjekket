@@ -11,13 +11,13 @@ def hs(c): return sum(HEAT[c].values())            # beboede parcel- og rækkehu
 def hp(c, k, d=0): return pct(HEAT[c][k], hs(c), d)
 def rp(c, k, d=0): return pct(ROOF[c]["T"][k], ROOF[c]["tot"], d)
 def town(c, name): return dict(TOWNS[c])[name]
-_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten", 19: "nitten", 20: "tyve", 21: "enogtyve", 22: "toogtyve", 23: "treogtyve", 24: "fireogtyve"}
+_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten", 19: "nitten", 20: "tyve", 21: "enogtyve", 22: "toogtyve", 23: "treogtyve", 24: "fireogtyve", 25: "femogtyve", 26: "seksogtyve"}
 def nw(k=0): return _NUMW[len(NAMES) - k]          # "ni" for 9 byer, nw(1) = "otte" (de andre)
 def top(f, rev=False):
     """By med højeste (eller laveste, rev=True) værdi blandt sitets byer. Bruges til at tjekke sammenlignende udsagn."""
     return sorted(NAMES, key=f, reverse=not rev)[0]
 def rank(f, c): return sorted(NAMES, key=f, reverse=True).index(c) + 1
-_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende", 21: "enogtyvende", 22: "toogtyvende", 23: "treogtyvende", 24: "fireogtyvende"}
+_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende", 21: "enogtyvende", 22: "toogtyvende", 23: "treogtyvende", 24: "fireogtyvende", 25: "femogtyvende", 26: "seksogtyvende"}
 def rk(f, c, word, art="den", rev=False):
     """Rangord, fx 'den højeste', 'den næsthøjeste' (rev=True tæller fra bunden). Holder sammenlignende udsagn sande, når nye byer kommer til."""
     r = sorted(NAMES, key=f, reverse=not rev).index(c) + 1
@@ -28,7 +28,7 @@ def above(f, c):
     a = [NAMES[x] for x in sorted(NAMES, key=f, reverse=True)[:rank(f, c) - 1]]
     return a[0] if len(a) == 1 else ", ".join(a[:-1]) + " og " + a[-1]
 
-NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte"}
+NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev"}
 LOCAL_S = {
  "dst_bol102": ("Danmarks Statistik: BOL102, boliger efter område og opvarmning (2026)", "https://www.statistikbanken.dk/BOL102"),
  "dst_bol101": ("Danmarks Statistik: BOL101, boliger efter opførelsesår og udlejningsforhold (2026)", "https://www.statistikbanken.dk/BOL101"),
@@ -316,8 +316,8 @@ SOL_XFAQ.update({
 VP_HEAT.update({
  "aarhus": ("Fjernvarme dominerer i Aarhus Kommune",
    lambda: f"{hp('aarhus','FJ',1)} af de {tal(hs('aarhus'))} beboede parcel- og rækkehuse i Aarhus Kommune har fjernvarme. Kun {tal(HEAT['aarhus']['VP'])} har varmepumpe og {tal(HEAT['aarhus']['CO'])} oliefyr, og naturgas er stort set væk: Danmarks Statistik registrerer {tal(HEAT['aarhus']['CN'])} {'hus' if HEAT['aarhus']['CN'] == 1 else 'huse'} med naturgas."),
- "viborg": ("Viborg har den største andel oliefyr på sitet",
-   lambda: f"{tal(HEAT['viborg']['CO'])} beboede parcel- og rækkehuse i Viborg Kommune ({hp('viborg','CO',1)}) varmes stadig op med oliefyr, den højeste andel af de {nw()} byer, og {tal(HEAT['viborg']['CN'])} ({hp('viborg','CN',1)}) har naturgas. {hp('viborg','FJ',1)} har fjernvarme, tæt på landsgennemsnittet på {hp('dk','FJ',1)}. Det er olie- og gasfyrene uden for fjernvarmeplanerne, som Varmepumpepuljen er rettet mod."),
+ "viborg": ("Mange oliefyr i Viborg: her passer en luft til vand-varmepumpe",
+   lambda: f"{tal(HEAT['viborg']['CO'])} beboede parcel- og rækkehuse i Viborg Kommune ({hp('viborg','CO',1)}) varmes stadig op med oliefyr, {rk(lambda x: HEAT[x]['CO'] / hs(x), 'viborg', 'højeste')} andel af de {nw()} byer, og {tal(HEAT['viborg']['CN'])} ({hp('viborg','CN',1)}) har naturgas. {hp('viborg','FJ',1)} har fjernvarme, tæt på landsgennemsnittet på {hp('dk','FJ',1)}. Det er olie- og gasfyrene uden for fjernvarmeplanerne, som Varmepumpepuljen er rettet mod."),
 })
 VP_HEAT_SRC_NEW = {"viborg": ["se_vpp"]}
 VP_ADVICE.update({
@@ -346,7 +346,8 @@ VP_TOWNS_NOTE.update({
 })
 VP_XFAQ.update({
  "aarhus": [("Hvor mange huse i Aarhus Kommune har ikke fjernvarme?", lambda: f"Ca. {tal(hs('aarhus')-HEAT['aarhus']['FJ'])} af {tal(hs('aarhus'))} beboede parcel- og rækkehuse ({pct(hs('aarhus')-HEAT['aarhus']['FJ'],hs('aarhus'),1)}) ifølge Danmarks Statistik, 2026. Heraf har {tal(HEAT['aarhus']['VP'])} allerede varmepumpe, og {tal(HEAT['aarhus']['CO'])} har oliefyr.", ["dst_bol102"])],
- "viborg": [("Hvor mange huse i Viborg Kommune har olie- eller gasfyr?", lambda: f"Danmarks Statistik registrerer {tal(HEAT['viborg']['CO'])} beboede parcel- og rækkehuse med oliefyr og {tal(HEAT['viborg']['CN'])} med naturgas i 2026, ud af {tal(hs('viborg'))}. {tal(HEAT['viborg']['VP'])} har allerede varmepumpe.", ["dst_bol102"])],
+ "viborg": [("Hvor mange huse i Viborg Kommune har olie- eller gasfyr?", lambda: f"Danmarks Statistik registrerer {tal(HEAT['viborg']['CO'])} beboede parcel- og rækkehuse med oliefyr og {tal(HEAT['viborg']['CN'])} med naturgas i 2026, ud af {tal(hs('viborg'))}. {tal(HEAT['viborg']['VP'])} har allerede varmepumpe.", ["dst_bol102"]),
+  ("Hvad koster en luft til vand-varmepumpe i Viborg?", lambda: "SparEnergi angiver typisk 100.000-130.000 kr. inkl. montering, og Energisparer.dk ca. 90.000-150.000 kr. Vi har ikke fundet kilder, der viser en særlig Viborg-pris. Skifter du olie, gas, el eller biokedel ud uden for fjernvarme og planlagt fjernvarme, kan du søge 27.000 kr. fra Varmepumpepuljen, senest 30. november 2026.", ["se_vp", "es_vp", "vpp_faq"])],
 })
 FV_SOURCES.update({
  "aarhus": [("Aftalen om træpillevarme fra <strong>Studstrupværket</strong> udløber i 2030, og Kredsløb mister dermed 500 MW varmekapacitet. Kredsløbs eget halmfyrede kraftvarmeværk og affaldsforbrændingen skal fremover dække 45-50 % af varmen, resten skal være elbaseret.", ["aar_geo"]),
@@ -995,11 +996,99 @@ def reg_age_note(c, kommune):
         return (f"{tal(B['1960-1979'])} af de beboede huse i Rudersdal Kommune ({pct(B['1960-1979'], t)}) er bygget i 1960-1979. Er dit kvarter omfattet af en ældre lokalplan fra tidligere Søllerød eller Birkerød, så tjek reglerne for tag og solanlæg, før du bestiller.", ["rud_solvp"])
     return _reg_age_old8(c, kommune)
 
+# ---------- daglig by-rutine 3. nov. 2026: Nykøbing Falster (Guldborgsund Kommune, DK2, Region Sjælland) og Haderslev (DK1, Region Syddanmark) ----------
+_ELVs = lambda x: HEAT[x]["ELV"] / hs(x); _OLDs = lambda x: STOCK[x]["B"]["før 1960"] / STOCK[x]["tot"]; _CAs = lambda x: HEAT[x]["CA"] / hs(x)
+SOL_ORDER.update({
+ "nykoebing-falster": ["produktion", "boliger", "tage", "lokalt", "faq", "guides"],
+ "haderslev": ["lokalt", "tage", "boliger", "produktion", "faq", "guides"],
+})
+VP_ORDER.update({
+ "nykoebing-falster": ["opvarmning", "pris", "lokale-byer", "lokalt", "guides", "faq"],
+ "haderslev": ["lokalt", "lokale-byer", "opvarmning", "pris", "faq", "guides"],
+})
+FV_ORDER.update({
+ "nykoebing-falster": ["andel", "varmekilder", "priser", "status", "faq", "billigst"],
+ "haderslev": ["status", "priser", "andel", "billigst", "varmekilder", "faq"],
+})
+SOL_PROD.update({
+ "nykoebing-falster": ("Mest sol af byerne på sitet: produktion i Nykøbing Falster",
+   lambda: f"PVGIS beregner ca. <strong>{tal(PV['nykoebing-falster']['syd'])} kWh pr. kWp om året</strong> for et sydvendt tag med 35° hældning i Nykøbing Falster, {rk(_PVY, 'nykoebing-falster', 'højeste')} af de {nw()} byer på dette site. Et 6 kWp-anlæg giver dermed ca. {tal(PV['nykoebing-falster']['syd']*6)} kWh om året mod syd, ca. {tal(PV['nykoebing-falster']['vest']*6)} kWh mod vest og ca. {tal(PV['nykoebing-falster']['oest']*6)} kWh mod øst. Maj er den bedste måned med ca. {tal(PV['nykoebing-falster']['months'][4]*6)} kWh, tæt fulgt af juni med ca. {tal(PV['nykoebing-falster']['months'][5]*6)} kWh."),
+ "haderslev": ("Hvor meget giver solceller i Haderslev?",
+   lambda: f"For et sydvendt tag med 35° hældning i Haderslev beregner PVGIS ca. {tal(PV['haderslev']['syd'])} kWh pr. kWp om året, og ved den optimale hældning på {PV['haderslev']['opt_angle']}° ca. {tal(PV['haderslev']['opt'])} kWh. Et 6 kWp-anlæg giver ca. {tal(PV['haderslev']['syd']*6)} kWh om året. Mod vest falder det til ca. {tal(PV['haderslev']['vest']*6)} kWh og mod øst til ca. {tal(PV['haderslev']['oest']*6)} kWh, ca. {round(100*(1-PV['haderslev']['oest']/PV['haderslev']['syd']))} % mindre end mod syd."),
+})
+SOL_PROD_SRC_NEW.update({"nykoebing-falster": ["pv_nykoebing-falster", "pvo_nykoebing-falster", "pvv_nykoebing-falster"], "haderslev": ["pv_haderslev", "pvo_haderslev", "pvv_haderslev"]})
+SOL_ROOF.update({
+ "nykoebing-falster": ("Fibercement og tegl dominerer tagene i Guldborgsund",
+   lambda: f"{rp('nykoebing-falster','06')} af parcel- og rækkehusene i Guldborgsund Kommune har tag af <strong>fibercement</strong>, {rk(_FIB, 'nykoebing-falster', 'højeste')} andel af de {nw()} byer, og {rp('nykoebing-falster','10')} har <strong>tegl</strong>. Kun {rp('nykoebing-falster','02',1)} har fladt tag, og det er værd at vide, fordi Guldborgsund Kommune kræver byggetilladelse til solceller på fladt tag. Ifølge Bolius indeholder bølge- og kunstskiferplader fra før 1984 næsten altid asbest.",
+   ["dst_bygb50", "gul_faq", "bolius_asb"]),
+ "haderslev": ("Tre tagtyper deler husene i Haderslev",
+   lambda: f"I Haderslev Kommune er tagene delt mellem <strong>fibercement</strong> ({rp('haderslev','06')}), <strong>tegl</strong> ({rp('haderslev','10')}) og <strong>cementsten</strong> ({rp('haderslev','08')}) af parcel- og rækkehusene, mod {rp('dk','08')} cementsten i hele landet. Haderslev Kommune anbefaler, at en rådgiver tjekker, om tagkonstruktionen kan bære den ekstra vægt, og hører taget til konstruktionsklasse 2 eller højere, skal en certificeret rådgiver med.",
+   ["dst_bygb50", "had_sol"]),
+})
+SOL_HOMES.update({
+ "nykoebing-falster": lambda: f"{pct(STOCK['nykoebing-falster']['B']['før 1960'],STOCK['nykoebing-falster']['tot'])} af de {tal(STOCK['nykoebing-falster']['tot'])} beboede parcel- og rækkehuse i Guldborgsund Kommune er bygget før 1960, {rk(_OLDs, 'nykoebing-falster', 'højeste')} andel af de {nw()} byer, og kun {pct(STOCK['nykoebing-falster']['B']['2000+'],STOCK['nykoebing-falster']['tot'])} er fra 2000 eller senere. Nykøbing F. har {tal(town('nykoebing-falster','Nykøbing F'))} indbyggere, og siden gælder også Sakskøbing ({tal(town('nykoebing-falster','Sakskøbing'))}), Sundby ({tal(town('nykoebing-falster','Sundby'))}), Nørre Alslev, Stubbekøbing og Nysted.",
+ "haderslev": lambda: f"Haderslev Kommune har {tal(STOCK['haderslev']['tot'])} beboede parcel- og rækkehuse. {pct(STOCK['haderslev']['B']['før 1960'],STOCK['haderslev']['tot'])} er bygget før 1960 og {pct(STOCK['haderslev']['B']['1960-1979'],STOCK['haderslev']['tot'])} i 1960-1979, mens kun {pct(STOCK['haderslev']['B']['2000+'],STOCK['haderslev']['tot'])} er fra 2000 eller senere. Haderslev by har {tal(town('haderslev','Haderslev'))} indbyggere, og siden gælder også Vojens ({tal(town('haderslev','Vojens'))}), Starup ({tal(town('haderslev','Starup'))}), Gram ({tal(town('haderslev','Gram'))}) og Marstrup.",
+})
+SOL_HOMES_SRC_NEW.update({"nykoebing-falster": [], "haderslev": []})
+SOL_HOMES_H.update({"nykoebing-falster": "Ældre huse fra Nykøbing F. til Sakskøbing og Nysted", "haderslev": "Huse i Haderslev, Vojens og Gram"})
+SOL_XFAQ.update({
+ "nykoebing-falster": [("Giver solceller mere i Nykøbing Falster end i Jylland?", lambda: f"Lidt. PVGIS giver Nykøbing Falster ca. {tal(PV['nykoebing-falster']['syd'])} kWh pr. kWp om året mod fx {tal(PV['aarhus']['syd'])} kWh i Aarhus og {tal(PV['herning']['syd'])} kWh i Herning, for samme sydvendte tag på 35°. For et 6 kWp-anlæg er forskellen til Herning ca. {tal((PV['nykoebing-falster']['syd']-PV['herning']['syd'])*6)} kWh om året. Tagets retning og skygge betyder stadig mest.", ["pv_nykoebing-falster", "pv_aarhus", "pv_herning"])],
+ "haderslev": [("Hvor meget giver solceller i Haderslev om vinteren?", lambda: f"PVGIS beregner ca. {tal(PV['haderslev']['months'][11]*6)} kWh i december og {tal(PV['haderslev']['months'][0]*6)} kWh i januar fra et 6 kWp-anlæg mod syd i Haderslev, mod ca. {tal(PV['haderslev']['months'][4]*6)} kWh i maj.", ["pv_haderslev"])],
+})
+VP_HEAT.update({
+ "nykoebing-falster": ("Ingen naturgas, men mange oliefyr og elvarme i Guldborgsund",
+   lambda: f"Danmarks Statistik registrerer ingen beboede parcel- og rækkehuse med naturgas i Guldborgsund Kommune. {hp('nykoebing-falster','FJ',1)} har fjernvarme, men {tal(HEAT['nykoebing-falster']['ELV'])} huse ({hp('nykoebing-falster','ELV',1)}) har <strong>elvarme</strong> og {tal(HEAT['nykoebing-falster']['CO'])} ({hp('nykoebing-falster','CO',1)}) har <strong>oliefyr</strong>, i begge tilfælde {rk(_ELVs, 'nykoebing-falster', 'højeste')} andel af de {nw()} byer, mod {hp('dk','ELV',1)} og {hp('dk','CO',1)} på landsplan. {tal(HEAT['nykoebing-falster']['VP'])} huse har allerede varmepumpe."),
+ "haderslev": ("Fire ud af ti huse har fjernvarme, og hvert fjerde har naturgas",
+   lambda: f"{hp('haderslev','FJ',1)} af de {tal(hs('haderslev'))} beboede parcel- og rækkehuse i Haderslev Kommune har fjernvarme, mod {hp('dk','FJ',1)} på landsplan, og {tal(HEAT['haderslev']['CN'])} ({hp('haderslev','CN',1)}) har naturgas. {tal(HEAT['haderslev']['CA'])} huse ({hp('haderslev','CA',1)}) har centralvarme med en anden kilde, fx træpiller, {rk(_CAs, 'haderslev', 'højeste')} andel af de {nw()} byer. {tal(HEAT['haderslev']['VP'])} har allerede varmepumpe."),
+})
+VP_HEAT_SRC_NEW.update({"nykoebing-falster": [], "haderslev": []})
+VP_TOWNS.update({
+ "nykoebing-falster": [("Nykøbing F., Ønslev, Eskilstrup", "Guldborgsund Varme, ca. 7.000 kunder (også Ovstrup, Gundslevmagle, Systofte)", ["gfo_varme"]),
+                       ("Sakskøbing", "Eget værk: Sakskøbing Fjernvarmeselskab", ["ft_pris"]),
+                       ("Nysted", "Eget værk: Nysted Varmeværk", ["ft_pris"]),
+                       ("Nørre Alslev", "Eget værk: Nr. Alslev Fjernvarmeværk", ["ft_pris"]),
+                       ("Stubbekøbing, Horbelev, Gedser", "REFA's tre fjernvarmeværker", ["ft_pris"]),
+                       ("Mindre landsbyer", "Varmeplanen åbner for lokale energifællesskaber, ellers individuelle grønne løsninger", ["gul_vpl"])],
+ "haderslev": [("Haderslev", "Haderslev Fjernvarme: gravearbejdet i udvidelsesområderne er afsluttet", ["hfv_tid"]),
+               ("Starup", "Med i Haderslev Fjernvarmes udvidelse, 81 % tilslutning", ["hfv_gf25"]),
+               ("Marstrup", "Fjernvarme betinget af 85 % frivillig tilslutning", ["had_fjv", "hfv_gf25"]),
+               ("Vojens", "Vojens Fjernvarme: ca. 867 forbrugere, udrulning inden udgangen af 2026", ["had_vpl"]),
+               ("Gram", "Gram Fjernvarme: udrulning forventet inden udgangen af 2023", ["had_fjv"]),
+               ("Øvrige lokalbyer med naturgas", "Ingen fjernvarme fra de tre selskaber", ["had_fjv"])],
+})
+VP_TOWNS_NOTE.update({
+ "nykoebing-falster": "Har du oliefyr eller elvarme i en landsby uden fjernvarme, så hør først, om der er et energifællesskab på vej. Ellers anbefaler kommunen en individuel grøn løsning, og Varmepumpepuljen kan give tilskud til at skifte oliefyr eller elvarme ud.",
+ "haderslev": "Bor du i en lokalby med gasfyr, kommer fjernvarmen ikke. Ligger du derimod i et af udvidelsesområderne i Haderslev, Vojens eller Gram, så tal med fjernvarmeselskabet, før du køber varmepumpe. Kommunen advarer om, at for mange varmepumper kan forhindre fjernvarmen.",
+})
+VP_XFAQ.update({
+ "nykoebing-falster": [("Hvor mange huse i Guldborgsund Kommune har elvarme eller oliefyr?", lambda: f"Danmarks Statistik registrerer {tal(HEAT['nykoebing-falster']['ELV'])} beboede parcel- og rækkehuse med elvarme og {tal(HEAT['nykoebing-falster']['CO'])} med oliefyr i 2026, ud af {tal(hs('nykoebing-falster'))}. {tal(HEAT['nykoebing-falster']['CA'])} har centralvarme med en anden kilde, og ingen har naturgas.", ["dst_bol102"])],
+ "haderslev": [("Hvor mange huse i Haderslev Kommune har gasfyr?", lambda: f"{tal(HEAT['haderslev']['CN'])} af de {tal(hs('haderslev'))} beboede parcel- og rækkehuse ({hp('haderslev','CN',1)}) har naturgas ifølge Danmarks Statistik, 2026. {tal(HEAT['haderslev']['CO'])} har oliefyr, {tal(HEAT['haderslev']['ELV'])} elvarme og {tal(HEAT['haderslev']['VP'])} varmepumpe.", ["dst_bol102"])],
+})
+FV_SOURCES.update({
+ "nykoebing-falster": [("I 2025 kom <strong>47,5 % af Guldborgsund Varmes brændsel fra overskudsvarme</strong>, 47,4 % fra træ og 5,1 % fra bioolie.", ["gfo_dekl25"]),
+                       ("Andelen af <strong>vedvarende energi inkl. el</strong> var 100 % ifølge værkets fjernvarmedeklaration for 2025.", ["gfo_dekl25"])],
+ "haderslev": [("Haderslev Fjernvarme startede i slutningen af 2024 <strong>prøvedrift på en varmepumpe, elkedler og en varmeakkumuleringstank</strong> ved Industri Langkær.", ["hfv_gf25"]),
+               ("Udvidelsesprojektet blev godkendt i 2021 sammen med en <strong>11 MW varmepumpe</strong>, og det oprindelige budget lå på 272,6 mio. kr. plus ca. 80 mio. kr. til varmepumpen.", ["had_vpl", "hfv_gf25"])],
+})
+FV_SHARE.update({
+ "nykoebing-falster": lambda: f"{hp('nykoebing-falster','FJ',1)} af de beboede parcel- og rækkehuse i Guldborgsund Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. Der er ingen huse med naturgas, men {tal(HEAT['nykoebing-falster']['ELV'])} har elvarme og {tal(HEAT['nykoebing-falster']['CO'])} oliefyr.",
+ "haderslev": lambda: f"{hp('haderslev','FJ',1)} af de beboede parcel- og rækkehuse i Haderslev Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. {tal(HEAT['haderslev']['CN'])} huse har naturgas og {tal(HEAT['haderslev']['CO'])} oliefyr.",
+})
+FV_SOURCES_H.update({"nykoebing-falster": "Overskudsvarme og træ", "haderslev": "Varmepumpe, elkedler og akkumuleringstank i Langkær"})
+_reg_age_old9 = reg_age_note
+def reg_age_note(c, kommune):
+    s = STOCK[c]; B = s["B"]; t = s["tot"]
+    if c == "nykoebing-falster":
+        return (f"{tal(B['før 1960'])} af de beboede huse i Guldborgsund Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. Har dit ældre hus fladt tag eller ligger det i landzone, kræver solcellerne tilladelse, så tjek det, før du bestiller.", ["gul_faq"])
+    if c == "haderslev":
+        return (f"{tal(B['1960-1979'])} af de beboede huse i Haderslev Kommune ({pct(B['1960-1979'], t)}) er bygget i 1960-1979. Tjek lokalplanen for dit kvarter, som fx kan bestemme tagets farve og materiale, før du bestiller.", ["had_sol"])
+    return _reg_age_old9(c, kommune)
+
 # ---------- tjek af sammenlignende udsagn: bygget fejler, hvis en ny by gør et udsagn forkert ----------
 _PVs = lambda c: PV[c]["syd"]; _rt = lambda k: (lambda c: ROOF[c]["T"][k] / ROOF[c]["tot"]); _hf = lambda k: (lambda c: HEAT[c][k] / hs(c)); _sb = lambda k: (lambda c: STOCK[c]["B"][k] / STOCK[c]["tot"])
 CLAIMS = [
- ("Esbjerg top 7 PV", rank(_PVs, "esbjerg") <= 7),
- ("Aalborg top 7 juni", rank(lambda c: PV[c]["months"][5], "aalborg") <= 7),
+ ("Esbjerg top 8 PV", rank(_PVs, "esbjerg") <= 8),
+ ("Aalborg top 8 juni", rank(lambda c: PV[c]["months"][5], "aalborg") <= 8),
  ("Odense flest tegl", top(_rt("10")) == "odense"), ("Aalborg top 2 fibercement (dynamisk tekst)", rank(_rt("06"), "aalborg") <= 2),
  ("Vejle ikke nr. 1 nyere huse", rank(_sb("2000+"), "vejle") > 1),
  ("Esbjerg top 3 1960-79 (dynamisk tekst)", rank(_sb("1960-1979"), "esbjerg") <= 3),
@@ -1007,14 +1096,14 @@ CLAIMS = [
  ("Horsens top 4 ejerandel (dynamisk tekst)", rank(_EJ, "horsens") <= 4),
  ("Odense højeste FJ", top(_hf("FJ")) == "odense"), ("Aarhus nr. 2 FJ", rank(_hf("FJ"), "aarhus") == 2),
 
- ("Viborg højeste olie, Randers top 4 (dynamisk tekst)", top(_hf("CO")) == "viborg" and rank(_hf("CO"), "randers") <= 4),
+ ("Viborg top 2 olie, Randers top 5 (dynamisk tekst)", rank(_hf("CO"), "viborg") <= 2 and rank(_hf("CO"), "randers") <= 5),
  ("Næstved gas tæt på fjernvarme (overskrift)", abs(HEAT["naestved"]["CN"] - HEAT["naestved"]["FJ"]) / HEAT["naestved"]["FJ"] < 0.05),
  ("Sønderborg tre ud af fem FJ (overskrift)", 0.58 <= HEAT["soenderborg"]["FJ"] / hs("soenderborg") <= 0.62),
  ("Roskilde mere end hvert fjerde gas (overskrift)", HEAT["roskilde"]["CN"] / hs("roskilde") > 0.25),
  ("Holbæk top 4 gasfyr og laveste FJ (overskrift)", rank(_hf("CN"), "holbaek") <= 4 and top(_hf("FJ"), rev=True) == "holbaek"),
  ("Køge halvdelen gas, top 3 gasfyr (overskrift, dynamisk tekst)", 0.47 <= HEAT["koege"]["CN"] / hs("koege") <= 0.53 and rank(_hf("CN"), "koege") <= 3),
  ("Svendborg hvert fjerde FJ (overskrift)", 0.23 <= HEAT["svendborg"]["FJ"] / hs("svendborg") <= 0.27),
- ("Svendborg top 2 PV (dynamisk tekst)", rank(_PVs, "svendborg") <= 2),
+ ("Svendborg top 3 PV (dynamisk tekst)", rank(_PVs, "svendborg") <= 3),
  ("Faaborg hvert tredje FJ (tekst)", 0.32 <= HEAT["faaborg"]["FJ"] / hs("faaborg") <= 0.36),
  ("Aabenraa halvdelen FJ (tekst)", 0.48 <= HEAT["aabenraa"]["FJ"] / hs("aabenraa") <= 0.54),
  ("Aabenraa hvert ellevte elvarme (overskrift)", 0.085 <= HEAT["aabenraa"]["ELV"] / hs("aabenraa") <= 0.096),
@@ -1026,6 +1115,13 @@ CLAIMS = [
  ("Hjørring næsten halvdelen fibercement (overskrift)", 0.45 <= ROOF["hjoerring"]["T"]["06"] / ROOF["hjoerring"]["tot"] < 0.50),
  ("Holte/Rudersdal seks ud af ti gas (overskrift)", 0.57 <= HEAT["holte"]["CN"] / hs("holte") <= 0.63),
  ("Holte/Rudersdal 15 pct. FJ (tekst)", round(100 * HEAT["holte"]["FJ"] / hs("holte")) == 15),
+ ("Nykøbing F. højeste PV (overskrift)", top(_PVs) == "nykoebing-falster"),
+ ("Guldborgsund ingen gas, ELV og olie top 1 (overskrift + 'i begge tilfælde')", HEAT["nykoebing-falster"]["CN"] == 0 and top(_hf("ELV")) == "nykoebing-falster" and top(_hf("CO")) == "nykoebing-falster"),
+ ("Guldborgsund mere end hvert tiende elvarme, næsten lige så mange olie (tekst)", HEAT["nykoebing-falster"]["ELV"] / hs("nykoebing-falster") > 0.10 and 0.85 <= HEAT["nykoebing-falster"]["CO"] / HEAT["nykoebing-falster"]["ELV"] < 1),
+ ("Guldborgsund 57 pct. FJ (tekst)", round(100 * HEAT["nykoebing-falster"]["FJ"] / hs("nykoebing-falster")) == 57),
+ ("Guldborgsund fibercement og tegl de to største tagtyper (overskrift)", sorted(ROOF["nykoebing-falster"]["T"], key=lambda k: -ROOF["nykoebing-falster"]["T"][k])[:2] == ["06", "10"]),
+ ("Haderslev fire ud af ti FJ, hvert fjerde gas (overskrift)", 0.38 <= HEAT["haderslev"]["FJ"] / hs("haderslev") <= 0.42 and 0.23 <= HEAT["haderslev"]["CN"] / hs("haderslev") <= 0.27),
+ ("Haderslev tre tagtyper 25-30 pct. (overskrift)", all(0.25 <= ROOF["haderslev"]["T"][k] / ROOF["haderslev"]["tot"] <= 0.30 for k in ("06", "10", "08"))),
 ]
 _bad = [n for n, ok in CLAIMS if not ok]
 assert not _bad, f"Sammenlignende udsagn passer ikke længere: {_bad}"

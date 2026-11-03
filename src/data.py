@@ -870,3 +870,75 @@ CONTACTS["hjoerring"] = {"sol": [("Hjørring Kommune, Team Byggeri", "72 33 65 7
                          "vp":  [("Hjørring Varmeforsyning", "96 24 15 00 · hv@hjvarme.dk", "hjv_tilslut")]}
 CONTACTS["holte"] = {"sol": [("Rudersdal Kommune, Byplan", "46 11 25 00 · byplan@rudersdal.dk", "rud_solvp")],
                      "vp":  [("Rudersdal Kommune, Klima, Natur og Miljø", "46 11 24 00 · knm@rudersdal.dk", "rud_fjv")]}
+
+# ---------- daglig by-rutine 3. nov. 2026: Nykøbing Falster/Guldborgsund (DK2) og Haderslev (DK1) ----------
+S.update({
+ "gul_faq": ("Guldborgsund Kommune: ofte stillede spørgsmål om byggetilladelse (kræver solceller en byggetilladelse?)", "https://www.guldborgsund.dk/borger/flytte-bo-og-bygge/byggetilladelse/ofte-stillede-spoergsmaal"),
+ "gul_vpl": ("Guldborgsund Kommune: høring om forslag til Varmeplan 2025 (frist 26/3 2026)", "https://www.guldborgsund.dk/hoeringer/2026/hoering-forslag-til-varmeplan-2025"),
+ "gfo_varme": ("Guldborgsund Forsyning: varme (forsyningsområde og kontakt)", "https://www.guldborgsundforsyning.dk/varme/"),
+ "gfo_takst26": ("Guldborgsund Forsyning: alle takster 2026, varme (PDF)", "https://www.guldborgsundforsyning.dk/thogoagr/2025/11/Alle-takster-2026-varme.pdf"),
+ "gfo_dekl25": ("Guldborgsund Varme A/S: fjernvarmedeklaration 2025 (PDF, 6/8 2026)", "https://www.guldborgsundforsyning.dk/thogoagr/2026/08/Fjernvarmedeklaration-2025.pdf"),
+ "gul_lz": ("Guldborgsund Kommune: landzonetilladelse", "https://www.guldborgsund.dk/borger/flytte-bo-og-bygge/landzonetilladelse"),
+ "had_sol": ("Haderslev Kommune: solceller", "https://www.haderslev.dk/service/bolig-og-byggeri/byggeri/solceller"),
+ "had_fjv": ("Haderslev Kommune: fjernvarme, sådan rulles fjernvarmen ud (læst 3/11 2026)", "https://www.haderslev.dk/udvikling/udvikling-og-projekter/vi-udvikler-naturen-og-klimaet/opvarmning-af-boliger-og-erhvervsbygninger/fjernvarme"),
+ "had_vpl": ("Haderslev Kommune: Varmeplan for gasområder 2022 (PDF)", "https://www.haderslev.dk/media/smlnv0lg/varmeplan-gasomraader_endelig-udgave.pdf"),
+ "hfv_tid": ("Haderslev Fjernvarme: tidslinje for kampagneprisen (læst 3/11 2026)", "https://haderslev-fjernvarme.dk/information/udvidelsesplan/tidslinje"),
+ "hfv_gf25": ("Haderslev Fjernvarme: generalforsamlingsfolder 24. april 2025 (PDF)", "https://haderslev-fjernvarme.dk/p/Haderslev%20Fjernvarme/Generalforsamling/Beretninger%20-%20GF-Folder/Generalforsamlingsfolder-2025.pdf"),
+})
+CITIES["nykoebing-falster"] = {
+  "name": "Nykøbing Falster", "kommune": "Guldborgsund Kommune", "cross_name": "Guldborgsund Kommune", "updated": ("3. november 2026", "2026-11-03"),
+  "sol_title": "Solceller Nykøbing Falster: regler, pris og tilbud | Energitjekket",
+  "vp_title": "Varmepumpe Nykøbing Falster: luft til vand, tilskud | Energitjekket",
+  "fv_title": "Fjernvarme eller varmepumpe i Nykøbing Falster? 2026 | Energitjekket",
+  "sol_intro": "Solceller i Nykøbing Falster: på et parcel-, række- eller dobbelthus kræver solceller ikke byggetilladelse i Guldborgsund Kommune, når de følger tagets hældning og ikke øger lasten på taget med 5 % eller mere. Fladt tag, terræn og landzone kræver derimod tilladelse. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Solceller på et <strong>enfamilie-, række-, dobbelt- eller sommerhus</strong> kræver ikke byggetilladelse, når de følger tagets hældning og overholder bygningsreglementets afstands- og højdekrav.", ["gul_faq"]),
+    ("Lastvirkningen fra panelerne skal holdes <strong>under 5 %</strong> i forhold til husets eksisterende dokumentation.", ["gul_faq"]),
+    ("Solceller på <strong>fladt tag eller på terræn</strong> kræver byggetilladelse i Guldborgsund Kommune.", ["gul_faq"]),
+    ("Ligger ejendommen i <strong>landzone</strong>, kræver solcelleanlægget også en landzonetilladelse.", ["gul_faq"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Nykøbing Falster?", "Ikke byggetilladelse, hvis panelerne følger tagets hældning, lasten holdes under 5 %, og bygningsreglementets krav til afstand og højde, lokalplanen og tinglyste servitutter overholdes. Du skal selv sørge for at få anlægget registreret i BBR.", ["gul_faq"]),
+    ("Hvem kontakter jeg om solceller i Guldborgsund Kommune?", "Bolig & Byggesag i Center for Teknik & Miljø på 54 73 20 95 i telefontiden (mandag-onsdag kl. 9-11, torsdag kl. 14-16, fredag kl. 9-11).", ["gul_faq"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Nykøbing Falster: Danmarks Statistik registrerer ingen huse med naturgas i Guldborgsund Kommune, men mange med oliefyr og elvarme. Kommunens forslag til Varmeplan 2025 vil udfase oliefyrene og anbefaler grønne individuelle løsninger, hvor fjernvarme ikke kan nå ud. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("Forslaget til <strong>Varmeplan 2025</strong> erstatter varmeplanen fra 2010 og var i høring til 26. marts 2026.", ["gul_vpl"]),
+    ("Fjernvarmen i de fleste byer og større landsbyer skal <strong>bevares og udbygges</strong>, og uden for fjernvarmeområderne skal oliefyrene udfases.", ["gul_vpl"]),
+    ("I de mindre landsbyer åbner planen for <strong>lokale energifællesskaber</strong> med fælles varmeløsninger baseret på vedvarende energi.", ["gul_vpl"]),
+    ("Hvor fjernvarme eller fælles løsninger ikke kan realiseres, anbefaler kommunen <strong>individuelle grønne løsninger</strong>, fx en varmepumpe.", ["gul_vpl"]),
+  ],
+  "vp_faq": [
+    ("Kommer der fjernvarme til min landsby i Guldborgsund Kommune?", "Forslaget til Varmeplan 2025 bevarer og udbygger fjernvarmen i de fleste byer og større landsbyer og åbner for lokale energifællesskaber i de mindre landsbyer. Hvor fjernvarme eller en fælles løsning ikke kan realiseres, anbefaler kommunen en individuel grøn løsning.", ["gul_vpl"]),
+    ("Hvor kan Guldborgsund Varme levere fjernvarme?", "Guldborgsund Varme forsyner ca. 7.000 kunder i Nykøbing F., Ønslev, Eskilstrup, Ovstrup, Gundslevmagle og Systofte. Andre byer i kommunen, fx Sakskøbing, Nysted og Stubbekøbing, har egne værker.", ["gfo_varme", "ft_pris"]),
+  ],
+}
+CITIES["haderslev"] = {
+  "name": "Haderslev", "kommune": "Haderslev Kommune", "updated": ("3. november 2026", "2026-11-03"),
+  "sol_intro": "Solceller i Haderslev: på et parcel-, tofamilie-, række- eller sommerhus kræver solceller ikke byggetilladelse i Haderslev Kommune, når de følger tagets hældning og holder mindst 2,5 m til skel. Panelerne tæller med i bygningshøjden, og lokalplaner og deklarationer kan forbyde dem. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Private solceller på <strong>enfamilie-, tofamilie-, række- og sommerhuse</strong> kræver hverken byggetilladelse eller anmeldelse, når de følger tagets hældning og står mindst 2,5 m fra skel.", ["had_sol"]),
+    ("Panelerne skal <strong>medregnes i bygningshøjden</strong>, som stadig skal være overholdt.", ["had_sol"]),
+    ("Lokalplaner, byplanvedtægter og tinglyste deklarationer kan <strong>regulere eller forbyde</strong> solceller.", ["had_sol"]),
+    ("Opsætningen skal <strong>altid registreres i BBR</strong> på bbr@haderslev.dk, også når den ikke kræver byggetilladelse.", ["had_sol"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Haderslev?", "Nej, ikke på et privat enfamilie-, tofamilie-, række- eller sommerhus, når panelerne følger tagets hældning, står mindst 2,5 m fra skel og overholder bygningshøjden. Er huset fredet eller bevaringsværdigt, eller står anlægget på terræn, kræver det byggetilladelse.", ["had_sol"]),
+    ("Kan mit tag bære solceller?", "Haderslev Kommune anbefaler, at en professionel rådgiver gennemgår, om tagkonstruktionen kan bære vægten. Hører taget til en højere konstruktionsklasse end 1, skal en certificeret rådgiver tilknyttes.", ["had_sol"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Haderslev: hvert fjerde hus i Haderslev Kommune har naturgas, og fjernvarmen rulles kun ud i Haderslev, Vojens og Gram. Fjernvarmeselskaberne ser ikke mulighed for at nå lokalbyerne med naturgas, så her anbefaler kommunen varmepumpe, jordvarme eller en fælles løsning. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("Ca. <strong>4.135 boliger</strong> i Haderslev, Vojens og Gram får efter planen mulighed for fjernvarme inden udgangen af 2026, ca. 40 % af kommunens boliger med gas eller olie.", ["had_fjv"]),
+    ("Fjernvarmeselskaberne ser <strong>ikke mulighed for at tilbyde fjernvarme</strong> til lokalbyer og mindre bysamfund med naturgas. Undtagelsen er Marstrup, hvor fjernvarmen kan etableres, hvis 85 % af ejendommene tilslutter sig frivilligt.", ["had_fjv"]),
+    ("Uden for udvidelsesprojekterne anbefaler kommunen som udgangspunkt <strong>individuelle varmepumper, jordvarme eller biomasse</strong> i stedet for naturgassen.", ["had_vpl"]),
+    ("Lokal fjernvarme eller <strong>termonet</strong> kan være en mulighed i nogle områder, men det forudsætter et markant lokalt engagement.", ["had_vpl"]),
+  ],
+  "vp_faq": [
+    ("Får min landsby i Haderslev Kommune fjernvarme?", "Sandsynligvis ikke fra de tre fjernvarmeselskaber. De har vurderet, at de ikke kan tilbyde fjernvarme uden for de godkendte udvidelsesprojekter i Haderslev, Vojens og Gram, fordi områderne ligger for langt væk eller har for få olie- og gasfyr. Kommunen peger på varmepumpe, jordvarme, biomasse eller en fælles løsning.", ["had_fjv", "had_vpl"]),
+    ("Kan jeg risikere at blokere for fjernvarmen, hvis jeg køber varmepumpe?", "Ja, det advarer Haderslev Kommune om: udbredelsen af fjernvarme kan blive forhindret, hvis for mange i et kommende fjernvarmeområde vælger varmepumpe. Ligger du i et af udvidelsesområderne, så tal med fjernvarmeselskabet først.", ["had_fjv"]),
+  ],
+}
+CONTACTS["nykoebing-falster"] = {"sol": [("Guldborgsund Kommune, Bolig & Byggesag", "54 73 20 95", "gul_faq")],
+                                 "vp":  [("Guldborgsund Forsyning (Guldborgsund Varme)", "72 44 12 12 · forbrug@guldborgsundforsyning.dk", "gfo_varme")]}
+CONTACTS["haderslev"] = {"sol": [("Haderslev Kommune, Teknik og Klima", "74 34 34 34 · bbr@haderslev.dk (BBR)", "had_sol")],
+                         "vp":  [("Haderslev Fjernvarme", "74 52 21 88 · info@haderslev-fjernvarme.dk", "hfv_tid")]}
