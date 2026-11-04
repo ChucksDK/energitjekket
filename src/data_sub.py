@@ -1430,3 +1430,102 @@ FV_PAGE["haderslev"] = {
    ("Hvorfor får lokalbyerne i Haderslev Kommune ikke fjernvarme?", "Fjernvarmeselskaberne i Haderslev, Vojens og Gram har vurderet, at områderne ligger for langt fra et eksisterende net eller har for få ejendomme med olie eller gas. Kommunen anbefaler i stedet individuelle varmepumper, jordvarme, biomasse eller lokale fælles løsninger som termonet.", ["had_fjv", "had_vpl"]),
   ],
 }
+
+# ---------- daglig by-rutine 4. nov. 2026: Frederikshavn og Hedensted ----------
+# Forsyningstilsynet, prisstatistik januar 2026 (CSV): Frederikshavn = de 9 værker, kommunens varmescreening 2022 nævner (postnr. 9900/9300/9990/9970/9750/9352).
+# Hedensted = de 5 selskaber på kommunens fjernvarmeside + Tørring-Ølholm og Daugård Fællesvarme (postnr. 8721). Annasminde Varmeforsyning (7160) udeladt: kommunetilhør ikke verificeret.
+FV_PRICES["frederikshavn"] = [("Skagen Varmeværk", "9990", "12.635", "450"), ("Sæby Varmeværk", "9300", "14.032", "520"), ("Østervrå Varmeværk", "9750", "18.381", "687"), ("Frederikshavn Varme", "9900", "18.419", "798"), ("Strandby Varmeværk", "9970", "18.887", "750"), ("Voerså Kraftvarmeværk", "9300", "20.212", "875"), ("Thorshøj Kraftvarmeværk", "9750", "21.111", "793"), ("Hørby Varmeværk", "9300", "21.600", "812"), ("Dybvad Varmeværk", "9352", "23.350", "1.000")]
+FV_PRICES["hedensted"] = [("RMU Forsyning (Rask Mølle, Uldum)", "7171", "18.121", "775"), ("Hornsyld Klimavarme", "8783", "20.178", "718"), ("Hedensted Fjernvarme", "8722", "20.397", "850"), ("Daugård Fællesvarme", "8721", "21.607", "627"), ("Tørring Kraftvarmeværk", "7160", "22.086", "247"), ("Løsning Fjernvarme", "8723", "22.581", "812"), ("Tørring Kraftvarmeværk, Ølholm", "7160", "27.242", "247")]
+SOL_REG["frederikshavn"] = {
+  "kw": "solceller frederikshavn kommune / byggetilladelse solceller frederikshavn",
+  "evidence": "Frederikshavn Kommunes side 'Grøn energi' beskriver, hvornår solcelle- og solfangeranlæg kræver byggetilladelse eller dispensation, krav om BBR-registrering og ansøgningstyper i Byg og Miljø (tjekket 4/11 2026).",
+  "intro": "Frederikshavn Kommune kræver som udgangspunkt ikke byggetilladelse til solceller på taget af dit hus, når anlægget overholder bygningsreglementets højde- og afstandskrav. Stativer på jorden, bevaringsværdige og fredede huse og ejendomme inden for bygge- og naturbeskyttelseslinjer kræver tilladelse. Her er reglerne og hvordan du søger.",
+  "sections": [
+   ("Her kræver solceller byggetilladelse", [
+     ("ul", [("Anlæg på <strong>stativer på jorden</strong>.", ["fre_sol"]),
+             ("Anlæg, der ikke overholder bygningsreglementets <strong>højde- og afstandskrav</strong>, fx fordi stativer eller bærebeslag vinkler panelerne op fra tagfladen.", ["fre_sol", "br18_179"]),
+             ("Anlæg på etageboliger, erhvervsbygninger og landbrugets avls- og driftsbygninger med dyrehold.", ["fre_sol"]),
+             ("Anlæg på en <strong>bevaringsværdig eller fredet</strong> ejendom eller på ejendomme omfattet af bygge- og naturbeskyttelseslinjer.", ["fre_sol"])]),
+   ]),
+   ("Lokalplan og deklaration: måske dispensation", [
+     ("p", "Er dit hus omfattet af en lokalplan, byplanvedtægt eller tinglyst deklaration med regler om solceller, <strong>tagmaterialer eller refleksioner</strong>, kan det kræve dispensation eller byggetilladelse. Kommunen skriver, at nogle bestemmelser gør det helt umuligt at sætte solceller op. Du spørger via Byg og Miljø med ansøgningstypen 'Planmæssig forespørgsel'.", ["fre_sol"]),
+   ]),
+   ("Blænding og naboer", [
+     ("p", "Som ejer har du ansvaret for, at anlægget ikke skærmer for eller generer naboer eller trafikanter, fx ved <strong>spejling eller blænding</strong>, og for at følge leverandørens forskrifter.", ["fre_sol"]),
+   ]),
+   ("BBR og hvem du kontakter", [
+     ("p", "Kræver anlægget ikke tilladelse, skal du sende <strong>areal og ydelse til BBR</strong>, når det er sat op. Skal du søge, vælger du 'Faste konstruktioner, som ikke er en bygning' i Byg og Miljø. Byg i Center for Teknik og Miljø har telefon 98 45 63 98.", ["fre_sol"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller byggetilladelse i Frederikshavn Kommune?", "Som udgangspunkt ikke på taget af dit hus, når anlægget overholder bygningsreglementets højde- og afstandskrav. Stativer på jorden, etageboliger, erhverv, bevaringsværdige og fredede ejendomme og ejendomme inden for bygge- og naturbeskyttelseslinjer kræver byggetilladelse.", ["fre_sol"]),
+   ("Må jeg vinkle solcellerne op fra taget i Frederikshavn?", "Det kan kræve byggetilladelse. Kommunen nævner netop stativer og bærebeslag, der vinkler solcellerne fra tagfladen, som et eksempel på anlæg, der ikke overholder højde- og afstandskravene.", ["fre_sol"]),
+   ("Skal mine solceller registreres i BBR?", "Ja. Også når anlægget ikke kræver tilladelse, skal du sende oplysninger om areal og ydelse til BBR, når det er sat op.", ["fre_sol"]),
+   ("Hvem kontakter jeg om solceller i Frederikshavn Kommune?", "Byg i Center for Teknik og Miljø på 98 45 63 98.", ["fre_sol"]),
+  ],
+}
+SOL_REG["hedensted"] = {
+  "kw": "solceller hedensted kommune / byggetilladelse solceller hedensted",
+  "evidence": "Hedensted Kommunes side 'Solceller' beskriver reglerne for solceller på tag og på stativ/terræn i by- og landzone, hvad ansøgningen skal indeholde og hvem man kontakter (tjekket 4/11 2026).",
+  "intro": "Hedensted Kommune kræver hverken byggetilladelse eller landzonetilladelse til solceller på taget af dit hus, når de følger tagets hældning uden stativ, ikke reflekterer, overholder byggeretten og kun forsyner din egen ejendom. Anlæg på stativ på jorden kræver tilladelse. Her er reglerne og hvordan du søger.",
+  "sections": [
+   ("Fem betingelser for solceller på taget uden tilladelse", [
+     ("ul", [("Solcellerne <strong>følger tagets hældning</strong> og monteres ikke på stativ.", ["hed_sol"]),
+             ("Panelerne er <strong>ikke af reflekterende materiale</strong>.", ["hed_sol"]),
+             ("Anlægget overholder <strong>byggeretten</strong>.", ["hed_sol", "br18_179"]),
+             ("Anlægget forsyner <strong>kun din egen ejendom</strong>.", ["hed_sol"]),
+             ("Servitutter og lokalplan siger ikke noget andet. Er bygningen bevaringsværdig eller fredet, så kontakt plan@hedensted.dk.", ["hed_sol"])]),
+   ]),
+   ("Solceller på stativ eller terræn", [
+     ("p", "Et anlæg på <strong>stativ på jorden</strong> kræver byggetilladelse og i landzone også landzonetilladelse. I landzone skal anlægget placeres i tilknytning til boligen, dvs. <strong>højst 20 meter</strong> fra den og i samme terrænhøjde, det må ikke ligge i områder med særlige landskabelige udpegninger, og det må kun forsyne din egen ejendom.", ["hed_sol"]),
+   ]),
+   ("Det skal stå i ansøgningen", [
+     ("p", "Søger du i Byg og Miljø, skal du krydse af ved landzone og begrunde ansøgningen med <strong>farve, højde, længde og bredde</strong>, afstande til skel og byggelinjer og, for anlæg på terræn, afstanden til husets øvrige bygninger. På kommunens webkort kan du se, om ejendommen er omfattet af fredning, naturbeskyttelse eller landskabelige udpegninger.", ["hed_sol"]),
+   ]),
+   ("BBR og hvem du kontakter", [
+     ("p", "Når anlægget er sat op, sender du areal og ydeevne til <strong>BBR@Hedensted.dk</strong>. Spørgsmål om byggetilladelse: byg@hedensted.dk eller 79 75 56 05. Landzone: landskab@hedensted.dk. Lokalplan: plan@hedensted.dk eller 79 75 56 06.", ["hed_sol"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller byggetilladelse i Hedensted Kommune?", "Ikke på taget, når panelerne følger tagets hældning uden stativ, ikke reflekterer, overholder byggeretten og kun forsyner din egen ejendom, og servitutter og lokalplan ikke siger andet.", ["hed_sol"]),
+   ("Skal jeg have landzonetilladelse til solceller på taget i Hedensted?", "Nej, ikke når betingelserne for solceller på taget er opfyldt. Står anlægget på stativ på jorden i landzone, kræver det både byggetilladelse og landzonetilladelse.", ["hed_sol"]),
+   ("Hvor langt fra huset må et jordanlæg stå i landzone?", "Højst 20 meter fra boligen og i samme terrænhøjde, ifølge Hedensted Kommune.", ["hed_sol"]),
+   ("Hvem kontakter jeg om solceller i Hedensted Kommune?", "Byggesager: byg@hedensted.dk eller 79 75 56 05. Lokalplaner og bevaringsværdige huse: plan@hedensted.dk.", ["hed_sol"]),
+  ],
+}
+FV_PAGE["frederikshavn"] = {
+  "kw": "fjernvarme frederikshavn / frederikshavn forsyning varme pris / varmepumpe frederikshavn",
+  "evidence": "Frederikshavn Forsyning oplyser priser for 2026, tilslutningspris og varmekilder, Frederikshavn Varmes årsrapport 2025 beskriver ringledningen, og kommunens varmescreening fra 2022 gennemgår værkerne og naturgas-byerne (tjekket 4/11 2026).",
+  "intro": "Næsten to ud af tre huse i Frederikshavn Kommune har fjernvarme fra ni varmeværker fra Skagen til Dybvad. Prisforskellen er stor: et standardhus betaler 12.635 kr. om året i Skagen og 23.350 kr. i Dybvad. Her er status for fjernvarmen, værkernes priser og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Pris 2026 i Frederikshavn by:</strong> 873,75 kr. pr. MWh inkl. moms plus arealbidrag på 23,75 kr. pr. m² i BBR og et målerabonnement fra 875 kr. om året.", ["ffv_pris"]),
+   ("<strong>Tilslutning:</strong> 27.500 kr. inkl. moms for private med op til 15 meter stikledning. Forsyningen oplyser erfaringsmæssigt ca. 30.000 kr. for de indvendige installationer.", ["ffv_faa"]),
+   ("<strong>Ringledning:</strong> Frederikshavn Varmes 4,8 km ringledning, der også kan forsyne Gærum, ventes sat i drift ultimo 2026.", ["ffv_aar25"]),
+   ("<strong>Naturgas-byerne:</strong> Ålbæk, Jerup, Kvissel, Ravnshøj og Haldbjerg/Vangen havde ingen fjernvarmeplaner i screeningen fra 2022, og her skal ejendommene senest i 2035 have en anden varmeforsyning.", ["fre_scr"]),
+  ],
+  "local_take": "Skagen Varmeværk er nr. 23 og Sæby Varmeværk nr. 54 af 374 værker i Forsyningstilsynets statistik regnet fra det billigste, mens Frederikshavn Varme som nr. 224 ligger over landsgennemsnittet, og Dybvad Varmeværk er nr. 346. Har du fjernvarme i Skagen eller Sæby, er der sjældent penge i at skifte. Har du gasfyr i en af naturgas-byerne, peger kommunens egen screening på individuel opvarmning eller en fælles løsning, og så er en varmepumpe det oplagte alternativ.",
+  "contact": ("Frederikshavn Forsyning, Varme", "98 29 90 00 · varme@forsyningen.dk", "ffv_faa"),
+  "faq": [
+   ("Hvad koster fjernvarme i Frederikshavn?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus på 130 m² med 18,1 MWh 18.419 kr. om året inkl. moms hos Frederikshavn Varme, 12.635 kr. hos Skagen Varmeværk og 14.032 kr. hos Sæby Varmeværk. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+   ("Hvad koster det at blive tilsluttet fjernvarme i Frederikshavn?", "Frederikshavn Forsyning tager 27.500 kr. inkl. moms for private med op til 15 meter stikledning. Graver du selv renden, får du 318,75 kr. i rabat pr. meter. Dertil kommer den indvendige installation, som forsyningen erfaringsmæssigt anslår til ca. 30.000 kr.", ["ffv_faa"]),
+   ("Hvorfor får Ålbæk ikke fjernvarme?", "Ålbæk ligger ca. 20 km fra både Skagen Varmeværk og Frederikshavn Varme, og kommunens screening fra 2022 vurderede, at det ikke er økonomisk fordelagtigt at føre en ledning dertil. Med 497 ejendomme med naturgas og 68 med oliefyr bør det ifølge screeningen afklares, om der er interesse for en fælles løsning.", ["fre_scr"]),
+  ],
+}
+FV_PAGE["hedensted"] = {
+  "kw": "fjernvarme hedensted / hedensted fjernvarme pris 2026 / varmepumpe hedensted",
+  "evidence": "Hedensted Fjernvarme oplyser priser og prisstigningen pr. 1/11 2026 og planerne for en spildevandsvarmepumpe, Dansk Fjernvarme beskriver Daugård-projektet, og Hedensted Kommune beskriver fjernvarmeselskaberne og status for varmeplanen (tjekket 4/11 2026).",
+  "intro": "36 % af husene i Hedensted Kommune har fjernvarme, og hvert femte har naturgas. Fjernvarmen er dyr her: alle de værker i kommunen, vi har fundet i Forsyningstilsynets statistik, ligger over landsgennemsnittet, og Hedensted Fjernvarme har hævet prisen fra 1. november 2026. Her er status, værkernes priser og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Pris fra 1/11 2026:</strong> Hedensted Fjernvarme hæver det variable bidrag fra 850 til 931,25 kr. pr. MWh og det faste bidrag fra 32,50 til 33,75 kr. pr. m² inkl. moms. Priserne gælder også pr. 1. januar 2027.", ["hfj_pris"]),
+   ("<strong>Daugård:</strong> 330 nye forbrugere kobles på fra Hedensted. Med over 100 % tilmeldte blev tilslutningen gratis, og projektet ventedes færdigt i 2. kvartal 2026.", ["df_daug"]),
+   ("<strong>Spildevandsvarmepumpe:</strong> en 4 MW varmepumpe ved Hedensted Spildevand i Daugård skal fra efteråret 2027 levere ca. 20.000 MWh om året og skære naturgassens andel af produktionen fra 20 til 4 %.", ["hfj_spild"]),
+   ("<strong>Varmeplanen:</strong> tre af de fire byområder, som varmeplanen fra 2022 pegede på til fjernvarme, er taget ud igen.", ["hed_red"]),
+  ],
+  "local_take": "RMU Forsyning i Rask Mølle og Uldum er det billigste af værkerne i kommunen i Forsyningstilsynets statistik, men som nr. 203 af 374 ligger det stadig over landsgennemsnittet, og Hedensted Fjernvarme var nr. 295 allerede før prisstigningen i november. Har du gasfyr uden for fjernvarmeområderne, er en luft til vand-varmepumpe det oplagte valg. Bor du i et fjernvarmeområde, så regn begge løsninger igennem, og husk at et tilbud om fjernvarme altid er frivilligt.",
+  "contact": ("Hedensted Fjernvarme", "75 89 10 12 · admin@hedensted-fjernvarme.dk", "hfj_pris"),
+  "faq": [
+   ("Hvad koster fjernvarme i Hedensted?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus på 130 m² med 18,1 MWh 20.397 kr. om året inkl. moms hos Hedensted Fjernvarme, 18.121 kr. hos RMU Forsyning og 22.581 kr. hos Løsning Fjernvarme. Landsgennemsnittet er 16.953 kr. Hedensted Fjernvarme har siden hævet prisen pr. 1. november 2026.", ["ft_pris", "hfj_pris"]),
+   ("Hvor meget naturgas bruger Hedensted Fjernvarme?", "Hedensted Fjernvarme forventer, at den nye spildevandsvarmepumpe fra 2027 kan reducere naturgassens andel af fjernvarmeproduktionen fra 20 til 4 %. Projektet koster knap 41 mio. kr.", ["hfj_spild"]),
+   ("Kan jeg blive tvunget på fjernvarme i Hedensted Kommune?", "Nej. Kommunen skriver, at et tilbud om fjernvarme altid er frivilligt. Ligger din bolig i et område, der er udlagt eller planlagt til fjernvarme, har fjernvarmeselskabet til gengæld ret og pligt til at forsyne dig, hvis du ønsker det.", ["hed_fjv"]),
+  ],
+}

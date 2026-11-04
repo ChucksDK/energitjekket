@@ -238,7 +238,7 @@ CITIES = {
     ("Hvordan regner jeg på solceller til mit hus i Horsens?", "Horsens Kommune tilbyder gratis adgang til SolarSim frem til 15. februar 2027. Du indtaster adresse og elforbrug og tegner tagfladerne, og så får du anlægsstørrelse, pris og tilbagebetalingstid. Brug resultatet, når du sammenligner tilbud.", ["hor_sol"]),
     ("Kan jeg få solceller på et bevaringsværdigt hus i Horsens?", "Har ejendommen bevaringsværdi 1-4 i kommuneplanen, skriver Horsens Kommune, at du ikke kan forvente at få tilladelse.", ["hor_sol"]),
   ],
-  "vp_intro": "Luft til vand-varmepumpe i Horsens: fjernvarmen er vokset voldsomt i Horsens de seneste ti år, så start med at tjekke, om din adresse er dækket. Ligger du udenfor, er her priser, tilskud og tilbud.",
+  "vp_intro": "Varmepumpe i Horsens: Fjernvarme Horsens er gået fra 8.200 til 22.400 kunder på ti år, så start med at tjekke, om din adresse er dækket. Ligger du uden for fjernvarmen med olie, gas eller elvarme, er en luft til vand-varmepumpe det typiske valg. Her er priser, tilskud og tilbud.",
   "vp_facts": [
     ("Fjernvarme Horsens er gået fra <strong>8.200 til 22.400 kunder</strong> fra 2015 til 2025 og har lagt 470 km nye ledninger. De sidste kunder i det store udbygningsprojekt kunne tilslutte sig i 2023.", ["hor_fv"]),
     ("Selskabet forventer at nå 25.000 kunder i 2030, heriblandt flere erhvervskunder.", ["hor_fv"]),
@@ -942,3 +942,80 @@ CONTACTS["nykoebing-falster"] = {"sol": [("Guldborgsund Kommune, Bolig & Byggesa
                                  "vp":  [("Guldborgsund Forsyning (Guldborgsund Varme)", "72 44 12 12 · forbrug@guldborgsundforsyning.dk", "gfo_varme")]}
 CONTACTS["haderslev"] = {"sol": [("Haderslev Kommune, Teknik og Klima", "74 34 34 34 · bbr@haderslev.dk (BBR)", "had_sol")],
                          "vp":  [("Haderslev Fjernvarme", "74 52 21 88 · info@haderslev-fjernvarme.dk", "hfv_tid")]}
+
+# ---------- daglig by-rutine 4. nov. 2026: Frederikshavn (DK1) og Hedensted (DK1) ----------
+S.update({
+ "fre_sol": ("Frederikshavn Kommune: grøn energi, solcelleanlæg og solfangere (læst 4/11 2026)", "https://frederikshavn.dk/borger/bolig-og-byggeri/skal-du-bygge/groen-energi"),
+ "fre_scr": ("Frederikshavn Kommune: screening af varmeområdet 2022 (PDF, 26/10 2022)", "https://frederikshavn.viewer.dkplan.niras.dk/media/710662/screening-af-varmeomraadet-i-frederikshavn-kommune-_2022.pdf"),
+ "ffv_varme": ("Frederikshavn Forsyning: fjernvarme og varmekilder", "https://www.forsyningen.dk/varme"),
+ "ffv_pris": ("Frederikshavn Forsyning: priser på fjernvarme 2026", "https://www.forsyningen.dk/varme/priser"),
+ "ffv_faa": ("Frederikshavn Forsyning: få fjernvarme (tilslutningspris)", "https://www.forsyningen.dk/varme/faa-fjernvarme/faa-fjernvarme"),
+ "ffv_aar25": ("Frederikshavn Varme A/S: årsrapport 2025 (PDF)", "https://www.forsyningen.dk/media/xkgncbwc/frederikshavn-varme-a_s-underskrevet-aarsrapport-for-2025.pdf"),
+ "hed_sol": ("Hedensted Kommune: solceller (læst 4/11 2026)", "https://www.hedensted.dk/service-og-selvbetjening/affald-bolig-og-miljoe/energi/solceller"),
+ "hed_fjv": ("Hedensted Kommune: fjernvarme (læst 4/11 2026)", "https://www.hedensted.dk/service-og-selvbetjening/affald-bolig-og-miljoe/energi/fjernvarme"),
+ "hed_red": ("Hedensted Kommune: forvaltningens oplæg til reduktionsområdet, klimaplan (dagsorden 2/9 2026, bilag 6, PDF)", "https://www.hedensted.dk/Agenda/GetFile?fileName=Punkt+105+-+Bilag+6+-+Bilag+6+-+Reduktionsopl%C3%A6g&filePath=%2Fdagsorden%2F2026UKlima%2F02-09-2026%2FDagsorden%28ID551%29%2FBilag%2FPunkt_105_Bilag_6_Bilag+6+-+Reduktionsoplaeg.pdf"),
+ "hfj_pris": ("Hedensted Fjernvarme: priser og prisstigning pr. 1/11 2026", "https://hedensted-fjernvarme.dk/oekonomi/priser"),
+ "hfj_spild": ("Hedensted Fjernvarme: i 2027 bliver dit spildevand til billig fjernvarme", "https://hedensted-fjernvarme.dk/nyheder/i-2027-bliver-dit-spildevand-til-billig-fjernvarme"),
+ "hfj_miljo": ("Hedensted Fjernvarme: miljø og grøn omstillingsplan", "https://hedensted-fjernvarme.dk/om-os/om-os/miljoe"),
+ "df_daug": ("Dansk Fjernvarme: Hedensted Fjernvarme kobler 330 nye forbrugere på (23/6 2025)", "https://danskfjernvarme.dk/aktuelt/nyheder/2025/hedensted-fjernvarme-kobler-330-nye-forbrugere-paa-fjernvarmen"),
+})
+CITIES["frederikshavn"] = {
+  "name": "Frederikshavn", "kommune": "Frederikshavn Kommune", "updated": ("4. november 2026", "2026-11-04"),
+  "vp_title": "Varmepumpe Frederikshavn: luft til vand og tilskud | Energitjekket",
+  "fv_title": "Fjernvarme eller varmepumpe i Frederikshavn? 2026 | Energitjekket",
+  "reg_title": "Solceller Frederikshavn: regler og byggetilladelse | Energitjekket",
+  "sol_intro": "Solceller i Frederikshavn: på taget af dit hus kræver solceller som udgangspunkt ikke byggetilladelse i Frederikshavn Kommune, når anlægget overholder bygningsreglementets højde- og afstandskrav. Stativer på jorden, bevaringsværdige og fredede huse og ejendomme inden for bygge- og naturbeskyttelseslinjer kræver tilladelse. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Solceller på taget kræver som udgangspunkt <strong>ikke byggetilladelse</strong>, når anlægget overholder bygningsreglementets højde- og afstandskrav. Stativer eller bærebeslag, der vinkler panelerne op fra tagfladen, kan udløse krav om tilladelse.", ["fre_sol"]),
+    ("Anlæg på <strong>stativer på jorden</strong> og på etageboliger, erhvervsbygninger og landbrugsbygninger med dyrehold kræver byggetilladelse.", ["fre_sol"]),
+    ("<strong>Bevaringsværdige og fredede</strong> ejendomme og ejendomme inden for bygge- og naturbeskyttelseslinjer kræver også byggetilladelse.", ["fre_sol"]),
+    ("Kræver anlægget ikke tilladelse, skal du stadig sende <strong>areal og ydelse til BBR</strong>, når det er sat op.", ["fre_sol"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Frederikshavn?", "Som udgangspunkt ikke, når panelerne ligger på taget og overholder bygningsreglementets højde- og afstandskrav. Har lokalplanen, byplanvedtægten eller en tinglyst deklaration regler om solceller, tagmaterialer eller refleksioner, kan det kræve dispensation. Det spørger du om i Byg og Miljø som en 'Planmæssig forespørgsel'.", ["fre_sol"]),
+    ("Hvem kontakter jeg om solceller i Frederikshavn Kommune?", "Byg i Center for Teknik og Miljø på 98 45 63 98. Skal du søge byggetilladelse, vælger du 'Faste konstruktioner, som ikke er en bygning' i Byg og Miljø.", ["fre_sol"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Frederikshavn: næsten to ud af tre huse i Frederikshavn Kommune har fjernvarme, men byer som Ålbæk, Jerup, Kvissel og Ravnshøj er udlagt til naturgas, og kommunens varmescreening fra 2022 fandt ingen økonomi i at føre fjernvarme dertil. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("I kommunens <strong>naturgas-byer</strong> skal ejendommene senest i 2035 omstilles til en anden varmeforsyning, skriver varmescreeningen fra 2022.", ["fre_scr"]),
+    ("I <strong>Ålbæk</strong> havde 497 af 883 ejendomme naturgas ifølge BBR-tallene i screeningen. Med ca. 20 km til både Skagen og Frederikshavn var det ikke økonomisk fordelagtigt at føre fjernvarme dertil.", ["fre_scr"]),
+    ("Naturgasområderne i <strong>landområderne</strong> bliver ikke konverteret til fjernvarme. Her må ejendommene overgå til individuel opvarmning.", ["fre_scr"]),
+    ("Frederikshavn Varmes <strong>4,8 km lange ringledning</strong>, som også kan forsyne Gærum, ventes sat i drift ultimo 2026.", ["ffv_aar25"]),
+  ],
+  "vp_faq": [
+    ("Kommer der fjernvarme til Ålbæk eller Jerup?", "Ikke efter kommunens varmescreening fra 2022. Afstanden til Skagen Varmeværk, Strandby Varmeværk og Frederikshavn Varme gjorde det ikke økonomisk fordelagtigt at føre fjernvarme dertil. For Ålbæk peger screeningen på at afklare, om der er interesse for en fælles løsning, fx et eget fjernvarmenet med en stor varmepumpe.", ["fre_scr"]),
+    ("Hvad laves fjernvarmen i Frederikshavn af?", "Frederikshavn Forsyning skriver, at affaldskraftvarmeværket står for ca. 30 % af varmen og varmepumpen på Vendsysselvej for ca. 35 %. Den sidste del kommer fra to kedelcentraler, der især bruges i de koldeste måneder, og en ny 20 MW elkedel blev færdig ultimo 2025.", ["ffv_varme", "ffv_aar25"]),
+  ],
+}
+CITIES["hedensted"] = {
+  "name": "Hedensted", "kommune": "Hedensted Kommune", "updated": ("4. november 2026", "2026-11-04"),
+  "sol_intro": "Solceller i Hedensted: på taget af dit hus kræver solceller hverken byggetilladelse eller landzonetilladelse i Hedensted Kommune, når de følger tagets hældning uden stativ, ikke er af reflekterende materiale og kun forsyner din egen ejendom. Anlæg på stativ på jorden kræver tilladelse. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Solceller på taget kræver <strong>hverken byggetilladelse eller landzonetilladelse</strong>, når de følger tagets hældning og ikke monteres på stativ.", ["hed_sol"]),
+    ("Panelerne må <strong>ikke være af reflekterende materiale</strong>, anlægget skal overholde byggeretten og må kun forsyne din egen ejendom.", ["hed_sol"]),
+    ("Et anlæg på <strong>stativ på jorden</strong> kræver byggetilladelse og i landzone også landzonetilladelse. Dér skal det stå højst 20 meter fra boligen og i samme terrænhøjde.", ["hed_sol"]),
+    ("Når anlægget er sat op, skal du sende areal og ydeevne til <strong>BBR@Hedensted.dk</strong>.", ["hed_sol"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Hedensted?", "Nej, ikke når panelerne følger tagets hældning uden stativ, ikke reflekterer, overholder byggeretten og kun forsyner din egen ejendom, medmindre servitutterne eller lokalplanen siger noget andet. Er huset bevaringsværdigt eller fredet, så skriv til plan@hedensted.dk først.", ["hed_sol"]),
+    ("Hvem kontakter jeg om solceller i Hedensted Kommune?", "Om byggetilladelse: byg@hedensted.dk eller 79 75 56 05. Om landzone: landskab@hedensted.dk. Om lokalplaner: plan@hedensted.dk eller 79 75 56 06.", ["hed_sol"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Hedensted: hvert femte hus i Hedensted Kommune har allerede varmepumpe, og hvert femte har stadig naturgas. Af de fire byområder, som kommunens varmeplan fra 2022 pegede på til fjernvarme, er tre siden taget ud igen. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("Ifølge BBR var ca. <strong>9.180 boliger</strong> i Hedensted Kommune stadig opvarmet med naturgas, olie eller fast brændsel, da forvaltningen i september 2026 lagde op til en revideret klimaplan.", ["hed_red"]),
+    ("Tre af de fire byområder, som <strong>varmeplanen fra 2022</strong> udpegede til fjernvarme, er siden taget ud, så kommunen ikke længere arbejder aktivt for fjernvarme dér. Borgerne kan stadig selv arbejde for det.", ["hed_red"]),
+    ("Forvaltningen anbefaler at flytte målet om <strong>CO₂-neutral varmeforsyning fra 2030 til 2035</strong> og at lave en strategisk varmeplan i 2027.", ["hed_red"]),
+    ("Et tilbud om fjernvarme er altid <strong>frivilligt</strong>: kommunen hverken kan eller vil tvinge nogen til at tilslutte sig.", ["hed_fjv"]),
+  ],
+  "vp_faq": [
+    ("Kommer der fjernvarme til min by i Hedensted Kommune?", "Det afhænger af byen. Hedensted Fjernvarme har ført fjernvarme til Daugård, hvor projektet ventedes færdigt i 2026, men tre af de fire byområder fra varmeplanen 2022 er taget ud af planen. Vil I have fjernvarme, kan I kontakte et af kommunens fem fjernvarmeselskaber eller skrive til varme@hedensted.dk.", ["df_daug", "hed_red", "hed_fjv"]),
+    ("Hvad koster fjernvarme hos Hedensted Fjernvarme fra november 2026?", "Fra 1. november 2026 er det variable bidrag 931,25 kr. pr. MWh og det faste bidrag 33,75 kr. pr. m² inkl. moms, en stigning på 9,6 % og 3,8 %. Priserne gælder også fra 1. januar 2027.", ["hfj_pris"]),
+  ],
+}
+CONTACTS["frederikshavn"] = {"sol": [("Frederikshavn Kommune, Center for Teknik og Miljø, Byg", "98 45 63 98", "fre_sol")],
+                             "vp":  [("Frederikshavn Forsyning, Varme", "98 29 90 00 · varme@forsyningen.dk", "ffv_faa")]}
+CONTACTS["hedensted"] = {"sol": [("Hedensted Kommune, Byggeri", "79 75 56 05 · byg@hedensted.dk", "hed_sol")],
+                         "vp":  [("Hedensted Kommune, klimasekretariatet", "varme@hedensted.dk", "hed_fjv")]}
+
+# keyword-backlog 4/11 2026: Vejle (luft til luft) og Horsens (varmepumpe horsens) opdateret
+CITIES["vejle"]["updated"] = ("4. november 2026", "2026-11-04"); CITIES["horsens"]["updated"] = ("4. november 2026", "2026-11-04")

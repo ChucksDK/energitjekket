@@ -186,7 +186,8 @@
     "kommune": "Frederikshavn Kommune",
     "region": "Region Nordjylland",
     "reason": "22.478 beboede parcel/rækkehuse; 64% fjernvarme; 4.191 med olie/gas/elvarme; begge services",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-04"
   },
   {
     "rank": 20,
@@ -195,7 +196,8 @@
     "kommune": "Hedensted Kommune",
     "region": "Region Midtjylland",
     "reason": "19.042 beboede parcel/rækkehuse; 36% fjernvarme; 6.330 med olie/gas/elvarme; stærkt varmepumpemarked",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-04"
   },
   {
     "rank": 21,
