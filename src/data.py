@@ -1019,3 +1019,78 @@ CONTACTS["hedensted"] = {"sol": [("Hedensted Kommune, Byggeri", "79 75 56 05 · 
 
 # keyword-backlog 4/11 2026: Vejle (luft til luft) og Horsens (varmepumpe horsens) opdateret
 CITIES["vejle"]["updated"] = ("4. november 2026", "2026-11-04"); CITIES["horsens"]["updated"] = ("4. november 2026", "2026-11-04")
+
+# ---------- daglig by-rutine 5. nov. 2026: Ringkøbing (DK1, Ringkøbing-Skjern Kommune) og Helsingør (DK2) ----------
+S.update({
+ "rks_kp": ("Ringkøbing-Skjern Kommune: Kommuneplan 2021-2033, gældende retningslinjer for solceller (gengivet i forslag til tillæg nr. 46, 16/4 2024, PDF)", "https://www.rksk.dk/Edoc/Dagsordenspublicering/Teknik-%20og%20Milj%C3%B8udvalget/2024-08-20%2013.00/Dagsorden/Referat/Hjemmeside/2024-08-21%2015.03.23/Attachments/4131373-6509322-1.pdf"),
+ "rks_byg": ("Ringkøbing-Skjern Kommune: byggeri og byggetilladelse (læst 5/11 2026)", "https://www.rksk.dk/borger/bolig-byggeri-og-flytning/byggeri-og-byggetilladelse"),
+ "rks_varme": ("Ringkøbing-Skjern Kommune: varmeforsyning i landsbyer og landdistrikter, strategisk varmeplan (læst 5/11 2026)", "https://www.rksk.dk/om-kommunen/planer-og-kort/varmeinfo"),
+ "rks_fjel": ("Ringkøbing-Skjern Kommune: udpegning af Fjelstervang til individuelle varmeløsninger (Klima-, Miljø- og Naturudvalget 9/6 2026, PDF)", "https://www.rksk.dk/Edoc/Dagsordenspublicering/Klima-,%20Milj%C3%B8-%20og%20Naturudvalget/2026-06-09%2013.00/Dagsorden/Referat/Hjemmeside/2026-06-10%2010.54.19/PDFs/e0bfca2b-771a-4dd6-829b-43b47125f30d.pdf"),
+ "rks_svp": ("Ringkøbing-Skjern Kommune: strategisk varmeplan, byrådets beslutning 13/12 2022 (PDF)", "https://www.rksk.dk/Edoc/Dagsordenspublicering/Byr%C3%A5det/2022-12-13%2016.00/Dagsorden/Referat/Hjemmeside/2022-12-14%2010.21.32/PDFs/cb5b4b34-ec86-4374-8b55-af9b8580c603.pdf"),
+ "df_rfv": ("Dansk Fjernvarme: Ringkøbing vinker farvel til gas (30/7 2025)", "https://danskfjernvarme.dk/aktuelt/nyheder/2025/ringkoebing-vinker-farvel-til-gas"),
+ "rfv_pris": ("Ringkøbing Fjernvarme: priser og takstblad 2026 (også Tim Kraftvarmeværk)", "https://www.rfv.dk/priser/"),
+ "df_hsfv": ("Dansk Fjernvarme: Hvide Sande, varmepris i vedvarende medvind (27/5 2026)", "https://danskfjernvarme.dk/aktuelt/nyheder/2026/hvide-sande-varmepris-i-vedvarende-medvind"),
+ "hsfv_ned": ("Hvide Sande Fjernvarme: Hvide Sande Fjernvarme sænker prisen (pr. 1/4 2026)", "https://hsfv.dk/nyheder/hvide-sande-fjernvarme-saenker-prisen"),
+ "hel_sol": ("Helsingør Kommune: energiløsninger, vejledning om solceller (læst 5/11 2026)", "https://www.helsingor.dk/borger/byggeri/nye-energiloesninger"),
+ "fh_nye": ("Forsyning Helsingør: nye fjernvarmeområder", "https://www.fh.dk/varme/nye-fjernvarmeomraader"),
+ "fh_status": ("Forsyning Helsingør: flere og flere kobles fortsat på fjernvarme (8/9 2026)", "https://www.fh.dk/nyheder/flere-og-flere-kobles-fortsat-paa-fjernvarme"),
+ "fh_esp": ("Forsyning Helsingør: Espergærde C (udbygning 2023-2028)", "https://www.fh.dk/varme/nye-fjernvarmeomraader/espergaerde-c"),
+ "fh_pris": ("Forsyning Helsingør: priser og tilslutning til fjernvarme", "https://www.fh.dk/varme/priser"),
+})
+CITIES["ringkoebing"] = {
+  "name": "Ringkøbing", "kommune": "Ringkøbing-Skjern Kommune", "updated": ("5. november 2026", "2026-11-05"),
+  "vp_title": "Varmepumpe Ringkøbing: luft til vand og tilskud | Energitjekket",
+  "fv_title": "Fjernvarme eller varmepumpe i Ringkøbing? 2026 | Energitjekket",
+  "reg_title": "Solceller Ringkøbing-Skjern: regler og tilladelse | Energitjekket",
+  "sol_intro": "Solceller i Ringkøbing: små anlæg på taget af dit hus kræver som udgangspunkt ikke tilladelse fra Ringkøbing-Skjern Kommune, men kommuneplanen siger, at panelerne skal have samme hældning som taget. I Ringkøbings indre by og ved Vedersø Klit kan bevarende lokalplaner forhindre solceller på bygningerne. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Mindre solcelleanlæg på <strong>tagflader</strong> kræver som udgangspunkt ikke tilladelse fra kommunen.", ["rks_kp"]),
+    ("Panelerne skal have <strong>samme hældning som taget</strong> og nedfældes i tagfladen. Er panelets højde under 100 cm, må det dog anbringes på tagfladen.", ["rks_kp"]),
+    ("Bygninger omfattet af en <strong>bevarende lokalplan</strong>, fx i den indre by i Ringkøbing og ved Vedersø Klit, kan være udelukket fra solceller på bygningen.", ["rks_kp"]),
+    ("Solceller på <strong>terræn</strong> kræver tilladelse, og i sommerhusområder gives der som udgangspunkt ikke tilladelse til dem.", ["rks_kp"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Ringkøbing?", "Som udgangspunkt ikke, når anlægget ligger på taget og har samme hældning som taget. Ligger huset i et område med en bevarende lokalplan, fx i Ringkøbings indre by, så tjek lokalplanen først, fordi solceller på bygningen her kan være udelukket.", ["rks_kp"]),
+    ("Hvem kontakter jeg om solceller i Ringkøbing-Skjern Kommune?", "Land, By og Kultur på 99 74 15 15 eller land.by.kultur@rksk.dk. Kommunen har midlertidigt telefontid om mandagen kl. 10-17 på byggesagsområdet.", ["rks_byg"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Ringkøbing: tre ud af fem huse i Ringkøbing-Skjern Kommune har fjernvarme, og flere af værkerne her er blandt landets billigste. Uden for byerne har mange stadig oliefyr, og kommunens strategiske varmeplan peger i store dele af landområderne på individuelle løsninger. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("Kommunens <strong>strategiske varmeplan</strong> fra 13. december 2022 deler kommunen i fire kategorier: områder med fjernvarme, godkendt udrulning, potentiale for fjernvarme og områder, hvor individuelle løsninger eller mindre fællesanlæg er det primære.", ["rks_varme"]),
+    ("<strong>I det åbne land</strong> kommer der ikke fjernvarme, skrev kommunen, da varmeplanen blev vedtaget. Her er det individuelle løsninger eller mindre fællesanlæg, der er de primære.", ["rks_svp"]),
+    ("<strong>Fjelstervang</strong> blev i juni 2026 taget ud som muligt fjernvarmeområde, fordi projektet ikke fik tilslutning nok. Borgerne kan nu søge statslige tilskud til fx varmepumper.", ["rks_fjel"]),
+    ("Kommunen har lavet <strong>varmescreeninger</strong> for en række landsbyer, bl.a. Hee, Stauning, Ølstrup, No og Vorgod-Barde.", ["rks_varme"]),
+  ],
+  "vp_faq": [
+    ("Kan jeg få fjernvarme i min landsby i Ringkøbing-Skjern Kommune?", "Det afhænger af, hvilken kategori din by har i kommunens strategiske varmeplan. I gule områder kan fjernvarme komme, hvis der lokalt samles opbakning nok, mens kommunen i røde områder vurderer, at fjernvarme ikke er realistisk. Kommunen svarer på varme@rksk.dk.", ["rks_varme"]),
+    ("Hvorfor blev der ikke fjernvarme i Fjelstervang?", "Projektet krævede, at mindst 75 % af borgerne gav bindende tilsagn om tilslutning, og den opbakning kom ikke. Foreningen bag blev nedlagt 16. marts 2026, og kommunen har derfor ændret varmeplanen, så borgerne kan søge tilskud til individuelle varmeløsninger.", ["rks_fjel"]),
+  ],
+}
+CITIES["helsingoer"] = {
+  "name": "Helsingør", "kommune": "Helsingør Kommune", "updated": ("5. november 2026", "2026-11-05"),
+  "sol_intro": "Solceller i Helsingør: på et enfamiliehus, dobbelthus, rækkehus eller sommerhus er solceller undtaget fra byggetilladelse efter BR18, når anlægget overholder byggerettens højde- og afstandsbestemmelser og de brandmæssige løsninger, skriver Helsingør Kommune. En lokalplan kan dog kræve, at panelerne ikke reflekterer. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Solceller på <strong>enfamiliehuse, dobbelthuse, rækkehuse og sommerhuse</strong> er undtaget for byggetilladelse efter BR18 § 5, stk. 3, når byggerettens højde- og afstandsbestemmelser og de brandmæssige præ-accepterede løsninger er overholdt.", ["hel_sol"]),
+    ("En <strong>lokalplan</strong> kan regulere reflekterende materialer, så du kun kan bruge solceller, der ikke reflekterer.", ["hel_sol"]),
+    ("Solcelleanlæg på <strong>jorden</strong> kræver altid byggetilladelse, og fritstående anlæg i landzone kan som udgangspunkt ikke forvente landzonetilladelse.", ["hel_sol"]),
+    ("Kommunens vejledning dækker kun bygge- og planloven. Reglerne for <strong>afregning</strong> med energiselskabet skal du selv sætte dig ind i.", ["hel_sol"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Helsingør?", "Som udgangspunkt ikke på et enfamiliehus, dobbelthus, rækkehus eller sommerhus, når anlægget overholder byggerettens højde- og afstandsbestemmelser og de brandmæssige løsninger. Tjek lokalplanen, fordi den kan kræve ikke-reflekterende paneler.", ["hel_sol"]),
+    ("Hvem kontakter jeg om solceller i Helsingør Kommune?", "Center for By, Land og Vand på 49 28 28 28 eller blv@helsingor.dk.", ["hel_sol"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Helsingør: næsten fire ud af ti huse i Helsingør Kommune har stadig naturgas, flere end der har fjernvarme. Forsyning Helsingør udbygger fjernvarmen i fem godkendte områder frem til 2028, og andre dele af Helsingør, Espergærde og Snekkersten kan tidligst komme i gang efter 2028. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("Helsingør Kommune godkendte i 2022 fem <strong>konverteringsområder</strong> fra naturgas til fjernvarme: Søhelte-kvarteret, Helsingør Bykerne, Marienlyst-kvarteret, Yderområder i Helsingør og Espergærde C.", ["fh_nye"]),
+    ("Søhelte-kvarteret er færdigt. I Marienlyst-kvarteret er anlægsarbejdet under afslutning, og i bykernen og Yderområde 1 og 2 er det i gang (status september 2026).", ["fh_status"]),
+    ("Forsyning Helsingør havde ved udgangen af juli 2026 etableret <strong>1.146 nye fjernvarmestik</strong> siden 2022.", ["fh_status"]),
+    ("<strong>Yderligere dele af Helsingør, Espergærde og Snekkersten</strong> er med i de kommende planer, men kan tidligst sættes i gang efter 2028.", ["fh_nye", "fh_status"]),
+  ],
+  "vp_faq": [
+    ("Kommer der fjernvarme til mit område i Helsingør?", "Frem til 2028 udbygger Forsyning Helsingør kun i de fem områder, byrådet allerede har godkendt. Andre dele af Helsingør, Espergærde og Snekkersten er med i de kommende planer, men tidligst efter 2028, og det kræver sund økonomi og tilslutning nok. Tjek din adresse på fh.dk, før du vælger.", ["fh_nye", "fh_status"]),
+    ("Hvad koster det at få fjernvarme i Helsingør?", "Forsyning Helsingør tager 33.750 kr. for at tilslutte et enfamiliehus inkl. gravearbejde, stikledning og reetablering. Dertil kommer fjernvarmeenheden, som typisk koster 40.000-45.000 kr. hos en VVS'er, eller et abonnement til 350 kr. om måneden.", ["fh_pris"]),
+  ],
+}
+CONTACTS["ringkoebing"] = {"sol": [("Ringkøbing-Skjern Kommune, Land, By og Kultur", "99 74 15 15 · land.by.kultur@rksk.dk", "rks_byg")],
+                           "vp":  [("Ringkøbing-Skjern Kommune, varmeplan", "varme@rksk.dk", "rks_varme")]}
+CONTACTS["helsingoer"] = {"sol": [("Helsingør Kommune, Center for By, Land og Vand", "49 28 28 28 · blv@helsingor.dk", "hel_sol")],
+                          "vp":  [("Forsyning Helsingør", "48 40 50 50", "fh_nye")]}

@@ -1529,3 +1529,100 @@ FV_PAGE["hedensted"] = {
    ("Kan jeg blive tvunget på fjernvarme i Hedensted Kommune?", "Nej. Kommunen skriver, at et tilbud om fjernvarme altid er frivilligt. Ligger din bolig i et område, der er udlagt eller planlagt til fjernvarme, har fjernvarmeselskabet til gengæld ret og pligt til at forsyne dig, hvis du ønsker det.", ["hed_fjv"]),
   ],
 }
+
+# ---------- daglig by-rutine 5. nov. 2026: Ringkøbing og Helsingør ----------
+# Forsyningstilsynet, prisstatistik januar 2026 (CSV): Ringkøbing-Skjern = værkerne med postnumre i kommunen (6880/6893/6900/6920/6940/6950/6960/6971/6980).
+# Kibæk (6933, Herning), Ørnhøj (6973, Herning) og værkerne på 6990 (Holstebro) er udeladt. Helsingør = Forsyning Helsingør Varme (3000) og Hornbæk Fjernvarme (3100).
+FV_PRICES["ringkoebing"] = [("Hvide Sande Fjernvarme", "6960", "3.478", "56"), ("Tim Kraftvarmeværk", "6980", "12.093", "437"), ("Skjern Fjernvarme", "6900", "12.390", "531"), ("Videbæk Varme", "6920", "12.754", "543"), ("Lem Varmeværk", "6940", "14.106", "650"), ("Ringkøbing Fjernvarmeværk", "6950", "14.415", "562"), ("Tarm Varmeværk", "6880", "16.855", "707"), ("Troldhede Kraftvarmeværk", "6920", "20.292", "925"), ("Hemmet Varmeværk", "6893", "20.604", "793"), ("Spjald Fjernvarme- og Vandværk", "6971", "24.736", "993")]
+FV_PRICES["helsingoer"] = [("Forsyning Helsingør Varme", "3000", "16.628", "567"), ("Hornbæk Fjernvarme", "3100", "18.310", "728")]
+SOL_REG["ringkoebing"] = {
+  "kw": "solceller ringkøbing-skjern kommune / tilladelse solceller ringkøbing",
+  "evidence": "Ringkøbing-Skjern Kommunes gældende retningslinjer for mindre solcelleanlæg i Kommuneplan 2021-2033 (gengivet uændret i forslaget til tillæg nr. 46 fra 2024) og kommunens side om byggetilladelse (tjekket 5/11 2026).",
+  "intro": "Ringkøbing-Skjern Kommune kræver som udgangspunkt ikke tilladelse til mindre solcelleanlæg på taget, men kommuneplanen stiller krav om, at panelerne har samme hældning som taget. I områder med bevarende lokalplan, fx Ringkøbings indre by og Vedersø Klit, kan solceller på bygningen være udelukket. Her er reglerne og hvem du kontakter.",
+  "sections": [
+   ("Solceller på taget: kommuneplanens krav", [
+     ("ul", [("Mindre anlæg på <strong>tagflader</strong> kræver som udgangspunkt ikke tilladelse hos kommunen.", ["rks_kp"]),
+             ("Solceller og solfangere skal have <strong>samme hældning som taget</strong> og nedfældes i tagfladen.", ["rks_kp"]),
+             ("Er panelets højde <strong>under 100 cm</strong>, må det dog anbringes oven på tagfladen.", ["rks_kp"]),
+             ("Panelerne kan også bygges ind i facade og tag som en del af arkitekturen.", ["rks_kp"])]),
+   ]),
+   ("Bevarende lokalplaner: indre by og Vedersø Klit", [
+     ("p", "Nogle bygninger er omfattet af en <strong>bevarende lokalplan</strong> eller lignende, hvor solceller på bygningen ikke er en mulighed. Kommunen nævner selv bygninger i den indre by i Ringkøbing og ved Vedersø Klit. Find lokalplanen for din ejendom, før du bestiller.", ["rks_kp"]),
+   ]),
+   ("Solceller på jorden og i sommerhusområder", [
+     ("p", "Det kræver tilladelse at sætte solceller op på <strong>terræn</strong>. I sommerhusområder gives der som udgangspunkt ikke tilladelse til anlæg på terræn, og i landzone skal anlægget helst ligge i tilknytning til de eksisterende bygninger og haven.", ["rks_kp"]),
+   ]),
+   ("Hvem du kontakter", [
+     ("p", "Land, By og Kultur, Smed Sørensens Vej 1 i Ringkøbing, på 99 74 15 15 eller land.by.kultur@rksk.dk. På byggesags- og landzoneområdet har kommunen midlertidigt telefontid om mandagen kl. 10-17.", ["rks_byg"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller tilladelse i Ringkøbing-Skjern Kommune?", "Ikke som udgangspunkt for mindre anlæg på taget. Anlæg på terræn kræver tilladelse, og bevarende lokalplaner kan udelukke solceller på bygningen.", ["rks_kp"]),
+   ("Må solcellerne stå på stativ på mit tag i Ringkøbing?", "Kommuneplanen siger, at panelerne skal have samme hældning som taget og nedfældes i tagfladen. Kun paneler under 100 cm i højden må anbringes oven på tagfladen. Vil du vinkle panelerne op, så spørg kommunen først.", ["rks_kp"]),
+   ("Kan jeg få solceller på jorden ved mit sommerhus ved Vestkysten?", "Som udgangspunkt ikke. Ringkøbing-Skjern Kommune giver ifølge kommuneplanen som udgangspunkt ikke tilladelse til solcelleanlæg på terræn i sommerhusområder.", ["rks_kp"]),
+   ("Hvem kontakter jeg om solceller i Ringkøbing-Skjern Kommune?", "Land, By og Kultur på 99 74 15 15 eller land.by.kultur@rksk.dk.", ["rks_byg"]),
+  ],
+}
+SOL_REG["helsingoer"] = {
+  "kw": "solceller helsingør kommune / byggetilladelse solceller helsingør",
+  "evidence": "Helsingør Kommunes vejledning 'Energiløsninger' beskriver reglerne for solceller på enfamiliehuse, etageboliger og erhverv i by- og landzone samt solcelleparker på jorden (tjekket 5/11 2026).",
+  "intro": "Helsingør Kommune skriver, at solceller på enfamiliehuse, dobbelthuse, rækkehuse og sommerhuse er undtaget for byggetilladelse efter BR18, når byggerettens højde- og afstandsbestemmelser og de brandmæssige løsninger er overholdt. En lokalplan kan kræve ikke-reflekterende paneler, og anlæg på jorden kræver altid tilladelse. Her er reglerne og hvem du kontakter.",
+  "sections": [
+   ("Huse: undtaget for byggetilladelse på betingelser", [
+     ("ul", [("Gælder <strong>enfamiliehuse</strong>, herunder stuehuse i landzone, dobbelthuse, rækkehuse og sommerhuse.", ["hel_sol"]),
+             ("Anlægget skal overholde byggerettens <strong>højde- og afstandsbestemmelser</strong> i BR18 §§ 166-195.", ["hel_sol", "br18_179"]),
+             ("Anlægget skal følge de brandmæssige <strong>præ-accepterede løsninger</strong>.", ["hel_sol"])]),
+   ]),
+   ("Lokalplan: ikke-reflekterende paneler", [
+     ("p", "En lokalplan kan regulere, om der må sættes <strong>reflekterende materialer</strong> på husene. Så kan du kun bruge solceller, der ikke reflekterer. Kommunens lokalplanportal viser de gældende lokalplaner og byplanvedtægter.", ["hel_sol"]),
+   ]),
+   ("Etageboliger, erhverv og anlæg på jorden", [
+     ("p", "På etageboliger og erhverv i byzone er solceller undtaget for byggetilladelse, hvis anlægget ikke øger lasten på tagkonstruktionen med <strong>mere end 5 %</strong>, dokumenteret ved en beregning. I landzone kræver de landzonetilladelse. Solcelleanlæg på jorden kræver altid byggetilladelse, og fritstående anlæg i landzone kan som udgangspunkt ikke forvente landzonetilladelse.", ["hel_sol"]),
+   ]),
+   ("Hvem du kontakter", [
+     ("p", "Center for By, Land og Vand, Stengade 59 i Helsingør, på 49 28 28 28 eller blv@helsingor.dk. Kommunens vejledning dækker kun bygge- og planloven, ikke afregningen af strømmen.", ["hel_sol"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller byggetilladelse i Helsingør Kommune?", "Ikke på et enfamiliehus, dobbelthus, rækkehus eller sommerhus, når anlægget overholder byggerettens højde- og afstandsbestemmelser og de brandmæssige løsninger. Anlæg på jorden kræver altid byggetilladelse.", ["hel_sol"]),
+   ("Må jeg bruge almindelige solcellepaneler, hvis min lokalplan forbyder reflekterende materialer?", "Nej. Regulerer lokalplanen reflekterende materialer, skal du bruge solceller, der ikke reflekterer, ifølge Helsingør Kommune.", ["hel_sol"]),
+   ("Gælder reglerne også for sommerhuse i Hornbæk og Dronningmølle?", "Ja, kommunens undtagelse gælder også sommerhuse, når højde-, afstands- og brandkravene er overholdt. Tjek lokalplanen for dit område.", ["hel_sol"]),
+   ("Hvem kontakter jeg om solceller i Helsingør Kommune?", "Center for By, Land og Vand på 49 28 28 28 eller blv@helsingor.dk.", ["hel_sol"]),
+  ],
+}
+FV_PAGE["ringkoebing"] = {
+  "kw": "fjernvarme ringkøbing / fjernvarme ringkøbing-skjern pris / varmepumpe ringkøbing",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026 for de ti værker i kommunen, Dansk Fjernvarmes artikler om Ringkøbing Fjernvarmes flisværk og Hvide Sande Fjernvarmes priser, og kommunens strategiske varmeplan og varmeinfo (tjekket 5/11 2026).",
+  "intro": "Tre ud af fem huse i Ringkøbing-Skjern Kommune har fjernvarme, og prisforskellen mellem værkerne er enorm: i Forsyningstilsynets statistik fra januar 2026 betalte et standardhus 3.478 kr. om året i Hvide Sande og 24.736 kr. i Spjald. Her er status for fjernvarmen, de ti værkers priser og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Hvide Sande:</strong> fra 1. april 2026 er varmeprisen 12,50 kr. pr. MWh, og det faste bidrag er nul resten af året. Et standardhus på 125 m² med 13,4 MWh betaler dermed 1.284 kr. for 2026.", ["hsfv_ned", "df_hsfv"]),
+   ("<strong>Ringkøbing:</strong> Ringkøbing Fjernvarme har bygget en 10,5 MW fliskedel og en absorptionsvarmepumpe, der skal fjerne mindst 3 mio. m³ naturgas om året. Naturgas udgjorde 41 % af energimixet før.", ["df_rfv"]),
+   ("<strong>Strategisk varmeplan:</strong> kommunen er delt i områder med fjernvarme, godkendt udrulning, potentiale for fjernvarme og områder med individuelle løsninger. I det åbne land kommer der ikke fjernvarme.", ["rks_varme", "rks_svp"]),
+   ("<strong>Fjelstervang:</strong> taget ud som muligt fjernvarmeområde i juni 2026 efter for lidt tilslutning.", ["rks_fjel"]),
+  ],
+  "local_take": "Hvide Sande Fjernvarme er nr. 1 af 374 værker i Forsyningstilsynets statistik, og Tim, Skjern og Videbæk ligger alle i top 25. Har du fjernvarme fra et af dem, er der sjældent penge i en varmepumpe. Spjald Fjernvarme er derimod nr. 360, og Troldhede og Hemmet ligger også et godt stykke over landsgennemsnittet. Har du oliefyr i en landsby eller i det åbne land, peger kommunens egen varmeplan på individuelle løsninger, og så er en luft til vand-varmepumpe det oplagte valg.",
+  "contact": ("Ringkøbing-Skjern Kommune, varmeplan", "varme@rksk.dk", "rks_varme"),
+  "faq": [
+   ("Hvad koster fjernvarme i Ringkøbing-Skjern Kommune?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus på 130 m² med 18,1 MWh 14.415 kr. om året inkl. moms hos Ringkøbing Fjernvarmeværk, 12.390 kr. hos Skjern Fjernvarme og 16.855 kr. hos Tarm Varmeværk. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+   ("Hvorfor er fjernvarmen så billig i Hvide Sande?", "Hvide Sande Fjernvarme ejer tre vindmøller på havnen og laver i dag 95 % af varmen med solvarme, elkedler og varmepumper. Indtægter fra elmarkedet og systemydelser gjorde det muligt at sætte prisen ned til 12,50 kr. pr. MWh fra 1. april 2026, hvilket værket selv kalder under produktionsprisen.", ["df_hsfv", "hsfv_ned"]),
+   ("Hvad gør jeg, hvis min landsby ikke får fjernvarme?", "Kommunen henviser til individuelle løsninger som varmepumper eller mindre fællesanlæg. Anlæg under 250 kW indfyret effekt er ikke omfattet af varmeforsyningsloven og er derfor lettere at etablere, og borger- og sogneforeninger kan søge kommunens pulje til borgermøder om fælles varme.", ["rks_varme"]),
+  ],
+}
+FV_PAGE["helsingoer"] = {
+  "kw": "fjernvarme helsingør / forsyning helsingør fjernvarme pris / varmepumpe helsingør",
+  "evidence": "Forsyning Helsingør oplyser de godkendte og kommende fjernvarmeområder, status for udbygningen i september 2026, tilslutningspris og priseksempel, og Forsyningstilsynets prisstatistik januar 2026 viser prisen hos Forsyning Helsingør og Hornbæk Fjernvarme (tjekket 5/11 2026).",
+  "intro": "Kun 36 % af husene i Helsingør Kommune har fjernvarme, og næsten lige så mange har naturgas. Forsyning Helsingør udbygger i fem godkendte områder frem til 2028, så for mange gasfyr-ejere er spørgsmålet, om fjernvarmen kommer i tide. Her er status, priserne og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Godkendte områder:</strong> Søhelte-kvarteret (færdigt), Marienlyst-kvarteret (under afslutning), Helsingør Bykerne og Yderområde 1 og 2 (i gang), Yderområde 3 (projekteres efteråret 2026), Yderområde 4 (tilbud i 2026) og Espergærde C (2023-2028).", ["fh_status", "fh_esp"]),
+   ("<strong>Efter 2028:</strong> yderligere dele af Helsingør, Espergærde og Snekkersten er med i de kommende planer, hvis økonomien er sund og tilslutningen stor nok.", ["fh_nye", "fh_status"]),
+   ("<strong>Tilslutning:</strong> 33.750 kr. for et enfamiliehus inkl. gravearbejde og stikledning, eller 687,50 kr. om måneden i fem år. Fjernvarmeenheden koster typisk 40.000-45.000 kr. eller 350 kr. om måneden i abonnement.", ["fh_pris"]),
+   ("<strong>Espergærde C:</strong> udbygningen kræver, at mindst 60 % i området tilslutter sig.", ["fh_esp"]),
+  ],
+  "local_take": "Forsyning Helsingør er nr. 153 af 374 værker i Forsyningstilsynets statistik og ligger lidt under landsgennemsnittet, mens Hornbæk Fjernvarme som nr. 215 ligger over. Har du gasfyr i et af de fem godkendte områder, er fjernvarme det oplagte første tjek. Ligger dit hus uden for både de godkendte og de kommende områder, har Forsyning Helsingør ikke meldt nogen plan ud for dig, og så er en luft til vand-varmepumpe det realistiske alternativ, når gasfyret skal skiftes.",
+  "contact": ("Forsyning Helsingør", "48 40 50 50", "fh_nye"),
+  "faq": [
+   ("Hvad koster fjernvarme i Helsingør?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus på 130 m² med 18,1 MWh 16.628 kr. om året inkl. moms hos Forsyning Helsingør og 18.310 kr. hos Hornbæk Fjernvarme. Landsgennemsnittet er 16.953 kr. Forsyning Helsingør oplyser selv 13.623,18 kr. om året for en gennemsnitsfamilie i et standardparcelhus.", ["ft_pris", "fh_pris"]),
+   ("Hvor mange har fået fjernvarme i Helsingør siden 2022?", "Forsyning Helsingør havde ved udgangen af juli 2026 registreret 1.146 nye fjernvarmestik siden 2022. Ét stik kan dække mange husstande, fx en boligforening med 50-200 boliger.", ["fh_status"]),
+   ("Hvor meget sparer jeg ved at skifte fra gas til fjernvarme i Helsingør?", "Forsyning Helsingør skriver, at de fleste huse kan spare 5-25 % på varmeregningen ved at skifte fra naturgas til fjernvarme. Regn også en varmepumpe igennem, hvis dit område ikke står på planen.", ["fh_nye"]),
+  ],
+}

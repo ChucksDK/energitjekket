@@ -30,6 +30,8 @@
   <url><loc>https://energitjekket.dk/solceller/haderslev/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://energitjekket.dk/solceller/frederikshavn/</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://energitjekket.dk/solceller/hedensted/</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://energitjekket.dk/solceller/ringkoebing/</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://energitjekket.dk/solceller/helsingoer/</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/kolding/</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/vejle/</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/esbjerg/</loc><lastmod>2026-10-25</lastmod></url>
@@ -56,6 +58,8 @@
   <url><loc>https://energitjekket.dk/varmepumpe/haderslev/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/frederikshavn/</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/hedensted/</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://energitjekket.dk/varmepumpe/ringkoebing/</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://energitjekket.dk/varmepumpe/helsingoer/</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://energitjekket.dk/solceller/kolding/regler-og-byggetilladelse/</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://energitjekket.dk/solceller/vejle/regler-og-byggetilladelse/</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://energitjekket.dk/solceller/esbjerg/regler-og-byggetilladelse/</loc><lastmod>2026-10-25</lastmod></url>
@@ -83,6 +87,8 @@
   <url><loc>https://energitjekket.dk/solceller/haderslev/regler-og-byggetilladelse/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://energitjekket.dk/solceller/frederikshavn/regler-og-byggetilladelse/</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://energitjekket.dk/solceller/hedensted/regler-og-byggetilladelse/</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://energitjekket.dk/solceller/ringkoebing/regler-og-byggetilladelse/</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://energitjekket.dk/solceller/helsingoer/regler-og-byggetilladelse/</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/kolding/fjernvarme-eller-varmepumpe/</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/vejle/fjernvarme-eller-varmepumpe/</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/esbjerg/fjernvarme-eller-varmepumpe/</loc><lastmod>2026-10-25</lastmod></url>
@@ -110,11 +116,13 @@
   <url><loc>https://energitjekket.dk/varmepumpe/haderslev/fjernvarme-eller-varmepumpe/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/frederikshavn/fjernvarme-eller-varmepumpe/</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/hedensted/fjernvarme-eller-varmepumpe/</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://energitjekket.dk/varmepumpe/ringkoebing/fjernvarme-eller-varmepumpe/</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://energitjekket.dk/varmepumpe/helsingoer/fjernvarme-eller-varmepumpe/</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://energitjekket.dk/solceller/pris/</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://energitjekket.dk/solceller/med-batteri/</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/pris/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/tilskud/</loc><lastmod>2026-10-25</lastmod></url>
-  <url><loc>https://energitjekket.dk/varmepumpe/jordvarme-pris/</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://energitjekket.dk/varmepumpe/jordvarme-pris/</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/luft-til-luft-pris/</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/skift-oliefyr/</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/skift-gasfyr/</loc><lastmod>2026-10-25</lastmod></url>
@@ -126,7 +134,7 @@
   <url><loc>https://energitjekket.dk/varmepumpe/luft-til-vand/</loc><lastmod>2026-10-31</lastmod></url>
   <url><loc>https://energitjekket.dk/ladeboks/</loc><lastmod>2026-10-31</lastmod></url>
   <url><loc>https://energitjekket.dk/beregner/</loc><lastmod>2026-10-25</lastmod></url>
-  <url><loc>https://energitjekket.dk/elpris/</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://energitjekket.dk/elpris/</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://energitjekket.dk/om-os/</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://energitjekket.dk/privatlivspolitik/</loc><lastmod>2026-10-25</lastmod></url>
 </urlset>

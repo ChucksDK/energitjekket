@@ -206,7 +206,8 @@
     "kommune": "Ringkøbing-Skjern Kommune",
     "region": "Region Midtjylland",
     "reason": "21.989 beboede parcel/rækkehuse; 61% fjernvarme; 3.916 med olie/gas/elvarme; begge services",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-05"
   },
   {
     "rank": 22,
@@ -215,7 +216,8 @@
     "kommune": "Helsingør Kommune",
     "region": "Region Hovedstaden",
     "reason": "15.640 beboede parcel/rækkehuse; 36% fjernvarme; 7.588 med olie/gas/elvarme; stærkt varmepumpemarked",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-05"
   },
   {
     "rank": 23,

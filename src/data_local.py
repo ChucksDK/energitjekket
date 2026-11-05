@@ -11,13 +11,13 @@ def hs(c): return sum(HEAT[c].values())            # beboede parcel- og rækkehu
 def hp(c, k, d=0): return pct(HEAT[c][k], hs(c), d)
 def rp(c, k, d=0): return pct(ROOF[c]["T"][k], ROOF[c]["tot"], d)
 def town(c, name): return dict(TOWNS[c])[name]
-_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten", 19: "nitten", 20: "tyve", 21: "enogtyve", 22: "toogtyve", 23: "treogtyve", 24: "fireogtyve", 25: "femogtyve", 26: "seksogtyve", 27: "syvogtyve", 28: "otteogtyve"}
+_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten", 19: "nitten", 20: "tyve", 21: "enogtyve", 22: "toogtyve", 23: "treogtyve", 24: "fireogtyve", 25: "femogtyve", 26: "seksogtyve", 27: "syvogtyve", 28: "otteogtyve", 29: "niogtyve", 30: "tredive"}
 def nw(k=0): return _NUMW[len(NAMES) - k]          # "ni" for 9 byer, nw(1) = "otte" (de andre)
 def top(f, rev=False):
     """By med højeste (eller laveste, rev=True) værdi blandt sitets byer. Bruges til at tjekke sammenlignende udsagn."""
     return sorted(NAMES, key=f, reverse=not rev)[0]
 def rank(f, c): return sorted(NAMES, key=f, reverse=True).index(c) + 1
-_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende", 21: "enogtyvende", 22: "toogtyvende", 23: "treogtyvende", 24: "fireogtyvende", 25: "femogtyvende", 26: "seksogtyvende", 27: "syvogtyvende", 28: "otteogtyvende"}
+_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende", 21: "enogtyvende", 22: "toogtyvende", 23: "treogtyvende", 24: "fireogtyvende", 25: "femogtyvende", 26: "seksogtyvende", 27: "syvogtyvende", 28: "otteogtyvende", 29: "niogtyvende", 30: "tredivte"}
 def rk(f, c, word, art="den", rev=False):
     """Rangord, fx 'den højeste', 'den næsthøjeste' (rev=True tæller fra bunden). Holder sammenlignende udsagn sande, når nye byer kommer til."""
     r = sorted(NAMES, key=f, reverse=not rev).index(c) + 1
@@ -28,7 +28,7 @@ def above(f, c):
     a = [NAMES[x] for x in sorted(NAMES, key=f, reverse=True)[:rank(f, c) - 1]]
     return a[0] if len(a) == 1 else ", ".join(a[:-1]) + " og " + a[-1]
 
-NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted"}
+NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør"}
 LOCAL_S = {
  "dst_bol102": ("Danmarks Statistik: BOL102, boliger efter område og opvarmning (2026)", "https://www.statistikbanken.dk/BOL102"),
  "dst_bol101": ("Danmarks Statistik: BOL101, boliger efter opførelsesår og udlejningsforhold (2026)", "https://www.statistikbanken.dk/BOL101"),
@@ -1176,12 +1176,100 @@ def reg_age_note(c, kommune):
 VP_HEAT.update({
  "vejle": ("Varmepumpe i Vejle: luft til vand eller luft til luft?",
    lambda: f"{tal(HEAT['vejle']['VP'])} beboede parcel- og rækkehuse i Vejle Kommune varmes op med varmepumpe. Det er {hp('vejle','VP',1)} og {rk(lambda x: HEAT[x]['VP'] / hs(x), 'vejle', 'højeste')} andel af de {nw()} byer, mod {hp('dk','VP',1)} på landsplan. Samtidig har {tal(HEAT['vejle']['CN']+HEAT['vejle']['CO'])} huse stadig gas- eller oliefyr, og det er dem, kommunens fjernvarmeudrulning frem mod 2028 handler om. {tal(HEAT['vejle']['ELV'])} huse har elvarme: har du elpaneler og ingen radiatorer med vand, er en <a href=\"/varmepumpe/luft-til-luft/\">luft til luft-varmepumpe</a> det billigste sted at starte, ca. 12.000-25.000 kr. ifølge Energisparer.dk, men den giver ikke tilskud fra Varmepumpepuljen."),
- "horsens": ("Varmepumpe i Horsens: hvem står uden for fjernvarmen?",
-   lambda: f"{hp('horsens','FJ')} af de beboede parcel- og rækkehuse i Horsens Kommune har fjernvarme efter Fjernvarme Horsens' store udbygning. {tal(HEAT['horsens']['VP'])} huse har allerede varmepumpe, mens {tal(HEAT['horsens']['CN'])} stadig har naturgas, {tal(HEAT['horsens']['CO'])} oliefyr og {tal(HEAT['horsens']['ELV'])} elvarme. Det er de ca. {tal(HEAT['horsens']['CN']+HEAT['horsens']['CO']+HEAT['horsens']['ELV'])} huse, en varmepumpe i Horsens er mest relevant for, hvis de ligger uden for fjernvarmeområdet."),
+ "horsens": ("Luft til vand-varmepumpe i Horsens: hvem står uden for fjernvarmen?",
+   lambda: f"{hp('horsens','FJ')} af de beboede parcel- og rækkehuse i Horsens Kommune har fjernvarme efter Fjernvarme Horsens' store udbygning. {tal(HEAT['horsens']['VP'])} huse har allerede varmepumpe, mens {tal(HEAT['horsens']['CN'])} stadig har naturgas, {tal(HEAT['horsens']['CO'])} oliefyr og {tal(HEAT['horsens']['ELV'])} elvarme. Det er de ca. {tal(HEAT['horsens']['CN']+HEAT['horsens']['CO']+HEAT['horsens']['ELV'])} huse, en luft til vand-varmepumpe i Horsens er mest relevant for, hvis de ligger uden for fjernvarmeområdet."),
 })
 VP_HEAT_SRC_NEW.update({"vejle": ["es_vp", "se_l2l", "se_vpp"], "horsens": ["hor_fv"]})
 VP_XFAQ["vejle"] = VP_XFAQ["vejle"] + [("Hvad koster en luft til luft-varmepumpe i Vejle?", lambda: "Vi har ikke fundet kilder med en særlig Vejle-pris. Energisparer.dk angiver ca. 12.000-25.000 kr. inkl. montering, og SparEnergi 15.000-30.000 kr. Prisen afhænger især af antallet af indedele. Der er ikke tilskud fra Varmepumpepuljen til luft til luft, men du kan få håndværkerfradrag for arbejdslønnen.", ["es_vp", "se_l2l", "se_vpp", "hvfradrag"])]
 VP_XFAQ["horsens"] = VP_XFAQ["horsens"] + [("Hvornår giver en varmepumpe mening i Horsens?", lambda: f"Når huset ligger uden for fjernvarmeområdet og i dag varmes op med olie, gas eller elvarme. Det gælder ca. {tal(HEAT['horsens']['CN']+HEAT['horsens']['CO']+HEAT['horsens']['ELV'])} beboede parcel- og rækkehuse i Horsens Kommune ifølge Danmarks Statistik. Tjek først din adresse hos Fjernvarme Horsens eller på Plandata.dk.", ["dst_bol102", "hor_fv", "plandata"])]
+
+# ---------- daglig by-rutine 5. nov. 2026: Ringkøbing (DK1, Ringkøbing-Skjern Kommune) og Helsingør (DK2, Region Hovedstaden) ----------
+_COs = lambda x: HEAT[x]["CO"] / hs(x); _CNs = lambda x: HEAT[x]["CN"] / hs(x); _RKs = lambda x: STOCK[x]["raekke"] / STOCK[x]["tot"]; _FLs = lambda x: (ROOF[x]["T"]["02"] + ROOF[x]["T"]["04"]) / ROOF[x]["tot"]; _FIBs = lambda x: ROOF[x]["T"]["06"] / ROOF[x]["tot"]
+SOL_ORDER.update({
+ "ringkoebing": ["lokalt", "tage", "boliger", "produktion", "faq", "guides"],
+ "helsingoer": ["boliger", "lokalt", "tage", "produktion", "guides", "faq"],
+})
+VP_ORDER.update({
+ "ringkoebing": ["lokalt", "opvarmning", "lokale-byer", "pris", "guides", "faq"],
+ "helsingoer": ["lokale-byer", "lokalt", "opvarmning", "faq", "pris", "guides"],
+})
+FV_ORDER.update({
+ "ringkoebing": ["billigst", "priser", "varmekilder", "status", "andel", "faq"],
+ "helsingoer": ["andel", "status", "billigst", "priser", "faq", "varmekilder"],
+})
+SOL_PROD.update({
+ "ringkoebing": ("Vestkystsol: hvad giver et anlæg i Ringkøbing?",
+   lambda: f"PVGIS beregner ca. {tal(PV['ringkoebing']['syd'])} kWh pr. kWp om året for et sydvendt tag med 35° hældning i Ringkøbing og ca. {tal(PV['ringkoebing']['opt'])} kWh ved den optimale hældning på {PV['ringkoebing']['opt_angle']}°. Et 6 kWp-anlæg giver dermed ca. {tal(PV['ringkoebing']['syd']*6)} kWh om året, heraf ca. {tal(sum(PV['ringkoebing']['months'][3:8])*6)} kWh i april-august. Kommuneplanen kræver, at panelerne har samme hældning som taget, så det er tagets egen vinkel, der afgør produktionen."),
+ "helsingoer": ("Hvor meget strøm giver solceller i Helsingør?",
+   lambda: f"I Helsingør beregner PVGIS ca. {tal(PV['helsingoer']['syd'])} kWh pr. kWp om året for et sydvendt tag med 35° hældning, så et 6 kWp-anlæg giver ca. {tal(PV['helsingoer']['syd']*6)} kWh. Mod øst giver det samme anlæg ca. {tal(PV['helsingoer']['oest']*6)} kWh og mod vest ca. {tal(PV['helsingoer']['vest']*6)} kWh. Fra november til januar falder produktionen til ca. {tal((PV['helsingoer']['months'][10]+PV['helsingoer']['months'][11]+PV['helsingoer']['months'][0])*6)} kWh i alt."),
+})
+SOL_PROD_SRC_NEW.update({"ringkoebing": ["pv_ringkoebing", "rks_kp"], "helsingoer": ["pv_helsingoer", "pvo_helsingoer", "pvv_helsingoer"]})
+SOL_ROOF.update({
+ "ringkoebing": ("Fibercement, cementsten og tegl: tagene i Ringkøbing-Skjern",
+   lambda: f"{rp('ringkoebing','06')} af parcel- og rækkehusene i Ringkøbing-Skjern Kommune har tag af <strong>fibercement</strong>, {rk(_FIBs, 'ringkoebing', 'højeste')} andel af de {nw()} byer, mens {rp('ringkoebing','08')} har <strong>cementsten</strong> og {rp('ringkoebing','10')} <strong>tegl</strong>. Ifølge Bolius indeholder bølge- og kunstskiferplader fra før 1984 næsten altid asbest, så få taget vurderet, før panelerne skal nedfældes i tagfladen, som kommuneplanen kræver.",
+   ["dst_bygb50", "bolius_asb", "rks_kp"]),
+ "helsingoer": ("Mange flade tage og tagpap i Helsingør",
+   lambda: f"{pct(ROOF['helsingoer']['T']['02'] + ROOF['helsingoer']['T']['04'], ROOF['helsingoer']['tot'])} af parcel- og rækkehusene i Helsingør Kommune har fladt tag eller tagpap, {rk(_FLs, 'helsingoer', 'højeste')} andel af de {nw()} byer, mod {pct(ROOF['dk']['T']['02'] + ROOF['dk']['T']['04'], ROOF['dk']['tot'])} på landsplan. {rp('helsingoer','10')} har <strong>tegl</strong> og {rp('helsingoer','06')} <strong>fibercement</strong>. På et fladt tag kommer panelerne typisk på stativ, og så skal anlægget stadig overholde byggerettens højde- og afstandsbestemmelser for at være undtaget for byggetilladelse.",
+   ["dst_bygb50", "hel_sol"]),
+})
+SOL_HOMES.update({
+ "ringkoebing": lambda: f"Ringkøbing-Skjern Kommune har {tal(STOCK['ringkoebing']['tot'])} beboede parcel- og rækkehuse, og {pct(STOCK['ringkoebing']['B']['før 1960'],STOCK['ringkoebing']['tot'])} af dem er bygget før 1960, mod {pct(STOCK['dk']['B']['før 1960'],STOCK['dk']['tot'])} i hele landet. Byerne er spredt: Ringkøbing har {tal(town('ringkoebing','Ringkøbing'))} indbyggere, Skjern {tal(town('ringkoebing','Skjern'))}, Videbæk {tal(town('ringkoebing','Videbæk'))}, Tarm {tal(town('ringkoebing','Tarm'))} og Hvide Sande {tal(town('ringkoebing','Hvide Sande'))}, og siden gælder hele kommunen.",
+ "helsingoer": lambda: f"{pct(STOCK['helsingoer']['raekke'],STOCK['helsingoer']['tot'])} af de {tal(STOCK['helsingoer']['tot'])} beboede parcel- og rækkehuse i Helsingør Kommune er række-, kæde- eller dobbelthuse, {rk(_RKs, 'helsingoer', 'højeste')} andel af de {nw()} byer, og {pct(STOCK['helsingoer']['ejer'],STOCK['helsingoer']['tot'])} bebos af ejeren. Helsingør-byområdet har {tal(town('helsingoer','Helsingør-byområdet (inkl. Espergærde)'))} indbyggere, og siden gælder også Hellebæk ({tal(town('helsingoer','Hellebæk'))}), Hornbæk-Dronningmølle ({tal(town('helsingoer','Hornbæk-Dronningmølle'))}), Saunte og Kvistgård.",
+})
+SOL_HOMES_SRC_NEW.update({"ringkoebing": [], "helsingoer": []})
+SOL_HOMES_H.update({"ringkoebing": "Ældre huse fra Ringkøbing og Skjern til Hvide Sande", "helsingoer": "Mange rækkehuse i Helsingør, Espergærde og Hornbæk"})
+SOL_XFAQ.update({
+ "ringkoebing": [("Hvor meget giver solceller i Ringkøbing om sommeren?", lambda: f"PVGIS beregner ca. {tal(PV['ringkoebing']['months'][4]*6)} kWh i maj, {tal(PV['ringkoebing']['months'][5]*6)} kWh i juni og {tal(PV['ringkoebing']['months'][6]*6)} kWh i juli fra et 6 kWp-anlæg mod syd i Ringkøbing, mod ca. {tal(PV['ringkoebing']['months'][11]*6)} kWh i december.", ["pv_ringkoebing"])],
+ "helsingoer": [("Kan solceller på et rækkehus i Helsingør kræve tilladelse?", lambda: "Rækkehuse er omfattet af samme undtagelse som enfamiliehuse, når byggerettens højde- og afstandsbestemmelser og de brandmæssige løsninger er overholdt. Ligger rækkehusene i en bebyggelse med lokalplan eller deklaration, kan den kræve ikke-reflekterende paneler, så tjek den først, og spørg evt. grundejerforeningen.", ["hel_sol"])],
+})
+VP_HEAT.update({
+ "ringkoebing": ("Tre ud af fem huse har fjernvarme, men oliefyrene er mange",
+   lambda: f"{hp('ringkoebing','FJ',1)} af de {tal(hs('ringkoebing'))} beboede parcel- og rækkehuse i Ringkøbing-Skjern Kommune har fjernvarme, mod {hp('dk','FJ',1)} på landsplan. {tal(HEAT['ringkoebing']['CO'])} huse ({hp('ringkoebing','CO',1)}) har stadig oliefyr, {rk(_COs, 'ringkoebing', 'højeste')} andel af de {nw()} byer, og {tal(HEAT['ringkoebing']['CN'])} har naturgas. {tal(HEAT['ringkoebing']['VP'])} har allerede varmepumpe, og {tal(HEAT['ringkoebing']['CA'])} har centralvarme med en anden kilde, fx træpiller."),
+ "helsingoer": ("Flere huse har naturgas end fjernvarme i Helsingør",
+   lambda: f"{tal(HEAT['helsingoer']['CN'])} af de {tal(hs('helsingoer'))} beboede parcel- og rækkehuse i Helsingør Kommune ({hp('helsingoer','CN',1)}) har naturgas, {rk(_CNs, 'helsingoer', 'højeste')} andel af de {nw()} byer og mod {hp('dk','CN',1)} på landsplan. Kun {hp('helsingoer','FJ',1)} har fjernvarme. {tal(HEAT['helsingoer']['ELV'])} huse har elvarme og {tal(HEAT['helsingoer']['VP'])} varmepumpe."),
+})
+VP_HEAT_SRC_NEW.update({"ringkoebing": [], "helsingoer": ["fh_nye"]})
+VP_TOWNS.update({
+ "ringkoebing": [("Ringkøbing", "Ringkøbing Fjernvarme; nyt flisværk med absorptionsvarmepumpe", ["df_rfv"]),
+                 ("Hvide Sande", "Hvide Sande Fjernvarme; egne vindmøller, landets laveste varmepris", ["df_hsfv"]),
+                 ("Skjern, Tarm, Videbæk, Lem, Spjald, Tim", "Egne værker med vidt forskellige priser", ["ft_pris"]),
+                 ("Fjelstervang", "Taget ud som muligt fjernvarmeområde i juni 2026", ["rks_fjel"]),
+                 ("Hee, Stauning, Ølstrup, No, Vorgod-Barde m.fl.", "Kommunens varmescreeninger af landsbyerne", ["rks_varme"]),
+                 ("Det åbne land", "Ingen fjernvarme; individuelle løsninger eller små fællesanlæg", ["rks_svp"])],
+ "helsingoer": [("Søhelte-kvarteret", "Konverteret fra gas til fjernvarme; færdigt", ["fh_status"]),
+                ("Marienlyst-kvarteret", "Anlægsarbejdet under afslutning (sep. 2026)", ["fh_status"]),
+                ("Helsingør Bykerne og Yderområder", "Anlæg i gang; Yderområde 3 projekteres, 4 har fået tilbud i 2026", ["fh_status"]),
+                ("Espergærde C", "Udbygning 2023-2028, kræver mindst 60 % tilslutning", ["fh_esp"]),
+                ("Hornbæk", "Hornbæk Fjernvarme", ["ft_pris"]),
+                ("Snekkersten og øvrige dele af Helsingør og Espergærde", "Kommende planer, tidligst efter 2028", ["fh_nye"])],
+})
+VP_TOWNS_NOTE.update({
+ "ringkoebing": "Har du oliefyr i en landsby eller i det åbne land, er en luft til vand-varmepumpe det typiske valg, fordi kommunens varmeplan ikke peger på fjernvarme dér. Bor du i en af de landsbyer, kommunen har screenet, så læs screeningen for din by og hør borgerforeningen, før du køber, fordi det også afgør, om du kan få tilskud fra Varmepumpepuljen.",
+ "helsingoer": "Har du gasfyr i et af de fem godkendte områder, så tjek først tilbuddet fra Forsyning Helsingør. Ligger huset uden for både de godkendte og de kommende områder, er en luft til vand-varmepumpe det realistiske alternativ, når gasfyret skal skiftes.",
+})
+VP_XFAQ.update({
+ "ringkoebing": [("Hvor mange huse i Ringkøbing-Skjern Kommune har oliefyr?", lambda: f"{tal(HEAT['ringkoebing']['CO'])} af de {tal(hs('ringkoebing'))} beboede parcel- og rækkehuse ({hp('ringkoebing','CO',1)}) har oliefyr ifølge Danmarks Statistik, 2026. {tal(HEAT['ringkoebing']['CN'])} har naturgas, {tal(HEAT['ringkoebing']['ELV'])} elvarme og {tal(HEAT['ringkoebing']['VP'])} varmepumpe.", ["dst_bol102"])],
+ "helsingoer": [("Hvor mange huse i Helsingør Kommune har gasfyr?", lambda: f"Danmarks Statistik registrerer {tal(HEAT['helsingoer']['CN'])} beboede parcel- og rækkehuse med naturgas i 2026, ud af {tal(hs('helsingoer'))}. {tal(HEAT['helsingoer']['FJ'])} har fjernvarme, {tal(HEAT['helsingoer']['ELV'])} elvarme og {tal(HEAT['helsingoer']['VP'])} varmepumpe.", ["dst_bol102"])],
+})
+FV_SOURCES.update({
+ "ringkoebing": [("Hvide Sande Fjernvarme laver <strong>95 % af varmen</strong> med solvarme, elkedler og varmepumper, og strømmen kommer det meste af tiden fra værkets tre egne vindmøller på havnen.", ["df_hsfv"]),
+                 ("Ringkøbing Fjernvarmes nye <strong>fliskedel og absorptionsvarmepumpe</strong> skal ifølge værket få naturgassens andel af el- og varmeproduktionen ned på ca. 8 %. Om sommeren kører værket kun på solvarme.", ["df_rfv"])],
+ "helsingoer": [("Forsyning Helsingør oplyser, at <strong>88 % af varmen</strong> kommer fra vedvarende energi.", ["fh_nye"]),
+                ("Prisen hos Forsyning Helsingør er ifølge selskabet selv, med inflationen regnet med, <strong>lavere end for ti år siden</strong>.", ["fh_pris"])],
+})
+FV_SHARE.update({
+ "ringkoebing": lambda: f"{hp('ringkoebing','FJ',1)} af de beboede parcel- og rækkehuse i Ringkøbing-Skjern Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. {tal(HEAT['ringkoebing']['CO'])} huse har oliefyr og {tal(HEAT['ringkoebing']['CN'])} naturgas.",
+ "helsingoer": lambda: f"Kun {hp('helsingoer','FJ',1)} af de beboede parcel- og rækkehuse i Helsingør Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet, mens {hp('helsingoer','CN',1)} har naturgas. Det er de huse, Forsyning Helsingørs udbygning handler om.",
+})
+FV_SOURCES_H.update({"ringkoebing": "Vindmøller, solvarme og nyt flisværk", "helsingoer": "88 % vedvarende energi"})
+_reg_age_old11 = reg_age_note
+def reg_age_note(c, kommune):
+    s = STOCK[c]; B = s["B"]; t = s["tot"]
+    if c == "ringkoebing":
+        return (f"{tal(B['før 1960'])} af de beboede huse i Ringkøbing-Skjern Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. Ligger dit hus i Ringkøbings indre by eller ved Vedersø Klit, så tjek den bevarende lokalplan, før du bestiller.", ["rks_kp"])
+    if c == "helsingoer":
+        return (f"{tal(s['raekke'])} af de beboede huse i Helsingør Kommune ({pct(s['raekke'], t)}) er række-, kæde- eller dobbelthuse. Tjek lokalplanen eller deklarationen for din bebyggelse, fordi den kan kræve ikke-reflekterende paneler.", ["hel_sol"])
+    return _reg_age_old11(c, kommune)
 
 # ---------- tjek af sammenlignende udsagn: bygget fejler, hvis en ny by gør et udsagn forkert ----------
 _PVs = lambda c: PV[c]["syd"]; _rt = lambda k: (lambda c: ROOF[c]["T"][k] / ROOF[c]["tot"]); _hf = lambda k: (lambda c: HEAT[c][k] / hs(c)); _sb = lambda k: (lambda c: STOCK[c]["B"][k] / STOCK[c]["tot"])
@@ -1195,7 +1283,7 @@ CLAIMS = [
  ("Horsens top 4 ejerandel (dynamisk tekst)", rank(_EJ, "horsens") <= 4),
  ("Odense højeste FJ", top(_hf("FJ")) == "odense"), ("Aarhus nr. 2 FJ", rank(_hf("FJ"), "aarhus") == 2),
 
- ("Viborg top 2 olie, Randers top 5 (dynamisk tekst)", rank(_hf("CO"), "viborg") <= 2 and rank(_hf("CO"), "randers") <= 5),
+ ("Viborg top 3 olie, Randers top 6 (dynamisk tekst)", rank(_hf("CO"), "viborg") <= 3 and rank(_hf("CO"), "randers") <= 6),
  ("Næstved gas tæt på fjernvarme (overskrift)", abs(HEAT["naestved"]["CN"] - HEAT["naestved"]["FJ"]) / HEAT["naestved"]["FJ"] < 0.05),
  ("Sønderborg tre ud af fem FJ (overskrift)", 0.58 <= HEAT["soenderborg"]["FJ"] / hs("soenderborg") <= 0.62),
  ("Roskilde mere end hvert fjerde gas (overskrift)", HEAT["roskilde"]["CN"] / hs("roskilde") > 0.25),
@@ -1228,6 +1316,15 @@ CLAIMS = [
  ("Hedensted cementsten mest udbredte tag (overskrift)", sorted(ROOF["hedensted"]["T"], key=lambda k: -ROOF["hedensted"]["T"][k])[0] == "08"),
  ("Hedensted 36 pct. FJ (intro)", round(100 * HEAT["hedensted"]["FJ"] / hs("hedensted")) == 36),
  ("Hedensted øst og vest næsten ens (FAQ)", abs(PV["hedensted"]["oest"] - PV["hedensted"]["vest"]) / PV["hedensted"]["syd"] < 0.03),
+ ("Ringkøbing oliefyr over landsgennemsnit (overskrift)", HEAT["ringkoebing"]["CO"] / hs("ringkoebing") > HEAT["dk"]["CO"] / hs("dk")),
+ ("Ringkøbing tre ud af fem FJ (overskrift/intro)", 0.58 <= HEAT["ringkoebing"]["FJ"] / hs("ringkoebing") <= 0.62),
+ ("Ringkøbing fibercement, cementsten og tegl de tre største tagtyper (overskrift)", sorted(ROOF["ringkoebing"]["T"], key=lambda k: -ROOF["ringkoebing"]["T"][k])[:3] == ["06", "08", "10"]),
+ ("Helsingør flere naturgas end FJ (overskrift/intro)", HEAT["helsingoer"]["CN"] > HEAT["helsingoer"]["FJ"]),
+ ("Helsingør næsten fire ud af ti naturgas (intro)", 0.36 <= HEAT["helsingoer"]["CN"] / hs("helsingoer") < 0.40),
+ ("Helsingør 36 pct. FJ (FV-intro)", round(100 * HEAT["helsingoer"]["FJ"] / hs("helsingoer")) == 36),
+ ("Helsingør mange flade tage: over landsgennemsnit (overskrift)", _FLs("helsingoer") > _FLs("dk")),
+ ("Helsingør mange rækkehuse: over landsgennemsnit (overskrift)", _RKs("helsingoer") > STOCK["dk"]["raekke"] / STOCK["dk"]["tot"]),
+ ("Ringkøbing ældre huse: før 1960 over landsgennemsnit (overskrift)", STOCK["ringkoebing"]["B"]["før 1960"] / STOCK["ringkoebing"]["tot"] > STOCK["dk"]["B"]["før 1960"] / STOCK["dk"]["tot"]),
 ]
 _bad = [n for n, ok in CLAIMS if not ok]
 assert not _bad, f"Sammenlignende udsagn passer ikke længere: {_bad}"

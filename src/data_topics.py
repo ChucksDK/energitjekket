@@ -33,7 +33,7 @@ TOPIC_S = {
 T = {}
 
 T["/varmepumpe/jordvarme-pris/"] = {
-  "svc": "varmepumpe", "crumb": "Jordvarme pris", "updated": UPD,
+  "svc": "varmepumpe", "crumb": "Jordvarme pris", "updated": ("5. november 2026", "2026-11-05"),
   "kw": "jordvarme pris / jordvarme pris inkl montering",
   "title": "Jordvarme pris 2026: hvad koster jordvarme inkl. montering?",
   "desc": "Jordvarme koster typisk 120.000-200.000 kr. inkl. montering. Se drift pr. år, tilskud på 27.000 kr., krav til grunden og tilladelse fra kommunen.",
@@ -51,6 +51,12 @@ T["/varmepumpe/jordvarme-pris/"] = {
       [["Jordvarme med gulvvarme", "6.960 kr."], ["Luft til vand med gulvvarme", "7.288 kr."], ["Jordvarme med radiatorer", "8.725 kr."], ["Luft til vand med radiatorer", "9.386 kr."], ["Fjernvarme (vægtet gennemsnit)", "16.953 kr."], ["Gasfyr", "18.433 kr."], ["Oliefyr", "32.388 kr."]], ["es_vp", "bolius_varme"]),
      ("p", "Tallene er Bolius' driftsudgifter for et standardhus på 130 m² med et varmebehov på 18.100 kWh (ajourført 9. september 2026). Det er driften alene. Med afskrivning, service og rente regner Bolius 19.530-20.750 kr. om året for jordvarme, fordi anlægget er dyrt at etablere.", ["bolius_varme"]),
    ]),
+   ("Priseksempel: jordvarme til et hus med oliefyr eller gasfyr", [
+     ("p", "Et regneeksempel med tallene ovenfor: Energisparer.dk's eksempel på et jordvarmeanlæg til ca. <strong>150.000 kr.</strong> koster ca. <strong>123.000 kr.</strong> efter 27.000 kr. fra Varmepumpepuljen. I Bolius' standardhus på 130 m² med radiatorer koster driften af jordvarmen 8.725 kr. om året.", ["es_vp", "bolius_varme"]),
+     ("table", ["Skifter du fra", "Drift i dag pr. år", "Jordvarme med radiatorer", "Lavere driftsudgift pr. år", "Simpel tilbagebetaling af 123.000 kr."],
+      [["Oliefyr", "32.388 kr.", "8.725 kr.", "23.663 kr.", "ca. 5 år"], ["Gasfyr", "18.433 kr.", "8.725 kr.", "9.708 kr.", "ca. 13 år"]], ["es_vp", "bolius_varme"]),
+     ("note", "Vores egen udregning ud fra Energisparer.dk's anlægspris og Bolius' driftstal. Den simple tilbagebetaling medregner ikke rente, service og afskrivning, som Bolius samlet regner til 19.530-20.750 kr. om året for jordvarme. Tilskuddet forudsætter, at Varmepumpepuljen stadig er åben (senest til 30. november 2026). Få et konkret tilbud på dit hus, før du regner videre.", ["bolius_varme", "se_vpp"]),
+   ]),
    ("Kan din grund bruges til jordvarme?", [
      ("ul", [("SparEnergi skriver, at jordvarme kræver mindst 300 m² ubebygget grund, medmindre du får vertikal jordvarme (boringer).", ["se_vp"]),
              ("Jordvarme giver både rumvarme og varmt vand og kræver radiatorer eller gulvvarme med vand, ligesom en luft til vand-varmepumpe.", ["se_vp"]),
@@ -66,6 +72,7 @@ T["/varmepumpe/jordvarme-pris/"] = {
    ]),
   ],
   "faq": [
+   ("Har I et priseksempel på jordvarme?", "Ja. Et anlæg til ca. 150.000 kr. koster ca. 123.000 kr. efter tilskud. Skifter du et oliefyr ud, falder driften i Bolius' 130 m²-hus fra 32.388 til 8.725 kr. om året, så den simple tilbagebetaling er ca. 5 år. Fra et gasfyr er den ca. 13 år.", ["es_vp", "bolius_varme"]),
    ("Hvad koster jordvarme inkl. montering?", "SparEnergi angiver typisk 130.000-200.000 kr., og Energisparer.dk ca. 120.000-180.000 kr. Boringer er dyrere end vandrette jordslanger.", ["se_vp", "es_vp"]),
    ("Er jordvarme billigere i drift end luft til vand?", "Med Bolius' tal for et 130 m² hus koster jordvarme 8.725 kr. om året mod 9.386 kr. for luft til vand med radiatorer og 7.288 kr. med gulvvarme. Forskellen afhænger mest af dit varmesystem.", ["es_vp", "bolius_varme"]),
    ("Skal jeg søge tilladelse til jordvarme?", "Ja. Kommunen skal give tilladelse, men ikke-industrielle terrænnære anlæg uden for særlige drikkevandsområder skal kun anmeldes. Det sker via Byg og Miljø.", ["mst_jv"]),
