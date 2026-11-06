@@ -51,4 +51,5 @@ CROSS_CITY_LINKS = {"aarhus": "/ejendomsadministration/aarhus/", "koege": "/ejen
                     "holte": "/ejendomsadministration/rudersdal/",
                     "herning": "/ejendomsadministration/herning/", "slagelse": "/ejendomsadministration/slagelse/",
                     "soenderborg": "/ejendomsadministration/soenderborg/",
-                    "helsingoer": "/ejendomsadministration/helsingoer/"}
+                    "helsingoer": "/ejendomsadministration/helsingoer/",
+                    "svendborg": "/ejendomsadministration/svendborg/"}

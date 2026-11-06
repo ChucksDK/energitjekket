@@ -1037,6 +1037,18 @@ S.update({
  "fh_esp": ("Forsyning Helsingør: Espergærde C (udbygning 2023-2028)", "https://www.fh.dk/varme/nye-fjernvarmeomraader/espergaerde-c"),
  "fh_pris": ("Forsyning Helsingør: priser og tilslutning til fjernvarme", "https://www.fh.dk/varme/priser"),
 })
+
+# ---------- daglig by-rutine 6. nov. 2026: Stenløse (DK2, Egedal) og Frederikssund (DK2) ----------
+S.update({
+ "ege_sol": ("Egedal Kommune: solceller og solfangere (læst 6/11 2026)", "https://egedalkommune.dk/mit-liv/byggeri/solceller-og-solfangere"),
+ "ege_fv": ("Egedal Fjernvarme: fjernvarme i Ølstykke og Stenløse, etape 11-20 (læst 6/11 2026)", "https://www.egedalfjernvarme.dk/vil-du-have-fjernvarme/igangvaerende-projekter/etape-11-20-oelstykke-og-stenloese"),
+ "ege_pris": ("Egedal Fjernvarme: priser for 2026 og 2027 (læst 6/11 2026)", "https://www.egedalfjernvarme.dk/priser"),
+ "frs_sol": ("Frederikssund Kommune: solfangere og solcelleanlæg (læst 6/11 2026)", "https://www.frederikssund.dk/Borger/Bolig--byggeri/din-ejendom/El-og-varme/Solfangere-og-solcelleanlaeg"),
+ "frs_varme": ("Frederikssund Kommune: varme (læst 6/11 2026)", "https://www.frederikssund.dk/Borger/Bolig--byggeri/din-ejendom/El-og-varme/varme"),
+ "frs_faq": ("Frederikssund Kommune: ofte stillede spørgsmål om varme (læst 6/11 2026)", "https://www.frederikssund.dk/Borger/Bolig--byggeri/din-ejendom/El-og-varme/varme/ofte-stillede-spoergsmaal-om-varme"),
+ "frs_klima": ("Frederikssund Kommune: klimastatus juli 2026 (Teknik og Klima 11/8 2026, bilag)", "https://www.frederikssund.dk/Dagsordener/Teknik_og_Klima(2026)/11-08-2026/Dagsorden(ID5759)-2608121555/Bilag/Punkt_107_Bilag_3_KLIMASTATUS_JULI_2026.pdf"),
+ "vf_energi": ("Vestforbrænding: kontrakt om energicentral på plads (26/5 2026)", "https://vestfor.dk/bliv-klogere/nyheder/nyhedsoverblik/kontrakt-om-energicentral-paa-plads"),
+})
 CITIES["ringkoebing"] = {
   "name": "Ringkøbing", "kommune": "Ringkøbing-Skjern Kommune", "updated": ("5. november 2026", "2026-11-05"),
   "vp_title": "Varmepumpe Ringkøbing: luft til vand og tilskud | Energitjekket",
@@ -1094,3 +1106,64 @@ CONTACTS["ringkoebing"] = {"sol": [("Ringkøbing-Skjern Kommune, Land, By og Kul
                            "vp":  [("Ringkøbing-Skjern Kommune, varmeplan", "varme@rksk.dk", "rks_varme")]}
 CONTACTS["helsingoer"] = {"sol": [("Helsingør Kommune, Center for By, Land og Vand", "49 28 28 28 · blv@helsingor.dk", "hel_sol")],
                           "vp":  [("Forsyning Helsingør", "48 40 50 50", "fh_nye")]}
+
+CITIES["stenloese"] = {
+  "name": "Stenløse", "kommune": "Egedal Kommune", "updated": ("6. november 2026", "2026-11-06"),
+  "vp_title": "Varmepumpe Stenløse: luft til vand og tilskud | Energitjekket",
+  "fv_title": "Fjernvarme eller varmepumpe i Stenløse? 2026 | Energitjekket",
+  "reg_title": "Solceller Stenløse/Egedal: regler og tilladelse | Energitjekket",
+  "sol_intro": "Solceller i Stenløse: Egedal Kommune skriver, at du selv skal sikre, at anlægget følger bygningsreglementet, lokalplanen og eventuelle deklarationer. Kræver lokalplanen eller en deklaration ikke-reflekterende tag, skal du søge dispensation. Anlæg på terræn kræver byggetilladelse. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Det er dit ansvar at sikre, at anlægget følger <strong>bygningsreglementet</strong>, lokalplanen og tinglyste deklarationer – også når der ikke kræves tilladelse.", ["ege_sol"]),
+    ("Hvis lokalplanen eller en deklaration kræver en bestemt <strong>tagbelægning</strong> eller forbyder reflekterende materialer, skal du søge dispensation.", ["ege_sol"]),
+    ("Solceller på <strong>terræn</strong> kræver byggetilladelse. Ansøgningen sker via Byg og Miljø under kategorien «Faste konstruktioner, som ikke er bygning».", ["ege_sol"]),
+    ("Kommunen skal normalt sende ansøgningen i <strong>nabohøring</strong>, før den kan behandles.", ["ege_sol"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Stenløse?", "Ikke nødvendigvis på taget, hvis anlægget overholder bygningsreglementet og lokalplanen. Kræver lokalplanen eller en deklaration ikke-reflekterende tag, skal du søge dispensation. Anlæg på terræn kræver altid byggetilladelse.", ["ege_sol"]),
+    ("Hvem kontakter jeg om solceller i Egedal Kommune?", "Byggesag på Dronning Dagmars Vej 200 i Ølstykke, telefon 72 59 72 60, eller via digital post til kommunen.", ["ege_sol"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Stenløse: næsten fire ud af ti huse i Egedal Kommune har stadig naturgas, flere end der har fjernvarme. Egedal Fjernvarme udbygger i Ølstykke og Stenløse i etape 11-20, og tilmelder du dig i tide, kan tilslutningen i 2027 koste 15.000 kr. i stedet for 45.000 kr. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("Egedal Fjernvarme udbygger fjernvarmen i <strong>Ølstykke og Stenløse</strong> i etape 11-20. Flere etaper har afsluttet gravearbejde, andre er i gang eller indkalder til informationsmøde.", ["ege_fv"]),
+    ("Tilmelder du dig, før gravearbejdet starter i dit delområde, kan du i 2027 blive tilsluttet til <strong>kampagnepris 15.000 kr.</strong> Normalprisen er 45.000 kr.", ["ege_fv"]),
+    ("Fjernvarmeunit kan fås på <strong>abonnement</strong> til ca. 310 kr. om måneden i 2027 (A-model), eller du kan eje anlægget selv (E-model).", ["ege_fv"]),
+    ("Danmarks Statistik registrerer <strong>6.166 huse med naturgas</strong> i Egedal Kommune i 2026 – flere end dem med fjernvarme.", ["dst_bol102"]),
+  ],
+  "vp_faq": [
+    ("Kommer der fjernvarme til mit område i Stenløse eller Ølstykke?", "Egedal Fjernvarme udbygger i etape 11-20. Se oversigtskortet og tidsplanen på egedalfjernvarme.dk, og tilmeld dig, hvis du bor i et udvidelsesområde. Informationsmøde holdes typisk ca. seks måneder før gravestart.", ["ege_fv"]),
+    ("Hvad koster det at få fjernvarme i Stenløse i 2027?", "Kampagnepris 15.000 kr., hvis du tilmelder dig, før gravearbejdet starter i dit delområde. Ellers 45.000 kr. Unit på abonnement koster ca. 310 kr. om måneden i 2027.", ["ege_fv"]),
+  ],
+}
+CITIES["frederikssund"] = {
+  "name": "Frederikssund", "kommune": "Frederikssund Kommune", "updated": ("6. november 2026", "2026-11-06"),
+  "vp_title": "Varmepumpe Frederikssund: luft til vand og tilskud | Energitjekket",
+  "fv_title": "Fjernvarme eller varmepumpe i Frederikssund? | Energitjekket",
+  "reg_title": "Solceller Frederikssund: regler og tilladelse | Energitjekket",
+  "sol_intro": "Solceller i Frederikssund: anlæg på hustage er omfattet af bygningsreglementet. Du skal søge, hvis anlægget ikke overholder højde- og afstandskrav, eller hvis lokalplan, byplanvedtægt eller servitut kræver dispensation. Anlæg på terræn kræver byggetilladelse. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Solenergianlæg på hustage er omfattet af <strong>bygningsreglementet</strong>. Du skal søge, hvis anlægget ikke ligger inden for højde- og afstandskravene, eller hvis det kræver dispensation fra lokalplan eller lignende.", ["frs_sol"]),
+    ("Tjek <strong>lokalplan</strong>, byplanvedtægt og tinglyste servitutter for bestemmelser om tagmateriale og refleksion. Kommunens digitale kort viser lokalplaner.", ["frs_sol"]),
+    ("Anlæg inden for <strong>fredning</strong> eller bygge- og beskyttelseslinjer (fx strand- eller fortidsmindebeskyttelse) kræver dispensation.", ["frs_sol"]),
+    ("Fritstående anlæg på terræn, på erhvervsbygning, etagebolig eller landbrugsbygning kræver <strong>byggetilladelse</strong> via Byg &amp; Miljø. I landzone kan der også kræves landzonetilladelse.", ["frs_sol"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Frederikssund?", "Du skal søge, hvis anlægget ikke overholder bygningsreglementets højde- og afstandskrav, eller hvis lokalplan, byplanvedtægt eller servitut kræver dispensation. Anlæg på terræn kræver altid byggetilladelse.", ["frs_sol"]),
+    ("Skal jeg give besked, når anlægget er sat op?", "Ja. Kommunen beder dig give besked, så anlægget kan registreres i BBR som teknisk anlæg.", ["frs_sol"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Frederikssund: næsten fire ud af ti huse i kommunen har naturgas, mens kun ca. hvert fjerde har fjernvarme. Vestforbrænding planlægger udrulning i Frederikssund by, Græse Bakkeby, Vinge og St. Rørbæk senest 2030, mens Skibby og Slangerup tidligst kan være klar i 2032. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("Kommunens klimastatus juli 2026 forventer fjernvarme i <strong>Frederikssund by, Græse Bakkeby, Vinge og St. Rørbæk</strong> inden udgangen af 2030.", ["frs_klima"]),
+    ("<strong>Skibby</strong> har et godkendt projektforslag, men Skibby Fjernvarme genberegner projektet i 2026. <strong>Slangerup</strong>: Vestforbrænding regner på fire scenarier, som præsenteres for borgerne sommeren 2026. Begge byer kan tidligst få fjernvarme i 2032, hvis projekterne fortsætter.", ["frs_klima"]),
+    ("Vestforbrænding bygger en <strong>energicentral</strong> i Frederikssund med 19 MW elkedel og 8.500 m³ akkumuleringstank. Anlægsarbejde forventes i efteråret 2026, drift forår 2028, kapacitet til 2.000-2.700 standardhuse. Den skal også forsyne dele af Egedal.", ["vf_energi"]),
+    ("Hvor fjernvarmen ikke kommer, opfordrer kommunen til <strong>individuelle varmepumper</strong> eller mindre fællesløsninger.", ["frs_faq"]),
+  ],
+  "vp_faq": [
+    ("Kommer der fjernvarme til mit område i Frederikssund Kommune?", "Frederikssund by, Græse Bakkeby, Vinge og St. Rørbæk forventes klar inden udgangen af 2030. Skibby og Slangerup er usikre og tidligst 2032. Tjek kommunens kort og din adresse, før du vælger.", ["frs_klima", "frs_faq"]),
+    ("Kræver en varmepumpe tilladelse i Frederikssund?", "Som udgangspunkt ikke for en luft til vand-varmepumpe. Jordvarme kræver tilladelse. Varmepumpen skal overholde støjgrænserne 35 dB om natten og 45 dB om dagen i skel.", ["frs_faq"]),
+  ],
+}
+CONTACTS["stenloese"] = {"sol": [("Egedal Kommune, Byggesag", "72 59 72 60", "ege_sol")],
+                          "vp":  [("Egedal Fjernvarme", "30 20 10 19 · adm@egedalfjernvarme.dk", "ege_fv")]}
+CONTACTS["frederikssund"] = {"sol": [("Frederikssund Kommune, Byggeri", "47 35 10 00", "frs_sol")],
+                             "vp":  [("Frederikssund Kommune, varme", "47 35 10 00", "frs_varme")]}

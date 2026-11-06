@@ -226,7 +226,8 @@
     "kommune": "Egedal Kommune",
     "region": "Region Hovedstaden",
     "reason": "15.655 beboede parcel/rækkehuse; 35% fjernvarme; 7.555 med olie/gas/elvarme; stærkt varmepumpemarked",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-06"
   },
   {
     "rank": 24,
@@ -235,7 +236,8 @@
     "kommune": "Frederikssund Kommune",
     "region": "Region Hovedstaden",
     "reason": "14.988 beboede parcel/rækkehuse; 24% fjernvarme; 7.783 med olie/gas/elvarme; stærkt varmepumpemarked",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-06"
   },
   {
     "rank": 25,

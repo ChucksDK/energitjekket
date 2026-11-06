@@ -1626,3 +1626,91 @@ FV_PAGE["helsingoer"] = {
    ("Hvor meget sparer jeg ved at skifte fra gas til fjernvarme i Helsingør?", "Forsyning Helsingør skriver, at de fleste huse kan spare 5-25 % på varmeregningen ved at skifte fra naturgas til fjernvarme. Regn også en varmepumpe igennem, hvis dit område ikke står på planen.", ["fh_nye"]),
   ],
 }
+
+# ---------- daglig by-rutine 6. nov. 2026: Stenløse og Frederikssund ----------
+# Forsyningstilsynet jan. 2026: Egedal = Maglevad (3660), Slagslunde Fjernvarme (3660), Smørum Kraftvarme (2765).
+# Frederikssund = Jægerspris Kraftvarme (3630) og Skuldelev Energiselskab (4050). Vestforbrændings nye net i byen indgår endnu ikke som separat værk.
+FV_PRICES["stenloese"] = [("Smørum Kraftvarme", "2765", "7.226", "3"), ("Slagslunde Fjernvarme", "3660", "14.444", "64"), ("Maglevad (Egedal Fjernvarme)", "3660", "15.314", "99")]
+FV_PRICES["frederikssund"] = [("Jægerspris Kraftvarme", "3630", "9.525", "8"), ("Skuldelev Energiselskab", "4050", "20.220", "290")]
+SOL_REG["stenloese"] = {
+  "kw": "solceller stenløse / solceller egedal kommune / byggetilladelse solceller ølstykke",
+  "evidence": "Egedal Kommunes side om solceller og solfangere (tjekket 6/11 2026).",
+  "intro": "Egedal Kommune skriver, at du selv skal sikre, at solcelleanlægget følger bygningsreglementet, lokalplanen og eventuelle deklarationer. Kræver lokalplanen eller en deklaration ikke-reflekterende tag, skal du søge dispensation. Anlæg på terræn kræver byggetilladelse via Byg og Miljø. Her er reglerne og hvem du kontakter.",
+  "sections": [
+   ("Dit ansvar før du går i gang", [
+     ("ul", [("Anlægget skal følge <strong>bygningsreglementet</strong>, gældende lokalplan og tinglyste deklarationer – også når der ikke kræves tilladelse.", ["ege_sol"]),
+             ("Kræver lokalplanen eller en deklaration en bestemt <strong>tagbelægning</strong> eller forbyder reflekterende materialer, skal du søge dispensation.", ["ege_sol"]),
+             ("Anlæg på <strong>terræn</strong> kræver byggetilladelse.", ["ege_sol"])]),
+   ]),
+   ("Hvis du skal søge", [
+     ("p", "Ansøg digitalt via Byg og Miljø under kategorien «Faste konstruktioner, som ikke er bygning». Kommunen beder typisk om begrundelse, facade- og tagplan, m² og kWh, farve/glans og datablad. Ansøgningen sendes normalt i nabohøring.", ["ege_sol"]),
+   ]),
+   ("Hvem du kontakter", [
+     ("p", "Byggesag, Dronning Dagmars Vej 200 i Ølstykke, telefon 72 59 72 60, eller via digital post til Egedal Kommune.", ["ege_sol"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller tilladelse i Egedal Kommune?", "Ikke nødvendigvis på taget, hvis anlægget overholder bygningsreglementet og lokalplanen. Dispensation kræves, hvis lokalplan eller deklaration regulerer tag eller refleksion. Anlæg på terræn kræver byggetilladelse.", ["ege_sol"]),
+   ("Hvad skal ansøgningen indeholde?", "Begrundelse, evt. fuldmagt, facade- og tagplan med anlægget indtegnet, m² og kWh, størrelse/placering, glans/refleksion, farve på rammer og datablad for solcellerne.", ["ege_sol"]),
+   ("Hvem kontakter jeg om solceller i Stenløse eller Ølstykke?", "Byggesag på 72 59 72 60 eller via digital post til Egedal Kommune.", ["ege_sol"]),
+  ],
+}
+SOL_REG["frederikssund"] = {
+  "kw": "solceller frederikssund / byggetilladelse solceller frederikssund / solceller slangerup",
+  "evidence": "Frederikssund Kommunes side om solfangere og solcelleanlæg (tjekket 6/11 2026).",
+  "intro": "Frederikssund Kommune skriver, at solenergianlæg på hustage er omfattet af bygningsreglementet. Du skal søge, hvis anlægget ikke overholder højde- og afstandskravene, eller hvis lokalplan, byplanvedtægt eller servitut kræver dispensation. Anlæg på terræn kræver byggetilladelse. Her er reglerne og hvem du kontakter.",
+  "sections": [
+   ("Hustage: BR18 og lokalplan", [
+     ("ul", [("Anlægget skal følge <strong>bygningsreglementets</strong> højde- og afstandskrav, ellers skal du søge.", ["frs_sol"]),
+             ("Tjek <strong>lokalplan</strong>, byplanvedtægt og tinglyste servitutter for tagmateriale og refleksion.", ["frs_sol"]),
+             ("Når anlægget er sat op, skal du give kommunen besked, så det kan registreres i <strong>BBR</strong>.", ["frs_sol"])]),
+   ]),
+   ("Beskyttelseslinjer, fredning og anlæg på jorden", [
+     ("p", "Anlæg inden for fredning eller bygge- og beskyttelseslinjer kræver dispensation (strandbeskyttelse søges hos Kystdirektoratet). Fritstående anlæg på terræn, erhverv, etagebolig eller landbrug kræver byggetilladelse via Byg &amp; Miljø; i landzone kan der også kræves landzonetilladelse.", ["frs_sol"]),
+   ]),
+   ("Hvem du kontakter", [
+     ("p", "Frederikssund Kommune, Torvet 2, telefon 47 35 10 00. Ansvarlig for siden er Line Garp Harnæs (kommunens bygningsområde).", ["frs_sol"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller byggetilladelse i Frederikssund Kommune?", "Du skal søge, hvis anlægget ikke overholder BR18's højde- og afstandskrav, eller hvis lokalplan/servitut kræver dispensation. Anlæg på terræn kræver altid byggetilladelse.", ["frs_sol"]),
+   ("Skal jeg tjekke lokalplanen for mit hus i Slangerup eller Skibby?", "Ja. Kommunens digitale kort viser lokalplaner og byplanvedtægter for hele kommunen, også Slangerup, Skibby og Jægerspris.", ["frs_sol"]),
+   ("Hvem kontakter jeg om solceller i Frederikssund?", "Kommunen på 47 35 10 00. Søg via Byg &amp; Miljø, hvis der kræves tilladelse.", ["frs_sol"]),
+  ],
+}
+FV_PAGE["stenloese"] = {
+  "kw": "fjernvarme stenløse / egedal fjernvarme pris / varmepumpe ølstykke",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026 for Maglevad, Slagslunde og Smørum, og Egedal Fjernvarmes side om udbygning i Ølstykke og Stenløse (tjekket 6/11 2026).",
+  "intro": "Kun 35 % af husene i Egedal Kommune har fjernvarme, mens næsten fire ud af ti har naturgas. Egedal Fjernvarme udbygger i Ølstykke og Stenløse i etape 11-20 med kampagnepris på tilslutning. Her er status, priserne og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Etape 11-20:</strong> udbygning i Ølstykke og Stenløse. Flere delområder har afsluttet gravearbejde; andre er i gang eller holder informationsmøde ca. seks måneder før gravestart.", ["ege_fv"]),
+   ("<strong>Kampagnepris 2027:</strong> 15.000 kr. ved tilmelding før gravearbejde, ellers 45.000 kr. Unit på abonnement ca. 310 kr./md.", ["ege_fv"]),
+   ("<strong>Takster:</strong> Egedal Fjernvarme har offentliggjort takstblad gældende fra 1. august 2026 og takstblad for 2027.", ["ege_pris"]),
+   ("<strong>Smørumnedre:</strong> Smørum Kraftvarme er blandt landets billigste værker i Forsyningstilsynets statistik.", ["ft_pris"]),
+  ],
+  "local_take": "Maglevad (Egedal Fjernvarme) er nr. 99 af 374 værker i Forsyningstilsynets statistik og ligger under landsgennemsnittet. Slagslunde er nr. 64, og Smørum Kraftvarme er nr. 3. Har du gasfyr i et udvidelsesområde i Ølstykke eller Stenløse, er fjernvarme til kampagnepris det første tjek. Ligger huset uden for udbygningen, er en luft til vand-varmepumpe det realistiske alternativ.",
+  "contact": ("Egedal Fjernvarme", "30 20 10 19 · adm@egedalfjernvarme.dk", "ege_fv"),
+  "faq": [
+   ("Hvad koster fjernvarme i Egedal Kommune?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus på 130 m² med 18,1 MWh 15.314 kr. om året inkl. moms hos Maglevad (Egedal Fjernvarme), 14.444 kr. hos Slagslunde Fjernvarme og 7.226 kr. hos Smørum Kraftvarme. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+   ("Hvornår kan jeg få fjernvarme i Stenløse?", "Det afhænger af din etape. Se tidsplanen på egedalfjernvarme.dk. Tilmeld dig tidligt for at få kampagneprisen.", ["ege_fv"]),
+   ("Kan jeg få unit på abonnement?", "Ja. A-modellen inkluderer opsætning, service og udskiftning for ca. 310 kr. om måneden i 2027. Alternativt ejer du selv anlægget (E-model).", ["ege_fv"]),
+  ],
+}
+FV_PAGE["frederikssund"] = {
+  "kw": "fjernvarme frederikssund / vestforbrænding frederikssund / varmepumpe slangerup",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026 for Jægerspris og Skuldelev, kommunens klimastatus juli 2026 og Vestforbrændings nyhed om energicentralen (tjekket 6/11 2026).",
+  "intro": "Kun 24 % af husene i Frederikssund Kommune har fjernvarme, mens næsten fire ud af ti har naturgas. Vestforbrænding udruller i byen, Græse Bakkeby, Vinge og St. Rørbæk frem mod 2030 og bygger en ny energicentral. Her er status, priserne og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Frem mod 2030:</strong> Frederikssund by, Græse Bakkeby, Vinge og St. Rørbæk forventes at få fjernvarme inden udgangen af 2030.", ["frs_klima"]),
+   ("<strong>Skibby og Slangerup:</strong> usikre; tidligst 2032, hvis genberegning og scenariearbejde viser positiv sag.", ["frs_klima"]),
+   ("<strong>Energicentral:</strong> 19 MW elkedel og 8.500 m³ akkumuleringstank. Anlæg efterår 2026, drift forår 2028, kapacitet 2.000-2.700 standardhuse; forsyner også dele af Egedal.", ["vf_energi"]),
+   ("<strong>Eksisterende værker:</strong> Jægerspris Kraftvarme og Skuldelev Energiselskab står i Forsyningstilsynets statistik; begge har allerede sat elkedler/varmepumper ind for at mindske gasforbruget.", ["frs_klima", "ft_pris"]),
+  ],
+  "local_take": "Jægerspris Kraftvarme er nr. 8 af 374 værker og meget billig, mens Skuldelev som nr. 290 ligger over landsgennemsnittet. Har du gasfyr i Frederikssund by, Græse Bakkeby, Vinge eller St. Rørbæk, så følg Vestforbrændings udrulning. Bor du i Skibby, Slangerup eller uden for planerne, er en luft til vand-varmepumpe det realistiske valg, når gasfyret skal skiftes – kommunen opfordrer selv til det.",
+  "contact": ("Frederikssund Kommune, varme", "47 35 10 00", "frs_varme"),
+  "faq": [
+   ("Hvad koster fjernvarme i Frederikssund Kommune?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 9.525 kr. om året inkl. moms hos Jægerspris Kraftvarme og 20.220 kr. hos Skuldelev Energiselskab. Landsgennemsnittet er 16.953 kr. Vestforbrændings nye net i byen er endnu ikke med som separat værk i statistikken.", ["ft_pris"]),
+   ("Hvornår kommer fjernvarmen til Frederikssund by?", "Kommunen forventer udgangen af 2030 for byen, Græse Bakkeby, Vinge og St. Rørbæk. Energicentralen skal efter planen være i drift forår 2028.", ["frs_klima", "vf_energi"]),
+   ("Hvad gør jeg, hvis jeg bor i Skibby eller Slangerup?", "Projekterne er usikre. Skibby genberegnes, Slangerup får scenarier i sommeren 2026. Kommunen opfordrer til individuelle varmepumper eller mindre fællesløsninger, hvor fjernvarmen ikke kommer.", ["frs_klima", "frs_faq"]),
+  ],
+}
