@@ -552,9 +552,10 @@ NATIONAL["/varmepumpe/pris/"] = {
       [["Luft til vand", "typisk 100.000-130.000 kr.", "SparEnergi"], ["Luft til vand", "ca. 90.000-150.000 kr.", "Energisparer.dk"], ["Jordvarme", "ca. 120.000-180.000 kr.", "Energisparer.dk"], ["Luft til luft (supplement)", "ca. 12.000-25.000 kr.", "Energisparer.dk"]], ["se_vp", "es_vp"]),
      ("p", "Energisparer.dk omregner til ca. 9.000-15.000 kr. pr. kW, fra ca. 90.000 kr. for 6 kW til ca. 150.000 kr. for 16 kW. Hvor mange kW dit hus skal bruge, afhænger af varmetabet, ikke kun af antallet af kvadratmeter. Derfor bør installatøren dimensionere anlægget. Se typiske priser for et hus på 150 og 200 m² i guiden til <a href=\"/varmepumpe/luft-til-vand/\">luft til vand varmepumpe</a>.", ["es_vp", "es_l2v"]),
    ]),
-   ("Pris inkl. montering i Nordjylland og på Sjælland", [
+   ("Pris inkl. montering på Sjælland og i Nordjylland", [
      ("p", "Prisspændene ovenfor er landsdækkende. Vi har ikke fundet offentlige kilder, der viser, at montering koster mere eller mindre i Nordjylland eller på Sjælland. Forskellen ligger i driften: Energisparer.dk regner med ca. 7.500 kr. om året i Vestdanmark og ca. 8.000 kr. i Østdanmark ved en SCOP på 3,5, fordi elprisen er forskellig i de to prisområder.", ["es_vp"]),
-     ("p", "Lokale regler, fjernvarme og tilskud i Nordjylland: <a href=\"/varmepumpe/aalborg/\">Aalborg</a> og <a href=\"/varmepumpe/hjoerring/\">Hjørring</a>. På Sjælland: <a href=\"/varmepumpe/roskilde/\">Roskilde</a>, <a href=\"/varmepumpe/koege/\">Køge</a>, <a href=\"/varmepumpe/holbaek/\">Holbæk</a>, <a href=\"/varmepumpe/slagelse/\">Slagelse</a> og <a href=\"/varmepumpe/naestved/\">Næstved</a>.", []),
+     ("p", "Et sjællandsk eksempel: Vordingborg Kommunes strategiske energiplan anslår, at et skift til luft til vand-varmepumpe eller jordvarme koster mellem 80.000 og 150.000 kr. inkl. installation afhængigt af husets størrelse og valg af teknologi – samme niveau som de landsdækkende prisspænd ovenfor. Planen regner med en levetid på ca. 16-20 år.", ["vor_ep"]),
+     ("p", "Lokale regler, fjernvarme og tilskud i Nordjylland: <a href=\"/varmepumpe/aalborg/\">Aalborg</a> og <a href=\"/varmepumpe/hjoerring/\">Hjørring</a>. På Sjælland: <a href=\"/varmepumpe/roskilde/\">Roskilde</a>, <a href=\"/varmepumpe/koege/\">Køge</a>, <a href=\"/varmepumpe/holbaek/\">Holbæk</a>, <a href=\"/varmepumpe/slagelse/\">Slagelse</a>, <a href=\"/varmepumpe/naestved/\">Næstved</a> og <a href=\"/varmepumpe/vordingborg/\">Vordingborg</a>.", []),
    ]),
    ("Poster, du skal spørge ind til", [
      ("ul", [("Opgradering af eltavlen.", ["es_vp"]), ("Buffertank.", ["es_vp"]), ("Fundament til udedelen.", ["es_vp"]),
@@ -1712,5 +1713,93 @@ FV_PAGE["frederikssund"] = {
    ("Hvad koster fjernvarme i Frederikssund Kommune?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 9.525 kr. om året inkl. moms hos Jægerspris Kraftvarme og 20.220 kr. hos Skuldelev Energiselskab. Landsgennemsnittet er 16.953 kr. Vestforbrændings nye net i byen er endnu ikke med som separat værk i statistikken.", ["ft_pris"]),
    ("Hvornår kommer fjernvarmen til Frederikssund by?", "Kommunen forventer udgangen af 2030 for byen, Græse Bakkeby, Vinge og St. Rørbæk. Energicentralen skal efter planen være i drift forår 2028.", ["frs_klima", "vf_energi"]),
    ("Hvad gør jeg, hvis jeg bor i Skibby eller Slangerup?", "Projekterne er usikre. Skibby genberegnes, Slangerup får scenarier i sommeren 2026. Kommunen opfordrer til individuelle varmepumper eller mindre fællesløsninger, hvor fjernvarmen ikke kommer.", ["frs_klima", "frs_faq"]),
+  ],
+}
+
+# ---------- daglig by-rutine 9. nov. 2026: Skanderborg og Vordingborg ----------
+# Forsyningstilsynet jan. 2026 (research-archive/energitjekket/2026-11-01/ft_prisstatistik_jan2026.csv): Skanderborg = Rye Varmeværk (8680), Skanderborg-Hørning (8660), Galten (8464).
+# Ry Varmeværk og Kredsløbs net i Skovby/Galten nord indgår ikke som separate værker med postnr. i kommunen. Vordingborg = Stege (4780), Vordingborg Fjernvarme (4760), Præstø (4720); Lendemarke (E.ON) ikke separat.
+FV_PRICES["skanderborg"] = [("Rye Varmeværk (Gl. Rye)", "8680", "13.404", "40"), ("Skanderborg-Hørning Fjernvarme", "8660", "13.493", "44"), ("Galten Varmeværk", "8464", "13.613", "45")]
+FV_PRICES["vordingborg"] = [("Stege Fjernvarme", "4780", "16.408", "143"), ("Vordingborg Fjernvarme", "4760", "19.591", "268"), ("Præstø Fjernvarme", "4720", "19.882", "280")]
+SOL_REG["skanderborg"] = {
+  "kw": "solceller skanderborg / byggetilladelse solceller skanderborg / solceller ry galten hørning",
+  "evidence": "Skanderborg Kommunes side om solcelleanlæg (tjekket 9/11 2026).",
+  "intro": "Skanderborg Kommune skriver, at du ofte kan sætte solceller op uden godkendelse. På enfamiliehuse, dobbelthuse og sommerhuse skal anlægget følge tagets hældning, højst hæves 1 m over et fladt tag og overholde lokalplan, byplanvedtægt og deklarationer. Her er reglerne, afstandskravene og hvem du kontakter.",
+  "sections": [
+   ("Uden ansøgning: de fem vilkår", [
+     ("ul", [("Anlægget <strong>følger tagets hældning</strong>; på flade tage højst 1 m over tagfladen.", ["skb_sol"]),
+             ("Det overholder <strong>lokalplan, byplanvedtægt og tinglyste deklarationer</strong>, som kan regulere størrelse, udseende eller tagfarve.", ["skb_sol"]),
+             ("Det overholder bygningsreglementets <strong>afstands- og højdebestemmelser</strong> og reglerne om konstruktion – kan taget klare vægten og snelasten?", ["skb_sol"])]),
+   ]),
+   ("Når du skal søge", [
+     ("p", "Byggetilladelse kræves, hvis anlægget står frit på terræn og er over 1,8 m højt, ikke følger taghældningen, hæves mere end 1 m over et fladt tag eller overskrider byggeretten. Dispensation kræves, hvis lokalplanen forbyder blanke og reflekterende overflader, har bevaringsbestemmelser eller kræver, at anlægget bygges ind i taget. På terræn skal anlægget holde 2,5 m til skel, i sommerhusområder 5 m.", ["skb_sol"]),
+   ]),
+   ("Hvem du kontakter", [
+     ("p", "Byggesag på byggesag@skanderborg.dk eller 87 94 77 03. Ligger huset nær skov, sø, å eller i et fredet område, kontakt Åben Land på aabenland@skanderborg.dk.", ["skb_sol"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller byggetilladelse i Skanderborg Kommune?", "Ikke på enfamiliehuse, dobbelthuse og sommerhuse, når anlægget følger tagets hældning, højst hæves 1 m over et fladt tag og overholder lokalplan og bygningsreglement. Fritstående anlæg over 1,8 m kræver byggetilladelse.", ["skb_sol"]),
+   ("Hvor tæt på skel må solceller på jorden stå?", "Som udgangspunkt 2,5 m fra skel, i sommerhusområder 5 m. Vil du tættere på, skal du søge byggetilladelse.", ["skb_sol"]),
+   ("Kan jeg beregne økonomien i solceller i Skanderborg?", "Kommunen henviser til et gratis beregningsværktøj, som er åbent til og med november 2026. Se kommunens side om solceller på tage.", ["skb_solsim"]),
+  ],
+}
+SOL_REG["vordingborg"] = {
+  "kw": "solceller vordingborg / byggetilladelse solceller vordingborg / solceller præstø stege",
+  "evidence": "Vordingborg Kommunes side om solceller og side om byggetilladelse (tjekket 9/11 2026).",
+  "intro": "Vordingborg Kommune skriver, at solceller på huse, sommerhuse, garager, carporte og udhuse kan sættes op uden ansøgning, når anlægget følger tagets hældning. Du skal selv tjekke servitutter og lokalplaner og anmelde anlægget til BBR. Fredede og bevaringsværdige bygninger og anlæg på stativ kræver altid byggetilladelse. Her er reglerne og hvem du kontakter.",
+  "sections": [
+   ("Uden ansøgning – men med dit ansvar", [
+     ("ul", [("Anlægget skal <strong>følge tagets hældning</strong>, lagt oven på eller nedfældet i taget.", ["vor_sol"]),
+             ("Du skal selv undersøge <strong>servitutter og lokalplaner</strong>; mange lokalplaner har vilkår om solceller.", ["vor_sol"]),
+             ("Anlægget skal <strong>anmeldes til BBR</strong> og overholde bygningsreglementets krav til højde, afstand og konstruktion.", ["vor_sol"])]),
+   ]),
+   ("Altid byggetilladelse", [
+     ("p", "Fredede og bevaringsværdige bygninger og anlæg på stativ på fladt tag eller terræn kræver altid byggetilladelse; i landzone evt. også landzonetilladelse. Bor du i en fredet bygning, skal du først have tilladelse fra Slots- og Kulturstyrelsen. Lokalplaner, bygge- og beskyttelseslinjer og Facaderådets retningslinjer kan tjekkes på KortVordingborg.", ["vor_sol", "vor_byg"]),
+   ]),
+   ("Hvem du kontakter", [
+     ("p", "Byggeri på telefon 55 36 24 50 (hverdage kl. 9-12) eller byg@vordingborg.dk. Ansøgninger sendes via Byg og Miljø.", ["vor_byg"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller tilladelse i Vordingborg Kommune?", "Ikke på almindelige huse, sommerhuse og udhuse, når anlægget følger tagets hældning. Fredede og bevaringsværdige bygninger og anlæg på stativ eller terræn kræver altid byggetilladelse.", ["vor_sol"]),
+   ("Skal jeg give kommunen besked om mine solceller?", "Ja. Anlægget skal anmeldes til BBR, også når det ikke kræver tilladelse.", ["vor_sol"]),
+   ("Hvem kontakter jeg om solceller i Præstø, Stege eller Vordingborg?", "Vordingborg Kommune, Byggeri, på 55 36 24 50 eller byg@vordingborg.dk.", ["vor_byg"]),
+  ],
+}
+FV_PAGE["skanderborg"] = {
+  "kw": "fjernvarme skanderborg / skanderborg-hørning fjernvarme pris / varmepumpe herskind låsby",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026 for Rye, Skanderborg-Hørning og Galten, Skanderborg Kommunes side om varme og strategisk varmeplan, udvalgssagen om Mesing 4/11 2026 (tjekket 9/11 2026).",
+  "intro": "To ud af tre huse i Skanderborg Kommune har fjernvarme, og de tre værker i Forsyningstilsynets statistik ligger alle blandt landets billigste. Men i flere landsbyer er fjernvarmen stoppet. Her er status, priserne og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Fået fjernvarme:</strong> Galten nord samt Skovby, Storring og Stjær (Kredsløb).", ["skb_varme"]),
+   ("<strong>Stoppet:</strong> Herskind, Låsby, Galten syd og Skovby syd – for få tilmeldinger.", ["skb_varme"]),
+   ("<strong>Ikke potentielle:</strong> Dørup, Sjelle og Skjørring. Voerladegård er for langt fra de eksisterende værker; en lokal gruppe arbejder for en fælles løsning.", ["skb_varme"]),
+   ("<strong>Mesing:</strong> varmeprojekt for 112 ejendomme med tilslutningsbidrag på 26.000 kr. Det kræver en vindmølle og tilskud fra fjernvarmepuljen; udvalget udsatte sagen 4/11 2026.", ["skb_mesing"]),
+  ],
+  "local_take": "Rye Varmeværk, Skanderborg-Hørning Fjernvarme og Galten Varmeværk er nr. 40, 44 og 45 af 374 værker i Forsyningstilsynets statistik og ligger alle et godt stykke under landsgennemsnittet. Har du fjernvarme i Skanderborg, Hørning, Galten eller Gl. Rye, er der sjældent penge i at skifte til varmepumpe. Bor du i en af landsbyerne, hvor fjernvarmen er stoppet eller ikke kommer, er en luft til vand-varmepumpe eller en fælles løsning med naboerne det realistiske valg.",
+  "contact": ("Skanderborg-Hørning Fjernvarme", "87 93 29 29 · cafe@skfj.dk", "skb_varme"),
+  "faq": [
+   ("Hvad koster fjernvarme i Skanderborg Kommune?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 13.404 kr. om året inkl. moms hos Rye Varmeværk, 13.493 kr. hos Skanderborg-Hørning Fjernvarme og 13.613 kr. hos Galten Varmeværk. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+   ("Får Mesing fjernvarme?", "Det er ikke afgjort. Projektet forudsætter en vindmølle ved Mesing og tilskud fra fjernvarmepuljen. Klima-, Miljø- og Planudvalget udsatte sagen 4. november 2026. Tilslutning vil være frivillig.", ["skb_mesing"]),
+   ("Har jeg tilslutningspligt til fjernvarme i Skanderborg?", "Det kan du have. Se kommunens kort over tilslutningspligt. Tilslutningspligt til naturgas gælder ikke længere, og nye lavenergihuse efter BR18 kan få dispensation fra fjernvarme-pligten.", ["skb_varme"]),
+  ],
+}
+FV_PAGE["vordingborg"] = {
+  "kw": "fjernvarme vordingborg / vordingborg forsyning fjernvarme nyråd / varmepumpe præstø stege",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026 for Stege, Vordingborg og Præstø, Vordingborg Kommunes side om varmeforsyning og Strategisk Energiplan 2023, Vordingborg Forsynings sider om Nyråd og Ørslev (tjekket 9/11 2026).",
+  "intro": "Kun hvert tredje hus i Vordingborg Kommune har fjernvarme. Vordingborg Forsyning er ved at afslutte udbygningen i Nyråd, og varmeplanen peger på Stensved og dele af Præstø frem mod 2028. Resten af kommunen forventes at få individuel opvarmning. Her er status, priserne og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Nyråd:</strong> 908 tilmeldte ejendomme; projektperioden løber til november 2026, og en stor del af byen forventes at få fjernvarme omkring efteråret 2026. Samlet løsning med stik, installation og unit koster 10.000 kr. inkl. moms.", ["vf_nyraad", "vf_nyraad_faq"]),
+   ("<strong>Ørslev:</strong> udbygningen 2021-2024 er stort set gennemført; 462 af 511 tilmeldte var tilsluttet i maj 2024.", ["vf_oerslev"]),
+   ("<strong>Frem mod 2028:</strong> forventet udbygning til Stensved og dele af Præstø. Kun få andre naturgasområder har potentiale.", ["vor_varme", "vor_ep"]),
+   ("<strong>Værkerne:</strong> Ifølge energiplanen 2023 producerer Stege Fjernvarme på halm, solvarme og olie, Vordingborg Fjernvarme på halm, flis, elkedel og naturgas, og Præstø Fjernvarme bl.a. på varmepumpe, træpiller og solvarme.", ["vor_ep"]),
+  ],
+  "local_take": "Stege Fjernvarme er nr. 143 af 374 værker i Forsyningstilsynets statistik og ligger under landsgennemsnittet, mens Vordingborg Fjernvarme (nr. 268) og Præstø Fjernvarme (nr. 280) ligger over. Bor du i Nyråd eller Ørslev, er fjernvarme det oplagte første tjek – og i Nyråd kan du ikke få varmepumpetilskud. I de mange landsbyer med olie, gas eller elvarme uden fjernvarmeplaner peger kommunen selv på varmepumper.",
+  "contact": ("Vordingborg Forsyning", "55 35 37 00 · kontakt@vordingborgforsyning.dk", "vf_nyraad"),
+  "faq": [
+   ("Hvad koster fjernvarme i Vordingborg Kommune?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 16.408 kr. om året inkl. moms hos Stege Fjernvarme, 19.591 kr. hos Vordingborg Fjernvarme og 19.882 kr. hos Præstø Fjernvarme. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+   ("Hvad koster det at få fjernvarme i Nyråd?", "Vordingborg Forsyning tilbyder stik, installation og unit for 10.000 kr. inkl. moms, evt. som afdrag over op til tre år. Der er ingen binding og ingen tilslutningspligt.", ["vf_nyraad_faq"]),
+   ("Kommer der fjernvarme til Jungshoved eller Lundby?", "Ikke som besluttet projekt. Energiplanen vil i første omgang analysere potentialet for lokal fælles varme i Jungshoved by, den østlige del af Præstø og Lundby. Den forventede fjernvarmeudbygning frem mod 2028 gælder Stensved og dele af Præstø; de fleste andre områder forventes at få individuel opvarmning, fx varmepumper.", ["vor_varme", "vor_ep"]),
   ],
 }

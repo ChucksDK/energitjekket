@@ -1167,3 +1167,84 @@ CONTACTS["stenloese"] = {"sol": [("Egedal Kommune, Byggesag", "72 59 72 60", "eg
                           "vp":  [("Egedal Fjernvarme", "30 20 10 19 · adm@egedalfjernvarme.dk", "ege_fv")]}
 CONTACTS["frederikssund"] = {"sol": [("Frederikssund Kommune, Byggeri", "47 35 10 00", "frs_sol")],
                              "vp":  [("Frederikssund Kommune, varme", "47 35 10 00", "frs_varme")]}
+
+# ---------- daglig by-rutine 9. nov. 2026: Skanderborg (DK1) og Vordingborg (DK2) ----------
+S.update({
+ "skb_sol": ("Skanderborg Kommune: solcelleanlæg (læst 9/11 2026)", "https://www.skanderborg.dk/borger/flytte-bo-og-bygge/byggeri/solcelleanlaeg"),
+ "skb_solsim": ("Skanderborg Kommune: solceller på tage og beregningsværktøj (læst 9/11 2026)", "https://www.skanderborg.dk/solceller"),
+ "skb_varme": ("Skanderborg Kommune: varme i din bolig og strategisk varmeplan (læst 9/11 2026)", "https://www.skanderborg.dk/borger/flytte-bo-og-bygge/varme-i-din-bolig"),
+ "skb_mesing": ("Klima-, Miljø- og Planudvalget, Skanderborg Kommune 4/11 2026: fjernvarme til Mesing (gengivet af Sagsvagt)", "https://sagsvagt.dk/sag/skanderborg-2026-11-04-klima-miljoe-og-planudvalget-6.html"),
+ "vor_sol": ("Vordingborg Kommune: solceller (læst 9/11 2026)", "https://www.vordingborg.dk/borger/bolig-og-byggeri/byggeri-og-bbr/solceller-og-vindmoeller"),
+ "vor_byg": ("Vordingborg Kommune: søg byggetilladelse (læst 9/11 2026)", "https://www.vordingborg.dk/borger/bolig-og-byggeri/byggeri-og-bbr/soeg-byggetilladelse"),
+ "vor_varme": ("Vordingborg Kommune: varmeforsyning (læst 9/11 2026)", "https://www.vordingborg.dk/borger/bolig-og-byggeri/bolig-og-oekonomi/varmeforsyning"),
+ "vor_ep": ("Vordingborg Kommune: Strategisk Energiplan 2023, del 2 – varmeforsyning (PDF)", "https://cdn.vordingborg.dk/vordingborgkommune/Media/638488539928581016/strategisk-energiplan-2023-del-2-af-3-varmeforsyning.pdf"),
+ "vf_nyraad": ("Vordingborg Forsyning: fjernvarme til Nyråd, status (læst 9/11 2026)", "https://vordingborgforsyning.dk/projekter/@7/fjernvarme-til-nyr%C3%A5d"),
+ "vf_nyraad_faq": ("Vordingborg Forsyning: spørgsmål og svar om fjernvarme i Nyråd (læst 9/11 2026)", "https://vordingborgforsyning.dk/fjernvarme/projekt-og-driftsinformation/fjernvarme-til-nyr%C3%A5d/sp%C3%B8rgsm%C3%A5l-og-svar"),
+ "vf_oerslev": ("Vordingborg Forsyning: fjernvarme til Ørslev 2021-2024 (læst 9/11 2026)", "https://vordingborgforsyning.dk/fjernvarme/projekt-og-driftsinformation/fjernvarme-til-%C3%B8rslev"),
+})
+CITIES["skanderborg"] = {
+  "name": "Skanderborg", "kommune": "Skanderborg Kommune", "updated": ("9. november 2026", "2026-11-09"),
+  "vp_title": "Varmepumpe Skanderborg: luft til vand og tilskud | Energitjekket",
+  "fv_title": "Fjernvarme eller varmepumpe i Skanderborg? | Energitjekket",
+  "reg_title": "Solceller Skanderborg: regler og tilladelse | Energitjekket",
+  "sol_intro": "Solceller i Skanderborg: på enfamiliehuse, dobbelthuse og sommerhuse kan du som regel sætte anlægget op uden at søge, hvis det følger tagets hældning, højst hæves 1 m over et fladt tag og overholder lokalplan og deklarationer. Forbyder lokalplanen blanke overflader, skal du søge dispensation. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Uden ansøgning på enfamiliehuse, dobbelthuse og sommerhuse, når anlægget <strong>følger tagets hældning</strong> og på flade tage højst hæves 1 m over tagfladen.", ["skb_sol"]),
+    ("Tilladelse eller dispensation kræves, hvis lokalplan, byplanvedtægt eller deklaration har <strong>forbud mod blanke og reflekterende overflader</strong>, særlige bevaringskrav eller krav om indbygning i taget.", ["skb_sol"]),
+    ("Fritstående anlæg på terræn over <strong>1,8 m</strong> kræver byggetilladelse, og på terræn skal anlægget som udgangspunkt holde 2,5 m til skel (5 m i sommerhusområder).", ["skb_sol"]),
+    ("Nær skov, sø, å eller i fredede områder kan der kræves tilladelse efter naturbeskyttelsesloven. Kontakt Åben Land.", ["skb_sol"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Skanderborg?", "Som regel ikke, hvis anlægget følger tagets hældning (eller højst hæves 1 m på fladt tag) og overholder lokalplan, byplanvedtægt og deklarationer. Forbyder de blanke overflader eller kræver indbygning i taget, skal du søge dispensation.", ["skb_sol"]),
+    ("Hvem kontakter jeg om solceller i Skanderborg Kommune?", "Byggesag på byggesag@skanderborg.dk eller telefon 87 94 77 03. Ligger huset nær skov, sø eller å, kontakt Åben Land på aabenland@skanderborg.dk.", ["skb_sol"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Skanderborg: to ud af tre huse i kommunen har fjernvarme, men i landsbyer som Herskind, Låsby og Skovby syd er fjernvarmeprojekter stoppet på grund af for få tilmeldinger. Kommunens varmeplan peger på varmepumper og fælles løsninger uden for nettet. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("Kredsløb har forsøgt at give <strong>Herskind, Låsby, Galten syd og Skovby syd</strong> fjernvarme, men projekterne er stoppet på grund af for få tilmeldinger.", ["skb_varme"]),
+    ("<strong>Dørup, Sjelle og Skjørring</strong> er ifølge den strategiske varmeplan ikke potentielle til fjernvarme. Voerladegård ligger for langt fra de eksisterende værker.", ["skb_varme"]),
+    ("Skanderborg-Hørning Fjernvarme har søgt om at føre fjernvarme til <strong>Mesing</strong> (112 ejendomme). Projektet afhænger af en vindmølle og tilskud fra fjernvarmepuljen, og udvalget udsatte sagen 4. november 2026.", ["skb_mesing"]),
+    ("Jordvarme kræver <strong>tilladelse</strong> af hensyn til grundvandet. Kommunen opfordrer til at vælge en støjsvag luft til vand-varmepumpe.", ["skb_varme"]),
+  ],
+  "vp_faq": [
+    ("Kan jeg få fjernvarme i min landsby i Skanderborg Kommune?", "Tjek kommunens kort. Galten nord samt Skovby, Storring og Stjær har fået fjernvarme. Herskind, Låsby, Galten syd og Skovby syd er stoppet pga. for få tilmeldinger, og Dørup, Sjelle og Skjørring er ikke potentielle til fjernvarme.", ["skb_varme"]),
+    ("Kræver en varmepumpe tilladelse i Skanderborg?", "En luft til vand-varmepumpe kræver normalt ikke tilladelse, men kommunen beder dig vælge en støjsvag model og tage hensyn til naboen. Jordvarme kræver tilladelse først.", ["skb_varme"]),
+  ],
+}
+CITIES["vordingborg"] = {
+  "name": "Vordingborg", "kommune": "Vordingborg Kommune", "updated": ("9. november 2026", "2026-11-09"),
+  "vp_title": "Varmepumpe Vordingborg: luft til vand og tilskud | Energitjekket",
+  "fv_title": "Fjernvarme eller varmepumpe i Vordingborg? | Energitjekket",
+  "reg_title": "Solceller Vordingborg: regler og tilladelse | Energitjekket",
+  "sol_intro": "Solceller i Vordingborg: på huse, sommerhuse, garager og udhuse kan anlægget sættes op uden ansøgning, når det følger tagets hældning. Du skal selv tjekke servitutter og lokalplaner og anmelde anlægget til BBR. Fredede og bevaringsværdige huse og anlæg på stativ kræver altid byggetilladelse. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Uden ansøgning på enfamiliehuse, sommerhuse, dobbelt- og rækkehuse, garager og udhuse, når anlægget <strong>følger tagets hældning</strong> – lagt oven på eller nedfældet i taget.", ["vor_sol"]),
+    ("Du skal selv undersøge <strong>tinglyste servitutter og lokalplaner</strong>. Kommunen skriver, at mange lokalplaner har vilkår om solceller.", ["vor_sol"]),
+    ("<strong>Fredede og bevaringsværdige bygninger</strong> og anlæg på stativ på fladt tag eller terræn kræver altid byggetilladelse – i landzone evt. også landzonetilladelse.", ["vor_sol"]),
+    ("Anlægget skal <strong>anmeldes til BBR</strong>, også når det ikke kræver tilladelse.", ["vor_sol"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Vordingborg?", "Ikke hvis anlægget følger tagets hældning, og servitutter og lokalplan ikke forbyder det. Fredede og bevaringsværdige huse og anlæg på stativ eller terræn kræver altid byggetilladelse.", ["vor_sol"]),
+    ("Hvem kontakter jeg om solceller i Vordingborg Kommune?", "Byggeri på telefon 55 36 24 50 (hverdage kl. 9-12) eller byg@vordingborg.dk. Lokalplaner og beskyttelseslinjer kan ses på KortVordingborg.", ["vor_byg"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Vordingborg: kun hvert tredje hus i kommunen har fjernvarme, og andelen med oliefyr og elvarme er den højeste blandt byerne på Energitjekket. Kommunen forventer, at de fleste naturgasområder går over til individuel opvarmning, mens fjernvarmen udbygges i Nyråd, Stensved og dele af Præstø. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("Vordingborg Kommunes varmeplan forventer fjernvarme til <strong>Stensved og dele af Præstø</strong> frem mod 2028. Kun få andre naturgasområder har potentiale, så de forventes primært at overgå til individuel opvarmning.", ["vor_varme"]),
+    ("I <strong>Nyråd</strong> forventer Vordingborg Forsyning, at en stor del af byen kan få fjernvarme omkring efteråret 2026. Der kan ikke søges tilskud til varmepumper i Nyråd, fordi området er udlagt til fjernvarme.", ["vf_nyraad_faq"]),
+    ("Hvor der er tilslutningspligt uden fremført fjernvarme, skriver kommunen, at <strong>varmepumper er at foretrække</strong>, fordi huset senere kan omstilles til fjernvarme.", ["vor_varme"]),
+    ("Kommunens energiplan anslår, at et skift til luft til vand eller jordvarme koster <strong>80.000-150.000 kr.</strong> afhængigt af husets størrelse og teknologi.", ["vor_ep"]),
+  ],
+  "vp_faq": [
+    ("Kommer der fjernvarme til mit område i Vordingborg Kommune?", "Fjernvarme findes i Vordingborg by, Præstø, Stege, Lendemarke, Ørslev og Nyråd. Planen er udbygning til Stensved og dele af Præstø frem mod 2028. De fleste andre gas- og olieområder forventes at få individuel opvarmning, fx varmepumper.", ["vor_varme"]),
+    ("Kan jeg få varmepumpetilskud i Nyråd?", "Nej. Vordingborg Forsyning skriver, at det ikke er muligt at søge tilskud til varmepumper i Nyråd, fordi området er udlagt som fjernvarmeområde.", ["vf_nyraad_faq"]),
+  ],
+}
+CONTACTS["skanderborg"] = {"sol": [("Skanderborg Kommune, Byggesag", "87 94 77 03 · byggesag@skanderborg.dk", "skb_sol")],
+                           "vp":  [("Skanderborg-Hørning Fjernvarme", "87 93 29 29 · cafe@skfj.dk", "skb_varme")]}
+CONTACTS["vordingborg"] = {"sol": [("Vordingborg Kommune, Byggeri", "55 36 24 50 · byg@vordingborg.dk", "vor_byg")],
+                           "vp":  [("Vordingborg Forsyning", "55 35 37 00 · kontakt@vordingborgforsyning.dk", "vf_nyraad")]}
+
+# keyword-backlog 9/11 2026: 'energirenovering silkeborg'
+S.update({
+ "sil_groen": ("Silkeborg Kommune: sammen om grøn omstilling – energirenoveringer (læst 9/11 2026)", "https://silkeborg.dk/borger/klima-og-energi/sammen-om-groen-omstilling"),
+ "se_raad": ("SparEnergi: gratis og uvildig energirådgivning til private (læst 9/11 2026)", "https://sparenergi.dk/privat/raadgivningen"),
+})

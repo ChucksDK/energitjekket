@@ -11,13 +11,13 @@ def hs(c): return sum(HEAT[c].values())            # beboede parcel- og rækkehu
 def hp(c, k, d=0): return pct(HEAT[c][k], hs(c), d)
 def rp(c, k, d=0): return pct(ROOF[c]["T"][k], ROOF[c]["tot"], d)
 def town(c, name): return dict(TOWNS[c])[name]
-_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten", 19: "nitten", 20: "tyve", 21: "enogtyve", 22: "toogtyve", 23: "treogtyve", 24: "fireogtyve", 25: "femogtyve", 26: "seksogtyve", 27: "syvogtyve", 28: "otteogtyve", 29: "niogtyve", 30: "tredive", 31: "enogtredive", 32: "toogtredive"}
+_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten", 19: "nitten", 20: "tyve", 21: "enogtyve", 22: "toogtyve", 23: "treogtyve", 24: "fireogtyve", 25: "femogtyve", 26: "seksogtyve", 27: "syvogtyve", 28: "otteogtyve", 29: "niogtyve", 30: "tredive", 31: "enogtredive", 32: "toogtredive", 33: "treogtredive", 34: "fireogtredive"}
 def nw(k=0): return _NUMW[len(NAMES) - k]          # "ni" for 9 byer, nw(1) = "otte" (de andre)
 def top(f, rev=False):
     """By med højeste (eller laveste, rev=True) værdi blandt sitets byer. Bruges til at tjekke sammenlignende udsagn."""
     return sorted(NAMES, key=f, reverse=not rev)[0]
 def rank(f, c): return sorted(NAMES, key=f, reverse=True).index(c) + 1
-_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende", 21: "enogtyvende", 22: "toogtyvende", 23: "treogtyvende", 24: "fireogtyvende", 25: "femogtyvende", 26: "seksogtyvende", 27: "syvogtyvende", 28: "otteogtyvende", 29: "niogtyvende", 30: "tredivte", 31: "enogtredivte", 32: "toogtredivte"}
+_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende", 21: "enogtyvende", 22: "toogtyvende", 23: "treogtyvende", 24: "fireogtyvende", 25: "femogtyvende", 26: "seksogtyvende", 27: "syvogtyvende", 28: "otteogtyvende", 29: "niogtyvende", 30: "tredivte", 31: "enogtredivte", 32: "toogtredivte", 33: "treogtredivte", 34: "fireogtredivte"}
 def rk(f, c, word, art="den", rev=False):
     """Rangord, fx 'den højeste', 'den næsthøjeste' (rev=True tæller fra bunden). Holder sammenlignende udsagn sande, når nye byer kommer til."""
     r = sorted(NAMES, key=f, reverse=not rev).index(c) + 1
@@ -28,7 +28,7 @@ def above(f, c):
     a = [NAMES[x] for x in sorted(NAMES, key=f, reverse=True)[:rank(f, c) - 1]]
     return a[0] if len(a) == 1 else ", ".join(a[:-1]) + " og " + a[-1]
 
-NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund"}
+NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund", "skanderborg": "Skanderborg", "vordingborg": "Vordingborg"}
 LOCAL_S = {
  "dst_bol102": ("Danmarks Statistik: BOL102, boliger efter område og opvarmning (2026)", "https://www.statistikbanken.dk/BOL102"),
  "dst_bol101": ("Danmarks Statistik: BOL101, boliger efter opførelsesår og udlejningsforhold (2026)", "https://www.statistikbanken.dk/BOL101"),
@@ -1356,11 +1356,97 @@ def reg_age_note(c, kommune):
         return (f"{tal(B['før 1960'])} af de beboede huse i Frederikssund Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. Tjek lokalplan, servitut og evt. beskyttelseslinjer på kommunens digitale kort.", ["frs_sol"])
     return _reg_age_old12(c, kommune)
 
+# ---------- daglig by-rutine 9. nov. 2026: Skanderborg (DK1) og Vordingborg (DK2) ----------
+SOL_ORDER.update({
+ "skanderborg": ["boliger", "lokalt", "produktion", "faq", "tage", "guides"],
+ "vordingborg": ["produktion", "boliger", "lokalt", "tage", "faq", "guides"],
+})
+VP_ORDER.update({
+ "skanderborg": ["lokale-byer", "lokalt", "opvarmning", "faq", "pris", "guides"],
+ "vordingborg": ["opvarmning", "lokale-byer", "lokalt", "faq", "pris", "guides"],
+})
+FV_ORDER.update({
+ "skanderborg": ["priser", "billigst", "status", "andel", "faq", "varmekilder"],
+ "vordingborg": ["status", "andel", "varmekilder", "priser", "billigst", "faq"],
+})
+SOL_PROD.update({
+ "skanderborg": ("Solceller i Skanderborg: produktion året rundt",
+   lambda: f"For et sydvendt tag med 35° hældning i Skanderborg beregner PVGIS ca. {tal(PV['skanderborg']['syd'])} kWh pr. kWp om året; den bedste hældning er {PV['skanderborg']['opt_angle']}° med ca. {tal(PV['skanderborg']['opt'])} kWh. Et 6 kWp-anlæg giver ca. {tal(PV['skanderborg']['syd']*6)} kWh, heraf ca. {tal(sum(PV['skanderborg']['months'][3:8])*6)} kWh fra april til august. Mod øst eller vest falder det til ca. {tal(PV['skanderborg']['oest'])}-{tal(PV['skanderborg']['vest'])} kWh pr. kWp."),
+ "vordingborg": ("Meget sol ved Storstrømmen: produktion i Vordingborg",
+   lambda: f"PVGIS beregner ca. {tal(PV['vordingborg']['syd'])} kWh pr. kWp om året for et sydvendt tag med 35° hældning i Vordingborg – {rk(_PVY, 'vordingborg', 'højeste')} af de {nw()} byer på dette site. Et 6 kWp-anlæg giver ca. {tal(PV['vordingborg']['syd']*6)} kWh om året og ca. {tal(PV['vordingborg']['months'][5]*6)} kWh i juni. Vender taget mod vest, giver det ca. {tal(PV['vordingborg']['vest'])} kWh pr. kWp, mod øst ca. {tal(PV['vordingborg']['oest'])}."),
+})
+SOL_PROD_SRC_NEW.update({"skanderborg": ["pv_skanderborg", "pvo_skanderborg", "pvv_skanderborg"], "vordingborg": ["pv_vordingborg", "pvv_vordingborg", "pvo_vordingborg"]})
+SOL_ROOF.update({
+ "skanderborg": ("Fibercement, tegl og cementsten i Skanderborg",
+   lambda: f"Tagene i Skanderborg Kommune er delt næsten ligeligt: {rp('skanderborg','06')} af parcel- og rækkehusene har <strong>fibercement</strong>, {rp('skanderborg','10')} <strong>tegl</strong> og {rp('skanderborg','08')} <strong>cementsten</strong>. På et fladt tag må solcellerne højst hæves 1 m over tagfladen uden ansøgning. Bølge- og skiferplader fra før 1984 kan indeholde asbest, så få taget vurderet før montering.",
+   ["dst_bygb50", "skb_sol", "bolius_asb"]),
+ "vordingborg": ("Fire ud af ti tage er fibercement i Vordingborg",
+   lambda: f"{rp('vordingborg','06')} af parcel- og rækkehusene i Vordingborg Kommune har tag af <strong>fibercement</strong>, mod {rp('dk','06')} på landsplan. {rp('vordingborg','10')} har tegl og {rp('vordingborg','08')} cementsten. Med mange ældre huse er det værd at få tagets alder og et evt. asbestindhold vurderet, før panelerne kommer op.",
+   ["dst_bygb50", "bolius_asb"]),
+})
+SOL_HOMES.update({
+ "skanderborg": lambda: f"Skanderborg Kommune har {tal(STOCK['skanderborg']['tot'])} beboede parcel- og rækkehuse, og {pct(STOCK['skanderborg']['B']['2000+'],STOCK['skanderborg']['tot'])} er bygget i 2000 eller senere – {rk(lambda x: STOCK[x]['B']['2000+'] / STOCK[x]['tot'], 'skanderborg', 'højeste')} andel af de {nw()} byer, mod {pct(STOCK['dk']['B']['2000+'],STOCK['dk']['tot'])} på landsplan. {pct(STOCK['skanderborg']['ejer'],STOCK['skanderborg']['tot'])} bebos af ejeren. Skanderborg by har {tal(town('skanderborg','Skanderborg'))} indbyggere, Galten {tal(town('skanderborg','Galten'))}, Hørning {tal(town('skanderborg','Hørning'))} og Ry {tal(town('skanderborg','Ry'))}. Siden gælder hele kommunen.",
+ "vordingborg": lambda: f"Vordingborg Kommune har {tal(STOCK['vordingborg']['tot'])} beboede parcel- og rækkehuse, og {pct(STOCK['vordingborg']['B']['før 1960'],STOCK['vordingborg']['tot'])} er bygget før 1960 – næsten hvert andet hus og {rk(lambda x: STOCK[x]['B']['før 1960'] / STOCK[x]['tot'], 'vordingborg', 'højeste')} andel af de {nw()} byer. Vordingborg by har {tal(town('vordingborg','Vordingborg'))} indbyggere, Præstø {tal(town('vordingborg','Præstø'))}, Stege {tal(town('vordingborg','Stege'))} og Nyråd {tal(town('vordingborg','Nyråd'))}. Siden gælder hele kommunen, også Møn.",
+})
+SOL_HOMES_SRC_NEW.update({"skanderborg": [], "vordingborg": []})
+SOL_HOMES_H.update({"skanderborg": "Mange nye huse fra Skanderborg til Galten, Hørning og Ry", "vordingborg": "Ældre huse fra Vordingborg til Præstø og Stege"})
+SOL_XFAQ.update({
+ "skanderborg": [("Må solceller stå på jorden i haven i Skanderborg?", lambda: "Ja, men de skal som udgangspunkt holde 2,5 m til skel (5 m i sommerhusområder), og er anlægget over 1,8 m højt, kræver det byggetilladelse.", ["skb_sol"])],
+ "vordingborg": [("Hvor meget giver solceller i Vordingborg om vinteren?", lambda: f"PVGIS beregner ca. {tal((PV['vordingborg']['months'][10]+PV['vordingborg']['months'][11]+PV['vordingborg']['months'][0])*6)} kWh i alt fra november til januar for et 6 kWp-anlæg mod syd, mod ca. {tal(sum(PV['vordingborg']['months'][4:7])*6)} kWh fra maj til juli.", ["pv_vordingborg"])],
+})
+VP_HEAT.update({
+ "skanderborg": ("To ud af tre huse har fjernvarme i Skanderborg",
+   lambda: f"{hp('skanderborg','FJ')} af de {tal(hs('skanderborg'))} beboede parcel- og rækkehuse i Skanderborg Kommune har fjernvarme, mod {hp('dk','FJ')} på landsplan. {tal(HEAT['skanderborg']['VP'])} har allerede varmepumpe ({hp('skanderborg','VP',1)}), mens {tal(HEAT['skanderborg']['CN'])} har naturgas, {tal(HEAT['skanderborg']['CO'])} oliefyr og {tal(HEAT['skanderborg']['ELV'])} elvarme – de fleste i landsbyerne uden for nettet."),
+ "vordingborg": ("Flest oliefyr og elvarme: opvarmning i Vordingborg",
+   lambda: f"{tal(HEAT['vordingborg']['CO'])} beboede parcel- og rækkehuse i Vordingborg Kommune ({hp('vordingborg','CO',1)}) har oliefyr og {tal(HEAT['vordingborg']['ELV'])} ({hp('vordingborg','ELV',1)}) elvarme – de højeste andele af de {nw()} byer. {tal(HEAT['vordingborg']['VP'])} har allerede varmepumpe ({hp('vordingborg','VP',1)}), {rk(_hf('VP'), 'vordingborg', 'højeste')} andel, og kun {hp('vordingborg','FJ',1)} har fjernvarme."),
+})
+VP_HEAT_SRC_NEW.update({"skanderborg": ["skb_varme"], "vordingborg": ["vor_varme"]})
+VP_TOWNS.update({
+ "skanderborg": [("Skanderborg / Hørning", "Skanderborg-Hørning Fjernvarme; Mesing afventer vindmølle og tilskud", ["skb_varme", "skb_mesing"]),
+                 ("Galten / Skovby / Stjær", "Galten Varmeværk og Kredsløb; Galten syd og Skovby syd stoppet", ["skb_varme"]),
+                 ("Herskind / Låsby", "Fjernvarme forsøgt, stoppet pga. for få tilmeldinger", ["skb_varme"]),
+                 ("Sjelle / Skjørring / Dørup", "Ikke potentielle til fjernvarme: varmepumpe eller fælles løsning", ["skb_varme"])],
+ "vordingborg": [("Nyråd", "Fjernvarme omkring efteråret 2026; ingen varmepumpetilskud", ["vf_nyraad_faq"]),
+                 ("Stensved / Præstø", "Forventet fjernvarmeudbygning frem mod 2028", ["vor_varme"]),
+                 ("Ørslev", "Fjernvarme etableret 2021-2024", ["vf_oerslev"]),
+                 ("Øvrige gas- og olieområder", "Forventes primært individuel opvarmning, fx varmepumpe", ["vor_varme"])],
+})
+VP_TOWNS_NOTE.update({
+ "skanderborg": "Bor du i en landsby, hvor fjernvarmen er stoppet eller ikke er potentiel, er en luft til vand-varmepumpe det typiske valg, når olie- eller gasfyret skal skiftes. Kommunen har også en pulje til fælles varmeløsninger i landsbyer.",
+ "vordingborg": "Bor du i Nyråd, Stensved eller Præstø, så tjek fjernvarmen først. I resten af kommunen forventer varmeplanen individuel opvarmning, og her er en luft til vand-varmepumpe det oplagte alternativ til olie, gas og elvarme.",
+})
+VP_XFAQ.update({
+ "skanderborg": [("Hvor mange huse i Skanderborg Kommune har varmepumpe?", lambda: f"{tal(HEAT['skanderborg']['VP'])} af de {tal(hs('skanderborg'))} beboede parcel- og rækkehuse ({hp('skanderborg','VP',1)}) ifølge Danmarks Statistik, 2026. {tal(HEAT['skanderborg']['CN'])} har naturgas og {tal(HEAT['skanderborg']['CO'])} oliefyr.", ["dst_bol102"])],
+ "vordingborg": [("Hvor mange huse i Vordingborg Kommune har elvarme eller oliefyr?", lambda: f"Danmarks Statistik registrerer {tal(HEAT['vordingborg']['ELV'])} beboede parcel- og rækkehuse med elvarme og {tal(HEAT['vordingborg']['CO'])} med oliefyr i 2026, ud af {tal(hs('vordingborg'))}. {tal(HEAT['vordingborg']['CN'])} har naturgas.", ["dst_bol102"])],
+})
+FV_SOURCES.update({
+ "skanderborg": [("Alle fjernvarmeselskaber i Skanderborg Kommune er forbrugerejede; kommunen har ikke sit eget selskab, men Kredsløb fra Aarhus forsyner bl.a. Galten nord og Skovby.", ["skb_varme"]),
+                 ("Skanderborg-Hørning Fjernvarmes projekt i Mesing bygger på strøm fra en planlagt vindmølle på 4,5 MW med direkte linje til værket.", ["skb_mesing"])],
+ "vordingborg": [("Vordingborg Fjernvarme har bl.a. halmfyr og en elkedel på 30 MW; Stege Fjernvarme halmfyr og solvarme.", ["vor_ep"]),
+                 ("Præstø Fjernvarme har bl.a. varmepumpe, træpillekedel og solvarme.", ["vor_ep"])],
+})
+FV_SHARE.update({
+ "skanderborg": lambda: f"{hp('skanderborg','FJ',1)} af de beboede parcel- og rækkehuse i Skanderborg Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. Kun {hp('skanderborg','CN',1)} har naturgas.",
+ "vordingborg": lambda: f"Kun {hp('vordingborg','FJ',1)} af de beboede parcel- og rækkehuse i Vordingborg Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. Til gengæld har {hp('vordingborg','VP',1)} allerede varmepumpe.",
+})
+FV_SOURCES_H.update({"skanderborg": "Forbrugerejede værker og vindmølle ved Mesing", "vordingborg": "Halm, elkedel og solvarme"})
+_reg_age_old13 = reg_age_note
+def reg_age_note(c, kommune):
+    s = STOCK[c]; B = s["B"]; t = s["tot"]
+    if c == "skanderborg":
+        return (f"{tal(B['2000+'])} af de beboede huse i Skanderborg Kommune ({pct(B['2000+'], t)}) er bygget i 2000 eller senere. I nyere udstykninger har lokalplanen ofte regler om tagets udseende, så tjek den i kommunens lokalplanportal.", ["skb_sol"])
+    if c == "vordingborg":
+        return (f"{tal(B['før 1960'])} af de beboede huse i Vordingborg Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. Er huset fredet eller bevaringsværdigt, kræver solceller altid byggetilladelse.", ["vor_sol"])
+    return _reg_age_old13(c, kommune)
+
+# keyword-backlog 9/11 2026: 'energirenovering silkeborg' (GSC 12 visninger) -> FAQ på /varmepumpe/silkeborg/
+VP_XFAQ["silkeborg"] = VP_XFAQ["silkeborg"] + [("Hvor får jeg hjælp til energirenovering i Silkeborg?", lambda: "Silkeborg Kommune peger på energirenoveringer af tag og loft, vinduer og døre, terrændæk og ydervægge og anbefaler at få en energirådgiver til at vurdere, hvad der giver mening for dit hus. Energistyrelsens gratis, uvildige rådgivning hos SparEnergi har telefon 31 15 90 00 og mail info@sparenergi.dk. Et hus med lavere varmetab kan klare sig med en mindre varmepumpe.", ["sil_groen", "se_raad"])]
+
 # ---------- tjek af sammenlignende udsagn: bygget fejler, hvis en ny by gør et udsagn forkert ----------
 _PVs = lambda c: PV[c]["syd"]; _rt = lambda k: (lambda c: ROOF[c]["T"][k] / ROOF[c]["tot"]); _hf = lambda k: (lambda c: HEAT[c][k] / hs(c)); _sb = lambda k: (lambda c: STOCK[c]["B"][k] / STOCK[c]["tot"])
 CLAIMS = [
- ("Esbjerg top 10 PV", rank(_PVs, "esbjerg") <= 10),
- ("Aalborg top 11 juni", rank(lambda c: PV[c]["months"][5], "aalborg") <= 11),
+ ("Esbjerg top 12 PV", rank(_PVs, "esbjerg") <= 12),
+ ("Aalborg top 13 juni", rank(lambda c: PV[c]["months"][5], "aalborg") <= 13),
  ("Odense flest tegl", top(_rt("10")) == "odense"), ("Aalborg top 3 fibercement (dynamisk tekst)", rank(_rt("06"), "aalborg") <= 3),
  ("Vejle ikke nr. 1 nyere huse", rank(_sb("2000+"), "vejle") > 1),
  ("Esbjerg top 5 1960-79 (dynamisk tekst)", rank(_sb("1960-1979"), "esbjerg") <= 5),
@@ -1375,7 +1461,7 @@ CLAIMS = [
  ("Holbæk top 6 gasfyr og laveste FJ (overskrift)", rank(_hf("CN"), "holbaek") <= 6 and top(_hf("FJ"), rev=True) == "holbaek"),
  ("Køge halvdelen gas, top 3 gasfyr (overskrift, dynamisk tekst)", 0.47 <= HEAT["koege"]["CN"] / hs("koege") <= 0.53 and rank(_hf("CN"), "koege") <= 3),
  ("Svendborg hvert fjerde FJ (overskrift)", 0.23 <= HEAT["svendborg"]["FJ"] / hs("svendborg") <= 0.27),
- ("Svendborg top 3 PV (dynamisk tekst)", rank(_PVs, "svendborg") <= 3),
+ ("Svendborg top 4 PV (dynamisk tekst)", rank(_PVs, "svendborg") <= 4),
  ("Faaborg hvert tredje FJ (tekst)", 0.32 <= HEAT["faaborg"]["FJ"] / hs("faaborg") <= 0.36),
  ("Aabenraa halvdelen FJ (tekst)", 0.48 <= HEAT["aabenraa"]["FJ"] / hs("aabenraa") <= 0.54),
  ("Aabenraa hvert ellevte elvarme (overskrift)", 0.085 <= HEAT["aabenraa"]["ELV"] / hs("aabenraa") <= 0.096),
@@ -1388,7 +1474,7 @@ CLAIMS = [
  ("Holte/Rudersdal seks ud af ti gas (overskrift)", 0.57 <= HEAT["holte"]["CN"] / hs("holte") <= 0.63),
  ("Holte/Rudersdal 15 pct. FJ (tekst)", round(100 * HEAT["holte"]["FJ"] / hs("holte")) == 15),
  ("Nykøbing F. højeste PV (overskrift)", top(_PVs) == "nykoebing-falster"),
- ("Guldborgsund ingen gas, ELV og olie top 1 (overskrift + 'i begge tilfælde')", HEAT["nykoebing-falster"]["CN"] == 0 and top(_hf("ELV")) == "nykoebing-falster" and top(_hf("CO")) == "nykoebing-falster"),
+ ("Guldborgsund ingen gas, ELV og olie samme rang top 2 (overskrift + 'i begge tilfælde', dynamisk tekst)", HEAT["nykoebing-falster"]["CN"] == 0 and rank(_hf("ELV"), "nykoebing-falster") == rank(_hf("CO"), "nykoebing-falster") <= 2),
  ("Guldborgsund mere end hvert tiende elvarme, næsten lige så mange olie (tekst)", HEAT["nykoebing-falster"]["ELV"] / hs("nykoebing-falster") > 0.10 and 0.85 <= HEAT["nykoebing-falster"]["CO"] / HEAT["nykoebing-falster"]["ELV"] < 1),
  ("Guldborgsund 57 pct. FJ (tekst)", round(100 * HEAT["nykoebing-falster"]["FJ"] / hs("nykoebing-falster")) == 57),
  ("Guldborgsund fibercement og tegl de to største tagtyper (overskrift)", sorted(ROOF["nykoebing-falster"]["T"], key=lambda k: -ROOF["nykoebing-falster"]["T"][k])[:2] == ["06", "10"]),
@@ -1419,6 +1505,12 @@ CLAIMS = [
  ("Frederikssund 24 pct. FJ (FV-intro)", round(100 * HEAT["frederikssund"]["FJ"] / hs("frederikssund")) == 24),
  ("Frederikssund flere naturgas end FJ (intro)", HEAT["frederikssund"]["CN"] > HEAT["frederikssund"]["FJ"]),
  ("Frederikssund fibercement, cementsten og tegl top 3 (overskrift)", sorted(ROOF["frederikssund"]["T"], key=lambda k: -ROOF["frederikssund"]["T"][k])[:3] == ["06", "08", "10"]),
+ ("Skanderborg to ud af tre FJ (overskrift/intro)", 0.64 <= HEAT["skanderborg"]["FJ"] / hs("skanderborg") <= 0.70),
+ ("Skanderborg fibercement/tegl/cementsten næsten ligeligt (overskrift)", sorted(ROOF["skanderborg"]["T"], key=lambda k: -ROOF["skanderborg"]["T"][k])[:3] == ["06", "10", "08"]),
+ ("Vordingborg højeste olie og elvarme (overskrift/intro)", top(_hf("CO")) == "vordingborg" and top(_hf("ELV")) == "vordingborg"),
+ ("Vordingborg hvert tredje FJ (intro)", 0.30 <= HEAT["vordingborg"]["FJ"] / hs("vordingborg") <= 0.36),
+ ("Vordingborg fire ud af ti fibercement (overskrift)", 0.38 <= ROOF["vordingborg"]["T"]["06"] / ROOF["vordingborg"]["tot"] < 0.43),
+ ("Vordingborg næsten hvert andet hus før 1960 (tekst)", 0.45 <= STOCK["vordingborg"]["B"]["før 1960"] / STOCK["vordingborg"]["tot"] < 0.50),
 ]
 _bad = [n for n, ok in CLAIMS if not ok]
 assert not _bad, f"Sammenlignende udsagn passer ikke længere: {_bad}"

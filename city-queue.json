@@ -246,7 +246,8 @@
     "kommune": "Skanderborg Kommune",
     "region": "Region Midtjylland",
     "reason": "21.893 beboede parcel/rækkehuse; 68% fjernvarme; 3.012 med olie/gas/elvarme; begge services",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-09"
   },
   {
     "rank": 26,
@@ -255,7 +256,8 @@
     "kommune": "Vordingborg Kommune",
     "region": "Region Sjælland",
     "reason": "16.629 beboede parcel/rækkehuse; 32% fjernvarme; 6.096 med olie/gas/elvarme; stærkt varmepumpemarked",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-09"
   },
   {
     "rank": 27,
