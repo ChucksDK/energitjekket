@@ -502,3 +502,9 @@ NAV = {
                 ("/varmepumpe/luft-til-luft-pris/", "Luft til luft-varmepumpe pris", "Pris, besparelse og begrænsninger.", "pump"),
                 ("/varmepumpe/tilbud/", "Tilbud på varmepumpe", "Få et uforpligtende tilbud før fristen.", "doc")],
 }
+
+# keyword-backlog 10/11 2026: 'luft til vand varmepumpe pris' (GSC 39 visninger, pos. 88,8) -> skarpere pris-H2 + kort prisopsummering
+_l2v = T["/varmepumpe/luft-til-vand/"]
+_l2v["sections"] = [(("Luft til vand varmepumpe pris for 150 og 200 m² hus" if h == "Pris for 150 og 200 m² hus" else h),
+                     ([("p", "Kort sagt: SparEnergi angiver typisk 100.000-130.000 kr. for en luft til vand varmepumpe, og Energisparer.dk ca. 90.000-150.000 kr. inkl. installation afhængigt af husets størrelse og varmetab – før et eventuelt tilskud.", ["se_vp", "es_l2v"])] + b
+                      if h == "Pris for 150 og 200 m² hus" else b)) for h, b in _l2v["sections"]]

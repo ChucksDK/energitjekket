@@ -1803,3 +1803,101 @@ FV_PAGE["vordingborg"] = {
    ("Kommer der fjernvarme til Jungshoved eller Lundby?", "Ikke som besluttet projekt. Energiplanen vil i første omgang analysere potentialet for lokal fælles varme i Jungshoved by, den østlige del af Præstø og Lundby. Den forventede fjernvarmeudbygning frem mod 2028 gælder Stensved og dele af Præstø; de fleste andre områder forventes at få individuel opvarmning, fx varmepumper.", ["vor_varme", "vor_ep"]),
   ],
 }
+
+# ---------- 10. nov. 2026: rettelse af 'Pr. MWh'-kolonnen (rang var sat ind i stedet for MWh-pris) ----------
+# Forsyningstilsynet jan. 2026, kolonne MWhPrisInklMoms (research-archive/energitjekket/2026-11-01/ft_prisstatistik_jan2026.csv)
+def _fix_mwh(c, fix):
+    FV_PRICES[c] = [(v, pn, p, fix.get(v, m)) for v, pn, p, m in FV_PRICES[c]]
+_fix_mwh("stenloese", {"Smørum Kraftvarme": "273", "Slagslunde Fjernvarme": "543", "Maglevad (Egedal Fjernvarme)": "479"})
+_fix_mwh("frederikssund", {"Jægerspris Kraftvarme": "250", "Skuldelev Energiselskab": "752"})
+_fix_mwh("skanderborg", {"Rye Varmeværk (Gl. Rye)": "455", "Skanderborg-Hørning Fjernvarme": "582", "Galten Varmeværk": "450"})
+_fix_mwh("vordingborg", {"Stege Fjernvarme": "531", "Vordingborg Fjernvarme": "960", "Præstø Fjernvarme": "746"})
+
+# ---------- daglig by-rutine 10. nov. 2026: København og Vejen ----------
+# Forsyningstilsynet jan. 2026: København = HOFOR Fjernvarme P/S (2300; nr. 223 af 374). Frederiksberg Fjernvarme ligger i Frederiksberg Kommune og er ikke med.
+# Vejen = Brørup Fjernvarme (6650, nr. 27), Vejen Varmeværk/Varmega (6600, nr. 80), Rødding Fjernvarme (6630, nr. 86), Holsted Varmeværk (6670, nr. 345).
+FV_PRICES["koebenhavn"] = [("HOFOR Fjernvarme", "2300", "18.417", "785")]
+FV_PRICES["vejen"] = [("Brørup Fjernvarme", "6650", "12.940", "400"), ("Vejen Varmeværk (Varmega)", "6600", "14.792", "675"), ("Rødding Fjernvarme", "6630", "14.961", "612"), ("Holsted Varmeværk", "6670", "23.267", "1.050")]
+SOL_REG["koebenhavn"] = {
+  "kw": "solceller københavn / byggetilladelse solceller københavns kommune / solceller villa servitut københavn",
+  "evidence": "Københavns Kommunes sider om solceller og byggetilladelse og om servitutter samt kommunens arkitektoniske retningslinjer for solceller (PDF, juli 2026) (tjekket 10/11 2026).",
+  "intro": "Københavns Kommune skriver, at solceller relativt enkelt kan sættes op på eksisterende tage, fx på enfamiliehuse, carporte, garager og udhuse. Men byggetilladelse kræves i flere tilfælde, blandt andet når grunden er omfattet af lokalplan eller servitutter. Her er reglerne, kommunens arkitektoniske krav og hvem du kontakter.",
+  "sections": [
+   ("Hvornår du skal have byggetilladelse", [
+     ("ul", [("Anlægget overholder ikke bygningsreglementets <strong>højde- og afstandskrav</strong>.", ["kbh_sol"]),
+             ("Det påvirker <strong>brand- eller konstruktionsforhold</strong> eller udløser en fornyet helhedsvurdering.", ["kbh_sol"]),
+             ("Grunden er omfattet af <strong>lokalplan eller servitutter</strong>, eller ejendommen er fredet eller bevaringsværdig.", ["kbh_sol"])]),
+   ]),
+   ("Kommunens arkitektoniske retningslinjer", [
+     ("p", "Panelerne skal så vidt muligt have samme farve som tagmaterialet, passe til tagets form og rytme, være refleksfrie og holde afstand til tagkip, tagkant og gesims. Rør og kabler må ikke være synlige. Af hensyn til arkitekturen kan solceller i nogle tilfælde kun sidde mod gård- eller bagsiden, og i områder med høje bevaringsværdier som Indre By kan det være svært at indpasse dem.", ["kbh_solret"]),
+     ("p", "Mange villaområder er omfattet af servitutter, der blev tinglyst i starten af 1900-tallet. Tjek tingbogen og lokalplanen for din adresse.", ["kbh_serv"]),
+   ]),
+   ("Registrering og hvem du kontakter", [
+     ("p", "Elinstallatøren registrerer anlægget hos netselskabet. Når anlægget er sat op, skal du kontakte kommunen, så det registreres i BBR. Område for Bygninger, Njalsgade 13, telefon 33 66 52 00 (hverdage kl. 9-16).", ["kbh_sol"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller byggetilladelse i Københavns Kommune?", "Kun i visse tilfælde: hvis anlægget bryder bygningsreglementets højde- og afstandskrav, påvirker brand- eller konstruktionsforhold, udløser en helhedsvurdering, hvis grunden er omfattet af lokalplan eller servitutter, eller hvis ejendommen er fredet eller bevaringsværdig.", ["kbh_sol"]),
+   ("Må solcellerne være sorte på et rødt tegltag i København?", "Kommunens retningslinjer siger, at solcellerne så vidt muligt skal have samme farve som det eksisterende tagmateriale og være refleksfrie, og at inddækninger skal have samme farve som solcellerne.", ["kbh_solret"]),
+   ("Skal kommunen have besked, når solcellerne er sat op?", "Ja. Københavns Kommune skal registrere anlægget i BBR, og elinstallatøren skal registrere det hos netselskabet.", ["kbh_sol"]),
+  ],
+}
+SOL_REG["vejen"] = {
+  "kw": "solceller vejen / byggetilladelse solceller vejen kommune / solceller brørup holsted rødding",
+  "evidence": "Vejen Kommunes side om byggetilladelse, afsnittet om tekniske anlæg og solenergi (tjekket 10/11 2026).",
+  "intro": "Vejen Kommune skriver, at et solanlæg til brug for én familie på det eksisterende tag af en bolig som udgangspunkt hverken kræver byggetilladelse eller landzonetilladelse. Lokalplaner, fredninger og naturbeskyttelsesloven kan dog kræve dispensation, og anlæg på terræn kræver altid tilladelse. Her er reglerne og hvordan du søger.",
+  "sections": [
+   ("Uden ansøgning", [
+     ("ul", [("Anlægget er til <strong>én familie</strong> og sidder på <strong>det eksisterende tag af en bolig</strong>.", ["vjn_byg"]),
+             ("Hverken lokalplan, fredning eller naturbeskyttelsesloven kræver dispensation på din grund.", ["vjn_byg"]),
+             ("Anlægget skal <strong>altid registreres i BBR</strong>.", ["vjn_byg"])]),
+   ]),
+   ("Når du skal søge", [
+     ("p", "Et fritstående anlæg på terræn eller et anlæg på en erhvervs- eller landbrugsbygning kræver byggetilladelse, og kommunen kan stille vilkår om anlæggets udseende, herunder farve og refleksion. Ligger grunden i landzone eller nær beskyttet natur, kan der også være brug for landzonetilladelse eller dispensation fra bygge- og beskyttelseslinjer.", ["vjn_byg"]),
+   ]),
+   ("Sådan søger du", [
+     ("p", "Ansøgningen sendes via Byg & Miljø, hvor du også kan undersøge de regler og særlige forhold, der gælder for din adresse. Vejen Kommune har telefon 79 96 50 00.", ["vjn_byg", "vjn_fv"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller byggetilladelse i Vejen Kommune?", "Ikke på det eksisterende tag af en bolig, når anlægget er til én familie, medmindre lokalplan, fredning eller naturbeskyttelsesloven kræver dispensation. Anlæg på terræn og på erhvervs- eller landbrugsbygninger kræver byggetilladelse.", ["vjn_byg"]),
+   ("Kan kommunen stille krav til solcellernes udseende?", "Ja, når anlægget kræver byggetilladelse, kan Vejen Kommune stille vilkår om farve og refleksion.", ["vjn_byg"]),
+   ("Skal mine solceller registreres i BBR?", "Ja. Vejen Kommune skriver, at solanlæg altid skal registreres i BBR.", ["vjn_byg"]),
+  ],
+}
+FV_PAGE["koebenhavn"] = {
+  "kw": "fjernvarme københavn / hofor fjernvarme pris / varmepumpe københavn tilslutningspligt",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026 for HOFOR Fjernvarme, Københavns Kommunes side om tilslutningspligt, HOFORs sider om fremtidens fjernvarme og varmepumpen i Sundkrogsgade (tjekket 10/11 2026).",
+  "intro": "94 % af parcel- og rækkehusene i Københavns Kommune har fjernvarme, og HOFOR er i gang med at sænke temperaturen i nettet, så store varmepumper kan overtage mere af varmen. Enfamiliehuse må frit vælge en varmepumpe, men effektbidraget følger matriklen. Her er status, prisen og regnestykket.",
+  "status": [
+   ("<strong>Tilslutningspligt:</strong> gælder i København. Enfamiliehuse og ejendomme under 250 kW må vælge fx en varmepumpe, men betaler fortsat effektbidrag til HOFOR, hvis matriklen har tinglyst tilslutningspligt.", ["kbh_tilsl"]),
+   ("<strong>Lavere temperatur:</strong> HOFOR tester fremtidens fjernvarme fra 2026 og sænker gradvist temperaturen bydel for bydel fra 2027. Hele byen forventes omstillet i 2033.", ["hofor_vk"]),
+   ("<strong>Dit anlæg:</strong> ca. 70 % af de ca. 32.000 anlæg fungerer fint efter en mindre justering, ca. 25 % ligger i en gråzone, og ca. 5 % – især i ejendomme fra før 1950 – kan kræve større opgraderinger. Ejeren betaler selv.", ["hofor_vk"]),
+   ("<strong>Nordhavn:</strong> en 24 MW havvandsvarmepumpe installeres fra efteråret 2026 og skal i drift i løbet af vinteren 2027/2028.", ["hofor_sk"]),
+  ],
+  "local_take": "HOFOR Fjernvarme er nr. 223 af 374 værker i Forsyningstilsynets statistik og ligger lidt over landsgennemsnittet. Fordi effektbidraget skal betales, selvom du skifter til varmepumpe, er der sjældent penge i at forlade fjernvarmen i København. Varmepumpen er mest relevant for de få huse med olie, elvarme eller anden opvarmning – og for at få det fulde udbytte af fjernvarmen bør du først tjekke, om dit anlæg er klar til lavere temperatur.",
+  "contact": ("HOFOR, kundeservice", "33 95 33 95 (hverdage kl. 8.30-14.30) · kundeservice@hofor.dk", "hofor_vk"),
+  "faq": [
+   ("Hvad koster fjernvarme i København?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 18.417 kr. om året inkl. moms hos HOFOR Fjernvarme. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+   ("Slipper jeg for effektbidraget, hvis jeg skifter til varmepumpe?", "Nej, ikke hvis matriklen har tinglyst tilslutningspligt. Københavns Kommune kan i få tilfælde give dispensation, fx til et nyt enfamiliehus med lavenergistatus.", ["kbh_tilsl"]),
+   ("Hvordan ved jeg, om mit fjernvarmeanlæg er klar til lavere temperatur?", "HOFOR skriver, at det tegner godt, hvis anlægget kan varme boligen op med 55 graders fremløb, når det er 0 grader udenfor. Se også på årsregningen, om du får bonus eller betaler merpris for afkøling. HOFORs energirådgivere kan kontaktes på spareraad@hofor.dk.", ["hofor_vk"]),
+  ],
+}
+FV_PAGE["vejen"] = {
+  "kw": "fjernvarme vejen / brørup fjernvarme pris / varmepumpe jels",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026 for Brørup, Vejen, Rødding og Holsted, Vejen Kommunes side om fjernvarmeforsyning, Økonomiudvalgets sag om Jels Varme 2/12 2025 og lokale nyheder om Jels og landsbyerne (tjekket 10/11 2026).",
+  "intro": "Kun 45 % af husene i Vejen Kommune har fjernvarme, og prisen afhænger meget af, hvor du bor: Brørup Fjernvarme er blandt landets billigste, Holsted Varmeværk blandt de dyreste. I Jels er planerne om fjernvarme opgivet. Her er status, priserne og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Fire værker:</strong> Varmega (tidl. Vejen Varmeværk), Holsted Varmeværk, Brørup Fjernvarme og Rødding Varmecentral.", ["vjn_fv"]),
+   ("<strong>Jels:</strong> Jels Varme søgte om en kommunegaranti på op til 128,8 mio. kr.; projektet havde 793 bygninger i området og 448 tilkendegivelser. Økonomiudvalget anbefalede 2/12 2025 at afvise. En ny ansøgning blev ikke sendt videre, og selskabet indkaldte til generalforsamling 23/9 2026 for at nedlægge det.", ["vjn_jels", "vjn_jels2"]),
+   ("<strong>Landsbyerne:</strong> 13 landsbyer med primært naturgas skal ifølge kommunen (2022) selv finde en løsning; ni har mulighed for en fælles løsning, resten er for små.", ["vjn_lands"]),
+   ("<strong>Rødding:</strong> hele forsyningsområdet var tilkoblet og fuldt udbygget i 2022, mens Brørup, Holsted og Vejen konverterede i deres eksisterende områder.", ["vjn_2035"]),
+  ],
+  "local_take": "Brørup Fjernvarme er nr. 27 af 374 værker i Forsyningstilsynets statistik, Vejen Varmeværk (Varmega) nr. 80 og Rødding nr. 86 – alle under landsgennemsnittet. Holsted Varmeværk er nr. 345 og ligger over 6.000 kr. over gennemsnittet for et standardhus. Har du fjernvarme i Brørup, Vejen eller Rødding, er der sjældent penge i at skifte. I Jels og de små gasbyer er en luft til vand-varmepumpe det realistiske valg.",
+  "contact": ("Varmega (tidl. Vejen Varmeværk)", "69 15 39 00", "vjn_fv"),
+  "faq": [
+   ("Hvad koster fjernvarme i Vejen Kommune?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 12.940 kr. om året inkl. moms hos Brørup Fjernvarme, 14.792 kr. hos Vejen Varmeværk, 14.961 kr. hos Rødding Fjernvarme og 23.267 kr. hos Holsted Varmeværk. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+   ("Får Jels fjernvarme?", "Ikke som det ser ud nu. Kommunegarantien blev ikke givet, en ny ansøgning blev ikke sendt til politisk behandling, og Jels Varme indkaldte i september 2026 til generalforsamling for at nedlægge selskabet.", ["vjn_jels", "vjn_jels2"]),
+   ("Hvem kontakter jeg om fjernvarme i Holsted, Brørup eller Rødding?", "Holsted Varmeværk på 75 39 26 60, Brørup Fjernvarme på 75 38 13 20 og Rødding Varmecentral på 74 84 16 70. I Vejen by er det Varmega på 69 15 39 00.", ["vjn_fv"]),
+  ],
+}

@@ -36,6 +36,16 @@
       "source": "/varmepumpe/aarhus/",
       "destination": "/varmepumpe/aarhus/fjernvarme-eller-varmepumpe/",
       "permanent": false
+    },
+    {
+      "source": "/varmepumpe/koebenhavn",
+      "destination": "/varmepumpe/koebenhavn/fjernvarme-eller-varmepumpe/",
+      "permanent": false
+    },
+    {
+      "source": "/varmepumpe/koebenhavn/",
+      "destination": "/varmepumpe/koebenhavn/fjernvarme-eller-varmepumpe/",
+      "permanent": false
     }
   ],
   "headers": [

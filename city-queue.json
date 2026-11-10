@@ -266,7 +266,8 @@
     "kommune": "København Kommune",
     "region": "Region Hovedstaden",
     "reason": "24.524 beboede parcel/rækkehuse; 94% fjernvarme; 812 med olie/gas/elvarme; mest solceller; høj fjernvarme",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-10"
   },
   {
     "rank": 28,
@@ -275,7 +276,8 @@
     "kommune": "Vejen Kommune",
     "region": "Region Syddanmark",
     "reason": "17.266 beboede parcel/rækkehuse; 45% fjernvarme; 5.257 med olie/gas/elvarme; stærkt varmepumpemarked",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-10"
   },
   {
     "rank": 29,

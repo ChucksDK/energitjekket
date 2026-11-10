@@ -1248,3 +1248,75 @@ S.update({
  "sil_groen": ("Silkeborg Kommune: sammen om grøn omstilling – energirenoveringer (læst 9/11 2026)", "https://silkeborg.dk/borger/klima-og-energi/sammen-om-groen-omstilling"),
  "se_raad": ("SparEnergi: gratis og uvildig energirådgivning til private (læst 9/11 2026)", "https://sparenergi.dk/privat/raadgivningen"),
 })
+
+# ---------- daglig by-rutine 10. nov. 2026: København (DK2) og Vejen (DK1) ----------
+S.update({
+ "kbh_sol": ("Københavns Kommune: solceller og byggetilladelse (læst 10/11 2026)", "https://www.kk.dk/borger/bolig-og-byggeri/byggetilladelse/byggetilladelse-trin-for-trin/solceller-og-byggetilladelse"),
+ "kbh_solret": ("Københavns Kommune: arkitektoniske retningslinjer og gode eksempler på solceller (PDF, juli 2026)", "https://www.kk.dk/sites/default/files/2026-07/retningslinjer-eksempler-for-solcellerpdf-_1049.pdf"),
+ "kbh_serv": ("Københavns Kommune: hvad er en servitut? (læst 10/11 2026)", "https://www.kk.dk/borger/bolig-og-byggeri/byggetilladelse/byggetilladelse-trin-for-trin/hvad-er-en-servitut"),
+ "kbh_tilsl": ("Københavns Kommune: tilslutningspligt til fjernvarme og dispensationsmuligheder (læst 10/11 2026)", "https://www.kk.dk/borger/affald-og-miljoe/vand-varme-og-solceller/tilslutningspligt-til-fjernvarme-og-dispensationsmuligheder"),
+ "hofor_vk": ("HOFOR: spørgsmål og svar om at blive varmeklar (læst 10/11 2026)", "https://www.hofor.dk/baeredygtige-byer/fremtidens-fjernvarme/bliv-varmeklar/spoergsmaal-og-svar-til-at-blive-varmeklar/"),
+ "hofor_sk": ("HOFOR: stor varmepumpe i Sundkrogsgade (læst 10/11 2026)", "https://www.hofor.dk/baeredygtige-byer/fremtidens-fjernvarme/store-varmepumper/stor-varmepumpe-i-sundkrogsgade/"),
+ "vjn_byg": ("Vejen Kommune: søg byggetilladelse – solenergi (læst 10/11 2026)", "https://vejen.dk/borger/bolig-byggeri-og-flytning/byggeri/soeg-byggetilladelse"),
+ "vjn_fv": ("Vejen Kommune: fjernvarmeforsyning – værkerne i kommunen (læst 10/11 2026)", "https://vejen.dk/kontakt/akut-hjaelp/fjernvarmeforsyning"),
+ "vjn_jels": ("Vejen Kommune, Økonomiudvalget 2/12 2025: Jels Varmes ansøgning om kommunegaranti (gengivet af Monrad)", "https://www.monrad.app/agenda_items/27089"),
+ "vjn_jels2": ("Mig og Vejen 8/9 2026: Må droppe fjernvarmen (Jels)", "https://www.migogvejen.dk/byer/rodding/14229-ma-droppe-fjernvarmen"),
+ "vjn_lands": ("Mig og Vejen 9/11 2022: Landsbyer skal selv", "https://www.migogvejen.dk/byer/holsted/7768-landsbyer-skal-selv"),
+ "vjn_2035": ("Mig og Vejen 13/7 2022: Hvor skal varmen komme fra (Vejen Kommunes pressemeddelelse)", "https://migogvejen.dk/byer/vejen/7235-hvor-skal-varmen-komme-fra"),
+})
+CITIES["koebenhavn"] = {
+  "name": "København", "kommune": "Københavns Kommune", "updated": ("10. november 2026", "2026-11-10"),
+  # 94 % fjernvarme: ingen selvstændig varmepumpe-byside (som Aarhus)
+  "vp_page": False,
+  "sol_intro": "Solceller i København: på huse, carporte, garager og udhuse kan anlægget ofte sættes op uden byggetilladelse – men ikke hvis grunden er omfattet af lokalplan eller servitutter, eller huset er fredet eller bevaringsværdigt. Mange af byens villaområder har servitutter fra starten af 1900-tallet. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Byggetilladelse kræves, hvis anlægget ikke overholder bygningsreglementets <strong>højde- og afstandskrav</strong>, påvirker brand- eller konstruktionsforhold eller udløser en fornyet helhedsvurdering.", ["kbh_sol"]),
+    ("Er grunden omfattet af <strong>lokalplan eller servitutter</strong>, eller er ejendommen fredet eller bevaringsværdig, skal du også have byggetilladelse.", ["kbh_sol"]),
+    ("Mange af Københavns <strong>villaområder har servitutter</strong>, der blev tinglyst i starten af 1900-tallet for at holde områderne åbne og ensartede.", ["kbh_serv"]),
+    ("Kommunens retningslinjer: panelerne skal så vidt muligt have <strong>samme farve som taget</strong>, være refleksfrie og holde afstand til tagkip og tagkant.", ["kbh_solret"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge byggetilladelse til solceller på mit hus i København?", "Ikke altid. Københavns Kommune kræver byggetilladelse, hvis anlægget bryder bygningsreglementets højde- og afstandskrav, påvirker brand- eller konstruktionsforhold, hvis grunden er omfattet af lokalplan eller servitutter, eller hvis huset er fredet eller bevaringsværdigt. Tjek din ejendom, før du bestiller.", ["kbh_sol"]),
+    ("Hvem kontakter jeg om solceller i Københavns Kommune?", "Område for Bygninger, Njalsgade 13, på telefon 33 66 52 00 (hverdage kl. 9-16). Når anlægget er sat op, skal kommunen også have besked, så det kan registreres i BBR.", ["kbh_sol"]),
+  ],
+  "vp_intro": "Varmepumpe eller fjernvarme i København? 94 % af parcel- og rækkehusene i kommunen har fjernvarme. Enfamiliehuse må frit vælge en varmepumpe, men betaler stadig effektbidrag til HOFOR, hvis matriklen har tilslutningspligt. Her er priserne, HOFORs planer og regnestykket.",
+  "vp_facts": [
+    ("I København er der <strong>tilslutningspligt til fjernvarme</strong>. Enfamiliehuse og ejendomme med et varmebehov under 250 kW skal dog ikke aftage fjernvarmen og kan frit vælge fx en varmepumpe.", ["kbh_tilsl"]),
+    ("Har matriklen tinglyst tilslutningspligt, skal du fortsat <strong>betale effektbidrag</strong> til HOFOR, også når du ikke aftager fjernvarme. Et nyt lavenergihus kan søge dispensation.", ["kbh_tilsl"]),
+    ("HOFOR sænker gradvist temperaturen i fjernvarmenettet og forventer at være færdig i <strong>2033</strong>, så store eldrevne varmepumper kan bruges. Fremtidens net kører med 65 grader det meste af tiden og højst 75 grader på meget kolde dage.", ["hofor_vk"]),
+    ("HOFOR vurderer, at ca. 70 % af de ca. 32.000 fjernvarmeanlæg fungerer fint efter en mindre justering, mens ca. 5 % – især i ejendomme fra før 1950 – kan få brug for større opgraderinger.", ["hofor_vk"]),
+  ],
+  "vp_faq": [
+    ("Må jeg skifte fjernvarmen ud med en varmepumpe i København?", "Ja, hvis du har et enfamiliehus eller en ejendom med et varmebehov under 250 kW. Københavns Kommune skriver, at du frit kan vælge fx en varmepumpe. Har matriklen tinglyst tilslutningspligt, skal du dog stadig betale effektbidrag til HOFOR.", ["kbh_tilsl"]),
+    ("Skal mit fjernvarmeanlæg skiftes, når HOFOR sænker temperaturen?", "Ikke nødvendigvis. HOFOR tester fra 2026 og sænker gradvist temperaturen bydel for bydel fra 2027. Kan anlægget varme huset op med 55 graders fremløb, når det er 0 grader udenfor, tegner det godt. Ellers anbefaler HOFOR en VVS'er med fjernvarmeordning. Ejeren betaler selv.", ["hofor_vk"]),
+  ],
+}
+CITIES["vejen"] = {
+  "name": "Vejen", "kommune": "Vejen Kommune", "updated": ("10. november 2026", "2026-11-10"),
+  "sol_intro": "Solceller i Vejen: et anlæg til én familie på det eksisterende tag af en bolig kræver som udgangspunkt hverken byggetilladelse eller landzonetilladelse. Lokalplaner, fredninger eller naturbeskyttelsesloven kan dog kræve dispensation, og anlæg på terræn kræver byggetilladelse. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Solceller til brug for én familie på <strong>det eksisterende tag af en bolig</strong> kræver som udgangspunkt hverken byggetilladelse eller landzonetilladelse.", ["vjn_byg"]),
+    ("<strong>Lokalplan, fredninger eller naturbeskyttelsesloven</strong> kan betyde, at du skal søge dispensation.", ["vjn_byg"]),
+    ("Et <strong>fritstående anlæg på terræn</strong> eller på en erhvervs- eller landbrugsbygning kræver byggetilladelse, og kommunen kan stille vilkår om farve og refleksion.", ["vjn_byg"]),
+    ("Solanlæg skal <strong>altid registreres i BBR</strong>.", ["vjn_byg"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Vejen?", "Som udgangspunkt ikke, når anlægget er til én familie og sidder på det eksisterende tag af en bolig. Lokalplan, fredning eller naturbeskyttelsesloven kan dog kræve dispensation, og anlæg på terræn kræver byggetilladelse.", ["vjn_byg"]),
+    ("Hvordan søger jeg, hvis mine solceller kræver tilladelse i Vejen Kommune?", "Ansøgningen sendes via Byg & Miljø, hvor du også kan se, hvilke regler der gælder for din adresse. Vejen Kommunes hovednummer er 79 96 50 00.", ["vjn_byg", "vjn_fv"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Vejen: kun 45 % af husene i kommunen har fjernvarme, og næsten hvert femte hus har stadig naturgas. I Jels er planerne om et nyt fjernvarmeselskab opgivet, så mange husejere i landsbyerne står med en individuel løsning. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("Fjernvarmen i kommunen leveres af fire værker: <strong>Varmega (tidl. Vejen Varmeværk), Holsted Varmeværk, Brørup Fjernvarme og Rødding Varmecentral</strong>.", ["vjn_fv"]),
+    ("<strong>Jels Varme</strong> søgte om en kommunegaranti på op til 128,8 mio. kr. til fjernvarme i Jels. Økonomiudvalget anbefalede 2. december 2025 at afvise ansøgningen.", ["vjn_jels"]),
+    ("En ny ansøgning blev ikke sendt til politisk behandling, og Jels Varme indkaldte til ekstraordinær generalforsamling 23. september 2026 med det formål at <strong>nedlægge selskabet</strong>.", ["vjn_jels2"]),
+    ("Allerede i 2022 meldte kommunen ud, at <strong>13 landsbyer</strong>, der primært opvarmes med naturgas, ikke skal forvente kommunal hjælp til at skifte: ni af dem har mulighed for en fælles løsning, resten er for små.", ["vjn_lands"]),
+  ],
+  "vp_faq": [
+    ("Kommer der fjernvarme til Jels?", "Ikke som det ser ud nu. Økonomiudvalget anbefalede i december 2025 at afvise kommunegarantien, en ny ansøgning blev ikke sendt videre til politisk behandling, og Jels Varme indkaldte i september 2026 til generalforsamling for at nedlægge selskabet. Husejerne står dermed med individuelle løsninger som varmepumpe.", ["vjn_jels", "vjn_jels2"]),
+    ("Hvem leverer fjernvarme i Vejen Kommune?", "Varmega (tidl. Vejen Varmeværk) på 69 15 39 00, Holsted Varmeværk på 75 39 26 60, Brørup Fjernvarme på 75 38 13 20 og Rødding Varmecentral på 74 84 16 70.", ["vjn_fv"]),
+  ],
+}
+CONTACTS["koebenhavn"] = {"sol": [("Københavns Kommune, Område for Bygninger", "33 66 52 00", "kbh_sol")],
+                          "vp":  [("HOFOR, kundeservice", "33 95 33 95 · kundeservice@hofor.dk", "hofor_vk")]}
+CONTACTS["vejen"] = {"sol": [("Vejen Kommune", "79 96 50 00", "vjn_byg")],
+                     "vp":  [("Varmega (tidl. Vejen Varmeværk)", "69 15 39 00", "vjn_fv")]}

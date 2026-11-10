@@ -11,13 +11,13 @@ def hs(c): return sum(HEAT[c].values())            # beboede parcel- og rækkehu
 def hp(c, k, d=0): return pct(HEAT[c][k], hs(c), d)
 def rp(c, k, d=0): return pct(ROOF[c]["T"][k], ROOF[c]["tot"], d)
 def town(c, name): return dict(TOWNS[c])[name]
-_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten", 19: "nitten", 20: "tyve", 21: "enogtyve", 22: "toogtyve", 23: "treogtyve", 24: "fireogtyve", 25: "femogtyve", 26: "seksogtyve", 27: "syvogtyve", 28: "otteogtyve", 29: "niogtyve", 30: "tredive", 31: "enogtredive", 32: "toogtredive", 33: "treogtredive", 34: "fireogtredive"}
+_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten", 19: "nitten", 20: "tyve", 21: "enogtyve", 22: "toogtyve", 23: "treogtyve", 24: "fireogtyve", 25: "femogtyve", 26: "seksogtyve", 27: "syvogtyve", 28: "otteogtyve", 29: "niogtyve", 30: "tredive", 31: "enogtredive", 32: "toogtredive", 33: "treogtredive", 34: "fireogtredive", 35: "femogtredive", 36: "seksogtredive"}
 def nw(k=0): return _NUMW[len(NAMES) - k]          # "ni" for 9 byer, nw(1) = "otte" (de andre)
 def top(f, rev=False):
     """By med højeste (eller laveste, rev=True) værdi blandt sitets byer. Bruges til at tjekke sammenlignende udsagn."""
     return sorted(NAMES, key=f, reverse=not rev)[0]
 def rank(f, c): return sorted(NAMES, key=f, reverse=True).index(c) + 1
-_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende", 21: "enogtyvende", 22: "toogtyvende", 23: "treogtyvende", 24: "fireogtyvende", 25: "femogtyvende", 26: "seksogtyvende", 27: "syvogtyvende", 28: "otteogtyvende", 29: "niogtyvende", 30: "tredivte", 31: "enogtredivte", 32: "toogtredivte", 33: "treogtredivte", 34: "fireogtredivte"}
+_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende", 21: "enogtyvende", 22: "toogtyvende", 23: "treogtyvende", 24: "fireogtyvende", 25: "femogtyvende", 26: "seksogtyvende", 27: "syvogtyvende", 28: "otteogtyvende", 29: "niogtyvende", 30: "tredivte", 31: "enogtredivte", 32: "toogtredivte", 33: "treogtredivte", 34: "fireogtredivte", 35: "femogtredivte", 36: "seksogtredivte"}
 def rk(f, c, word, art="den", rev=False):
     """Rangord, fx 'den højeste', 'den næsthøjeste' (rev=True tæller fra bunden). Holder sammenlignende udsagn sande, når nye byer kommer til."""
     r = sorted(NAMES, key=f, reverse=not rev).index(c) + 1
@@ -28,7 +28,7 @@ def above(f, c):
     a = [NAMES[x] for x in sorted(NAMES, key=f, reverse=True)[:rank(f, c) - 1]]
     return a[0] if len(a) == 1 else ", ".join(a[:-1]) + " og " + a[-1]
 
-NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund", "skanderborg": "Skanderborg", "vordingborg": "Vordingborg"}
+NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund", "skanderborg": "Skanderborg", "vordingborg": "Vordingborg", "koebenhavn": "København", "vejen": "Vejen"}
 LOCAL_S = {
  "dst_bol102": ("Danmarks Statistik: BOL102, boliger efter område og opvarmning (2026)", "https://www.statistikbanken.dk/BOL102"),
  "dst_bol101": ("Danmarks Statistik: BOL101, boliger efter opførelsesår og udlejningsforhold (2026)", "https://www.statistikbanken.dk/BOL101"),
@@ -114,7 +114,7 @@ SOL_ROOF = {
    lambda: f"Tre tagtyper deler næsten husene i Esbjerg Kommune mellem sig: tegl ({rp('esbjerg','10')}), betontagsten ({rp('esbjerg','08')}) og fibercement/eternit ({rp('esbjerg','06')}). På tegl og skifer kræver kommuneplanen, at rækker af sten ved top, bund og sider holdes fri, så kend din tagtype, før du får tilbud.",
    ["dst_bygb50", "esb_sol"]),
  "odense": ("Tegltage dominerer i Odense",
-   lambda: f"{rp('odense','10')} af parcel- og rækkehusene i Odense Kommune har tegltag. Det er den højeste andel af de {nw()} byer og langt over landsgennemsnittet på {rp('dk','10')}. Bolius beskriver to måder at montere på tegl: tagkroge, der går ind under stenene, eller ansatsskruer gennem tagbeklædningen. Tagkroge tager længere tid, fordi teglene skal tilpasses for at holde tæt.",
+   lambda: f"{rp('odense','10')} af parcel- og rækkehusene i Odense Kommune har tegltag. Det er {rk(lambda x: ROOF[x]['T']['10'] / ROOF[x]['tot'], 'odense', 'højeste')} andel af de {nw()} byer og langt over landsgennemsnittet på {rp('dk','10')}. Bolius beskriver to måder at montere på tegl: tagkroge, der går ind under stenene, eller ansatsskruer gennem tagbeklædningen. Tagkroge tager længere tid, fordi teglene skal tilpasses for at holde tæt.",
    ["dst_bygb50", "bolius_mont"]),
  "aalborg": ("Eternittage i Aalborg: det skal du vide før solceller",
    lambda: f"Aalborg Kommune har {rk(lambda x: ROOF[x]['T']['06'] / ROOF[x]['tot'], 'aalborg', 'største')} andel af fibercementtage blandt de {nw()} byer: {rp('aalborg','06')} af parcel- og rækkehusene har et tag, som Danmarks Statistik registrerer som fibercement inkl. asbest. Dansk Eternit havde fabrik i Aalborg, og ifølge Bolius indeholder bølge- og kunstskiferplader fra før 1984 næsten altid asbest. Det er tilladt at montere solceller på et asbesttag, hvis monteringen kun kræver, at der bores huller i pladerne.",
@@ -358,7 +358,7 @@ FV_SOURCES.update({
             ("Fra andet halvår 2027 begynder Viborg Varme at modtage <strong>overskudsvarme fra Apples datacenter</strong> og Energinets transformerstation i Tjele, først 12 MW og forventet 24,5 MW inden 2030. Varmen sendes 4,5 km til Taphede.", ["vib_df"])],
 })
 FV_SHARE.update({
- "aarhus": lambda: f"{hp('aarhus','FJ',1)} af de beboede parcel- og rækkehuse i Aarhus Kommune har fjernvarme. Kun Odense har en højere andel blandt de {nw()} byer på dette site. Det efterlader ca. {tal(hs('aarhus')-HEAT['aarhus']['FJ'])} huse med anden opvarmning, heraf {tal(HEAT['aarhus']['VP'])} med varmepumpe.",
+ "aarhus": lambda: f"{hp('aarhus','FJ',1)} af de beboede parcel- og rækkehuse i Aarhus Kommune har fjernvarme. Kun {above(_hf('FJ'), 'aarhus')} har en højere andel blandt de {nw()} byer på dette site. Det efterlader ca. {tal(hs('aarhus')-HEAT['aarhus']['FJ'])} huse med anden opvarmning, heraf {tal(HEAT['aarhus']['VP'])} med varmepumpe.",
  "viborg": lambda: f"{hp('viborg','FJ',1)} af de beboede parcel- og rækkehuse i Viborg Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. {tal(HEAT['viborg']['CN']+HEAT['viborg']['CO'])} huse har gas- eller oliefyr, og {tal(HEAT['viborg']['VP'])} har varmepumpe.",
 })
 FV_SOURCES_H.update({"aarhus": "Aarhus efter Studstrupværket: geotermi og varmepumper", "viborg": "Overskudsvarme fra Apple og Tjele til Viborg"})
@@ -1442,17 +1442,103 @@ def reg_age_note(c, kommune):
 # keyword-backlog 9/11 2026: 'energirenovering silkeborg' (GSC 12 visninger) -> FAQ på /varmepumpe/silkeborg/
 VP_XFAQ["silkeborg"] = VP_XFAQ["silkeborg"] + [("Hvor får jeg hjælp til energirenovering i Silkeborg?", lambda: "Silkeborg Kommune peger på energirenoveringer af tag og loft, vinduer og døre, terrændæk og ydervægge og anbefaler at få en energirådgiver til at vurdere, hvad der giver mening for dit hus. Energistyrelsens gratis, uvildige rådgivning hos SparEnergi har telefon 31 15 90 00 og mail info@sparenergi.dk. Et hus med lavere varmetab kan klare sig med en mindre varmepumpe.", ["sil_groen", "se_raad"])]
 
+# ---------- daglig by-rutine 10. nov. 2026: København (DK2, vp_page False) og Vejen (DK1) ----------
+SOL_ORDER.update({
+ "koebenhavn": ["boliger", "tage", "lokalt", "faq", "produktion", "guides"],
+ "vejen": ["tage", "produktion", "boliger", "faq", "lokalt", "guides"],
+})
+VP_ORDER.update({
+ "vejen": ["lokalt", "opvarmning", "faq", "lokale-byer", "pris", "guides"],
+})
+# København: varmepumpe-blokkene (lokalt, opvarmning, lokale-byer) bor på fjernvarmesiden
+FV_ORDER.update({
+ "koebenhavn": ["status", "opvarmning", "priser", "lokalt", "andel", "billigst", "lokale-byer", "faq", "varmekilder"],
+ "vejen": ["billigst", "priser", "andel", "status", "faq", "varmekilder"],
+})
+SOL_PROD.update({
+ "koebenhavn": ("Solceller i København: mod syd, øst eller vest",
+   lambda: f"PVGIS beregner ca. {tal(PV['koebenhavn']['syd'])} kWh pr. kWp om året for et sydvendt tag med 35° hældning i København – {rk(_PVY, 'koebenhavn', 'højeste')} af de {nw()} byer på dette site. Et 6 kWp-anlæg giver ca. {tal(PV['koebenhavn']['syd']*6)} kWh om året. Mod øst giver det ca. {tal(PV['koebenhavn']['oest'])} og mod vest ca. {tal(PV['koebenhavn']['vest'])} kWh pr. kWp – værd at kende, fordi kommunen skriver, at solceller af hensyn til arkitekturen nogle gange kun kan sidde mod gård- eller bagsiden."),
+ "vejen": ("Solceller i Vejen: sommer og vinter",
+   lambda: f"PVGIS beregner ca. {tal(PV['vejen']['syd'])} kWh pr. kWp om året for et sydvendt tag med 35° hældning i Vejen og ca. {tal(PV['vejen']['opt'])} kWh ved den bedste hældning på {PV['vejen']['opt_angle']}°. Et 6 kWp-anlæg giver ca. {tal(PV['vejen']['syd']*6)} kWh om året, men november til januar giver tilsammen kun ca. {tal((PV['vejen']['months'][10]+PV['vejen']['months'][11]+PV['vejen']['months'][0])*6)} kWh. Mod øst eller vest er det ca. {tal(PV['vejen']['oest'])}-{tal(PV['vejen']['vest'])} kWh pr. kWp."),
+})
+SOL_PROD_SRC_NEW.update({"koebenhavn": ["pv_koebenhavn", "pvo_koebenhavn", "pvv_koebenhavn", "kbh_solret"], "vejen": ["pv_vejen", "pvo_vejen", "pvv_vejen"]})
+SOL_ROOF.update({
+ "koebenhavn": ("Tegl og flade tage i København",
+   lambda: f"{rp('koebenhavn','10')} af parcel- og rækkehusene i Københavns Kommune har <strong>tegltag</strong>, mod {rp('dk','10')} på landsplan, og {pct(_flat('koebenhavn'), ROOF['koebenhavn']['tot'])} har fladt tag eller tagpap. Kommunens retningslinjer siger, at panelerne skal passe til tagets form og så vidt muligt have samme farve som tagmaterialet, og at inddækninger skal have samme farve som solcellerne.",
+   ["dst_bygb50", "kbh_solret"]),
+ "vejen": ("Fibercement og cementsten på tagene i Vejen",
+   lambda: f"{rp('vejen','06')} af parcel- og rækkehusene i Vejen Kommune har tag af <strong>fibercement</strong> og {rp('vejen','08')} <strong>cementsten</strong> – {rk(_rt('08'), 'vejen', 'højeste')} andel cementsten af de {nw()} byer. {rp('vejen','10')} har tegl. Bølgeplader fra før 1984 kan indeholde asbest, så få taget vurderet, før panelerne monteres.",
+   ["dst_bygb50", "bolius_asb"]),
+})
+SOL_HOMES.update({
+ "koebenhavn": lambda: f"Københavns Kommune har {tal(STOCK['koebenhavn']['tot'])} beboede parcel- og rækkehuse, og {pct(STOCK['koebenhavn']['B']['før 1960'],STOCK['koebenhavn']['tot'])} er bygget før 1960 – {rk(lambda x: STOCK[x]['B']['før 1960'] / STOCK[x]['tot'], 'koebenhavn', 'højeste')} andel af de {nw()} byer, mod {pct(STOCK['dk']['B']['før 1960'],STOCK['dk']['tot'])} på landsplan. {pct(STOCK['koebenhavn']['raekke'],STOCK['koebenhavn']['tot'])} er række-, kæde- eller dobbelthuse. Mange villaområder har servitutter fra starten af 1900-tallet, så tjek tingbogen, før du bestiller.",
+ "vejen": lambda: f"Vejen Kommune har {tal(STOCK['vejen']['tot'])} beboede parcel- og rækkehuse, og {pct(STOCK['vejen']['B']['1960-1979'],STOCK['vejen']['tot'])} er bygget 1960-1979, mod {pct(STOCK['dk']['B']['1960-1979'],STOCK['dk']['tot'])} på landsplan. {pct(STOCK['vejen']['ejer'],STOCK['vejen']['tot'])} bebos af ejeren. Vejen by har {tal(town('vejen','Vejen'))} indbyggere, Brørup {tal(town('vejen','Brørup'))}, Holsted {tal(town('vejen','Holsted'))}, Rødding {tal(town('vejen','Rødding'))} og Jels {tal(town('vejen','Jels'))}. Siden gælder hele kommunen.",
+})
+SOL_HOMES_SRC_NEW.update({"koebenhavn": ["kbh_serv"], "vejen": []})
+SOL_HOMES_H.update({"koebenhavn": "Ældre villaer og rækkehuse i København", "vejen": "Huse fra Vejen til Brørup, Holsted, Rødding og Jels"})
+SOL_XFAQ.update({
+ "koebenhavn": [("Kan jeg få hjælp til at vurdere solceller i København?", lambda: "Københavns Kommune henviser til Solcellepuljen, hvor ejendomme kan søge støtte til en professionel teknisk rådgiver, der screener, om ejendommen er velegnet til solceller. Se betingelserne på kommunens side om byfornyelsespuljer.", ["kbh_sol"])],
+ "vejen": [("Kræver solceller på jorden tilladelse i Vejen Kommune?", lambda: "Ja. Vejen Kommune skriver, at et fritstående anlæg på terræn kræver byggetilladelse, og at kommunen kan stille vilkår om anlæggets farve og refleksion.", ["vjn_byg"])],
+})
+VP_HEAT.update({
+ "koebenhavn": ("Over ni ud af ti huse har fjernvarme i København",
+   lambda: f"{hp('koebenhavn','FJ',1)} af de {tal(hs('koebenhavn'))} beboede parcel- og rækkehuse i Københavns Kommune har fjernvarme, mod {hp('dk','FJ')} på landsplan. Kun {tal(HEAT['koebenhavn']['VP'])} har varmepumpe, {tal(HEAT['koebenhavn']['ELV'])} elvarme og {tal(HEAT['koebenhavn']['CO'])} oliefyr, og Danmarks Statistik registrerer {tal(HEAT['koebenhavn']['CN'])} {'hus' if HEAT['koebenhavn']['CN'] == 1 else 'huse'} med naturgas."),
+ "vejen": ("Næsten hvert femte hus har naturgas i Vejen",
+   lambda: f"{tal(HEAT['vejen']['CN'])} af de {tal(hs('vejen'))} beboede parcel- og rækkehuse i Vejen Kommune ({hp('vejen','CN',1)}) har naturgas, mod {hp('dk','CN',1)} på landsplan, og {tal(HEAT['vejen']['CO'])} har oliefyr. Kun {hp('vejen','FJ')} har fjernvarme. {tal(HEAT['vejen']['VP'])} har allerede varmepumpe ({hp('vejen','VP',1)}) – {rk(_hf('VP'), 'vejen', 'højeste')} andel af de {nw()} byer."),
+})
+VP_HEAT_SRC_NEW.update({"koebenhavn": ["kbh_tilsl"], "vejen": ["vjn_fv"]})
+VP_TOWNS.update({
+ "koebenhavn": [("Hele kommunen", "Tilslutningspligt; enfamiliehuse må vælge varmepumpe, men betaler effektbidrag", ["kbh_tilsl"]),
+                ("Nordhavn", "HOFORs 24 MW havvandsvarmepumpe i drift vinteren 2027/28", ["hofor_sk"]),
+                ("Midtbyen", "Højeste fremløbstemperatur i dag; ældre anlæg kan kræve opgradering", ["hofor_vk"]),
+                ("Brønshøj", "Yderst i nettet med de laveste temperaturer i dag", ["hofor_vk"])],
+ "vejen": [("Vejen", "Varmega (tidl. Vejen Varmeværk)", ["vjn_fv", "ft_pris"]),
+           ("Brørup", "Brørup Fjernvarme, blandt landets billigste", ["vjn_fv", "ft_pris"]),
+           ("Holsted / Rødding", "Holsted Varmeværk og Rødding Varmecentral", ["vjn_fv"]),
+           ("Jels", "Fjernvarmeprojekt opgivet 2026: individuel løsning", ["vjn_jels2"])],
+})
+VP_TOWNS_NOTE.update({
+ "koebenhavn": "Har du fjernvarme i København, er første skridt at tjekke, om anlægget er klar til lavere temperatur. En varmepumpe er mest relevant for de få huse med olie, elvarme eller anden opvarmning – og husk effektbidraget, hvis matriklen har tilslutningspligt.",
+ "vejen": "Bor du i Vejen, Brørup, Holsted eller Rødding, så spørg værket, om din adresse kan få fjernvarme. I Jels og de mindre landsbyer med naturgas er en luft til vand-varmepumpe det typiske valg, når gasfyret skal skiftes.",
+})
+VP_XFAQ.update({
+ "koebenhavn": [("Hvor mange huse i København har ikke fjernvarme?", lambda: f"Ca. {tal(hs('koebenhavn')-HEAT['koebenhavn']['FJ'])} af {tal(hs('koebenhavn'))} beboede parcel- og rækkehuse ({pct(hs('koebenhavn')-HEAT['koebenhavn']['FJ'],hs('koebenhavn'),1)}) ifølge Danmarks Statistik, 2026. Heraf har {tal(HEAT['koebenhavn']['VP'])} varmepumpe, {tal(HEAT['koebenhavn']['ELV'])} elvarme og {tal(HEAT['koebenhavn']['CO'])} oliefyr.", ["dst_bol102"])],
+ "vejen": [("Hvor mange huse i Vejen Kommune har naturgas?", lambda: f"{tal(HEAT['vejen']['CN'])} af de {tal(hs('vejen'))} beboede parcel- og rækkehuse ({hp('vejen','CN',1)}) ifølge Danmarks Statistik, 2026. {tal(HEAT['vejen']['VP'])} har allerede varmepumpe, og {tal(HEAT['vejen']['CO'])} har oliefyr.", ["dst_bol102"])],
+})
+FV_SOURCES.update({
+ "koebenhavn": [("HOFOR installerer en <strong>24 MW havvandsvarmepumpe</strong> i energicentralen i Nordhavn, som skal kunne forsyne ca. 12.500 husstande. Den skal i drift i løbet af vinteren 2027/2028.", ["hofor_sk"]),
+                ("Fjernvarmen kommer i dag fra affaldsforbrænding, kraftvarmeværker, varmepumper, spidslastanlæg og vekslerstationer. Varmen fra bl.a. Amagerværket føres op i tunnelen i Adelgade og ved Fredens Park.", ["hofor_vk"])],
+ "vejen": [("Vejen Varmeværk hedder nu <strong>Varmega</strong>.", ["vjn_fv"]),
+           ("Jels Varmes projekt skulle primært producere varme med varmepumper suppleret med biomasse og naturgas; i de seneste beregninger indgik briketter af overskudstræ og savsmuld.", ["vjn_jels2"])],
+})
+FV_SHARE.update({
+ "koebenhavn": lambda: f"{hp('koebenhavn','FJ',1)} af de beboede parcel- og rækkehuse i Københavns Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. Det efterlader ca. {tal(hs('koebenhavn')-HEAT['koebenhavn']['FJ'])} huse med anden opvarmning, heraf {tal(HEAT['koebenhavn']['VP'])} med varmepumpe.",
+ "vejen": lambda: f"{hp('vejen','FJ',1)} af de beboede parcel- og rækkehuse i Vejen Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. {hp('vejen','CN',1)} har naturgas og {hp('vejen','VP',1)} varmepumpe.",
+})
+FV_SOURCES_H.update({"koebenhavn": "Havvand, affald og Amagerværket", "vejen": "Fire værker og et opgivet projekt i Jels"})
+_reg_age_old14 = reg_age_note
+def reg_age_note(c, kommune):
+    s = STOCK[c]; B = s["B"]; t = s["tot"]
+    if c == "koebenhavn":
+        return (f"{tal(B['før 1960'])} af de beboede huse i Københavns Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. Mange villaområder har servitutter fra starten af 1900-tallet, og er grunden omfattet af servitut eller lokalplan, kræver solceller byggetilladelse.", ["kbh_serv", "kbh_sol"])
+    if c == "vejen":
+        return (f"{tal(B['1960-1979'])} af de beboede huse i Vejen Kommune ({pct(B['1960-1979'], t)}) er bygget 1960-1979. Er huset omfattet af en lokalplan eller fredning, kan solceller kræve dispensation – tjek reglerne for din adresse i Byg & Miljø.", ["vjn_byg"])
+    return _reg_age_old14(c, kommune)
+
+# keyword-backlog 10/11 2026: 'luft til vand varmepumpe aabenraa' (GSC 40 visninger, pos. 79,4) -> FAQ om pris og elvarme på /varmepumpe/aabenraa/
+VP_XFAQ["aabenraa"] = VP_XFAQ.get("aabenraa", []) + [("Hvad koster en luft til vand-varmepumpe i Aabenraa?", lambda: f"SparEnergi angiver typisk 100.000-130.000 kr. for en luft til vand-varmepumpe, og Energisparer.dk ca. 90.000-150.000 kr. afhængigt af husets størrelse. Har huset elvarme med paneler – det gælder {tal(HEAT['aabenraa']['ELV'])} af de {tal(hs('aabenraa'))} beboede parcel- og rækkehuse i Aabenraa Kommune – skal der også etableres radiatorer eller gulvvarme, før en luft til vand-varmepumpe kan bruges. Ellers er en luft til luft-varmepumpe det billigere valg.", ["se_vp", "es_vp", "es_l2v", "dst_bol102"])]
+
 # ---------- tjek af sammenlignende udsagn: bygget fejler, hvis en ny by gør et udsagn forkert ----------
 _PVs = lambda c: PV[c]["syd"]; _rt = lambda k: (lambda c: ROOF[c]["T"][k] / ROOF[c]["tot"]); _hf = lambda k: (lambda c: HEAT[c][k] / hs(c)); _sb = lambda k: (lambda c: STOCK[c]["B"][k] / STOCK[c]["tot"])
 CLAIMS = [
  ("Esbjerg top 12 PV", rank(_PVs, "esbjerg") <= 12),
  ("Aalborg top 13 juni", rank(lambda c: PV[c]["months"][5], "aalborg") <= 13),
- ("Odense flest tegl", top(_rt("10")) == "odense"), ("Aalborg top 3 fibercement (dynamisk tekst)", rank(_rt("06"), "aalborg") <= 3),
+ ("Odense top 2 tegl (dynamisk tekst)", rank(_rt("10"), "odense") <= 2), ("Aalborg top 3 fibercement (dynamisk tekst)", rank(_rt("06"), "aalborg") <= 3),
  ("Vejle ikke nr. 1 nyere huse", rank(_sb("2000+"), "vejle") > 1),
  ("Esbjerg top 5 1960-79 (dynamisk tekst)", rank(_sb("1960-1979"), "esbjerg") <= 5),
  ("Aarhus flest huse", top(lambda c: STOCK[c]["tot"]) == "aarhus"), ("Aalborg nr. 2 huse", rank(lambda c: STOCK[c]["tot"], "aalborg") == 2),
- ("Horsens top 6 ejerandel (dynamisk tekst)", rank(_EJ, "horsens") <= 6),
- ("Odense højeste FJ", top(_hf("FJ")) == "odense"), ("Aarhus nr. 2 FJ", rank(_hf("FJ"), "aarhus") == 2),
+ ("Horsens top 7 ejerandel (dynamisk tekst)", rank(_EJ, "horsens") <= 7),
+ ("Odense højeste FJ", top(_hf("FJ")) == "odense"), ("Aarhus top 3 FJ (dynamisk tekst)", rank(_hf("FJ"), "aarhus") <= 3),
 
  ("Viborg top 4 olie, Randers top 8 (dynamisk tekst)", rank(_hf("CO"), "viborg") <= 4 and rank(_hf("CO"), "randers") <= 8),
  ("Næstved gas tæt på fjernvarme (overskrift)", abs(HEAT["naestved"]["CN"] - HEAT["naestved"]["FJ"]) / HEAT["naestved"]["FJ"] < 0.05),
@@ -1511,6 +1597,12 @@ CLAIMS = [
  ("Vordingborg hvert tredje FJ (intro)", 0.30 <= HEAT["vordingborg"]["FJ"] / hs("vordingborg") <= 0.36),
  ("Vordingborg fire ud af ti fibercement (overskrift)", 0.38 <= ROOF["vordingborg"]["T"]["06"] / ROOF["vordingborg"]["tot"] < 0.43),
  ("Vordingborg næsten hvert andet hus før 1960 (tekst)", 0.45 <= STOCK["vordingborg"]["B"]["før 1960"] / STOCK["vordingborg"]["tot"] < 0.50),
+ ("København 94 pct. FJ (intro/FV-intro)", round(100 * HEAT["koebenhavn"]["FJ"] / hs("koebenhavn")) == 94),
+ ("København over ni ud af ti FJ (overskrift)", HEAT["koebenhavn"]["FJ"] / hs("koebenhavn") > 0.90),
+ ("København tegl største tagtype (tekst)", max(ROOF["koebenhavn"]["T"], key=lambda k: ROOF["koebenhavn"]["T"][k]) == "10"),
+ ("Vejen fibercement, cementsten, tegl top 3 (overskrift)", sorted(ROOF["vejen"]["T"], key=lambda k: -ROOF["vejen"]["T"][k])[:3] == ["06", "08", "10"]),
+ ("Vejen 45 pct. FJ (intro/FV-intro)", round(100 * HEAT["vejen"]["FJ"] / hs("vejen")) == 45),
+ ("Vejen næsten hvert femte naturgas (overskrift/intro)", 0.17 <= HEAT["vejen"]["CN"] / hs("vejen") < 0.20),
 ]
 _bad = [n for n, ok in CLAIMS if not ok]
 assert not _bad, f"Sammenlignende udsagn passer ikke længere: {_bad}"
