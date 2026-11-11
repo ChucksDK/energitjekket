@@ -286,7 +286,8 @@
     "kommune": "Varde Kommune",
     "region": "Region Syddanmark",
     "reason": "18.944 beboede parcel/rækkehuse; 56% fjernvarme; 4.137 med olie/gas/elvarme; begge services",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-11"
   },
   {
     "rank": 30,
@@ -295,7 +296,8 @@
     "kommune": "Faxe Kommune",
     "region": "Region Sjælland",
     "reason": "14.741 beboede parcel/rækkehuse; 20% fjernvarme; 6.829 med olie/gas/elvarme; stærkt varmepumpemarked",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-11"
   },
   {
     "rank": 31,

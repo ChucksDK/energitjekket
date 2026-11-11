@@ -1320,3 +1320,70 @@ CONTACTS["koebenhavn"] = {"sol": [("Københavns Kommune, Område for Bygninger",
                           "vp":  [("HOFOR, kundeservice", "33 95 33 95 · kundeservice@hofor.dk", "hofor_vk")]}
 CONTACTS["vejen"] = {"sol": [("Vejen Kommune", "79 96 50 00", "vjn_byg")],
                      "vp":  [("Varmega (tidl. Vejen Varmeværk)", "69 15 39 00", "vjn_fv")]}
+
+# ---------- daglig by-rutine 11. nov. 2026: Varde (DK1) og Faxe (DK2) ----------
+S.update({
+ "var_byg": ("Varde Kommune: byggeri – solceller og solfangere (læst 11/11 2026)", "https://vardekommune.dk/borger/bolig-og-byggeri/byggeri/"),
+ "var_vpl": ("Varde Kommune: Varmeplan for Varde Kommune 2023-2030, vedtaget 6/12 2022 (PDF)", "https://vardekommune.dk/wp-content/uploads/2023/01/Varmeplan-for-Varde-Kommune-2023-2030.pdf"),
+ "var_helle": ("Dansk Fjernvarme 18/7 2025: Fjernvarme til attraktiv pris på vej til Helle Energis forbrugere", "https://danskfjernvarme.dk/aktuelt/nyheder/2025/fjernvarme-til-attraktiv-pris-paa-vej-til-helle-energis-forbrugere"),
+ "var_oks": ("Dansk Fjernvarme 16/6 2026: 30 år i fjernvarmen var ikke planlagt (Oksbøl Varmeværk)", "https://danskfjernvarme.dk/aktuelt/nyheder/2026/30-aar-i-fjernvarmen-var-ikke-planlagt"),
+ "fax_sol": ("Faxe Kommune: solceller og solfangeranlæg (læst 11/11 2026)", "https://faxekommune.dk/da/borger/byggeri-bbr/solceller-solfangeranlaeg"),
+ "fax_vp": ("Faxe Kommune: varmepumpe (læst 11/11 2026)", "https://faxekommune.dk/da/borger/byggeri-bbr/varmepumpe-0"),
+ "fax_haslev": ("Faxe Kommune, Teknik- og Miljøudvalget: status på konvertering til fjernvarme i Haslev (2026, gengivet af Monrad)", "https://www.monrad.app/agenda_items/150739"),
+ "fax_fl": ("Faxe Kommune, Byrådet 2026: omprioritering af midler fra fjernvarme i Faxe Ladeplads (gengivet af Monrad)", "https://www.monrad.app/agenda_items/114593"),
+ "fax_es": ("Energy Supply 5/12 2023: Forsyning dropper fjernvarmeprojekter i tre gasbyer", "https://www.energy-supply.dk/article/view/1068779/forsyning_dropper_fjernvarmeprojekter_i_tre_gasbyer_fjerde_by_far_ny_chance"),
+})
+CITIES["varde"] = {
+  "name": "Varde", "kommune": "Varde Kommune", "updated": ("11. november 2026", "2026-11-11"),
+  "sol_intro": "Solceller i Varde: på enfamilie-, tofamilie-, række- og sommerhuse kan du som udgangspunkt sætte solceller op uden byggetilladelse og uden at anmelde det til kommunen – men anlægget tæller med i bygningshøjden, og lokalplaner og tinglyste deklarationer kan sætte grænser. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Solceller på <strong>enfamilie-, tofamilie-, række- og sommerhuse</strong> og tilhørende småbygninger kræver hverken byggetilladelse eller anmeldelse, når byggeloven er overholdt.", ["var_byg"]),
+    ("Anlægget skal <strong>medregnes i bygningshøjden</strong>, som stadig skal overholdes.", ["var_byg"]),
+    ("<strong>Lokalplaner, byplanvedtægter og tinglyste deklarationer</strong> kan regulere eller forbyde solceller.", ["var_byg"]),
+    ("Kommunen anbefaler, at panelerne får <strong>samme hældning som taget</strong> og placeres harmonisk i forhold til kviste, tagvinduer og skorstene.", ["var_byg"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge byggetilladelse til solceller på mit hus i Varde?", "Som udgangspunkt ikke. Varde Kommune skriver, at solceller på enfamilie-, tofamilie-, række- og sommerhuse kan sættes op uden byggetilladelse eller anmeldelse, hvis byggeloven er overholdt – og anlægget tæller med i bygningshøjden. Tjek også lokalplan og tinglyste deklarationer.", ["var_byg"]),
+    ("Hvad med solceller på jorden i Varde Kommune?", "Kommunen afgør selv, om et anlæg på terræn kræver byggetilladelse, så du skal altid sende projektmateriale til vurdering. Varde Kommune har telefon 79 94 68 00.", ["var_byg"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Varde: Varde Kommune vil have alle olie- og naturgasfyr til privat opvarmning udfaset i 2030, og 8 % af husene har stadig oliefyr. Nogle landsbyer får fjernvarme, men resten skal finde en individuel løsning. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("Ifølge varmeplanen var der ca. <strong>4.100 oliefyr og 2.700 gasfyr</strong> i Varde Kommune, og ambitionen er, at alle olie- og naturgasfyr til privat opvarmning er udfaset i <strong>2030</strong>.", ["var_vpl"]),
+    ("Områder, der hverken har fjernvarme eller er udpeget til kollektiv varme, anbefales at skifte til en <strong>individuel løsning som varmepumper</strong>.", ["var_vpl"]),
+    ("<strong>Helle Energi</strong> skal levere fjernvarme til Nordenskov, Agerbæk, Fåborg, Næsbjerg, Årre og Starup-Tofterup fra seks små varmecentraler; ca. 1.300 husstande kan få fjernvarme i løbet af 2026 og 2027.", ["var_helle"]),
+    ("Når et område er udpeget til kollektiv varme, og et projektforslag er godkendt, kan man ikke længere få tilskud fra Bygningspuljen til en varmepumpe.", ["var_vpl"]),
+  ],
+  "vp_faq": [
+    ("Får min landsby fjernvarme i Varde Kommune?", "Det afhænger af byen. Oksbøl Varmeværk har konverteret Billum og Janderup, og Helle Energi bygger varmecentraler til seks byer i den gamle Helle Kommune. Varmeplanen anbefaler individuelle løsninger som varmepumper i de områder, der er for små eller ligger for langt fra et fjernvarmenet.", ["var_vpl", "var_oks", "var_helle"]),
+    ("Hvor mange oliefyr er der i Varde Kommune?", "Varmeplanen fra 2022 nævner ca. 4.100 oliefyr og 2.700 gasfyr. Danmarks Statistik registrerer i 2026 oliefyr i ca. 8 % af de beboede parcel- og rækkehuse.", ["var_vpl", "dst_bol102"]),
+  ],
+}
+CITIES["faxe"] = {
+  "name": "Faxe", "kommune": "Faxe Kommune", "updated": ("11. november 2026", "2026-11-11"),
+  "sol_intro": "Solceller i Faxe: et anlæg på taget kræver ikke tilladelse fra Faxe Kommune, når det sidder mere end 2,5 meter fra skel (5 meter i sommerhusområder). Lokalplaner, deklarationer og grundejerforeninger kan dog stille krav, og kommunen er åben for dispensation. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Solceller på bygninger kræver ikke tilladelse fra kommunen, når anlægget er <strong>mere end 2,5 m fra skel</strong> (5,0 m i sommerhusområde).", ["fax_sol"]),
+    ("<strong>Byplanvedtægter, lokalplaner, deklarationer, grundejerforeningsvedtægter</strong>, fredning og beskyttelseslinjer kan forhindre et anlæg.", ["fax_sol"]),
+    ("Flere lokalplaner kræver, at solceller er <strong>nedfældet i tagfladen</strong>, men kommunen vil se på dispensation ud fra konkrete ansøgninger.", ["fax_sol"]),
+    ("Anlægget skal <strong>anmeldes til BBR</strong> med antal paneler, m² og kW, også når det ikke kræver tilladelse.", ["fax_sol"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om lov til solceller på mit hus i Faxe Kommune?", "Ikke når anlægget sidder på bygningen mere end 2,5 m fra skel (5 m i sommerhusområder) og overholder bygningsreglementets højde- og afstandskrav. Lokalplan, deklarationer eller grundejerforeningens vedtægter kan dog kræve dispensation.", ["fax_sol"]),
+    ("Hvem kontakter jeg om solceller i Faxe Kommune?", "Byg på byg@faxekommune.dk eller 56 20 30 30. Dispensation fra en lokalplan søges på plan@faxekommune.dk, og BBR har telefon 56 20 30 10.", ["fax_sol"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Faxe: kun hvert femte hus i kommunen har fjernvarme, og næsten hvert tredje har naturgas. Fjernvarmeprojekterne i Faxe Ladeplads, Karise, Dalby og Rønnede er opgivet, så for de fleste gaskunder er en varmepumpe vejen væk fra gassen. Her er status, priserne og reglerne.",
+  "vp_facts": [
+    ("<strong>Faxe Ladeplads</strong> er ikke længere udlagt som muligt fjernvarmeområde. Kun 23 % af det opvarmede areal havde skrevet kontrakt, og målet var ca. 60-75 %.", ["fax_fl"]),
+    ("Fjernvarmeprojekterne i <strong>Rønnede/Kongsted, Karise og Dalby</strong> blev droppet i 2023 på grund af for lille interesse.", ["fax_es"]),
+    ("I Haslev er to af syv fjernvarmeprojekter gennemført, to har ikke nået de krævede <strong>60 % tilslutning</strong>, og tre venter på en tilslutningsundersøgelse.", ["fax_haslev"]),
+    ("En luft til luft- eller luft til vand-varmepumpe kræver som regel ikke tilladelse, men i <strong>rækkehuse</strong>, bevaringsværdige huse og ved jordvarme skal du kontakte kommunen først.", ["fax_vp"]),
+  ],
+  "vp_faq": [
+    ("Kræver en varmepumpe tilladelse i Faxe Kommune?", "Som regel ikke. Du skal dog kontakte kommunens byggesagsafdeling, hvis det er jordvarme, hvis huset er bevaringsværdigt eller ligger i en bevarende lokalplan, hvis du bor i en rækkehusbebyggelse, eller hvis varmepumpen skal stå inden for en beskyttelseslinje.", ["fax_vp"]),
+    ("Hvor meget må en varmepumpe støje i Faxe?", "Faxe Kommune skriver, at støjen højst må være 35 dB ved skel til naboen om natten. Kommer der klager, kan kommunen give påbud om at dæmpe støjen.", ["fax_vp"]),
+  ],
+}
+CONTACTS["varde"] = {"sol": [("Varde Kommune", "79 94 68 00 · vardekommune@varde.dk", "var_byg")],
+                     "vp":  [("Varde Kommune", "79 94 68 00 · vardekommune@varde.dk", "var_byg")]}
+CONTACTS["faxe"] = {"sol": [("Faxe Kommune, Byg", "56 20 30 30 · byg@faxekommune.dk", "fax_sol")],
+                    "vp":  [("Faxe Kommune, Byg", "56 20 30 30 · byg@faxekommune.dk", "fax_sol")]}

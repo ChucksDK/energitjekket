@@ -11,13 +11,13 @@ def hs(c): return sum(HEAT[c].values())            # beboede parcel- og rækkehu
 def hp(c, k, d=0): return pct(HEAT[c][k], hs(c), d)
 def rp(c, k, d=0): return pct(ROOF[c]["T"][k], ROOF[c]["tot"], d)
 def town(c, name): return dict(TOWNS[c])[name]
-_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten", 19: "nitten", 20: "tyve", 21: "enogtyve", 22: "toogtyve", 23: "treogtyve", 24: "fireogtyve", 25: "femogtyve", 26: "seksogtyve", 27: "syvogtyve", 28: "otteogtyve", 29: "niogtyve", 30: "tredive", 31: "enogtredive", 32: "toogtredive", 33: "treogtredive", 34: "fireogtredive", 35: "femogtredive", 36: "seksogtredive"}
+_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten", 19: "nitten", 20: "tyve", 21: "enogtyve", 22: "toogtyve", 23: "treogtyve", 24: "fireogtyve", 25: "femogtyve", 26: "seksogtyve", 27: "syvogtyve", 28: "otteogtyve", 29: "niogtyve", 30: "tredive", 31: "enogtredive", 32: "toogtredive", 33: "treogtredive", 34: "fireogtredive", 35: "femogtredive", 36: "seksogtredive", 37: "syvogtredive", 38: "otteogtredive"}
 def nw(k=0): return _NUMW[len(NAMES) - k]          # "ni" for 9 byer, nw(1) = "otte" (de andre)
 def top(f, rev=False):
     """By med højeste (eller laveste, rev=True) værdi blandt sitets byer. Bruges til at tjekke sammenlignende udsagn."""
     return sorted(NAMES, key=f, reverse=not rev)[0]
 def rank(f, c): return sorted(NAMES, key=f, reverse=True).index(c) + 1
-_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende", 21: "enogtyvende", 22: "toogtyvende", 23: "treogtyvende", 24: "fireogtyvende", 25: "femogtyvende", 26: "seksogtyvende", 27: "syvogtyvende", 28: "otteogtyvende", 29: "niogtyvende", 30: "tredivte", 31: "enogtredivte", 32: "toogtredivte", 33: "treogtredivte", 34: "fireogtredivte", 35: "femogtredivte", 36: "seksogtredivte"}
+_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende", 21: "enogtyvende", 22: "toogtyvende", 23: "treogtyvende", 24: "fireogtyvende", 25: "femogtyvende", 26: "seksogtyvende", 27: "syvogtyvende", 28: "otteogtyvende", 29: "niogtyvende", 30: "tredivte", 31: "enogtredivte", 32: "toogtredivte", 33: "treogtredivte", 34: "fireogtredivte", 35: "femogtredivte", 36: "seksogtredivte", 37: "syvogtredivte", 38: "otteogtredivte"}
 def rk(f, c, word, art="den", rev=False):
     """Rangord, fx 'den højeste', 'den næsthøjeste' (rev=True tæller fra bunden). Holder sammenlignende udsagn sande, når nye byer kommer til."""
     r = sorted(NAMES, key=f, reverse=not rev).index(c) + 1
@@ -28,7 +28,7 @@ def above(f, c):
     a = [NAMES[x] for x in sorted(NAMES, key=f, reverse=True)[:rank(f, c) - 1]]
     return a[0] if len(a) == 1 else ", ".join(a[:-1]) + " og " + a[-1]
 
-NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund", "skanderborg": "Skanderborg", "vordingborg": "Vordingborg", "koebenhavn": "København", "vejen": "Vejen"}
+NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund", "skanderborg": "Skanderborg", "vordingborg": "Vordingborg", "koebenhavn": "København", "vejen": "Vejen", "varde": "Varde", "faxe": "Faxe"}
 LOCAL_S = {
  "dst_bol102": ("Danmarks Statistik: BOL102, boliger efter område og opvarmning (2026)", "https://www.statistikbanken.dk/BOL102"),
  "dst_bol101": ("Danmarks Statistik: BOL101, boliger efter opførelsesår og udlejningsforhold (2026)", "https://www.statistikbanken.dk/BOL101"),
@@ -1528,11 +1528,100 @@ def reg_age_note(c, kommune):
 # keyword-backlog 10/11 2026: 'luft til vand varmepumpe aabenraa' (GSC 40 visninger, pos. 79,4) -> FAQ om pris og elvarme på /varmepumpe/aabenraa/
 VP_XFAQ["aabenraa"] = VP_XFAQ.get("aabenraa", []) + [("Hvad koster en luft til vand-varmepumpe i Aabenraa?", lambda: f"SparEnergi angiver typisk 100.000-130.000 kr. for en luft til vand-varmepumpe, og Energisparer.dk ca. 90.000-150.000 kr. afhængigt af husets størrelse. Har huset elvarme med paneler – det gælder {tal(HEAT['aabenraa']['ELV'])} af de {tal(hs('aabenraa'))} beboede parcel- og rækkehuse i Aabenraa Kommune – skal der også etableres radiatorer eller gulvvarme, før en luft til vand-varmepumpe kan bruges. Ellers er en luft til luft-varmepumpe det billigere valg.", ["se_vp", "es_vp", "es_l2v", "dst_bol102"])]
 
+# ---------- daglig by-rutine 11. nov. 2026: Varde (DK1) og Faxe (DK2) ----------
+SOL_ORDER.update({
+ "varde": ["produktion", "lokalt", "tage", "faq", "boliger", "guides"],
+ "faxe": ["lokalt", "boliger", "produktion", "tage", "faq", "guides"],
+})
+VP_ORDER.update({
+ "varde": ["opvarmning", "lokale-byer", "lokalt", "pris", "faq", "guides"],
+ "faxe": ["lokalt", "lokale-byer", "opvarmning", "faq", "pris", "guides"],
+})
+FV_ORDER.update({
+ "varde": ["priser", "status", "billigst", "andel", "faq", "varmekilder"],
+ "faxe": ["status", "andel", "priser", "faq", "billigst", "varmekilder"],
+})
+SOL_PROD.update({
+ "varde": ("Solceller i Varde: vestkyst og hældning",
+   lambda: f"PVGIS beregner ca. {tal(PV['varde']['syd'])} kWh pr. kWp om året for et sydvendt tag med 35° hældning i Varde og ca. {tal(PV['varde']['opt'])} kWh ved den bedste hældning på {PV['varde']['opt_angle']}°. Et 6 kWp-anlæg giver ca. {tal(PV['varde']['syd']*6)} kWh om året. Juni alene giver ca. {tal(PV['varde']['months'][5]*6)} kWh, december kun ca. {tal(PV['varde']['months'][11]*6)} kWh. Mod øst er det ca. {tal(PV['varde']['oest'])} og mod vest ca. {tal(PV['varde']['vest'])} kWh pr. kWp."),
+ "faxe": ("Solceller i Faxe: blandt de solrigeste på sitet",
+   lambda: f"PVGIS beregner ca. {tal(PV['faxe']['syd'])} kWh pr. kWp om året for et sydvendt tag med 35° hældning i Faxe – {rk(_PVY, 'faxe', 'højeste')} af de {nw()} byer på dette site. Et 6 kWp-anlæg giver ca. {tal(PV['faxe']['syd']*6)} kWh om året. Mod øst giver det ca. {tal(PV['faxe']['oest'])} og mod vest ca. {tal(PV['faxe']['vest'])} kWh pr. kWp, så et øst-vest-tag giver ca. en femtedel mindre end et sydvendt."),
+})
+SOL_PROD_SRC_NEW.update({"varde": ["pv_varde", "pvo_varde", "pvv_varde"], "faxe": ["pv_faxe", "pvo_faxe", "pvv_faxe"]})
+SOL_ROOF.update({
+ "varde": ("Fibercement, cementsten og tegl på tagene i Varde",
+   lambda: f"{rp('varde','06')} af parcel- og rækkehusene i Varde Kommune har tag af <strong>fibercement</strong>, {rp('varde','08')} <strong>cementsten</strong> og {rp('varde','10')} <strong>tegl</strong>. Bølgeplader fra før 1984 kan indeholde asbest, og Varde Kommune råder dig til at få en professionel rådgiver til at vurdere, om tagkonstruktionen kan bære den ekstra vægt fra solcellerne.",
+   ["dst_bygb50", "bolius_asb", "var_byg"]),
+ "faxe": ("Få tegltage og mange cementsten i Faxe",
+   lambda: f"Kun {rp('faxe','10')} af parcel- og rækkehusene i Faxe Kommune har <strong>tegltag</strong> – {rk(_rt('10'), 'faxe', 'laveste', rev=True)} andel af de {nw()} byer – mod {rp('dk','10')} på landsplan. {rp('faxe','06')} har <strong>fibercement</strong> og {rp('faxe','08')} <strong>cementsten</strong>. Flere lokalplaner i kommunen kræver, at solceller er nedfældet i tagfladen, så tjek lokalplanen, før du vælger montering.",
+   ["dst_bygb50", "fax_sol"]),
+})
+SOL_HOMES.update({
+ "varde": lambda: f"Varde Kommune har {tal(STOCK['varde']['tot'])} beboede parcel- og rækkehuse, og {pct(STOCK['varde']['B']['før 1960'],STOCK['varde']['tot'])} er bygget før 1960, mod {pct(STOCK['dk']['B']['før 1960'],STOCK['dk']['tot'])} på landsplan. {pct(STOCK['varde']['ejer'],STOCK['varde']['tot'])} bebos af ejeren. Varde by har {tal(town('varde','Varde'))} indbyggere, Ølgod {tal(town('varde','Ølgod'))}, Oksbøl {tal(town('varde','Oksbøl'))}, Tistrup {tal(town('varde','Tistrup'))} og Nørre Nebel {tal(town('varde','Nørre Nebel'))}. Siden gælder hele kommunen.",
+ "faxe": lambda: f"Faxe Kommune har {tal(STOCK['faxe']['tot'])} beboede parcel- og rækkehuse, og {pct(STOCK['faxe']['raekke'],STOCK['faxe']['tot'])} er række-, kæde- eller dobbelthuse. {pct(STOCK['faxe']['B']['2000+'],STOCK['faxe']['tot'])} er bygget i 2000 eller senere, mod {pct(STOCK['dk']['B']['2000+'],STOCK['dk']['tot'])} på landsplan. Haslev er kommunens største by med {tal(town('faxe','Haslev'))} indbyggere, Faxe har {tal(town('faxe','Faxe'))}, Rønnede {tal(town('faxe','Rønnede'))}, Dalby {tal(town('faxe','Dalby'))}, Faxe Ladeplads {tal(town('faxe','Faxe Ladeplads'))} og Karise {tal(town('faxe','Karise'))}. Siden gælder hele kommunen.",
+})
+SOL_HOMES_SRC_NEW.update({"varde": [], "faxe": []})
+SOL_HOMES_H.update({"varde": "Huse fra Varde til Ølgod, Oksbøl og Tistrup", "faxe": "Huse i Haslev, Faxe og de mindre byer"})
+SOL_XFAQ.update({
+ "varde": [("Skal solceller registreres i BBR i Varde Kommune?", lambda: "Ja. Varde Kommune skriver, at anlægget altid skal registreres i Bygnings- og Boligregistret (BBR), uanset om det kræver byggetilladelse eller ej.", ["var_byg"])],
+ "faxe": [("Kræver solceller på jorden tilladelse i Faxe Kommune?", lambda: "Ja. Et anlæg på jorden er et teknisk anlæg og kræver byggetilladelse, og i landzone også landzonetilladelse. Mindre anlæg til privat brug ved eksisterende bebyggelse får normalt tilladelse, men i områder med særlige natur- eller landskabshensyn gives der normalt afslag.", ["fax_sol"])],
+})
+VP_HEAT.update({
+ "varde": ("Mange oliefyr tilbage i Varde",
+   lambda: f"{tal(HEAT['varde']['CO'])} af de {tal(hs('varde'))} beboede parcel- og rækkehuse i Varde Kommune ({hp('varde','CO',1)}) har oliefyr – {rk(_hf('CO'), 'varde', 'højeste')} andel af de {nw()} byer og mod {hp('dk','CO',1)} på landsplan. {tal(HEAT['varde']['CN'])} har naturgas, og {tal(HEAT['varde']['VP'])} har allerede varmepumpe ({hp('varde','VP',1)}). {hp('varde','FJ')} har fjernvarme."),
+ "faxe": ("Næsten hvert tredje hus har naturgas i Faxe",
+   lambda: f"{tal(HEAT['faxe']['CN'])} af de {tal(hs('faxe'))} beboede parcel- og rækkehuse i Faxe Kommune ({hp('faxe','CN',1)}) har naturgas, mod {hp('dk','CN',1)} på landsplan, og kun {hp('faxe','FJ')} har fjernvarme. {tal(HEAT['faxe']['VP'])} har allerede varmepumpe ({hp('faxe','VP',1)}) – {rk(_hf('VP'), 'faxe', 'højeste')} andel af de {nw()} byer – og {tal(HEAT['faxe']['ELV'])} har elvarme."),
+})
+VP_HEAT_SRC_NEW.update({"varde": ["var_vpl"], "faxe": ["fax_fl", "fax_es"]})
+VP_TOWNS.update({
+ "varde": [("Varde / Alslev", "DIN Forsyning Varme via transmissionsledning", ["var_vpl", "ft_pris"]),
+           ("Ølgod / Outrup / Ansager / Oksbøl", "Egne værker, alle under landsgennemsnittet i pris", ["var_vpl", "ft_pris"]),
+           ("Billum / Janderup", "Konverteret til fjernvarme fra Oksbøl", ["var_oks"]),
+           ("Agerbæk, Årre, Næsbjerg m.fl.", "Helle Energi: fjernvarme i løbet af 2026-2027", ["var_helle"])],
+ "faxe": [("Faxe", "Faxe Fjernvarmeselskab, under landsgennemsnittet i pris", ["ft_pris"]),
+          ("Haslev", "Haslev Fjernvarme; tre udbygningsprojekter afventer", ["fax_haslev", "ft_pris"]),
+          ("Faxe Ladeplads", "Ikke længere muligt fjernvarmeområde (2025)", ["fax_fl"]),
+          ("Rønnede, Karise, Dalby", "Fjernvarmeprojekter droppet 2023", ["fax_es"])],
+})
+VP_TOWNS_NOTE.update({
+ "varde": "Bor du i en af Helle-byerne eller tæt på et af de ni værker, så spørg først, om din adresse kan få fjernvarme – i et udpeget område kan du ikke få tilskud til varmepumpe. I de mindste landsbyer anbefaler varmeplanen individuelle løsninger som en luft til vand-varmepumpe.",
+ "faxe": "Har du gasfyr i Faxe Ladeplads, Karise, Dalby eller Rønnede, er fjernvarme ikke på vej, og en luft til vand-varmepumpe er det typiske valg. Bor du i et af Haslevs projektområder, så spørg kommunen om status, før du søger tilskud.",
+})
+VP_XFAQ.update({
+ "varde": [("Hvor mange huse i Varde Kommune har oliefyr?", lambda: f"{tal(HEAT['varde']['CO'])} af de {tal(hs('varde'))} beboede parcel- og rækkehuse ({hp('varde','CO',1)}) ifølge Danmarks Statistik, 2026. {tal(HEAT['varde']['CN'])} har naturgas, og {tal(HEAT['varde']['VP'])} har allerede varmepumpe.", ["dst_bol102"])],
+ "faxe": [("Hvor mange huse i Faxe Kommune har naturgas?", lambda: f"{tal(HEAT['faxe']['CN'])} af de {tal(hs('faxe'))} beboede parcel- og rækkehuse ({hp('faxe','CN',1)}) ifølge Danmarks Statistik, 2026. {tal(HEAT['faxe']['VP'])} har allerede varmepumpe, og {tal(HEAT['faxe']['CO'])} har oliefyr.", ["dst_bol102"])],
+})
+FV_SOURCES.update({
+ "varde": [("Varde by og Alslev får varmen fra DIN Forsyning via en <strong>transmissionsledning fra Esbjerg</strong>, hvor affaldsforbrændingen Energnist ifølge varmeplanen fortsat skal levere ca. halvdelen af varmen.", ["var_vpl"]),
+           ("Oksbøl Varmeværk har et solvarmeanlæg på 15.000 m², en 8 MW elkedel og siden 2023 en 8,5 MW fliskedel, så størstedelen af varmen i Oksbøl i dag laves på bæredygtig energi.", ["var_oks"])],
+ "faxe": [("Haslev Fjernvarmes udbygning skal bidrage til Faxe Kommunes mål om at udfase gas- og oliefyr i <strong>2030</strong>.", ["fax_haslev"]),
+          ("Faxe Kommune skriver, at fjernvarme typisk giver færre lokale støjgener end individuelle varmepumper og mindre vedligeholdelse for den enkelte.", ["fax_haslev"])],
+})
+FV_SHARE.update({
+ "varde": lambda: f"{hp('varde','FJ',1)} af de beboede parcel- og rækkehuse i Varde Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. {hp('varde','CO',1)} har oliefyr og {hp('varde','VP',1)} varmepumpe.",
+ "faxe": lambda: f"{hp('faxe','FJ',1)} af de beboede parcel- og rækkehuse i Faxe Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. {hp('faxe','CN',1)} har naturgas og {hp('faxe','VP',1)} varmepumpe.",
+})
+FV_SOURCES_H.update({"varde": "Ni værker fra Esbjerg-ledningen til flis i Oksbøl", "faxe": "Haslevs projekter og målet for 2030"})
+_reg_age_old15 = reg_age_note
+def reg_age_note(c, kommune):
+    s = STOCK[c]; B = s["B"]; t = s["tot"]
+    if c == "varde":
+        return (f"{tal(B['før 1960'])} af de beboede huse i Varde Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. Bygninger med SAVE-bevaringsværdi 1-4 er optaget som bevaringsværdige i kommuneplanen, og lokalplaner eller tinglyste deklarationer kan regulere solceller – tjek din ejendom først.", ["var_byg"])
+    if c == "faxe":
+        return (f"{tal(B['før 1960'])} af de beboede huse i Faxe Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. I bevarende lokalplaner ser Faxe Kommune på husets arkitektur, bevaringsværdi og synlighed fra vej, sti eller fællesareal, før solceller kan godkendes.", ["fax_sol"])
+    return _reg_age_old15(c, kommune)
+
+
+# keyword-backlog 11/11 2026: 'luft til vand varmepumpe svendborg' (GSC 32 visninger, pos. 36,6) -> FAQ om luft til vand-pris og gas/olie på /varmepumpe/svendborg/
+VP_XFAQ["svendborg"] = VP_XFAQ["svendborg"] + [("Hvad koster en luft til vand-varmepumpe i Svendborg?", lambda: f"SparEnergi angiver typisk 100.000-130.000 kr. for en luft til vand-varmepumpe, og Energisparer.dk ca. 90.000-150.000 kr. inkl. installation afhængigt af husets størrelse og varmetab. I Svendborg Kommune har {tal(HEAT['svendborg']['CN'])} beboede parcel- og rækkehuse naturgas og {tal(HEAT['svendborg']['CO'])} oliefyr – huse, der typisk allerede har radiatorer, så en luft til vand-varmepumpe kan overtage både rumvarme og varmt vand.", ["se_vp", "es_vp", "es_l2v", "dst_bol102"])]
+# keyword-backlog 11/11 2026: 'luft til luft varmepumpe aabenraa' (GSC 30 visninger, pos. 84,1) -> FAQ om luft til luft på /varmepumpe/aabenraa/
+VP_XFAQ["aabenraa"] = VP_XFAQ.get("aabenraa", []) + [("Hvad koster en luft til luft-varmepumpe i Aabenraa?", lambda: f"SparEnergi angiver 15.000-30.000 kr. på sin side om luft til luft og typisk 30.000-40.000 kr. i sin sammenligning af typer; Energisparer.dk ca. 12.000-25.000 kr. Den passer bedst til huse med elvarme – det gælder {tal(HEAT['aabenraa']['ELV'])} af de {tal(hs('aabenraa'))} beboede parcel- og rækkehuse i Aabenraa Kommune – men den varmer kun de rum, den kan nå, giver ikke varmt vand og er ikke omfattet af Varmepumpepuljen.", ["se_l2l", "se_vp", "es_vp", "se_vpp", "dst_bol102"])]
+
 # ---------- tjek af sammenlignende udsagn: bygget fejler, hvis en ny by gør et udsagn forkert ----------
 _PVs = lambda c: PV[c]["syd"]; _rt = lambda k: (lambda c: ROOF[c]["T"][k] / ROOF[c]["tot"]); _hf = lambda k: (lambda c: HEAT[c][k] / hs(c)); _sb = lambda k: (lambda c: STOCK[c]["B"][k] / STOCK[c]["tot"])
 CLAIMS = [
- ("Esbjerg top 12 PV", rank(_PVs, "esbjerg") <= 12),
- ("Aalborg top 13 juni", rank(lambda c: PV[c]["months"][5], "aalborg") <= 13),
+ ("Esbjerg top 13 PV", rank(_PVs, "esbjerg") <= 13),
+ ("Aalborg top 14 juni", rank(lambda c: PV[c]["months"][5], "aalborg") <= 14),
  ("Odense top 2 tegl (dynamisk tekst)", rank(_rt("10"), "odense") <= 2), ("Aalborg top 3 fibercement (dynamisk tekst)", rank(_rt("06"), "aalborg") <= 3),
  ("Vejle ikke nr. 1 nyere huse", rank(_sb("2000+"), "vejle") > 1),
  ("Esbjerg top 5 1960-79 (dynamisk tekst)", rank(_sb("1960-1979"), "esbjerg") <= 5),
@@ -1540,7 +1629,7 @@ CLAIMS = [
  ("Horsens top 7 ejerandel (dynamisk tekst)", rank(_EJ, "horsens") <= 7),
  ("Odense højeste FJ", top(_hf("FJ")) == "odense"), ("Aarhus top 3 FJ (dynamisk tekst)", rank(_hf("FJ"), "aarhus") <= 3),
 
- ("Viborg top 4 olie, Randers top 8 (dynamisk tekst)", rank(_hf("CO"), "viborg") <= 4 and rank(_hf("CO"), "randers") <= 8),
+ ("Viborg top 5 olie, Randers top 10 (dynamisk tekst)", rank(_hf("CO"), "viborg") <= 5 and rank(_hf("CO"), "randers") <= 10),
  ("Næstved gas tæt på fjernvarme (overskrift)", abs(HEAT["naestved"]["CN"] - HEAT["naestved"]["FJ"]) / HEAT["naestved"]["FJ"] < 0.05),
  ("Sønderborg tre ud af fem FJ (overskrift)", 0.58 <= HEAT["soenderborg"]["FJ"] / hs("soenderborg") <= 0.62),
  ("Roskilde mere end hvert fjerde gas (overskrift)", HEAT["roskilde"]["CN"] / hs("roskilde") > 0.25),
@@ -1603,6 +1692,14 @@ CLAIMS = [
  ("Vejen fibercement, cementsten, tegl top 3 (overskrift)", sorted(ROOF["vejen"]["T"], key=lambda k: -ROOF["vejen"]["T"][k])[:3] == ["06", "08", "10"]),
  ("Vejen 45 pct. FJ (intro/FV-intro)", round(100 * HEAT["vejen"]["FJ"] / hs("vejen")) == 45),
  ("Vejen næsten hvert femte naturgas (overskrift/intro)", 0.17 <= HEAT["vejen"]["CN"] / hs("vejen") < 0.20),
+ ("Varde 56 pct. FJ (FV-intro)", round(100 * HEAT["varde"]["FJ"] / hs("varde")) == 56),
+ ("Varde 8 pct. olie (intro/FAQ)", round(100 * HEAT["varde"]["CO"] / hs("varde")) == 8),
+ ("Varde mange oliefyr top 5 (overskrift)", rank(_hf("CO"), "varde") <= 5),
+ ("Faxe hvert femte FJ (intro)", 0.18 <= HEAT["faxe"]["FJ"] / hs("faxe") < 0.22),
+ ("Faxe næsten hvert tredje naturgas (overskrift/intro)", 0.29 <= HEAT["faxe"]["CN"] / hs("faxe") < 0.334),
+ ("Faxe få tegltage (overskrift)", rank(_rt("10"), "faxe", ) >= len(NAMES) - 2),
+ ("Faxe solrig top 8 (overskrift)", rank(_PVs, "faxe") <= 8),
+ ("Faxe øst-vest ca. en femtedel mindre (tekst)", 0.17 <= 1 - (PV["faxe"]["oest"] + PV["faxe"]["vest"]) / 2 / PV["faxe"]["syd"] <= 0.25),
 ]
 _bad = [n for n, ok in CLAIMS if not ok]
 assert not _bad, f"Sammenlignende udsagn passer ikke længere: {_bad}"

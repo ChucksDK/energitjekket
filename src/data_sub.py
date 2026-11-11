@@ -1901,3 +1901,94 @@ FV_PAGE["vejen"] = {
    ("Hvem kontakter jeg om fjernvarme i Holsted, Brørup eller Rødding?", "Holsted Varmeværk på 75 39 26 60, Brørup Fjernvarme på 75 38 13 20 og Rødding Varmecentral på 74 84 16 70. I Vejen by er det Varmega på 69 15 39 00.", ["vjn_fv"]),
   ],
 }
+
+# ---------- daglig by-rutine 11. nov. 2026: Varde og Faxe ----------
+# Forsyningstilsynet jan. 2026 (research-archive/energitjekket/2026-11-01/ft_prisstatistik_jan2026.csv), rang af 374 efter enfamiliehus-pris:
+# Varde Kommunes 9 værker (varmeplanen 2023-2030): Ølgod 65, Outrup 75, Ansager 92, Oksbøl 109, DIN Forsyning (Varde by + Alslev, fælles med Esbjerg) 208, Sig 307, Skovlund 328, Tistrup 353, Nørre Nebel 363.
+# Faxe Kommune: Faxe Fjernvarmeselskab 108, Haslev Fjernvarme 311.
+FV_PRICES["varde"] = [("Ølgod Fjernvarmeselskab", "6870", "14.502", "545"), ("Outrup Varmeværk", "6855", "14.718", "687"), ("Ansager Varmeværk", "6823", "15.162", "375"),
+                      ("Oksbøl Varmeværk", "6840", "15.583", "632"), ("DIN Forsyning Varme (Varde by og Alslev)", "6715", "18.249", "817"), ("Sig Varmeværk", "6800", "21.074", "888"),
+                      ("Skovlund Varmeværk", "6823", "22.112", "875"), ("Tistrup Varmeværk", "6862", "24.021", "843"), ("Nørre Nebel Fjernvarme", "6830", "25.205", "1.102")]
+FV_PRICES["faxe"] = [("Faxe Fjernvarmeselskab", "4640", "15.566", "858"), ("Haslev Fjernvarme", "4690", "21.199", "861")]
+SOL_REG["varde"] = {
+  "kw": "solceller varde / byggetilladelse solceller varde kommune / solceller ølgod oksbøl",
+  "evidence": "Varde Kommunes side om byggeri, afsnittet om solceller og solfangere (tjekket 11/11 2026).",
+  "intro": "Varde Kommune skriver, at solceller på enfamilie-, tofamilie-, række- og sommerhuse og tilhørende småbygninger kan sættes op uden byggetilladelse og uden anmeldelse, når byggeloven er overholdt. Anlægget tæller dog med i bygningshøjden, og lokalplaner og deklarationer kan forbyde det. Her er reglerne og hvordan du søger.",
+  "sections": [
+   ("Uden byggetilladelse", [
+     ("ul", [("Anlægget sidder på et <strong>enfamilie-, tofamilie-, række- eller sommerhus</strong> eller en tilhørende småbygning.", ["var_byg"]),
+             ("<strong>Bygningshøjden</strong> overholdes, også med solcellerne medregnet.", ["var_byg"]),
+             ("Hverken lokalplan, byplanvedtægt eller tinglyst deklaration regulerer eller forbyder solceller på grunden.", ["var_byg"])]),
+   ]),
+   ("Anlæg på terræn og andre bygninger", [
+     ("p", "Solceller på terræn kan kræve byggetilladelse, hvis anlægget er væsentligt i forhold til omfang, højde og afstand. Det er kommunen, der afgør det, så du skal altid sende projektmateriale til vurdering. Solceller på alle andre typer bygninger kræver altid byggetilladelse.", ["var_byg"]),
+   ]),
+   ("Kommunens råd om placering", [
+     ("p", "Panelerne bør have samme hældning som taget og placeres harmonisk i forhold til kviste, tagvinduer og skorstene. Kommunen råder dig til at få en professionel rådgiver til at vurdere, om tagkonstruktionen kan bære den ekstra vægt. Varde Kommune har telefon 79 94 68 00.", ["var_byg"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller byggetilladelse i Varde Kommune?", "Ikke på enfamilie-, tofamilie-, række- og sommerhuse og tilhørende småbygninger, når byggeloven og bygningshøjden er overholdt. På alle andre bygningstyper kræves altid byggetilladelse.", ["var_byg"]),
+   ("Tæller solcellerne med i husets højde?", "Ja. Varde Kommune skriver, at solceller og solfangere skal medregnes i bygningshøjden, som fortsat skal være overholdt.", ["var_byg"]),
+   ("Kan en lokalplan forbyde solceller i Varde?", "Ja. Opsætning og placering kan være reguleret af eller forbudt i lokalplaner, byplanvedtægter og tinglyste deklarationer, så tjek din ejendom først.", ["var_byg"]),
+  ],
+}
+SOL_REG["faxe"] = {
+  "kw": "solceller faxe / solceller haslev / byggetilladelse solceller faxe kommune",
+  "evidence": "Faxe Kommunes side om solceller og solfangeranlæg (tjekket 11/11 2026).",
+  "intro": "Faxe Kommune skriver, at et solcelleanlæg på en bygning ikke kræver tilladelse, når det sidder mere end 2,5 meter fra skel – 5 meter i sommerhusområder. Lokalplaner, deklarationer og grundejerforeninger kan dog stille krav, og anlæg på jorden kræver byggetilladelse. Her er reglerne og hvem du kontakter.",
+  "sections": [
+   ("Det kan stoppe solceller på taget", [
+     ("ul", [("<strong>Byplanvedtægter og lokalplaner</strong> – flere kræver fx, at solceller er nedfældet i tagfladen.", ["fax_sol"]),
+             ("<strong>Deklarationer</strong> (tjek tinglysning.dk) og <strong>grundejerforeningsvedtægter</strong>.", ["fax_sol"]),
+             ("<strong>Fredede eller bevaringsværdige bygninger</strong> og beskyttelseslinjer efter naturbeskyttelsesloven.", ["fax_sol"])]),
+   ]),
+   ("Dispensation og bevarende lokalplaner", [
+     ("p", "Faxe Kommune er åben for at undersøge dispensation på baggrund af konkrete ansøgninger, som sendes til plan@faxekommune.dk. Der lægges vægt på, at anlægget har samme hældning som taget eller er integreret i tagbelægningen. I bevarende lokalplaner ser kommunen på husets arkitektur, bevaringsværdi og synlighed fra vej, sti eller fællesareal.", ["fax_sol"]),
+   ]),
+   ("Anlæg på jorden og registrering", [
+     ("p", "Solceller på jorden er et teknisk anlæg og kræver byggetilladelse, og i landzone også landzonetilladelse. Uanset om anlægget kræver tilladelse, skal det anmeldes til BBR med antal paneler, m² og ydelse i kW. Byg: 56 20 30 30, BBR: 56 20 30 10.", ["fax_sol"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller tilladelse i Faxe Kommune?", "Ikke på en bygning, når anlægget er mere end 2,5 m fra skel (5 m i sommerhusområder) og bygningsreglementets højde- og afstandskrav er overholdt. Ellers kræver det en helhedsvurdering, som du søger om via Byg og Miljø.", ["fax_sol"]),
+   ("Kan jeg få dispensation, hvis lokalplanen kræver nedfældede solceller?", "Faxe Kommune skriver, at den er åben for at undersøge dispensation ud fra konkrete ansøgninger. Ansøgningen sendes til plan@faxekommune.dk.", ["fax_sol"]),
+   ("Må mine solceller blænde naboen?", "Nej. Kommunen skriver, at solcellerne ikke må give generende refleksioner for naboer, trafikanter og andre omkringboende.", ["fax_sol"]),
+  ],
+}
+FV_PAGE["varde"] = {
+  "kw": "fjernvarme varde / fjernvarme pris varde kommune / varmepumpe landsby varde",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026 for kommunens 9 værker, Varde Kommunes varmeplan 2023-2030 og Dansk Fjernvarmes artikler om Helle Energi og Oksbøl Varmeværk (tjekket 11/11 2026).",
+  "intro": "56 % af husene i Varde Kommune har fjernvarme fra ni forskellige værker, og prisen afhænger meget af, hvor du bor: Ølgod ligger i den billigste femtedel af landets værker, Nørre Nebel blandt de dyreste. Flere landsbyer får fjernvarme i disse år. Her er status, priserne og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Ni værker:</strong> DIN Forsyning (Varde by og Alslev via transmissionsledning fra Esbjerg), Sig, Ølgod, Nørre Nebel, Ansager, Skovlund, Tistrup, Outrup og Oksbøl.", ["var_vpl"]),
+   ("<strong>Billum og Janderup:</strong> Oksbøl Varmeværk har fået ca. 450 nye kunder ved konverteringen og har nu ca. 1.700 i alt. Tilslutning betales med 1.200 kr. om året i 20 år.", ["var_oks"]),
+   ("<strong>Helle-byerne:</strong> Helle Energi bygger seks små varmecentraler til Nordenskov, Agerbæk, Fåborg, Næsbjerg, Årre og Starup-Tofterup; ca. 1.300 husstande kan tilsluttes i løbet af 2026 og 2027.", ["var_helle"]),
+   ("<strong>Resten:</strong> områder, der er for små eller ligger for langt fra et fjernvarmenet, anbefales en individuel løsning som en varmepumpe.", ["var_vpl"]),
+  ],
+  "local_take": "Ølgod Fjernvarmeselskab er nr. 65 af 374 værker i Forsyningstilsynets statistik, Outrup nr. 75, Ansager nr. 92 og Oksbøl nr. 109 – alle under landsgennemsnittet. DIN Forsyning, der leverer til Varde by, er nr. 208. Sig, Skovlund, Tistrup og Nørre Nebel ligger alle over 20.000 kr. for et standardhus. Har du fjernvarme i Ølgod, Outrup, Ansager eller Oksbøl, er der sjældent penge i at skifte. I landsbyer uden fjernvarmeplaner er en luft til vand-varmepumpe det realistiske valg.",
+  "contact": ("Varde Kommune", "79 94 68 00 · vardekommune@varde.dk", "var_byg"),
+  "faq": [
+   ("Hvad koster fjernvarme i Varde Kommune?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 14.502 kr. om året inkl. moms i Ølgod, 18.249 kr. hos DIN Forsyning (Varde by) og 25.205 kr. i Nørre Nebel. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+   ("Hvem leverer fjernvarme i Varde by?", "DIN Forsyning Varme leverer til Varde by og Alslev via en transmissionsledning. Selskabet leverer også til Esbjerg by og opland.", ["var_vpl"]),
+   ("Hvad koster det at blive tilsluttet fjernvarme i Billum og Janderup?", "Oksbøl Varmeværk har valgt en model, hvor man betaler 1.200 kr. om året i konverteringsbidrag i 20 år, inklusive de første 10 meter stikledning.", ["var_oks"]),
+  ],
+}
+FV_PAGE["faxe"] = {
+  "kw": "fjernvarme faxe / haslev fjernvarme pris / varmepumpe faxe ladeplads",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026 for Faxe Fjernvarmeselskab og Haslev Fjernvarme, Faxe Kommunes sager om fjernvarme i Haslev og Faxe Ladeplads og Energy Supply om Rønnede, Karise og Dalby (tjekket 11/11 2026).",
+  "intro": "Kun hvert femte hus i Faxe Kommune har fjernvarme, og fjernvarmeprojekterne i Faxe Ladeplads, Karise, Dalby og Rønnede er opgivet. I Haslev mangler tre projekter stadig en afklaring. Her er status, priserne og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Faxe Ladeplads:</strong> Byrådet besluttede 30/4 2025, at byen ikke længere er muligt fjernvarmeområde, fordi kun 23 % af det opvarmede areal havde skrevet kontrakt.", ["fax_fl"]),
+   ("<strong>Rønnede/Kongsted, Karise og Dalby:</strong> projekterne blev droppet i december 2023 på grund af for lille interesse.", ["fax_es"]),
+   ("<strong>Haslev:</strong> Sclerosehospitalet og Bækvej/Lysholm Allé er gennemført; Lysholm Allé/Blomsterkvarteret og Gildringeparken nåede ikke 60 % tilslutning; Floraparken, Pilevang og Grøndalsparken venter på tilslutningsundersøgelse.", ["fax_haslev"]),
+   ("<strong>Tilskud:</strong> bor du i et område med fjernvarme eller planlagt fjernvarme, kan du ikke søge statens varmepumpepulje. Uden en realistisk plan inden udgangen af 2026 vil kommunen bede Haslev Fjernvarme føre områderne tilbage til individuel forsyning.", ["fax_haslev"]),
+  ],
+  "local_take": "Faxe Fjernvarmeselskab er nr. 108 af 374 værker i Forsyningstilsynets statistik og ligger under landsgennemsnittet. Haslev Fjernvarme er nr. 311 og over 5.000 kr. dyrere for et standardhus. Har du fjernvarme i Faxe by, er der sjældent penge i at skifte. Har du gasfyr i Faxe Ladeplads, Karise, Dalby eller Rønnede, er en luft til vand-varmepumpe det realistiske valg.",
+  "contact": ("Faxe Kommune", "56 20 30 00 · kommunen@faxekommune.dk", "fax_sol"),
+  "faq": [
+   ("Hvad koster fjernvarme i Faxe Kommune?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 15.566 kr. om året inkl. moms hos Faxe Fjernvarmeselskab og 21.199 kr. hos Haslev Fjernvarme. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+   ("Kommer der fjernvarme til Faxe Ladeplads?", "Nej, ikke som det ser ud nu. Byrådet besluttede 30. april 2025, at Faxe Ladeplads ikke længere skal være udlagt som muligt fjernvarmeområde. Faxe Energi havde kun fået kontrakter for 23 % af det opvarmede areal, mens målet var ca. 60-75 %.", ["fax_fl"]),
+   ("Kan jeg få tilskud til varmepumpe i Haslev?", "Ikke hvis du bor i et område med fjernvarme eller planlagt fjernvarme. Det gælder bl.a. Floraparken, Pilevang og Grøndalsparken, så længe projekterne ikke er aflyst. Spørg kommunen om status for din adresse.", ["fax_haslev"]),
+  ],
+}
