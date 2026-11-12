@@ -1387,3 +1387,77 @@ CONTACTS["varde"] = {"sol": [("Varde Kommune", "79 94 68 00 · vardekommune@vard
                      "vp":  [("Varde Kommune", "79 94 68 00 · vardekommune@varde.dk", "var_byg")]}
 CONTACTS["faxe"] = {"sol": [("Faxe Kommune, Byg", "56 20 30 30 · byg@faxekommune.dk", "fax_sol")],
                     "vp":  [("Faxe Kommune, Byg", "56 20 30 30 · byg@faxekommune.dk", "fax_sol")]}
+
+# ---------- daglig by-rutine 12. nov. 2026: Kalundborg (DK2) og Skive (DK1) ----------
+S.update({
+ "kal_byg": ("Kalundborg Kommune: byggetilladelser (læst 12/11 2026)", "https://www.kalundborg.dk/service-and-selvbetjening/bolig-and-byggeri/byggeri/byggetilladelser"),
+ "kal_sbt": ("Kalundborg Kommune: sagsbehandlingstider for byggeansøgninger (læst 12/11 2026)", "https://www.kalundborg.dk/service-and-selvbetjening/bolig-and-byggeri/byggeri/byggetilladelser/sagsbehandlingstider"),
+ "kal_lp": ("Kalundborg Kommune: lokalplaner og byplanvedtægter (læst 12/11 2026)", "https://www.kalundborg.dk/demokrati/planer-politikker-og-strategier/lokalplaner-og-byplanvedtaegter"),
+ "kal_jv": ("Kalundborg Kommune: jordvarme (læst 12/11 2026)", "https://www.kalundborg.dk/service-and-selvbetjening/bolig-and-byggeri/bygningsvedligehold/jordvarme"),
+ "kal_tv": ("TV-Kalundborg: Hvem skal betale for kuldsejlet projekt? (fjernvarme i Gørlev og Kirke Helsinge)", "https://tv-kalundborg.dk/nyheder/hvem-skal-betale-for-kuldsejlet-projekt/"),
+ "kal_ff": ("Kalundborg Forsyning: om fjernvarme (læst 12/11 2026)", "https://kalfor.dk/fjernvarme/om-fjernvarme"),
+ "kal_tf": ("Kalundborg Forsyning: tilslutning til fjernvarme (læst 12/11 2026)", "https://kalfor.dk/selvbetjening/tilslutning-fjernvarme"),
+ "ski_sol": ("Skive Kommune: opsætning af solenergianlæg (læst 12/11 2026)", "https://skive.dk/erhverv/erhvervsaffald-forsyning-og-miljoe/forsyning/solenergianlaeg/"),
+ "ski_ind": ("Skive Kommune: individuel varmeforsyning (læst 12/11 2026)", "https://skive.dk/borger/natur-miljoe-og-klima/varmeforsyning/individuel-varmeforsyning/"),
+ "ski_kol": ("Skive Kommune: kollektiv varmeforsyning og termonet (læst 12/11 2026)", "https://skive.dk/borger/natur-miljoe-og-klima/varmeforsyning/kollektiv-varmeforsyning/"),
+ "ski_lok": ("Skive Kommune: lokale initiativer om kollektiv varme (læst 12/11 2026)", "https://skive.dk/borger/natur-miljoe-og-klima/varmeforsyning/lokale-initiativer/"),
+ "ski_gl": ("Skive Kommune: overskudsvarme fra GreenLab Skive (læst 12/11 2026)", "https://skive.dk/borger/natur-miljoe-og-klima/varmeforsyning/overskudsvarme-fra-greenlab-skive/"),
+ "ski_jv": ("Skive Kommune: jordvarme (læst 12/11 2026)", "https://skive.dk/erhverv/erhvervsaffald-forsyning-og-miljoe/forsyning/jordvarme/"),
+ "ski_sf": ("Skive Fjernvarme: ny kunde, udvidelsesområde og tidsplan (læst 12/11 2026)", "https://www.skivefjernvarme.dk/ny-kunde"),
+})
+CITIES["kalundborg"] = {
+  "name": "Kalundborg", "kommune": "Kalundborg Kommune", "updated": ("12. november 2026", "2026-11-12"),
+  "vp_title": "Varmepumpe Kalundborg: luft til vand, tilskud, pris | Energitjekket",
+  "fv_title": "Fjernvarme eller varmepumpe i Kalundborg? Pris 2026 | Energitjekket",
+  "sol_intro": "Solceller i Kalundborg: PVGIS beregner en af de højeste solcelleproduktioner af alle byerne på dette site. Ligger panelerne plant på taget af et enfamiliehus, og overholder huset byggeretten i bygningsreglementet, kræver det som udgangspunkt ikke byggetilladelse – men lokalplaner og servitutter kan sætte grænser. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Solceller, der ligger <strong>plant på taget af et enfamiliehus</strong> og overholder bygningsreglementets højde- og afstandskrav, kræver som udgangspunkt ikke byggetilladelse.", ["se_sol"]),
+    ("Kalundborg Kommune skriver, at du <strong>altid skal søge byggetilladelse</strong>, hvis byggeretten efter BR18 kapitel 8 ikke overholdes – uanset undtagelserne.", ["kal_byg"]),
+    ("En <strong>lokalplan eller byplanvedtægt</strong> kan bestemme, hvordan bebyggelsen skal se ud. Afvigelser kræver dispensation, og kun mindre væsentlige lempelser kan godkendes.", ["kal_lp"]),
+    ("For småhusbyggeri lover kommunen en <strong>maksimal sagsbehandlingstid på 65 dage</strong>, når ansøgningen er indsendt efter 1. september 2026 og er fuldt oplyst.", ["kal_sbt"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge byggetilladelse til solceller på mit hus i Kalundborg?", "Som regel ikke, hvis panelerne ligger plant på taget af et enfamiliehus, og bygningsreglementets højde- og afstandskrav er overholdt. Kalundborg Kommune skriver dog, at du altid skal søge, hvis byggeretten efter BR18 kapitel 8 ikke overholdes. Tjek også lokalplan og tinglyste servitutter.", ["se_sol", "kal_byg"]),
+    ("Hvordan kontakter jeg Kalundborg Kommune om byggeri?", "Byggesagsområdet kan ikke ringes op direkte. Du kan bestille et telefonmøde på 15 minutter på kommunens hjemmeside eller skrive til dto@kalundborg.dk. Handler vejledningen om en konkret byggesag, opkræves der gebyr for tiden.", ["kal_byg"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Kalundborg: mere end hvert tiende hus i kommunen har elvarme, og fjernvarmeprojektet i Gørlev og Kirke Helsinge er opgivet. For de fleste uden for fjernvarmenettene er en varmepumpe derfor vejen væk fra olie, gas og elpaneler. Her er status, priserne og reglerne.",
+  "vp_facts": [
+    ("Kalundborg Forsyning har indstillet fjernvarmeprojektet i <strong>Gørlev og Kirke Helsinge</strong>: kun 60 % af de potentielle kunder viste interesse, og der krævedes 70 %.", ["kal_tv"]),
+    ("<strong>Sæby og Reerslev</strong> havde ifølge Kalundborg Forsyning ikke volumen nok til at gøre en central varmeløsning rentabel.", ["kal_tv"]),
+    ("Et <strong>jordvarmeanlæg</strong> skal anmeldes eller have tilladelse hos kommunen. Ved en anmeldelse kan du etablere anlægget, hvis du ikke har hørt fra kommunen inden 4 uger.", ["kal_jv"]),
+    ("Erstatter jordvarmen fx et oliefyr, kan du søge <strong>Kalundborg Varmeforsyning A/S om tilskud</strong>, før projektet sættes i gang.", ["kal_jv"]),
+  ],
+  "vp_faq": [
+    ("Kommer der fjernvarme til Gørlev og Kirke Helsinge?", "Nej, ikke som det ser ud nu. Kalundborg Forsyning har indstillet projektet, fordi kun 60 % af de potentielle kunder havde vist interesse mod de nødvendige 70 %. Boligernes spredte placering og stigende anlægsomkostninger trak også ned, og forsyningen havde brugt knap 3,1 mio. kr. på projektet.", ["kal_tv"]),
+    ("Hvor ofte skal et jordvarmeanlæg kontrolleres i Kalundborg Kommune?", "Mindst én gang om året af en jordvarmesagkyndig. Finder kontrollen fejl, skal du inden 14 dage sende en skriftlig redegørelse til kommunen, og resultatet af kontrollen skal gemmes i mindst 10 år.", ["kal_jv"]),
+  ],
+}
+CITIES["skive"] = {
+  "name": "Skive", "kommune": "Skive Kommune", "updated": ("12. november 2026", "2026-11-12"),
+  "sol_intro": "Solceller i Skive: på enfamiliehuse, sommerhuse, udhuse, carporte og garager kræver et anlæg på taget ikke byggetilladelse, så længe byggeretten er overholdt, og anlægget ikke ændrer bygningens højde- og afstandsforhold. Anlægget skal altid registreres i BBR. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Solenergianlæg på taget af <strong>enfamiliehuse og sommerhuse</strong> kræver hverken byggetilladelse, VVM-screening eller landzonetilladelse, når byggeretten er overholdt.", ["ski_sol"]),
+    ("Gør anlægget fx en garage højere end <strong>2,5 m inden for 2,5 m fra naboskel</strong>, eller påvirker det bygningens bærende konstruktion, kræver det byggetilladelse.", ["ski_sol"]),
+    ("Har du søgt om et anlæg <strong>under 50 kW</strong> og ikke fået svar inden for en måned, betragtes tilladelsen som givet.", ["ski_sol"]),
+    ("Anlæg uden tilladelse skal registreres i <strong>BBR</strong>: send areal og ydelse til tek@skivekommune.dk.", ["ski_sol"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge byggetilladelse til solceller på mit hus i Skive?", "Ikke på enfamiliehuse og sommerhuse, når byggeretten er overholdt, og anlægget hverken ændrer højde- og afstandsforhold eller påvirker bygningens bæreevne. Lokalplaner, byplanvedtægter og servitutter kan dog stille krav til tagets udseende, og så skal du søge dispensation først.", ["ski_sol"]),
+    ("Hvad gælder for solceller på jorden i Skive Kommune?", "Et anlæg på terræn kræver byggetilladelse, VVM-screening og landzonetilladelse – også når det hører til en bolig eller et sommerhus.", ["ski_sol"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Skive: hvert femte hus i kommunen har naturgas, og 8 % har stadig oliefyr. Skive Fjernvarme udvider i byen frem mod 2028, men i mange landsbyer er en varmepumpe eller et fælles termonet vejen væk fra fyret. Her er status, priserne og reglerne.",
+  "vp_facts": [
+    ("Skive Fjernvarme tilbyder nu og frem mod 2028 fjernvarme til områder med <strong>næsten 2.500 boliger</strong> i Skive. Udvidelsen forudsætter, at helst op imod halvdelen i området tilmelder sig.", ["ski_sf"]),
+    ("Kan du ikke få fjernvarme, anbefaler kommunen en <strong>varmepumpe</strong>. I områder, hvor der på sigt kommer fjernvarme, anbefaler den at <strong>lease</strong> varmepumpen.", ["ski_ind"]),
+    ("<strong>Jordvarme</strong> kræver ifølge kommunen en grund på mindst 300 m², og anlægget skal anmeldes eller have tilladelse.", ["ski_ind", "ski_jv"]),
+    ("I landsbyer langt fra fjernvarmen kan et <strong>termonet</strong> – mindre fælles jordvarme – være et alternativ til individuelle løsninger.", ["ski_kol"]),
+  ],
+  "vp_faq": [
+    ("Hvornår kommer der fjernvarme i Skive?", "Skive Fjernvarme oplyser, at områder med næsten 2.500 boliger får tilbudt fjernvarme nu og frem mod 2028, og at udvidelsen forudsætter, at helst op imod halvdelen i området tilmelder sig. Du kan tjekke din adresse hos Skive Fjernvarme på 97 52 09 66.", ["ski_sf"]),
+    ("Skal jordvarme anmeldes i Skive Kommune?", "Ja. Ligger anlægget uden for områder med særlige drikkevandsinteresser og indvindingsoplande, og bruges ethanol eller IPA-sprit som frostvæske, er en anmeldelse nok – har kommunen ikke gjort indsigelse inden 4 uger, kan anlægget etableres. Øvrige anlæg kræver tilladelse.", ["ski_jv"]),
+  ],
+}
+CONTACTS["kalundborg"] = {"sol": [("Kalundborg Kommune, byggesag", "dto@kalundborg.dk · telefonmøde bookes på kalundborg.dk", "kal_byg")],
+                          "vp":  [("Kalundborg Forsyning", "59 57 17 00 · kundecenter@kalfor.dk", "kal_ff")]}
+CONTACTS["skive"] = {"sol": [("Skive Kommune, Teknik", "tek@skivekommune.dk", "ski_sol")],
+                     "vp":  [("Skive Fjernvarme", "97 52 09 66 · skivefjernvarme@skivefjernvarme.dk", "ski_sf")]}

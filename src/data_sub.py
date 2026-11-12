@@ -1992,3 +1992,95 @@ FV_PAGE["faxe"] = {
    ("Kan jeg få tilskud til varmepumpe i Haslev?", "Ikke hvis du bor i et område med fjernvarme eller planlagt fjernvarme. Det gælder bl.a. Floraparken, Pilevang og Grøndalsparken, så længe projekterne ikke er aflyst. Spørg kommunen om status for din adresse.", ["fax_haslev"]),
   ],
 }
+
+# ---------- daglig by-rutine 12. nov. 2026: Kalundborg og Skive ----------
+# Forsyningstilsynet jan. 2026 (research-archive/energitjekket/2026-11-01/ft_prisstatistik_jan2026.csv), rang af 374 efter enfamiliehus-pris:
+# Kalundborg Kommune: Svebølle-Viskinge 162, Hvidebæk 206, Høng 233, Kalundborg Varmeforsyning 299.
+# Skive Kommune (værkerne på skive.dk/kollektiv-varmeforsyning): Roslev 149, Glyngøre 166, Durup 186, Højslev-Nr. Søby 192, Skive Fjernvarme 222, Balling-Rødding 241, Ramsing-Lem-Lihme 343, Fur 349.
+FV_PRICES["kalundborg"] = [("Svebølle-Viskinge Fjernvarmeselskab", "4470", "16.893", "562"), ("Hvidebæk Fjernvarmeforsyning", "4490", "18.207", "595"),
+                           ("Høng Varmeværk", "4270", "18.808", "762"), ("Kalundborg Varmeforsyning A/S", "4400", "20.861", "806")]
+FV_PRICES["skive"] = [("Roslev Fjernvarmeselskab", "7870", "16.583", "587"), ("Glyngøre Fjernvarmeværk", "7870", "16.949", "618"), ("Durup Fjernvarme", "7860", "17.741", "593"),
+                      ("Højslev-Nr. Søby Fjernvarmeværk", "7840", "17.888", "722"), ("Skive Fjernvarme", "7800", "18.408", "785"), ("Balling-Rødding Varmeværk", "7860", "18.985", "652"),
+                      ("Ramsing-Lem-Lihme Kraftvarmeværk", "7860", "23.000", "812"), ("Fur Kraftvarmeværk", "7884", "23.777", "920")]
+SOL_REG["kalundborg"] = {
+  "kw": "solceller kalundborg / byggetilladelse solceller kalundborg kommune / solceller høng gørlev",
+  "evidence": "Kalundborg Kommunes sider om byggetilladelser, sagsbehandlingstider og lokalplaner samt SparEnergis regler for solceller (tjekket 12/11 2026).",
+  "intro": "Kalundborg Kommune har ingen særskilt side om solceller, så de generelle regler gælder: ligger panelerne plant på taget af et enfamiliehus, og overholder huset byggeretten i bygningsreglementet, kræver det som udgangspunkt ikke byggetilladelse. Lokalplaner og servitutter kan dog stille krav. Her er reglerne og hvordan du søger.",
+  "sections": [
+   ("Uden byggetilladelse", [
+     ("ul", [("Panelerne ligger <strong>plant på taget</strong> af et enfamiliehus.", ["se_sol"]),
+             ("Huset overholder <strong>byggeretten i BR18 kapitel 8</strong> – højde og afstand til skel – også med solcellerne.", ["kal_byg"]),
+             ("Hverken lokalplan, byplanvedtægt, fredning eller servitut regulerer solceller på grunden.", ["se_sol", "kal_lp"])]),
+   ]),
+   ("Lokalplaner og dispensation", [
+     ("p", "En lokalplan kan fastsætte bindende regler for, hvordan bebyggelsen skal se ud, og kan kun ændres med en ny lokalplan. Du kan søge dispensation, men kun til mindre væsentlige lempelser, der ikke strider mod planens hovedprincipper. Er din ejendom ikke omfattet af en lokalplan, gælder kommuneplanrammerne og byggelovens almindelige regler.", ["kal_lp"]),
+   ]),
+   ("Når du skal søge", [
+     ("p", "Ansøgningen sendes via Byg og Miljø. For småhusbyggeri lover kommunen en maksimal sagsbehandlingstid på 65 dage, når ansøgningen er indsendt efter 1. september 2026, er fuldt oplyst og kun kræver byggetilladelse. Sager, der også kræver landzonetilladelse, har intet servicemål. Byggesagsområdet kan ikke ringes op direkte, men du kan bestille et telefonmøde på 15 minutter eller skrive til dto@kalundborg.dk.", ["kal_sbt", "kal_byg"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller byggetilladelse i Kalundborg Kommune?", "Som udgangspunkt ikke på taget af et enfamiliehus, når panelerne ligger plant, og byggeretten i bygningsreglementet er overholdt. Overholdes byggeretten efter BR18 kapitel 8 ikke, skal du altid søge.", ["se_sol", "kal_byg"]),
+   ("Hvor lang tid tager en byggesag i Kalundborg?", "For småhusbyggeri, der kun kræver byggetilladelse, lover kommunen højst 65 dage fra ansøgningen er fuldt oplyst, hvis den er indsendt efter 1. september 2026. Kommunen skriver selv, at den har lange sagsbehandlingstider, og at nogle sagstyper tager væsentligt længere tid.", ["kal_sbt"]),
+   ("Kan jeg få dispensation fra en lokalplan til solceller?", "Det kan du søge om, men Kalundborg Kommune kan kun give dispensation til mindre væsentlige lempelser, der ikke strider mod lokalplanens hovedprincipper.", ["kal_lp"]),
+  ],
+}
+SOL_REG["skive"] = {
+  "kw": "solceller skive / byggetilladelse solceller skive kommune / solceller på jorden skive",
+  "evidence": "Skive Kommunes side om opsætning af solenergianlæg (tjekket 12/11 2026).",
+  "intro": "Skive Kommune skriver, at solceller på taget af enfamiliehuse, sommerhuse, udhuse, carporte og garager ikke kræver byggetilladelse, hvis byggeretten er overholdt. Anlæg på jorden kræver derimod både byggetilladelse, VVM-screening og landzonetilladelse. Her er reglerne og hvordan du søger.",
+  "sections": [
+   ("Det skal du tjekke først", [
+     ("ul", [("Om ejendommen er omfattet af en <strong>lokalplan, byplanvedtægt eller tinglyste servitutter</strong> med krav til fx farve, materiale eller blankhed – planerne findes på ois.dk og servitutter på tinglysning.dk.", ["ski_sol"]),
+             ("Om <strong>kommuneplan, beskyttet natur eller bygge- og fredningslinjer</strong> berører grunden.", ["ski_sol"]),
+             ("Om <strong>tagkonstruktionen</strong> kan bære den ekstra belastning.", ["ski_sol"])]),
+   ]),
+   ("Hvornår kræver det tilladelse?", [
+     ("p", "Ændrer anlægget bygningens højde- og afstandsforhold, eller påvirker det den bærende konstruktion, skal du søge byggetilladelse – fx hvis solceller på en garage gør den højere end 2,5 m inden for 2,5 m fra naboskel. Anlæg på driftsbygninger i landzone, på erhvervsbyggeri og etageboliger kræver altid byggetilladelse. Har du søgt om et anlæg under 50 kW og ikke fået svar inden for en måned, betragtes tilladelsen som givet.", ["ski_sol"]),
+   ]),
+   ("Genskin, landzone og BBR", [
+     ("p", "Kommunen anbefaler refleksbehandlede paneler, så genskin ikke generer naboerne. Kræver anlægget byggetilladelse i landzone, kræver det også landzonetilladelse – undtagen anlæg på et eksisterende stuehus. Anlæg, der ikke kræver tilladelse, skal registreres i BBR: send areal og ydelse til tek@skivekommune.dk.", ["ski_sol"]),
+   ]),
+  ],
+  "faq": [
+   ("Kræver solceller byggetilladelse i Skive Kommune?", "Ikke på enfamiliehuse, sommerhuse, udhuse, carporte og garager, når byggeretten er overholdt, og anlægget ikke ændrer højde- og afstandsforhold eller påvirker bæreevnen. Anlæg på jorden kræver altid byggetilladelse.", ["ski_sol"]),
+   ("Hvad hvis kommunen ikke svarer på min ansøgning?", "Skive Kommune skriver, at en ansøgning om et solenergianlæg under 50 kW betragtes som godkendt, hvis du ikke har fået svar inden for en måned. Det følger af en EU-forordning.", ["ski_sol"]),
+   ("Hvordan registrerer jeg solceller i BBR i Skive?", "Send anlæggets areal og ydelse til tek@skivekommune.dk, når anlægget er sat op. Det gælder også anlæg, der ikke kræver tilladelse.", ["ski_sol"]),
+  ],
+}
+FV_PAGE["kalundborg"] = {
+  "kw": "fjernvarme kalundborg / fjernvarme gørlev / varmepumpe kalundborg kommune",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026 for kommunens 4 værker, Kalundborg Forsynings sider om fjernvarme og tilslutning og TV-Kalundborg om projektet i Gørlev og Kirke Helsinge (tjekket 12/11 2026).",
+  "intro": "47 % af husene i Kalundborg Kommune har fjernvarme fra fire værker, og fjernvarmen i Kalundborg by er blandt de dyreste i landet. Projektet i Gørlev og Kirke Helsinge er opgivet, og Sæby og Reerslev er for små til en fælles løsning. Her er status, priserne og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Kalundborg by:</strong> Kalundborg Forsyning leverer fjernvarme til 5.150 husstande og ca. 10 storkunder. Varmen kommer fra Asnæsværket, hvor den laves på flis sammen med el og damp.", ["kal_ff"]),
+   ("<strong>Gørlev og Kirke Helsinge:</strong> projektet, som kommunalbestyrelsen godkendte 29. maj 2024, er indstillet, fordi kun 60 % viste interesse mod de nødvendige 70 %.", ["kal_tv"]),
+   ("<strong>Sæby og Reerslev:</strong> ifølge Kalundborg Forsyning for lille volumen til en rentabel central varmeløsning.", ["kal_tv"]),
+   ("<strong>Høng, Svebølle-Viskinge og Hvidebæk:</strong> egne værker, som alle er billigere end Kalundborg by i Forsyningstilsynets statistik.", ["ft_pris"]),
+  ],
+  "local_take": "Svebølle-Viskinge Fjernvarmeselskab er nr. 162 af 374 værker i Forsyningstilsynets statistik, Hvidebæk nr. 206 og Høng nr. 233. Kalundborg Varmeforsyning er nr. 299 og næsten 4.000 kr. dyrere end landsgennemsnittet for et standardhus. Har du gasfyr i Gørlev, Kirke Helsinge, Sæby eller Reerslev, er fjernvarme ikke på vej, og en luft til vand-varmepumpe er det realistiske valg.",
+  "contact": ("Kalundborg Forsyning", "59 57 17 00 · kundecenter@kalfor.dk", "kal_ff"),
+  "faq": [
+   ("Hvad koster fjernvarme i Kalundborg Kommune?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 16.893 kr. om året inkl. moms hos Svebølle-Viskinge, 18.207 kr. hos Hvidebæk, 18.808 kr. i Høng og 20.861 kr. hos Kalundborg Varmeforsyning. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+   ("Hvordan bliver jeg tilsluttet fjernvarme i Kalundborg?", "Du udfylder Kalundborg Forsynings tilslutningsformular. Forsyningen ejer og vedligeholder hoved- og stikledninger til og med hovedventilerne i huset; du står selv for dit tilslutningsanlæg, bortset fra måleren.", ["kal_tf"]),
+   ("Hvor kommer fjernvarmen i Kalundborg fra?", "Fra Asnæsværket, der laver varmen sammen med el og damp på flis. En akkumuleringstank på over 60 meter rummer varmt vand til en uges forbrug om sommeren.", ["kal_ff"]),
+  ],
+}
+FV_PAGE["skive"] = {
+  "kw": "fjernvarme skive / skive fjernvarme pris / varmepumpe landsby skive kommune",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026 for kommunens 8 værker, Skive Kommunes sider om kollektiv og individuel varmeforsyning, lokale initiativer og GreenLab Skive samt Skive Fjernvarmes udvidelsesplan (tjekket 12/11 2026).",
+  "intro": "45 % af husene i Skive Kommune har fjernvarme fra otte værker, og prisen afhænger af, hvor du bor: Roslev og Glyngøre ligger lige under landsgennemsnittet, mens Fur og Ramsing-Lem-Lihme er blandt de dyreste i landet. Skive Fjernvarme udvider i byen frem mod 2028. Her er status, priserne og regnestykket mod en varmepumpe.",
+  "status": [
+   ("<strong>Skive by:</strong> Skive Fjernvarme tilbyder fjernvarme til områder med næsten 2.500 boliger frem mod 2028. Det kræver, at helst op imod halvdelen i et område tilmelder sig.", ["ski_sf"]),
+   ("<strong>Oddense, Jebjerg, Breum og Hem:</strong> naturgasbyer, som overskudsvarme fra GreenLab Skive ifølge kommunen kan hjælpe med at konvertere. Hvor ledningen skal ligge, er endnu ikke fastlagt.", ["ski_gl"]),
+   ("<strong>Durup og Glyngøre:</strong> kommunen skriver, at der arbejdes på at udvide fjernvarmen i begge byer.", ["ski_lok"]),
+   ("<strong>Landsbyer langt fra et net:</strong> kommunen peger på termonet eller en individuel varmepumpe.", ["ski_kol", "ski_ind"]),
+  ],
+  "local_take": "Roslev Fjernvarmeselskab er nr. 149 af 374 værker i Forsyningstilsynets statistik og Glyngøre nr. 166 – begge lige under landsgennemsnittet. Durup er nr. 186, Højslev-Nr. Søby nr. 192, Skive Fjernvarme nr. 222 og Balling-Rødding nr. 241, mens Ramsing-Lem-Lihme (nr. 343) og Fur (nr. 349) er blandt de dyreste i landet. Har du fjernvarme i Roslev eller Glyngøre, er der sjældent penge i at skifte. Har du gasfyr i en landsby uden fjernvarmeplaner, er en luft til vand-varmepumpe det realistiske valg.",
+  "contact": ("Skive Fjernvarme", "97 52 09 66 · skivefjernvarme@skivefjernvarme.dk", "ski_sf"),
+  "faq": [
+   ("Hvad koster fjernvarme i Skive Kommune?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 16.583 kr. om året inkl. moms i Roslev, 18.408 kr. hos Skive Fjernvarme og 23.777 kr. på Fur. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+   ("Hvem leverer fjernvarme i Skive Kommune?", "Skive Kommune nævner Skive Fjernvarme, Højslev-Nr. Søby Fjernvarmeværk, Ramsing-Lem-Lihme Kraftvarmeværk, Balling-Rødding Varmeværk, Fur Kraftvarmeværk, Roslev Fjernvarmeselskab, Durup Fjernvarme og Glyngøre Fjernvarme. Naturgassen leveres af Evida.", ["ski_kol"]),
+   ("Hvad er et termonet?", "Et mindre, fælles jordvarmeanlæg i landsbyer og boligområder langt fra fjernvarmen. Skive Kommune peger på fælles investering og service, færre støjgener og mere plads ved det enkelte hus som fordele frem for individuelle løsninger.", ["ski_kol"]),
+  ],
+}

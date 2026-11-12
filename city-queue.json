@@ -306,7 +306,8 @@
     "kommune": "Kalundborg Kommune",
     "region": "Region Sjælland",
     "reason": "18.422 beboede parcel/rækkehuse; 47% fjernvarme; 4.185 med olie/gas/elvarme; begge services",
-    "status": "pending"
+    "status": "done",
+    "done": "2026-11-12"
   },
   {
     "rank": 32,
@@ -315,7 +316,8 @@
     "kommune": "Skive Kommune",
     "region": "Region Midtjylland",
     "reason": "16.402 beboede parcel/rækkehuse; 45% fjernvarme; 5.189 med olie/gas/elvarme; stærkt varmepumpemarked",
-    "status": "pending"
+    "status": "done",
+    "done": "2026-11-12"
   },
   {
     "rank": 33,
