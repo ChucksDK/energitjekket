@@ -11,13 +11,13 @@ def hs(c): return sum(HEAT[c].values())            # beboede parcel- og rækkehu
 def hp(c, k, d=0): return pct(HEAT[c][k], hs(c), d)
 def rp(c, k, d=0): return pct(ROOF[c]["T"][k], ROOF[c]["tot"], d)
 def town(c, name): return dict(TOWNS[c])[name]
-_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten", 19: "nitten", 20: "tyve", 21: "enogtyve", 22: "toogtyve", 23: "treogtyve", 24: "fireogtyve", 25: "femogtyve", 26: "seksogtyve", 27: "syvogtyve", 28: "otteogtyve", 29: "niogtyve", 30: "tredive", 31: "enogtredive", 32: "toogtredive", 33: "treogtredive", 34: "fireogtredive", 35: "femogtredive", 36: "seksogtredive", 37: "syvogtredive", 38: "otteogtredive", 39: "niogtredive"}
+_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten", 19: "nitten", 20: "tyve", 21: "enogtyve", 22: "toogtyve", 23: "treogtyve", 24: "fireogtyve", 25: "femogtyve", 26: "seksogtyve", 27: "syvogtyve", 28: "otteogtyve", 29: "niogtyve", 30: "tredive", 31: "enogtredive", 32: "toogtredive", 33: "treogtredive", 34: "fireogtredive", 35: "femogtredive", 36: "seksogtredive", 37: "syvogtredive", 38: "otteogtredive", 39: "niogtredive", 40: "fyrre", 41: "enogfyrre"}
 def nw(k=0): return _NUMW[len(NAMES) - k]          # "ni" for 9 byer, nw(1) = "otte" (de andre)
 def top(f, rev=False):
     """By med højeste (eller laveste, rev=True) værdi blandt sitets byer. Bruges til at tjekke sammenlignende udsagn."""
     return sorted(NAMES, key=f, reverse=not rev)[0]
 def rank(f, c): return sorted(NAMES, key=f, reverse=True).index(c) + 1
-_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende", 21: "enogtyvende", 22: "toogtyvende", 23: "treogtyvende", 24: "fireogtyvende", 25: "femogtyvende", 26: "seksogtyvende", 27: "syvogtyvende", 28: "otteogtyvende", 29: "niogtyvende", 30: "tredivte", 31: "enogtredivte", 32: "toogtredivte", 33: "treogtredivte", 34: "fireogtredivte", 35: "femogtredivte", 36: "seksogtredivte", 37: "syvogtredivte", 38: "otteogtredivte", 39: "niogtredivte"}
+_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende", 21: "enogtyvende", 22: "toogtyvende", 23: "treogtyvende", 24: "fireogtyvende", 25: "femogtyvende", 26: "seksogtyvende", 27: "syvogtyvende", 28: "otteogtyvende", 29: "niogtyvende", 30: "tredivte", 31: "enogtredivte", 32: "toogtredivte", 33: "treogtredivte", 34: "fireogtredivte", 35: "femogtredivte", 36: "seksogtredivte", 37: "syvogtredivte", 38: "otteogtredivte", 39: "niogtredivte", 40: "fyrretyvende", 41: "enogfyrretyvende"}
 def rk(f, c, word, art="den", rev=False):
     """Rangord, fx 'den højeste', 'den næsthøjeste' (rev=True tæller fra bunden). Holder sammenlignende udsagn sande, når nye byer kommer til."""
     r = sorted(NAMES, key=f, reverse=not rev).index(c) + 1
@@ -28,7 +28,7 @@ def above(f, c):
     a = [NAMES[x] for x in sorted(NAMES, key=f, reverse=True)[:rank(f, c) - 1]]
     return a[0] if len(a) == 1 else ", ".join(a[:-1]) + " og " + a[-1]
 
-NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund", "skanderborg": "Skanderborg", "vordingborg": "Vordingborg", "koebenhavn": "København", "vejen": "Vejen", "varde": "Varde", "faxe": "Faxe", "kalundborg": "Kalundborg", "skive": "Skive"}
+NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund", "skanderborg": "Skanderborg", "vordingborg": "Vordingborg", "koebenhavn": "København", "vejen": "Vejen", "varde": "Varde", "faxe": "Faxe", "kalundborg": "Kalundborg", "skive": "Skive", "gladsaxe": "Gladsaxe", "kongens-lyngby": "Kongens Lyngby"}
 LOCAL_S = {
  "dst_bol102": ("Danmarks Statistik: BOL102, boliger efter område og opvarmning (2026)", "https://www.statistikbanken.dk/BOL102"),
  "dst_bol101": ("Danmarks Statistik: BOL101, boliger efter opførelsesår og udlejningsforhold (2026)", "https://www.statistikbanken.dk/BOL101"),
@@ -415,7 +415,7 @@ SOL_XFAQ.update({
 VP_HEAT.update({
  "naestved": ("Næsten lige så mange gasfyr som fjernvarme i Næstved",
    lambda: f"{tal(HEAT['naestved']['CN'])} beboede parcel- og rækkehuse i Næstved Kommune ({hp('naestved','CN',1)}) varmes op med naturgas, {rk(_CN, 'naestved', 'højeste')} andel af de {nw()} byer og næsten lige så mange som dem med fjernvarme ({hp('naestved','FJ',1)}, {rk(_FJ, 'naestved', 'laveste', rev=True)} andel). {tal(HEAT['naestved']['ELV'])} huse har elvarme ({hp('naestved','ELV',1)} mod {hp('dk','ELV',1)} på landsplan). Det er netop olie-, gas- og elvarme uden for fjernvarmen, som Varmepumpepuljen er rettet mod."),
- "silkeborg": ("Naturgas fylder stadig meget i Silkeborg Kommune",
+ "silkeborg": ("Varmepumpe i Silkeborg: naturgas fylder stadig meget",
    lambda: f"{hp('silkeborg','FJ',1)} af de {tal(hs('silkeborg'))} beboede parcel- og rækkehuse i Silkeborg Kommune har fjernvarme, mens {tal(HEAT['silkeborg']['CN'])} ({hp('silkeborg','CN',1)}) har naturgas og {tal(HEAT['silkeborg']['VP'])} ({hp('silkeborg','VP',1)}) allerede har varmepumpe. Ifølge Silkeborg Forsyning har de fleste i Silkeborg Syd i dag gasfyr, og det er dér, fjernvarmen nu lægges ud."),
 })
 VP_HEAT_SRC_NEW.update({"naestved": ["se_vpp"], "silkeborg": ["sil_syd"]})
@@ -1706,16 +1706,98 @@ def reg_age_note(c, kommune):
         return (f"{tal(B['før 1960'])} af de beboede huse i Skive Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. Lokalplaner, byplanvedtægter og deklarationer kan stille krav til farve, materiale og blankhed på taget, og strider anlægget mod dem, skal du søge dispensation, før du går i gang.", ["ski_sol"])
     return _reg_age_old16(c, kommune)
 
+
+# ---------- daglig by-rutine 13. nov. 2026: Gladsaxe og Kongens Lyngby (hovedstadsområdet, DK2) ----------
+VP_XFAQ["silkeborg"] = VP_XFAQ["silkeborg"] + [("Hvad koster en varmepumpe i Silkeborg?", lambda: "SparEnergi angiver typisk 100.000-130.000 kr. inkl. montering for en luft til vand-varmepumpe, og Energisparer.dk ca. 90.000-150.000 kr. afhængigt af husets størrelse. Vi har ikke fundet kilder med en særlig Silkeborg-pris. Ligger huset i Silkeborg Syd eller et andet område med planlagt fjernvarme, så tjek tidsplanen hos Silkeborg Forsyning, før du køber.", ["se_vp", "es_vp", "es_l2v", "sil_syd"])]
+_GLA_T = "Gladsaxe (kommunens del af hovedstadsområdet)"; _LYN_T = "Lyngby-Taarbæk (kommunens del af hovedstadsområdet)"
+_RK = lambda c: STOCK[c]["raekke"] / STOCK[c]["tot"]
+SOL_ORDER.update({"gladsaxe": ["boliger", "lokalt", "tage", "produktion", "faq", "guides"],
+                  "kongens-lyngby": ["tage", "lokalt", "faq", "boliger", "produktion", "guides"]})
+VP_ORDER.update({"gladsaxe": ["lokalt", "opvarmning", "faq", "pris", "lokale-byer", "guides"],
+                 "kongens-lyngby": ["opvarmning", "lokale-byer", "lokalt", "faq", "pris", "guides"]})
+FV_ORDER.update({"gladsaxe": ["status", "andel", "priser", "faq", "billigst", "varmekilder"],
+                 "kongens-lyngby": ["andel", "status", "varmekilder", "priser", "billigst", "faq"]})
+SOL_PROD.update({
+ "gladsaxe": ("Solceller i Gladsaxe: produktion pr. måned",
+   lambda: f"PVGIS beregner ca. {tal(PV['gladsaxe']['syd'])} kWh pr. kWp om året for et sydvendt tag med 35° hældning i Gladsaxe. Den bedste hældning er {PV['gladsaxe']['opt_angle']}°, hvor det giver ca. {tal(PV['gladsaxe']['opt'])} kWh. Et 6 kWp-anlæg på et sydvendt tag giver ca. {tal(PV['gladsaxe']['syd']*6)} kWh om året – ca. {tal(PV['gladsaxe']['months'][4]*6)} kWh i maj, men kun {tal(PV['gladsaxe']['months'][11]*6)} kWh i december. På et øst-vest-tag, som mange rækkehuse har, giver hver side ca. {tal(PV['gladsaxe']['oest'])}-{tal(PV['gladsaxe']['vest'])} kWh pr. kWp."),
+ "kongens-lyngby": ("Hvor meget giver solceller i Kongens Lyngby?",
+   lambda: f"For et sydvendt tag med 35° hældning i Kongens Lyngby beregner PVGIS ca. {tal(PV['kongens-lyngby']['syd'])} kWh pr. kWp om året, så et 6 kWp-anlæg giver ca. {tal(PV['kongens-lyngby']['syd']*6)} kWh. Mod øst falder det til ca. {tal(PV['kongens-lyngby']['oest'])} og mod vest til ca. {tal(PV['kongens-lyngby']['vest'])} kWh pr. kWp. Juni giver ca. {tal(PV['kongens-lyngby']['months'][5]*6)} kWh fra et 6 kWp-anlæg og januar ca. {tal(PV['kongens-lyngby']['months'][0]*6)} kWh."),
+})
+SOL_PROD_SRC_NEW.update({"gladsaxe": ["pv_gladsaxe", "pvo_gladsaxe", "pvv_gladsaxe"], "kongens-lyngby": ["pv_kongens-lyngby", "pvo_kongens-lyngby", "pvv_kongens-lyngby"]})
+SOL_ROOF.update({
+ "gladsaxe": ("Tegl og fibercement på Gladsaxes tage",
+   lambda: f"{rp('gladsaxe','10')} af parcel- og rækkehusene i Gladsaxe Kommune har <strong>tegltag</strong> – {rk(_rt('10'), 'gladsaxe', 'højeste')} andel af de {nw()} byer og mod {rp('dk','10')} på landsplan. {rp('gladsaxe','06')} har <strong>fibercement</strong>, og {pct(_flat('gladsaxe'), ROOF['gladsaxe']['tot'])} har fladt tag eller tagpap. På et fladt tag monteres panelerne på et stativ, og bølgeplader fra før 1984 kan indeholde asbest.",
+   ["dst_bygb50", "bolius_asb", "bolius_mont"]),
+ "kongens-lyngby": ("Flest tegltage på sitet: tagene i Kongens Lyngby",
+   lambda: f"{rp('kongens-lyngby','10')} af parcel- og rækkehusene i Lyngby-Taarbæk Kommune har <strong>tegltag</strong> – {rk(_rt('10'), 'kongens-lyngby', 'højeste')} andel af de {nw()} byer på dette site og mod {rp('dk','10')} på landsplan. {pct(_flat('kongens-lyngby'), ROOF['kongens-lyngby']['tot'])} har fladt tag eller tagpap, og kun {rp('kongens-lyngby','06')} har fibercement. Kommuneplanen kræver, at tagmateriale højst har glansværdi 15.",
+   ["dst_bygb50", "lyn_kp", "bolius_mont"]),
+})
+SOL_HOMES.update({
+ "gladsaxe": lambda: f"Gladsaxe Kommune har {tal(STOCK['gladsaxe']['tot'])} beboede parcel- og rækkehuse, og {tal(STOCK['gladsaxe']['raekke'])} af dem ({pct(STOCK['gladsaxe']['raekke'],STOCK['gladsaxe']['tot'])}) er række-, kæde- eller dobbelthuse – {rk(_RK, 'gladsaxe', 'højeste')} andel af de {nw()} byer og mod {pct(STOCK['dk']['raekke'],STOCK['dk']['tot'])} på landsplan. Netop her skal du kontakte Byggesag, før du sætter solceller op. {pct(STOCK['gladsaxe']['B']['før 1960'],STOCK['gladsaxe']['tot'])} af husene er bygget før 1960. Gladsaxe-delen af hovedstadsområdet har {tal(town('gladsaxe', _GLA_T))} indbyggere, og siden gælder hele kommunen, også Søborg, Buddinge, Mørkhøj og Bagsværd.",
+ "kongens-lyngby": lambda: f"Lyngby-Taarbæk Kommune har {tal(STOCK['kongens-lyngby']['tot'])} beboede parcel- og rækkehuse, og {pct(STOCK['kongens-lyngby']['ejer'],STOCK['kongens-lyngby']['tot'])} bebos af ejeren – {rk(_EJ, 'kongens-lyngby', 'højeste')} andel af de {nw()} byer. {pct(STOCK['kongens-lyngby']['B']['før 1960'],STOCK['kongens-lyngby']['tot'])} er bygget før 1960, mod {pct(STOCK['dk']['B']['før 1960'],STOCK['dk']['tot'])} på landsplan, og en del af dem har høj bevaringsværdi. Kommunens del af hovedstadsområdet har {tal(town('kongens-lyngby', _LYN_T))} indbyggere, og siden gælder hele kommunen, også Virum, Sorgenfri, Lundtofte og Taarbæk.",
+})
+SOL_HOMES_SRC_NEW.update({"gladsaxe": ["gla_byg"], "kongens-lyngby": ["lyn_kp"]})
+SOL_HOMES_H.update({"gladsaxe": "Rækkehuse og villaer i Gladsaxe Kommune", "kongens-lyngby": "Ældre ejerboliger i Lyngby-Taarbæk"})
+SOL_XFAQ.update({
+ "gladsaxe": [("Hvor mange huse i Gladsaxe er rækkehuse?", lambda: f"{tal(STOCK['gladsaxe']['raekke'])} af de {tal(STOCK['gladsaxe']['tot'])} beboede parcel- og rækkehuse i Gladsaxe Kommune er række-, kæde- eller dobbelthuse ifølge Danmarks Statistik, 2026. Ved dobbelt- og rækkehuse skal du kontakte Byggesag, før du sætter solceller op.", ["dst_bol101", "gla_byg"])],
+ "kongens-lyngby": [("Kan jeg få en gratis snak med kommunen om solceller i Lyngby?", lambda: "Ja. Lyngby-Taarbæk Kommune tilbyder en forhåndsdialog på 30 minutter, som er gratis. Den kan bookes, når kommunen har kapacitet, og byggesagsvagten kan også kontaktes alle hverdage på 45 97 38 87.", ["lyn_byg"])],
+})
+VP_HEAT.update({
+ "gladsaxe": ("Næsten hvert andet hus har naturgas i Gladsaxe",
+   lambda: f"{tal(HEAT['gladsaxe']['CN'])} af de {tal(hs('gladsaxe'))} beboede parcel- og rækkehuse i Gladsaxe Kommune ({hp('gladsaxe','CN',1)}) har naturgas, mod {hp('dk','CN',1)} på landsplan, og {tal(HEAT['gladsaxe']['FJ'])} ({hp('gladsaxe','FJ',1)}) har fjernvarme. Kun {tal(HEAT['gladsaxe']['VP'])} ({hp('gladsaxe','VP',1)}) har varmepumpe. Kommunen skriver, at fjernvarmen i dag dækker ca. 60 % af varmebehovet og skal op på næsten 100 % i 2030."),
+ "kongens-lyngby": ("Flest gasfyr på sitet: varmen i Kongens Lyngby",
+   lambda: f"{tal(HEAT['kongens-lyngby']['CN'])} af de {tal(hs('kongens-lyngby'))} beboede parcel- og rækkehuse i Lyngby-Taarbæk Kommune ({hp('kongens-lyngby','CN',1)}) har naturgas – {rk(_hf('CN'), 'kongens-lyngby', 'højeste')} andel af de {nw()} byer og mod {hp('dk','CN',1)} på landsplan. Kun {hp('kongens-lyngby','FJ',1)} har fjernvarme, og {tal(HEAT['kongens-lyngby']['VP'])} ({hp('kongens-lyngby','VP',1)}) har allerede varmepumpe."),
+})
+VP_HEAT_SRC_NEW.update({"gladsaxe": ["gla_fv"], "kongens-lyngby": []})
+VP_TOWNS.update({
+ "gladsaxe": [("Syd i kommunen", "Gentofte Gladsaxe Fjernvarme, ca. 5.000 bygninger", ["gla_ggf", "ft_pris"]),
+              ("Nord for Motorring 3 / vest for Stengårds Allé", "Vestforbrænding, ca. 4.000 bygninger", ["gla_fv", "gla_ggf", "ft_pris"]),
+              ("Høje Gladsaxe", "Fællesdriften af Høje Gladsaxe", ["ft_pris"]),
+              ("Nybrovej (spredte bygninger)", "Endnu ikke omfattet af projektforslag", ["gla_ggf"])],
+ "kongens-lyngby": [("Virum / Sorgenfri (C1)", "Vestforbrænding, alle tilbudt senest 2025", ["lyn_fvng"]),
+                    ("Lyngby / Lundtofte / Jægersborg", "Vestforbrænding etape 2, graveopstart 2026", ["lyn_info", "lyn_pdf"]),
+                    ("Åbrinken", "Norfors", ["lyn_fvng", "ft_pris"]),
+                    ("Spring Forbi / Raadvad / Frederiksdal", "Ingen fjernvarme – varmepumpe eller termonet", ["lyn_fvng"])],
+})
+VP_TOWNS_NOTE.update({
+ "gladsaxe": "Fjernvarmen er planlagt til stort set hele kommunen, så for de fleste gasfyr handler valget om timing. Går fyret i stykker, før fjernvarmen kommer, nævner kommunen en midlertidig varmepumpe som en mulighed. Er huset ikke omfattet af et projektforslag, er en luft til vand-varmepumpe det typiske valg.",
+ "kongens-lyngby": "Har du gasfyr i Spring Forbi, Raadvad, Bakken, Frederiksdal, Ny Frederiksdal eller det østlige Virum ved Mølleåen, kommer der ikke fjernvarme, og kommunen peger på varmepumpe eller termonet. Vælger du jordvarme, kræver anlægget altid tilladelse.",
+})
+VP_XFAQ.update({
+ "gladsaxe": [("Hvor mange huse i Gladsaxe Kommune har naturgas?", lambda: f"{tal(HEAT['gladsaxe']['CN'])} af de {tal(hs('gladsaxe'))} beboede parcel- og rækkehuse ({hp('gladsaxe','CN',1)}) ifølge Danmarks Statistik, 2026. {tal(HEAT['gladsaxe']['FJ'])} har fjernvarme, og {tal(HEAT['gladsaxe']['VP'])} har allerede varmepumpe.", ["dst_bol102"])],
+ "kongens-lyngby": [("Hvor mange huse i Lyngby-Taarbæk har naturgas?", lambda: f"{tal(HEAT['kongens-lyngby']['CN'])} af de {tal(hs('kongens-lyngby'))} beboede parcel- og rækkehuse ({hp('kongens-lyngby','CN',1)}) ifølge Danmarks Statistik, 2026. {tal(HEAT['kongens-lyngby']['FJ'])} har fjernvarme, og {tal(HEAT['kongens-lyngby']['VP'])} har allerede varmepumpe.", ["dst_bol102"]),
+                    ("Hvad koster en luft til vand-varmepumpe i Kongens Lyngby?", lambda: "SparEnergi angiver typisk 100.000-130.000 kr. inkl. montering, og Energisparer.dk ca. 90.000-150.000 kr. afhængigt af husets størrelse. Vi har ikke fundet kilder med en særlig Lyngby-pris. Ligger din adresse i et af Vestforbrændings udrulningsområder, så sammenlign med fjernvarmetilslutningen, der koster 15.000 kr. i kampagneperioden.", ["se_vp", "es_vp", "lyn_pdf"])],
+})
+FV_SOURCES.update({
+ "gladsaxe": [("Omtrent <strong>80 %</strong> af fjernvarmens energi i Gladsaxe Kommune kommer fra halm, flis, affald og samproduktion med el, og andelen stiger år for år.", ["gla_fv"]),
+              ("Vestforbrændings fjernvarme nord for Motorring 3 stammer primært fra <strong>affaldsforbrænding</strong>.", ["gla_fv"])],
+ "kongens-lyngby": [("Der arbejdes på et <strong>geotermianlæg</strong>, som skal forsyne 10.000 kunder i Virum-området, og i etape 2 ses der på overskudsvarme fra Mølleåværket.", ["lyn_fvng"]),
+                    ("Vestforbrænding vil gøre fjernvarmen klimaneutral i 2030, bl.a. med CO2-fangst på affaldsforbrændingsanlægget i Glostrup.", ["lyn_fvng"])],
+})
+FV_SHARE.update({
+ "gladsaxe": lambda: f"{hp('gladsaxe','FJ',1)} af de beboede parcel- og rækkehuse i Gladsaxe Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. {hp('gladsaxe','CN',1)} har naturgas, så udbygningen frem mod 2029 rammer mange huse.",
+ "kongens-lyngby": lambda: f"{hp('kongens-lyngby','FJ',1)} af de beboede parcel- og rækkehuse i Lyngby-Taarbæk Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. {hp('kongens-lyngby','CN',1)} har naturgas.",
+})
+FV_SOURCES_H.update({"gladsaxe": "Halm, flis, affald og samproduktion", "kongens-lyngby": "Geotermi i Virum og affaldsvarme"})
+_reg_age_old17 = reg_age_note
+def reg_age_note(c, kommune):
+    s = STOCK[c]; B = s["B"]; t = s["tot"]
+    if c == "gladsaxe":
+        return (f"{tal(B['før 1960'])} af de beboede huse i Gladsaxe Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. Slå husets bevaringsværdi op hos Slots- og Kulturstyrelsen: ved værdi 1-4 skal du kontakte Byggesag, før du går i gang.", ["gla_byg"])
+    if c == "kongens-lyngby":
+        return (f"{tal(B['før 1960'])} af de beboede huse i Lyngby-Taarbæk Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. Ejendomme med høj bevaringsværdi (SAVE 1-3) er udpeget som bevaringsværdige i kommuneplanen, og kommunen vil gerne se projektet, før du går i gang.", ["lyn_kp", "lyn_byg"])
+    return _reg_age_old17(c, kommune)
+
 # ---------- tjek af sammenlignende udsagn: bygget fejler, hvis en ny by gør et udsagn forkert ----------
 _PVs = lambda c: PV[c]["syd"]; _rt = lambda k: (lambda c: ROOF[c]["T"][k] / ROOF[c]["tot"]); _hf = lambda k: (lambda c: HEAT[c][k] / hs(c)); _sb = lambda k: (lambda c: STOCK[c]["B"][k] / STOCK[c]["tot"])
 CLAIMS = [
- ("Esbjerg top 14 PV", rank(_PVs, "esbjerg") <= 14),
+ ("Esbjerg top 16 PV (dynamisk tekst; løsnet 13/11 efter Gladsaxe)", rank(_PVs, "esbjerg") <= 16),
  ("Aalborg top 15 juni", rank(lambda c: PV[c]["months"][5], "aalborg") <= 15),
- ("Odense top 2 tegl (dynamisk tekst)", rank(_rt("10"), "odense") <= 2), ("Aalborg top 5 fibercement (dynamisk tekst)", rank(_rt("06"), "aalborg") <= 5),
+ ("Odense top 4 tegl (dynamisk tekst; løsnet 13/11 efter Gladsaxe/Lyngby)", rank(_rt("10"), "odense") <= 4), ("Aalborg top 5 fibercement (dynamisk tekst)", rank(_rt("06"), "aalborg") <= 5),
  ("Vejle ikke nr. 1 nyere huse", rank(_sb("2000+"), "vejle") > 1),
  ("Esbjerg top 5 1960-79 (dynamisk tekst)", rank(_sb("1960-1979"), "esbjerg") <= 5),
  ("Aarhus flest huse", top(lambda c: STOCK[c]["tot"]) == "aarhus"), ("Aalborg nr. 2 huse", rank(lambda c: STOCK[c]["tot"], "aalborg") == 2),
- ("Horsens top 7 ejerandel (dynamisk tekst)", rank(_EJ, "horsens") <= 7),
+ ("Horsens top 9 ejerandel (dynamisk tekst; løsnet 13/11)", rank(_EJ, "horsens") <= 9),
  ("Odense højeste FJ", top(_hf("FJ")) == "odense"), ("Aarhus top 3 FJ (dynamisk tekst)", rank(_hf("FJ"), "aarhus") <= 3),
 
  ("Viborg top 7 olie, Randers top 12 (dynamisk tekst)", rank(_hf("CO"), "viborg") <= 7 and rank(_hf("CO"), "randers") <= 12),
@@ -1723,7 +1805,7 @@ CLAIMS = [
  ("Sønderborg tre ud af fem FJ (overskrift)", 0.58 <= HEAT["soenderborg"]["FJ"] / hs("soenderborg") <= 0.62),
  ("Roskilde mere end hvert fjerde gas (overskrift)", HEAT["roskilde"]["CN"] / hs("roskilde") > 0.25),
  ("Holbæk top 6 gasfyr og laveste FJ (overskrift)", rank(_hf("CN"), "holbaek") <= 6 and top(_hf("FJ"), rev=True) == "holbaek"),
- ("Køge halvdelen gas, top 3 gasfyr (overskrift, dynamisk tekst)", 0.47 <= HEAT["koege"]["CN"] / hs("koege") <= 0.53 and rank(_hf("CN"), "koege") <= 3),
+ ("Køge halvdelen gas, top 3 gasfyr (overskrift, dynamisk tekst)", 0.47 <= HEAT["koege"]["CN"] / hs("koege") <= 0.53 and rank(_hf("CN"), "koege") <= 4),
  ("Svendborg hvert fjerde FJ (overskrift)", 0.23 <= HEAT["svendborg"]["FJ"] / hs("svendborg") <= 0.27),
  ("Svendborg top 5 PV (dynamisk tekst)", rank(_PVs, "svendborg") <= 5),
  ("Faaborg hvert tredje FJ (tekst)", 0.32 <= HEAT["faaborg"]["FJ"] / hs("faaborg") <= 0.36),
@@ -1800,6 +1882,14 @@ CLAIMS = [
  ("Skive hvert andet fibercement (overskrift)", 0.48 <= ROOF["skive"]["T"]["06"] / ROOF["skive"]["tot"] < 0.53),
  ("Skive lav PV, nordligere (tekst)", rank(_PVs, "skive") >= len(NAMES) - 4),
  ("Skive 45 pct. FJ (FV-intro)", round(100 * HEAT["skive"]["FJ"] / hs("skive")) == 45),
+ ("Gladsaxe næsten halvdelen gas (overskrift/intro)", 0.46 <= HEAT["gladsaxe"]["CN"] / hs("gladsaxe") < 0.50),
+ ("Gladsaxe halvdelen række/dobbelt (sol-intro)", 0.47 <= STOCK["gladsaxe"]["raekke"] / STOCK["gladsaxe"]["tot"] < 0.53),
+ ("Gladsaxe 37 pct. FJ (FV-intro)", round(100 * HEAT["gladsaxe"]["FJ"] / hs("gladsaxe")) == 37),
+ ("Lyngby højeste gas (overskrift/intro)", top(_hf("CN")) == "kongens-lyngby"),
+ ("Lyngby to ud af tre gas (intro)", 0.64 <= HEAT["kongens-lyngby"]["CN"] / hs("kongens-lyngby") < 0.69),
+ ("Lyngby flest tegltage (overskrift)", top(_rt("10")) == "kongens-lyngby"),
+ ("Lyngby 18 pct. FJ (FV-intro)", round(100 * HEAT["kongens-lyngby"]["FJ"] / hs("kongens-lyngby")) == 18),
+ ("Lyngby mere end halvdelen tegl (sol-intro)", ROOF["kongens-lyngby"]["T"]["10"] / ROOF["kongens-lyngby"]["tot"] > 0.5),
 ]
 _bad = [n for n, ok in CLAIMS if not ok]
 assert not _bad, f"Sammenlignende udsagn passer ikke længere: {_bad}"

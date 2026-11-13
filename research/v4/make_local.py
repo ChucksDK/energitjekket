@@ -1,6 +1,6 @@
 """Genererer src/data_local_gen.py ud fra rådata hentet 24/10 2026 (PVGIS 5.3 og Danmarks Statistik)."""
 import json, itertools, pprint
-CODE={"461":"odense","561":"esbjerg","621":"kolding","630":"vejle","615":"horsens","730":"randers","851":"aalborg","751":"aarhus","791":"viborg","370":"naestved","740":"silkeborg","316":"holbaek","330":"slagelse","265":"roskilde","540":"soenderborg","259":"koege","479":"svendborg","430":"faaborg","580":"aabenraa","657":"herning","253":"greve","860":"hjoerring","230":"holte","376":"nykoebing-falster","510":"haderslev","813":"frederikshavn","766":"hedensted","760":"ringkoebing","217":"helsingoer","240":"stenloese","250":"frederikssund","746":"skanderborg","390":"vordingborg","101":"koebenhavn","575":"vejen","573":"varde","320":"faxe","326":"kalundborg","779":"skive","000":"dk"}
+CODE={"461":"odense","561":"esbjerg","621":"kolding","630":"vejle","615":"horsens","730":"randers","851":"aalborg","751":"aarhus","791":"viborg","370":"naestved","740":"silkeborg","316":"holbaek","330":"slagelse","265":"roskilde","540":"soenderborg","259":"koege","479":"svendborg","430":"faaborg","580":"aabenraa","657":"herning","253":"greve","860":"hjoerring","230":"holte","376":"nykoebing-falster","510":"haderslev","813":"frederikshavn","766":"hedensted","760":"ringkoebing","217":"helsingoer","240":"stenloese","250":"frederikssund","746":"skanderborg","390":"vordingborg","101":"koebenhavn","575":"vejen","573":"varde","320":"faxe","326":"kalundborg","779":"skive","159":"gladsaxe","173":"kongens-lyngby","000":"dk"}
 pv=json.load(open("pvgis.json"))
 PV={c:{"syd":round(v["syd35"]["E_y"]),"oest":round(v["oest_vest"]["E_y"]),"vest":round(v["vest"]["E_y"]),
        "opt":round(v["opt"]["E_y"]),"opt_angle":v["opt"]["angle"],"months":[round(m) for m in v["syd35"]["months"]],
@@ -32,6 +32,9 @@ TOWNS["helsingoer"]=[("Helsingør-byområdet (inkl. Espergærde)" if n=="Helsing
 TOWNS["stenloese"]=[(n,p) for n,p in TOWNS["stenloese"]]  # Ølstykke-Stenløse allerede korrekt navngivet
 # 10/11 2026: Københavns Kommune har kun ét BY3-byområde (kommunens del af Hovedstadsområdet)
 TOWNS["koebenhavn"]=[("København (kommunens del af hovedstadsområdet)" if n.startswith("København") else n,p) for n,p in TOWNS["koebenhavn"]]
+# 13/11 2026: Gladsaxe og Lyngby-Taarbæk har kun ét BY3-byområde hver (kommunens del af Hovedstadsområdet; Skodsborg 0 indbyggere)
+TOWNS["gladsaxe"]=[("Gladsaxe (kommunens del af hovedstadsområdet)" if n.startswith("Gladsaxe") else n,p) for n,p in TOWNS["gladsaxe"]]
+TOWNS["kongens-lyngby"]=[("Lyngby-Taarbæk (kommunens del af hovedstadsområdet)" if n.startswith("Lyngby-Taarbæk") else n,p) for n,p in TOWNS["kongens-lyngby"]]
 with open("../../src/data_local_gen.py","w",encoding="utf-8") as f:
     f.write('# -*- coding: utf-8 -*-\n"""GENERERET af research/v4/make_local.py (data hentet 24/10 2026). Redigér ikke i hånden.\n'
             'PV: PVGIS 5.3 (SARAH3), kWh pr. kWp pr. år, 35° hældning, 14 % systemtab. HEAT: DST BOL102 2026, beboede parcel/stuehuse + række/kæde/dobbelthuse.\n'

@@ -2084,3 +2084,94 @@ FV_PAGE["skive"] = {
    ("Hvad er et termonet?", "Et mindre, fælles jordvarmeanlæg i landsbyer og boligområder langt fra fjernvarmen. Skive Kommune peger på fælles investering og service, færre støjgener og mere plads ved det enkelte hus som fordele frem for individuelle løsninger.", ["ski_kol"]),
   ],
 }
+
+# ---------- daglig by-rutine 13. nov. 2026: Gladsaxe og Kongens Lyngby ----------
+# Forsyningstilsynet jan. 2026 (research-archive/energitjekket/2026-11-01/ft_prisstatistik_jan2026.csv), rang af 374 efter enfamiliehus-pris:
+# Gladsaxe: I/S Vestforbrænding (registreret som Glostrup) 106, Fællesdriften af Høje Gladsaxe 265, Gladsaxe kommunes Fjernvarmeforsyning 272.
+# Lyngby-Taarbæk: Vestforbrænding 106; Åbrinken forsynes af Norfors (361).
+FV_PRICES["gladsaxe"] = [("I/S Vestforbrænding (statistikkens post: Glostrup)", "2600", "15.482", "526"), ("Fællesdriften af Høje Gladsaxe", "2860", "19.520", "377"),
+                         ("Gladsaxe kommunes Fjernvarmeforsyning", "2860", "19.710", "377")]
+FV_PRICES["kongens-lyngby"] = [("I/S Vestforbrænding (statistikkens post: Glostrup)", "2600", "15.482", "526"), ("I/S Norfors – Norfors Fjernvarme (Åbrinken)", "2970", "25.084", "937")]
+SOL_REG["gladsaxe"] = {
+  "kw": "solceller gladsaxe / byggetilladelse solceller gladsaxe kommune / solceller rækkehus gladsaxe",
+  "evidence": "Gladsaxe Kommunes sider 'Før du bygger' (afsnittet om solvarme- og solcelleanlæg) og 'Solceller' (tjekket 13/11 2026).",
+  "intro": "Gladsaxe Kommune skelner mellem fritliggende enfamiliehuse, dobbelt- og rækkehuse og andre bygninger. På en fritliggende villa uden høj bevaringsværdi kræver solceller på det eksisterende tag ikke byggetilladelse; på rækkehuse og dobbelthuse skal du kontakte Byggesag først. Her er reglerne og hvordan du søger.",
+  "sections": [
+    ("Fritliggende enfamiliehus", [
+      ("ul", [("Slå husets <strong>bevaringsværdi</strong> op hos Slots- og Kulturstyrelsen.", ["gla_byg"]),
+              ("<strong>Bevaringsværdi 1-4:</strong> kontakt Byggesag, før du går i gang.", ["gla_byg"]),
+              ("<strong>Bevaringsværdi 5 eller mere:</strong> ingen byggetilladelse, så længe solcellerne sidder på husets eksisterende tag og i flugt med taghældningen.", ["gla_byg"])]),
+    ]),
+    ("Rækkehuse, dobbelthuse og andre bygninger", [
+      ("p", "Ved dobbelt- og rækkehuse skal du kontakte Byggesag, fordi der kan være særlige regler i deklarationer og lokalplaner. Opsætning på andre typer bygninger kan kræve byggetilladelse. Stort set alle lokalplaner og byplaner i Gladsaxe har desuden en byggelinje mod vej, som intet byggeri må overskride, og det er dit ansvar, at byggeri uden tilladelse overholder lokalplanen.", ["gla_byg"]),
+    ]),
+    ("Når anlægget er sat op", [
+      ("p", "Elinstallatøren registrerer anlægget hos netselskabet og sørger for den endelige tilslutning. Du skal selv indberette anlægget i BBR. Kræver projektet tilladelse, søger du via Byg og Miljø. Byggesag svarer på byggesag@gladsaxe.dk og 39 57 59 05.", ["gla_sol", "gla_byg"]),
+    ]),
+  ],
+  "faq": [
+    ("Kræver solceller byggetilladelse i Gladsaxe Kommune?", "Ikke på et fritliggende enfamiliehus med bevaringsværdi 5 eller mere, når solcellerne sidder på det eksisterende tag i flugt med taghældningen. Har huset bevaringsværdi 1-4, eller bor du i rækkehus eller dobbelthus, skal du kontakte Byggesag.", ["gla_byg"]),
+    ("Hvor ser jeg, om mit hus er bevaringsværdigt?", "Gladsaxe Kommune henviser til Slots- og Kulturstyrelsens hjemmeside, hvor du kan finde husets bevaringsværdi (SAVE). Værdi 1-4 betyder, at du skal kontakte Byggesag før opsætning.", ["gla_byg"]),
+    ("Kan jeg få hjælp til at søge om tilladelse?", "Kommunen foreslår, at du bruger en privat byggerådgiver, som kan vejlede om byggetilladelse til solcelleanlæg og hjælpe med ansøgningen.", ["gla_sol"]),
+  ],
+}
+SOL_REG["kongens-lyngby"] = {
+  "kw": "solceller lyngby / solceller lyngby-taarbæk kommune / bevaringsværdig solceller lyngby",
+  "evidence": "Lyngby-Taarbæk Kommuneplan 2025 (generelle rammer) og kommunens sider om byggetilladelse og dispensation (tjekket 13/11 2026).",
+  "intro": "I Lyngby-Taarbæk er det især kommuneplanens generelle rammer, der sætter grænserne: solceller er tilladt på alle bygninger, men ikke på bevaringsværdig bebyggelse, hvis det påvirker bevaringsværdien, og på rækkehuse og dobbelthuse kun efter ensartede retningslinjer. Her er reglerne og hvordan du søger.",
+  "sections": [
+    ("Det siger kommuneplanen", [
+      ("ul", [("Der <strong>må opsættes solceller på alle bygninger</strong>, se dog reglerne for bevaringsværdig bebyggelse.", ["lyn_kp"]),
+              ("Alle ejendomme med <strong>høj bevaringsværdi (1-3)</strong> er udpeget som bevaringsværdige, og her må der generelt ikke opsættes solceller, medmindre det ikke påvirker bevaringsværdien.", ["lyn_kp"]),
+              ("I områder med <strong>rækkehuse og dobbelthuse</strong> må solceller kun opsættes efter ensartede retningslinjer.", ["lyn_kp"]),
+              ("Tagmateriale må højst have en <strong>glansværdi på 15</strong>.", ["lyn_kp"])]),
+    ]),
+    ("Lokalplan, SAVE-værdi og dispensation", [
+      ("p", "Din ejendom kan være omfattet af en lokalplan og af natur- eller bygningsbeskyttelseslinjer. Har bygningen en SAVE-værdi mellem 1 og 3, vil kommunen gerne se projektet, før du går i gang. Strider projektet mod lokalplanen, skal du søge dispensation; sagen kan blive sendt i naboorientering, høring eller politisk behandling.", ["lyn_byg", "lyn_disp"]),
+    ]),
+    ("Når du skal søge", [
+      ("p", "Ansøgninger sendes via Byg og Miljø. Kommunen oplyser en køtid på ca. 3 måneder, før sagen får en byggesagsbehandler, og der betales gebyr for sagsbehandlingen. En forhåndsdialog på 30 minutter er gratis, og byggesagsvagten træffes alle hverdage på 45 97 38 87.", ["lyn_byg"]),
+    ]),
+  ],
+  "faq": [
+    ("Må jeg sætte solceller på et bevaringsværdigt hus i Lyngby?", "Generelt ikke. Kommuneplanen tillader kun solceller på bevaringsværdig bebyggelse (SAVE 1-3), i det omfang det ikke påvirker bevaringsværdien. Kontakt kommunen, før du bestiller.", ["lyn_kp", "lyn_byg"]),
+    ("Gælder der særlige regler for rækkehuse i Lyngby-Taarbæk?", "Ja. I områder med rækkehuse og dobbelthuse må solceller kun opsættes efter ensartede retningslinjer, og opsætning på samlede, ens bebyggelser vurderes i forbindelse med lokalplanlægningen.", ["lyn_kp"]),
+    ("Hvad koster en byggesag i Lyngby-Taarbæk?", "Kommunen opkræver gebyr for den tid, den bruger på din ansøgning – også ved afslag og tilbagetrukne ansøgninger. Den første forhåndsdialog er gratis.", ["lyn_byg"]),
+  ],
+}
+FV_PAGE["gladsaxe"] = {
+  "kw": "fjernvarme gladsaxe / gladsaxe fjernvarme pris / hvornår kommer fjernvarme gladsaxe",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026, Gladsaxe Kommunes side om fjernvarme og Varmeplan 2030 samt afrapporteringen på driftsaftalen med Gentofte Gladsaxe Fjernvarme (tjekket 13/11 2026).",
+  "intro": "37 % af husene i Gladsaxe Kommune har fjernvarme, og næsten lige så mange har naturgas – men der er godkendt fjernvarme til stort set hele kommunen frem mod 2029. Gladsaxe Fjernvarme leverer i syd og Vestforbrænding i nord, og prisforskellen er stor. Her er status, priserne og regnestykket mod en varmepumpe.",
+  "status": [
+    ("<strong>Syd (Gentofte Gladsaxe Fjernvarme):</strong> projektforslag for ca. 5.000 bygninger. Et enkelt projektforslag for Vadgårdsparken ventes behandlet i 2026.", ["gla_ggf"]),
+    ("<strong>Nord for Motorring 3 og vest for Stengårds Allé (Vestforbrænding):</strong> ca. 4.000 bygninger; kommunen skriver frem mod 2030, hvis muligt allerede 2028.", ["gla_fv", "gla_vp30", "gla_ggf"]),
+    ("<strong>Nybrovej:</strong> en håndfuld spredte bygninger er endnu ikke omfattet af et projektforslag.", ["gla_ggf"]),
+    ("<strong>Tidsplan:</strong> opdateret i efteråret 2025 med de sidste etaper i 2029; selskabernes egne kort er det gældende.", ["gla_ggf", "gla_fv"]),
+  ],
+  "local_take": "Vestforbrænding er nr. 106 af 374 værker i Forsyningstilsynets statistik og under landsgennemsnittet for et standardhus, mens Fællesdriften af Høje Gladsaxe (nr. 265) og Gladsaxe kommunes Fjernvarmeforsyning (nr. 272) ligger 2.500-2.800 kr. over. Fjernvarmen er på vej næsten overalt, og der er ingen tilslutningspligt. Har du et gasfyr, der stadig virker, kan det betale sig at se tidsplanen for din vej, før du køber varmepumpe.",
+  "contact": ("Gladsaxe Fjernvarme", "70 20 58 50 · info@ggfjernvarme.dk", "gla_kort"),
+  "faq": [
+    ("Hvad koster fjernvarme i Gladsaxe?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 19.710 kr. om året inkl. moms hos Gladsaxe kommunes Fjernvarmeforsyning, 19.520 kr. hos Fællesdriften af Høje Gladsaxe og 15.482 kr. hos Vestforbrænding. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+    ("Er der tilslutningspligt til fjernvarme i Gladsaxe?", "Nej. Gladsaxe Kommune skriver, at borgerne som udgangspunkt selv kan vælge den opvarmningsform, de ønsker.", ["gla_fv"]),
+    ("Hvor kommer fjernvarmen i Gladsaxe fra?", "Ifølge kommunen kommer omtrent 80 % af fjernvarmens energi fra halm, flis, affald og samproduktion med el. Vestforbrændings varme kommer primært fra affaldsforbrænding.", ["gla_fv"]),
+  ],
+}
+FV_PAGE["kongens-lyngby"] = {
+  "kw": "fjernvarme lyngby / fjernvarme lyngby-taarbæk tidsplan / vestforbrænding fjernvarme lyngby pris",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026, Lyngby-Taarbæk Kommunes side om fjernvarme og naturgas (Varmeplan 2022-2030), Vestforbrændings informationsmøder 2026 og præsentationen fra 26. januar 2026 (tjekket 13/11 2026).",
+  "intro": "Kun 18 % af husene i Lyngby-Taarbæk Kommune har fjernvarme i dag, og to ud af tre har naturgas. Vestforbrænding er midt i en udrulning til ca. 8.625 adresser frem mod december 2030, men en række områder får ikke tilbudt fjernvarme. Her er status, priserne og regnestykket mod en varmepumpe.",
+  "status": [
+    ("<strong>Etape 1 (2023-2028):</strong> Bondebyen er afsluttet som det første område. Virum og Sorgenfri (område C1) skulle alle have tilbud senest i 2025.", ["lyn_fvng"]),
+    ("<strong>Etape 2 (2026-2030):</strong> graveopstart i 2026 i bl.a. Ulrikkenborg Øst og Syd for O4, Jægersborg, Digterkvarteret, Ulrikkenborg Vest og Lundtofte.", ["lyn_info", "lyn_pdf"]),
+    ("<strong>Ingen fjernvarme:</strong> Spring Forbi, Raadvad, Bakken, Frederiksdal, Ny Frederiksdal og spredt bebyggelse i det østlige Virum ved Mølleåen.", ["lyn_fvng"]),
+    ("<strong>Åbrinken:</strong> forsynes af Norfors, ikke Vestforbrænding.", ["lyn_fvng"]),
+  ],
+  "local_take": "Vestforbrænding er nr. 106 af 374 værker i Forsyningstilsynets statistik og ca. 1.500 kr. under landsgennemsnittet for et standardhus, og i kampagneperioden koster tilslutningen 15.000 kr. Ligger din adresse i et udrulningsområde, er fjernvarme som regel det billigste skifte fra gas. Bor du i et af områderne uden fjernvarme, er en luft til vand-varmepumpe – eller et termonet – det realistiske valg.",
+  "contact": ("Lyngby-Taarbæk Kommune, Klima og Forsyning – Varme", "45 97 35 00", "lyn_fvng"),
+  "faq": [
+    ("Hvad koster fjernvarme i Lyngby-Taarbæk?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 15.482 kr. om året inkl. moms hos Vestforbrænding. Landsgennemsnittet er 16.953 kr. Tilslutningen koster 15.000 kr. i kampagneperioden (op til 50 m stikledning, derefter 2.500 kr. pr. meter) og 45.000 kr. uden for den.", ["ft_pris", "lyn_pdf"]),
+    ("Hvad koster det at afkoble gassen?", "Vestforbrænding oplyser et afkoblingsgebyr på 9.500 kr. i 2026, som kan dækkes af Energistyrelsens afkoblingspulje. Ansøgningen til puljen sker automatisk via Evida.", ["lyn_pdf"]),
+    ("Hvor skal varmen komme fra?", "Lyngby-Taarbæk Kommune skriver, at der arbejdes på et geotermianlæg, som skal forsyne 10.000 kunder i Virum-området, og at der i etape 2 også ses på overskudsvarme fra Mølleåværket.", ["lyn_fvng"]),
+  ],
+}

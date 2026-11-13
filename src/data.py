@@ -397,7 +397,7 @@ CITIES["naestved"] = {
   ],
 }
 CITIES["silkeborg"] = {
-  "name": "Silkeborg", "kommune": "Silkeborg Kommune", "updated": ("27. oktober 2026", "2026-10-27"),
+  "name": "Silkeborg", "kommune": "Silkeborg Kommune", "updated": ("13. november 2026", "2026-11-13"),
   "sol_intro": "Solceller i Silkeborg: Silkeborg Kommune nævner fire tilfælde, hvor du skal have byggetilladelse, bl.a. anlæg på terræn og anlæg, der står for højt i forhold til skel. Ellers handler det om lokalplanen. Sagsbehandlingen er lige nu lang, så tjek reglerne først. Her er de, og priserne.",
   "sol_facts": [
     ("Byggetilladelse kræves, hvis anlægget står på <strong>terræn</strong>, sidder på fx erhvervsbygninger, skoler, ridehaller eller etageboliger, står for højt i forhold til afstanden til naboskel, eller hvis <strong>tagkonstruktionen skal ændres</strong> på grund af øget last.", ["sil_byg"]),
@@ -409,7 +409,7 @@ CITIES["silkeborg"] = {
     ("Kræver solceller byggetilladelse i Silkeborg?", "Kun i fire tilfælde ifølge kommunen: anlæg på terræn, anlæg på bygninger som erhverv, skoler og etageboliger, anlæg der står for højt i forhold til naboskel, og anlæg der kræver ændring af tagkonstruktionen. Lokalplan og servitutter kan dog kræve dispensation.", ["sil_byg"]),
     ("Kan jeg få vejledning om solceller hos Silkeborg Kommune?", "Ja. Du kan booke en samtale på 20 minutter med en byggesagsbehandler, før du sender ansøgningen. Vær opmærksom på, at kommunen tager gebyr for forespørgsler og forhåndsdialoger om byggeloven.", ["sil_byg"]),
   ],
-  "vp_intro": "Luft til vand-varmepumpe i Silkeborg: Silkeborg Forsyning lægger fjernvarme ud i en række byer uden for Silkeborg, bl.a. Virklund, Sejs-Svejbæk, Them, Salten og Voel. Bor du dér, skal du nok ikke have varmepumpe. Bor du uden for projekterne, er den et oplagt valg. Her er status og tallene.",
+  "vp_intro": "Varmepumpe i Silkeborg: Silkeborg Forsyning lægger fjernvarme ud i en række byer uden for Silkeborg, bl.a. Virklund, Sejs-Svejbæk, Them, Salten og Voel. Bor du dér, skal du nok ikke have varmepumpe. Bor du uden for projekterne, er en luft til vand-varmepumpe et oplagt valg. Her er status, priserne og tallene.",
   "vp_facts": [
     ("Fjernvarmeprojektet <strong>Silkeborg Syd</strong> omfatter Virklund, Sejs-Svejbæk, Them og Salten. Gravearbejdet i byerne forventes at begynde i slutningen af 2026, og projektet ventes færdigt i første halvår af 2029. Knudlund er udgået på grund af lav tilmelding.", ["sil_syd", "sil_faq"]),
     ("I <strong>Voel</strong> rundede tilslutningen 59 % i februar 2026, over målet på 55 %. Gravearbejdet forventes at begynde i andet halvår af 2026 og vare ca. to år.", ["sil_voel"]),
@@ -1050,7 +1050,7 @@ S.update({
  "vf_energi": ("Vestforbrænding: kontrakt om energicentral på plads (26/5 2026)", "https://vestfor.dk/bliv-klogere/nyheder/nyhedsoverblik/kontrakt-om-energicentral-paa-plads"),
 })
 CITIES["ringkoebing"] = {
-  "name": "Ringkøbing", "kommune": "Ringkøbing-Skjern Kommune", "updated": ("5. november 2026", "2026-11-05"),
+  "name": "Ringkøbing", "kommune": "Ringkøbing-Skjern Kommune", "cross_name": "Ringkøbing-Skjern", "updated": ("5. november 2026", "2026-11-05"),
   "vp_title": "Varmepumpe Ringkøbing: luft til vand og tilskud | Energitjekket",
   "fv_title": "Fjernvarme eller varmepumpe i Ringkøbing? 2026 | Energitjekket",
   "reg_title": "Solceller Ringkøbing-Skjern: regler og tilladelse | Energitjekket",
@@ -1461,3 +1461,78 @@ CONTACTS["kalundborg"] = {"sol": [("Kalundborg Kommune, byggesag", "dto@kalundbo
                           "vp":  [("Kalundborg Forsyning", "59 57 17 00 · kundecenter@kalfor.dk", "kal_ff")]}
 CONTACTS["skive"] = {"sol": [("Skive Kommune, Teknik", "tek@skivekommune.dk", "ski_sol")],
                      "vp":  [("Skive Fjernvarme", "97 52 09 66 · skivefjernvarme@skivefjernvarme.dk", "ski_sf")]}
+
+# ---------- daglig by-rutine 13. nov. 2026: Gladsaxe (DK2) og Kongens Lyngby (DK2, Lyngby-Taarbæk Kommune) ----------
+S.update({
+ "gla_byg": ("Gladsaxe Kommune: før du bygger – solvarme- og solcelleanlæg (læst 13/11 2026)", "https://gladsaxe.dk/borger/bolig-vand-og-varme/byggeri/foer-du-bygger"),
+ "gla_sol": ("Gladsaxe Kommune: solceller (læst 13/11 2026)", "https://gladsaxe.dk/borger/bolig-vand-og-varme/varme-og-energi/solceller"),
+ "gla_fv": ("Gladsaxe Kommune: fjernvarme og udbygningsplaner (læst 13/11 2026)", "https://gladsaxe.dk/borger/bolig-vand-og-varme/varme-og-energi/fjernvarme"),
+ "gla_vp30": ("Gladsaxe Kommune: Varmeplan 2030 (læst 13/11 2026)", "https://gladsaxe.dk/politik/planer-politikker-og-visioner/miljoe-og-klima/varmeplan-2030"),
+ "gla_ggf": ("Gladsaxe Kommune, Klima- og Miljøudvalget: afrapportering på driftsaftale for Gentofte Gladsaxe Fjernvarme 2025-2026 (via Monrad, læst 13/11 2026)", "https://www.monrad.app/agenda_items/77211"),
+ "gla_kort": ("Gladsaxe Fjernvarme: se, om og hvornår du kan få fjernvarme (læst 13/11 2026)", "https://gladsaxefjernvarme.dk/privat/jeg-overvejer-at-faa-fjernvarme/se-straks-om-dit-hus-kan-faa-fjernvarme/"),
+ "lyn_kp": ("Lyngby-Taarbæk Kommuneplan 2025: generelle rammer (solceller, bevaringsværdig bebyggelse, tagmateriale; læst 13/11 2026)", "https://ltk.cowiplan.dk/kommuneplan-2025/hvad-gaelder/generelle-rammer/"),
+ "lyn_byg": ("Lyngby-Taarbæk Kommune: ansøg om byggetilladelse (læst 13/11 2026)", "https://www.ltk.dk/borger/bolig-og-byggeri/byggeri/ansoeg-om-byggetilladelse"),
+ "lyn_disp": ("Lyngby-Taarbæk Kommune: dispensation (læst 13/11 2026)", "https://www.ltk.dk/borger/bolig-og-byggeri/byggeri/dispensation"),
+ "lyn_fvng": ("Lyngby-Taarbæk Kommune: fjernvarme og naturgas, Varmeplan 2022-2030 (læst 13/11 2026)", "https://www.fjernvarme.ltk.dk/fjernvarme-og-naturgas"),
+ "lyn_info": ("Lyngby-Taarbæk Kommune: Vestforbrændings informationsmøder 2026 om graveopstart (læst 13/11 2026)", "https://fjernvarme.ltk.dk/informationsmoeder-2026-om-graveopstart-i-lyngby-taarbaek"),
+ "lyn_pdf": ("Vestforbrænding: informationsmøde om graveopstart i Lyngby-Taarbæk 26. januar 2026 (pdf)", "https://www.fjernvarme.ltk.dk/media/2gdhlg4e/informationsmoede-om-graveopstart-26-januar-lyngby-taarbaek.pdf"),
+ "lyn_vf": ("Vestforbrænding: fjernvarme i Lyngby-Taarbæk (læst 13/11 2026)", "https://vestfor.dk/privat/fjernvarme/fjernvarme-lyngby-taarbaek-kommune"),
+})
+CITIES["gladsaxe"] = {
+  "name": "Gladsaxe", "kommune": "Gladsaxe Kommune", "updated": ("13. november 2026", "2026-11-13"),
+  "sol_intro": "Solceller i Gladsaxe: på et fritliggende enfamiliehus kræver solceller ikke byggetilladelse, når de sidder på det eksisterende tag i flugt med taghældningen, og huset ikke har bevaringsværdi 1-4. Bor du i rækkehus eller dobbelthus, skal du kontakte Byggesag først – og halvdelen af husene i kommunen er række-, kæde- eller dobbelthuse. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("På et <strong>fritliggende enfamiliehus</strong> med bevaringsværdi 5 eller mere kræver solceller ikke byggetilladelse, når de sidder på det eksisterende tag og i flugt med taghældningen.", ["gla_byg"]),
+    ("Har huset <strong>bevaringsværdi 1-4</strong> (slå det op hos Slots- og Kulturstyrelsen), skal du kontakte Byggesag, før du går i gang.", ["gla_byg"]),
+    ("Ved <strong>dobbelt- og rækkehuse</strong> skal du altid kontakte Byggesag, fordi deklarationer og lokalplaner kan have særlige regler.", ["gla_byg"]),
+    ("Når anlægget er sat op, skal elinstallatøren registrere det hos netselskabet, og du skal selv indberette det i <strong>BBR</strong>.", ["gla_sol"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge byggetilladelse til solceller på min villa i Gladsaxe?", "Ikke hvis villaen er fritliggende, har bevaringsværdi 5 eller mere, og solcellerne sidder på det eksisterende tag i flugt med taghældningen. Har huset bevaringsværdi 1-4, skal du kontakte Byggesag på byggesag@gladsaxe.dk eller 39 57 59 05.", ["gla_byg"]),
+    ("Hvor meget af strømmen i Gladsaxe kan komme fra solceller?", "Ifølge en analyse, kommunen henviser til, kan ca. en tredjedel af strømforbruget i Gladsaxe produceres på tagene i kommunen, og ca. halvdelen af det potentiale ligger på private tage.", ["gla_sol"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Gladsaxe: næsten halvdelen af husene i kommunen har stadig naturgas, men fjernvarmen er på vej til stort set hele kommunen frem mod 2029. Før du vælger en varmepumpe, er det vigtigste derfor, hvornår fjernvarmen når din vej. Her er status, priserne og reglerne.",
+  "vp_facts": [
+    ("Der er godkendt projektforslag for udbygning af fjernvarmen til <strong>stort set hele Gladsaxe Kommune</strong>: ca. 5.000 bygninger hos Gentofte Gladsaxe Fjernvarme og ca. 4.000 hos Vestforbrænding.", ["gla_ggf"]),
+    ("Den samlede tidsplan blev opdateret i efteråret 2025 med forventet afslutning af de sidste etaper i <strong>2029</strong>.", ["gla_ggf"]),
+    ("Der er <strong>ingen tilslutningspligt</strong> til fjernvarme i Gladsaxe – du må selv vælge opvarmning.", ["gla_fv"]),
+    ("Falder tilslutningen i et udbygningsområde under <strong>40 %</strong>, vil kommunen og fjernvarmeselskabet genoverveje udbygningen. Samlet ligger tilslutningen i Gladsaxe på 82 %.", ["gla_fv", "gla_ggf"]),
+  ],
+  "vp_faq": [
+    ("Hvornår får jeg fjernvarme i Gladsaxe?", "Det afhænger af, om du bor i Gentofte Gladsaxe Fjernvarmes område i den sydlige del af kommunen eller i Vestforbrændings område nord for Motorring 3 og vest for Stengårds Allé. Begge selskaber har kort, hvor du kan slå din adresse op. Kommunen skriver, at det er selskabernes tidsplan, der gælder.", ["gla_fv", "gla_kort"]),
+    ("Hvad gør jeg, hvis mit gasfyr går i stykker, før fjernvarmen kommer?", "Gladsaxe Kommune nævner, at du kan reparere fyret, udskifte det med et brugt eller købe en midlertidig varmepumpe. Tal med en VVS'er om mulighederne.", ["gla_fv"]),
+  ],
+}
+CITIES["kongens-lyngby"] = {
+  "name": "Kongens Lyngby", "kommune": "Lyngby-Taarbæk Kommune", "cross_name": "Lyngby-Taarbæk", "updated": ("13. november 2026", "2026-11-13"),
+  "sol_title": "Solceller Kongens Lyngby 2026: regler og pris | Energitjekket",
+  "vp_title": "Varmepumpe Kongens Lyngby: luft til vand, pris 2026 | Energitjekket",
+  "fv_title": "Fjernvarme eller varmepumpe i Kongens Lyngby? 2026 | Energitjekket",
+  "reg_title": "Solceller i Lyngby-Taarbæk: regler og tilladelse | Energitjekket",
+  "sol_intro": "Solceller i Kongens Lyngby: Lyngby-Taarbæks kommuneplan tillader solceller på alle bygninger – men ikke på bevaringsværdige huse, hvis det påvirker bevaringsværdien, og i rækkehus- og dobbelthusområder kun efter ensartede retningslinjer. Mere end halvdelen af husene har tegltag. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Kommuneplanens generelle rammer siger, at der <strong>må opsættes solceller på alle bygninger</strong> – med undtagelse for bevaringsværdig bebyggelse.", ["lyn_kp"]),
+    ("Ejendomme med <strong>høj bevaringsværdi (SAVE 1-3)</strong> er udpeget som bevaringsværdige. Her må solceller kun sættes op, hvis det ikke påvirker bevaringsværdien.", ["lyn_kp", "lyn_byg"]),
+    ("I områder med <strong>rækkehuse og dobbelthuse</strong> må solceller kun sættes op efter ensartede retningslinjer.", ["lyn_kp"]),
+    ("Kommunen har en <strong>byggesagsvagt</strong> på 45 97 38 87 alle hverdage, og en forhåndsdialog på 30 minutter er gratis.", ["lyn_byg"]),
+  ],
+  "sol_faq": [
+    ("Må jeg sætte solceller på mit hus i Kongens Lyngby?", "Som udgangspunkt ja: kommuneplanen tillader solceller på alle bygninger. Er huset bevaringsværdigt (SAVE 1-3), må de kun sættes op, hvis det ikke påvirker bevaringsværdien, og i rækkehus- og dobbelthusområder skal de følge ensartede retningslinjer. Tjek også lokalplan og tinglyste servitutter.", ["lyn_kp", "lyn_byg"]),
+    ("Hvor lang tid tager en byggesag i Lyngby-Taarbæk?", "Kommunen skriver, at du i øjeblikket skal forvente ca. 3 måneders køtid, før din sag får en byggesagsbehandler. Kræver sagen naboorientering, høring eller politisk behandling, tager det længere tid.", ["lyn_byg", "lyn_disp"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Kongens Lyngby: to ud af tre huse i Lyngby-Taarbæk Kommune har naturgas – den højeste andel af byerne på dette site – men Vestforbrænding ruller fjernvarme ud til ca. 8.625 adresser frem mod 2030. Bor du uden for fjernvarmeområderne, er en varmepumpe vejen væk fra gassen. Her er status, priserne og reglerne.",
+  "vp_facts": [
+    ("Vestforbrændings udrulning i Lyngby-Taarbæk startede i oktober 2023 og skal være færdig i <strong>december 2030</strong>: 17 energidistrikter og ca. 8.625 adresser.", ["lyn_pdf"]),
+    ("<strong>Spring Forbi, Raadvad, Bakken, Frederiksdal og Ny Frederiksdal</strong> samt spredt bebyggelse i det østlige Virum ved Mølleåen får ikke tilbudt fjernvarme. Her peger kommunen på varmepumpe eller termonet.", ["lyn_fvng"]),
+    ("Selv om et område er udpeget til fjernvarme, må du godt installere <strong>jordvarme eller solceller</strong>. Et jordvarmeanlæg kræver altid tilladelse.", ["lyn_fvng"]),
+    ("I Vestforbrændings kampagneperiode koster en fjernvarmetilslutning <strong>15.000 kr.</strong> (op til 50 m stikledning); uden for kampagnen 45.000 kr.", ["lyn_pdf"]),
+  ],
+  "vp_faq": [
+    ("Hvilke områder i Lyngby-Taarbæk får ikke fjernvarme?", "Ifølge kommunen boliger i Spring Forbi, Raadvad, Bakken, Frederiksdal og Ny Frederiksdal (Marienborg/Sophienholm) samt spredt bebyggelse i det østlige Virum, der grænser op til Mølleåen. Her kan en varmepumpe – eller i samråd med kommunen et termonet – være løsningen.", ["lyn_fvng"]),
+    ("Skal jordvarme have tilladelse i Lyngby-Taarbæk?", "Ja. Lyngby-Taarbæk Kommune skriver, at opsætning af et jordvarmeanlæg altid kræver tilladelse – også hvis dit område er udpeget til fjernvarme.", ["lyn_fvng"]),
+  ],
+}
+CONTACTS["gladsaxe"] = {"sol": [("Gladsaxe Kommune, Byggesag", "39 57 59 05 · byggesag@gladsaxe.dk", "gla_byg")],
+                        "vp":  [("Gladsaxe Fjernvarme (Gentofte Gladsaxe Fjernvarme)", "70 20 58 50 · info@ggfjernvarme.dk", "gla_kort")]}
+CONTACTS["kongens-lyngby"] = {"sol": [("Lyngby-Taarbæk Kommune, byggesagsvagt", "45 97 38 87 (alle hverdage)", "lyn_byg")],
+                              "vp":  [("Lyngby-Taarbæk Kommune, Klima og Forsyning – Varme", "45 97 35 00", "lyn_fvng")]}

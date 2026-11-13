@@ -326,7 +326,8 @@
     "kommune": "Gladsaxe Kommune",
     "region": "Region Hovedstaden",
     "reason": "13.224 beboede parcel/rækkehuse; 37% fjernvarme; 7.113 med olie/gas/elvarme; stærkt varmepumpemarked",
-    "status": "pending"
+    "status": "done",
+    "done": "2026-11-13"
   },
   {
     "rank": 34,
@@ -335,7 +336,8 @@
     "kommune": "Lyngby-Taarbæk Kommune",
     "region": "Region Hovedstaden",
     "reason": "11.278 beboede parcel/rækkehuse; 18% fjernvarme; 8.024 med olie/gas/elvarme; stærkt varmepumpemarked",
-    "status": "pending"
+    "status": "done",
+    "done": "2026-11-13"
   },
   {
     "rank": 35,
