@@ -17,13 +17,13 @@ Lighed, GAMMEL metode (hele siden minus header/footer/form/links)
   Byside vs egen underside: gns 15%, maks 37%
   Nye sider (silkeborg, gladsaxe, kongens-lyngby) mod de eksisterende sider af samme type:
     /solceller/silkeborg/: gns 43%, maks 51% (/solceller/vejle/) | 1364 ord
-    /solceller/gladsaxe/: gns 46%, maks 53% (/solceller/skanderborg/) | 1369 ord
+    /solceller/gladsaxe/: gns 46%, maks 53% (/solceller/helsingoer/) | 1369 ord
     /solceller/kongens-lyngby/: gns 43%, maks 51% (/solceller/aabenraa/) | 1356 ord
     /solceller/silkeborg/regler-og-byggetilladelse/: gns 32%, maks 36% (/solceller/stenloese/regler-og-byggetilladelse/) | 793 ord
     /solceller/gladsaxe/regler-og-byggetilladelse/: gns 37%, maks 45% (/solceller/frederikssund/regler-og-byggetilladelse/) | 587 ord
     /solceller/kongens-lyngby/regler-og-byggetilladelse/: gns 35%, maks 41% (/solceller/gladsaxe/regler-og-byggetilladelse/) | 632 ord
     /varmepumpe/silkeborg/: gns 36%, maks 48% (/varmepumpe/aalborg/) | 1396 ord
-    /varmepumpe/gladsaxe/: gns 44%, maks 52% (/varmepumpe/faxe/) | 1232 ord
+    /varmepumpe/gladsaxe/: gns 43%, maks 52% (/varmepumpe/faxe/) | 1232 ord
     /varmepumpe/kongens-lyngby/: gns 43%, maks 53% (/varmepumpe/vordingborg/) | 1220 ord
     /varmepumpe/silkeborg/fjernvarme-eller-varmepumpe/: gns 34%, maks 44% (/varmepumpe/naestved/fjernvarme-eller-varmepumpe/) | 943 ord
     /varmepumpe/gladsaxe/fjernvarme-eller-varmepumpe/: gns 39%, maks 49% (/varmepumpe/faxe/fjernvarme-eller-varmepumpe/) | 895 ord
