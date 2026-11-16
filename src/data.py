@@ -467,7 +467,7 @@ CITIES["holbaek"] = {
   ],
 }
 CITIES["slagelse"] = {
-  "name": "Slagelse", "kommune": "Slagelse Kommune", "updated": ("28. oktober 2026", "2026-10-28"),
+  "name": "Slagelse", "kommune": "Slagelse Kommune", "updated": ("16. november 2026", "2026-11-16"),
   "sol_intro": "Solceller i Slagelse: ligger huset uden for en lokalplan, og overholder anlægget byggeretten i bygningsreglementet, skal du ikke søge. Stiller lokalplanen krav til taget, eller ligger huset i en bevarende lokalplan i Slagelse, Korsør eller Skælskør, skal du søge dispensation. Her er reglerne, priserne og vejen til et tilbud.",
   "sol_facts": [
     ("Uden lokalplan skal du ikke søge, hvis anlægget på taget <strong>overholder byggeretten</strong> i bygningsreglementet, bl.a. afstanden til skel. Anlægget skal indberettes til BBR, når det er sat op.", ["slg_adm", "slg_sol"]),
@@ -479,7 +479,7 @@ CITIES["slagelse"] = {
     ("Skal jeg søge om lov til solceller på mit hus i Slagelse?", "Ikke hvis huset ligger uden for en lokalplan med krav til taget, og anlægget overholder byggeretten i bygningsreglementet. Ellers skal du søge byggetilladelse eller dispensation. Anlægget skal altid indberettes til BBR.", ["slg_adm", "slg_sol"]),
     ("Hvor lang tid tager en dispensation til solceller i Slagelse Kommune?", "Kommunens administrationsgrundlag siger mindst 6 uger, og længere, hvis naboer eller andre parter skal høres.", ["slg_adm"]),
   ],
-  "vp_intro": "Luft til vand-varmepumpe i Slagelse: fjernvarmen bliver udbygget i Slagelse by, men i Skælskør, Vemmelev, Forlev og Sørbymagle er fjernvarmeprojekterne droppet. Dér skal husene have en individuel løsning, fx en varmepumpe. Her er status, priserne og tilskudsreglerne.",
+  "vp_intro": "Varmepumpe i Slagelse: fjernvarmen bliver udbygget i Slagelse by, men i Skælskør, Vemmelev, Forlev og Sørbymagle er fjernvarmeprojekterne droppet. Dér skal husene have en individuel løsning – typisk en luft til vand-varmepumpe. Her er status, priserne og tilskudsreglerne.",
   "vp_facts": [
     ("<strong>Slagelse SV</strong> (mellem Idagårdsvej, Skælskørvej/Bjergbygade og Vestmotorvejen) nåede 61 % tilslutning og får fjernvarme. I <strong>Slagelse Øst</strong> (øst for Klosterbanken) er projektet planlagt til 2027 og kræver 60 % tilslutning.", ["slg_fv"]),
     ("Byrådet annullerede i 2025 fjernvarmeprojekterne i det centrale <strong>Skælskør</strong> og i <strong>Vemmelev og Forlev</strong>. Boligejerne dér kan igen søge tilskud til varmepumpe.", ["slg_fv"]),
@@ -1536,3 +1536,76 @@ CONTACTS["gladsaxe"] = {"sol": [("Gladsaxe Kommune, Byggesag", "39 57 59 05 · b
                         "vp":  [("Gladsaxe Fjernvarme (Gentofte Gladsaxe Fjernvarme)", "70 20 58 50 · info@ggfjernvarme.dk", "gla_kort")]}
 CONTACTS["kongens-lyngby"] = {"sol": [("Lyngby-Taarbæk Kommune, byggesagsvagt", "45 97 38 87 (alle hverdage)", "lyn_byg")],
                               "vp":  [("Lyngby-Taarbæk Kommune, Klima og Forsyning – Varme", "45 97 35 00", "lyn_fvng")]}
+
+# ---------- daglig by-rutine 16. nov. 2026: Holstebro (DK1) og Fredensborg (DK2) ----------
+S.update({
+ "hol_byg": ("Holstebro Kommune: byggeri – solcelleanlæg (læst 16/11 2026)", "https://www.holstebro.dk/byggeri"),
+ "hol_varme": ("Holstebro Kommune: varmeforsyning (læst 16/11 2026)", "https://www.holstebro.dk/borger/bolig-og-byggeri/boligejer/el-og-varme/varme"),
+ "hol_vfomr": ("Vestforsyning: forsyningsområde for varme (læst 16/11 2026)", "https://www.vestforsyning.dk/varme/forsyningsomraade/"),
+ "hol_vfkan": ("Vestforsyning: kan jeg få fjernvarme? (læst 16/11 2026)", "https://www.vestforsyning.dk/varme/kan-jeg-faa-fjernvarme/"),
+ "hol_vfjern": ("Vestforsyning: Vi presser lige nu varmen under jernbanen (27/8 2026)", "https://www.vestforsyning.dk/nyheder/nyheder/vi-presser-lige-nu-varmen-under-jernbanen/"),
+ "fre_sol": ("Fredensborg Kommune: solceller (læst 16/11 2026)", "https://fredensborg.dk/borger/klima-og-energi/elektricitet/solceller"),
+ "fre_fv": ("Fredensborg Kommune: fjernvarme (læst 16/11 2026)", "https://fredensborg.dk/borger/klima-og-energi/varme/fjernvarme"),
+ "fre_vp": ("Fredensborg Kommune: varmepumpe – regler, støj og placering (læst 16/11 2026)", "https://fredensborg.dk/borger/klima-og-energi/varme/varmepumpe"),
+ "fre_nf": ("Norfors: fjernvarme i Fredensborg Kommune (læst 16/11 2026)", "https://norfors.dk/borger/fjernvarme/fredensborg-kommune"),
+ "fre_monrad": ("Fredensborg Kommune, Udvalget for Natur, Miljø og Bæredygtig udvikling 11/11 2025: orientering om status på fjernvarmeudbygning (via Monrad)", "https://www.monrad.app/agenda_items/5991"),
+ "fre_nivaa": ("Norfors: Fremtidens fjernvarme rykker ind i Nivå Bymidte (læst 16/11 2026)", "https://norfors.dk/fremtidens-fjernvarme-rykker-ind-i-nivaa-bymidte"),
+ "fre_es": ("Energy Supply 29/10 2026: Efter fem års ventetid: Fjernvarmeplaner falder til jorden", "https://www.energy-supply.dk/article/view/1253741/efter_fem_ars_ventetid_fjernvarmeplaner_falder_til_jorden"),
+ "fre_humle": ("Humleborg Online: Byrådet annullerer fjernvarmeprojekter i Fredensborg (læst 16/11 2026)", "https://humleborg.dk/kanaler/lokale-nyheder/byradet-annullerer-fjernvarmeprojekter-i-fredensborg"),
+})
+CITIES["holstebro"] = {
+  "name": "Holstebro", "kommune": "Holstebro Kommune", "updated": ("16. november 2026", "2026-11-16"),
+  "sol_intro": "Solceller i Holstebro: et anlæg på taget kræver som udgangspunkt ingen tilladelse fra Holstebro Kommune – men du har selv ansvaret for, at fredning, lokalplan og reglerne ved skel er overholdt. Står panelerne tættere end 2,5 m på skel, må intet blive højere end 2,5 m. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Et solcelleanlæg på taget kræver som udgangspunkt <strong>ikke tilladelse</strong> fra kommunen, men ejeren har ansvaret for, at lovgivningen er overholdt.", ["hol_byg"]),
+    ("Sidder solcellerne på en bygning tættere end <strong>2,5 m fra skel</strong>, må ingen højde inkl. solceller overstige 2,5 m – ellers skal der søges byggetilladelse og dispensation.", ["hol_byg"]),
+    ("Et <strong>fritstående anlæg på jorden</strong> kræver byggetilladelse, i det åbne land også landzonetilladelse, og det skal stå tæt på de eksisterende bygninger.", ["hol_byg"]),
+    ("Kommunen beder dig tjekke, om huset er <strong>fredet eller bevaringsværdigt</strong>, om der er kirkezone eller kystbeskyttelseslinje, og om en lokalplan eller byplanvedtægt gælder.", ["hol_byg"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge tilladelse til solceller på taget i Holstebro?", "Som udgangspunkt nej. Holstebro Kommune skriver, at et solcelleanlæg på taget ikke kræver tilladelse, men at du selv har ansvaret for, at fredning, lokalplan eller byplanvedtægt og højdegrænsen ved skel er overholdt. Er du i tvivl, kan du sende en ansøgning med tegninger til kommunen.", ["hol_byg"]),
+    ("Må jeg sætte solceller på jorden ved min landejendom?", "Ja, men et fritstående anlæg kræver både landzonetilladelse og byggetilladelse, og det skal placeres tæt på de eksisterende bygninger. Ansøgningen skal have en situationsplan med placering og mål samt data på panelernes og stativets størrelse. På taget af en landejendom skal der ikke søges byggetilladelse.", ["hol_byg"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Holstebro: fire ud af fem huse i Holstebro Kommune har fjernvarme, og kun 1 % har naturgas. En varmepumpe er derfor mest aktuel for de godt 1.000 huse med oliefyr og for husene i landsbyer og det åbne land uden for værkernes net. Her er tallene, priserne og reglerne.",
+  "vp_facts": [
+    ("Der er <strong>seks fjernvarmeselskaber</strong> i Holstebro Kommune: Vestforsyning Varme (Holstebro by og omegnsbyerne) samt værkerne i Ulfborg, Vemb, Thorsminde, Vinderup og Ejsing.", ["hol_varme"]),
+    ("I mange fjernvarmeområder, der er planlagt før januar 2019, er der <strong>tilslutnings- og forblivelsespligt</strong> til fjernvarme. Områderne kan ses på Plandata.dk.", ["hol_varme"]),
+    ("Vestforsyning har <strong>mere end 12.000 forbrugere</strong>, 306 km hovedledninger og vekslerstationer i Holstebro, Mejrup og Tvis.", ["hol_vfomr"]),
+    ("Vestforsyning udvider ved <strong>Sønderlundvej</strong>, hvor to fjernvarmerør presses under jernbanen; de skal efter planen være på plads ved nytår.", ["hol_vfjern"]),
+  ],
+  "vp_faq": [
+    ("Er der tilslutningspligt til fjernvarme i Holstebro?", "I mange fjernvarmeområder, der er planlagt før januar 2019, har Holstebro Kommune pålagt tilslutnings- og forblivelsespligt. Fjernvarmeområderne kan ses på Plandata.dk. Ligger dit hus i et sådant område, så afklar det med kommunen, før du køber varmepumpe.", ["hol_varme"]),
+    ("Hvor kommer Vestforsynings fjernvarme fra?", "Ifølge Vestforsyning primært fra MEC – BioHeat & Power, som laver varme af lokale energikilder som affald, halm og flis. Varmecentraler dækker varmebehovet i kolde perioder og ved udfald på kraftvarmeværket.", ["hol_vfomr"]),
+  ],
+}
+CITIES["fredensborg"] = {
+  "name": "Fredensborg", "kommune": "Fredensborg Kommune", "updated": ("16. november 2026", "2026-11-16"),
+  "vp_title": "Varmepumpe Fredensborg: luft til vand og pris 2026 | Energitjekket",
+  "fv_title": "Fjernvarme eller varmepumpe i Fredensborg? 2026 | Energitjekket",
+  "sol_intro": "Solceller i Fredensborg: et anlæg på dit private tag kræver som udgangspunkt ingen byggetilladelse, men på bevaringsværdige huse (SAVE 1-4) giver kommunen som udgangspunkt ikke lov, og nogle lokalplaner kræver dispensation. Over halvdelen af husene i kommunen er række-, kæde- eller dobbelthuse. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Et solcelleanlæg på dit <strong>private tag</strong> kræver som udgangspunkt ikke byggetilladelse, men skal overholde bygningsreglementets afstandskrav til skel (BR18 § 179).", ["fre_sol"]),
+    ("På <strong>bevaringsværdige bygninger (SAVE 1-4)</strong> gives der som udgangspunkt ikke tilladelse til solceller på taget.", ["fre_sol"]),
+    ("Står lokalplanen i vejen, kan du søge <strong>dispensation</strong>. Kommunen anbefaler matte, antirefleksbehandlede paneler i sort eller tagets farve, som følger tagfladens hældning.", ["fre_sol"]),
+    ("Er ejendommen <strong>fredet</strong>, kan kommunen ikke dispensere – det kræver tilladelse fra Slots- og Kulturstyrelsen.", ["fre_sol"]),
+  ],
+  "sol_faq": [
+    ("Kræver solceller byggetilladelse i Fredensborg Kommune?", "Som udgangspunkt ikke på et privat tag. Lokalplaner, byplanvedtægter og tinglyste deklarationer kan dog kræve dispensation, og anlægget skal altid overholde afstandskravene til skel i BR18 § 179. Afdelingen Byg svarer på byggesager@fredensborg.dk.", ["fre_sol"]),
+    ("Kan jeg få dispensation fra lokalplanen til solceller i Fredensborg?", "Ofte. Kommunen skriver, at den er positivt indstillet og så vidt muligt imødekommer ansøgningerne, hvis dispensationen ikke strider mod planens principper. Der lægges vægt på, at panelerne passer til bygningen og kvarteret og ikke generer naboerne. Ansøgningen sendes via Byg og Miljø.", ["fre_sol"]),
+  ],
+  "vp_intro": "Luft til vand-varmepumpe i Fredensborg: knap fire ud af ti huse i Fredensborg Kommune har stadig naturgas, og i oktober 2026 annullerede byrådet de planlagte fjernvarmeprojekter i Fredensborg By og Fredensborg Øst. Mange står derfor igen med valget mellem varmepumpe og gas. Her er status, priserne og kommunens regler for støj og placering.",
+  "vp_facts": [
+    ("Byrådet har annulleret fjernvarmeprojekterne i <strong>Fredensborg By og Fredensborg Øst</strong> med 316 bygninger, efter Norfors' beregninger viste, at de ville blive 10,2 mio. kr. dyrere end individuelle luft til vand-varmepumper over 20 år.", ["fre_es", "fre_humle"]),
+    ("Med annulleringen kan de berørte boligejere igen <strong>søge tilskud</strong> til individuelle varmepumper.", ["fre_humle"]),
+    ("Varmepumpens udedel skal stå mindst <strong>2,5 m fra skel</strong> og overholde <strong>35 dB</strong> om natten i skel til naboen i villa- og rækkehusområder.", ["fre_vp"]),
+    ("Står flere varmepumper tæt, fx i en rækkehusbebyggelse, kan den samlede støj blive kraftigere (<strong>cikadeeffekten</strong>). Et jordvarmeanlæg kræver altid tilladelse fra kommunen først.", ["fre_vp"]),
+  ],
+  "vp_faq": [
+    ("Hvad sker der nu med fjernvarmen i Fredensborg by?", "Byrådet godkendte i oktober 2026 at annullere de to projekter fra 2021 og 2022, fordi fjernvarmen ikke længere var den samfundsøkonomisk bedste løsning. Norfors arbejder ifølge borgmesteren videre med et nyt, mere sammenhængende projekt, men der er ingen tidsplan, og flere byrådsmedlemmer opfordrede borgerne til ikke at vente med at undersøge andre løsninger.", ["fre_humle", "fre_es"]),
+    ("Skal jeg søge tilladelse til en varmepumpe i Fredensborg?", "Som udgangspunkt ikke i enfamiliehuse, dobbelthuse, rækkehuse og sommerhuse. Varmepumpen skal overholde bygningsreglementets afstandskrav og 35 dB om natten i skel, og du skal selv registrere skiftet i BBR. Kræver placeringen dispensation fra lokalplanen, søger du via Byg og Miljø.", ["fre_vp"]),
+  ],
+}
+CONTACTS["holstebro"] = {"sol": [("Holstebro Kommune, Teknik og Miljø", "tm@holstebro.dk", "hol_varme")],
+                         "vp":  [("Vestforsyning", "96 12 73 00 · kundeservice@vestforsyning.dk", "hol_vfkan")]}
+CONTACTS["fredensborg"] = {"sol": [("Fredensborg Kommune, Byg", "byggesager@fredensborg.dk", "fre_sol")],
+                           "vp":  [("Norfors", "45 16 05 00 · norfors@norfors.dk", "fre_nf")]}

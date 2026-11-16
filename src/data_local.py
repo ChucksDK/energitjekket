@@ -11,13 +11,13 @@ def hs(c): return sum(HEAT[c].values())            # beboede parcel- og rækkehu
 def hp(c, k, d=0): return pct(HEAT[c][k], hs(c), d)
 def rp(c, k, d=0): return pct(ROOF[c]["T"][k], ROOF[c]["tot"], d)
 def town(c, name): return dict(TOWNS[c])[name]
-_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten", 19: "nitten", 20: "tyve", 21: "enogtyve", 22: "toogtyve", 23: "treogtyve", 24: "fireogtyve", 25: "femogtyve", 26: "seksogtyve", 27: "syvogtyve", 28: "otteogtyve", 29: "niogtyve", 30: "tredive", 31: "enogtredive", 32: "toogtredive", 33: "treogtredive", 34: "fireogtredive", 35: "femogtredive", 36: "seksogtredive", 37: "syvogtredive", 38: "otteogtredive", 39: "niogtredive", 40: "fyrre", 41: "enogfyrre"}
+_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten", 19: "nitten", 20: "tyve", 21: "enogtyve", 22: "toogtyve", 23: "treogtyve", 24: "fireogtyve", 25: "femogtyve", 26: "seksogtyve", 27: "syvogtyve", 28: "otteogtyve", 29: "niogtyve", 30: "tredive", 31: "enogtredive", 32: "toogtredive", 33: "treogtredive", 34: "fireogtredive", 35: "femogtredive", 36: "seksogtredive", 37: "syvogtredive", 38: "otteogtredive", 39: "niogtredive", 40: "fyrre", 41: "enogfyrre", 42: "toogfyrre", 43: "treogfyrre"}
 def nw(k=0): return _NUMW[len(NAMES) - k]          # "ni" for 9 byer, nw(1) = "otte" (de andre)
 def top(f, rev=False):
     """By med højeste (eller laveste, rev=True) værdi blandt sitets byer. Bruges til at tjekke sammenlignende udsagn."""
     return sorted(NAMES, key=f, reverse=not rev)[0]
 def rank(f, c): return sorted(NAMES, key=f, reverse=True).index(c) + 1
-_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende", 21: "enogtyvende", 22: "toogtyvende", 23: "treogtyvende", 24: "fireogtyvende", 25: "femogtyvende", 26: "seksogtyvende", 27: "syvogtyvende", 28: "otteogtyvende", 29: "niogtyvende", 30: "tredivte", 31: "enogtredivte", 32: "toogtredivte", 33: "treogtredivte", 34: "fireogtredivte", 35: "femogtredivte", 36: "seksogtredivte", 37: "syvogtredivte", 38: "otteogtredivte", 39: "niogtredivte", 40: "fyrretyvende", 41: "enogfyrretyvende"}
+_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende", 21: "enogtyvende", 22: "toogtyvende", 23: "treogtyvende", 24: "fireogtyvende", 25: "femogtyvende", 26: "seksogtyvende", 27: "syvogtyvende", 28: "otteogtyvende", 29: "niogtyvende", 30: "tredivte", 31: "enogtredivte", 32: "toogtredivte", 33: "treogtredivte", 34: "fireogtredivte", 35: "femogtredivte", 36: "seksogtredivte", 37: "syvogtredivte", 38: "otteogtredivte", 39: "niogtredivte", 40: "fyrretyvende", 41: "enogfyrretyvende", 42: "toogfyrretyvende", 43: "treogfyrretyvende"}
 def rk(f, c, word, art="den", rev=False):
     """Rangord, fx 'den højeste', 'den næsthøjeste' (rev=True tæller fra bunden). Holder sammenlignende udsagn sande, når nye byer kommer til."""
     r = sorted(NAMES, key=f, reverse=not rev).index(c) + 1
@@ -28,7 +28,7 @@ def above(f, c):
     a = [NAMES[x] for x in sorted(NAMES, key=f, reverse=True)[:rank(f, c) - 1]]
     return a[0] if len(a) == 1 else ", ".join(a[:-1]) + " og " + a[-1]
 
-NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund", "skanderborg": "Skanderborg", "vordingborg": "Vordingborg", "koebenhavn": "København", "vejen": "Vejen", "varde": "Varde", "faxe": "Faxe", "kalundborg": "Kalundborg", "skive": "Skive", "gladsaxe": "Gladsaxe", "kongens-lyngby": "Kongens Lyngby"}
+NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund", "skanderborg": "Skanderborg", "vordingborg": "Vordingborg", "koebenhavn": "København", "vejen": "Vejen", "varde": "Varde", "faxe": "Faxe", "kalundborg": "Kalundborg", "skive": "Skive", "gladsaxe": "Gladsaxe", "kongens-lyngby": "Kongens Lyngby", "holstebro": "Holstebro", "fredensborg": "Fredensborg"}
 LOCAL_S = {
  "dst_bol102": ("Danmarks Statistik: BOL102, boliger efter område og opvarmning (2026)", "https://www.statistikbanken.dk/BOL102"),
  "dst_bol101": ("Danmarks Statistik: BOL101, boliger efter opførelsesår og udlejningsforhold (2026)", "https://www.statistikbanken.dk/BOL101"),
@@ -1788,6 +1788,91 @@ def reg_age_note(c, kommune):
         return (f"{tal(B['før 1960'])} af de beboede huse i Lyngby-Taarbæk Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. Ejendomme med høj bevaringsværdi (SAVE 1-3) er udpeget som bevaringsværdige i kommuneplanen, og kommunen vil gerne se projektet, før du går i gang.", ["lyn_kp", "lyn_byg"])
     return _reg_age_old17(c, kommune)
 
+# ---------- daglig by-rutine 16. nov. 2026: Holstebro (DK1) og Fredensborg (DK2) ----------
+_FRE_K = "Hørsholm-byområdet (delen i Fredensborg Kommune, Kokkedal)"
+SOL_ORDER.update({"holstebro": ["lokalt", "produktion", "boliger", "faq", "tage", "guides"],
+                  "fredensborg": ["boliger", "tage", "lokalt", "produktion", "faq", "guides"]})
+VP_ORDER.update({"holstebro": ["opvarmning", "lokalt", "lokale-byer", "pris", "faq", "guides"],
+                 "fredensborg": ["lokalt", "lokale-byer", "opvarmning", "faq", "pris", "guides"]})
+FV_ORDER.update({"holstebro": ["priser", "andel", "status", "varmekilder", "faq", "billigst"],
+                 "fredensborg": ["status", "priser", "billigst", "andel", "varmekilder", "faq"]})
+SOL_PROD.update({
+ "holstebro": ("Hvad giver solceller i Holstebro?",
+   lambda: f"PVGIS beregner ca. {tal(PV['holstebro']['syd'])} kWh pr. kWp om året for et sydvendt tag med 35° hældning i Holstebro – {rk(lambda x: PV[x]['syd'], 'holstebro', 'laveste', rev=True)} værdi af de {nw()} byer. Et 6 kWp-anlæg giver dermed ca. {tal(PV['holstebro']['syd']*6)} kWh om året, heraf ca. {tal(PV['holstebro']['months'][5]*6)} kWh i juni og kun {tal(PV['holstebro']['months'][11]*6)} kWh i december. Vender taget mod vest, giver det ca. {tal(PV['holstebro']['vest'])} kWh pr. kWp, mod øst ca. {tal(PV['holstebro']['oest'])}."),
+ "fredensborg": ("Solproduktion i Fredensborg Kommune",
+   lambda: f"I Fredensborg giver et sydvendt tag med 35° hældning ca. {tal(PV['fredensborg']['syd'])} kWh pr. kWp om året ifølge PVGIS, og ved den bedste hældning på {PV['fredensborg']['opt_angle']}° ca. {tal(PV['fredensborg']['opt'])} kWh. Et 6 kWp-anlæg giver ca. {tal(PV['fredensborg']['syd']*6)} kWh om året. Mange rækkehuse har tagflader mod øst og vest; her giver hver kWp ca. {tal(PV['fredensborg']['oest'])}-{tal(PV['fredensborg']['vest'])} kWh, og kommunen nævner selv, at øst-vest-tage passer godt til forbruget morgen og aften."),
+})
+SOL_PROD_SRC_NEW.update({"holstebro": ["pv_holstebro", "pvo_holstebro", "pvv_holstebro"], "fredensborg": ["pv_fredensborg", "pvo_fredensborg", "pvv_fredensborg", "fre_sol"]})
+SOL_ROOF.update({
+ "holstebro": ("Fibercement og cementsten dominerer tagene i Holstebro",
+   lambda: f"{rp('holstebro','06')} af parcel- og rækkehusene i Holstebro Kommune har <strong>fibercement</strong> og {rp('holstebro','08')} <strong>cementsten</strong>, mens kun {rp('holstebro','10')} har tegltag – {rk(_rt('10'), 'holstebro', 'laveste', rev=True)} andel af de {nw()} byer og mod {rp('dk','10')} på landsplan. Bølgeplader fra før 1984 kan indeholde asbest, så få taget vurderet, før der monteres solceller.",
+   ["dst_bygb50", "bolius_asb", "bolius_mont"]),
+ "fredensborg": ("Tegl, tagpap og flade tage i Fredensborg",
+   lambda: f"{rp('fredensborg','10')} af parcel- og rækkehusene i Fredensborg Kommune har <strong>tegltag</strong>, og {pct(_flat('fredensborg'), ROOF['fredensborg']['tot'])} har fladt tag eller tagpap. Kun {rp('fredensborg','06')} har fibercement – {rk(_rt('06'), 'fredensborg', 'laveste', rev=True)} andel af de {nw()} byer og mod {rp('dk','06')} på landsplan. På flade tage monteres panelerne på stativ, og ved dispensation anbefaler kommunen matte paneler, der følger tagfladen.",
+   ["dst_bygb50", "fre_sol", "bolius_mont"]),
+})
+SOL_HOMES.update({
+ "holstebro": lambda: f"Holstebro Kommune har {tal(STOCK['holstebro']['tot'])} beboede parcel- og rækkehuse, og {pct(STOCK['holstebro']['B']['2000+'],STOCK['holstebro']['tot'])} af dem er bygget i 2000 eller senere – {rk(_sb('2000+'), 'holstebro', 'højeste')} andel af de {nw()} byer og mod {pct(STOCK['dk']['B']['2000+'],STOCK['dk']['tot'])} på landsplan. {pct(STOCK['holstebro']['ejer'],STOCK['holstebro']['tot'])} bebos af ejeren. Holstebro by har {tal(town('holstebro','Holstebro'))} indbyggere, Vinderup {tal(town('holstebro','Vinderup'))} og Ulfborg {tal(town('holstebro','Ulfborg'))}.",
+ "fredensborg": lambda: f"Fredensborg Kommune har {tal(STOCK['fredensborg']['tot'])} beboede parcel- og rækkehuse, og {tal(STOCK['fredensborg']['raekke'])} af dem ({pct(STOCK['fredensborg']['raekke'],STOCK['fredensborg']['tot'])}) er række-, kæde- eller dobbelthuse – {rk(_RK, 'fredensborg', 'højeste')} andel af de {nw()} byer og mod {pct(STOCK['dk']['raekke'],STOCK['dk']['tot'])} på landsplan. {pct(STOCK['fredensborg']['B']['1960-1979'],STOCK['fredensborg']['tot'])} er bygget 1960-1979. De største byområder er Kokkedal-delen af Hørsholm-byområdet ({tal(town('fredensborg', _FRE_K))} indbyggere), Humlebæk ({tal(town('fredensborg','Humlebæk'))}), Fredensborg ({tal(town('fredensborg','Fredensborg'))}) og Nivå ({tal(town('fredensborg','Nivå'))}).",
+})
+SOL_HOMES_SRC_NEW.update({"holstebro": ["dst_by3"], "fredensborg": ["dst_by3"]})
+SOL_HOMES_H.update({"holstebro": "Mange nyere huse i Holstebro Kommune", "fredensborg": "Flest rækkehuse på sitet: boligerne i Fredensborg Kommune"})
+SOL_XFAQ.update({
+ "holstebro": [("Hvor meget strøm giver et 6 kWp-anlæg i Holstebro?", lambda: f"Ca. {tal(PV['holstebro']['syd']*6)} kWh om året på et sydvendt tag med 35° hældning ifølge PVGIS 5.3. Vender taget mod vest, er det ca. {tal(PV['holstebro']['vest']*6)} kWh, og mod øst ca. {tal(PV['holstebro']['oest']*6)} kWh.", ["pv_holstebro", "pvo_holstebro", "pvv_holstebro"])],
+ "fredensborg": [("Gælder der særlige regler for solceller på rækkehuse i Fredensborg?", lambda: "Tjek lokalplan, byplanvedtægt og tinglyste deklarationer for din bebyggelse: indeholder de bestemmelser om tagmaterialer eller anlæg til vedvarende energi, kan det kræve dispensation. Kommunen går gerne i dialog med grundejerforeninger i områder, hvor der opleves barrierer for solceller.", ["fre_sol"])],
+})
+VP_HEAT.update({
+ "holstebro": ("Fjernvarme i fire ud af fem huse i Holstebro",
+   lambda: f"{tal(HEAT['holstebro']['FJ'])} af de {tal(hs('holstebro'))} beboede parcel- og rækkehuse i Holstebro Kommune ({hp('holstebro','FJ',1)}) har fjernvarme – {rk(_hf('FJ'), 'holstebro', 'højeste')} andel af de {nw()} byer. Kun {tal(HEAT['holstebro']['CN'])} ({hp('holstebro','CN',1)}) har naturgas, mens {tal(HEAT['holstebro']['CO'])} ({hp('holstebro','CO',1)}) stadig har oliefyr og {tal(HEAT['holstebro']['VP'])} ({hp('holstebro','VP',1)}) varmepumpe, mod {hp('dk','VP',1)} på landsplan."),
+ "fredensborg": ("Gas og fjernvarme næsten lige store i Fredensborg",
+   lambda: f"{tal(HEAT['fredensborg']['CN'])} af de {tal(hs('fredensborg'))} beboede parcel- og rækkehuse i Fredensborg Kommune ({hp('fredensborg','CN',1)}) har naturgas og {tal(HEAT['fredensborg']['FJ'])} ({hp('fredensborg','FJ',1)}) fjernvarme. {tal(HEAT['fredensborg']['VP'])} ({hp('fredensborg','VP',1)}) har allerede varmepumpe, og {tal(HEAT['fredensborg']['ELV'])} ({hp('fredensborg','ELV',1)}) har elvarme – {rk(_hf('ELV'), 'fredensborg', 'højeste')} andel af de {nw()} byer."),
+})
+VP_HEAT_SRC_NEW.update({"holstebro": ["hol_varme"], "fredensborg": ["fre_fv"]})
+VP_TOWNS.update({
+ "holstebro": [("Holstebro", "Vestforsyning Varme", ["hol_varme", "hol_vfomr", "ft_pris"]),
+               ("Vinderup", "Vinderup Varmeværk", ["hol_varme", "ft_pris"]),
+               ("Ulfborg", "Ulfborg Fjernvarmeværk", ["hol_varme", "ft_pris"]),
+               ("Tvis", "Vestforsyning (vekslerstation i Tvis)", ["hol_vfomr"]),
+               ("Vemb", "Vemb Varmeværk", ["hol_varme"]),
+               ("Thorsminde", "Thorsminde Varmeværk", ["hol_varme", "ft_pris"]),
+               ("Ejsing", "Ejsing Fjernvarme", ["hol_varme", "ft_pris"])],
+ "fredensborg": [(_FRE_K, "Norfors; områder godkendt 2024 venter på nye varmeanlæg", ["fre_monrad"]),
+                 ("Humlebæk", "Norfors; nye områder fra 2024 forsynes fra Helsingør", ["fre_monrad"]),
+                 ("Fredensborg", "Projekterne i byen og Fredensborg Øst annulleret okt. 2026", ["fre_es", "fre_humle"]),
+                 ("Nivå", "Norfors; kun Nivå Bymidte udbygges", ["fre_monrad", "fre_nivaa"])],
+})
+VP_TOWNS_NOTE.update({
+ "holstebro": "Holstebro by og de større omegnsbyer har fjernvarme fra Vestforsyning, og fem mindre byer har egne værker. Varmepumpen er derfor især relevant i de mindre landsbyer og i det åbne land, hvor der hverken er fjernvarme eller gas – og for de huse, der stadig har oliefyr.",
+ "fredensborg": "I Fredensborg by er der efter byrådets beslutning ingen fjernvarme på vej, og i Nivå udbygges kun bymidten. Her er en luft til vand-varmepumpe det oplagte skifte fra gas. Bor du i rækkehus, så husk kommunens støjgrænse på 35 dB i skel om natten – flere varmepumper tæt på hinanden kan give cikadeeffekt.",
+})
+VP_XFAQ.update({
+ "holstebro": [("Hvor mange huse i Holstebro har oliefyr?", lambda: f"{tal(HEAT['holstebro']['CO'])} af de {tal(hs('holstebro'))} beboede parcel- og rækkehuse i Holstebro Kommune ({hp('holstebro','CO',1)}) ifølge Danmarks Statistik, 2026. Hertil kommer {tal(HEAT['holstebro']['ELV'])} med elvarme. Det er især disse huse uden for fjernvarmenettet, hvor en varmepumpe kan give mening.", ["dst_bol102"]),
+               ("Hvad koster en luft til vand-varmepumpe i Holstebro?", lambda: "SparEnergi angiver typisk 100.000-130.000 kr. inkl. montering, og Energisparer.dk ca. 90.000-150.000 kr. afhængigt af husets størrelse. Vi har ikke fundet kilder med en særlig Holstebro-pris. Til sammenligning koster et standardhus 14.846 kr. om året i fjernvarme hos Vestforsyning ifølge Forsyningstilsynet.", ["se_vp", "es_vp", "ft_pris"])],
+ "fredensborg": [("Hvor mange huse i Fredensborg Kommune har naturgas?", lambda: f"{tal(HEAT['fredensborg']['CN'])} af de {tal(hs('fredensborg'))} beboede parcel- og rækkehuse ({hp('fredensborg','CN',1)}) ifølge Danmarks Statistik, 2026. {tal(HEAT['fredensborg']['FJ'])} har fjernvarme, og {tal(HEAT['fredensborg']['VP'])} har allerede varmepumpe.", ["dst_bol102"]),
+                 ("Hvad koster en luft til vand-varmepumpe i Fredensborg?", lambda: "SparEnergi angiver typisk 100.000-130.000 kr. inkl. montering, og Energisparer.dk ca. 90.000-150.000 kr. afhængigt af husets størrelse. Vi har ikke fundet kilder med en særlig Fredensborg-pris. Norfors' beregning for Fredensborg By og Fredensborg Øst viste, at fjernvarmen samlet ville blive 10,2 mio. kr. (3,2 %) dyrere end individuelle luft til vand-varmepumper over 20 år.", ["se_vp", "es_vp", "fre_es"])],
+})
+FV_SOURCES.update({
+ "holstebro": [("Varmen kommer primært fra <strong>MEC – BioHeat & Power</strong>, der producerer varme af lokale energikilder som affald, halm og flis.", ["hol_vfomr"]),
+               ("Varmen fordeles via fem vekslerstationer i Holstebro og stationer i <strong>Mejrup og Tvis</strong>; varmecentraler dækker vinterbehovet og udfald på kraftvarmeværket.", ["hol_vfomr"])],
+ "fredensborg": [("Der kan ikke produceres mere varme på <strong>Usserødværket</strong>, og den nye affaldslov har gjort værkets fremtid uafklaret, så udvidelser er sat midlertidigt på pause.", ["fre_monrad"]),
+                 ("Norfors undersøger <strong>geotermi og store varmepumper</strong> og forbereder et større ledningsnet, der kan føre varme rundt i forsyningsområdet.", ["fre_monrad"])],
+})
+FV_SHARE.update({
+ "holstebro": lambda: f"{hp('holstebro','FJ',1)} af de beboede parcel- og rækkehuse i Holstebro Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. Kun {hp('holstebro','CN',1)} har naturgas.",
+ "fredensborg": lambda: f"{hp('fredensborg','FJ',1)} af de beboede parcel- og rækkehuse i Fredensborg Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. {hp('fredensborg','CN',1)} har naturgas.",
+})
+FV_SOURCES_H.update({"holstebro": "Affald, halm og flis fra Måbjerg", "fredensborg": "Usserødværket på pause og nye varmekilder"})
+# Keyword 16/11 2026: 'varmepumpe slagelse' (GSC 1.-7/11)
+VP_XFAQ["slagelse"] = VP_XFAQ.get("slagelse", []) + [("Hvad koster en varmepumpe i Slagelse?", lambda: "SparEnergi angiver typisk 100.000-130.000 kr. inkl. montering for en luft til vand-varmepumpe, og Energisparer.dk ca. 90.000-150.000 kr. afhængigt af husets størrelse. Vi har ikke fundet kilder med en særlig Slagelse-pris. Bor du i Skælskør, Vemmelev, Forlev eller Sørbymagle, hvor fjernvarmeprojekterne er droppet, er en varmepumpe det typiske alternativ til gas og olie.", ["se_vp", "es_vp"])]
+_reg_age_old18 = reg_age_note
+def reg_age_note(c, kommune):
+    s = STOCK[c]; B = s["B"]; t = s["tot"]
+    if c == "holstebro":
+        return (f"{tal(B['før 1960'])} af de beboede huse i Holstebro Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. Kommunen henviser til kulturarv.dk, hvor du kan se, om huset er fredet eller bevaringsværdigt, og til Plandata.dk for lokalplaner og byplanvedtægter.", ["hol_byg"])
+    if c == "fredensborg":
+        return (f"Kun {tal(B['før 1960'])} af de beboede huse i Fredensborg Kommune ({pct(B['før 1960'], t)}) er bygget før 1960 – {rk(_sb('før 1960'), 'fredensborg', 'laveste', rev=True)} andel af de {nw()} byer. Bevaringsværdige bygninger kan ses på kommunens kort, og ved SAVE 1-4 gives der som udgangspunkt ikke tilladelse til solceller.", ["fre_sol"])
+    return _reg_age_old18(c, kommune)
+
 # ---------- tjek af sammenlignende udsagn: bygget fejler, hvis en ny by gør et udsagn forkert ----------
 _PVs = lambda c: PV[c]["syd"]; _rt = lambda k: (lambda c: ROOF[c]["T"][k] / ROOF[c]["tot"]); _hf = lambda k: (lambda c: HEAT[c][k] / hs(c)); _sb = lambda k: (lambda c: STOCK[c]["B"][k] / STOCK[c]["tot"])
 CLAIMS = [
@@ -1890,6 +1975,15 @@ CLAIMS = [
  ("Lyngby flest tegltage (overskrift)", top(_rt("10")) == "kongens-lyngby"),
  ("Lyngby 18 pct. FJ (FV-intro)", round(100 * HEAT["kongens-lyngby"]["FJ"] / hs("kongens-lyngby")) == 18),
  ("Lyngby mere end halvdelen tegl (sol-intro)", ROOF["kongens-lyngby"]["T"]["10"] / ROOF["kongens-lyngby"]["tot"] > 0.5),
+ ("Holstebro fire ud af fem FJ (overskrift/intro)", 0.78 <= HEAT["holstebro"]["FJ"] / hs("holstebro") < 0.82),
+ ("Holstebro 1 pct. gas (intro)", round(100 * HEAT["holstebro"]["CN"] / hs("holstebro")) == 1),
+ ("Holstebro godt 1.000 oliefyr (intro)", 1000 <= HEAT["holstebro"]["CO"] < 1100),
+ ("Holstebro fibercement+cementsten dominerer (overskrift)", (ROOF["holstebro"]["T"]["06"] + ROOF["holstebro"]["T"]["08"]) / ROOF["holstebro"]["tot"] > 0.55),
+ ("Fredensborg flest rækkehuse (overskrift)", top(_RK) == "fredensborg"),
+ ("Fredensborg over halvdelen række (sol-intro)", STOCK["fredensborg"]["raekke"] / STOCK["fredensborg"]["tot"] > 0.5),
+ ("Fredensborg knap fire ud af ti gas (intro)", 0.36 <= HEAT["fredensborg"]["CN"] / hs("fredensborg") < 0.40),
+ ("Fredensborg gas og FJ næsten lige store, lidt flere gas (overskrift/FV-intro)", 0 < (HEAT["fredensborg"]["CN"] - HEAT["fredensborg"]["FJ"]) / hs("fredensborg") < 0.05),
+ ("Fredensborg 36 pct. FJ (FV-intro)", round(100 * HEAT["fredensborg"]["FJ"] / hs("fredensborg")) == 36),
 ]
 _bad = [n for n, ok in CLAIMS if not ok]
 assert not _bad, f"Sammenlignende udsagn passer ikke længere: {_bad}"

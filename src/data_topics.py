@@ -164,17 +164,23 @@ T["/varmepumpe/skift-oliefyr/"] = {
 }
 
 T["/varmepumpe/skift-gasfyr/"] = {
-  "svc": "varmepumpe", "crumb": "Skift gasfyr", "updated": UPD,
-  "kw": "skift gasfyr til varmepumpe / gasfyr til varmepumpe",
-  "title": "Skift gasfyr til varmepumpe: tjek fjernvarme, tilskud og pris",
+  "svc": "varmepumpe", "crumb": "Skift gasfyr", "updated": ("16. november 2026", "2026-11-16"),
+  "kw": "skift gasfyr til varmepumpe / gasfyr til varmepumpe / udskiftning af gasfyr til varmepumpe pris",
+  "title": "Udskiftning af gasfyr til varmepumpe: pris, tilskud og fjernvarme",
   "desc": "Før du skifter gasfyret ud: tjek kommunens varmeplan for fjernvarme, tilskud på 27.000 kr. og gratis afkobling fra gasnettet i 2026. Se pris og besparelse.",
   "h1": "Skift gasfyr til varmepumpe: start med varmeplanen",
-  "intro": "Mange gasområder skal have fjernvarme i de kommende år. Ligger dit hus i et af dem, kan du ikke få tilskud til en varmepumpe, og fjernvarmen kan være det billigste valg. Derfor er det første skridt at tjekke kommunens varmeplan. Her er rækkefølgen, tallene og afkoblingen fra gasnettet.",
+  "intro": "Hvad koster udskiftning af gasfyr til varmepumpe? Typisk 90.000-150.000 kr. for en luft til vand-varmepumpe inkl. montering, før tilskud. Men mange gasområder skal have fjernvarme i de kommende år. Ligger dit hus i et af dem, kan du ikke få tilskud til en varmepumpe, og fjernvarmen kan være det billigste valg. Derfor er det første skridt at tjekke kommunens varmeplan. Her er rækkefølgen, tallene og afkoblingen fra gasnettet.",
   "sections": [
    ("Trin 1: Kommer der fjernvarme til din adresse?", [
      ("p", "Varmepumpepuljen kræver, at huset hverken ligger i et område med fjernvarme eller i et område, der er besluttet udlagt til fjernvarme. Status afhænger af kommunens varmeplan og ses på Plandata.dk.", ["vpp_puljer", "plandata"]),
      ("p", "SparEnergi har et adresseopslag, der giver et vejledende svar ud fra BBR og Plandata. Du kan først være sikker, når din ansøgning er behandlet. Forkerte oplysninger i Plandata kan kun rettes af kommunen.", ["se_vpp", "vpp_faq"]),
      ("p", "Et planlagt projekt kan også blive opgivet. Næstved Fjernvarme droppede Holsted Syd, da kun 13 % af ejerne havde tilmeldt sig mod et krav på mindst 60 % tilslutning pr. kvadratmeter. Beboerne der må derfor finde en anden varmekilde. Se status for <a href=\"/varmepumpe/vejle/\">Vejle</a>, <a href=\"/varmepumpe/randers/\">Randers</a> og vores andre byer.", ["naes_fv"]),
+   ]),
+   ("Hvad koster udskiftning af gasfyr til varmepumpe?", [
+     ("table", ["Luft til vand-varmepumpe inkl. montering", "Pris før tilskud"],
+      [["SparEnergi", "typisk 100.000-130.000 kr."], ["Energisparer.dk (okt. 2026)", "ca. 90.000-150.000 kr."]], ["se_vp", "es_vp"]),
+     ("p", "Med 27.000 kr. fra Varmepumpepuljen regner Energisparer.dk med en nettopris på 68.000-113.000 kr. og en tilbagebetalingstid på ca. 6-11 år fra gas. Prisen afhænger af husets størrelse og varmebehov, og om der skal skiftes radiatorer, buffertank eller eltavle, så indhent flere tilbud.", ["es_vp", "se_vpp"]),
+     ("p", "Fjernvarme er ofte billigere i drift end gas, men prisen svinger meget mellem værkerne. Ligger din adresse i et planlagt fjernvarmeområde, kan du ikke få tilskud til en varmepumpe – se derfor trin 1 først.", ["ft_pris", "vpp_puljer"]),
    ]),
    ("Trin 2: Hvad er billigst for dig?", [
      ("table", ["130 m² hus, 18.100 kWh varme", "Drift pr. år"],
@@ -194,6 +200,7 @@ T["/varmepumpe/skift-gasfyr/"] = {
    ]),
   ],
   "faq": [
+   ("Hvad koster det at udskifte et gasfyr med en varmepumpe?", "En luft til vand-varmepumpe koster typisk 100.000-130.000 kr. inkl. montering ifølge SparEnergi og ca. 90.000-150.000 kr. ifølge Energisparer.dk. Efter 27.000 kr. i tilskud regner Energisparer.dk med 68.000-113.000 kr. Afkoblingen fra gasnettet kan dækkes af Afkoblingspuljen i 2026.", ["se_vp", "es_vp", "evida_afk"]),
    ("Kan jeg få tilskud til at skifte gasfyr til varmepumpe?", "Ja, 27.000 kr., hvis huset ligger uden for fjernvarme og planlagt fjernvarme, og du har tilsagn, før du skriver under. Puljen lukker senest 30. november 2026.", ["se_vpp", "vpp_faq"]),
    ("Hvad koster det at blive koblet af gasnettet?", "I 2026 kan Afkoblingspuljen dække Evidas gebyr for private husholdninger med et årligt forbrug på 100-6.000 m³. Det er den sidste pulje.", ["evida_afk"]),
    ("Hvordan ser jeg, om der kommer fjernvarme?", "Se kommunens varmeplan på Plandata.dk, eller brug SparEnergis adresseopslag, som bygger på BBR og Plandata.", ["plandata", "se_vpp"]),

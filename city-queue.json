@@ -346,7 +346,8 @@
     "kommune": "Holstebro Kommune",
     "region": "Region Midtjylland",
     "reason": "20.576 beboede parcel/rækkehuse; 79% fjernvarme; 1.801 med olie/gas/elvarme; begge services",
-    "status": "pending"
+    "status": "done",
+    "done": "2026-11-16"
   },
   {
     "rank": 36,
@@ -355,7 +356,8 @@
     "kommune": "Fredensborg Kommune",
     "region": "Region Hovedstaden",
     "reason": "13.294 beboede parcel/rækkehuse; 36% fjernvarme; 6.494 med olie/gas/elvarme; stærkt varmepumpemarked",
-    "status": "pending"
+    "status": "done",
+    "done": "2026-11-16"
   },
   {
     "rank": 37,

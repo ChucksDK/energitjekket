@@ -2175,3 +2175,96 @@ FV_PAGE["kongens-lyngby"] = {
     ("Hvor skal varmen komme fra?", "Lyngby-Taarbæk Kommune skriver, at der arbejdes på et geotermianlæg, som skal forsyne 10.000 kunder i Virum-området, og at der i etape 2 også ses på overskudsvarme fra Mølleåværket.", ["lyn_fvng"]),
   ],
 }
+
+# ---------- daglig by-rutine 16. nov. 2026: Holstebro og Fredensborg ----------
+# Forsyningstilsynet jan. 2026 (research-archive/energitjekket/2026-11-01/ft_prisstatistik_jan2026.csv), rang af 374 efter enfamiliehus-pris:
+# Holstebro: Vinderup 24, Vestforsyning Varme 82, Ulfborg 200, Thorsminde 256, Ejsing 323 (Vemb Varmeværk indgår ikke i statistikken).
+# Fredensborg: Norfors 361 (priseftervisning 2024).
+FV_PRICES["holstebro"] = [("Vinderup Varmeværk", "7830", "12.708", "500"), ("Vestforsyning Varme A/S", "7500", "14.846", "673"),
+                          ("Ulfborg Fjernvarmeværk", "6990", "18.111", "685"), ("Thorsminde Varmeværk", "6990", "19.370", "700"),
+                          ("Ejsing Fjernvarme", "7830", "21.936", "862")]
+FV_PRICES["fredensborg"] = [("I/S Norfors - Norfors Fjernvarme", "2970", "25.084", "937")]
+SOL_REG["holstebro"] = {
+  "kw": "solceller holstebro / solceller holstebro kommune tilladelse / solceller skel holstebro",
+  "evidence": "Holstebro Kommunes side 'Byggeri' (afsnittene om solcelleanlæg, landzone og ansøgning) (tjekket 16/11 2026).",
+  "intro": "Holstebro Kommune skelner mellem solceller på taget, som som udgangspunkt ikke kræver tilladelse, og fritstående anlæg på jorden, som kræver byggetilladelse – i det åbne land også landzonetilladelse. Ansvaret for, at reglerne er overholdt, ligger hos dig som ejer. Her er reglerne og hvordan du søger.",
+  "sections": [
+    ("Solceller på taget", [
+      ("ul", [("Et solcelleanlæg i sig selv kræver som udgangspunkt <strong>ikke tilladelse</strong> fra kommunen; ejeren har ansvaret for, at lovgivningen er overholdt.", ["hol_byg"]),
+              ("Se om huset er <strong>fredet eller bevaringsværdigt</strong> på kulturarv.dk.", ["hol_byg"]),
+              ("Tjek <strong>andre fredninger</strong> som kirkezone, kystbeskyttelseslinjer, beskyttet natur, skove og vandløb på Miljøportalen.", ["hol_byg"]),
+              ("Se om ejendommen er omfattet af en <strong>lokalplan eller byplanvedtægt</strong> på Plandata.dk.", ["hol_byg"])]),
+    ]),
+    ("Højden ved skel", [
+      ("p", "Placeres solceller på en bygning tættere på skel end 2,5 m, må ingen højde inkl. solceller overstige 2,5 m. Sker det, skal du søge byggetilladelse og dispensation for højden i skel, og kommunen skriver, at der ikke gives tilladelse til alt. Det er især aktuelt, hvis anlægget sættes oven på en garage som en selvstændig del, der ikke følger tagfladen.", ["hol_byg"]),
+    ]),
+    ("Det åbne land og ansøgningen", [
+      ("p", "På taget af en landejendom skal der ikke søges byggetilladelse. Et fritstående anlæg på jorden skal placeres tæt på de eksisterende bygninger og kræver både landzonetilladelse og byggetilladelse. Ansøgningen sendes via Byg og Miljø med situationsplan, placering, mål og data på anlægget. Kommunen anbefaler også, at leverandøren vurderer risikoen for genskin mod naboerne.", ["hol_byg"]),
+    ]),
+  ],
+  "faq": [
+    ("Kræver solceller tilladelse i Holstebro Kommune?", "Ikke på taget som udgangspunkt. Du skal dog selv sikre, at fredning, lokalplan og bygningsreglementets højdegrænse på 2,5 m ved skel er overholdt. Et fritstående anlæg på jorden kræver byggetilladelse.", ["hol_byg"]),
+    ("Hvad gør jeg, hvis jeg er i tvivl?", "Holstebro Kommune skriver, at du til enhver tid kan henvende dig til Teknik og Miljø. Er du i tvivl, om anlægget kræver tilladelse, kan du sende en ansøgning med ansøgningsskema og tegninger, der viser anlæggets størrelse og placering.", ["hol_byg"]),
+    ("Kan solceller blænde naboen?", "Ja, ligesom glaserede teglsten kan blanke paneler reflektere solen. Kommunen anbefaler, at leverandøren af anlægget vurderer risikoen for genskin.", ["hol_byg"]),
+  ],
+}
+SOL_REG["fredensborg"] = {
+  "kw": "solceller fredensborg / solceller fredensborg kommune dispensation / solceller bevaringsværdig fredensborg",
+  "evidence": "Fredensborg Kommunes side om solceller (tilladelse, ansøgningsproces, dispensation, bevaringsværdige bygninger og landzone) (tjekket 16/11 2026).",
+  "intro": "I Fredensborg Kommune kræver solceller på et privat tag som udgangspunkt ingen byggetilladelse. Det er lokalplaner, deklarationer og bevaringsværdi, der kan sætte grænser – og kommunen skriver, at den så vidt muligt imødekommer ansøgninger om dispensation. Her er reglerne og hvordan du søger.",
+  "sections": [
+    ("Hvornår skal du søge?", [
+      ("ul", [("På mange ejendomme kan der sættes solceller op <strong>uden tilladelse</strong>, men anlægget skal altid overholde afstandskravene til skel i BR18 § 179.", ["fre_sol"]),
+              ("Dispensation kan være nødvendig, hvis ejendommen er omfattet af en <strong>bevarende lokalplan</strong> eller af bestemmelser om tagmaterialer eller anlæg til vedvarende energi.", ["fre_sol"]),
+              ("Det samme gælder inden for <strong>naturbeskyttelseslovens beskyttelseslinjer</strong> ved sø, å, skov og strand.", ["fre_sol"]),
+              ("På <strong>bevaringsværdige bygninger (SAVE 1-4)</strong> gives der som udgangspunkt ikke tilladelse til solceller på taget; de kan ses på kommunens kort.", ["fre_sol"])]),
+    ]),
+    ("Sådan vurderer kommunen en dispensation", [
+      ("p", "Kommunen kan dispensere, hvis det ikke strider mod lokalplanens principper. Der lægges vægt på, at solcellerne passer til bygningen og kvarteret, og at de ikke generer naboerne. Derfor anbefales matte, antirefleksbehandlede paneler, der er sorte eller har tagets farve og følger tagfladens hældning. Er ejendommen fredet, kan kommunen ikke dispensere – så skal Slots- og Kulturstyrelsen give tilladelse.", ["fre_sol"]),
+    ]),
+    ("Landzone og ansøgning", [
+      ("p", "Vil du sætte solceller på terræn eller på driftsbygninger i landzone, skal du søge landzonetilladelse og bagefter byggetilladelse. Ansøgninger sendes via Byg og Miljø, og afdelingen Byg kan kontaktes på byggesager@fredensborg.dk. Kommunen går også gerne i dialog med grundejerforeninger i områder, hvor der opleves barrierer for solceller.", ["fre_sol"]),
+    ]),
+  ],
+  "faq": [
+    ("Må jeg sætte solceller på et bevaringsværdigt hus i Fredensborg?", "Som udgangspunkt ikke. Fredensborg Kommune giver som udgangspunkt ikke tilladelse til solceller på tagene af bevaringsværdige bygninger (SAVE 1-4). Se husets bevaringsværdi på kommunens kort, før du bestiller.", ["fre_sol"]),
+    ("Hvilke paneler foretrækker kommunen?", "Matte, antirefleksbehandlede paneler, der fremstår sorte eller i tagets eksisterende farve, og som følger tagfladens hældning. Det er udgangspunktet, når kommunen vurderer en dispensation.", ["fre_sol"]),
+    ("Hvilken taghældning anbefaler kommunen?", "Fredensborg Kommune skriver, at den mest optimale placering er mod syd med en hældning på 45 grader, men at øst- og vestvendte tage også kan være gode, fordi de producerer morgen og aften, når mange er hjemme.", ["fre_sol"]),
+  ],
+}
+FV_PAGE["holstebro"] = {
+  "kw": "fjernvarme holstebro / vestforsyning fjernvarme pris / fjernvarme eller varmepumpe holstebro",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026, Holstebro Kommunes side om varmeforsyning og Vestforsynings sider om forsyningsområde og udbygning (tjekket 16/11 2026).",
+  "intro": "Fire ud af fem huse i Holstebro Kommune har allerede fjernvarme. Vestforsyning forsyner Holstebro by og omegnsbyerne, mens Vinderup, Ulfborg, Vemb, Thorsminde og Ejsing har egne værker – og prisforskellen mellem dem er stor. Her er priserne fra Forsyningstilsynet, status for udbygningen og regnestykket mod en varmepumpe.",
+  "status": [
+    ("<strong>Vestforsyning Varme:</strong> Holstebro by og alle større bysamfund omkring byen, mere end 12.000 forbrugere.", ["hol_vfomr", "hol_varme"]),
+    ("<strong>Sønderlundvej:</strong> to nye fjernvarmerør presses under jernbanen og skal efter planen være på plads ved nytår.", ["hol_vfjern"]),
+    ("<strong>Egne værker:</strong> Vinderup, Ulfborg, Vemb, Thorsminde og Ejsing har hver deres fjernvarmeselskab.", ["hol_varme"]),
+    ("<strong>Tilslutningspligt:</strong> i mange fjernvarmeområder planlagt før januar 2019 er der tilslutnings- og forblivelsespligt; områderne ses på Plandata.dk.", ["hol_varme"]),
+  ],
+  "local_take": "Vestforsyning er nr. 82 af 374 værker i Forsyningstilsynets statistik og ca. 2.100 kr. under landsgennemsnittet for et standardhus, og Vinderup Varmeværk (nr. 24) er endnu billigere. Ulfborg (nr. 200), Thorsminde (nr. 256) og Ejsing (nr. 323) ligger derimod over gennemsnittet. Har du fjernvarme fra Vestforsyning eller Vinderup, er der sjældent økonomi i at skifte til varmepumpe; varmepumpen er mest relevant for huse med oliefyr eller elvarme uden for nettet.",
+  "contact": ("Vestforsyning", "96 12 73 00 · kundeservice@vestforsyning.dk", "hol_vfkan"),
+  "faq": [
+    ("Hvad koster fjernvarme i Holstebro?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 14.846 kr. om året inkl. moms hos Vestforsyning Varme, 12.708 kr. hos Vinderup Varmeværk, 18.111 kr. hos Ulfborg Fjernvarmeværk, 19.370 kr. hos Thorsminde Varmeværk og 21.936 kr. hos Ejsing Fjernvarme. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+    ("Er fjernvarmen hos Vestforsyning blevet dyrere?", "Ja. Forsyningstilsynet opgør, at prisen for et standardhus hos Vestforsyning Varme er steget 2.291 kr. (18,3 %) siden januar 2025 og 6.979 kr. siden januar 2023. Den ligger dog stadig under landsgennemsnittet.", ["ft_pris"]),
+    ("Hvor kommer fjernvarmen i Holstebro fra?", "Vestforsyning skriver, at varmen primært kommer fra MEC – BioHeat & Power, som producerer varme af lokale energikilder som affald, halm og flis. Den fordeles via fem vekslerstationer i Holstebro og stationer i Mejrup og Tvis.", ["hol_vfomr"]),
+  ],
+}
+FV_PAGE["fredensborg"] = {
+  "kw": "fjernvarme fredensborg / norfors fjernvarme fredensborg / fjernvarme humlebæk kokkedal nivå",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026, Fredensborg Kommunes sider om fjernvarme og varmepumper, orienteringen til Udvalget for Natur, Miljø og Bæredygtig udvikling 11/11 2025, Norfors om Nivå Bymidte og omtalen af byrådets beslutning i oktober 2026 (tjekket 16/11 2026).",
+  "intro": "36 % af husene i Fredensborg Kommune har fjernvarme fra Norfors, og lidt flere har naturgas. Efter byrådets annullering af projekterne i Fredensborg by i oktober 2026 er billedet delt: i Humlebæk og Kokkedal er nye områder godkendt, i Fredensborg og Nivå er der ingen konkrete planer for nye områder. Her er status, prisen og regnestykket mod en varmepumpe.",
+  "status": [
+    ("<strong>Humlebæk:</strong> de nye områder, der blev godkendt i 2024, skal forsynes med varme fra Helsingør; Norfors forventede at kontakte boligejerne i 2026.", ["fre_monrad"]),
+    ("<strong>Kokkedal:</strong> områderne godkendt i 2024 kan først tilbydes fjernvarme, når der er etableret nye varmeanlæg.", ["fre_monrad"]),
+    ("<strong>Fredensborg By og Fredensborg Øst:</strong> projekterne med 316 bygninger blev annulleret af byrådet i oktober 2026.", ["fre_es", "fre_humle"]),
+    ("<strong>Nivå:</strong> ingen planer om nye fjernvarmeområder ud over Nivå Bymidte, hvor den første sektion blev taget i brug 26. januar 2026.", ["fre_monrad", "fre_nivaa"]),
+  ],
+  "local_take": "Norfors er nr. 361 af 374 værker i Forsyningstilsynets statistik, og et standardhus betaler ca. 8.100 kr. mere om året end landsgennemsnittet. Der kan ikke længere pålægges ny tilslutningspligt, så i nye fjernvarmeområder vælger du selv. Bor du i Fredensborg by eller i Nivå uden for det eksisterende net, er en luft til vand-varmepumpe det realistiske skifte fra gas – men tjek støjgrænsen på 35 dB, især i rækkehuse.",
+  "contact": ("Norfors", "45 16 05 00 · norfors@norfors.dk", "fre_nf"),
+  "faq": [
+    ("Hvad koster fjernvarme i Fredensborg Kommune?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 (Norfors' priseftervisning 2024) koster et standardhus 25.084 kr. om året inkl. moms hos Norfors. Landsgennemsnittet er 16.953 kr. Prisen er steget 2.804 kr. (12,6 %) siden januar 2025.", ["ft_pris"]),
+    ("Er der tilslutningspligt til fjernvarme i Fredensborg?", "Der kan ikke længere pålægges ny tilslutningspligt, så når Norfors udruller fjernvarme i nye områder, vælger du selv. I områder, der allerede er udlagt til fjernvarme, kan en lokalplan dog have tilslutningspligt. Til naturgas er der hverken tilslutnings- eller forblivelsespligt.", ["fre_fv"]),
+    ("Hvad er Norfors' incitamentstarif?", "Kunder betaler en incitamentstarif på 3 %, hvis returvandet er over 45 grader, når det sendes tilbage til Norfors. Det kan ramme huse med enstrengede varmesystemer, hvor det kan være dyrt at ombygge.", ["fre_monrad"]),
+  ],
+}
