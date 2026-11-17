@@ -11,13 +11,13 @@ def hs(c): return sum(HEAT[c].values())            # beboede parcel- og rækkehu
 def hp(c, k, d=0): return pct(HEAT[c][k], hs(c), d)
 def rp(c, k, d=0): return pct(ROOF[c]["T"][k], ROOF[c]["tot"], d)
 def town(c, name): return dict(TOWNS[c])[name]
-_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten", 19: "nitten", 20: "tyve", 21: "enogtyve", 22: "toogtyve", 23: "treogtyve", 24: "fireogtyve", 25: "femogtyve", 26: "seksogtyve", 27: "syvogtyve", 28: "otteogtyve", 29: "niogtyve", 30: "tredive", 31: "enogtredive", 32: "toogtredive", 33: "treogtredive", 34: "fireogtredive", 35: "femogtredive", 36: "seksogtredive", 37: "syvogtredive", 38: "otteogtredive", 39: "niogtredive", 40: "fyrre", 41: "enogfyrre", 42: "toogfyrre", 43: "treogfyrre"}
+_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten", 19: "nitten", 20: "tyve", 21: "enogtyve", 22: "toogtyve", 23: "treogtyve", 24: "fireogtyve", 25: "femogtyve", 26: "seksogtyve", 27: "syvogtyve", 28: "otteogtyve", 29: "niogtyve", 30: "tredive", 31: "enogtredive", 32: "toogtredive", 33: "treogtredive", 34: "fireogtredive", 35: "femogtredive", 36: "seksogtredive", 37: "syvogtredive", 38: "otteogtredive", 39: "niogtredive", 40: "fyrre", 41: "enogfyrre", 42: "toogfyrre", 43: "treogfyrre", 44: "fireogfyrre", 45: "femogfyrre"}
 def nw(k=0): return _NUMW[len(NAMES) - k]          # "ni" for 9 byer, nw(1) = "otte" (de andre)
 def top(f, rev=False):
     """By med højeste (eller laveste, rev=True) værdi blandt sitets byer. Bruges til at tjekke sammenlignende udsagn."""
     return sorted(NAMES, key=f, reverse=not rev)[0]
 def rank(f, c): return sorted(NAMES, key=f, reverse=True).index(c) + 1
-_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende", 21: "enogtyvende", 22: "toogtyvende", 23: "treogtyvende", 24: "fireogtyvende", 25: "femogtyvende", 26: "seksogtyvende", 27: "syvogtyvende", 28: "otteogtyvende", 29: "niogtyvende", 30: "tredivte", 31: "enogtredivte", 32: "toogtredivte", 33: "treogtredivte", 34: "fireogtredivte", 35: "femogtredivte", 36: "seksogtredivte", 37: "syvogtredivte", 38: "otteogtredivte", 39: "niogtredivte", 40: "fyrretyvende", 41: "enogfyrretyvende", 42: "toogfyrretyvende", 43: "treogfyrretyvende"}
+_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende", 21: "enogtyvende", 22: "toogtyvende", 23: "treogtyvende", 24: "fireogtyvende", 25: "femogtyvende", 26: "seksogtyvende", 27: "syvogtyvende", 28: "otteogtyvende", 29: "niogtyvende", 30: "tredivte", 31: "enogtredivte", 32: "toogtredivte", 33: "treogtredivte", 34: "fireogtredivte", 35: "femogtredivte", 36: "seksogtredivte", 37: "syvogtredivte", 38: "otteogtredivte", 39: "niogtredivte", 40: "fyrretyvende", 41: "enogfyrretyvende", 42: "toogfyrretyvende", 43: "treogfyrretyvende", 44: "fireogfyrretyvende", 45: "femogfyrretyvende"}
 def rk(f, c, word, art="den", rev=False):
     """Rangord, fx 'den højeste', 'den næsthøjeste' (rev=True tæller fra bunden). Holder sammenlignende udsagn sande, når nye byer kommer til."""
     r = sorted(NAMES, key=f, reverse=not rev).index(c) + 1
@@ -28,7 +28,7 @@ def above(f, c):
     a = [NAMES[x] for x in sorted(NAMES, key=f, reverse=True)[:rank(f, c) - 1]]
     return a[0] if len(a) == 1 else ", ".join(a[:-1]) + " og " + a[-1]
 
-NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund", "skanderborg": "Skanderborg", "vordingborg": "Vordingborg", "koebenhavn": "København", "vejen": "Vejen", "varde": "Varde", "faxe": "Faxe", "kalundborg": "Kalundborg", "skive": "Skive", "gladsaxe": "Gladsaxe", "kongens-lyngby": "Kongens Lyngby", "holstebro": "Holstebro", "fredensborg": "Fredensborg"}
+NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund", "skanderborg": "Skanderborg", "vordingborg": "Vordingborg", "koebenhavn": "København", "vejen": "Vejen", "varde": "Varde", "faxe": "Faxe", "kalundborg": "Kalundborg", "skive": "Skive", "gladsaxe": "Gladsaxe", "kongens-lyngby": "Kongens Lyngby", "holstebro": "Holstebro", "fredensborg": "Fredensborg", "nakskov": "Nakskov", "assens": "Assens"}
 LOCAL_S = {
  "dst_bol102": ("Danmarks Statistik: BOL102, boliger efter område og opvarmning (2026)", "https://www.statistikbanken.dk/BOL102"),
  "dst_bol101": ("Danmarks Statistik: BOL101, boliger efter opførelsesår og udlejningsforhold (2026)", "https://www.statistikbanken.dk/BOL101"),
@@ -1397,8 +1397,8 @@ SOL_XFAQ.update({
 VP_HEAT.update({
  "skanderborg": ("To ud af tre huse har fjernvarme i Skanderborg",
    lambda: f"{hp('skanderborg','FJ')} af de {tal(hs('skanderborg'))} beboede parcel- og rækkehuse i Skanderborg Kommune har fjernvarme, mod {hp('dk','FJ')} på landsplan. {tal(HEAT['skanderborg']['VP'])} har allerede varmepumpe ({hp('skanderborg','VP',1)}), mens {tal(HEAT['skanderborg']['CN'])} har naturgas, {tal(HEAT['skanderborg']['CO'])} oliefyr og {tal(HEAT['skanderborg']['ELV'])} elvarme – de fleste i landsbyerne uden for nettet."),
- "vordingborg": ("Flest oliefyr og elvarme: opvarmning i Vordingborg",
-   lambda: f"{tal(HEAT['vordingborg']['CO'])} beboede parcel- og rækkehuse i Vordingborg Kommune ({hp('vordingborg','CO',1)}) har oliefyr og {tal(HEAT['vordingborg']['ELV'])} ({hp('vordingborg','ELV',1)}) elvarme – de højeste andele af de {nw()} byer. {tal(HEAT['vordingborg']['VP'])} har allerede varmepumpe ({hp('vordingborg','VP',1)}), {rk(_hf('VP'), 'vordingborg', 'højeste')} andel, og kun {hp('vordingborg','FJ',1)} har fjernvarme."),
+ "vordingborg": ("Flest med elvarme og mange oliefyr: opvarmning i Vordingborg",
+   lambda: f"{tal(HEAT['vordingborg']['CO'])} beboede parcel- og rækkehuse i Vordingborg Kommune ({hp('vordingborg','CO',1)}) har oliefyr – {rk(_hf('CO'), 'vordingborg', 'højeste')} andel – og {tal(HEAT['vordingborg']['ELV'])} ({hp('vordingborg','ELV',1)}) elvarme, den højeste andel af de {nw()} byer. {tal(HEAT['vordingborg']['VP'])} har allerede varmepumpe ({hp('vordingborg','VP',1)}), {rk(_hf('VP'), 'vordingborg', 'højeste')} andel, og kun {hp('vordingborg','FJ',1)} har fjernvarme."),
 })
 VP_HEAT_SRC_NEW.update({"skanderborg": ["skb_varme"], "vordingborg": ["vor_varme"]})
 VP_TOWNS.update({
@@ -1873,11 +1873,98 @@ def reg_age_note(c, kommune):
         return (f"Kun {tal(B['før 1960'])} af de beboede huse i Fredensborg Kommune ({pct(B['før 1960'], t)}) er bygget før 1960 – {rk(_sb('før 1960'), 'fredensborg', 'laveste', rev=True)} andel af de {nw()} byer. Bevaringsværdige bygninger kan ses på kommunens kort, og ved SAVE 1-4 gives der som udgangspunkt ikke tilladelse til solceller.", ["fre_sol"])
     return _reg_age_old18(c, kommune)
 
+# ---------- daglig by-rutine 17. nov. 2026: Nakskov (DK2, Lolland Kommune) og Assens (DK1) ----------
+SOL_ORDER.update({"nakskov": ["produktion", "lokalt", "tage", "boliger", "faq", "guides"],
+                  "assens": ["lokalt", "boliger", "produktion", "tage", "faq", "guides"]})
+VP_ORDER.update({"nakskov": ["opvarmning", "faq", "lokalt", "lokale-byer", "pris", "guides"],
+                 "assens": ["lokalt", "opvarmning", "pris", "lokale-byer", "faq", "guides"]})
+FV_ORDER.update({"nakskov": ["priser", "status", "varmekilder", "billigst", "andel", "faq"],
+                 "assens": ["status", "andel", "priser", "faq", "varmekilder", "billigst"]})
+SOL_PROD.update({
+ "nakskov": ("Mest sol af alle byerne på sitet",
+   lambda: f"PVGIS beregner ca. {tal(PV['nakskov']['syd'])} kWh pr. kWp om året for et sydvendt tag med 35° hældning i Nakskov – {rk(lambda x: PV[x]['syd'], 'nakskov', 'højeste')} værdi af de {nw()} byer. Et 6 kWp-anlæg giver dermed ca. {tal(PV['nakskov']['syd']*6)} kWh om året, heraf ca. {tal(PV['nakskov']['months'][4]*6)} kWh i maj og kun {tal(PV['nakskov']['months'][11]*6)} kWh i december. Mod vest giver hver kWp ca. {tal(PV['nakskov']['vest'])} kWh, mod øst ca. {tal(PV['nakskov']['oest'])}."),
+ "assens": ("Hvad giver solceller i Assens?",
+   lambda: f"I Assens giver et sydvendt tag med 35° hældning ca. {tal(PV['assens']['syd'])} kWh pr. kWp om året ifølge PVGIS, og ved den bedste hældning på {PV['assens']['opt_angle']}° ca. {tal(PV['assens']['opt'])} kWh. Et 6 kWp-anlæg giver ca. {tal(PV['assens']['syd']*6)} kWh om året – {tal(PV['assens']['months'][5]*6)} kWh i juni og {tal(PV['assens']['months'][0]*6)} kWh i januar. Et øst- eller vestvendt tag giver ca. {tal(PV['assens']['oest'])}-{tal(PV['assens']['vest'])} kWh pr. kWp."),
+})
+SOL_PROD_SRC_NEW.update({"nakskov": ["pv_nakskov", "pvo_nakskov", "pvv_nakskov"], "assens": ["pv_assens", "pvo_assens", "pvv_assens"]})
+SOL_ROOF.update({
+ "nakskov": ("Fibercement på to ud af fem tage i Lolland Kommune",
+   lambda: f"{rp('nakskov','06')} af parcel- og rækkehusene i Lolland Kommune har <strong>fibercement</strong>, {rp('nakskov','10')} tegl og {rp('nakskov','08')} cementsten. Kun {pct(_flat('nakskov'), ROOF['nakskov']['tot'])} har fladt tag eller tagpap – {rk(lambda x: _flat(x) / ROOF[x]['tot'], 'nakskov', 'laveste', rev=True)} andel af de {nw()} byer. Mange huse er gamle, og bølgeplader fra før 1984 kan indeholde asbest, så få taget vurderet – kommunen beder dig også tjekke, om taget kan bære vægten.",
+   ["dst_bygb50", "nak_sol", "bolius_asb"]),
+ "assens": ("Fibercement og cementsten på tre ud af fem tage i Assens",
+   lambda: f"{rp('assens','06')} af parcel- og rækkehusene i Assens Kommune har <strong>fibercement</strong> og {rp('assens','08')} <strong>cementsten</strong>, mens {rp('assens','10')} har tegl. {pct(_flat('assens'), ROOF['assens']['tot'])} har fladt tag eller tagpap; her kræver Assens Kommune, at du søger, fordi panelerne ikke følger en taghældning.",
+   ["dst_bygb50", "ass_sol", "bolius_mont"]),
+})
+SOL_HOMES.update({
+ "nakskov": lambda: f"Lolland Kommune har {tal(STOCK['nakskov']['tot'])} beboede parcel- og rækkehuse, og {pct(STOCK['nakskov']['B']['før 1960'],STOCK['nakskov']['tot'])} er bygget før 1960 – {rk(_sb('før 1960'), 'nakskov', 'højeste')} andel af de {nw()} byer og mod {pct(STOCK['dk']['B']['før 1960'],STOCK['dk']['tot'])} på landsplan. Kun {pct(STOCK['nakskov']['B']['2000+'],STOCK['nakskov']['tot'])} er fra 2000 eller senere. Nakskov har {tal(town('nakskov','Nakskov'))} indbyggere, Maribo {tal(town('nakskov','Maribo'))} og Rødby {tal(town('nakskov','Rødby'))}.",
+ "assens": lambda: f"Assens Kommune har {tal(STOCK['assens']['tot'])} beboede parcel- og rækkehuse, og {pct(STOCK['assens']['ejer'],STOCK['assens']['tot'])} bebos af ejeren. {pct(STOCK['assens']['B']['før 1960'],STOCK['assens']['tot'])} er bygget før 1960 mod {pct(STOCK['dk']['B']['før 1960'],STOCK['dk']['tot'])} på landsplan. Kommunen har ingen stor by: Assens har {tal(town('assens','Assens'))} indbyggere, Glamsbjerg {tal(town('assens','Glamsbjerg'))}, Vissenbjerg {tal(town('assens','Vissenbjerg'))} og Aarup {tal(town('assens','Aarup'))}.",
+})
+SOL_HOMES_SRC_NEW.update({"nakskov": ["dst_by3"], "assens": ["dst_by3"]})
+SOL_HOMES_H.update({"nakskov": "Mange gamle huse: boligerne i Lolland Kommune", "assens": "Mange små byer: boligerne i Assens Kommune"})
+SOL_XFAQ.update({
+ "nakskov": [("Hvor meget strøm giver et 6 kWp-anlæg i Nakskov?", lambda: f"Ca. {tal(PV['nakskov']['syd']*6)} kWh om året på et sydvendt tag med 35° hældning ifølge PVGIS 5.3. Mod vest er det ca. {tal(PV['nakskov']['vest']*6)} kWh og mod øst ca. {tal(PV['nakskov']['oest']*6)} kWh.", ["pv_nakskov", "pvo_nakskov", "pvv_nakskov"])],
+ "assens": [("Hvor meget strøm giver et 6 kWp-anlæg i Assens?", lambda: f"Ca. {tal(PV['assens']['syd']*6)} kWh om året på et sydvendt tag med 35° hældning ifølge PVGIS 5.3. Mod vest er det ca. {tal(PV['assens']['vest']*6)} kWh og mod øst ca. {tal(PV['assens']['oest']*6)} kWh.", ["pv_assens", "pvo_assens", "pvv_assens"])],
+})
+VP_HEAT.update({
+ "nakskov": ("Flest oliefyr på sitet: opvarmningen i Lolland Kommune",
+   lambda: f"{tal(HEAT['nakskov']['CO'])} af de {tal(hs('nakskov'))} beboede parcel- og rækkehuse i Lolland Kommune ({hp('nakskov','CO',1)}) har stadig oliefyr – {rk(_hf('CO'), 'nakskov', 'højeste')} andel af de {nw()} byer og mod {hp('dk','CO',1)} på landsplan. {tal(HEAT['nakskov']['ELV'])} ({hp('nakskov','ELV',1)}) har elvarme, {tal(HEAT['nakskov']['FJ'])} ({hp('nakskov','FJ',1)}) fjernvarme og {tal(HEAT['nakskov']['VP'])} ({hp('nakskov','VP',1)}) varmepumpe. Ingen er registreret med naturgas."),
+ "assens": ("Fjernvarme i lidt over halvdelen af husene i Assens",
+   lambda: f"{tal(HEAT['assens']['FJ'])} af de {tal(hs('assens'))} beboede parcel- og rækkehuse i Assens Kommune ({hp('assens','FJ',1)}) har fjernvarme, {tal(HEAT['assens']['VP'])} ({hp('assens','VP',1)}) varmepumpe og {tal(HEAT['assens']['CN'])} ({hp('assens','CN',1)}) naturgas. {tal(HEAT['assens']['CO'])} ({hp('assens','CO',1)}) har stadig oliefyr, og {tal(HEAT['assens']['CA'])} ({hp('assens','CA',1)}) fyrer med træ, træpiller eller anden biomasse."),
+})
+VP_HEAT_SRC_NEW.update({"nakskov": ["nak_lf"], "assens": ["ass_vp"]})
+VP_TOWNS.update({
+ "nakskov": [("Nakskov", "Lolland Varme (ca. 4.500 kunder)", ["nak_lf", "ft_pris"]),
+             ("Maribo", "Sydhavsvarme (tidl. Maribo Varmeværk)", ["nak_syd"]),
+             ("Rødby", "Rødby Varmeværk", ["ft_pris"]),
+             ("Rødbyhavn", "Rødbyhavn Fjernvarme", ["ft_pris"]),
+             ("Holeby", "Holeby Fjernvarme", ["ft_pris"]),
+             ("Søllested", "Lolland Varme (halm og solfangere)", ["nak_lf"]),
+             ("Bandholm, Nørreballe, Stokkemarke", "Lolland Varme Midtlolland (varme fra Sakskøbing via Maribo)", ["nak_lf"])],
+ "assens": [("Assens", "Assens Fjernvarme", ["ass_af900", "ft_pris"]),
+            ("Aarup", "Assens Fjernvarme (udrulning 2023-2026)", ["ass_af900", "ass_aftid"]),
+            ("Glamsbjerg og Haarby", "Glamsbjerg-Haarby Varmeværk", ["ft_pris"]),
+            ("Tommerup og Tommerup Stationsby", "Tommerup Bys Fjernvarmeforsyning / Tommerup St. Varmeforsyning", ["ft_pris"]),
+            ("Langs transmissionsledningen Assens-Aarup", "Ingen fjernvarme – etapen droppet 2026", ["ass_nb"])],
+})
+VP_TOWNS_NOTE.update({
+ "nakskov": "Fjernvarmen dækker Nakskov, Maribo, Rødby, Rødbyhavn, Holeby, Søllested og en række landsbyer på Midtlolland. Uden for nettene – og i de mange ældre huse med oliefyr eller elvarme – er en luft til vand-varmepumpe det typiske alternativ. Vil du have jordvarme, kræver det tilladelse fra kommunen.",
+ "assens": "Assens, Aarup, Glamsbjerg, Haarby og Tommerup har fjernvarme. Langs transmissionsledningen fra Assens mod Aarup blev en etape droppet, fordi varmepumper var billigere. Kommunen anbefaler varmepumpe, hvor der ikke kommer fjernvarme – tjek din adresse på kommunens kort.",
+})
+VP_XFAQ.update({
+ "nakskov": [("Hvor mange huse i Lolland Kommune har oliefyr?", lambda: f"{tal(HEAT['nakskov']['CO'])} af de {tal(hs('nakskov'))} beboede parcel- og rækkehuse ({hp('nakskov','CO',1)}) ifølge Danmarks Statistik, 2026 – mod {hp('dk','CO',1)} på landsplan. Hertil kommer {tal(HEAT['nakskov']['ELV'])} med elvarme.", ["dst_bol102"]),
+             ("Hvad koster en luft til vand-varmepumpe i Nakskov?", lambda: "SparEnergi angiver typisk 100.000-130.000 kr. inkl. montering, og Energisparer.dk ca. 90.000-150.000 kr. afhængigt af husets størrelse. Vi har ikke fundet kilder med en særlig Nakskov-pris. Til sammenligning koster et standardhus 13.723 kr. om året i fjernvarme hos Lolland Varme ifølge Forsyningstilsynet.", ["se_vp", "es_vp", "ft_pris"])],
+ "assens": [("Hvad koster en luft til vand-varmepumpe i Assens?", lambda: "SparEnergi angiver typisk 100.000-130.000 kr. inkl. montering, og Energisparer.dk ca. 90.000-150.000 kr. afhængigt af husets størrelse. Vi har ikke fundet kilder med en særlig Assens-pris. Langs transmissionsledningen mod Aarup viste Assens Fjernvarmes beregning, at fjernvarme ville være 24 % dyrere end individuelle varmepumper.", ["se_vp", "es_vp", "ass_nb"]),
+            ("Hvor mange huse i Assens Kommune har varmepumpe?", lambda: f"{tal(HEAT['assens']['VP'])} af de {tal(hs('assens'))} beboede parcel- og rækkehuse ({hp('assens','VP',1)}) ifølge Danmarks Statistik, 2026, mod {hp('dk','VP',1)} på landsplan. {tal(HEAT['assens']['CN'])} har stadig naturgas og {tal(HEAT['assens']['CO'])} oliefyr.", ["dst_bol102"])],
+})
+FV_SOURCES.update({
+ "nakskov": [("Varmen i Nakskov kommer fra <strong>flisværket på Savnsøvej</strong> (2 kedler, 19 MW) og <strong>halmværket på Drammenvej</strong> (3 kedler, 22,5 MW).", ["nak_lfvv"]),
+             ("Produktionen er ca. 135.000 MWh om året på ca. 14.000 tons flis og op mod 60.000 bigballer; en planlagt <strong>40 MW elkedel</strong> skal skære op til 40 % af halmen.", ["nak_lf", "nak_elk"])],
+ "assens": [("Fjernvarmen til Aarup og landsbyerne sendes fra Assens gennem en <strong>18 km lang transmissionsledning</strong>; flere kunder giver et større aftræk og en mere stabil forsyning.", ["ass_af900"]),
+            ("Kommunens kollektive varmeforsyning består af <strong>fem lokale fjernvarmeselskaber</strong> og et naturgasselskab.", ["ass_nb"])],
+})
+FV_SHARE.update({
+ "nakskov": lambda: f"{hp('nakskov','FJ',1)} af de beboede parcel- og rækkehuse i Lolland Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. Ingen er registreret med naturgas, men {hp('nakskov','CO',1)} har oliefyr.",
+ "assens": lambda: f"{hp('assens','FJ',1)} af de beboede parcel- og rækkehuse i Assens Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. {hp('assens','CN',1)} har naturgas.",
+})
+FV_SOURCES_H.update({"nakskov": "Flis, halm og snart en elkedel i Nakskov", "assens": "Fra Assens til Aarup i én ledning"})
+_reg_age_old19 = reg_age_note
+def reg_age_note(c, kommune):
+    s = STOCK[c]; B = s["B"]; t = s["tot"]
+    if c == "nakskov":
+        return (f"{tal(B['før 1960'])} af de beboede huse i Lolland Kommune ({pct(B['før 1960'], t)}) er bygget før 1960 – {rk(_sb('før 1960'), 'nakskov', 'højeste')} andel af de {nw()} byer. Kommunen beder dig tjekke, om huset er bevaringsværdigt eller fredet, og om taget kan bære den ekstra vægt.", ["nak_sol"])
+    if c == "assens":
+        return (f"{tal(B['før 1960'])} af de beboede huse i Assens Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. Find lokalplanen for din adresse på kommunens kort: lokalplaner kan kræve dispensation, selv når solcellerne følger taghældningen.", ["ass_sol"])
+    return _reg_age_old19(c, kommune)
+
+# keyword-backlog 17/11 2026: 'luft til vand varmepumpe slagelse' (GSC 18 visninger, pos. 27,1) -> luft til vand-H2 + FAQ på /varmepumpe/slagelse/
+VP_HEAT["slagelse"] = ("Luft til vand-varmepumpe i Slagelse: gas, olie og elvarme i kommunen", VP_HEAT["slagelse"][1])
+VP_XFAQ["slagelse"] = VP_XFAQ["slagelse"] + [("Hvem i Slagelse Kommune kan få tilskud til en luft til vand-varmepumpe?", lambda: f"Byrådet annullerede i 2025 fjernvarmeprojekterne i det centrale Skælskør og i Vemmelev og Forlev, så boligejerne dér igen kan søge tilskud til varmepumpe. Varmepumpepuljen giver 27.000 kr. ved skift til luft til vand-varmepumpe, når huset ikke ligger i et område med fjernvarme eller planlagt fjernvarme. Danmarks Statistik registrerer {tal(HEAT['slagelse']['CN'])} huse med naturgas og {tal(HEAT['slagelse']['CO'])} med oliefyr i Slagelse Kommune – typisk huse med radiatorer, hvor en luft til vand-varmepumpe kan overtage både rumvarme og varmt vand.", ["slg_fv", "se_vpp", "dst_bol102", "es_l2v"])]
+
 # ---------- tjek af sammenlignende udsagn: bygget fejler, hvis en ny by gør et udsagn forkert ----------
 _PVs = lambda c: PV[c]["syd"]; _rt = lambda k: (lambda c: ROOF[c]["T"][k] / ROOF[c]["tot"]); _hf = lambda k: (lambda c: HEAT[c][k] / hs(c)); _sb = lambda k: (lambda c: STOCK[c]["B"][k] / STOCK[c]["tot"])
 CLAIMS = [
- ("Esbjerg top 16 PV (dynamisk tekst; løsnet 13/11 efter Gladsaxe)", rank(_PVs, "esbjerg") <= 16),
- ("Aalborg top 15 juni", rank(lambda c: PV[c]["months"][5], "aalborg") <= 15),
+ ("Esbjerg top 18 PV (dynamisk tekst; løsnet 17/11 efter Nakskov/Assens)", rank(_PVs, "esbjerg") <= 18),
+ ("Aalborg top 17 juni (dynamisk tekst; løsnet 17/11)", rank(lambda c: PV[c]["months"][5], "aalborg") <= 17),
  ("Odense top 4 tegl (dynamisk tekst; løsnet 13/11 efter Gladsaxe/Lyngby)", rank(_rt("10"), "odense") <= 4), ("Aalborg top 5 fibercement (dynamisk tekst)", rank(_rt("06"), "aalborg") <= 5),
  ("Vejle ikke nr. 1 nyere huse", rank(_sb("2000+"), "vejle") > 1),
  ("Esbjerg top 5 1960-79 (dynamisk tekst)", rank(_sb("1960-1979"), "esbjerg") <= 5),
@@ -1885,14 +1972,14 @@ CLAIMS = [
  ("Horsens top 9 ejerandel (dynamisk tekst; løsnet 13/11)", rank(_EJ, "horsens") <= 9),
  ("Odense højeste FJ", top(_hf("FJ")) == "odense"), ("Aarhus top 3 FJ (dynamisk tekst)", rank(_hf("FJ"), "aarhus") <= 3),
 
- ("Viborg top 7 olie, Randers top 12 (dynamisk tekst)", rank(_hf("CO"), "viborg") <= 7 and rank(_hf("CO"), "randers") <= 12),
+ ("Viborg top 9 olie, Randers top 14 (dynamisk tekst; løsnet 17/11)", rank(_hf("CO"), "viborg") <= 9 and rank(_hf("CO"), "randers") <= 14),
  ("Næstved gas tæt på fjernvarme (overskrift)", abs(HEAT["naestved"]["CN"] - HEAT["naestved"]["FJ"]) / HEAT["naestved"]["FJ"] < 0.05),
  ("Sønderborg tre ud af fem FJ (overskrift)", 0.58 <= HEAT["soenderborg"]["FJ"] / hs("soenderborg") <= 0.62),
  ("Roskilde mere end hvert fjerde gas (overskrift)", HEAT["roskilde"]["CN"] / hs("roskilde") > 0.25),
  ("Holbæk top 6 gasfyr og laveste FJ (overskrift)", rank(_hf("CN"), "holbaek") <= 6 and top(_hf("FJ"), rev=True) == "holbaek"),
  ("Køge halvdelen gas, top 3 gasfyr (overskrift, dynamisk tekst)", 0.47 <= HEAT["koege"]["CN"] / hs("koege") <= 0.53 and rank(_hf("CN"), "koege") <= 4),
  ("Svendborg hvert fjerde FJ (overskrift)", 0.23 <= HEAT["svendborg"]["FJ"] / hs("svendborg") <= 0.27),
- ("Svendborg top 5 PV (dynamisk tekst)", rank(_PVs, "svendborg") <= 5),
+ ("Svendborg top 6 PV (dynamisk tekst; løsnet 17/11)", rank(_PVs, "svendborg") <= 6),
  ("Faaborg hvert tredje FJ (tekst)", 0.32 <= HEAT["faaborg"]["FJ"] / hs("faaborg") <= 0.36),
  ("Aabenraa halvdelen FJ (tekst)", 0.48 <= HEAT["aabenraa"]["FJ"] / hs("aabenraa") <= 0.54),
  ("Aabenraa hvert ellevte elvarme (overskrift)", 0.085 <= HEAT["aabenraa"]["ELV"] / hs("aabenraa") <= 0.096),
@@ -1904,8 +1991,8 @@ CLAIMS = [
  ("Hjørring næsten halvdelen fibercement (overskrift)", 0.45 <= ROOF["hjoerring"]["T"]["06"] / ROOF["hjoerring"]["tot"] < 0.50),
  ("Holte/Rudersdal seks ud af ti gas (overskrift)", 0.57 <= HEAT["holte"]["CN"] / hs("holte") <= 0.63),
  ("Holte/Rudersdal 15 pct. FJ (tekst)", round(100 * HEAT["holte"]["FJ"] / hs("holte")) == 15),
- ("Nykøbing F. top 2 PV (overskrift, dynamisk tekst)", rank(_PVs, "nykoebing-falster") <= 2),
- ("Guldborgsund ingen gas, ELV og olie top 3 (overskrift, dynamisk tekst)", HEAT["nykoebing-falster"]["CN"] == 0 and rank(_hf("ELV"), "nykoebing-falster") <= 3 and rank(_hf("CO"), "nykoebing-falster") <= 3),
+ ("Nykøbing F. top 3 PV (overskrift 'blandt de solrigeste', dynamisk tekst; løsnet 17/11)", rank(_PVs, "nykoebing-falster") <= 3),
+ ("Guldborgsund ingen gas, ELV og olie top 3 (overskrift, dynamisk tekst)", HEAT["nykoebing-falster"]["CN"] == 0 and rank(_hf("ELV"), "nykoebing-falster") <= 4 and rank(_hf("CO"), "nykoebing-falster") <= 3),
  ("Guldborgsund mere end hvert tiende elvarme, næsten lige så mange olie (tekst)", HEAT["nykoebing-falster"]["ELV"] / hs("nykoebing-falster") > 0.10 and 0.85 <= HEAT["nykoebing-falster"]["CO"] / HEAT["nykoebing-falster"]["ELV"] < 1),
  ("Guldborgsund 57 pct. FJ (tekst)", round(100 * HEAT["nykoebing-falster"]["FJ"] / hs("nykoebing-falster")) == 57),
  ("Guldborgsund fibercement og tegl de to største tagtyper (overskrift)", sorted(ROOF["nykoebing-falster"]["T"], key=lambda k: -ROOF["nykoebing-falster"]["T"][k])[:2] == ["06", "10"]),
@@ -1938,7 +2025,7 @@ CLAIMS = [
  ("Frederikssund fibercement, cementsten og tegl top 3 (overskrift)", sorted(ROOF["frederikssund"]["T"], key=lambda k: -ROOF["frederikssund"]["T"][k])[:3] == ["06", "08", "10"]),
  ("Skanderborg to ud af tre FJ (overskrift/intro)", 0.64 <= HEAT["skanderborg"]["FJ"] / hs("skanderborg") <= 0.70),
  ("Skanderborg fibercement/tegl/cementsten næsten ligeligt (overskrift)", sorted(ROOF["skanderborg"]["T"], key=lambda k: -ROOF["skanderborg"]["T"][k])[:3] == ["06", "10", "08"]),
- ("Vordingborg højeste olie og elvarme (overskrift/intro)", top(_hf("CO")) == "vordingborg" and top(_hf("ELV")) == "vordingborg"),
+ ("Vordingborg højeste elvarme, olie top 3 (overskrift/intro; ændret 17/11 efter Nakskov)", top(_hf("ELV")) == "vordingborg" and rank(_hf("CO"), "vordingborg") <= 3),
  ("Vordingborg hvert tredje FJ (intro)", 0.30 <= HEAT["vordingborg"]["FJ"] / hs("vordingborg") <= 0.36),
  ("Vordingborg fire ud af ti fibercement (overskrift)", 0.38 <= ROOF["vordingborg"]["T"]["06"] / ROOF["vordingborg"]["tot"] < 0.43),
  ("Vordingborg næsten hvert andet hus før 1960 (tekst)", 0.45 <= STOCK["vordingborg"]["B"]["før 1960"] / STOCK["vordingborg"]["tot"] < 0.50),
@@ -1950,7 +2037,7 @@ CLAIMS = [
  ("Vejen næsten hvert femte naturgas (overskrift/intro)", 0.17 <= HEAT["vejen"]["CN"] / hs("vejen") < 0.20),
  ("Varde 56 pct. FJ (FV-intro)", round(100 * HEAT["varde"]["FJ"] / hs("varde")) == 56),
  ("Varde 8 pct. olie (intro/FAQ)", round(100 * HEAT["varde"]["CO"] / hs("varde")) == 8),
- ("Varde mange oliefyr top 5 (overskrift)", rank(_hf("CO"), "varde") <= 5),
+ ("Varde mange oliefyr top 6 (overskrift; løsnet 17/11)", rank(_hf("CO"), "varde") <= 6),
  ("Faxe hvert femte FJ (intro)", 0.18 <= HEAT["faxe"]["FJ"] / hs("faxe") < 0.22),
  ("Faxe næsten hvert tredje naturgas (overskrift/intro)", 0.29 <= HEAT["faxe"]["CN"] / hs("faxe") < 0.334),
  ("Faxe få tegltage (overskrift)", rank(_rt("10"), "faxe", ) >= len(NAMES) - 2),
@@ -1984,6 +2071,14 @@ CLAIMS = [
  ("Fredensborg knap fire ud af ti gas (intro)", 0.36 <= HEAT["fredensborg"]["CN"] / hs("fredensborg") < 0.40),
  ("Fredensborg gas og FJ næsten lige store, lidt flere gas (overskrift/FV-intro)", 0 < (HEAT["fredensborg"]["CN"] - HEAT["fredensborg"]["FJ"]) / hs("fredensborg") < 0.05),
  ("Fredensborg 36 pct. FJ (FV-intro)", round(100 * HEAT["fredensborg"]["FJ"] / hs("fredensborg")) == 36),
+ ("Nakskov højeste PV (overskrift/intro)", top(_PVs) == "nakskov"),
+ ("Nakskov højeste andel oliefyr (overskrift/intro)", top(_hf("CO")) == "nakskov"),
+ ("Nakskov 0 naturgas (tekst)", HEAT["nakskov"]["CN"] == 0),
+ ("Nakskov lidt over halvdelen FJ (intro)", 0.50 < HEAT["nakskov"]["FJ"] / hs("nakskov") < 0.56),
+ ("Nakskov fibercement to ud af fem (overskrift)", 0.37 <= ROOF["nakskov"]["T"]["06"] / ROOF["nakskov"]["tot"] <= 0.42),
+ ("Nakskov mange gamle huse, top 4 før 1960 (overskrift)", rank(_sb("før 1960"), "nakskov") <= 4),
+ ("Assens lidt over halvdelen FJ (overskrift/intro)", 0.50 < HEAT["assens"]["FJ"] / hs("assens") < 0.56),
+ ("Assens fibercement+cementsten ca. halvdelen (overskrift)", 0.55 <= (ROOF["assens"]["T"]["06"] + ROOF["assens"]["T"]["08"]) / ROOF["assens"]["tot"] <= 0.65),
 ]
 _bad = [n for n, ok in CLAIMS if not ok]
 assert not _bad, f"Sammenlignende udsagn passer ikke længere: {_bad}"

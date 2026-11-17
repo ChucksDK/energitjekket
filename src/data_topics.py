@@ -515,3 +515,16 @@ _l2v = T["/varmepumpe/luft-til-vand/"]
 _l2v["sections"] = [(("Luft til vand varmepumpe pris for 150 og 200 m² hus" if h == "Pris for 150 og 200 m² hus" else h),
                      ([("p", "Kort sagt: SparEnergi angiver typisk 100.000-130.000 kr. for en luft til vand varmepumpe, og Energisparer.dk ca. 90.000-150.000 kr. inkl. installation afhængigt af husets størrelse og varmetab – før et eventuelt tilskud.", ["se_vp", "es_l2v"])] + b
                       if h == "Pris for 150 og 200 m² hus" else b)) for h, b in _l2v["sections"]]
+
+# keyword-backlog 17/11 2026: 'luft til vand varmepumpe' (GSC 28 visninger, pos. 85,2) -> skarpere H1/intro + kort faktaboks og FAQ med kilder
+_l2v["h1"] = "Luft til vand varmepumpe: sådan virker den, pris og tilskud"
+_l2v["intro"] = "En luft til vand varmepumpe henter varmen i udeluften og afleverer den til husets radiatorer, gulvvarme og varme brugsvand – derfor kan den erstatte et olie- eller gasfyr helt. " + _l2v["intro"].split(". ", 1)[1]
+_l2v["sections"] = [("Luft til vand varmepumpe kort fortalt", [
+    ("ul", [("<strong>Effektivitet:</strong> Energisparer.dk angiver typisk SCOP 3,5-5,1, dvs. 3,5-5,1 kWh varme for hver kWh strøm over et år.", ["es_l2v"]),
+            ("<strong>Pris:</strong> SparEnergi angiver typisk 100.000-130.000 kr.; Energisparer.dk ca. 90.000-150.000 kr. inkl. installation afhængigt af husets størrelse.", ["se_vp", "es_l2v"]),
+            ("<strong>Tilskud:</strong> Varmepumpepuljen giver 27.000 kr. ved skift til luft til vand-varmepumpe, når kravene er opfyldt.", ["se_vpp"]),
+            ("<strong>Støj:</strong> normalt højst 35 dB hos naboen om natten i parcelhus- og sommerhusområder.", ["mst_stoej"]),
+            ("<strong>Udbredelse:</strong> ca. 205.500 af Danmarks ca. 1,6 mio. beboede parcel- og rækkehuse er registreret med varmepumpe (Danmarks Statistik, 2026).", ["dst_bol102"])]),
+  ])] + _l2v["sections"]
+_l2v["faq"] = [("Hvad er en luft til vand varmepumpe?", "En varmepumpe, der trækker varme ud af udeluften – også i frostvejr – og afleverer den til husets vandbårne varmesystem og en varmtvandsbeholder. Den kræver radiatorer eller gulvvarme; har du elpaneler, er en luft til luft-varmepumpe ofte det billigere valg.", ["es_l2v", "se_vp"])] + _l2v["faq"]
+_l2v["updated"] = ("17. november 2026", "2026-11-17")

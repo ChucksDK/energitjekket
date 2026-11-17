@@ -467,7 +467,7 @@ CITIES["holbaek"] = {
   ],
 }
 CITIES["slagelse"] = {
-  "name": "Slagelse", "kommune": "Slagelse Kommune", "updated": ("16. november 2026", "2026-11-16"),
+  "name": "Slagelse", "kommune": "Slagelse Kommune", "updated": ("17. november 2026", "2026-11-17"),
   "sol_intro": "Solceller i Slagelse: ligger huset uden for en lokalplan, og overholder anlægget byggeretten i bygningsreglementet, skal du ikke søge. Stiller lokalplanen krav til taget, eller ligger huset i en bevarende lokalplan i Slagelse, Korsør eller Skælskør, skal du søge dispensation. Her er reglerne, priserne og vejen til et tilbud.",
   "sol_facts": [
     ("Uden lokalplan skal du ikke søge, hvis anlægget på taget <strong>overholder byggeretten</strong> i bygningsreglementet, bl.a. afstanden til skel. Anlægget skal indberettes til BBR, når det er sat op.", ["slg_adm", "slg_sol"]),
@@ -1226,7 +1226,7 @@ CITIES["vordingborg"] = {
     ("Skal jeg søge om lov til solceller på mit hus i Vordingborg?", "Ikke hvis anlægget følger tagets hældning, og servitutter og lokalplan ikke forbyder det. Fredede og bevaringsværdige huse og anlæg på stativ eller terræn kræver altid byggetilladelse.", ["vor_sol"]),
     ("Hvem kontakter jeg om solceller i Vordingborg Kommune?", "Byggeri på telefon 55 36 24 50 (hverdage kl. 9-12) eller byg@vordingborg.dk. Lokalplaner og beskyttelseslinjer kan ses på KortVordingborg.", ["vor_byg"]),
   ],
-  "vp_intro": "Luft til vand-varmepumpe i Vordingborg: kun hvert tredje hus i kommunen har fjernvarme, og andelen med oliefyr og elvarme er den højeste blandt byerne på Energitjekket. Kommunen forventer, at de fleste naturgasområder går over til individuel opvarmning, mens fjernvarmen udbygges i Nyråd, Stensved og dele af Præstø. Her er status, priserne og tilskudsreglerne.",
+  "vp_intro": "Luft til vand-varmepumpe i Vordingborg: kun hvert tredje hus i kommunen har fjernvarme, og andelen med elvarme er den højeste og andelen med oliefyr blandt de højeste af byerne på Energitjekket. Kommunen forventer, at de fleste naturgasområder går over til individuel opvarmning, mens fjernvarmen udbygges i Nyråd, Stensved og dele af Præstø. Her er status, priserne og tilskudsreglerne.",
   "vp_facts": [
     ("Vordingborg Kommunes varmeplan forventer fjernvarme til <strong>Stensved og dele af Præstø</strong> frem mod 2028. Kun få andre naturgasområder har potentiale, så de forventes primært at overgå til individuel opvarmning.", ["vor_varme"]),
     ("I <strong>Nyråd</strong> forventer Vordingborg Forsyning, at en stor del af byen kan få fjernvarme omkring efteråret 2026. Der kan ikke søges tilskud til varmepumper i Nyråd, fordi området er udlagt til fjernvarme.", ["vf_nyraad_faq"]),
@@ -1609,3 +1609,76 @@ CONTACTS["holstebro"] = {"sol": [("Holstebro Kommune, Teknik og Miljø", "tm@hol
                          "vp":  [("Vestforsyning", "96 12 73 00 · kundeservice@vestforsyning.dk", "hol_vfkan")]}
 CONTACTS["fredensborg"] = {"sol": [("Fredensborg Kommune, Byg", "byggesager@fredensborg.dk", "fre_sol")],
                            "vp":  [("Norfors", "45 16 05 00 · norfors@norfors.dk", "fre_nf")]}
+
+# ---------- daglig by-rutine 17. nov. 2026: Nakskov (DK2, Lolland Kommune) og Assens (DK1) ----------
+S.update({
+ "nak_sol": ("Lolland Kommune: solcelleanlæg (læst 17/11 2026)", "https://www.lolland.dk/borger/bolig-og-byggeri/varme-energi-og-energibesparelse/solcelleanlaeg"),
+ "nak_byg": ("Lolland Kommune: generelt om byggeri (læst 17/11 2026)", "https://www.lolland.dk/borger/bolig-og-byggeri/byggeri/generelt-om-byggeri"),
+ "nak_jord": ("Lolland Kommune: jordvarme (læst 17/11 2026)", "https://www.lolland.dk/borger/bolig-og-byggeri/varme-energi-og-energibesparelse/jordvarme"),
+ "nak_lf": ("Lolland Forsyning: din varme – forsyningsområde (læst 17/11 2026)", "https://lollandforsyning.dk/kunde/varme/din-varme/"),
+ "nak_lfvv": ("Lolland Forsyning: varmeværker (læst 17/11 2026)", "https://lollandforsyning.dk/kunde/varme/varmevaerker/"),
+ "nak_lft": ("Lolland Forsyning: tilslutning til fjernvarme (læst 17/11 2026)", "https://lollandforsyning.dk/kunde/varme/tilslutning-til-fjernvarme/"),
+ "nak_elk": ("Lolland Kommune, Økonomi- og Erhvervsudvalget 18/11 2026: 40 MW elkedel i Nakskov (sagsfremstilling via Sagsvagt, læst 17/11 2026)", "https://sagsvagt.dk/sag/lolland-2026-11-18-oekonomi-og-erhvervsudvalget-8.html"),
+ "nak_syd": ("Dansk Fjernvarme: Sydhavsvarme har set dagens lys på Lolland (24/2 2026)", "https://danskfjernvarme.dk/aktuelt/nyheder/2026/sydhavsvarme-har-set-dagens-lys-paa-lolland"),
+ "ass_sol": ("Assens Kommune: solceller (læst 17/11 2026)", "https://www.assens.dk/borger/bolig-og-byggeri/jeg-skal-bygge/solceller"),
+ "ass_vplan": ("Assens Kommune: varmeplan og status på fjernvarme (læst 17/11 2026)", "https://www.assens.dk/borger/bolig-og-byggeri/varme/varmeplan"),
+ "ass_vp": ("Assens Kommune: varmepumpe (læst 17/11 2026)", "https://www.assens.dk/borger/bolig-og-byggeri/varme/opvarmningsformer/varmepumpe"),
+ "ass_tilsk": ("Assens Kommune: tilskudsordninger til varme (læst 17/11 2026)", "https://www.assens.dk/borger/bolig-og-byggeri/varme/tilskudsordninger"),
+ "ass_af900": ("Assens Fjernvarme: over 900 ejendomme i Aarup-området har nu fået fjernvarme (læst 17/11 2026)", "https://assensfjernvarme.dk/nyheder/over-900-ejendomme-i-aarup-omraadet-har-nu-faaet-fjernvarme"),
+ "ass_aftid": ("Assens Fjernvarme: tidsplan for Aarup og landsbyer (læst 17/11 2026)", "https://assensfjernvarme.dk/aarup-og-landsbyer/tidsplan"),
+ "ass_nb": ("NB-Forsyning & Klima: Assens Fjernvarme reducerede forsyningsområde (2/6 2026)", "https://www.nb-forsyning.dk/2026/06/02/assens-fjernvarme-reducerede-forsyningsomraade-fjernvarmen-var-for-dyr"),
+})
+CITIES["nakskov"] = {
+  "name": "Nakskov", "kommune": "Lolland Kommune", "updated": ("17. november 2026", "2026-11-17"),
+  "sol_intro": "Solceller i Nakskov: Lolland Kommune skriver, at det afhænger af monteringen, om du skal have tilladelse – og at panelerne bør følge tagets hældning og tage hensyn til kviste, skorstene og husets udtryk. Nakskov har samtidig den højeste solproduktion pr. kWp af byerne på dette site. Her er reglerne, tallene og vejen til et tilbud.",
+  "sol_facts": [
+    ("Om du skal have <strong>tilladelse</strong>, afhænger ifølge kommunen af, hvordan anlægget monteres på taget.", ["nak_sol"]),
+    ("Anlægget bør placeres med <strong>samme hældning som taget</strong> eller som en integreret del af tagbelægningen.", ["nak_sol"]),
+    ("Tjek krav i <strong>deklarationer og byplanvedtægter</strong>, og om huset er bevaringsværdigt eller fredet. Anlægget skal indberettes til BBR.", ["nak_sol"]),
+    ("I <strong>landzone</strong> kan det være nødvendigt at søge både landzone- og byggetilladelse.", ["nak_sol"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge tilladelse til solceller i Nakskov?", "Det afhænger af monteringen. Lolland Kommune skriver, at du i visse tilfælde skal have tilladelse, og kommunens generelle byggeside nævner solcelleanlæg blandt de tekniske anlæg, der kræver byggetilladelse. Spørg derfor Teknik og Miljø, før du bestiller – især hvis panelerne ikke følger tagets hældning.", ["nak_sol", "nak_byg"]),
+    ("Hvad skal en ansøgning om solceller i Lolland Kommune indeholde?", "Tegninger, der viser anlæggets placering, afstanden til skel, totalhøjden over terræn og anlæggets størrelse i m². Ansøgningen sendes digitalt via Byg og Miljø; papir og mail behandles ikke.", ["nak_sol", "nak_byg"]),
+  ],
+  "vp_intro": "Varmepumpe i Nakskov: lidt over halvdelen af husene i Lolland Kommune har fjernvarme, men andelen med oliefyr er den højeste af byerne på dette site, og ingen huse er registreret med naturgas. Uden for Lolland Varmes net i Nakskov, Søllested og Midtlolland er en luft til vand-varmepumpe det oplagte skifte fra olie og elvarme. Her er tallene, priserne og reglerne.",
+  "vp_facts": [
+    ("Lolland Varme forsyner ca. <strong>4.500 kunder i Nakskov</strong>, ca. 500 i Søllested og ca. 525 på Midtlolland (Bandholm, Reersnæs, Nørreballe, Østofte og Stokkemarke).", ["nak_lf"]),
+    ("Ligger ejendommen i forsyningsområdet, kan du som udgangspunkt få fjernvarme, medmindre varmeplanen eller tekniske og økonomiske hensyn er til hinder.", ["nak_lft"]),
+    ("Et <strong>jordvarmeanlæg kræver tilladelse</strong> fra Lolland Kommune og må ikke ligge nærmere end 300 m fra en almen drikkevandsboring og 50 m fra andre vandindvindingsanlæg.", ["nak_jord"]),
+    ("Lolland Kommune nævner, at et jordvarmeanlæg også kan kræve <strong>dispensation fra tilslutning til kollektiv varme</strong>.", ["nak_jord"]),
+  ],
+  "vp_faq": [
+    ("Kræver jordvarme tilladelse i Lolland Kommune?", "Ja. Du skal søge tilladelse hos Lolland Kommune med en målfast tegning af slangernes placering. Anlægget skal efterses af en sagkyndig mindst én gang om året, og det skal anmeldes til kommunens miljøafdeling, når det tages i brug.", ["nak_jord"]),
+    ("Kan jeg få fjernvarme i Nakskov?", "Ligger huset i Lolland Varmes forsyningsområde, kan du som udgangspunkt få fjernvarme, medmindre den kommunale varmeplan eller tekniske og økonomiske hensyn er til hinder. Du ansøger om et fjernvarmestik hos Lolland Forsyning.", ["nak_lft"]),
+  ],
+}
+CITIES["assens"] = {
+  "name": "Assens", "kommune": "Assens Kommune", "updated": ("17. november 2026", "2026-11-17"),
+  "sol_intro": "Solceller i Assens: følger panelerne tagets hældning, kræver det ikke byggetilladelse fra Assens Kommune. På flade tage, på terræn og på erhvervs- og etagebygninger skal du søge. Lokalplaner og beskyttelseslinjer kan stadig kræve dispensation. Her er reglerne, priserne og vejen til et tilbud.",
+  "sol_facts": [
+    ("Solceller, der lægges i <strong>samme hældning som taget</strong>, kræver ikke byggetilladelse.", ["ass_sol"]),
+    ("På et <strong>fladt tag</strong> skal der søges byggetilladelse, så kommunen kan vurdere anlægget.", ["ass_sol"]),
+    ("Et anlæg på <strong>terræn</strong> kræver altid byggetilladelse – i landzone også landzonetilladelse.", ["ass_sol"]),
+    ("Selv uden byggetilladelse kan der kræves <strong>dispensation</strong> fra skov-, å- og søbeskyttelseslinjer, lokalplaner eller tinglyste bestemmelser.", ["ass_sol"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge byggetilladelse til solceller i Assens?", "Ikke hvis panelerne lægges i samme hældning som taget på din bolig eller dit udhus. På et fladt tag, på terræn og på erhvervs- og etagebygninger skal du søge. Tjek også lokalplanen for din adresse på kommunens kort.", ["ass_sol"]),
+    ("Hvad skal jeg registrere i BBR?", "Assens Kommune skriver, at solceller skal registreres i BBR med areal, anlæggets størrelse i kW og årstal for opsætning – også når der ikke skal søges byggetilladelse.", ["ass_sol"]),
+  ],
+  "vp_intro": "Varmepumpe i Assens: lidt over halvdelen af husene i Assens Kommune har fjernvarme, og Assens Fjernvarme er ved at afslutte udrulningen i Aarup og landsbyerne. Men en etape langs transmissionsledningen mod Aarup blev droppet, fordi fjernvarmen ville blive dyrere end varmepumper. Her er status, priserne og tilskudsreglerne.",
+  "vp_facts": [
+    ("Assens Kommune <strong>anbefaler varmepumpe</strong>, hvis ejendommen ligger i et område, der ikke vil blive forsynet med fjernvarme.", ["ass_vp"]),
+    ("Varmepumpepuljen kræver bl.a., at huset <strong>ikke ligger i et område med fjernvarme eller planlagt fjernvarme</strong>, og at du ikke allerede har et bindende tilbud.", ["ass_tilsk"]),
+    ("Assens Fjernvarme droppede i 2026 en etape med ca. <strong>40 ejendomme langs transmissionsledningen</strong> mod Aarup; her ville fjernvarmen være 24 % dyrere end individuelle varmepumper.", ["ass_nb"]),
+    ("Kommunens kort viser for hver adresse, om fjernvarme er vedtaget, undersøges, eller om der <strong>ingen planer</strong> er.", ["ass_vplan"]),
+  ],
+  "vp_faq": [
+    ("Kan jeg få tilskud til varmepumpe i Assens Kommune?", "Fra Varmepumpepuljen, hvis du ejer og bor i en helårsbolig med olie-, gas-, el- eller biokedel, og huset ikke ligger i et område med fjernvarme eller planlagt fjernvarme. Puljen dækker luft til vand og jordvarme, og du skal søge, før du indhenter et bindende tilbud.", ["ass_tilsk"]),
+    ("Hvorfor fik husene langs transmissionsledningen ikke fjernvarme?", "Ifølge Assens Fjernvarme opnåede etapen ikke de krævede over 60 % tilslutning, og beregningerne viste, at fjernvarmen ville være 24 % dyrere end individuelle varmepumper. Kommunen godkendte reduktionen af forsyningsområdet i maj 2026, så borgerne kan søge midler til varmepumpe.", ["ass_nb"]),
+  ],
+}
+CONTACTS["nakskov"] = {"sol": [("Lolland Kommune, Bolig og Byggeri", "54 67 64 50 · byggeri@lolland.dk", "nak_sol")],
+                       "vp":  [("Lolland Forsyning (Lolland Varme)", "72 30 11 11 · forsyning@lollandforsyning.dk", "nak_lf")]}
+CONTACTS["assens"] = {"sol": [("Assens Kommune, Byggesag", "64 74 75 19", "ass_sol")],
+                      "vp":  [("Assens Fjernvarme", "64 71 10 24 · post@assensfjernvarme.dk", "ass_af900")]}

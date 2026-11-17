@@ -2268,3 +2268,93 @@ FV_PAGE["fredensborg"] = {
     ("Hvad er Norfors' incitamentstarif?", "Kunder betaler en incitamentstarif på 3 %, hvis returvandet er over 45 grader, når det sendes tilbage til Norfors. Det kan ramme huse med enstrengede varmesystemer, hvor det kan være dyrt at ombygge.", ["fre_monrad"]),
   ],
 }
+
+# ---------- daglig by-rutine 17. nov. 2026: Nakskov og Assens ----------
+FV_PRICES["nakskov"] = [("Lolland Varme A/S", "4900", "13.723", "445"), ("Rødbyhavn Fjernvarme Amba", "4970", "14.880", "327"),
+                        ("Holeby Fjernvarme", "4960", "15.590", "557"), ("Rødby Varmeværk a.m.b.a.", "4970", "16.925", "500")]
+FV_PRICES["assens"] = [("Assens Fjernvarme (Fyn) Distribution A/S", "5610", "15.621", "649"), ("Tommerup Bys Fjernvarmeforsyning A.m.b.a.", "5690", "16.727", "631"),
+                       ("Glamsbjerg-Haarby Varmeværk A.m.b.a.", "5620", "18.030", "800"), ("Tommerup St. Varmeforsyning A.m.b.a.", "5690", "20.915", "781")]
+SOL_REG["nakskov"] = {
+  "kw": "solceller nakskov / solceller lolland kommune tilladelse / solceller byggetilladelse lolland",
+  "evidence": "Lolland Kommunes sider 'Solcelleanlæg' og 'Generelt om byggeri' (tjekket 17/11 2026).",
+  "intro": "I Lolland Kommune afhænger det af monteringen, om dine solceller kræver tilladelse. Kommunen lægger vægt på, at panelerne følger tagets hældning og passer til huset, og i landzone kan der kræves både landzone- og byggetilladelse. Her er reglerne, og hvad ansøgningen skal indeholde.",
+  "sections": [
+    ("Hvornår skal du søge?", [
+      ("ul", [("Om der skal søges <strong>tilladelse</strong>, afhænger ifølge kommunen af, hvordan anlægget monteres på taget.", ["nak_sol"]),
+              ("Kommunens generelle byggeside nævner <strong>solcelleanlæg</strong> blandt de tekniske anlæg, der kræver byggetilladelse – spørg derfor, hvis du er i tvivl.", ["nak_byg"]),
+              ("Tjek krav i <strong>deklarationer og byplanvedtægter</strong>, og om ejendommen er bevaringsværdig eller fredet.", ["nak_sol"]),
+              ("I <strong>landzone</strong> kan det være nødvendigt at søge både landzone- og byggetilladelse.", ["nak_sol"])]),
+    ]),
+    ("Placering på taget", [
+      ("p", "Lolland Kommune skriver, at et solcelleanlæg bør placeres med samme hældning som taget eller som en integreret del af tagbelægningen, og at placeringen skal være harmonisk, så der tages hensyn til kviste, tagvinduer, skorstene og husets generelle fremtræden. Undersøg også, om taget kan bære den ekstra vægt.", ["nak_sol"]),
+    ]),
+    ("Ansøgningen", [
+      ("p", "Ansøgningen skal som minimum have tegninger, der viser anlæggets placering, afstanden til skel, totalhøjden over terræn og anlæggets størrelse i m². Den sendes digitalt via Byg og Miljø – ansøgninger på papir eller mail behandles ikke – og du må ikke gå i gang, før du har fået tilladelse. Anlægget skal indberettes til BBR.", ["nak_sol", "nak_byg"]),
+    ]),
+  ],
+  "faq": [
+    ("Kræver solceller byggetilladelse i Lolland Kommune?", "Det afhænger af monteringen. Kommunens solcelleside siger, at du i visse tilfælde skal have tilladelse, og den generelle byggeside nævner solcelleanlæg blandt tekniske anlæg, der kræver byggetilladelse. Kontakt Teknik og Miljø, før du bestiller.", ["nak_sol", "nak_byg"]),
+    ("Må jeg sende ansøgningen på mail?", "Nej. Lolland Kommune skriver, at ansøgninger om byggetilladelse skal sendes digitalt via Byg og Miljø; ansøgninger på papir eller mail anses for ugyldige.", ["nak_byg"]),
+    ("Skal jeg tjekke taget først?", "Ja. Kommunen anbefaler, at du undersøger, om taget er bygget til at kunne modstå den ekstra vægt af et solcelleanlæg.", ["nak_sol"]),
+  ],
+}
+SOL_REG["assens"] = {
+  "kw": "solceller assens / solceller assens kommune byggetilladelse / solceller fladt tag assens",
+  "evidence": "Assens Kommunes side 'Solceller' (bolig og udhuse, erhvervs- og etagebygninger, terræn, BBR og ansøgning) (tjekket 17/11 2026).",
+  "intro": "Assens Kommune har en enkel regel: følger solcellerne tagets hældning, skal du ikke søge byggetilladelse. Fladt tag, terræn og erhvervs- og etagebygninger kræver derimod tilladelse – og lokalplaner og beskyttelseslinjer kan stadig kræve dispensation. Her er reglerne og hvordan du søger.",
+  "sections": [
+    ("Hvornår skal du søge?", [
+      ("ul", [("Solceller på bolig og udhuse, der lægges i <strong>samme hældning som taget</strong>, kræver ikke byggetilladelse.", ["ass_sol"]),
+              ("På et <strong>fladt tag</strong> skal der søges, så kommunen kan vurdere, om det kræver byggetilladelse.", ["ass_sol"]),
+              ("På alle <strong>erhvervs- og etagebygninger</strong> kræver solceller byggetilladelse.", ["ass_sol"]),
+              ("Et anlæg på <strong>terræn</strong> kræver altid byggetilladelse, og i landzone også landzonetilladelse.", ["ass_sol"])]),
+    ]),
+    ("Dispensation og lokalplaner", [
+      ("p", "Selv om der ikke skal søges byggetilladelse, kan anlægget kræve dispensation fra fx skovbyggelinjer, åbyggelinjer, søbeskyttelseslinjer, lokalplaner eller tinglyste bestemmelser på ejendommen. Find lokalplanen for din adresse på kommunens kort over lokalplaner for hele Assens Kommune.", ["ass_sol"]),
+    ]),
+    ("Ansøgning og BBR", [
+      ("p", "En ansøgning skal have en situationsplan med afstand til skel og andre bygninger og facadetegninger med højder og materialer, og den sendes via Byg og Miljø. Uanset om der skal søges eller ej, skal solcellerne registreres i BBR med areal, anlæggets størrelse i kW og årstal for opsætning.", ["ass_sol"]),
+    ]),
+  ],
+  "faq": [
+    ("Kræver solceller på fladt tag tilladelse i Assens?", "Ja. Assens Kommune skriver, at der skal søges byggetilladelse, hvis solcellerne opsættes på et fladt tag, så kommunen kan vurdere anlægget.", ["ass_sol"]),
+    ("Må jeg sætte solceller på jorden i Assens Kommune?", "Kun med byggetilladelse – et anlæg på terræn kræver det altid. Ligger grunden i landzone, skal du også have landzonetilladelse.", ["ass_sol"]),
+    ("Hvad skal registreres i BBR?", "Areal, anlæggets størrelse i kW og årstal for opsætning. Det gælder også, når der ikke skal søges byggetilladelse.", ["ass_sol"]),
+  ],
+}
+FV_PAGE["nakskov"] = {
+  "kw": "fjernvarme nakskov / lolland varme pris / fjernvarme eller varmepumpe nakskov",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026, Lolland Forsynings sider om forsyningsområde, varmeværker og tilslutning, sagsfremstillingen om 40 MW elkedel (Lolland Kommune, nov. 2026) og Dansk Fjernvarme om Sydhavsvarme (tjekket 17/11 2026).",
+  "intro": "Lolland Varme leverer fjernvarme i Nakskov, Søllested og på Midtlolland – og er blandt de billigere værker i Forsyningstilsynets statistik. Rødby, Rødbyhavn og Holeby har egne værker, og Maribo forsynes af Sydhavsvarme. Her er priserne, planen om en elkedel i Nakskov og regnestykket mod en varmepumpe.",
+  "status": [
+    ("<strong>Lolland Varme:</strong> ca. 4.500 kunder i Nakskov (300 km ledningsnet), ca. 500 i Søllested og ca. 525 på Midtlolland.", ["nak_lf"]),
+    ("<strong>Elkedel på Drammenvej:</strong> et projektforslag om en 40 MW elkedel ved halmværket blev i november 2026 indstillet til offentlig høring; planlagt drift fra 1. januar 2029.", ["nak_elk"]),
+    ("<strong>Maribo:</strong> Maribo Varmeværk og Sakskøbing Fjernvarmeselskab er lagt sammen i Sydhavsvarme, der leverer til omkring 6.000 husstande og virksomheder.", ["nak_syd"]),
+    ("<strong>Tilslutning:</strong> ligger ejendommen i Lolland Varmes forsyningsområde, kan du som udgangspunkt få fjernvarme, medmindre varmeplanen eller tekniske og økonomiske hensyn er til hinder.", ["nak_lft"]),
+  ],
+  "local_take": "Lolland Varme er nr. 46 af 374 værker i Forsyningstilsynets statistik, og et standardhus betaler ca. 3.200 kr. mindre om året end landsgennemsnittet. Har du fjernvarme i Nakskov, er der sjældent økonomi i at skifte til varmepumpe. Varmepumpen er mest relevant for husene med oliefyr eller elvarme uden for værkernes net – og dem er der relativt mange af i Lolland Kommune.",
+  "contact": ("Lolland Forsyning (Lolland Varme)", "72 30 11 11 · forsyning@lollandforsyning.dk", "nak_lf"),
+  "faq": [
+    ("Hvad koster fjernvarme i Nakskov?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 13.723 kr. om året inkl. moms hos Lolland Varme. I Rødbyhavn er prisen 14.880 kr., i Holeby 15.590 kr. og i Rødby 16.925 kr. Landsgennemsnittet er 16.953 kr. Lolland Varmes pris er steget 1.181 kr. (9,4 %) siden januar 2025.", ["ft_pris"]),
+    ("Hvad betyder elkedlen for varmeprisen i Nakskov?", "Ifølge projektforslaget kan Lolland Varme skære op til 40 % af halmforbruget, og en standardejendom i forsyningsområdet forventes at spare ca. 590 kr. om året. Elkedlen skal efter planen i drift 1. januar 2029, hvis alle tilladelser kommer på plads.", ["nak_elk"]),
+    ("Hvor kommer fjernvarmen i Nakskov fra?", "Fra flisværket på Savnsøvej og halmværket på Drammenvej. Lolland Varme producerer ca. 135.000 MWh om året i Nakskov og bruger ca. 14.000 tons flis og op mod 60.000 bigballer halm. Et olieværk på Svingelsvej bruges kun som nødforsyning.", ["nak_lf", "nak_lfvv"]),
+  ],
+}
+FV_PAGE["assens"] = {
+  "kw": "fjernvarme assens / assens fjernvarme aarup / fjernvarme eller varmepumpe assens",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026, Assens Fjernvarmes nyhed og tidsplan for Aarup og landsbyer, Assens Kommunes varmeplan-side og NB-Forsyning & Klima 2/6 2026 (tjekket 17/11 2026).",
+  "intro": "Assens Fjernvarme har netop udrullet fjernvarme til Aarup og landsbyerne via en 18 km lang transmissionsledning fra Assens – men langs selve ledningen blev en etape droppet, fordi varmepumper var billigere. Her er status, priserne fra Forsyningstilsynet og regnestykket mod en varmepumpe.",
+  "status": [
+    ("<strong>Aarup og landsbyerne:</strong> mere end 900 boliger, institutioner og virksomheder har fået fjernvarme, og 82 % af de potentielle kunder i de to første etaper sagde ja.", ["ass_af900"]),
+    ("<strong>Etape 3:</strong> Aarup nord og landsbyerne Sandager, Salbrovad og Barløse; de sidste deletaper i Aarup nord er planlagt til juni-december 2026.", ["ass_aftid", "ass_af900"]),
+    ("<strong>Droppet etape:</strong> ca. 40 ejendomme langs transmissionsledningen fra Assens mod Aarup får ikke fjernvarme; reduktionen blev godkendt af kommunen i maj 2026.", ["ass_nb"]),
+    ("<strong>Din adresse:</strong> kommunens kort viser, om fjernvarme er vedtaget, undersøges, eller om der ingen planer er.", ["ass_vplan"]),
+  ],
+  "local_take": "Assens Fjernvarme er nr. 111 af 374 værker i Forsyningstilsynets statistik og ca. 1.300 kr. under landsgennemsnittet for et standardhus, mens Tommerup St. Varmeforsyning (nr. 303) ligger ca. 4.000 kr. over. Bor du langs transmissionsledningen eller i yderkanten af det oprindelige område, viste Assens Fjernvarmes egne beregninger, at individuelle varmepumper samlet er billigst – her er en luft til vand-varmepumpe det realistiske skifte fra olie og gas.",
+  "contact": ("Assens Fjernvarme", "64 71 10 24 · post@assensfjernvarme.dk", "ass_af900"),
+  "faq": [
+    ("Hvad koster fjernvarme i Assens Kommune?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 15.621 kr. om året inkl. moms hos Assens Fjernvarme, 16.727 kr. hos Tommerup Bys Fjernvarmeforsyning, 18.030 kr. hos Glamsbjerg-Haarby Varmeværk og 20.915 kr. hos Tommerup St. Varmeforsyning. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+    ("Hvorfor blev fjernvarmen droppet langs transmissionsledningen?", "Etapen nåede ikke de krævede over 60 % tilslutning. Beregningerne viste, at fjernvarme langs ledningen ville være 24 % dyrere end individuelle varmepumper og i yderkanten 9 % dyrere – for et gennemsnitligt parcelhus langs ledningen ca. 14.382 kr. mere om året.", ["ass_nb"]),
+    ("Kan jeg stadig komme med på fjernvarmen i Aarup?", "Ja. Assens Fjernvarme skriver, at de tager imod alle, der vil med, også efter projektet er afsluttet – men at det er nemmest, mens de arbejder i området.", ["ass_af900"]),
+  ],
+}

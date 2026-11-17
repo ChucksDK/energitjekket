@@ -366,7 +366,8 @@
     "kommune": "Lolland Kommune",
     "region": "Region Sjælland",
     "reason": "16.610 beboede parcel/rækkehuse; 54% fjernvarme; 4.118 med olie/gas/elvarme; begge services",
-    "status": "pending"
+    "status": "done",
+    "done": "2026-11-17"
   },
   {
     "rank": 38,
@@ -375,7 +376,8 @@
     "kommune": "Assens Kommune",
     "region": "Region Syddanmark",
     "reason": "16.767 beboede parcel/rækkehuse; 52% fjernvarme; 3.938 med olie/gas/elvarme; begge services",
-    "status": "pending"
+    "status": "done",
+    "done": "2026-11-17"
   },
   {
     "rank": 39,
