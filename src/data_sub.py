@@ -2358,3 +2358,106 @@ FV_PAGE["assens"] = {
     ("Kan jeg stadig komme med på fjernvarmen i Aarup?", "Ja. Assens Fjernvarme skriver, at de tager imod alle, der vil med, også efter projektet er afsluttet – men at det er nemmest, mens de arbejder i området.", ["ass_af900"]),
   ],
 }
+
+# ---------- daglig by-rutine 18. nov. 2026: Hinnerup og Helsinge ----------
+FV_PRICES["hinnerup"] = [("Hinnerup Fjernvarme Amba", "8382", "13.326", "528"), ("Thorsø Fjernvarmeværk A.m.b.a.", "8881", "13.375", "368"),
+                         ("Hammel Fjernvarme Amba", "8450", "15.859", "593"), ("Hadsten Varmeværk", "8370", "17.848", "737")]
+FV_PRICES["helsinge"] = [("Helsinge Fjernvarme", "3200", "19.875", "875"), ("Gilleleje Fjernvarme A.m.b.a.", "3250", "13.978", "531"),
+                         ("Vejby-Tisvilde Fjernvarme Amba", "3210", "19.411", "800"), ("Græsted Fjernvarme A.m.b.a.", "3230", "19.419", "693")]
+SOL_REG["hinnerup"] = {
+  "kw": "solceller hinnerup / solceller favrskov kommune tilladelse / solceller byggetilladelse favrskov",
+  "evidence": "Favrskov Kommunes sider 'Byggeri', 'Skift varmekilde', 'Landzonetilladelser' og 'Planlægning for vedvarende energianlæg' (tjekket 18/11 2026).",
+  "intro": "Favrskov Kommune har ingen særskilt side om solceller på boliger. Derfor er det byggeretten i bygningsreglementet, din lokalplan og eventuelle deklarationer, der afgør, om du skal søge – og anlægget skal under alle omstændigheder meldes til BBR. Her er det, kommunen selv skriver.",
+  "sections": [
+    ("Hvad siger Favrskov Kommune?", [
+      ("ul", [("Når du etablerer <strong>solceller eller solvarme</strong>, skal du give kommunen besked, så BBR kan blive rettet – via Byg og Miljø eller Digital Post. Det er ejerens ansvar, at BBR er opdateret.", ["hin_skift"]),
+              ("En <strong>lokalplan, deklaration</strong> eller retningslinjer for samlede bebyggelser kan begrænse valget af tagmaterialer og udvendige farver.", ["hin_byg"]),
+              ("Kommunen beder dig orientere dig i <strong>kommuneplan, lokalplan og byplanvedtægt</strong>, da arbejdet kan kræve en planmæssig godkendelse.", ["hin_byg"]),
+              ("Nogle ændringer ved tag og vægge kan betyde <strong>krav om ekstra isolering</strong> – spørg kommunen, inden du går i gang.", ["hin_byg"])]),
+    ]),
+    ("Landzone og ansøgning", [
+      ("p", "Ligger ejendommen i landzone, kan projektet kræve landzonetilladelse. Er det en del af et byggeprojekt, søges landzone- og byggetilladelse samlet i Byg og Miljø; kræver projektet ikke byggetilladelse, kan ansøgningen med tegninger sendes til byg@favrskov.dk. Ved godkendelse af en byggeansøgning opkræves byggesagsgebyr efter kommunens takstoversigt.", ["hin_land", "hin_byg"]),
+    ]),
+    ("Store anlæg på marker er en anden sag", [
+      ("p", "Store solcelleanlæg på terræn i det åbne land kræver lokalplan, miljøvurdering og en § 25-tilladelse. Favrskov Kommunes seneste ansøgningsrunde for større VE-anlæg sluttede 31. oktober 2026 med 26 ansøgninger. Det gælder ikke solceller på dit eget tag.", ["hin_ve"]),
+    ]),
+  ],
+  "faq": [
+    ("Skal jeg søge byggetilladelse til solceller i Hinnerup?", "Favrskov Kommune har ingen særskilt regel for solceller på boliger. Overholder anlægget byggeretten og din lokalplan, er udgangspunktet, at du ikke skal søge – men du skal melde det til BBR. Er du i tvivl, så spørg Byggeri på byg@favrskov.dk.", ["hin_byg", "hin_skift"]),
+    ("Hvordan melder jeg solceller til BBR i Favrskov?", "Via selvbetjeningsportalen Byg og Miljø eller med Digital Post til Favrskov Kommune. Det gælder også, hvis du etablerer solvarme eller en brændeovn.", ["hin_skift"]),
+    ("Hvad koster en byggesag i Favrskov Kommune?", "Kommunen opkræver byggesagsgebyr efter sin takstoversigt, når en ansøgning om byggetilladelse godkendes.", ["hin_byg"]),
+  ],
+}
+SOL_REG["helsinge"] = {
+  "kw": "solceller helsinge / solceller gribskov kommune tilladelse / solceller byggetilladelse gribskov",
+  "evidence": "Gribskov Kommunes sider 'Praktisk information ved byggeri', 'Byggetilladelse trin for trin' og 'Kommuneplan 2025-37' samt miljørapporten for kommuneplanen (tjekket 18/11 2026).",
+  "intro": "Gribskov Kommune har ingen særskilt side om solceller på boliger. Udgangspunktet er byggeretten i bygningsreglementets kapitel 8 og din lokalplan – kan anlægget ikke holde sig inden for dem, skal du søge, og så koster sagsbehandlingen 904 kr. pr. time. Her er reglerne, og hvad kommunen selv skriver.",
+  "sections": [
+    ("Hvornår skal du søge?", [
+      ("ul", [("Bygningsreglementets <strong>byggeret</strong> (kapitel 8) beskriver, hvad man oftest kan få lov til rent byggemæssigt.", ["hel_byg"]),
+              ("Kan byggeriet ikke overholde byggeretten, skal kommunen lave en <strong>helhedsvurdering</strong>, som kan gøre sagsbehandlingen længere.", ["hel_byg"]),
+              ("Er ejendommen omfattet af en <strong>lokalplan eller byplanvedtægt</strong>, skal bestemmelserne overholdes – ellers skal du søge dispensation via TMS eller sammen med byggeansøgningen i Byg og Miljø.", ["hel_byg"]),
+              ("Byggeri skal også overholde bygningsreglementets <strong>tekniske bestemmelser</strong>; kan det ikke, kræver det dispensation.", ["hel_byg"])]),
+    ]),
+    ("Gebyr og tidsfrister", [
+      ("p", "Gribskov Kommune opkræver 904 kr. pr. time i byggesagsgebyr for sager oprettet i 2026, beregnet efter det faktiske tidsforbrug. En byggetilladelse gælder i 1 år, og du skal anmelde til kommunen, før du går i gang. Klager over afgørelser skal være modtaget inden for 4 uger.", ["hel_byg", "hel_trin"]),
+    ]),
+    ("Kommuneplanen", [
+      ("p", "Kommuneplan 2025-37 blev endeligt vedtaget den 9. september 2025. Ifølge miljørapporten udpeger den områder, hvor store solenergianlæg på terræn som udgangspunkt ikke kan opføres, og giver samtidig mulighed for solenergi på tagarealer og i andre multifunktionelle sammenhænge.", ["hel_kp", "hel_kpmv"]),
+    ]),
+  ],
+  "faq": [
+    ("Kræver solceller byggetilladelse i Gribskov Kommune?", "Ikke hvis anlægget holder sig inden for byggeretten i bygningsreglementets kapitel 8 og din lokalplan. Ellers skal du søge via Byg og Miljø, og kommunen laver en helhedsvurdering.", ["hel_byg"]),
+    ("Hvad koster det at få behandlet en byggesag i Gribskov?", "904 kr. pr. time for sager oprettet i 2026. Gebyret beregnes ud fra den tid, kommunen bruger på sagen.", ["hel_byg"]),
+    ("Hvad hvis min lokalplan ikke tillader solceller?", "Så skal du søge dispensation fra lokalplanen – enten via TMS eller sammen med ansøgningen om byggetilladelse i Byg og Miljø.", ["hel_byg"]),
+  ],
+}
+FV_PAGE["hinnerup"] = {
+  "kw": "fjernvarme hinnerup / hinnerup fjernvarme pris / fjernvarme eller varmepumpe hinnerup",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026, Hinnerup Fjernvarmes beretning 2026 og nyheder om elkedel, priser og Søften, samt Favrskov Kommunes side 'Skift varmekilde' (tjekket 18/11 2026).",
+  "intro": "Hinnerup Fjernvarme er blandt de billigste fjernvarmeværker i Forsyningstilsynets statistik, og nettet vokser i Søften og Norring/Foldby. I Hadsten er prisen derimod steget kraftigt siden januar 2025. Her er priserne, planerne og regnestykket mod en varmepumpe.",
+  "status": [
+    ("<strong>Hinnerup Fjernvarme:</strong> 5.405 forbrugere i 2025 (113 flere end året før) og ca. 195 km fjernvarmerør.", ["hin_ber"]),
+    ("<strong>Elkedel i Søften Erhverv:</strong> en stor elkedel og en akkumuleringstank er under planlægning, så varmen kan produceres, når strømmen er billigst.", ["hin_elk", "hin_ber"]),
+    ("<strong>Nye områder:</strong> projektforslag for et boligområde syd for Haldumvej (70 boliger) og for Norring/Foldby (35 boliger og en skole); nettet udvides også under Ølstedvej i Søften.", ["hin_ber", "hin_soef"]),
+    ("<strong>Prisen:</strong> bestyrelsen har fastholdt 2025-priserne ind i 2026.", ["hin_pris"]),
+  ],
+  "local_take": "Hinnerup Fjernvarme er nr. 38 af 374 værker i Forsyningstilsynets statistik og ca. 3.600 kr. under landsgennemsnittet for et standardhus. Har du fjernvarme i Hinnerup eller Søften, er der sjældent økonomi i at skifte til varmepumpe. Varmepumpen er mest relevant for de godt 1.000 huse med naturgas og husene uden for nettene – og en ejendom med tilslutningspligt skal have dispensation, før den kan skifte.",
+  "contact": ("Hinnerup Fjernvarme", "86 98 53 40 · info@hinnerupfjernvarme.dk", "hin_ber"),
+  "faq": [
+    ("Hvad koster fjernvarme i Hinnerup?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 13.326 kr. om året inkl. moms hos Hinnerup Fjernvarme. Thorsø ligger på 13.375 kr., Hammel på 15.859 kr. og Hadsten på 17.848 kr. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+    ("Hvorfor er fjernvarmen i Hadsten blevet dyrere?", "Forsyningstilsynets statistik viser, at et standardhus hos Hadsten Varmeværk betaler 3.200 kr. (21,9 %) mere end i januar 2025. Hinnerup Fjernvarmes beretning nævner, at Hadsten justerede sin varmepris pr. 1. oktober 2025.", ["ft_pris", "hin_ber"]),
+    ("Kan jeg skifte fra fjernvarme til varmepumpe i Favrskov Kommune?", "Kun hvis ejendommen ikke er omfattet af tilslutningspligt, du har fået dispensation, eller du bygger et nyt lavenergihus, skriver Favrskov Kommune.", ["hin_skift"]),
+  ],
+}
+FV_PAGE["helsinge"] = {
+  "kw": "fjernvarme helsinge / helsinge fjernvarme pris / fjernvarme eller varmepumpe helsinge",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026, Helsinge Fjernvarmes beretning 2025 og forbrugerorientering, samt Gribskov Kommunes sider om Varmeplan 2022 og fjernvarme (tjekket 18/11 2026).",
+  "intro": "Helsinge Fjernvarme har kraftvarme, elkedel og solvarme – og betalte for 2025 hele MWh-prisen tilbage til forbrugerne. Samtidig planlægger kommunen fjernvarme i gasområderne Helsinge Øst og Vest. Her er status, priserne fra Forsyningstilsynet og regnestykket mod en varmepumpe.",
+  "status": [
+    ("<strong>Helsinge Fjernvarme:</strong> over 2.059 tilsluttede husstande, og antallet forventes at stige.", ["hel_ber"]),
+    ("<strong>Helsinge Øst og Vest:</strong> Varmeplan 2022 planlægger fjernvarme i gasområderne ved Fuglekvarteret/Nejlinge og Tofte/Skærød; det kræver ny produktionskapacitet, og der er udpeget en grund i Helsinge Nord.", ["hel_fj"]),
+    ("<strong>Annisse Nord og Ramløse:</strong> her undersøges byvarme (ø-varme) i dialog med varmegruppe og lokalråd.", ["hel_fj"]),
+    ("<strong>Din adresse:</strong> ligger boligen ikke i et markeret område på kommunens kort, er der ingen umiddelbare planer om fjernvarme eller ø-varme.", ["hel_fj"]),
+  ],
+  "local_take": "Helsinge Fjernvarme er nr. 279 af 374 værker i Forsyningstilsynets statistik og ca. 2.900 kr. over landsgennemsnittet for et standardhus – men statistikken bygger på tarifferne, og for 2025 fik forbrugerne hele MWh-prisen tilbage ved årsopgørelsen. Gilleleje Fjernvarme (nr. 50) ligger ca. 3.000 kr. under gennemsnittet. Uden for nettene er en varmepumpe det typiske valg i Gribskov – og ingen af byerne på dette site har en større andel huse med varmepumpe.",
+  "contact": ("Helsinge Fjernvarme", "48 79 52 25 · kontor@helsingefjernvarme.dk", "hel_ber"),
+  "faq": [
+    ("Hvad koster fjernvarme i Helsinge?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 19.875 kr. om året inkl. moms hos Helsinge Fjernvarme – 1.357 kr. (6,4 %) mindre end i januar 2025. Gilleleje ligger på 13.978 kr., Vejby-Tisvilde på 19.411 kr. og Græsted på 19.419 kr. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+    ("Fik forbrugerne i Helsinge penge tilbage for 2025?", "Ja. Den budgetterede pris var 950 kr. pr. MWh inkl. moms, men ved årsopgørelsen blev MWh-prisen for hele 2025 betalt tilbage. Forbrugerne betalte stadig et reduceret fast bidrag og målerleje. Helsinge Fjernvarme forklarer det med elkedel og akkumuleringstanke ved lave elpriser og elproduktion på gasmotorerne ved høje priser.", ["hel_ber"]),
+    ("Hvornår kommer fjernvarmen til Helsinge Øst og Vest?", "Gribskov Kommune skriver, at Helsinge Fjernvarme skal udarbejde et projektforslag, at godkendelsen normalt tager 3-6 måneder, og at udrulningen derefter kan tage op til 18 måneder. Først skal der bygges ny produktionskapacitet. Kontakt Helsinge Fjernvarme for status på din adresse.", ["hel_fj"]),
+  ],
+}
+
+# keyword-backlog 18/11 2026: 'fjernvarmeanlæg vejle' (GSC 16 visninger, pos. 52,7) -> afsnit om tilslutningspris for et fjernvarmeanlæg hos Vejle Fjernvarme
+_vf = FV_PAGE["vejle"]
+_vf["kw"] = "fjernvarme vejle / fjernvarmeanlæg vejle / tilslutning fjernvarme vejle pris / varmepumpe eller fjernvarme vejle"
+_vf["evidence"] = _vf["evidence"] + " Tilslutningspriser: Vejle Fjernvarmes takster og regler for tilslutning pr. 1. januar 2026 (tjekket 18/11 2026)."
+_vf["intro"] = "Vejle Kommune er midt i en stor udrulning af fjernvarme med frist i 2028, og kommunen beder dig selv overveje at vente, hvis dit område er på kortet. Her er status, hvad det koster at få et fjernvarmeanlæg tilsluttet hos Vejle Fjernvarme, de lokale priser og hvornår en varmepumpe alligevel er det rigtige valg."
+_vf["status"] = _vf["status"] + [
+   ("<strong>Tilslutning hos Vejle Fjernvarme 2026:</strong> en stikledning fra skel på 0-20 m til en eksisterende privatbolig koster 40.000 kr. inkl. moms og 1.500 kr. pr. meter derover. Bidraget betales, før anlægsarbejdet går i gang.", ["vf_takst"]),
+]
+_vf["faq"] = [
+   ("Hvad koster det at få et fjernvarmeanlæg tilsluttet i Vejle?", "Vejle Fjernvarmes takster for 2026: stikledning fra skel 0-20 m til en eksisterende privatbolig 40.000 kr. inkl. moms og 1.500 kr. pr. meter over 20 m. Bagefter betaler du 618,75 kr. pr. MWh, et effektbidrag på 23,75 kr. pr. m² BBR-areal og 625 kr. pr. måler i abonnementsbidrag (alle inkl. moms). Installationen inde i huset står ikke i takstbladet.", ["vf_takst"]),
+   ("Hvornår skal jeg begynde at bruge fjernvarmen, når stikket er lagt?", "Senest 6 måneder efter, at stikledningen er etableret. Ellers kan Vejle Fjernvarme opkræve effektbidrag, ifølge selskabets tilslutningsbetingelser for 2026.", ["vf_takst"]),
+] + _vf["faq"]

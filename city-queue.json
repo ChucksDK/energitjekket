@@ -386,7 +386,8 @@
     "kommune": "Favrskov Kommune",
     "region": "Region Midtjylland",
     "reason": "18.299 beboede parcel/rækkehuse; 67% fjernvarme; 2.722 med olie/gas/elvarme; begge services",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-18"
   },
   {
     "rank": 40,
@@ -395,7 +396,8 @@
     "kommune": "Gribskov Kommune",
     "region": "Region Hovedstaden",
     "reason": "14.386 beboede parcel/rækkehuse; 32% fjernvarme; 5.217 med olie/gas/elvarme; stærkt varmepumpemarked",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-18"
   },
   {
     "rank": 41,

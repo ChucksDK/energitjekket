@@ -1226,7 +1226,7 @@ CITIES["vordingborg"] = {
     ("Skal jeg søge om lov til solceller på mit hus i Vordingborg?", "Ikke hvis anlægget følger tagets hældning, og servitutter og lokalplan ikke forbyder det. Fredede og bevaringsværdige huse og anlæg på stativ eller terræn kræver altid byggetilladelse.", ["vor_sol"]),
     ("Hvem kontakter jeg om solceller i Vordingborg Kommune?", "Byggeri på telefon 55 36 24 50 (hverdage kl. 9-12) eller byg@vordingborg.dk. Lokalplaner og beskyttelseslinjer kan ses på KortVordingborg.", ["vor_byg"]),
   ],
-  "vp_intro": "Luft til vand-varmepumpe i Vordingborg: kun hvert tredje hus i kommunen har fjernvarme, og andelen med elvarme er den højeste og andelen med oliefyr blandt de højeste af byerne på Energitjekket. Kommunen forventer, at de fleste naturgasområder går over til individuel opvarmning, mens fjernvarmen udbygges i Nyråd, Stensved og dele af Præstø. Her er status, priserne og tilskudsreglerne.",
+  "vp_intro": "Luft til vand-varmepumpe i Vordingborg: kun hvert tredje hus i kommunen har fjernvarme, og andelen med elvarme og med oliefyr er blandt de højeste af byerne på Energitjekket. Kommunen forventer, at de fleste naturgasområder går over til individuel opvarmning, mens fjernvarmen udbygges i Nyråd, Stensved og dele af Præstø. Her er status, priserne og tilskudsreglerne.",
   "vp_facts": [
     ("Vordingborg Kommunes varmeplan forventer fjernvarme til <strong>Stensved og dele af Præstø</strong> frem mod 2028. Kun få andre naturgasområder har potentiale, så de forventes primært at overgå til individuel opvarmning.", ["vor_varme"]),
     ("I <strong>Nyråd</strong> forventer Vordingborg Forsyning, at en stor del af byen kan få fjernvarme omkring efteråret 2026. Der kan ikke søges tilskud til varmepumper i Nyråd, fordi området er udlagt til fjernvarme.", ["vf_nyraad_faq"]),
@@ -1682,3 +1682,95 @@ CONTACTS["nakskov"] = {"sol": [("Lolland Kommune, Bolig og Byggeri", "54 67 64 5
                        "vp":  [("Lolland Forsyning (Lolland Varme)", "72 30 11 11 · forsyning@lollandforsyning.dk", "nak_lf")]}
 CONTACTS["assens"] = {"sol": [("Assens Kommune, Byggesag", "64 74 75 19", "ass_sol")],
                       "vp":  [("Assens Fjernvarme", "64 71 10 24 · post@assensfjernvarme.dk", "ass_af900")]}
+
+# ---------- daglig by-rutine 18. nov. 2026: Hinnerup (DK1, Favrskov Kommune) og Helsinge (DK2, Gribskov Kommune) ----------
+S.update({
+ "hin_byg": ("Favrskov Kommune: byggeri (læst 18/11 2026)", "https://favrskov.dk/borger/flyt-byg-og-bolig/byggeri"),
+ "hin_skift": ("Favrskov Kommune: skift varmekilde (læst 18/11 2026)", "https://favrskov.dk/borger/flyt-byg-og-bolig/skift-varmekilde"),
+ "hin_jord": ("Favrskov Kommune: jordvarme (læst 18/11 2026)", "https://favrskov.dk/borger/flyt-byg-og-bolig/jordvarme"),
+ "hin_land": ("Favrskov Kommune: landzonetilladelser (læst 18/11 2026)", "https://favrskov.dk/borger/flyt-byg-og-bolig/landzonetilladelser"),
+ "hin_ve": ("Favrskov Kommune: planlægning for vedvarende energianlæg (læst 18/11 2026)", "https://favrskov.dk/borger/fysisk-planlaegning/planlaegning-vedvarende-energianlaeg"),
+ "hin_ber": ("Hinnerup Fjernvarme: bestyrelsens beretning til generalforsamlingen 28/5 2026 (PDF)", "https://www.hinnerupfjernvarme.dk/p/Hinnerup%20Fjernvarme/%C3%85rsregnskaber%20og%20budgetter/Bestyrelsens_beretning_2026.pdf"),
+ "hin_elk": ("Hinnerup Fjernvarme: ny elkedel og akkumuleringstank på vej (4/2 2026)", "https://www.hinnerupfjernvarme.dk/nyheder/ny-elkedel-og-akkumuleringstank-paa-vej"),
+ "hin_pris": ("Hinnerup Fjernvarme: samme priser som i 2025 (læst 18/11 2026)", "https://www.hinnerupfjernvarme.dk/nyheder/samme-priser-som-i-2025"),
+ "hin_soef": ("Hinnerup Fjernvarme: nedlægning af fjernvarmerør under Ølstedvej i Søften (læst 18/11 2026)", "https://www.hinnerupfjernvarme.dk/nyheder/nedlaegning-af-fjernvarmeroer-under-oelstedvej-i-soeften"),
+ "hel_byg": ("Gribskov Kommune: praktisk information ved byggeri (læst 18/11 2026)", "https://gribskov.dk/borger/flyt-bolig-og-byg/byggeri/praktisk-information-ved-byggeri"),
+ "hel_trin": ("Gribskov Kommune: byggetilladelse trin for trin (læst 18/11 2026)", "https://gribskov.dk/borger/flyt-bolig-og-byg/byggeri/byggetilladelse-trin-for-trin"),
+ "hel_kp": ("Gribskov Kommune: Kommuneplan 2025-37, vedtaget 9/9 2025 (læst 18/11 2026)", "https://gribskov.dk/om-kommunen/byudvikling-og-planlaegning/kommuneplan-2025-37"),
+ "hel_kpmv": ("Gribskov Kommune: miljørapport for forslag til Kommuneplan 2025-37, afsnit 7.2.1 Solceller (PDF)", "https://gribskov.viewer.dkplan.niras.dk/media/ev4d3ccx/miljoevurdering-af-forslag-til-kommuneplan-2025.pdf"),
+ "hel_vplan": ("Gribskov Kommune: varmeplanlægning – Varmeplan 2022 (læst 18/11 2026)", "https://gribskov.dk/borger/natur-miljoe-klima-og-trafik/varmeplanlaegning"),
+ "hel_fj": ("Gribskov Kommune: kan jeg få fjernvarme i min bolig? (læst 18/11 2026)", "https://gribskov.dk/borger/natur-miljoe-klima-og-trafik/varmeplanlaegning/kan-jeg-faa-fjernvarme-i-min-bolig"),
+ "hel_varme": ("Gribskov Kommune: varme (læst 18/11 2026)", "https://gribskov.dk/borger/natur-miljoe-klima-og-trafik/varme"),
+ "hel_ber": ("Helsinge Fjernvarme: beretning 2025 (læst 18/11 2026)", "https://www.helsingefjernvarme.dk/nyheder/beretning-2025"),
+ "hel_fo": ("Helsinge Fjernvarme: forbrugerorientering 2025 (læst 18/11 2026)", "https://www.helsingefjernvarme.dk/nyheder/forbrugerorientering-2025"),
+})
+CITIES["hinnerup"] = {
+  "name": "Hinnerup", "kommune": "Favrskov Kommune", "updated": ("18. november 2026", "2026-11-18"),
+  "sol_intro": "Solceller i Hinnerup: Favrskov Kommune har ingen særskilt solcelleside, så det er bygningsreglementets byggeret, din lokalplan og eventuelle deklarationer, der afgør, om du skal søge. Anlægget skal under alle omstændigheder meldes til BBR. Her er reglerne, tallene og vejen til et tilbud.",
+  "sol_facts": [
+    ("Etablerer du <strong>solceller eller solvarme</strong>, skal du give Favrskov Kommune besked, så det kan blive rettet i BBR – via Byg og Miljø eller Digital Post.", ["hin_skift"]),
+    ("En <strong>lokalplan, deklaration</strong> eller retningslinjer for samlede bebyggelser kan begrænse dine valg af tagmaterialer og udvendige farver.", ["hin_byg"]),
+    ("Kræver projektet byggetilladelse, søges den via <strong>Byg og Miljø</strong>, og du må først gå i gang, når tilladelsen er givet.", ["hin_byg"]),
+    ("Ligger ejendommen i <strong>landzone</strong>, kan der også kræves landzonetilladelse.", ["hin_byg", "hin_land"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg melde mine solceller til kommunen i Hinnerup?", "Ja. Favrskov Kommune skriver, at du skal give besked, når du etablerer solceller eller solvarme, så BBR kan blive rettet. Det er ejerens ansvar, at BBR-meddelelsen er opdateret.", ["hin_skift"]),
+    ("Hvor finder jeg lokalplanen for min adresse i Favrskov?", "På Favrskov Kommunes webkort 'Lokalplaner i Favrskov Kommune' eller på Plandata.dk. Kommunen beder dig orientere dig i kommuneplan, lokalplan og byplanvedtægt, før du bygger.", ["hin_byg"]),
+  ],
+  "vp_intro": "Varmepumpe i Hinnerup: to ud af tre huse i Favrskov Kommune har fjernvarme, og Hinnerup Fjernvarme er blandt de billigste værker i landet. Varmepumpen er derfor mest relevant uden for fjernvarmenettene og for de godt 1.000 huse, der stadig har naturgas. Her er tallene, reglerne for jordvarme og priserne.",
+  "vp_facts": [
+    ("Varmeforsyningen i Favrskov Kommune kommer fra <strong>fjernvarme, naturgas eller individuel varme</strong> som olie-, pille- og halmfyr.", ["hin_skift"]),
+    ("Du kan skifte fra fjernvarme eller naturgas til individuel varme, hvis ejendommen <strong>ikke har tilslutningspligt</strong>, du har fået dispensation, eller du bygger et nyt lavenergihus.", ["hin_skift"]),
+    ("Et <strong>jordvarmeanlæg</strong> kræver anmeldelse eller tilladelse fra Favrskov Kommune og må ikke ligge inden for 300 m fra et alment vandværks boringer eller 50 m fra en privat drikkevandsboring.", ["hin_jord"]),
+    ("Byrådet godkendte en revideret <strong>Strategisk Varmeplan 2022-2030</strong> den 30. maj 2023.", ["hin_skift"]),
+  ],
+  "vp_faq": [
+    ("Skal jeg søge om jordvarme i Favrskov Kommune?", "Et terrænnært anlæg uden for områder med særlige drikkevandsinteresser og vandværksoplande, med IPA-sprit eller ethanol som frostsikring, kan anmeldes via Byg og Miljø; hører du ikke fra kommunen inden for 4 uger, må du gå i gang. Dybe anlæg (over 5 m) og anlæg i drikkevandsområder kræver tilladelse.", ["hin_jord"]),
+    ("Fritager en jordvarmetilladelse for tilslutningspligt til fjernvarme?", "Nej. Favrskov Kommune skriver, at en tilladelse til jordvarme ikke fritager ejendommen fra tilslutningspligt; bestemmelserne står i lokalplanen for området. Dispensation kan gives til nybyggeri i lavenergiklasse.", ["hin_jord"]),
+  ],
+}
+CITIES["helsinge"] = {
+  "name": "Helsinge", "kommune": "Gribskov Kommune", "updated": ("18. november 2026", "2026-11-18"),
+  "sol_intro": "Solceller i Helsinge: Gribskov Kommune har ingen særskilt solcelleside, men byggeretten i bygningsreglementets kapitel 8 og din lokalplan afgør, om du skal søge. Kommuneplan 2025-37 giver mulighed for solenergi på tagarealer. Her er reglerne, tallene og vejen til et tilbud.",
+  "sol_facts": [
+    ("Gribskov Kommune henviser til <strong>byggeretten</strong> i bygningsreglementets kapitel 8, som beskriver, hvad man oftest kan få lov til uden tilladelse.", ["hel_byg"]),
+    ("Er ejendommen omfattet af en <strong>lokalplan eller byplanvedtægt</strong>, skal den overholdes – ellers skal du søge dispensation.", ["hel_byg"]),
+    ("Kræver dit anlæg byggetilladelse, koster sagsbehandlingen <strong>904 kr. pr. time</strong> for sager oprettet i 2026.", ["hel_byg"]),
+    ("<strong>Kommuneplan 2025-37</strong>, vedtaget 9. september 2025, giver mulighed for solenergi på tagarealer og i andre multifunktionelle sammenhænge.", ["hel_kp", "hel_kpmv"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge byggetilladelse til solceller i Helsinge?", "Det afhænger af, om anlægget holder sig inden for byggeretten i bygningsreglementets kapitel 8 og din lokalplan. Kan det ikke det, skal Gribskov Kommune foretage en helhedsvurdering, og du skal søge via Byg og Miljø.", ["hel_byg", "hel_trin"]),
+    ("Hvor længe gælder en byggetilladelse i Gribskov Kommune?", "I 1 år. Du skal påbegynde arbejdet, inden tilladelsen udløber, og anmelde til kommunen, at du går i gang.", ["hel_trin"]),
+  ],
+  "vp_intro": "Varmepumpe i Helsinge: kun hvert tredje hus i Gribskov Kommune har fjernvarme, og andelen med varmepumpe og med elvarme er den højeste af alle byerne på dette site. I gasområderne Helsinge Øst og Helsinge Vest planlægges fjernvarme, mens resten af kommunen uden for nettene er udlagt til individuel varme. Her er tallene, planerne og priserne.",
+  "vp_facts": [
+    ("Varmeplan 2022, godkendt af byrådet <strong>13. december 2022</strong>, viser hvilke dele af kommunen der har kollektiv varme; resten er udlagt til individuel forsyning som fx varmepumpe.", ["hel_vplan"]),
+    ("I <strong>Helsinge Øst</strong> (Fuglekvarteret og Nejlinge) og <strong>Helsinge Vest</strong> (Tofte og Skærød) er der planer om at konvertere gasområderne til fjernvarme.", ["hel_fj"]),
+    ("I <strong>Annisse Nord og Ramløse</strong> undersøges det, om der kan etableres byvarme (ø-varme).", ["hel_fj"]),
+    ("Er der et <strong>godkendt projektforslag</strong> i dit område, kan du ikke søge tilskud til varmepumpe.", ["hel_varme"]),
+  ],
+  "vp_faq": [
+    ("Må jeg installere en varmepumpe i et område, hvor fjernvarmen er på vej?", "Ja, men Gribskov Kommune opfordrer dig til at overveje, om det er værd at vente, til fjernvarmen er udrullet. Og er der et godkendt projektforslag i området, kan du ikke søge tilskud til varmepumpe.", ["hel_fj", "hel_varme"]),
+    ("Hvad gør jeg, hvis der ikke kommer fjernvarme i mit område?", "Ligger din bolig ikke i et markeret område på kommunens kort, er der ingen umiddelbare planer om fjernvarme eller ø-varme. Så er en individuel løsning som en varmepumpe det typiske valg – og du kan søge tilskud, hvis du opfylder kravene.", ["hel_fj", "hel_varme", "se_vpp"]),
+  ],
+}
+CONTACTS["hinnerup"] = {"sol": [("Favrskov Kommune, Byggeri", "89 64 10 10 · byg@favrskov.dk", "hin_byg")],
+                        "vp":  [("Hinnerup Fjernvarme", "86 98 53 40 · info@hinnerupfjernvarme.dk", "hin_ber")]}
+CONTACTS["helsinge"] = {"sol": [("Gribskov Kommune, Center for Teknik og Borgerservice", "72 49 60 00", "hel_byg")],
+                        "vp":  [("Helsinge Fjernvarme", "48 79 52 25 · kontor@helsingefjernvarme.dk", "hel_ber")]}
+
+# keyword-backlog 18/11 2026: 'fjernvarmeanlæg vejle' (GSC 16 visninger, pos. 52,7) -> tilslutningspriser fra Vejle Fjernvarmes takstblad på FV-siden
+S["vf_takst"] = ("Vejle Fjernvarme: takster og regler for tilslutning pr. 1. januar 2026 (PDF, læst 18/11 2026)", "https://vejlefjernvarme.dk/p/Vejle%20Fjernvarme/Filer/Takster%20og%20regler%20for%20tilslutning%20pr.%201.%20januar%202026.pdf/Takster-og-regler-for-tilslutning-pr.-1.-januar-2026.pdf")
+CITIES["vejle"]["fv_title"] = "Fjernvarme i Vejle: tilslutning, pris og varmepumpe | Energitjekket"
+CITIES["vejle"]["updated"] = ("18. november 2026", "2026-11-18")
+
+# keyword-backlog 18/11 2026: 'solceller københavn' (GSC 15 visninger, pos. 39,7) -> mere af Københavns Kommunes arkitektoniske retningslinjer (PDF juli 2026) på /solceller/koebenhavn/
+CITIES["koebenhavn"]["updated"] = ("18. november 2026", "2026-11-18")
+CITIES["koebenhavn"]["sol_facts"] = CITIES["koebenhavn"]["sol_facts"] + [
+    ("Af hensyn til arkitekturen kan solceller i nogle tilfælde <strong>kun sættes op mod gård- eller bagsiden</strong>, og i områder med høje bevaringsværdier som Indre By kan det være vanskeligt at indpasse dem.", ["kbh_solret"]),
+]
+CITIES["koebenhavn"]["sol_faq"] = [
+    ("Hvordan skal solceller se ud på et hus i København?", "Københavns Kommunes retningslinjer siger bl.a., at panelerne så vidt muligt skal have samme farve som tagmaterialet, passe til tagets form, rytme og linjer og være refleksfrie. Inddækninger og blændstykker skal have samme farve som solcellerne, rør og kabler må ikke være synlige, og der skal være afstand til tagkip, tagkanter, hjørner og gesims.", ["kbh_solret"]),
+] + CITIES["koebenhavn"]["sol_faq"] + [
+    ("Kan jeg kombinere solceller med et grønt tag i København?", "Ja. Kommunens retningslinjer opfordrer dig til at overveje, om solcellerne kan kombineres med andre bæredygtige tiltag som et grønt tag, og viser som eksempel standardmoduler på stativ på den flade del af et københavnertag med grønt tag.", ["kbh_solret"]),
+]
