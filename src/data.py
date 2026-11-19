@@ -1774,3 +1774,83 @@ CITIES["koebenhavn"]["sol_faq"] = [
 ] + CITIES["koebenhavn"]["sol_faq"] + [
     ("Kan jeg kombinere solceller med et grønt tag i København?", "Ja. Kommunens retningslinjer opfordrer dig til at overveje, om solcellerne kan kombineres med andre bæredygtige tiltag som et grønt tag, og viser som eksempel standardmoduler på stativ på den flade del af et københavnertag med grønt tag.", ["kbh_solret"]),
 ]
+
+# ---------- daglig by-rutine 19. nov. 2026: Middelfart (DK1, Middelfart Kommune) og Tønder (DK1, Tønder Kommune) ----------
+S.update({
+ "mid_byg": ("Middelfart Kommune: byggetilladelser – solceller, jordvarme og gebyrer (læst 19/11 2026)", "https://middelfart.dk/bolig/byggetilladelser"),
+ "mid_vplan": ("Middelfart Kommune: Varmeplan Middelfart 2022 og FAQ (læst 19/11 2026)", "https://middelfart.dk/bolig/varmeplan"),
+ "mid_baer": ("Middelfart Kommune, Klima-, Natur- og Genbrugsudvalget 7/10 2026: individuel forsyning af Båring-Asperup (via Sagsvagt)", "https://sagsvagt.dk/sag/middelfart-2026-10-07-klima-natur-og-genbrugsudvalget-3.html"),
+ "mf_takst": ("Middelfart Fjernvarme: takstblad gældende pr. 1. januar 2026 (PDF)", "https://middelfartfjernvarme.dk/p/Middelfart%20Fjernvarme/Filer/Takstblad/Takstblad-2026---G%C3%A6ldende-fra-01-01-2026--endelig-.pdf"),
+ "mf_tilsl": ("Middelfart Fjernvarme: pris for tilslutning 2026 (læst 19/11 2026)", "https://middelfartfjernvarme.dk/priser/pris-for-tilslutning"),
+ "ton_sol": ("Tønder Kommune: solenergianlæg (opdateret 3/7 2026, læst 19/11 2026)", "https://www.toender.dk/service-og-selvbetjening/bolig-byggeri-og-affald/byggeri/solenergianlaeg/"),
+ "ton_byg": ("Tønder Kommune: byggetilladelse og byggesagsgebyr (opdateret 15/9 2026, læst 19/11 2026)", "https://www.toender.dk/service-og-selvbetjening/bolig-byggeri-og-affald/byggeri/byggetilladelse/"),
+ "ton_olie": ("Tønder Kommune: olietanke (opdateret 3/7 2026, læst 19/11 2026)", "https://www.toender.dk/service-og-selvbetjening/bolig-byggeri-og-affald/affald-og-miljoe/olietanke/"),
+ "ton_kp": ("Tønder Kommune: Kommuneplan 2017-2029, varmeforsyning", "https://toender.cowiplan.dk/kommuneplan17/hovedstruktur/energi-og-klima/varmeforsyning/"),
+ "tf_fakta": ("Tønder Fjernvarmeselskab: fakta (læst 19/11 2026)", "https://tonder-fjernvarme.dk/om-os-2/fakta"),
+ "tf_priser": ("Tønder Fjernvarmeselskab: priser 1/1-31/12 2026 (læst 19/11 2026)", "https://tonder-fjernvarme.dk/oekonomi/priser"),
+ "tf_rosin": ("Tønder Dagblad: 45 huse på Rosinfeltvej kan få fjernvarme (6/11 2026)", "https://tonderdagblad.dk/article/45-huse-paa-rosinfeltvej-kan-faa-fjernvarme---projekt-til-8-millioner-kr-56644"),
+})
+CITIES["middelfart"] = {
+  "name": "Middelfart", "kommune": "Middelfart Kommune", "updated": ("19. november 2026", "2026-11-19"),
+  "sol_intro": "Solceller i Middelfart: Middelfart Kommune vil have en redegørelse, før du lægger solceller på taget – både for den ekstra last på tagkonstruktionen og for brandvæsenets adgang. Øges lasten med mere end 5 %, kræver anlægget byggetilladelse. Her er reglerne, tallene og vejen til et tilbud.",
+  "sol_facts": [
+    ("Ved solceller på tag skal du sende en <strong>redegørelse</strong> til teknik@middelfart.dk om, hvorvidt anlægget øger lastpåvirkningen på bygningen med mere eller mindre end <strong>5 %</strong>.", ["mid_byg"]),
+    ("Øges lasten med mere end 5 %, kræver anlægget <strong>byggetilladelse</strong>, som søges via Byg og Miljø.", ["mid_byg"]),
+    ("Du skal også redegøre for, om <strong>brandvæsenets indsatsmuligheder</strong> ændres; kommunen sender redegørelsen videre til TrekantBrand.", ["mid_byg"]),
+    ("Byggesager koster <strong>800 kr. pr. time</strong> for private, og Middelfart Kommune opkræver ikke gebyr, hvis du får afslag.", ["mid_byg"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge byggetilladelse til solceller i Middelfart?", "Kun hvis anlægget øger lastpåvirkningen på bygningen med mere end 5 %. Men du skal under alle omstændigheder sende en redegørelse om lasten og om brandvæsenets indsatsmuligheder til teknik@middelfart.dk, før anlægget sættes op.", ["mid_byg"]),
+    ("Hvorfor skal brandvæsenet vurdere mine solceller i Middelfart?", "Solceller på tag og facade kan påvirke adgangen til taget ved brand, muligheden for at ventilere eller slukke oppefra, risikoen for brandspredning og give elektriske farer for redningsfolkene. Middelfart Kommune sender derfor redegørelsen til TrekantBrand.", ["mid_byg"]),
+  ],
+  "vp_intro": "Varmepumpe i Middelfart: lidt over halvdelen af husene i Middelfart Kommune har fjernvarme, mens knap hvert femte stadig har naturgas. I Båring-Asperup er et planlagt fjernvarmeområde netop aflyst, så husene dér skal have individuel varme. Her er tallene, planerne og priserne.",
+  "vp_facts": [
+    ("Kortet i <strong>Varmeplan Middelfart 2022</strong> viser godkendte fjernvarmeområder, og hvor forsyningsselskaberne planlægger at udvide.", ["mid_vplan"]),
+    ("Bor du i et område, der er <strong>godkendt til fjernvarme</strong>, kan du ikke få tilskud til en varmepumpe, og kommunen anbefaler at vente på fjernvarmen.", ["mid_vplan"]),
+    ("Den 7. oktober 2026 godkendte kommunen, at et tidligere godkendt fjernvarmeområde i <strong>Båring-Asperup med ca. 373 ejendomme</strong> i stedet overgår til individuel opvarmning, fx varmepumper.", ["mid_baer"]),
+    ("Et <strong>jordvarmeanlæg</strong> skal anmeldes eller have tilladelse fra kommunen, før du etablerer det.", ["mid_byg"]),
+  ],
+  "vp_faq": [
+    ("Hvorfor blev fjernvarmen i Båring-Asperup droppet?", "En ny gennemregning i august 2026 viste, at fjernvarme ikke længere var den bedste løsning – bl.a. fordi færre end ventet ville tilsluttes. Individuel opvarmning er ifølge beregningerne ca. 11,5 mio. kr. billigere for samfundet over 20 år og giver knap 80 % lavere CO2-udledning med nutidens tal.", ["mid_baer"]),
+    ("Skal jeg søge om jordvarme i Middelfart Kommune?", "Ja. Middelfart Kommune skriver, at et jordvarmeanlæg først skal anmeldes eller have tilladelse, og at du også skal kontakte kommunen, når anlægget færdigmeldes eller sløjfes.", ["mid_byg"]),
+  ],
+}
+CITIES["toender"] = {
+  "name": "Tønder", "kommune": "Tønder Kommune", "updated": ("19. november 2026", "2026-11-19"),
+  "sol_intro": "Solceller i Tønder: på taget eller facaden af et enfamiliehus, rækkehus eller sommerhus kræver solceller som udgangspunkt ikke byggetilladelse i Tønder Kommune – medmindre byggeretten overskrides, huset er fredet eller bevaringsværdigt, eller en lokalplan eller servitut siger andet. Her er reglerne, tallene og vejen til et tilbud.",
+  "sol_facts": [
+    ("Solceller og solfangere <strong>på eller i tagfladen eller facaden</strong> af et enfamiliehus, sommerhus, rækkehus eller udhus kræver ikke byggetilladelse, medmindre byggeretten overskrides.", ["ton_sol"]),
+    ("Er huset <strong>fredet eller bevaringsværdigt</strong>, eller kræver en lokalplan eller servitut det, skal du søge tilladelse.", ["ton_sol"]),
+    ("Anlæg <strong>direkte på terræn</strong> regnes som en selvstændig konstruktion og kræver byggetilladelse – og i landzone også landzonetilladelse.", ["ton_sol"]),
+    ("Kræver anlægget byggetilladelse, koster sagsbehandlingen <strong>783 kr. pr. time</strong>, og servicemålet er 4-8 uger.", ["ton_byg"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om solceller på taget i Tønder?", "Normalt ikke, hvis anlægget sidder på eller i tagfladen eller facaden af et enfamiliehus, rækkehus, sommerhus eller udhus og holder sig inden for byggeretten. Er huset fredet eller bevaringsværdigt, eller kræver lokalplanen eller en servitut det, skal du søge.", ["ton_sol"]),
+    ("Hvornår kræver solceller landzonetilladelse i Tønder Kommune?", "Når anlægget står på jorden i landzone, sidder på landbrugs-, industri- eller erhvervsbygninger, eller overskrider byggeretten – fx tæt på skel med en højde over 2,5 m.", ["ton_sol"]),
+  ],
+  "vp_intro": "Varmepumpe i Tønder: Tønder Kommune har en af de højeste andele huse med elvarme og med oliefyr blandt byerne på dette site, og meget få huse er bygget efter år 2000. Her er tallene, fjernvarmeplanerne i Tønder by og priserne – så du kan se, om varmepumpen er det rigtige valg for dit hus.",
+  "vp_facts": [
+    ("Ifølge Kommuneplan 2017-2029 forsynede de <strong>fem større varmeværker</strong> – Bredebro, Løgumkloster, Skærbæk, Toftlund og Tønder – 7.324 husstande med fjernvarme medio 2018.", ["ton_kp"]),
+    ("Kommuneplanen har som mål at <strong>udbrede individuelle og kollektive varmepumpeløsninger</strong> i områder uden kollektiv varmeforsyning.", ["ton_kp"]),
+    ("Skifter du oliefyret ud, skal <strong>sløjfning af olietanken</strong> meddeles kommunen senest 4 uger efter via Byg og Miljø.", ["ton_olie"]),
+    ("Kender du ikke alderen på en <strong>overjordisk olietank</strong>, skal den ifølge Tønder Kommune sløjfes nu.", ["ton_olie"]),
+  ],
+  "vp_faq": [
+    ("Hvad skal jeg gøre med olietanken, når jeg får varmepumpe i Tønder?", "Sløjfningen skal meddeles Tønder Kommune skriftligt via Byg og Miljø senest 4 uger efter, at den er sket. Tjek samtidig, at oplysningerne om tanken i BBR er rigtige – det er dit ansvar som grundejer.", ["ton_olie"]),
+    ("Kan jeg få fjernvarme i stedet for varmepumpe i Tønder by?", "Måske. Tønder Fjernvarme vil fx lægge rør ud til 45 ejendomme på Rosinfeltvej, hvis nok husejere skriver kontrakt – ingen kan tvinges til at tilslutte sig. Bor du uden for nettene, er en varmepumpe det typiske valg. Kontakt Tønder Fjernvarme for status på din adresse.", ["tf_rosin"]),
+  ],
+}
+CONTACTS["middelfart"] = {"sol": [("Middelfart Kommune, Teknik- og Miljøforvaltningen", "88 88 55 00 · teknik@middelfart.dk", "mid_byg")],
+                          "vp":  [("Middelfart Fjernvarme", "64 41 03 42 · post@middelfartfjernvarme.dk", "mf_tilsl")]}
+CONTACTS["toender"] = {"sol": [("Tønder Kommune, Byggeri", "74 92 92 92 · toender@toender.dk", "ton_byg")],
+                       "vp":  [("Tønder Fjernvarmeselskab", "74 72 28 01 · e-mail@tonder-fjernvarme.dk", "tf_priser")]}
+
+# keyword-backlog 19/11 2026: 'jordvarme silkeborg' (GSC 13 visninger, pos. 71,5) -> jordvarme-regler på /varmepumpe/silkeborg/
+S.update({"sil_jord": ("Silkeborg Kommune: jordvarmeanlæg (læst 19/11 2026)", "https://silkeborg.dk/borger/klima-og-energi/jordvarmeanlaeg")})
+CITIES["silkeborg"]["vp_intro"] = "Varmepumpe i Silkeborg: Silkeborg Forsyning lægger fjernvarme ud i en række byer uden for Silkeborg, bl.a. Virklund, Sejs-Svejbæk, Them og Salten. Bor du dér, skal du nok ikke have varmepumpe. Bor du uden for projekterne, er en luft til vand-varmepumpe eller jordvarme et oplagt valg. Her er status, reglerne for jordvarme i Silkeborg Kommune, priserne og tallene."
+CITIES["silkeborg"]["vp_facts"] = CITIES["silkeborg"]["vp_facts"] + [
+    ("<strong>Jordvarme i Silkeborg:</strong> du skal søge tilladelse eller anmelde anlægget hos Silkeborg Kommune via Byg og Miljø, før du etablerer det. Et vandret, ikke-industrielt anlæg uden for særlige drikkevandsområder kan anmeldes – hører du ikke fra kommunen inden for 4 uger, må du gå i gang.", ["sil_jord"]),
+    ("Jordvarmeslanger og installationer skal ligge mindst <strong>50 m fra en drikkevandsbrønd eller -boring</strong>, og der er normalt 100 m beskyttelseszone om gravhøje. Anlægget skal tæthedsprøves, færdigmeldes og efterses af en sagkyndig efter et år.", ["sil_jord"]),
+]
+CITIES["middelfart"]["vp_title"] = "Varmepumpe Middelfart: luft til vand, tilskud, pris | Energitjekket"
+CITIES["middelfart"]["fv_title"] = "Fjernvarme eller varmepumpe i Middelfart? Pris 2026 | Energitjekket"

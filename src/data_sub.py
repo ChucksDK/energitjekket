@@ -539,18 +539,19 @@ NATIONAL["/solceller/med-batteri/"] = {
 }
 
 NATIONAL["/varmepumpe/pris/"] = {
-  "svc": "varmepumpe", "crumb": "Pris", "updated": ("3. november 2026", "2026-11-03"),
-  "kw": "luft til vand varmepumpe pris / pris inkl montering",
+  "svc": "varmepumpe", "crumb": "Pris", "updated": ("19. november 2026", "2026-11-19"),
+  "kw": "luft til vand varmepumpe pris / luft til vand varmepumpe pris inkl montering / pris inkl montering",
   "evidence": "Autocomplete 'luft til vand varmepumpe pris': 10 forslag (bl.a. 'inkl montering', 'inkl montering jylland', '200m2', '250 m2', '300 m2'). PAA: 'Hvad koster en varmepumpe til et hus på 150 m2?', 'Kan det betale sig at få en luft til vand varmepumpe?', 'Hvad koster en luft til vand varmepumpe om året?'. Bylokale varianter ('luft til vand varmepumpe pris odense' osv.) gav INGEN forslag i de 7 byer, så der er ingen pris-side pr. by.",
   "title": "Luft til vand-varmepumpe pris 2026 inkl. montering",
   "desc": "En luft til vand-varmepumpe koster typisk 90.000-150.000 kr. inkl. montering. Se driftsudgift, tilskud, ekstraposter og hvad tilbuddet skal vise.",
-  "h1": "Hvad koster en luft til vand-varmepumpe i 2026?",
+  "h1": "Luft til vand-varmepumpe pris inkl. montering 2026",
   "intro": "Prisen på en luft til vand-varmepumpe afhænger af husets varmebehov, dit varmesystem og hvor meget ekstra arbejde der skal til. Vi har ikke fundet kilder, der viser regionale prisforskelle i Nordjylland, resten af Jylland, på Fyn eller på Sjælland. Her er prisspændene fra to kilder, hvad varmen koster om året, og hvordan tilskuddet påvirker regnestykket.",
   "sections": [
-   ("Pris inkl. montering", [
+   ("Luft til vand-varmepumpe: pris inkl. montering før og efter tilskud", [
      ("table", ["Type", "Pris inkl. montering", "Kilde"],
       [["Luft til vand", "typisk 100.000-130.000 kr.", "SparEnergi"], ["Luft til vand", "ca. 90.000-150.000 kr.", "Energisparer.dk"], ["Jordvarme", "ca. 120.000-180.000 kr.", "Energisparer.dk"], ["Luft til luft (supplement)", "ca. 12.000-25.000 kr.", "Energisparer.dk"]], ["se_vp", "es_vp"]),
      ("p", "Energisparer.dk omregner til ca. 9.000-15.000 kr. pr. kW, fra ca. 90.000 kr. for 6 kW til ca. 150.000 kr. for 16 kW. Hvor mange kW dit hus skal bruge, afhænger af varmetabet, ikke kun af antallet af kvadratmeter. Derfor bør installatøren dimensionere anlægget. Se typiske priser for et hus på 150 og 200 m² i guiden til <a href=\"/varmepumpe/luft-til-vand/\">luft til vand varmepumpe</a>.", ["es_vp", "es_l2v"]),
+     ("p", "<strong>Efter tilskud:</strong> Energisparer.dk regner en luft til vand-varmepumpe til ca. 63.000-123.000 kr. inkl. montering, når de 27.000 kr. fra Varmepumpepuljen er trukket fra, og jordvarme til ca. 93.000-153.000 kr. Prisspændene gælder <em>standardmontering</em>. Rørføring og gennemføringer over lange afstande, buffertank eller ny varmtvandsbeholder, fundament og opgradering af eltavlen er ikke altid med i grundprisen – bed om en specificeret pris, der viser, hvad der er inkluderet.", ["es_vp", "vpp_faq"]),
    ]),
    ("Pris inkl. montering på Sjælland og i Nordjylland", [
      ("p", "Prisspændene ovenfor er landsdækkende. Vi har ikke fundet offentlige kilder, der viser, at montering koster mere eller mindre i Nordjylland eller på Sjælland. Forskellen ligger i driften: Energisparer.dk regner med ca. 7.500 kr. om året i Vestdanmark og ca. 8.000 kr. i Østdanmark ved en SCOP på 3,5, fordi elprisen er forskellig i de to prisområder.", ["es_vp"]),
@@ -574,6 +575,7 @@ NATIONAL["/varmepumpe/pris/"] = {
   ],
   "faq": [
    ("Hvad koster en luft til vand-varmepumpe inkl. montering?", "SparEnergi angiver typisk 100.000-130.000 kr., og Energisparer.dk ca. 90.000-150.000 kr. Prisen afhænger af husets varmebehov og hvor meget ekstra arbejde der skal til.", ["se_vp", "es_vp"]),
+   ("Hvad er med i prisen inkl. montering?", "Prisspændene dækker typisk anlægget og standardmontering. Energisparer.dk nævner opgradering af eltavlen, lange rørføringer og gennemføringer, buffertank eller ny varmtvandsbeholder, fundament eller konsol til udedelen og bortskaffelse af det gamle fyr som de poster, der oftest kommer oveni. Få dem skrevet ind i tilbuddet.", ["es_vp"]),
    ("Hvad koster en varmepumpe til et hus på 150 m²?", "Energisparer.dk angiver som tommelfingerregel 110.000-135.000 kr. inkl. installation for et hus på 130-180 m² (8-12 kW). Effekten skal passe til husets varmetab, så bed installatøren om en beregning af varmebehovet.", ["es_l2v"]),
    ("Hvad koster en luft til vand-varmepumpe om året?", "Bolius regner med 9.386 kr. om året i varmeudgift for et 130 m² hus med radiatorer og 7.288 kr. med gulvvarme.", ["bolius_varme"]),
    ("Kan jeg få både tilskud og håndværkerfradrag?", "Nej, ikke for samme varmepumpe. SparEnergi skriver, at du ikke må få støtte fra andre offentlige ordninger, herunder det grønne håndværkerfradrag, når du får tilskud fra Varmepumpepuljen.", ["vpp_faq"]),
@@ -2446,6 +2448,98 @@ FV_PAGE["helsinge"] = {
     ("Hvad koster fjernvarme i Helsinge?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 19.875 kr. om året inkl. moms hos Helsinge Fjernvarme – 1.357 kr. (6,4 %) mindre end i januar 2025. Gilleleje ligger på 13.978 kr., Vejby-Tisvilde på 19.411 kr. og Græsted på 19.419 kr. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
     ("Fik forbrugerne i Helsinge penge tilbage for 2025?", "Ja. Den budgetterede pris var 950 kr. pr. MWh inkl. moms, men ved årsopgørelsen blev MWh-prisen for hele 2025 betalt tilbage. Forbrugerne betalte stadig et reduceret fast bidrag og målerleje. Helsinge Fjernvarme forklarer det med elkedel og akkumuleringstanke ved lave elpriser og elproduktion på gasmotorerne ved høje priser.", ["hel_ber"]),
     ("Hvornår kommer fjernvarmen til Helsinge Øst og Vest?", "Gribskov Kommune skriver, at Helsinge Fjernvarme skal udarbejde et projektforslag, at godkendelsen normalt tager 3-6 måneder, og at udrulningen derefter kan tage op til 18 måneder. Først skal der bygges ny produktionskapacitet. Kontakt Helsinge Fjernvarme for status på din adresse.", ["hel_fj"]),
+  ],
+}
+
+# ---------- daglig by-rutine 19. nov. 2026: Middelfart og Tønder ----------
+FV_PRICES["middelfart"] = [("Middelfart Fjernvarme a.m.b.a.", "5500", "15.860", "705"), ("Gelsted Fjernvarmecentral", "5591", "22.766", "912"),
+                           ("Føns Nærvarme A.m.b.a.", "5580", "30.965", "1150")]
+FV_PRICES["toender"] = [("Tønder Fjernvarmeselskab A.m.b.a.", "6270", "16.261", "612"), ("Bredebro Varmeværk", "6261", "11.768", "437"),
+                        ("Skærbæk Fjernvarme", "6780", "13.056", "437"), ("Løgumkloster Fjernvarme", "6240", "14.118", "562"),
+                        ("Toftlund Fjernvarme Amba", "6520", "19.387", "750")]
+SOL_REG["middelfart"] = {
+  "kw": "solceller middelfart / solceller middelfart kommune tilladelse / solceller byggetilladelse middelfart",
+  "evidence": "Middelfart Kommunes side 'Byggetilladelser' med afsnittene om solceller, jordvarme, bevaringsværdige bygninger og byggesagsgebyrer (tjekket 19/11 2026).",
+  "intro": "Middelfart Kommune beder om en skriftlig redegørelse, før du lægger solceller på et tag: Hvor meget øger anlægget lasten på bygningen, og hvad betyder det for brandvæsenets indsats? Her er reglerne, og hvad kommunen selv skriver.",
+  "sections": [
+    ("Redegørelsen til kommunen", [
+      ("ul", [("Send en redegørelse til <strong>teknik@middelfart.dk</strong> om, hvorvidt anlægget øger lastpåvirkningen på bygningen med mere eller mindre end 5 % (BR18 kap. 1, § 5, stk. 1, nr. 4).", ["mid_byg"]),
+              ("Øges lasten med <strong>mere end 5 %</strong>, kræver anlægget byggetilladelse, som søges via Byg og Miljø.", ["mid_byg"]),
+              ("Redegør også for, om <strong>indsatstaktiske muligheder</strong> ændres (BR18 § 510): adgang til taget ved brand, ventilering og slukning oppefra, brandspredning og elektriske farer.", ["mid_byg"]),
+              ("Kommunen sender redegørelsen videre til <strong>TrekantBrand</strong>, der vurderer, om indsatsmulighederne forringes væsentligt.", ["mid_byg"])]),
+    ]),
+    ("Gebyr og BBR", [
+      ("p", "Byggesager koster 800 kr. pr. time for private. Middelfart Kommune har besluttet ikke at opkræve gebyr i sager, hvor der gives afslag. Husk at anmelde ændringen til BBR – det er ejerens ansvar, at oplysningerne er korrekte.", ["mid_byg"]),
+    ]),
+    ("Bevaringsværdige huse", [
+      ("p", "Middelfart Kommune har et kort over bevaringsværdige bygninger. Et hus kan også være bevaringsværdigt via en lokalplan, en tinglyst bevaringsdeklaration eller kulturministeren, selv om det ikke står på kortet. Er du i tvivl, så spørg Teknik- og Miljøforvaltningen, før du bestiller.", ["mid_byg"]),
+    ]),
+  ],
+  "faq": [
+    ("Kræver solceller byggetilladelse i Middelfart Kommune?", "Kun hvis anlægget øger lastpåvirkningen på bygningen med mere end 5 %. Redegørelsen om last og brandvæsenets indsatsmuligheder skal dog altid sendes til teknik@middelfart.dk.", ["mid_byg"]),
+    ("Hvad koster en byggesag i Middelfart Kommune?", "800 kr. pr. time for private. Får du afslag, opkræver kommunen ikke gebyr.", ["mid_byg"]),
+    ("Hvem vurderer brandsikkerheden ved solceller i Middelfart?", "TrekantBrand. Middelfart Kommune videresender din redegørelse, så beredskabet kan vurdere, om indsatsmulighederne forringes væsentligt.", ["mid_byg"]),
+  ],
+}
+SOL_REG["toender"] = {
+  "kw": "solceller tønder / solceller tønder kommune tilladelse / solceller byggetilladelse tønder",
+  "evidence": "Tønder Kommunes sider 'Solenergianlæg' (opdateret 3/7 2026) og 'Byggetilladelse' (opdateret 15/9 2026), tjekket 19/11 2026.",
+  "intro": "Tønder Kommune har en side alene om solenergianlæg. Kort fortalt: solceller på taget eller facaden af et almindeligt hus kræver ikke byggetilladelse, men anlæg på jorden, på erhvervsbygninger og anlæg, der overskrider byggeretten, gør. Her er reglerne, og hvad kommunen selv skriver.",
+  "sections": [
+    ("Hvornår skal du ikke søge?", [
+      ("ul", [("Solceller og solfangere <strong>på eller i tagfladen eller facaden</strong> af et enfamiliehus, sommerhus, rækkehus eller udhus – medmindre byggeretten overskrides.", ["ton_sol"]),
+              ("Du skal selv sikre, at anlægget overholder <strong>BR18</strong>, lokalplaner, tinglyste deklarationer og andre registreringer på ejendommen.", ["ton_sol"]),
+              ("Er huset <strong>fredet eller bevaringsværdigt</strong>, skal du søge om tilladelse.", ["ton_sol"])]),
+    ]),
+    ("Hvornår skal du søge?", [
+      ("ul", [("Anlæg <strong>direkte på terræn</strong> – det regnes som en selvstændig konstruktion (BR18 § 2).", ["ton_sol"]),
+              ("Anlæg på <strong>avls- og driftsbygninger, industri-, lager-, erhvervs- og etagebyggeri</strong>.", ["ton_sol"]),
+              ("Anlæg, der <strong>overskrider byggeretten</strong> – fx tæt på skel med en højde over 2,5 m; i landzone kræver det også landzonetilladelse.", ["ton_sol"])]),
+    ]),
+    ("Gebyr og sagsbehandlingstid", [
+      ("p", "Kræver dit anlæg byggetilladelse, søges den via Byg og Miljø. Gebyret beregnes efter tidsforbrug til 783 kr. pr. time, og servicemålet for almindelige byggesager er 4-8 uger. Lokalplanen for din adresse finder du i kommunens 'Hvad gælder for mig'.", ["ton_byg"]),
+    ]),
+  ],
+  "faq": [
+    ("Kræver solceller byggetilladelse i Tønder Kommune?", "Ikke på taget eller facaden af et enfamiliehus, rækkehus, sommerhus eller udhus, så længe byggeretten er overholdt, og huset hverken er fredet eller bevaringsværdigt. Anlæg på jorden kræver altid byggetilladelse.", ["ton_sol"]),
+    ("Hvad koster en byggetilladelse i Tønder Kommune?", "Gebyret beregnes efter den tid, kommunen bruger: 783 kr. pr. time. Det opkræves ved byggetilladelse og ibrugtagningstilladelse.", ["ton_byg"]),
+    ("Hvor lang tid tager en byggesag i Tønder?", "Tønder Kommunes servicemål for almindelige byggesager er 4-8 uger.", ["ton_byg"]),
+  ],
+}
+FV_PAGE["middelfart"] = {
+  "kw": "fjernvarme middelfart / middelfart fjernvarme pris / tilslutning fjernvarme middelfart / fjernvarme eller varmepumpe middelfart",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026, Middelfart Fjernvarmes takstblad og tilslutningspriser 2026, Middelfart Kommunes varmeplan-FAQ og udvalgsbeslutningen om Båring-Asperup 7/10 2026 (tjekket 19/11 2026).",
+  "intro": "Middelfart Fjernvarme lader nye kunder betale tilslutningen over varmeregningen i 20 år i stedet for kontant – og prisen for et standardhus er uændret siden januar 2025. I Båring-Asperup er fjernvarmen derimod droppet. Her er priserne, planerne og regnestykket mod en varmepumpe.",
+  "status": [
+    ("<strong>Tilslutning over 20 år:</strong> grøn omstillingsbidrag på 10 kr. pr. m² BBR-boligareal om året i 20 år inkl. moms, stikledning inkluderet.", ["mf_takst"]),
+    ("<strong>Eller kontant:</strong> investeringsbidrag 112,50 kr. pr. m² plus stikledningsbidrag 1.250 kr. pr. meter, mindst 10.000 kr. (inkl. moms).", ["mf_tilsl", "mf_takst"]),
+    ("<strong>Gasområder:</strong> skriver du kontrakt, efter at hovedledningen er lagt forbi dit hus, kommer et genopgravningsgebyr på 10.000 kr. inkl. moms oveni.", ["mf_takst"]),
+    ("<strong>Båring-Asperup:</strong> et tidligere godkendt fjernvarmeområde med ca. 373 ejendomme overgår til individuel opvarmning (besluttet 7/10 2026).", ["mid_baer"]),
+  ],
+  "local_take": "Middelfart Fjernvarme er nr. 120 af 374 værker i Forsyningstilsynets statistik og ca. 1.100 kr. under landsgennemsnittet for et standardhus. Gelsted (nr. 338) og Føns Nærvarme (nr. 373) ligger langt over. Har du fjernvarme fra Middelfart Fjernvarme, er der sjældent økonomi i at skifte. Har du gasfyr i et område, hvor fjernvarmen kommer, anbefaler kommunen at vente – og du kan ikke få tilskud til varmepumpe i et godkendt fjernvarmeområde. I Båring-Asperup er varmepumpen nu det oplagte valg.",
+  "contact": ("Middelfart Fjernvarme", "64 41 03 42 · post@middelfartfjernvarme.dk", "mf_tilsl"),
+  "faq": [
+    ("Hvad koster fjernvarme i Middelfart?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 15.860 kr. om året inkl. moms hos Middelfart Fjernvarme – samme pris som i januar 2025. Gelsted Fjernvarmecentral ligger på 22.766 kr. og Føns Nærvarme på 30.965 kr. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+    ("Hvad koster det at blive tilsluttet Middelfart Fjernvarme?", "Du kan vælge grøn omstillingsbidrag: 10 kr. pr. m² boligareal om året i 20 år inkl. moms og stikledning – for et hus på 150 m² 1.500 kr. om året. Eller kontant: 112,50 kr. pr. m² plus mindst 10.000 kr. for stikledningen. En fjernvarmeunit kan lejes for 2.700 kr. om året eller købes for 30.000 kr. (alle priser inkl. moms, 2026).", ["mf_takst", "mf_tilsl"]),
+    ("Hvad koster varmen hos Middelfart Fjernvarme i 2026?", "705 kr. pr. MWh, 500 kr. pr. måler om året og et grundbidrag på 20 eller 30 kr. pr. m² boligareal afhængigt af, hvornår området blev etableret. I Ejby betales desuden et transmissionsbidrag på 16,25 kr. pr. m², som bortfalder ved udgangen af 2029 (alle inkl. moms).", ["mf_takst"]),
+  ],
+}
+FV_PAGE["toender"] = {
+  "kw": "fjernvarme tønder / tønder fjernvarme pris / fjernvarme eller varmepumpe tønder",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026, Tønder Fjernvarmeselskabs fakta og priser 2026, Tønder Kommunes kommuneplan (varmeforsyning) og Tønder Dagblads gennemgang af projektforslaget for Rosinfeltvej 6/11 2026 (tjekket 19/11 2026).",
+  "intro": "Fjernvarmen i Tønder Kommune er billigere end landsgennemsnittet i Bredebro, Skærbæk og Løgumkloster – og i Tønder by er prisen for et standardhus faldet med 12 % siden januar 2025. Her er status, priserne fra Forsyningstilsynet og regnestykket mod en varmepumpe.",
+  "status": [
+    ("<strong>Tønder Fjernvarmeselskab:</strong> ca. 3.200 forbrugere og 52,2 km hovedledninger.", ["tf_fakta"]),
+    ("<strong>Rosinfeltvej:</strong> værket vil lægge rør ud til 45 ejendomme (32 med naturgas) for 8 mio. kr. ekskl. moms; 73 % har vist interesse, og de første huse ventes at få varme i foråret eller sommeren 2027.", ["tf_rosin"]),
+    ("<strong>Tilslutning 2026:</strong> investeringsbidrag 6.250 kr. og stikledning op til 15 m 18.750 kr. – derover 625 kr. pr. meter (inkl. moms).", ["tf_priser"]),
+    ("<strong>Frivilligt:</strong> ingen kan tvinges til at tilslutte sig; værket lægger kun rør, hvis nok husejere skriver kontrakt.", ["tf_rosin"]),
+  ],
+  "local_take": "Tønder Fjernvarmeselskab er nr. 137 af 374 værker i Forsyningstilsynets statistik og ca. 700 kr. under landsgennemsnittet for et standardhus. Bredebro (nr. 17) og Skærbæk (nr. 29) er blandt de billigste i landet. Ifølge Tønder Dagblads gennemgang af projektforslaget for Rosinfeltvej koster fjernvarme og en luft til vand-varmepumpe næsten det samme over 10 år for en villa på 181 m² – så uden for nettene, og for de mange huse med olie eller elvarme, er varmepumpen et reelt alternativ.",
+  "contact": ("Tønder Fjernvarmeselskab", "74 72 28 01 · e-mail@tonder-fjernvarme.dk", "tf_priser"),
+  "faq": [
+    ("Hvad koster fjernvarme i Tønder?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 16.261 kr. om året inkl. moms hos Tønder Fjernvarmeselskab – 2.262 kr. (12,2 %) mindre end i januar 2025. Bredebro ligger på 11.768 kr., Skærbæk på 13.056 kr., Løgumkloster på 14.118 kr. og Toftlund på 19.387 kr. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+    ("Er fjernvarme eller varmepumpe billigst i Tønder?", "Ifølge Tønder Dagblads gennemgang af projektforslaget for Rosinfeltvej koster fjernvarme en gennemsnitlig villa på 181 m² 245.000 kr. over 10 år, mens en luft til vand-varmepumpe koster 246.000 kr. i samme periode. Kunderne på Rosinfeltvej betaler dog et tillæg på 11 kr. pr. m² ekskl. moms i 30 år til det nye ledningsnet.", ["tf_rosin"]),
+    ("Hvor kommer fjernvarmen i Tønder fra?", "Tønder Fjernvarmeselskab har to fliskedler på 3,75 og 10 MW, en elkedel på 15 MW og en akkumuleringstank på 4.400 m³ på Energivej samt varmepumper på 3,6 MW på Hydrovej. Gaskedlerne bruges som supplement i spidsbelastning.", ["tf_fakta"]),
   ],
 }
 

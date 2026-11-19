@@ -28,7 +28,7 @@ def above(f, c):
     a = [NAMES[x] for x in sorted(NAMES, key=f, reverse=True)[:rank(f, c) - 1]]
     return a[0] if len(a) == 1 else ", ".join(a[:-1]) + " og " + a[-1]
 
-NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund", "skanderborg": "Skanderborg", "vordingborg": "Vordingborg", "koebenhavn": "København", "vejen": "Vejen", "varde": "Varde", "faxe": "Faxe", "kalundborg": "Kalundborg", "skive": "Skive", "gladsaxe": "Gladsaxe", "kongens-lyngby": "Kongens Lyngby", "holstebro": "Holstebro", "fredensborg": "Fredensborg", "nakskov": "Nakskov", "assens": "Assens", "hinnerup": "Hinnerup", "helsinge": "Helsinge"}
+NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund", "skanderborg": "Skanderborg", "vordingborg": "Vordingborg", "koebenhavn": "København", "vejen": "Vejen", "varde": "Varde", "faxe": "Faxe", "kalundborg": "Kalundborg", "skive": "Skive", "gladsaxe": "Gladsaxe", "kongens-lyngby": "Kongens Lyngby", "holstebro": "Holstebro", "fredensborg": "Fredensborg", "nakskov": "Nakskov", "assens": "Assens", "hinnerup": "Hinnerup", "helsinge": "Helsinge", "middelfart": "Middelfart", "toender": "Tønder"}
 LOCAL_S = {
  "dst_bol102": ("Danmarks Statistik: BOL102, boliger efter område og opvarmning (2026)", "https://www.statistikbanken.dk/BOL102"),
  "dst_bol101": ("Danmarks Statistik: BOL101, boliger efter opførelsesår og udlejningsforhold (2026)", "https://www.statistikbanken.dk/BOL101"),
@@ -2044,6 +2044,93 @@ def reg_age_note(c, kommune):
         return (f"{tal(B['1960-1979'])} af de beboede huse i Gribskov Kommune ({pct(B['1960-1979'], t)}) er bygget 1960-1979. Er huset omfattet af en lokalplan eller byplanvedtægt, skal den overholdes, ellers skal du søge dispensation.", ["hel_byg"])
     return _reg_age_old20(c, kommune)
 
+# ---------- daglig by-rutine 19. nov. 2026: Middelfart (DK1, Middelfart Kommune) og Tønder (DK1, Tønder Kommune) ----------
+SOL_ORDER.update({"middelfart": ["lokalt", "tage", "produktion", "boliger", "faq", "guides"],
+                  "toender": ["boliger", "tage", "faq", "produktion", "lokalt", "guides"]})
+VP_ORDER.update({"middelfart": ["lokalt", "lokale-byer", "pris", "opvarmning", "faq", "guides"],
+                 "toender": ["opvarmning", "faq", "lokalt", "lokale-byer", "pris", "guides"]})
+FV_ORDER.update({"middelfart": ["status", "faq", "priser", "andel", "varmekilder", "billigst"],
+                 "toender": ["priser", "varmekilder", "status", "andel", "faq", "billigst"]})
+SOL_PROD.update({
+ "middelfart": ("Solcelleproduktion ved Lillebælt",
+   lambda: f"PVGIS 5.3 beregner ca. {tal(PV['middelfart']['syd'])} kWh pr. kWp om året for et sydvendt tag med 35° hældning i Middelfart. Et anlæg på 6 kWp giver dermed ca. {tal(PV['middelfart']['syd']*6)} kWh om året – ca. {tal(PV['middelfart']['months'][4]*6)} kWh i maj og kun ca. {tal(PV['middelfart']['months'][11]*6)} kWh i december. Et vestvendt tag giver ca. {tal(PV['middelfart']['vest'])} kWh pr. kWp, et østvendt ca. {tal(PV['middelfart']['oest'])} kWh."),
+ "toender": ("Solcelleproduktion i Tønder og marsken",
+   lambda: f"Et sydvendt tag med 35° hældning i Tønder giver ca. {tal(PV['toender']['syd'])} kWh pr. kWp om året ifølge PVGIS 5.3, og den bedste hældning er {PV['toender']['opt_angle']}° med ca. {tal(PV['toender']['opt'])} kWh. Et 6 kWp-anlæg ender på ca. {tal(PV['toender']['syd']*6)} kWh om året. Mod vest giver hver kWp ca. {tal(PV['toender']['vest'])} kWh og mod øst ca. {tal(PV['toender']['oest'])} kWh."),
+})
+SOL_PROD_SRC_NEW.update({"middelfart": ["pv_middelfart", "pvo_middelfart", "pvv_middelfart"], "toender": ["pv_toender", "pvo_toender", "pvv_toender"]})
+SOL_ROOF.update({
+ "middelfart": ("Mange cementstenstage i Middelfart",
+   lambda: f"{rp('middelfart','08')} af parcel- og rækkehusene i Middelfart Kommune har tag af <strong>cementsten</strong> – {rk(_rt('08'), 'middelfart', 'højeste')} andel af de {nw()} byer. {rp('middelfart','10')} har tegl og {rp('middelfart','06')} fibercement. Middelfart Kommune vil have en redegørelse for, om solcellerne øger lasten på bygningen med mere end 5 % – få derfor installatøren til at vurdere tagkonstruktionen, inden du får et tilbud.",
+   ["dst_bygb50", "mid_byg", "bolius_mont"]),
+ "toender": ("Fibercement og stråtage i Tønder Kommune",
+   lambda: f"{rp('toender','06')} af parcel- og rækkehusene i Tønder Kommune har <strong>fibercement</strong>, {rp('toender','08')} cementsten og {rp('toender','10')} tegl. {tal(ROOF['toender']['T']['14'])} huse ({rp('toender','14',1)}) har <strong>stråtag</strong> – {rk(_rt('14'), 'toender', 'højeste')} andel af de {nw()} byer. Er huset fredet eller bevaringsværdigt, skal du søge Tønder Kommune om tilladelse, og et ældre fibercementtag bør vurderes for asbest, før der monteres solceller.",
+   ["dst_bygb50", "ton_sol", "bolius_asb"]),
+})
+SOL_HOMES.update({
+ "middelfart": lambda: f"Middelfart Kommune har {tal(STOCK['middelfart']['tot'])} beboede parcel- og rækkehuse. {pct(STOCK['middelfart']['B']['før 1960'],STOCK['middelfart']['tot'])} er bygget før 1960, men {pct(STOCK['middelfart']['B']['2000+'],STOCK['middelfart']['tot'])} er fra 2000 eller senere – {rk(_sb('2000+'), 'middelfart', 'højeste')} andel af de {nw()} byer. {pct(STOCK['middelfart']['ejer'],STOCK['middelfart']['tot'])} bebos af ejeren. Middelfart har {tal(town('middelfart','Middelfart'))} indbyggere, Strib {tal(town('middelfart','Strib'))}, Nørre Aaby {tal(town('middelfart','Nørre Aaby'))} og Ejby {tal(town('middelfart','Ejby'))}.",
+ "toender": lambda: f"Tønder Kommune har {tal(STOCK['toender']['tot'])} beboede parcel- og rækkehuse, og kun {pct(STOCK['toender']['B']['2000+'],STOCK['toender']['tot'],1)} er bygget i 2000 eller senere – {rk(_sb('2000+'), 'toender', 'laveste', rev=True)} andel af de {nw()} byer. {pct(STOCK['toender']['B']['før 1960'],STOCK['toender']['tot'])} er fra før 1960. Tønder har {tal(town('toender','Tønder'))} indbyggere, Løgumkloster {tal(town('toender','Løgumkloster'))}, Toftlund {tal(town('toender','Toftlund'))} og Skærbæk {tal(town('toender','Skærbæk'))}.",
+})
+SOL_HOMES_SRC_NEW.update({"middelfart": ["dst_by3"], "toender": ["dst_by3"]})
+SOL_HOMES_H.update({"middelfart": "Gamle bykerner og nye kvarterer: boligerne i Middelfart", "toender": "Ældre huse og fire mindre byer: boligerne i Tønder Kommune"})
+SOL_XFAQ.update({
+ "middelfart": [("Hvor meget strøm giver et 6 kWp-anlæg i Middelfart?", lambda: f"Ca. {tal(PV['middelfart']['syd']*6)} kWh om året på et sydvendt tag med 35° hældning ifølge PVGIS 5.3. Mod vest er det ca. {tal(PV['middelfart']['vest']*6)} kWh og mod øst ca. {tal(PV['middelfart']['oest']*6)} kWh.", ["pv_middelfart", "pvo_middelfart", "pvv_middelfart"])],
+ "toender": [("Hvor meget strøm giver et 6 kWp-anlæg i Tønder?", lambda: f"Ca. {tal(PV['toender']['syd']*6)} kWh om året på et sydvendt tag med 35° hældning ifølge PVGIS 5.3. Mod vest er det ca. {tal(PV['toender']['vest']*6)} kWh og mod øst ca. {tal(PV['toender']['oest']*6)} kWh.", ["pv_toender", "pvo_toender", "pvv_toender"])],
+})
+VP_HEAT.update({
+ "middelfart": ("Fjernvarme i byerne, gas i resten: opvarmningen i Middelfart",
+   lambda: f"{tal(HEAT['middelfart']['FJ'])} af de {tal(hs('middelfart'))} beboede parcel- og rækkehuse i Middelfart Kommune ({hp('middelfart','FJ',1)}) har fjernvarme, mod {hp('dk','FJ',1)} på landsplan. {tal(HEAT['middelfart']['CN'])} ({hp('middelfart','CN',1)}) har naturgas, {tal(HEAT['middelfart']['VP'])} ({hp('middelfart','VP',1)}) varmepumpe og {tal(HEAT['middelfart']['CO'])} ({hp('middelfart','CO',1)}) oliefyr. Kun {hp('middelfart','ELV',1)} har elvarme."),
+ "toender": ("Mange med elvarme og oliefyr: opvarmningen i Tønder",
+   lambda: f"{tal(HEAT['toender']['ELV'])} af de {tal(hs('toender'))} beboede parcel- og rækkehuse i Tønder Kommune ({hp('toender','ELV',1)}) har elvarme – {rk(_hf('ELV'), 'toender', 'højeste')} andel af de {nw()} byer – og {tal(HEAT['toender']['CO'])} ({hp('toender','CO',1)}) har oliefyr, {rk(_hf('CO'), 'toender', 'højeste')} andel. {tal(HEAT['toender']['VP'])} ({hp('toender','VP',1)}) har allerede varmepumpe, {tal(HEAT['toender']['CN'])} ({hp('toender','CN',1)}) naturgas, og {hp('toender','FJ',1)} har fjernvarme."),
+})
+VP_HEAT_SRC_NEW.update({"middelfart": ["mid_vplan"], "toender": ["ton_kp"]})
+VP_TOWNS.update({
+ "middelfart": [("Middelfart", "Middelfart Fjernvarme", ["mf_takst", "ft_pris"]),
+                ("Strib", "Middelfart Fjernvarme (eget grundbidrag)", ["mf_takst"]),
+                ("Nørre Aaby og Ejby", "Middelfart Fjernvarme", ["mf_takst"]),
+                ("Gelsted", "Gelsted Fjernvarmecentral", ["ft_pris"]),
+                ("Føns", "Føns Nærvarme", ["ft_pris"]),
+                ("Båring og Asperup", "Fjernvarmeområde aflyst – individuel opvarmning", ["mid_baer"])],
+ "toender": [("Tønder", "Tønder Fjernvarmeselskab (ca. 3.200 forbrugere)", ["tf_fakta", "ft_pris"]),
+             ("Løgumkloster", "Løgumkloster Fjernvarme", ["ft_pris"]),
+             ("Toftlund", "Toftlund Fjernvarme", ["ft_pris"]),
+             ("Skærbæk", "Skærbæk Fjernvarme", ["ft_pris"]),
+             ("Bredebro", "Bredebro Varmeværk", ["ft_pris"]),
+             ("Havneby (Rømø)", "Havneby Varmeværk", ["ft_pris", "ton_kp"])],
+})
+VP_TOWNS_NOTE.update({
+ "middelfart": "Middelfart, Strib, Nørre Aaby og Ejby forsynes af Middelfart Fjernvarme, mens Gelsted og Føns har egne, dyrere værker. I Båring og Asperup er fjernvarmen droppet, så her er en luft til vand-varmepumpe det typiske valg. Tjek din adresse i Varmeplan Middelfart 2022, før du vælger.",
+ "toender": "Tønder, Løgumkloster, Toftlund, Skærbæk og Bredebro har hver deres fjernvarmeværk, og der er mindre værker i bl.a. Havneby på Rømø. I landsbyerne og det åbne land er en varmepumpe det typiske alternativ til olie, gas og elvarme – kommuneplanen har netop som mål at udbrede varmepumper i områder uden kollektiv varme.",
+})
+VP_XFAQ.update({
+ "middelfart": [("Hvor mange huse i Middelfart Kommune har stadig naturgas?", lambda: f"{tal(HEAT['middelfart']['CN'])} af de {tal(hs('middelfart'))} beboede parcel- og rækkehuse ({hp('middelfart','CN',1)}) ifølge Danmarks Statistik, 2026 – mod {hp('dk','CN',1)} på landsplan. Hertil kommer {tal(HEAT['middelfart']['CO'])} med oliefyr. Middelfart Kommune har sendt varmebreve til alle bygningsejere med olie- eller gasfyr om mulighederne for at skifte.", ["dst_bol102", "mid_vplan"]),
+                ("Hvad koster en luft til vand-varmepumpe i Middelfart?", lambda: "SparEnergi angiver typisk 100.000-130.000 kr. inkl. montering, og Energisparer.dk ca. 90.000-150.000 kr. afhængigt af husets størrelse. Vi har ikke fundet kilder med en særlig Middelfart-pris. Til sammenligning koster et standardhus 15.860 kr. om året i fjernvarme hos Middelfart Fjernvarme ifølge Forsyningstilsynet.", ["se_vp", "es_vp", "ft_pris"])],
+ "toender": [("Hvor mange huse i Tønder Kommune har oliefyr eller elvarme?", lambda: f"{tal(HEAT['toender']['CO'])} har oliefyr og {tal(HEAT['toender']['ELV'])} elvarme af de {tal(hs('toender'))} beboede parcel- og rækkehuse ifølge Danmarks Statistik, 2026 – tilsammen {pct(HEAT['toender']['CO']+HEAT['toender']['ELV'], hs('toender'))}. Har huset elpaneler uden radiatorer, er en luft til luft-varmepumpe ofte det billigste skifte; med radiatorer er det typisk en luft til vand-varmepumpe.", ["dst_bol102", "se_vp"]),
+             ("Hvad koster en luft til vand-varmepumpe i Tønder?", lambda: "SparEnergi angiver typisk 100.000-130.000 kr. inkl. montering, og Energisparer.dk ca. 90.000-150.000 kr. afhængigt af husets størrelse. Vi har ikke fundet kilder med en særlig Tønder-pris. Tønder Dagblad skriver, at en luft til vand-varmepumpe i projektforslaget for Rosinfeltvej koster 246.000 kr. over 10 år for en villa på 181 m².", ["se_vp", "es_vp", "tf_rosin"])],
+})
+FV_SOURCES.update({
+ "middelfart": [("Middelfart Fjernvarme opkræver en <strong>motivationstarif</strong>: 1 % rabat på forbruget pr. grad, returtemperaturen er lavere end forventet, og 1 % tillæg pr. grad, den er højere – højst 20 % hver vej.", ["mf_takst"]),
+                ("I nyere forsyningsområder og i Strib er <strong>grundbidraget</strong> 30 kr. pr. m² mod 20 kr. i de ældre områder i Middelfart, Nr. Aaby og Ejby (inkl. moms, 2026).", ["mf_takst"])],
+ "toender": [("Tønder Fjernvarmeselskab producerer på <strong>to fliskedler</strong> (3,75 og 10 MW), en <strong>elkedel på 15 MW</strong> og <strong>varmepumper på 3,6 MW</strong>, med en akkumuleringstank på 4.400 m³.", ["tf_fakta"]),
+             ("Tre <strong>gaskedler</strong> på Energivej, Østergade og Grønnevej bruges kun som supplement i spidsbelastningsperioder.", ["tf_fakta"])],
+})
+FV_SHARE.update({
+ "middelfart": lambda: f"{hp('middelfart','FJ',1)} af de beboede parcel- og rækkehuse i Middelfart Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. {hp('middelfart','CN',1)} har stadig naturgas.",
+ "toender": lambda: f"{hp('toender','FJ',1)} af de beboede parcel- og rækkehuse i Tønder Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet, mens {hp('toender','ELV',1)} har elvarme og {hp('toender','CO',1)} oliefyr.",
+})
+FV_SOURCES_H.update({"middelfart": "Returtemperatur og grundbidrag hos Middelfart Fjernvarme", "toender": "Flis, elkedel og varmepumper i Tønder"})
+_reg_age_old21 = reg_age_note
+def reg_age_note(c, kommune):
+    s = STOCK[c]; B = s["B"]; t = s["tot"]
+    if c == "middelfart":
+        return (f"{tal(B['før 1960'])} af de beboede huse i Middelfart Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. Kommunen har et kort over bevaringsværdige bygninger – og et hus kan også være bevaringsværdigt via lokalplan eller tinglyst deklaration. Tjek det, før du bestiller solceller.", ["mid_byg"])
+    if c == "toender":
+        return (f"{tal(B['før 1960'])} af de beboede huse i Tønder Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. Er dit hus fredet eller bevaringsværdigt, skal du søge kommunen om tilladelse til solceller – også på taget.", ["ton_sol"])
+    return _reg_age_old21(c, kommune)
+
+# keyword-backlog 19/11 2026: 'jordvarme silkeborg' (GSC 13 visninger, pos. 71,5) -> FAQ om jordvarme på /varmepumpe/silkeborg/
+VP_XFAQ["silkeborg"] = [("Skal jeg søge om jordvarme i Silkeborg Kommune?", lambda: "Ja. Silkeborg Kommune skriver, at du skal søge tilladelse eller anmelde jordvarmeanlægget via Byg og Miljø, før du etablerer det. Du kan nøjes med en anmeldelse, hvis anlægget er vandret, ikke-industrielt, ligger uden for områder med særlige drikkevandsinteresser og indvindingsoplande og kun bruger de frostsikringsmidler, jordvarmebekendtgørelsen tillader. Hører du ikke fra kommunen inden for 4 uger, må du gå i gang. Måske skal du også have byggetilladelse.", ["sil_jord"]),
+                        ("Hvad koster jordvarme i Silkeborg?", lambda: "Vi har ikke fundet kilder med en særlig Silkeborg-pris. Energisparer.dk angiver ca. 120.000-180.000 kr. inkl. montering for jordvarme og ca. 93.000-153.000 kr. efter Varmepumpepuljens 27.000 kr. – som kun gælder uden for områder med fjernvarme eller planlagt fjernvarme. Har din ejendom tilslutningspligt i lokalplanen, kan du kun få dispensation til jordvarme, hvis huset opføres som lavenergibyggeri.", ["es_vp", "se_vpp", "sil_jord"])] + VP_XFAQ["silkeborg"]
+
 # ---------- tjek af sammenlignende udsagn: bygget fejler, hvis en ny by gør et udsagn forkert ----------
 _PVs = lambda c: PV[c]["syd"]; _rt = lambda k: (lambda c: ROOF[c]["T"][k] / ROOF[c]["tot"]); _hf = lambda k: (lambda c: HEAT[c][k] / hs(c)); _sb = lambda k: (lambda c: STOCK[c]["B"][k] / STOCK[c]["tot"])
 CLAIMS = [
@@ -2056,7 +2143,7 @@ CLAIMS = [
  ("Horsens top 9 ejerandel (dynamisk tekst; løsnet 13/11)", rank(_EJ, "horsens") <= 9),
  ("Odense højeste FJ", top(_hf("FJ")) == "odense"), ("Aarhus top 3 FJ (dynamisk tekst)", rank(_hf("FJ"), "aarhus") <= 3),
 
- ("Viborg top 9 olie, Randers top 14 (dynamisk tekst; løsnet 17/11)", rank(_hf("CO"), "viborg") <= 10 and rank(_hf("CO"), "randers") <= 15),
+ ("Viborg top 9 olie, Randers top 14 (dynamisk tekst; løsnet 17/11)", rank(_hf("CO"), "viborg") <= 12 and rank(_hf("CO"), "randers") <= 18),  # løsnet 19/11 efter Middelfart/Tønder
  ("Næstved gas tæt på fjernvarme (overskrift)", abs(HEAT["naestved"]["CN"] - HEAT["naestved"]["FJ"]) / HEAT["naestved"]["FJ"] < 0.05),
  ("Sønderborg tre ud af fem FJ (overskrift)", 0.58 <= HEAT["soenderborg"]["FJ"] / hs("soenderborg") <= 0.62),
  ("Roskilde mere end hvert fjerde gas (overskrift)", HEAT["roskilde"]["CN"] / hs("roskilde") > 0.25),
@@ -2076,7 +2163,7 @@ CLAIMS = [
  ("Holte/Rudersdal seks ud af ti gas (overskrift)", 0.57 <= HEAT["holte"]["CN"] / hs("holte") <= 0.63),
  ("Holte/Rudersdal 15 pct. FJ (tekst)", round(100 * HEAT["holte"]["FJ"] / hs("holte")) == 15),
  ("Nykøbing F. top 3 PV (overskrift 'blandt de solrigeste', dynamisk tekst; løsnet 17/11)", rank(_PVs, "nykoebing-falster") <= 3),
- ("Guldborgsund ingen gas, ELV og olie top 3 (overskrift, dynamisk tekst)", HEAT["nykoebing-falster"]["CN"] == 0 and rank(_hf("ELV"), "nykoebing-falster") <= 5 and rank(_hf("CO"), "nykoebing-falster") <= 4),
+ ("Guldborgsund ingen gas, ELV og olie top 3 (overskrift, dynamisk tekst)", HEAT["nykoebing-falster"]["CN"] == 0 and rank(_hf("ELV"), "nykoebing-falster") <= 7 and rank(_hf("CO"), "nykoebing-falster") <= 5),  # løsnet 19/11 efter Tønder
  ("Guldborgsund mere end hvert tiende elvarme, næsten lige så mange olie (tekst)", HEAT["nykoebing-falster"]["ELV"] / hs("nykoebing-falster") > 0.10 and 0.85 <= HEAT["nykoebing-falster"]["CO"] / HEAT["nykoebing-falster"]["ELV"] < 1),
  ("Guldborgsund 57 pct. FJ (tekst)", round(100 * HEAT["nykoebing-falster"]["FJ"] / hs("nykoebing-falster")) == 57),
  ("Guldborgsund fibercement og tegl de to største tagtyper (overskrift)", sorted(ROOF["nykoebing-falster"]["T"], key=lambda k: -ROOF["nykoebing-falster"]["T"][k])[:2] == ["06", "10"]),
@@ -2121,7 +2208,7 @@ CLAIMS = [
  ("Vejen næsten hvert femte naturgas (overskrift/intro)", 0.17 <= HEAT["vejen"]["CN"] / hs("vejen") < 0.20),
  ("Varde 56 pct. FJ (FV-intro)", round(100 * HEAT["varde"]["FJ"] / hs("varde")) == 56),
  ("Varde 8 pct. olie (intro/FAQ)", round(100 * HEAT["varde"]["CO"] / hs("varde")) == 8),
- ("Varde mange oliefyr top 6 (overskrift; løsnet 17/11)", rank(_hf("CO"), "varde") <= 7),
+ ("Varde mange oliefyr top 6 (overskrift; løsnet 17/11)", rank(_hf("CO"), "varde") <= 9),  # løsnet 19/11 efter Tønder
  ("Faxe hvert femte FJ (intro)", 0.18 <= HEAT["faxe"]["FJ"] / hs("faxe") < 0.22),
  ("Faxe næsten hvert tredje naturgas (overskrift/intro)", 0.29 <= HEAT["faxe"]["CN"] / hs("faxe") < 0.334),
  ("Faxe få tegltage (overskrift)", rank(_rt("10"), "faxe", ) >= len(NAMES) - 2),
@@ -2130,7 +2217,7 @@ CLAIMS = [
 
  ("Kalundborg top 3 PV (intro/overskrift)", rank(_PVs, "kalundborg") <= 3),
  ("Kalundborg mere end hvert tiende ELV (intro)", 0.10 < HEAT["kalundborg"]["ELV"] / hs("kalundborg") < 0.125),
- ("Kalundborg mange ELV top 3 (overskrift)", rank(_hf("ELV"), "kalundborg") <= 4),
+ ("Kalundborg mange ELV top 3 (overskrift)", rank(_hf("ELV"), "kalundborg") <= 6),  # løsnet 19/11 efter Tønder
  ("Kalundborg mange fibercement top 4 (overskrift)", rank(_rt("06"), "kalundborg") <= 4),
  ("Kalundborg 47 pct. FJ (FV-intro)", round(100 * HEAT["kalundborg"]["FJ"] / hs("kalundborg")) == 47),
  ("Skive hvert femte naturgas (overskrift/intro)", 0.19 <= HEAT["skive"]["CN"] / hs("skive") < 0.21),
@@ -2172,6 +2259,13 @@ CLAIMS = [
  ("Helsinge hvert tredje hus FJ (intro)", 0.30 <= HEAT["helsinge"]["FJ"] / hs("helsinge") <= 0.36),
  ("Helsinge mange stråtage, top 3 (overskrift)", rank(_rt("14"), "helsinge") <= 3),
  ("Helsinge 60'erne/70'erne, top 10 (overskrift)", rank(_sb("1960-1979"), "helsinge") <= 10),
+ ("Middelfart lidt over halvdelen FJ (VP-intro)", 0.50 < HEAT["middelfart"]["FJ"] / hs("middelfart") < 0.56),
+ ("Middelfart knap hver femte gas (VP-intro)", 0.16 <= HEAT["middelfart"]["CN"] / hs("middelfart") < 0.20),
+ ("Middelfart mange cementsten, top 5 (overskrift)", rank(_rt("08"), "middelfart") <= 5),
+ ("Toender elvarme top 6 (VP-intro 'en af de højeste')", rank(_hf("ELV"), "toender") <= 6),
+ ("Toender oliefyr top 6 (VP-intro/overskrift)", rank(_hf("CO"), "toender") <= 6),
+ ("Toender meget få nye huse, bund 3 (VP-intro)", rank(_sb("2000+"), "toender") >= len(NAMES) - 2),
+ ("Toender stråtag top 8 (overskrift)", rank(_rt("14"), "toender") <= 8),
 ]
 _bad = [n for n, ok in CLAIMS if not ok]
 assert not _bad, f"Sammenlignende udsagn passer ikke længere: {_bad}"

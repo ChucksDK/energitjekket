@@ -406,7 +406,8 @@
     "kommune": "Middelfart Kommune",
     "region": "Region Syddanmark",
     "reason": "15.832 beboede parcel/rækkehuse; 54% fjernvarme; 4.157 med olie/gas/elvarme; begge services",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-19"
   },
   {
     "rank": 42,
@@ -415,7 +416,8 @@
     "kommune": "Tønder Kommune",
     "region": "Region Syddanmark",
     "reason": "14.680 beboede parcel/rækkehuse; 43% fjernvarme; 4.778 med olie/gas/elvarme; stærkt varmepumpemarked",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-19"
   },
   {
     "rank": 43,
