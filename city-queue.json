@@ -426,7 +426,8 @@
     "kommune": "Bornholm Kommune",
     "region": "Region Hovedstaden",
     "reason": "17.099 beboede parcel/rækkehuse; 61% fjernvarme; 3.089 med olie/gas/elvarme; begge services",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-20"
   },
   {
     "rank": 44,
@@ -435,7 +436,8 @@
     "kommune": "Mariagerfjord Kommune",
     "region": "Region Nordjylland",
     "reason": "15.927 beboede parcel/rækkehuse; 54% fjernvarme; 3.869 med olie/gas/elvarme; begge services",
-    "status": "pending"
+    "status": "done",
+    "date": "2026-11-20"
   },
   {
     "rank": 45,

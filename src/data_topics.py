@@ -528,3 +528,41 @@ _l2v["sections"] = [("Luft til vand varmepumpe kort fortalt", [
   ])] + _l2v["sections"]
 _l2v["faq"] = [("Hvad er en luft til vand varmepumpe?", "En varmepumpe, der trækker varme ud af udeluften – også i frostvejr – og afleverer den til husets vandbårne varmesystem og en varmtvandsbeholder. Den kræver radiatorer eller gulvvarme; har du elpaneler, er en luft til luft-varmepumpe ofte det billigere valg.", ["es_l2v", "se_vp"])] + _l2v["faq"]
 _l2v["updated"] = ("17. november 2026", "2026-11-17")
+
+# keyword-backlog 20/11 2026: 'omregning træpiller til kwh' (GSC 12 visninger, pos. 22,4) -> ny guide med omregning ud fra Energistyrelsens brændværdi
+TOPIC_S.update({
+ "ens_bv": ("Energistyrelsen: Standardfaktorer for brændværdier og CO2-emissionsfaktorer, rapporteringsåret 2025 (PDF)", "https://ens.dk/media/7714/download"),
+})
+T["/varmepumpe/traepiller-til-kwh/"] = {
+  "svc": "varmepumpe", "crumb": "Træpiller til kWh", "updated": ("20. november 2026", "2026-11-20"),
+  "kw": "omregning træpiller til kwh / træpiller kwh pr kg / 1 ton træpiller kwh",
+  "title": "Træpiller til kWh: omregning af kg og ton træpiller",
+  "desc": "1 ton træpiller indeholder ca. 4.861 kWh og 1 kg ca. 4,86 kWh (Energistyrelsens brændværdi 17,5 GJ/ton). Se tabel, sammenligning med olie og gas og varmepumpe.",
+  "h1": "Omregning af træpiller til kWh",
+  "intro": "Vil du sammenligne dit træpillefyr med en varmepumpe, skal du først omregne træpillerne til kWh. Energistyrelsen regner med en brændværdi på 17,5 GJ pr. ton træpiller. Her er omregningen pr. kg og pr. ton, en sammenligning med olie og gas, og hvad det betyder, hvis du skifter til varmepumpe.",
+  "sections": [
+   ("Hvor mange kWh er der i træpiller?", [
+     ("p", "Energistyrelsens standardfaktor for træpiller er en nedre brændværdi på <strong>17,50 GJ pr. ton</strong> ved et fugtindhold på 7 %. Da 1 GJ svarer til 277,8 kWh, giver det ca. <strong>4.861 kWh pr. ton</strong> eller <strong>4,86 kWh pr. kg</strong>.", ["ens_bv"]),
+     ("table", ["Mængde træpiller", "Energiindhold (brændværdi)"],
+      [["1 kg", "ca. 4,86 kWh"], ["15 kg", "ca. 73 kWh"], ["100 kg", "ca. 486 kWh"], ["1 ton", "ca. 4.861 kWh"], ["4 ton", "ca. 19.444 kWh"]], ["ens_bv"]),
+     ("note", "Vores egen omregning af Energistyrelsens brændværdi (17,50 GJ/ton × 277,8 kWh/GJ). Tallet er energien i brændslet – den varme, du får ud i huset, er lavere, fordi kedlen har et tab. Fugtige piller giver mindre energi.", ["ens_bv"]),
+   ]),
+   ("Træpiller sammenlignet med olie, gas, halm og flis", [
+     ("table", ["Brændsel", "Energistyrelsens brændværdi", "Omregnet til kWh"],
+      [["Træpiller", "17,50 GJ/ton", "ca. 4,86 kWh pr. kg"], ["Fyringsolie (gasolie)", "35,87 GJ/m³", "ca. 9,96 kWh pr. liter"], ["Naturgas", "0,0396 GJ/m³", "ca. 11,0 kWh pr. m³"], ["Halm", "14,50 GJ/ton", "ca. 4,03 kWh pr. kg"], ["Træflis", "10,40 GJ/ton", "ca. 2,89 kWh pr. kg"]], ["ens_bv"]),
+     ("p", "Målt på brændværdien svarer 1 ton træpiller altså til ca. 488 liter fyringsolie eller ca. 442 m³ naturgas. Omregningen er vores egen ud fra Energistyrelsens faktorer.", ["ens_bv"]),
+   ]),
+   ("Hvad betyder det, hvis du skifter til varmepumpe?", [
+     ("p", "Bolius regner med et varmebehov på 18.100 kWh om året for et standardhus på 130 m². Det svarer til brændværdien i ca. 3,7 ton træpiller – og et træpillefyr skal bruge lidt mere, fordi kedlen har et tab.", ["bolius_varme", "ens_bv"]),
+     ("p", "En luft til vand-varmepumpe har ifølge Energisparer.dk typisk en SCOP på 3,5-5,1. Til de samme 18.100 kWh varme skal den derfor bruge ca. 3.550-5.170 kWh strøm om året (vores egen udregning).", ["es_l2v", "bolius_varme"]),
+     ("p", "Varmepumpepuljen giver 27.000 kr. til en luft til vand- eller jordvarmepumpe, når du skifter olie, gas, elvarme eller biokedel ud i en helårsbolig uden for fjernvarme. Puljen lukker senest 30. november 2026 eller når pengene er brugt.", ["se_vpp"]),
+     ("p", "I Danmarks Statistiks opgørelse for 2026 har 83.745 beboede parcel- og rækkehuse centralvarme fra en anden kilde end olie og gas, fx træpiller.", ["dst_bol102"]),
+   ]),
+  ],
+  "faq": [
+    ("Hvor mange kWh er 1 kg træpiller?", "Ca. 4,86 kWh, regnet ud fra Energistyrelsens brændværdi på 17,50 GJ pr. ton ved 7 % fugt. Det er energien i brændslet; varmen i huset er lidt lavere på grund af kedlens tab.", ["ens_bv"]),
+    ("Hvor mange kWh er 1 ton træpiller?", "Ca. 4.861 kWh (17,50 GJ × 277,8 kWh pr. GJ).", ["ens_bv"]),
+    ("Hvor mange træpiller svarer til 1.000 liter fyringsolie?", "Målt på brændværdien ca. 2 ton: 1.000 liter gasolie indeholder 35,87 GJ, og 1 ton træpiller 17,50 GJ. Omregningen er vores egen ud fra Energistyrelsens faktorer.", ["ens_bv"]),
+  ],
+}
+NAV["varmepumpe"].insert(4, ("/varmepumpe/traepiller-til-kwh/", "Træpiller til kWh", "Omregning af kg og ton træpiller.", "flame"))

@@ -2543,6 +2543,105 @@ FV_PAGE["toender"] = {
   ],
 }
 
+# ---------- daglig by-rutine 20. nov. 2026: Rønne og Hobro ----------
+FV_PRICES["roenne"] = [("Rønne Varme A/S", "3700", "17.526", "792"), ("Bornholms Varme A/S", "3700", "22.669", "727")]
+FV_PRICES["hobro"] = [("Hobro Varmeværk A M B A", "9500", "16.236", "753"), ("Hobro Varmeværk – Hobro Syd og Hørby (første 10 år)", "9500", "21.504", "753"),
+                      ("Mariager Fjernvarme A M B A", "9550", "11.285", "295"), ("Als Fjernvarme a.m.b.a.", "9560", "14.747", "562"),
+                      ("Hadsund Fjernvarmeværk", "9560", "16.466", "629"), ("Assens Fjernvarme Amba – Jylland", "9550", "17.502", "587"),
+                      ("Arden Varmeværk", "9510", "17.921", "687")]
+SOL_REG["roenne"] = {
+  "kw": "solceller rønne / solceller bornholm tilladelse / solceller byggetilladelse bornholms regionskommune",
+  "evidence": "Bornholms Regionskommunes sider 'Solcelleanlæg, husstandsvindmøller, jordvarme' og 'Sagsbehandlingstider og gebyrer' (tjekket 20/11 2026).",
+  "intro": "Bornholms Regionskommune skønner, at ca. halvdelen af de bornholmske husejere skal have en tilladelse, før de må sætte solceller op. Det skyldes ikke bygningsreglementet alene, men især lokalplaner, deklarationer og beskyttelseslinjer. Her er reglerne, og hvad kommunen selv skriver.",
+  "sections": [
+    ("Hvornår skal du ikke søge?", [
+      ("ul", [("Solceller på et <strong>enfamiliehus eller sommerhus</strong>, når BR18's regler om bygningshøjde og det skrå højdegrænseplan mod skel og nabo er overholdt.", ["brk_sol"]),
+              ("Anlægget må ikke stride mod <strong>byplanvedtægter, lokalplaner, deklarationer, private servitutter eller vedtægter</strong>.", ["brk_sol"]),
+              ("Det må heller ikke stride mod <strong>beskyttelseslinjerne</strong> i naturbeskyttelseslovens §§ 15-19.", ["brk_sol"]),
+              ("Skal du ikke søge, skal du selv melde anlægget til kommunen via skemaet <strong>BBR-oplysninger om teknisk anlæg</strong>.", ["brk_sol"])]),
+    ]),
+    ("Hvornår skal du søge?", [
+      ("ul", [("Anlæg <strong>på terræn</strong> kræver altid byggetilladelse.", ["brk_sol"]),
+              ("<strong>Erhvervsejendomme, etageboliger, institutioner og skoler</strong> skal altid have byggetilladelse, før arbejdet går i gang.", ["brk_sol"]),
+              ("Strider anlægget mod en af reglerne – fx en <strong>bevarende lokalplan</strong> eller en deklaration for svenskehuse – skal du søge dispensation med en konkret begrundelse.", ["brk_sol"])]),
+    ]),
+    ("Det skal ansøgningen indeholde", [
+      ("ul", [("Anlæggets størrelse (længde, totalhøjde, antal og m²) og ydelse i kW.", ["brk_sol"]),
+              ("En målfast tegning og evt. fotoillustration af placeringen på taget eller grunden.", ["brk_sol"]),
+              ("Et datablad, der viser panelernes overflade og udseende.", ["brk_sol"])]),
+    ]),
+    ("Gebyr", [
+      ("p", "Kræver dit anlæg byggetilladelse, søges den via Byg og Miljø. Byggesagsgebyret beregnes efter tidsforbrug: 993 kr. pr. time i 2026 (970 kr. i 2025). Det opkræves i to rater – ved tilladelsen og ved færdigmeldingen – og kan også opkræves, hvis du får afslag eller trækker ansøgningen tilbage.", ["brk_gebyr"]),
+    ]),
+  ],
+  "faq": [
+    ("Kræver solceller byggetilladelse på Bornholm?", "Ikke på et enfamiliehus eller sommerhus, hvis BR18, lokalplaner, deklarationer, servitutter og beskyttelseslinjer er overholdt. Anlæg på terræn og på erhvervsejendomme, etageboliger og institutioner kræver altid byggetilladelse.", ["brk_sol"]),
+    ("Hvad koster en byggetilladelse til solceller i Bornholms Regionskommune?", "Gebyret beregnes efter den tid, kommunen bruger: 993 kr. pr. time i 2026. Det kan også opkræves ved afslag.", ["brk_gebyr"]),
+    ("Må jeg sætte solceller på et svenskehus?", "Kun hvis deklarationen for huset tillader det. Bornholms Regionskommune skriver, at alle svenskehusene er omfattet af deklarationer, der kan begrænse valget af byggematerialer – undersøg den, og søg om nødvendigt dispensation.", ["brk_sol"]),
+  ],
+}
+SOL_REG["hobro"] = {
+  "kw": "solceller hobro / solceller mariagerfjord kommune tilladelse / solceller byggetilladelse mariagerfjord",
+  "evidence": "Mariagerfjord Kommunes side 'Solcelle- og solfangeranlæg' (opdateret 1/7 2026), kommunens administrationsgrundlag for solcelleanlæg og siden om sagsbehandlingstid og gebyr (tjekket 20/11 2026).",
+  "intro": "Mariagerfjord Kommune skelner skarpt mellem solceller, der følger taget, og alt andet. Følger anlægget tagets hældning og afgrænsning, kræver det som udgangspunkt ikke byggetilladelse; på et fladt tag, på terræn og på erhvervsbygninger gør det. Her er reglerne, og hvad kommunen selv skriver.",
+  "sections": [
+    ("Hvornår skal du ikke søge?", [
+      ("ul", [("Et anlæg på taget af et <strong>enfamiliehus, sommerhus eller rækkehus</strong>, der følger tagets hældning, kræver som udgangspunkt ikke byggetilladelse.", ["mfk_sol"]),
+              ("Anlæg, der følger tagets hældning, og hvor den <strong>ændrede last er under 5 %</strong>, er undtaget fra kravet om byggetilladelse (BR18 § 5, stk. 1, nr. 4) – men skal registreres i BBR.", ["mfk_sol"])]),
+    ]),
+    ("Hvornår skal du søge?", [
+      ("ul", [("Anlæg, der <strong>ikke følger tagets hældning eller afgrænsning</strong> – fx på et fladt tag – og anlæg på terræn kræver byggetilladelse.", ["mfk_solgr", "mfk_sol"]),
+              ("Inden for 2,5 m fra skel må et anlæg som udgangspunkt <strong>højst være 2,5 m højt</strong>, og et anlæg på terræn højst 4 m over terræn.", ["mfk_solgr"]),
+              ("<strong>Strand-, sø- og å-beskyttelseslinjen</strong>, kirkebyggelinjen (bygninger over 8,5 m), fortidsmindebeskyttelseslinjen, Natura 2000 og visse fredninger kan kræve dispensation – også for anlæg på taget.", ["mfk_sol"]),
+              ("I <strong>landzone</strong> kan et anlæg på terræn også kræve landzonetilladelse.", ["mfk_sol"])]),
+    ]),
+    ("Gebyr og ventetid", [
+      ("p", "Kræver dit anlæg byggetilladelse, søges den via Byg og Miljø. Mariagerfjord Kommune tager 768 kr. pr. time i 2026 (776 kr. i 2025), opkrævet i to rater: når tilladelsen gives, og når byggesagen afsluttes. Den aktuelle ventetid på byggesager er 8 uger fra modtagelsen af ansøgningen.", ["mfk_gebyr"]),
+    ]),
+  ],
+  "faq": [
+    ("Kræver solceller byggetilladelse i Mariagerfjord Kommune?", "Ikke hvis anlægget sidder på taget af et enfamiliehus, sommerhus eller rækkehus og følger tagets hældning og afgrænsning – medmindre en lokalplan, en servitut eller en beskyttelseslinje kræver andet. Anlæg på fladt tag, på terræn og på erhvervsbyggeri kræver byggetilladelse.", ["mfk_sol", "mfk_solgr"]),
+    ("Hvad koster en byggetilladelse i Mariagerfjord Kommune?", "768 kr. pr. time i 2026, opkrævet i to rater. Ventetiden er ca. 8 uger.", ["mfk_gebyr"]),
+    ("Hvem kan svare på, om mit anlæg kræver tilladelse i Hobro?", "Byggesagsteamet i Mariagerfjord Kommune på byg@mariagerfjord.dk. Kommunen beder dig skrive, hvis du er i tvivl om, hvorvidt anlægget er omfattet af en beskyttelseslinje eller anden lovgivning.", ["mfk_sol"]),
+  ],
+}
+FV_PAGE["roenne"] = {
+  "kw": "fjernvarme rønne / rønne varme pris / fjernvarme bornholm pris / fjernvarme eller varmepumpe rønne",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026, Rønne Varmes varmepriser 2026, Bornholms Energi & Forsynings tilslutningspriser og takster pr. 1/7 2026 og Bornholm.nu 28/1 2026 (tjekket 20/11 2026).",
+  "intro": "På Bornholm er der to fjernvarmeselskaber med vidt forskellige priser: Rønne Varme i Rønne og Bornholms Varme i resten af øens byer. Begge ligger over landsgennemsnittet for et standardhus. Her er priserne, hvad tilslutning koster, og regnestykket mod en varmepumpe.",
+  "status": [
+    ("<strong>Rønne Varme 2026:</strong> 220 kr. pr. GJ, 1.875 kr. pr. måler og 10,13 kr. pr. m² i arealbidrag om året (inkl. moms).", ["rvv_priser"]),
+    ("<strong>Bornholms Varme fra 1/7 2026:</strong> fast afgift 2.838,75 kr., rumafgift 51,25 kr. pr. m² (højst 175 m²) og 697,50 kr. pr. MWh plus 30 kr. pr. MWh i garantiprovision (inkl. moms).", ["beof_takst"]),
+    ("<strong>Tilslutning hos Bornholms Varme:</strong> 40.000 kr. nær en eksisterende hovedledning inkl. 10 m stikledning, derefter 750-1.000 kr. pr. meter. En standardinstallation af fjernvarmeunit koster yderligere 40.000 kr.", ["beof_tilsl"]),
+    ("<strong>Prisstrid:</strong> Rønne Vand & Varme peger på høje indkøbspriser fra BEOF og BOFA som hovedårsag til prisen i Rønne og venter på en afklaring af en mangeårig strid med BEOF.", ["bnu_rvv"]),
+  ],
+  "local_take": "Rønne Varme er nr. 182 af 374 værker i Forsyningstilsynets statistik regnet fra det billigste og ca. 570 kr. over landsgennemsnittet for et standardhus, mens Bornholms Varme er nr. 335 og ca. 5.700 kr. over. Har du allerede fjernvarme i Rønne, er der sjældent penge i at skifte. Står du med elvarme eller oliefyr uden for fjernvarmenettet, er en varmepumpe det oplagte valg – der er ikke noget gasnet at vælge i stedet. Og i en by med Bornholms Varme kan en varmepumpe være et reelt alternativ til en tilslutning til 40.000 kr. plus unit.",
+  "contact": ("Rønne Varme A/S (RVV)", "56 91 04 04 · rvv@rvv.dk", "rvv_priser"),
+  "faq": [
+    ("Hvad koster fjernvarme i Rønne?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 17.526 kr. om året inkl. moms hos Rønne Varme – samme pris som i januar 2025. Hos Bornholms Varme, der forsyner resten af øens fjernvarmebyer, er det 22.669 kr. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+    ("Hvad koster det at få fjernvarme hos Bornholms Varme?", "40.000 kr. for tilslutning, hvis ejendommen ligger tæt på en eksisterende hovedledning, inkl. 10 m stikledning – længere stik koster 750-1.000 kr. pr. meter afhængigt af overfladen. En standardinstallation af fjernvarmeunit med varmtvandsbeholder koster 40.000 kr. mere, inkl. bortskaffelse af oliefyr.", ["beof_tilsl"]),
+    ("Hvor kommer fjernvarmen i Rønne fra?", "Rønne Varme køber varmen hos kraftvarmeværket Bornholms Elproduktion og affaldsforbrændingsanlægget BOFA og driver selv kun en reserve- og spidsbelastningscentral.", ["rvv_fv"]),
+  ],
+}
+FV_PAGE["hobro"] = {
+  "kw": "fjernvarme hobro / hobro varmeværk pris / fjernvarme mariagerfjord / fjernvarme eller varmepumpe hobro",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026, Hobro Varmeværks spørgsmål og svar, Dansk Fjernvarmes artikel 9/12 2025, Mariagerfjord Kommunes varmeplan 2022 og statusorienteringen 4/12 2025 (tjekket 20/11 2026).",
+  "intro": "I Mariagerfjord Kommune spænder fjernvarmeprisen for et standardhus fra 11.285 kr. i Mariager til over 21.000 kr. for kunder i Hobro Syd og Hørby de første 10 år. Samtidig ligger ca. 2.200 boliger med olie eller gas uden for fjernvarmeområdet. Her er status, priserne og regnestykket mod en varmepumpe.",
+  "status": [
+    ("<strong>Hobro Syd:</strong> konverteringen er afsluttet, og Hobro Varmeværk fik 208 nye forbrugere i 2025 – i alt ca. 3.500.", ["df_hobro"]),
+    ("<strong>Tilslutning:</strong> unit og tilslutning koster 0 kr. her og nu; betalingen sker via et forhøjet fast bidrag de første 10 år. Du betaler selv VVS-installatøren.", ["hv_faq"]),
+    ("<strong>Bærkvarteret (Hobro Vest):</strong> projektforslaget blev godkendt i juni 2025, og værket samler tilslutninger.", ["mfk_status"]),
+    ("<strong>Valsgaard og Hørby Kirkeby (ca. 500 boliger):</strong> afventer – etableringsprisen er højere, og der forventes for lav tilslutning.", ["mfk_status"]),
+  ],
+  "local_take": "Hobro Varmeværk er nr. 134 af 374 værker i Forsyningstilsynets statistik regnet fra det billigste og ca. 700 kr. under landsgennemsnittet for et standardhus i de gamle områder, mens kunder i Hobro Syd og Hørby betaler 21.504 kr. de første 10 år og derefter 17.024 kr. Mariager Fjernvarme er nr. 14 og blandt de billigste i landet. Har du fjernvarme, er der sjældent penge i at skifte. Bor du i en landsby i områdetype 3, eller afventer dit område stadig fjernvarme, er en luft til vand-varmepumpe det oplagte alternativ til olie- og gasfyret.",
+  "contact": ("Hobro Varmeværk", "98 52 18 25 · info@hobrovarme.dk", "hv_faq"),
+  "faq": [
+    ("Hvad koster fjernvarme i Hobro?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 16.236 kr. om året inkl. moms hos Hobro Varmeværk – 430 kr. (2,6 %) mindre end i januar 2025. I Hobro Syd og Hørby er prisen 21.504 kr. de første 10 år og 17.024 kr. derefter. Mariager Fjernvarme ligger på 11.285 kr., Als på 14.747 kr., Hadsund på 16.466 kr., Assens på 17.502 kr. og Arden på 17.921 kr. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+    ("Er det gratis at blive tilsluttet Hobro Varmeværk?", "Nej. Selve unitten og tilslutningen koster 0 kr. her og nu, men du betaler via et forhøjet fast bidrag de første 10 år, og du betaler selv VVS-installatøren for at fjerne det gamle fyr og montere unitten. Efter 10 år sænkes prisen.", ["hv_faq"]),
+    ("Hvor kommer fjernvarmen i Hobro fra?", "Ifølge Dansk Fjernvarme kommer ca. 15 % af Hobro Varmeværks varme i 2026 fra overskudsvarme og resten fra flis, en elkedel på 40 MW og fire varmepumper på i alt 7,2 MW, som skulle i drift fra uge 35 i 2026.", ["df_hobro"]),
+  ],
+}
+
 # keyword-backlog 18/11 2026: 'fjernvarmeanlæg vejle' (GSC 16 visninger, pos. 52,7) -> afsnit om tilslutningspris for et fjernvarmeanlæg hos Vejle Fjernvarme
 _vf = FV_PAGE["vejle"]
 _vf["kw"] = "fjernvarme vejle / fjernvarmeanlæg vejle / tilslutning fjernvarme vejle pris / varmepumpe eller fjernvarme vejle"
@@ -2555,3 +2654,19 @@ _vf["faq"] = [
    ("Hvad koster det at få et fjernvarmeanlæg tilsluttet i Vejle?", "Vejle Fjernvarmes takster for 2026: stikledning fra skel 0-20 m til en eksisterende privatbolig 40.000 kr. inkl. moms og 1.500 kr. pr. meter over 20 m. Bagefter betaler du 618,75 kr. pr. MWh, et effektbidrag på 23,75 kr. pr. m² BBR-areal og 625 kr. pr. måler i abonnementsbidrag (alle inkl. moms). Installationen inde i huset står ikke i takstbladet.", ["vf_takst"]),
    ("Hvornår skal jeg begynde at bruge fjernvarmen, når stikket er lagt?", "Senest 6 måneder efter, at stikledningen er etableret. Ellers kan Vejle Fjernvarme opkræve effektbidrag, ifølge selskabets tilslutningsbetingelser for 2026.", ["vf_takst"]),
 ] + _vf["faq"]
+
+# keyword-backlog 20/11 2026: 'byggetilladelse silkeborg' (GSC 10 visninger, pos. 38,4) -> afsnit om byggetilladelse i Silkeborg Kommune generelt (gebyr, servicemål, tegninger, færdigmelding)
+_sr = SOL_REG["silkeborg"]
+_sr["kw"] = "byggetilladelse silkeborg / solceller silkeborg kommune / byggetilladelse solceller silkeborg"
+_sr["evidence"] = "Silkeborg Kommunes side 'Ansøg om byggetilladelse' med afsnittene om solceller, gebyr, sagsbehandlingstid, tegninger og færdigmelding (tjekket 27/10 2026, gebyr, servicemål og tegningskrav gentjekket 20/11 2026)."
+_sr["intro"] = "Byggetilladelse i Silkeborg: Silkeborg Kommune lister præcis, hvornår solceller kræver byggetilladelse, og tager 700 kr. i timen for at behandle sagen. For de fleste parcelhuse er det lokalplanen, der afgør det. Her er de fire tilfælde, gebyret, sagsbehandlingstiden, kravene til tegningerne og et eksempel fra Planklagenævnet."
+_sr["sections"] = [("Byggetilladelse i Silkeborg Kommune kort fortalt", [
+    ("ul", [("<strong>Gebyr:</strong> 700 kr. pr. time fra 1. januar 2026, opkrævet i to rater – ved byggetilladelsen og ved afslutningen af sagen. Sekundær bebyggelse som carporte, udhuse og overdækninger koster et fast gebyr på 1.210 kr.", ["sil_byg"]),
+            ("<strong>Også forespørgsler koster:</strong> kommunen tager gebyr for forespørgsler og forhåndsdialoger om byggeloven og for telefonopkald om konkrete sager.", ["sil_byg"]),
+            ("<strong>Sagsbehandlingstid:</strong> servicemålet er 40 dage for enfamiliehuse, sommerhuse, rækkehuse og simple konstruktioner, men kommunen oplyser lige nu ca. 12-14 uger på grund af ekstraordinært mange ansøgninger.", ["sil_byg"]),
+            ("<strong>Tegninger:</strong> de behøver ikke være professionelle, men skal tydeligt vise, hvad du søger om, og være målfaste, fx i 1:50 eller 1:100.", ["sil_byg"]),
+            ("<strong>Når du er færdig:</strong> byggeriet skal færdigmeldes via Byg og Miljø, og har det krævet tilladelse, skal du vente på kommunens ibrugtagningstilladelse.", ["sil_byg"])]),
+  ])] + _sr["sections"]
+_sr["faq"] = _sr["faq"] + [
+   ("Hvad koster en byggetilladelse i Silkeborg Kommune?", "700 kr. pr. time for behandlingen fra 1. januar 2026, opkrævet i to rater. For sekundær bebyggelse som carport, udhus eller overdækket terrasse ved et enfamiliehus er gebyret fast: 1.210 kr. Søger du solceller sammen med et nyt hus, tager kommunen ikke særskilt gebyr for solcellerne.", ["sil_byg"]),
+]

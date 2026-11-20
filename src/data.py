@@ -1630,7 +1630,7 @@ S.update({
 })
 CITIES["nakskov"] = {
   "name": "Nakskov", "kommune": "Lolland Kommune", "updated": ("17. november 2026", "2026-11-17"),
-  "sol_intro": "Solceller i Nakskov: Lolland Kommune skriver, at det afhænger af monteringen, om du skal have tilladelse – og at panelerne bør følge tagets hældning og tage hensyn til kviste, skorstene og husets udtryk. Nakskov har samtidig den højeste solproduktion pr. kWp af byerne på dette site. Her er reglerne, tallene og vejen til et tilbud.",
+  "sol_intro": "Solceller i Nakskov: Lolland Kommune skriver, at det afhænger af monteringen, om du skal have tilladelse – og at panelerne bør følge tagets hældning og tage hensyn til kviste, skorstene og husets udtryk. Nakskov har samtidig den næsthøjeste solproduktion pr. kWp af byerne på dette site – kun Rønne på Bornholm ligger højere. Her er reglerne, tallene og vejen til et tilbud.",
   "sol_facts": [
     ("Om du skal have <strong>tilladelse</strong>, afhænger ifølge kommunen af, hvordan anlægget monteres på taget.", ["nak_sol"]),
     ("Anlægget bør placeres med <strong>samme hældning som taget</strong> eller som en integreret del af tagbelægningen.", ["nak_sol"]),
@@ -1854,3 +1854,85 @@ CITIES["silkeborg"]["vp_facts"] = CITIES["silkeborg"]["vp_facts"] + [
 ]
 CITIES["middelfart"]["vp_title"] = "Varmepumpe Middelfart: luft til vand, tilskud, pris | Energitjekket"
 CITIES["middelfart"]["fv_title"] = "Fjernvarme eller varmepumpe i Middelfart? Pris 2026 | Energitjekket"
+
+# ---------- daglig by-rutine 20. nov. 2026: Rønne (DK2, Bornholms Regionskommune) og Hobro (DK1, Mariagerfjord Kommune) ----------
+S.update({
+ "brk_sol": ("Bornholms Regionskommune: solcelleanlæg, husstandsvindmøller, jordvarme (læst 20/11 2026)", "https://bornholm.dk/service-og-selvbetjening/by-og-bolig/byggeri-og-nedrivning/solcelleanlaeg-hustandsvindmoeller-jordvarme"),
+ "brk_gebyr": ("Bornholms Regionskommune: sagsbehandlingstider og gebyrer for byggesager (læst 20/11 2026)", "https://bornholm.dk/service-og-selvbetjening/by-og-bolig/byggeri-og-nedrivning/skal-du-bygge/sagsbehandlingstider-og-gebyrer"),
+ "rvv_priser": ("Rønne Varme A/S: varmepriser 1/1-31/12 2026 (læst 20/11 2026)", "https://rvv.dk/fjernvarme/varmepriser/"),
+ "rvv_fv": ("Rønne Varme A/S: fjernvarme – hvor varmen produceres (læst 20/11 2026)", "https://rvv.dk/fjernvarme/"),
+ "beof_tilsl": ("Bornholms Energi & Forsyning: sådan får du fjernvarme – priser for tilslutning (læst 20/11 2026)", "https://beof.dk/vores-varme/saadan-faar-du-fjernvarme/"),
+ "beof_takst": ("Bornholms Energi & Forsyning: takster og gebyrer pr. 1/7 2026 (læst 20/11 2026)", "https://beof.dk/vores-varme/priser-og-gebyrer/"),
+ "bnu_rvv": ("Bornholm.nu: RVV – høje indkøbspriser presser fjernvarmeprisen (28/1 2026)", "https://bornholm.nu/nyheder/rvv-hoeje-indkoebspriser-presser-fjernvarmeprisen/134985"),
+ "mfk_sol": ("Mariagerfjord Kommune: solcelle- og solfangeranlæg (opdateret 1/7 2026, læst 20/11 2026)", "https://www.mariagerfjord.dk/by-land-og-bolig/byggeri/solcelle-og-solfangeranlaeg"),
+ "mfk_solgr": ("Mariagerfjord Kommune: administrationsgrundlag for etablering af solcelleanlæg (PDF)", "https://www.mariagerfjord.dk/media/igihmdd2/solcelle-administrationsgrundlag-hjemmeside_final_tilg_a.pdf"),
+ "mfk_gebyr": ("Mariagerfjord Kommune: sagsbehandlingstid og gebyr for byggesager (læst 20/11 2026)", "https://www.mariagerfjord.dk/by-land-og-bolig/byggeri/sagsbehandlingstid-og-gebyr"),
+ "mfk_vplan": ("Mariagerfjord Kommune: varmeplan (opdateret 3/3 2026, læst 20/11 2026)", "https://www.mariagerfjord.dk/by-land-og-bolig/klima-og-forsyning/varmeplan"),
+ "mfk_vp22": ("Mariagerfjord Kommune: Varmeplan december 2022 (PDF)", "https://www.mariagerfjord.dk/media/anvownjr/varmeplan-december-2022-tilg-a.pdf"),
+ "mfk_status": ("Mariagerfjordposten: status på udrulning af grøn varme – orientering til Udvalget for Klima og Landdistrikter 4/12 2025", "https://mariagerfjordposten.dk/status-paa-groen-varme/"),
+ "mfk_fyr": ("Mariagerfjord Kommune: har du et gammelt gas- eller oliefyr? (læst 20/11 2026)", "https://www.mariagerfjord.dk/by-land-og-bolig/klima-og-forsyning/har-du-et-gammelt-gas-eller-oliefyr"),
+ "hv_faq": ("Hobro Varmeværk: spørgsmål og svar om tilslutning (læst 20/11 2026)", "https://www.hobrovarme.dk/fjernvarme/spoergsmaal-og-svar/"),
+ "hv_home": ("Hobro Varmeværk: forside – varmens oprindelse (læst 20/11 2026)", "https://hobrovarme.dk/"),
+ "df_hobro": ("Dansk Fjernvarme: Varmepumper får nyt liv hos Hobro Varmeværk i 2026 (9/12 2025)", "https://danskfjernvarme.dk/aktuelt/nyheder/2025/varmepumper-faar-nyt-liv-hos-hobro-varmevaerk-i-2026"),
+})
+CITIES["roenne"] = {
+  "name": "Rønne", "kommune": "Bornholms Regionskommune", "updated": ("20. november 2026", "2026-11-20"),
+  "sol_intro": "Solceller i Rønne og på resten af Bornholm: Bornholms Regionskommune vurderer, at ca. halvdelen af de bornholmske husejere skal have en tilladelse, før de må sætte solceller op – ofte på grund af lokalplaner, deklarationer eller beskyttelseslinjer. Her er reglerne, tallene og vejen til et tilbud.",
+  "sol_facts": [
+    ("Skønsmæssigt skal <strong>ca. halvdelen af de bornholmske husejere</strong> have en tilladelse, før de må sætte solceller eller solfangere op på huset, skriver kommunen.", ["brk_sol"]),
+    ("På et <strong>enfamiliehus eller sommerhus</strong> skal du ikke søge, så længe BR18's højde- og skelregler, lokalplaner, deklarationer, servitutter og beskyttelseslinjerne i naturbeskyttelsesloven er overholdt.", ["brk_sol"]),
+    ("Anlæg <strong>på terræn</strong> kræver altid byggetilladelse – det samme gælder erhvervsejendomme, etageboliger og institutioner.", ["brk_sol"]),
+    ("Byggesagsgebyret er <strong>993 kr. pr. time</strong> i 2026, og det kan opkræves, selv om du får afslag.", ["brk_gebyr"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om solceller på mit hus i Rønne?", "Ikke hvis det er et enfamiliehus eller sommerhus, og anlægget overholder BR18's regler om højde og skrå højdegrænseplan, lokalplan eller byplanvedtægt, tinglyste deklarationer og beskyttelseslinjer. Så skal du blot selv melde anlægget til BBR via kommunens skema. Strider anlægget mod en af reglerne, skal du søge dispensation via Byg og Miljø.", ["brk_sol"]),
+    ("Gælder der særlige regler for svenskehuse på Bornholm?", "Ja. Bornholms Regionskommune skriver, at alle svenskehusene er omfattet af deklarationer, som kan begrænse valget af byggematerialer. Undersøg deklarationen, før du bestiller solceller.", ["brk_sol"]),
+  ],
+  "vp_intro": "Varmepumpe i Rønne og på Bornholm: næsten ingen huse har naturgas, men næsten hvert ottende hus har stadig elvarme, og fjernvarmen hos Bornholms Varme er blandt de dyreste i landet. Her er tallene, fjernvarmepriserne og reglerne for jordvarme – så du kan se, om varmepumpen er det rigtige valg for dit hus.",
+  "vp_facts": [
+    ("Rønne forsynes af <strong>Rønne Varme</strong>, der køber varmen fra kraftvarmeværket Bornholms Elproduktion og affaldsforbrændingen BOFA. Resten af øens fjernvarmebyer forsynes af <strong>Bornholms Varme</strong> (BEOF).", ["rvv_fv", "beof_tilsl"]),
+    ("Et standardhus betaler <strong>17.526 kr. om året</strong> hos Rønne Varme og <strong>22.669 kr.</strong> hos Bornholms Varme ifølge Forsyningstilsynet (januar 2026) – mod et landsgennemsnit på 16.953 kr.", ["ft_pris"]),
+    ("Et <strong>jord- eller bjergvarmeanlæg</strong> skal anmeldes til eller have tilladelse fra kommunen. Ved en anmeldelse må du gå i gang, hvis kommunen ikke gør indsigelse inden 4 uger.", ["brk_sol"]),
+    ("Et jordvarmeanlæg skal <strong>efterses én gang om året</strong> af en sagkyndig, og rapporten skal gemmes i 10 år.", ["brk_sol"]),
+  ],
+  "vp_faq": [
+    ("Kan jeg få bjergvarme på Bornholm?", "Ja, det er muligt. Bornholms Regionskommune beskriver både jordvarme med nedgravede slanger og bjergvarme, hvor slangerne sænkes ned i en boring i klippen. Begge dele etableres efter jordvarmebekendtgørelsen og kræver anmeldelse eller tilladelse fra Center for Miljø, Plan og Kultur, før du går i gang.", ["brk_sol"]),
+    ("Hvorfor er fjernvarmen dyr i Rønne?", "Ifølge direktøren for Rønne Vand & Varme skyldes det primært høje indkøbspriser på varmen fra BEOF og BOFA, og selskabet har i flere år haft en prisstrid med BEOF (Bornholm.nu, januar 2026). Rønne Varmes pris for et standardhus var uændret fra januar 2025 til januar 2026.", ["bnu_rvv", "ft_pris"]),
+  ],
+}
+CITIES["hobro"] = {
+  "name": "Hobro", "kommune": "Mariagerfjord Kommune", "updated": ("20. november 2026", "2026-11-20"),
+  "sol_intro": "Solceller i Hobro: i Mariagerfjord Kommune kræver et solcelleanlæg, der følger tagets hældning, som udgangspunkt ikke byggetilladelse – men en lokalplan, en servitut eller en beskyttelseslinje ved fjorden, en å eller en kirke kan ændre det. Her er reglerne, tallene og vejen til et tilbud.",
+  "sol_facts": [
+    ("Et anlæg på taget, der <strong>følger tagets hældning</strong>, kræver som udgangspunkt ikke byggetilladelse i Mariagerfjord Kommune – men det skal registreres i BBR.", ["mfk_sol"]),
+    ("Ligger huset inden for <strong>strand-, sø- eller å-beskyttelseslinjen</strong>, kirkebyggelinjen (bygninger over 8,5 m), fortidsmindebeskyttelseslinjen, et Natura 2000-område eller visse fredninger, kan du skulle søge dispensation.", ["mfk_sol"]),
+    ("Anlæg <strong>på terræn</strong> kræver altid byggetilladelse, og i landzone kan der også kræves landzonetilladelse.", ["mfk_sol"]),
+    ("Byggesager koster <strong>768 kr. pr. time</strong> i 2026, og den aktuelle ventetid er ca. 8 uger.", ["mfk_gebyr"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om solceller på taget i Hobro?", "Normalt ikke, hvis anlægget følger tagets hældning og ikke går ud over tagets afgrænsning. Tjek dog lokalplan, servitutter og beskyttelseslinjer. Er du i tvivl, kan du skrive til Byggesagsteamet på byg@mariagerfjord.dk. Husk at registrere anlægget i BBR.", ["mfk_sol", "mfk_solgr"]),
+    ("Kræver solceller på et fladt tag byggetilladelse i Mariagerfjord?", "Ja. Ifølge kommunens administrationsgrundlag kræver anlæg, der ikke følger tagets hældning eller afgrænsning – fx på stativ på et fladt tag – byggetilladelse, og kommunen lægger vægt på, at naboerne ikke får væsentlige visuelle gener eller skyggegener.", ["mfk_solgr"]),
+  ],
+  "vp_intro": "Varmepumpe i Hobro og Mariagerfjord: lidt over halvdelen af husene har fjernvarme, men ca. 2.200 boliger med olie eller gas ligger uden for fjernvarmeområderne og kan ikke få fjernvarme, oplyser kommunen. Her er tallene, planerne og priserne – så du kan se, om varmepumpen er det rigtige valg for dit hus.",
+  "vp_facts": [
+    ("I starten af 2025 blev <strong>ca. 2.850 boliger</strong> i Mariagerfjord Kommune opvarmet med olie eller gas (sommerhuse fraregnet). <strong>Ca. 2.200</strong> af dem ligger uden for fjernvarmeområdet.", ["mfk_status"]),
+    ("Varmeplanen deler kommunen i tre områdetyper. I <strong>områdetype 3</strong> forventes der ikke at komme fjernvarme, så her skal husejerne se på individuelle løsninger som varmepumper eller lokale fællesløsninger.", ["mfk_vp22"]),
+    ("Varmeplanen er <strong>ikke retsgyldig</strong> og giver ingen tilslutningspligt – udvidelserne afhænger af, at nok husejere tilslutter sig.", ["mfk_vplan"]),
+    ("Fjernvarmen til <strong>Hørby Kirkeby og Valsgaard</strong> (ca. 500 boliger) afventer, fordi etableringsprisen er høj og gasprisen forholdsvis lav, og projektet til Falslev og Norup er standset.", ["mfk_status"]),
+  ],
+  "vp_faq": [
+    ("Kommer der fjernvarme til mit hus i Hobro?", "Det afhænger af adressen. Hobro Syd er konverteret, og projektforslaget for Bærkvarteret (Hobro Vest) blev godkendt i juni 2025, mens Hørby Kirkeby og Valsgaard afventer. Se kortet i Mariagerfjord Kommunes varmeplan, eller spørg Hobro Varmeværk. Ligger du i områdetype 3, kommer der ikke fjernvarme foreløbig.", ["mfk_status", "mfk_vplan", "df_hobro"]),
+    ("Hvor kan jeg få gratis råd om at skifte oliefyr i Mariagerfjord?", "Mariagerfjord Kommune henviser til Energistyrelsens SparEnergi, der har gratis privat energirådgivning, information om tilskud og om de forskellige typer varmepumper. Kommunen kan ikke selv give individuel sparring.", ["mfk_fyr"]),
+  ],
+}
+CONTACTS["roenne"] = {"sol": [("Bornholms Regionskommune", "56 92 00 00 · post@brk.dk", "brk_sol")],
+                      "vp":  [("Rønne Varme A/S (RVV)", "56 91 04 04 · rvv@rvv.dk", "rvv_priser")]}
+CONTACTS["hobro"] = {"sol": [("Mariagerfjord Kommune, Byg", "97 11 41 60 · byg@mariagerfjord.dk", "mfk_sol")],
+                     "vp":  [("Hobro Varmeværk", "98 52 18 25 · info@hobrovarme.dk", "hv_faq")]}
+CITIES["roenne"]["vp_title"] = "Varmepumpe Rønne & Bornholm: elvarme og pris | Energitjekket"
+CITIES["roenne"]["reg_title"] = "Solceller Bornholm: regler og byggetilladelse | Energitjekket"
+CITIES["hobro"]["reg_title"] = "Solceller Mariagerfjord: regler og tilladelse | Energitjekket"
+CITIES["roenne"]["fv_title"] = "Fjernvarme eller varmepumpe i Rønne? Priser 2026 | Energitjekket"
+
+# keyword-backlog 20/11 2026: 'byggetilladelse silkeborg' -> titel på /solceller/silkeborg/regler-og-byggetilladelse/
+CITIES["silkeborg"]["reg_title"] = "Byggetilladelse Silkeborg: solceller, gebyr, regler | Energitjekket"
