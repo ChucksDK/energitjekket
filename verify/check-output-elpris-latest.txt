@@ -1,7 +1,7 @@
 Sider: 227 | interne links tjekket: 147973 (229 unikke URL) | brudte: 0
 JSON-LD blokke OK: 227 | fejl: 0 []
 Schema-typer: {'Organization': 227, 'WebPage': 225, 'WebSite': 227, 'BreadcrumbList': 226, 'FAQPage': 221, 'CollectionPage': 2, 'Service': 202, 'WebApplication': 1, 'Dataset': 1}
-Eksterne kildelinks (unikke): 586
+Eksterne kildelinks (unikke): 587
 On-page issues: [('/404.html', 'description 18 tegn'), ('/tak/', 'description 32 tegn')]
 Interlink-krav opfyldt (100 bysider, 102 lokale undersider, 16 guides, 2 hubs)
 og:image+twitter+dato på alle sider: ja | billedstørrelser: {(1200, 630)} | byer uden diagrammer: ingen
