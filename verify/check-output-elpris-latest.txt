@@ -20,7 +20,7 @@ Lighed, GAMMEL metode (hele siden minus header/footer/form/links)
     /solceller/hobro/: gns 44%, maks 53% (/solceller/aabenraa/) | 1306 ord
     /solceller/roenne/regler-og-byggetilladelse/: gns 35%, maks 45% (/solceller/toender/regler-og-byggetilladelse/) | 671 ord
     /solceller/hobro/regler-og-byggetilladelse/: gns 36%, maks 49% (/solceller/toender/regler-og-byggetilladelse/) | 684 ord
-    /varmepumpe/roenne/: gns 41%, maks 52% (/varmepumpe/toender/) | 1321 ord
+    /varmepumpe/roenne/: gns 40%, maks 52% (/varmepumpe/nakskov/) | 1321 ord
     /varmepumpe/hobro/: gns 41%, maks 48% (/varmepumpe/faaborg/) | 1360 ord
     /varmepumpe/roenne/fjernvarme-eller-varmepumpe/: gns 35%, maks 45% (/varmepumpe/holstebro/fjernvarme-eller-varmepumpe/) | 933 ord
     /varmepumpe/hobro/fjernvarme-eller-varmepumpe/: gns 38%, maks 45% (/varmepumpe/koege/fjernvarme-eller-varmepumpe/) | 1080 ord
