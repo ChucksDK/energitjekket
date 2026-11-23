@@ -54,6 +54,8 @@
   <url><loc>https://energitjekket.dk/solceller/toender/</loc><lastmod>2026-11-19</lastmod></url>
   <url><loc>https://energitjekket.dk/solceller/roenne/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://energitjekket.dk/solceller/hobro/</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://energitjekket.dk/solceller/ebeltoft/</loc><lastmod>2026-11-23</lastmod></url>
+  <url><loc>https://energitjekket.dk/solceller/thisted/</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/kolding/</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/vejle/</loc><lastmod>2026-11-18</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/esbjerg/</loc><lastmod>2026-10-25</lastmod></url>
@@ -103,6 +105,8 @@
   <url><loc>https://energitjekket.dk/varmepumpe/toender/</loc><lastmod>2026-11-19</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/roenne/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/hobro/</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://energitjekket.dk/varmepumpe/ebeltoft/</loc><lastmod>2026-11-23</lastmod></url>
+  <url><loc>https://energitjekket.dk/varmepumpe/thisted/</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://energitjekket.dk/solceller/kolding/regler-og-byggetilladelse/</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://energitjekket.dk/solceller/vejle/regler-og-byggetilladelse/</loc><lastmod>2026-11-18</lastmod></url>
   <url><loc>https://energitjekket.dk/solceller/esbjerg/regler-og-byggetilladelse/</loc><lastmod>2026-10-25</lastmod></url>
@@ -154,6 +158,8 @@
   <url><loc>https://energitjekket.dk/solceller/toender/regler-og-byggetilladelse/</loc><lastmod>2026-11-19</lastmod></url>
   <url><loc>https://energitjekket.dk/solceller/roenne/regler-og-byggetilladelse/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://energitjekket.dk/solceller/hobro/regler-og-byggetilladelse/</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://energitjekket.dk/solceller/ebeltoft/regler-og-byggetilladelse/</loc><lastmod>2026-11-23</lastmod></url>
+  <url><loc>https://energitjekket.dk/solceller/thisted/regler-og-byggetilladelse/</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/kolding/fjernvarme-eller-varmepumpe/</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/vejle/fjernvarme-eller-varmepumpe/</loc><lastmod>2026-11-18</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/esbjerg/fjernvarme-eller-varmepumpe/</loc><lastmod>2026-10-25</lastmod></url>
@@ -205,6 +211,8 @@
   <url><loc>https://energitjekket.dk/varmepumpe/toender/fjernvarme-eller-varmepumpe/</loc><lastmod>2026-11-19</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/roenne/fjernvarme-eller-varmepumpe/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/hobro/fjernvarme-eller-varmepumpe/</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://energitjekket.dk/varmepumpe/ebeltoft/fjernvarme-eller-varmepumpe/</loc><lastmod>2026-11-23</lastmod></url>
+  <url><loc>https://energitjekket.dk/varmepumpe/thisted/fjernvarme-eller-varmepumpe/</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://energitjekket.dk/solceller/pris/</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://energitjekket.dk/solceller/med-batteri/</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/pris/</loc><lastmod>2026-11-19</lastmod></url>
@@ -222,7 +230,7 @@
   <url><loc>https://energitjekket.dk/ladeboks/</loc><lastmod>2026-10-31</lastmod></url>
   <url><loc>https://energitjekket.dk/varmepumpe/traepiller-til-kwh/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://energitjekket.dk/beregner/</loc><lastmod>2026-10-25</lastmod></url>
-  <url><loc>https://energitjekket.dk/elpris/</loc><lastmod>2026-11-22</lastmod></url>
+  <url><loc>https://energitjekket.dk/elpris/</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://energitjekket.dk/om-os/</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://energitjekket.dk/privatlivspolitik/</loc><lastmod>2026-10-25</lastmod></url>
 </urlset>

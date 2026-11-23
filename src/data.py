@@ -1936,3 +1936,88 @@ CITIES["roenne"]["fv_title"] = "Fjernvarme eller varmepumpe i Rønne? Priser 202
 
 # keyword-backlog 20/11 2026: 'byggetilladelse silkeborg' -> titel på /solceller/silkeborg/regler-og-byggetilladelse/
 CITIES["silkeborg"]["reg_title"] = "Byggetilladelse Silkeborg: solceller, gebyr, regler | Energitjekket"
+
+# ---------- daglig by-rutine 23. nov. 2026: Ebeltoft (DK1, Syddjurs Kommune) og Thisted (DK1, Thisted Kommune) ----------
+S.update({
+ "syd_sol": ("Syddjurs Kommune: solceller og solvarme (læst 23/11 2026)", "https://www.syddjurs.dk/borger/bolig-byggeri-og-flytning/byggeri/naar-du-vil-bygge/solceller-og-solvarme"),
+ "syd_gebyr": ("Syddjurs Kommune: sagsbehandling og gebyr på byggesager (opdateret 8/7 2026, læst 23/11 2026)", "https://www.syddjurs.dk/borger/bolig-byggeri-og-flytning/byggeri/naar-du-vil-bygge/sagsbehandling-og-gebyr-paa-byggesager"),
+ "syd_fv": ("Syddjurs Kommune: fjernvarme og tilslutningspligt (læst 23/11 2026)", "https://www.syddjurs.dk/borger/bolig-byggeri-og-flytning/bolig/opvarmning-af-bolig/fjernvarme"),
+ "syd_energi": ("Syddjurs Kommune: Syddjurs sætter retning for fremtidens energianlæg (byrådsmødet 24/6 2026)", "https://www.syddjurs.dk/nyheder/pressemeddelelser/syddjurs-saetter-retning-for-fremtidens-energianlaeg"),
+ "ef_priser": ("Ebeltoft Fjernvarme: priser 2026 inkl. moms (læst 23/11 2026)", "https://www.ebeltoftfjernvarme.dk/oekonomi/priser/"),
+ "ef_2026": ("Ebeltoft Fjernvarme: prisstigning i 2026 (25/11 2025)", "https://www.ebeltoftfjernvarme.dk/nyheder/prisstigning-i-2026/"),
+ "ef_2025": ("Ebeltoft Fjernvarme: eget elværk i 2025 (18/12 2024)", "https://www.ebeltoftfjernvarme.dk/nyheder/eget-elvaerk-i-2025/"),
+ "thi_sol": ("Thisted Kommune: vejledning om solcelleanlæg, version 2.0 (3/9 2025, PDF)", "https://cdn2.gopublic.dk/thistedkommune/Media/638962055650214021/Vejledning_Solceller.pdf"),
+ "thi_byg": ("Thisted Kommune: byggeri og nedrivning – byggesagsgebyr 2026 (læst 23/11 2026)", "https://www.thisted.dk/service-and-selvbetjening/bolig-byggeri-and-flytning/byggeri-og-nedrivning"),
+ "thi_varme": ("Thisted Kommune: miljøvenlig varmeforsyning – fjernvarme, jordvarme og varmepumper (læst 23/11 2026)", "https://www.thisted.dk/service-and-selvbetjening/bolig-byggeri-and-flytning/min-bolig/miljoevenlig-varmeforsyning"),
+ "tvf_2026": ("Thisted Varmeforsyning: varsling af prisstigning 2026 (læst 23/11 2026)", "https://thisted-varmeforsyning.dk/nyheder/varsling-af-prisstigning-2026"),
+ "tvf_prod": ("Thisted Varmeforsyning: produktion – anlæg og adresser (læst 23/11 2026)", "https://www.thisted-varmeforsyning.dk/profil/produktion/"),
+ "kun_snedsted": ("KunThy: Fjernvarme-planer i Midtthy stilles i bero (13/10 2026)", "https://kunmedierne.dk/thy/fjernvarme-planer-i-midtthy-stilles-i-bero-varmepumperne-har-holdt-deres-indtog/"),
+ "dbt_vest": ("Dagbladet Thisted: Varmepumper og ny tank ved Vestervig Fjernvarme (20/11 2026)", "https://dagbladetthisted.dk/article/varmepumper-og-ny-tank-ved-vestervig-fjernvarme---okonomiudvalget-anbefaler-kommunalbestyrelsen-har-sidste-ord-62959"),
+})
+CITIES["ebeltoft"] = {
+  "name": "Ebeltoft", "kommune": "Syddjurs Kommune", "updated": ("23. november 2026", "2026-11-23"),
+  "sol_intro": "Solceller i Ebeltoft og resten af Syddjurs: på et parcelhus, rækkehus eller sommerhus kræver solceller som udgangspunkt hverken byggetilladelse eller anmeldelse – men anlægget tæller med i bygningshøjden, og lokalplaner og deklarationer kan sætte grænser. Her er reglerne, tallene og vejen til et tilbud.",
+  "sol_facts": [
+    ("Solceller på <strong>enfamilie-, tofamilie-, række- og sommerhuse</strong> og deres småbygninger kan sættes op uden byggetilladelse eller anmeldelse efter byggeloven, skriver Syddjurs Kommune.", ["syd_sol"]),
+    ("Anlægget skal <strong>medregnes i bygningshøjden</strong>, som stadig skal være overholdt, hvis du vil undgå en byggetilladelse.", ["syd_sol"]),
+    ("Ved anlæg <strong>på terræn</strong> afgør kommunen, om der kræves tilladelse – du skal derfor altid sende projektmateriale ind.", ["syd_sol"]),
+    ("Byggesagsgebyret er <strong>731 kr. pr. time</strong> i 2026, og ved afslag opkræves samme gebyr – dog højst 10.000 kr.", ["syd_gebyr"]),
+  ],
+  "sol_faq": [
+    ("Skal jeg søge om solceller på mit hus i Ebeltoft?", "Normalt ikke, hvis det er et enfamilie-, tofamilie-, række- eller sommerhus, og anlægget holder sig inden for bygningshøjden. Men lokalplaner, byplanvedtægter og tinglyste deklarationer kan regulere eller ligefrem forbyde solceller, så tjek dem først. Nederst på kommunens side kan du se, om din ejendom er omfattet af en lokalplan.", ["syd_sol"]),
+    ("Hvad skal jeg sende til Syddjurs Kommune ved solceller på terræn?", "En målfast situationsplan med terrænkoter, panelernes mål og placering og afstanden til vej-, sti- og naboskel og eksisterende bygninger. Er du ikke selv ejer, skal der også være en fuldmagt fra ejeren. Kommunen afgør derefter, om anlægget kræver byggetilladelse.", ["syd_sol"]),
+  ],
+  "vp_intro": "Varmepumpe i Ebeltoft og Syddjurs: ingen huse i kommunen har naturgas, men hvert niende har stadig elvarme – og næsten hvert femte har allerede en varmepumpe. Her er tallene, fjernvarmepriserne og planerne – så du kan se, om varmepumpen er det rigtige valg for dit hus.",
+  "vp_facts": [
+    ("Hos Ebeltoft Fjernvarme kan et hus <strong>uden vandbåret anlæg</strong> (fx med elpaneler) tilsluttes for et samlet tilslutningsbidrag på <strong>12.500 kr.</strong> inkl. 10 m stikledning.", ["ef_priser"]),
+    ("Ebeltoft Fjernvarme hævede det faste bidrag fra 19,94 til <strong>24,75 kr. pr. m²</strong> i 2026 – ca. 67 kr. mere om måneden for et standardhus på 125 m².", ["ef_2026"]),
+    ("Byrådet besluttede 24. juni 2026 at prioritere en <strong>udvidelse af Rønde Fjernvarmeværk</strong> som det første projekt i den videre energiplanlægning.", ["syd_energi"]),
+    ("Tilslutningspligt til fjernvarme gælder kun, hvor kommunen pålagde den <strong>før 1. januar 2019</strong> – nye pligter kan ikke længere pålægges.", ["syd_fv"]),
+  ],
+  "vp_faq": [
+    ("Kan jeg få fjernvarme i Ebeltoft, hvis jeg har elvarme?", "Ebeltoft Fjernvarme har en særlig tilslutningspris for ejendomme uden vandbåret anlæg: 12.500 kr. i samlet tilslutningsbidrag inkl. 10 m stikledning. Længere stik faktureres ekstra. Prislisten dækker tilslutningen – ikke installationen inde i huset.", ["ef_priser"]),
+    ("Har jeg pligt til at tilslutte mig fjernvarme i Syddjurs?", "Kun hvis kommunen pålagde din ejendom tilslutningspligt før 1. januar 2019. Folkepensionister, der har ejet og boet i huset siden beslutningen, kan søge dispensation, og nye lavenergihuse kan søge fritagelse for både tilslutnings- og forblivelsespligt.", ["syd_fv"]),
+  ],
+}
+CITIES["thisted"] = {
+  "name": "Thisted", "kommune": "Thisted Kommune", "updated": ("23. november 2026", "2026-11-23"),
+  "sol_intro": "Solceller i Thisted og Thy: Thisted Kommune kræver som udgangspunkt ikke byggetilladelse til solceller på et parcelhus, rækkehus eller sommerhus – men kun hvis panelerne ligger helt plant med tagfladen. Over halvdelen af husene har fibercementtag. Her er reglerne, tallene og vejen til et tilbud.",
+  "sol_facts": [
+    ("Solceller på <strong>enfamiliehuse, dobbelthuse, rækkehuse og sommerhuse</strong> og deres garager, carporte og udhuse kræver som udgangspunkt ikke byggetilladelse i Thisted Kommune.", ["thi_sol"]),
+    ("Det forudsætter, at anlægget ligger <strong>helt plant med tagfladen</strong>, overholder skelafstanden og ikke strider mod lokalplan, deklarationer eller andre tinglysninger – fx et krav om rød tegl.", ["thi_sol"]),
+    ("Anlæg <strong>på terræn</strong> kræver altid byggetilladelse, og i landzone også landzonetilladelse.", ["thi_sol"]),
+    ("Byggesagsgebyret er <strong>699 kr. pr. time</strong> i 2026 (677 kr. i 2025).", ["thi_byg"]),
+  ],
+  "sol_faq": [
+    ("Må jeg vinkle solcellerne op på taget i Thisted?", "Så kræver det som regel en byggetilladelse. Kommunens vejledning gør det til en betingelse for undtagelsen, at anlægget ligger helt plant med den eksisterende tagflade – vinkles panelerne ud fra taget, ændrer det bygningens højde.", ["thi_sol"]),
+    ("Skal jeg have landzonetilladelse til solceller i Thy?", "Ikke til solceller på selve boligen. Et anlæg på terræn i landzone kræver både byggetilladelse og landzonetilladelse. Kommunen giver normalt landzonetilladelse til anlæg til privat brug, hvis det ikke virker skæmmende eller reflekterende i landskabet og ikke er til gene for naboerne.", ["thi_sol"]),
+  ],
+  "vp_intro": "Varmepumpe i Thisted og Thy: seks ud af ti huse har fjernvarme, men 1.477 huse har stadig oliefyr, og fjernvarmeplanerne for fem landsbyer i Midtthy er trukket tilbage, fordi mange har valgt varmepumpe. Her er tallene, priserne og planerne – så du kan se, om varmepumpen er det rigtige valg for dit hus.",
+  "vp_facts": [
+    ("Thisted Varmeforsyning hævede forbrugsprisen fra 570 til <strong>656,25 kr. pr. MWh</strong> 1. januar 2026 på grund af højere brændsels- og CO₂-omkostninger. Abonnement og effektbidrag er uændrede.", ["tvf_2026"]),
+    ("Et standardhus betaler <strong>15.228 kr. om året</strong> hos Thisted Varmeforsyning – <strong>3.278 kr. (27,4 %) mere</strong> end i januar 2025 ifølge Forsyningstilsynet.", ["ft_pris"]),
+    ("Fjernvarmeprojektet for <strong>Vilsund, Sundby, Koldby, Hørdum og Hundborg</strong> fra værket i Snedsted er trukket tilbage på grund af for lille interesse – mange har i stedet installeret varmepumper.", ["kun_snedsted"]),
+    ("Et <strong>jordvarmeanlæg</strong> skal anmeldes eller søges hos Thisted Kommune, før det etableres, og færdigmeldes senest 14 dage efter tæthedsprøvningen.", ["thi_varme"]),
+  ],
+  "vp_faq": [
+    ("Kræver en luft til vand-varmepumpe tilladelse i Thisted Kommune?", "Nej. Kommunen skriver, at en luftvarmepumpe ikke kræver tilladelse, men den skal overholde Miljøstyrelsens vejledende støjgrænser ved skel. Energistyrelsens støjberegner kan hjælpe dig med at finde den bedste placering, før du køber.", ["thi_varme"]),
+    ("Hvad sker der med fjernvarmen i Vestervig?", "Økonomiudvalget anbefaler, at der sættes en lokalplan i gang, så Vestervig Fjernvarme kan få varmepumper, energioptagere og en ekstra akkumuleringstank på nabogrunden. Kommunalbestyrelsen træffer den endelige beslutning 24. november 2026.", ["dbt_vest"]),
+  ],
+}
+CONTACTS["ebeltoft"] = {"sol": [("Syddjurs Kommune, Byggeri", "87 53 50 00", "syd_sol")],
+                        "vp":  [("Ebeltoft Fjernvarme", "86 34 26 55 · mail@ebeltoftfjernvarme.dk", "ef_priser")]}
+CONTACTS["thisted"] = {"sol": [("Thisted Kommune, Team Byg", "99 17 21 44 · byggesag@thisted.dk", "thi_byg")],
+                       "vp":  [("Thisted Varmeforsyning", "97 92 66 66 · post@t-vf.dk", "tvf_2026")]}
+
+# keyword-backlog 23/11 2026: 'jordvarme holbæk' (GSC 9 visninger, pos. 73,3) -> jordvarme-regler på /varmepumpe/holbaek/
+S.update({"hol_jord": ("Holbæk Kommune: jordvarmeanlæg (læst 23/11 2026)", "https://holbaek.dk/service-og-selvbetjening/bolig-og-byggeri/byggeri/jordvarmeanlaeg"),
+          "hol_udenfor": ("Holbæk Kommune: opvarmning uden for fjernvarmeområder (læst 23/11 2026)", "https://holbaek.dk/service-og-selvbetjening/teknik-og-miljoe/klima-og-energi-/opvarmning-/opvarmning-udenfor-fjernvarmeomraader")})
+CITIES["holbaek"]["vp_title"] = "Varmepumpe Holbæk: luft til vand, jordvarme, tilskud | Energitjekket"
+CITIES["holbaek"]["vp_intro"] = CITIES["holbaek"]["vp_intro"].replace("Her er status, priserne og tilskudsreglerne.", "Her er status, priserne, tilskudsreglerne og reglerne for jordvarme i Holbæk Kommune.")
+CITIES["holbaek"]["vp_facts"] = CITIES["holbaek"]["vp_facts"] + [
+    ("<strong>Jordvarme i Holbæk:</strong> meget store dele af Holbæk Kommune er udpeget som område med særlige drikkevandsinteresser eller indvindingsopland, så de fleste skal <strong>søge om tilladelse</strong> via Byg og Miljø. Uden for de områder kan et vandret anlæg anmeldes mindst 4 uger før etableringen.", ["hol_jord"]),
+    ("Kommunen kalder jordvarme en <strong>oplagt erstatning for oliefyr</strong> i et helårshus, men skriver også, at det kræver plads og koster en del at anlægge jordslangerne.", ["hol_udenfor"]),
+]
+# keyword-backlog 23/11 2026: 'fjernvarme haderslev' -> kilde til Haderslev Fjernvarmes priser 2026/2027 (FV-siden, data_sub.py)
+S.update({"hfv_priser": ("Haderslev Fjernvarme: priser pr. 1/1 2026 og 1/1 2027 (læst 23/11 2026)", "https://www.haderslev-fjernvarme.dk/oekonomi/priser/")})
+CITIES["haderslev"]["fv_title"] = "Fjernvarme Haderslev: priser 2026-2027 og udvidelse | Energitjekket"

@@ -2670,3 +2670,114 @@ _sr["sections"] = [("Byggetilladelse i Silkeborg Kommune kort fortalt", [
 _sr["faq"] = _sr["faq"] + [
    ("Hvad koster en byggetilladelse i Silkeborg Kommune?", "700 kr. pr. time for behandlingen fra 1. januar 2026, opkrævet i to rater. For sekundær bebyggelse som carport, udhus eller overdækket terrasse ved et enfamiliehus er gebyret fast: 1.210 kr. Søger du solceller sammen med et nyt hus, tager kommunen ikke særskilt gebyr for solcellerne.", ["sil_byg"]),
 ]
+
+# ---------- daglig by-rutine 23. nov. 2026: Ebeltoft og Thisted ----------
+FV_PRICES["ebeltoft"] = [("Ebeltoft Fjernvarmeværk", "8400", "14.566", "553"), ("Rønde Fjernvarmeværk", "8410", "17.072", "662"),
+                         ("Thorsager Fjernvarmeværk", "8410", "17.808", "650"), ("Ryomgård Fjernvarmeværk", "8550", "18.619", "720"),
+                         ("Mørke Fjernvarmeselskab", "8544", "19.370", "825"), ("Kolind Fjernvarmeværk", "8560", "19.679", "715"),
+                         ("Hornslet Fjernvarmeselskab", "8543", "20.287", "937"), ("Nimtofte – NOFF takstområde 1", "8550", "22.904", "715")]
+FV_PRICES["thisted"] = [("Hanstholm Varmeværk", "7730", "13.270", "450"), ("Ræhr Fjernvarme", "7730", "13.925", "500"),
+                        ("Vestervig Fjernvarme", "7770", "15.129", "405"), ("Thisted Varmeforsyning", "7700", "15.228", "656"),
+                        ("Frøstrup Fjernvarmeværk", "7741", "15.864", "473"), ("Hurup Fjernvarme", "7760", "16.950", "556"),
+                        ("Snedsted Varmeværk", "7752", "19.706", "601"), ("Bedsted Fjernvarme", "7755", "19.840", "837"),
+                        ("Vorupør Kraftvarmeværk", "7700", "20.665", "700"), ("Vesløs Fjernvarme", "7742", "20.872", "725")]
+SOL_REG["ebeltoft"] = {
+  "kw": "solceller ebeltoft / solceller syddjurs kommune tilladelse / solceller byggetilladelse syddjurs",
+  "evidence": "Syddjurs Kommunes sider 'Solceller og solvarme' og 'Sagsbehandling og gebyr på byggesager' (opdateret 8/7 2026) samt Takstblad 2026 (tjekket 23/11 2026).",
+  "intro": "I Syddjurs Kommune afhænger kravet om tilladelse af, hvor solcellerne sidder, og hvilken bygning de sidder på. På et parcelhus, rækkehus eller sommerhus er de som udgangspunkt fri – på alle andre bygninger kræver de altid byggetilladelse. Her er reglerne, og hvad kommunen selv skriver.",
+  "sections": [
+    ("Hvornår skal du ikke søge?", [
+      ("ul", [("Solceller og solfangere på <strong>enfamilie-, tofamilie-, række- og sommerhuse</strong> og småbygninger til dem kan udføres uden byggetilladelse eller anmeldelse efter byggeloven.", ["syd_sol"]),
+              ("Anlægget skal dog <strong>medregnes i bygningshøjden</strong>, og højden skal stadig være overholdt.", ["syd_sol"]),
+              ("Lokalplaner, byplanvedtægter og tinglyste deklarationer kan <strong>regulere eller forbyde</strong> solceller – tjek dem, før du bestiller.", ["syd_sol"])]),
+    ]),
+    ("Hvornår skal du søge?", [
+      ("ul", [("Solceller på <strong>alle andre typer bygninger</strong> – fx erhverv og etageboliger – kræver altid byggetilladelse på forhånd.", ["syd_sol"]),
+              ("Ved anlæg <strong>på terræn</strong> afgør kommunen, om konstruktionen er væsentlig i forhold til omgivelserne. Du skal derfor altid sende projektmateriale ind.", ["syd_sol"]),
+              ("I <strong>landzone</strong> gælder der særlige regler for bebyggelse.", ["syd_sol"])]),
+    ]),
+    ("Kommunens anbefalinger", [
+      ("ul", [("Panelerne bør have <strong>samme hældning som taget</strong> eller være integreret i tagbelægningen og placeres harmonisk i forhold til kviste, tagvinduer og skorstene.", ["syd_sol"]),
+              ("Kommunen henstiller til <strong>antirefleksbelægning</strong>, så naboer og trafikanter ikke generes af genskin.", ["syd_sol"]),
+              ("Få en rådgiver til at vurdere, om <strong>tagkonstruktionen kan bære</strong> den ekstra vægt.", ["syd_sol"])]),
+    ]),
+    ("Gebyr og sagsbehandlingstid", [
+      ("p", "Kræver dit anlæg byggetilladelse, koster sagsbehandlingen 731 kr. pr. time i 2026 (707 kr. i 2025), opkrævet i to rater: ved afgørelsen og når sagen afsluttes. Får du afslag, betaler du samme gebyr som for en tilladelse, dog højst 10.000 kr. Kommunen forventer at overholde KL's servicemål på 40 dage for enfamiliehuse, sommerhuse og sekundær bebyggelse.", ["syd_gebyr"]),
+    ]),
+  ],
+  "faq": [
+    ("Kræver solceller byggetilladelse i Syddjurs Kommune?", "Ikke på enfamilie-, tofamilie-, række- og sommerhuse, så længe bygningshøjden inkl. anlægget er overholdt, og lokalplan og deklarationer ikke siger andet. På alle andre bygninger kræves altid byggetilladelse, og ved anlæg på terræn afgør kommunen det konkret.", ["syd_sol"]),
+    ("Hvad koster en byggetilladelse i Syddjurs Kommune?", "731 kr. pr. time i 2026. Ved afslag opkræves samme gebyr som ved en tilladelse, dog højst 10.000 kr.", ["syd_gebyr"]),
+    ("Hvor lang tid tager en byggesag i Syddjurs?", "Kommunen forventer at behandle byggesager inden for KL's servicemål: 40 dage for enfamiliehuse, sommerhuse og sekundær bebyggelse. Sager om lovliggørelse tager længere tid.", ["syd_gebyr"]),
+  ],
+}
+SOL_REG["thisted"] = {
+  "kw": "solceller thisted / solceller thisted kommune tilladelse / solceller byggetilladelse thy",
+  "evidence": "Thisted Kommunes vejledning om solcelleanlæg (version 2.0, 3/9 2025) og siden 'Byggeri og nedrivning' med byggesagsgebyr 2026 (tjekket 23/11 2026).",
+  "intro": "Thisted Kommune har en egen vejledning om solcelleanlæg. Hovedreglen er enkel: ligger panelerne helt plant med taget på et parcelhus, rækkehus eller sommerhus, skal du som udgangspunkt ikke søge. Vinkles de op, står de på terræn, eller er huset fredet eller bevaringsværdigt, ser det anderledes ud. Her er reglerne, og hvad kommunen selv skriver.",
+  "sections": [
+    ("Hvornår skal du ikke søge?", [
+      ("ul", [("Solceller på <strong>enfamiliehuse, dobbelthuse, rækkehuse og sommerhuse</strong> samt garager, carporte og udhuse kræver som udgangspunkt ikke byggetilladelse.", ["thi_sol"]),
+              ("Anlægget skal ligge <strong>helt plant med den eksisterende tagflade</strong> og overholde BR18's afstand til skel.", ["thi_sol"]),
+              ("Det må ikke stride mod <strong>lokalplan, deklarationer eller andre tinglysninger</strong> – fx et krav om, at taget skal fremstå med rød tegl – og må ikke være til væsentlig gene, fx med genskin.", ["thi_sol"])]),
+    ]),
+    ("Hvornår skal du søge?", [
+      ("ul", [("Anlæg <strong>på terræn</strong> kræver altid byggetilladelse, og i landzone også landzonetilladelse.", ["thi_sol"]),
+              ("Solceller på en <strong>fredet eller bevaringsværdig bygning</strong> er ikke omfattet af undtagelsen.", ["thi_sol"]),
+              ("På <strong>erhvervs- og landbrugsbygninger</strong> kræver anlægget byggetilladelse, hvis det øger lasten på bygningen med mere end 5 %, eller hvis det ændrer de brandmæssige forhold.", ["thi_sol"])]),
+    ]),
+    ("Gebyr", [
+      ("p", "Kræver dit anlæg byggetilladelse, søges den digitalt via Byg og Miljø. Thisted Kommune opkræver 699 kr. pr. time i 2026 (677 kr. i 2025) for at behandle byggesagen, og der opkræves også gebyr for en forhåndsdialog.", ["thi_byg"]),
+    ]),
+  ],
+  "faq": [
+    ("Kræver solceller byggetilladelse i Thisted Kommune?", "Ikke på et enfamiliehus, dobbelthus, rækkehus eller sommerhus, hvis panelerne ligger helt plant med tagfladen, skelafstanden er overholdt, og lokalplan og tinglysninger ikke siger andet. Anlæg på terræn kræver altid byggetilladelse.", ["thi_sol"]),
+    ("Hvad koster en byggetilladelse i Thisted Kommune?", "699 kr. pr. time i 2026. Gebyret beregnes efter den tid, kommunen bruger på sagen.", ["thi_byg"]),
+    ("Hvem kan svare på, om mit anlæg kræver tilladelse i Thisted?", "Team Byg i Thisted Kommune på byggesag@thisted.dk. Vil du have en forhåndsdialog, skal du sende beskrivelse og tegninger med – og være opmærksom på, at kommunen opkræver gebyr for den.", ["thi_byg"]),
+  ],
+}
+FV_PAGE["ebeltoft"] = {
+  "kw": "fjernvarme ebeltoft / ebeltoft fjernvarme pris / fjernvarme syddjurs / fjernvarme eller varmepumpe ebeltoft",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026, Ebeltoft Fjernvarmes prisliste 2026 og nyheder 18/12 2024 og 25/11 2025, Syddjurs Kommunes fjernvarmeside og pressemeddelelse om byrådsmødet 24/6 2026 (tjekket 23/11 2026).",
+  "intro": "I Syddjurs Kommune spænder fjernvarmeprisen for et standardhus fra 14.566 kr. i Ebeltoft til over 20.000 kr. i Hornslet. Og der er ingen huse med naturgas – alternativet til fjernvarme er en varmepumpe. Her er status, priserne og regnestykket.",
+  "status": [
+    ("<strong>Ebeltoft Fjernvarme 2026:</strong> administrationsbidrag 1.325,26 kr. pr. måler, fast bidrag 24,75 kr. pr. m² og forbrugsbidrag 0,5532 kr. pr. kWh (inkl. moms).", ["ef_priser"]),
+    ("<strong>Tilslutning i Ebeltoft:</strong> investeringsbidrag 87,50 kr. pr. m² plus stikledning 1.345,13 kr. pr. meter. Huse uden vandbåret anlæg betaler samlet 12.500 kr. inkl. 10 m stik.", ["ef_priser"]),
+    ("<strong>Rønde:</strong> byrådet prioriterede 24. juni 2026 en udvidelse af Rønde Fjernvarmeværk; planlægningen går i gang, når der frigøres kapacitet i kommunens planportefølje.", ["syd_energi"]),
+    ("<strong>Tilslutningspligt:</strong> gælder kun, hvor kommunen pålagde den før 1. januar 2019.", ["syd_fv"]),
+  ],
+  "local_take": "Ebeltoft Fjernvarmeværk er nr. 68 af 374 værker i Forsyningstilsynets statistik regnet fra det billigste og ca. 2.400 kr. under landsgennemsnittet for et standardhus, mens Hornslet Fjernvarmeselskab er nr. 291 og ca. 3.300 kr. over. Har du fjernvarme i Ebeltoft, er der sjældent penge i at skifte. Har du elvarme i Ebeltoft, kan tilslutningen til 12.500 kr. være værd at regne på. Bor du uden for fjernvarmeområderne – fx på Mols – er en varmepumpe det oplagte valg, fordi der ikke er noget gasnet.",
+  "contact": ("Ebeltoft Fjernvarme", "86 34 26 55 · mail@ebeltoftfjernvarme.dk", "ef_priser"),
+  "faq": [
+    ("Hvad koster fjernvarme i Ebeltoft?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 14.566 kr. om året inkl. moms hos Ebeltoft Fjernvarmeværk – 910 kr. (6,7 %) mere end i januar 2025. Rønde ligger på 17.072 kr., Ryomgård på 18.619 kr. og Hornslet på 20.287 kr. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+    ("Hvorfor stiger fjernvarmen i Ebeltoft i 2026?", "Ebeltoft Fjernvarme skriver, at værket står over for investeringer for omkring 80 mio. kr. over fem år, fordi en fliskedel på 35-40 år ikke kan overholde de tekniske krav fra 2030, og fordi dele af produktionen skal kunne køre på el. Priserne blev sænket i 2024 og holdt uændrede i 2025.", ["ef_2026"]),
+    ("Hvad koster det at få fjernvarme i Ebeltoft?", "Tilslutningsbidraget består af et investeringsbidrag på 87,50 kr. pr. m² (BBR-areal) og et stikledningsbidrag på 1.345,13 kr. pr. meter fra skel. Ejendomme uden vandbåret anlæg betaler samlet 12.500 kr. inkl. 10 m stikledning. Alle priser er inkl. moms.", ["ef_priser"]),
+  ],
+}
+FV_PAGE["thisted"] = {
+  "kw": "fjernvarme thisted / thisted varmeforsyning pris / fjernvarme thy / fjernvarme eller varmepumpe thisted",
+  "evidence": "Forsyningstilsynets prisstatistik januar 2026, Thisted Varmeforsynings varsling af priser 2026 og produktionsside, Thisted Kommunes side om miljøvenlig varmeforsyning, KunThy 13/10 2026 og Dagbladet Thisted 20/11 2026 (tjekket 23/11 2026).",
+  "intro": "Fjernvarmen i Thisted blev 27,4 % dyrere for et standardhus fra januar 2025 til januar 2026, men ligger stadig under landsgennemsnittet. I resten af Thy spænder priserne fra 13.270 kr. i Hanstholm til over 20.000 kr. i Vorupør og Vesløs. Her er status, priserne og regnestykket mod en varmepumpe.",
+  "status": [
+    ("<strong>Thisted Varmeforsyning 2026:</strong> forbrugspris 656,25 kr. pr. MWh (tidligere 570 kr.), abonnement 750 kr. om året og effektbidrag 20 kr. pr. m² om året – ca. 96 kr. mere om måneden for et standardhus på 125 m².", ["tvf_2026"]),
+    ("<strong>Midtthy:</strong> fjernvarmeprojektet for Vilsund, Sundby, Koldby, Hørdum og Hundborg fra Snedsted er trukket tilbage på grund af manglende interesse.", ["kun_snedsted"]),
+    ("<strong>Vestervig:</strong> økonomiudvalget anbefaler en lokalplan for varmepumper, energioptagere og en ekstra akkumuleringstank; kommunalbestyrelsen beslutter 24. november 2026.", ["dbt_vest"]),
+    ("<strong>Varmeplan:</strong> udrulningen af fjernvarme til nye områder er beskrevet i Thisted Kommunes Varmeplan 2022. Spørgsmål om tilslutning skal stilles til det nærmeste værk.", ["thi_varme"]),
+  ],
+  "local_take": "Thisted Varmeforsyning er nr. 94 af 374 værker i Forsyningstilsynets statistik regnet fra det billigste og ca. 1.700 kr. under landsgennemsnittet for et standardhus, og Hanstholm Varmeværk er nr. 36. Snedsted (nr. 271), Bedsted (nr. 277) og Vorupør (nr. 297) ligger derimod 2.700-3.700 kr. over. Har du fjernvarme i Thisted eller Hanstholm, er der sjældent penge i at skifte. Bor du i en af landsbyerne i Midtthy, hvor fjernvarmen ikke kommer, er en luft til vand-varmepumpe det oplagte alternativ til olie- og gasfyret.",
+  "contact": ("Thisted Varmeforsyning", "97 92 66 66 · post@t-vf.dk", "tvf_2026"),
+  "faq": [
+    ("Hvad koster fjernvarme i Thisted?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus 15.228 kr. om året inkl. moms hos Thisted Varmeforsyning – 3.278 kr. (27,4 %) mere end i januar 2025. Hanstholm ligger på 13.270 kr., Vestervig på 15.129 kr., Hurup på 16.950 kr. og Snedsted på 19.706 kr. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+    ("Hvorfor steg fjernvarmen i Thisted i 2026?", "Thisted Varmeforsyning skriver, at stigningen skyldes øgede brændsels- og CO₂-relaterede omkostninger. Stigningen er lagt på forbrugsprisen, der gik fra 570 til 656,25 kr. pr. MWh, mens abonnement og effektbidrag er uændrede.", ["tvf_2026"]),
+    ("Hvor kommer fjernvarmen i Thisted fra?", "Fra Kraftvarmeværk Thisted, der brænder ca. 50.000 tons affald om året og laver ca. 130.000 MWh varme, samt fra Thisted Varmeforsynings geotermianlæg og halmvarmeanlæg.", ["tvf_prod"]),
+  ],
+}
+
+# keyword-backlog 23/11 2026: 'fjernvarme haderslev' (GSC 10 visninger, pos. 83,1) -> Haderslev Fjernvarmes takster 2026/2027 + prisudvikling fra Forsyningstilsynet på FV-siden
+_hfp = FV_PAGE["haderslev"]
+_hfp["kw"] = "fjernvarme haderslev / haderslev fjernvarme pris / fjernvarme haderslev 2027 / haderslev fjernvarme udvidelse / varmepumpe haderslev"
+_hfp["evidence"] = _hfp["evidence"] + " Haderslev Fjernvarmes prisside med priser pr. 1/1 2026 og 1/1 2027 og Forsyningstilsynets prisudvikling (tjekket 23/11 2026)."
+_hfp["intro"] = "Fjernvarme i Haderslev: Haderslev Fjernvarme er blandt de billigere værker i landet og er blevet billigere siden 2025, mens Vojens og Gram ligger over landsgennemsnittet. " + _hfp["intro"]
+_hfp["status"] = [("<strong>Haderslev Fjernvarmes priser:</strong> 665,75 kr. pr. MWh i 2026 og 680,00 kr. fra 1. januar 2027. Effektbetalingen på 16,50 kr. pr. m² BBR (op til 650 m²) og administrations-/målerbidraget på 992,50 kr. om året er uændrede (inkl. moms).", ["hfv_priser"])] + _hfp["status"]
+_hfp["faq"] = [("Hvad koster fjernvarme i Haderslev?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus på 130 m² med 18,1 MWh 15.187 kr. om året inkl. moms hos Haderslev Fjernvarme – 905 kr. (5,6 %) mindre end i januar 2025 og 16,8 % mindre end i januar 2023. Vojens Fjernvarme ligger på 19.063 kr. og Gram Fjernvarme på 21.010 kr. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
+              ("Bliver fjernvarmen i Haderslev dyrere i 2027?", "Lidt. Haderslev Fjernvarme hæver prisen pr. MWh fra 665,75 kr. til 680,00 kr. inkl. moms 1. januar 2027, mens effektbetaling og målerbidrag er uændrede. For Forsyningstilsynets standardhus med 18,1 MWh svarer det efter vores udregning til ca. 258 kr. mere om året.", ["hfv_priser", "ft_pris"])] + _hfp["faq"][1:]

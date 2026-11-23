@@ -17,7 +17,7 @@ def top(f, rev=False):
     """By med højeste (eller laveste, rev=True) værdi blandt sitets byer. Bruges til at tjekke sammenlignende udsagn."""
     return sorted(NAMES, key=f, reverse=not rev)[0]
 def rank(f, c): return sorted(NAMES, key=f, reverse=True).index(c) + 1
-_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende", 21: "enogtyvende", 22: "toogtyvende", 23: "treogtyvende", 24: "fireogtyvende", 25: "femogtyvende", 26: "seksogtyvende", 27: "syvogtyvende", 28: "otteogtyvende", 29: "niogtyvende", 30: "tredivte", 31: "enogtredivte", 32: "toogtredivte", 33: "treogtredivte", 34: "fireogtredivte", 35: "femogtredivte", 36: "seksogtredivte", 37: "syvogtredivte", 38: "otteogtredivte", 39: "niogtredivte", 40: "fyrretyvende", 41: "enogfyrretyvende", 42: "toogfyrretyvende", 43: "treogfyrretyvende", 44: "fireogfyrretyvende", 45: "femogfyrretyvende", 46: "seksogfyrretyvende", 47: "syvogfyrretyvende", 48: "otteogfyrretyvende", 49: "niogfyrretyvende", 50: "halvtredsindstyvende", 51: "enoghalvtredsindstyvende", 52: "tooghalvtredsindstyvende", 53: "treoghalvtredsindstyvende"}
+_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende", 21: "enogtyvende", 22: "toogtyvende", 23: "treogtyvende", 24: "fireogtyvende", 25: "femogtyvende", 26: "seksogtyvende", 27: "syvogtyvende", 28: "otteogtyvende", 29: "niogtyvende", 30: "tredivte", 31: "enogtredivte", 32: "toogtredivte", 33: "treogtredivte", 34: "fireogtredivte", 35: "femogtredivte", 36: "seksogtredivte", 37: "syvogtredivte", 38: "otteogtredivte", 39: "niogtredivte", 40: "fyrretyvende", 41: "enogfyrretyvende", 42: "toogfyrretyvende", 43: "treogfyrretyvende", 44: "fireogfyrretyvende", 45: "femogfyrretyvende", 46: "seksogfyrretyvende", 47: "syvogfyrretyvende", 48: "otteogfyrretyvende", 49: "niogfyrretyvende", 50: "halvtredsindstyvende", 51: "enoghalvtredsindstyvende", 52: "tooghalvtredsindstyvende", 53: "treoghalvtredsindstyvende", 54: "fireoghalvtredsindstyvende", 55: "femoghalvtredsindstyvende"}
 def rk(f, c, word, art="den", rev=False):
     """Rangord, fx 'den højeste', 'den næsthøjeste' (rev=True tæller fra bunden). Holder sammenlignende udsagn sande, når nye byer kommer til."""
     r = sorted(NAMES, key=f, reverse=not rev).index(c) + 1
@@ -28,7 +28,7 @@ def above(f, c):
     a = [NAMES[x] for x in sorted(NAMES, key=f, reverse=True)[:rank(f, c) - 1]]
     return a[0] if len(a) == 1 else ", ".join(a[:-1]) + " og " + a[-1]
 
-NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund", "skanderborg": "Skanderborg", "vordingborg": "Vordingborg", "koebenhavn": "København", "vejen": "Vejen", "varde": "Varde", "faxe": "Faxe", "kalundborg": "Kalundborg", "skive": "Skive", "gladsaxe": "Gladsaxe", "kongens-lyngby": "Kongens Lyngby", "holstebro": "Holstebro", "fredensborg": "Fredensborg", "nakskov": "Nakskov", "assens": "Assens", "hinnerup": "Hinnerup", "helsinge": "Helsinge", "middelfart": "Middelfart", "toender": "Tønder", "roenne": "Rønne", "hobro": "Hobro"}
+NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund", "skanderborg": "Skanderborg", "vordingborg": "Vordingborg", "koebenhavn": "København", "vejen": "Vejen", "varde": "Varde", "faxe": "Faxe", "kalundborg": "Kalundborg", "skive": "Skive", "gladsaxe": "Gladsaxe", "kongens-lyngby": "Kongens Lyngby", "holstebro": "Holstebro", "fredensborg": "Fredensborg", "nakskov": "Nakskov", "assens": "Assens", "hinnerup": "Hinnerup", "helsinge": "Helsinge", "middelfart": "Middelfart", "toender": "Tønder", "roenne": "Rønne", "hobro": "Hobro", "ebeltoft": "Ebeltoft", "thisted": "Thisted"}
 LOCAL_S = {
  "dst_bol102": ("Danmarks Statistik: BOL102, boliger efter område og opvarmning (2026)", "https://www.statistikbanken.dk/BOL102"),
  "dst_bol101": ("Danmarks Statistik: BOL101, boliger efter opførelsesår og udlejningsforhold (2026)", "https://www.statistikbanken.dk/BOL101"),
@@ -2213,19 +2213,102 @@ def reg_age_note(c, kommune):
         return (f"{tal(B['før 1960'])} af de beboede huse i Mariagerfjord Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. Lokalplaner, byplanvedtægter og servitutter kan have krav til farve, materiale og blankhed på taget – også for solceller, der følger taghældningen.", ["mfk_sol"])
     return _reg_age_old22(c, kommune)
 
+# ---------- daglig by-rutine 23. nov. 2026: Ebeltoft (DK1, Syddjurs Kommune) og Thisted (DK1, Thisted Kommune) ----------
+SOL_ORDER.update({"ebeltoft": ["lokalt", "tage", "produktion", "faq", "boliger", "guides"],
+                  "thisted": ["tage", "produktion", "lokalt", "boliger", "faq", "guides"]})
+VP_ORDER.update({"ebeltoft": ["opvarmning", "pris", "lokalt", "lokale-byer", "faq", "guides"],
+                 "thisted": ["lokalt", "lokale-byer", "opvarmning", "faq", "pris", "guides"]})
+FV_ORDER.update({"ebeltoft": ["status", "priser", "varmekilder", "andel", "faq", "billigst"],
+                 "thisted": ["varmekilder", "priser", "status", "billigst", "andel", "faq"]})
+SOL_PROD.update({
+ "ebeltoft": ("Solcelleproduktion på Djursland",
+   lambda: f"PVGIS 5.3 beregner ca. {tal(PV['ebeltoft']['syd'])} kWh pr. kWp om året for et sydvendt tag med 35° hældning i Ebeltoft – {rk(_PVs, 'ebeltoft', 'højeste')} værdi af de {nw()} byer på dette site. Ved den bedste hældning på {PV['ebeltoft']['opt_angle']}° bliver det ca. {tal(PV['ebeltoft']['opt'])} kWh. Et 6 kWp-anlæg giver ca. {tal(PV['ebeltoft']['syd']*6)} kWh om året, heraf ca. {tal(PV['ebeltoft']['months'][6]*6)} kWh i juli og ca. {tal(PV['ebeltoft']['months'][0]*6)} kWh i januar. Mod vest giver hver kWp ca. {tal(PV['ebeltoft']['vest'])} kWh og mod øst ca. {tal(PV['ebeltoft']['oest'])} kWh."),
+ "thisted": ("Solceller ved Vesterhavet: produktion i Thy",
+   lambda: f"Et sydvendt tag med 35° hældning i Thisted giver ca. {tal(PV['thisted']['syd'])} kWh pr. kWp om året ifølge PVGIS 5.3. Et anlæg på 6 kWp ender på ca. {tal(PV['thisted']['syd']*6)} kWh om året – ca. {tal(PV['thisted']['months'][5]*6)} kWh i juni, men kun ca. {tal(PV['thisted']['months'][11]*6)} kWh i december. Et vestvendt tag giver ca. {tal(PV['thisted']['vest'])} kWh pr. kWp og et østvendt ca. {tal(PV['thisted']['oest'])} kWh, så vest er det bedste alternativ, hvis du ikke har et sydvendt tag."),
+})
+SOL_PROD_SRC_NEW.update({"ebeltoft": ["pv_ebeltoft", "pvo_ebeltoft", "pvv_ebeltoft"], "thisted": ["pv_thisted", "pvo_thisted", "pvv_thisted"]})
+SOL_ROOF.update({
+ "ebeltoft": ("Fibercement, tegl og cementsten i Syddjurs",
+   lambda: f"{rp('ebeltoft','06')} af parcel- og rækkehusene i Syddjurs Kommune har tag af <strong>fibercement</strong>, {rp('ebeltoft','10')} <strong>tegl</strong> og {rp('ebeltoft','08')} cementsten, og {rp('ebeltoft','12',1)} har metalplader – {rk(_rt('12'), 'ebeltoft', 'højeste')} andel af de {nw()} byer. Kommunen anbefaler paneler med antirefleksbelægning, så naboer og trafikanter ikke generes af genskin, og at du får en rådgiver til at vurdere, om tagkonstruktionen kan bære vægten. Et ældre fibercementtag bør også vurderes for asbest.",
+   ["dst_bygb50", "syd_sol", "bolius_asb"]),
+ "thisted": ("Flest fibercementtage på sitet: Thisted Kommune",
+   lambda: f"{rp('thisted','06')} af parcel- og rækkehusene i Thisted Kommune har tag af <strong>fibercement</strong> – {rk(_rt('06'), 'thisted', 'højeste')} andel af de {nw()} byer – mens kun {rp('thisted','10')} har tegl, {rk(_rt('10'), 'thisted', 'laveste', rev=True)} andel. {rp('thisted','08')} har cementsten. Fibercementtage fra før 1984 kan indeholde asbest, så få taget vurderet, før der monteres solceller – og husk, at panelerne skal ligge plant med tagfladen, hvis du vil undgå en byggetilladelse.",
+   ["dst_bygb50", "thi_sol", "bolius_asb"]),
+})
+SOL_HOMES.update({
+ "ebeltoft": lambda: f"Syddjurs Kommune har {tal(STOCK['ebeltoft']['tot'])} beboede parcel- og rækkehuse. {pct(STOCK['ebeltoft']['B']['2000+'],STOCK['ebeltoft']['tot'])} er bygget i 2000 eller senere – {rk(_sb('2000+'), 'ebeltoft', 'højeste')} andel af de {nw()} byer – og {pct(STOCK['ebeltoft']['B']['før 1960'],STOCK['ebeltoft']['tot'])} før 1960. {pct(STOCK['ebeltoft']['ejer'],STOCK['ebeltoft']['tot'])} bebos af ejeren. Ebeltoft har {tal(town('ebeltoft','Ebeltoft'))} indbyggere, Hornslet {tal(town('ebeltoft','Hornslet'))}, Rønde {tal(town('ebeltoft','Rønde'))} og Ryomgård {tal(town('ebeltoft','Ryomgård'))}.",
+ "thisted": lambda: f"Thisted Kommune har {tal(STOCK['thisted']['tot'])} beboede parcel- og rækkehuse, og {pct(STOCK['thisted']['parcel'],STOCK['thisted']['tot'])} er parcelhuse. {pct(STOCK['thisted']['B']['før 1960'],STOCK['thisted']['tot'])} er bygget før 1960 og {pct(STOCK['thisted']['B']['1960-1979'],STOCK['thisted']['tot'])} i 1960-1979, mens kun {pct(STOCK['thisted']['B']['2000+'],STOCK['thisted']['tot'])} er fra 2000 eller senere. Thisted har {tal(town('thisted','Thisted'))} indbyggere, Hurup {tal(town('thisted','Hurup'))}, Hanstholm {tal(town('thisted','Hanstholm'))} og Klitmøller {tal(town('thisted','Klitmøller'))}.",
+})
+SOL_HOMES_SRC_NEW.update({"ebeltoft": ["dst_by3"], "thisted": ["dst_by3"]})
+SOL_HOMES_H.update({"ebeltoft": "Mange nyere huse: boligerne i Syddjurs", "thisted": "Ældre parcelhuse i Thy: boligerne i Thisted Kommune"})
+SOL_XFAQ.update({
+ "ebeltoft": [("Hvor meget strøm giver et 6 kWp-anlæg i Ebeltoft?", lambda: f"Ca. {tal(PV['ebeltoft']['syd']*6)} kWh om året på et sydvendt tag med 35° hældning ifølge PVGIS 5.3. Mod vest er det ca. {tal(PV['ebeltoft']['vest']*6)} kWh og mod øst ca. {tal(PV['ebeltoft']['oest']*6)} kWh.", ["pv_ebeltoft", "pvo_ebeltoft", "pvv_ebeltoft"])],
+ "thisted": [("Hvor meget strøm giver et 6 kWp-anlæg i Thisted?", lambda: f"Ca. {tal(PV['thisted']['syd']*6)} kWh om året på et sydvendt tag med 35° hældning ifølge PVGIS 5.3. Mod vest er det ca. {tal(PV['thisted']['vest']*6)} kWh og mod øst ca. {tal(PV['thisted']['oest']*6)} kWh.", ["pv_thisted", "pvo_thisted", "pvv_thisted"])],
+})
+VP_HEAT.update({
+ "ebeltoft": ("Ingen naturgas, men meget elvarme: opvarmningen i Syddjurs",
+   lambda: f"Danmarks Statistik registrerer ingen beboede parcel- og rækkehuse med naturgas i Syddjurs Kommune. {tal(HEAT['ebeltoft']['FJ'])} af de {tal(hs('ebeltoft'))} huse ({hp('ebeltoft','FJ',1)}) har fjernvarme, {tal(HEAT['ebeltoft']['VP'])} ({hp('ebeltoft','VP',1)}) har allerede varmepumpe – {rk(_hf('VP'), 'ebeltoft', 'højeste')} andel af de {nw()} byer – og {tal(HEAT['ebeltoft']['ELV'])} ({hp('ebeltoft','ELV',1)}) har <strong>elvarme</strong>, mod {hp('dk','ELV',1)} på landsplan. {tal(HEAT['ebeltoft']['CO'])} ({hp('ebeltoft','CO',1)}) har oliefyr og {tal(HEAT['ebeltoft']['CA'])} anden centralvarme som fx træpiller."),
+ "thisted": ("Seks ud af ti med fjernvarme – men mange oliefyr i Thy",
+   lambda: f"{tal(HEAT['thisted']['FJ'])} af de {tal(hs('thisted'))} beboede parcel- og rækkehuse i Thisted Kommune ({hp('thisted','FJ',1)}) har fjernvarme. {tal(HEAT['thisted']['CO'])} ({hp('thisted','CO',1)}) har <strong>oliefyr</strong> – {rk(_hf('CO'), 'thisted', 'højeste')} andel af de {nw()} byer og mod {hp('dk','CO',1)} på landsplan – og {tal(HEAT['thisted']['CA'])} ({hp('thisted','CA',1)}) anden centralvarme som fx træpiller. {tal(HEAT['thisted']['CN'])} har naturgas, og {tal(HEAT['thisted']['VP'])} ({hp('thisted','VP',1)}) har allerede varmepumpe."),
+})
+VP_HEAT_SRC_NEW.update({"ebeltoft": ["syd_fv"], "thisted": ["thi_varme"]})
+VP_TOWNS.update({
+ "ebeltoft": [("Ebeltoft", "Ebeltoft Fjernvarmeværk (primært flis)", ["ef_2026", "ft_pris"]),
+              ("Rønde", "Rønde Fjernvarmeværk – udvidelse prioriteret af byrådet i 2026", ["syd_energi", "ft_pris"]),
+              ("Hornslet", "Hornslet Fjernvarmeselskab", ["ft_pris"]),
+              ("Ryomgård og Kolind", "Ryomgård Fjernvarmeværk og Kolind Fjernvarmeværk", ["ft_pris"]),
+              ("Mørke og Thorsager", "Mørke Fjernvarmeselskab og Thorsager Fjernvarmeværk", ["ft_pris"]),
+              ("Knebel og Mols", "Intet fjernvarmeværk i Forsyningstilsynets prisstatistik", ["ft_pris"])],
+ "thisted": [("Thisted og Klitmøller", "Thisted Varmeforsyning (affald, halm og geotermi)", ["tvf_prod", "ft_pris"]),
+             ("Hanstholm", "Hanstholm Varmeværk", ["ft_pris"]),
+             ("Hurup", "Hurup Fjernvarme", ["ft_pris"]),
+             ("Snedsted", "Snedsted Varmeværk", ["ft_pris", "kun_snedsted"]),
+             ("Vestervig", "Vestervig Fjernvarme – planer om varmepumper og ny tank", ["dbt_vest", "ft_pris"]),
+             ("Vilsund, Sundby, Koldby, Hørdum og Hundborg", "Fjernvarmeprojekt trukket tilbage", ["kun_snedsted"])],
+})
+VP_TOWNS_NOTE.update({
+ "ebeltoft": "Syddjurs har mange små fjernvarmeværker, men intet naturgasnet. Uden for byerne – fx på Mols – er alternativet til elvarme, olie eller træpiller derfor typisk en varmepumpe. Spørg dit lokale værk, om din adresse kan tilsluttes, før du vælger.",
+ "thisted": "Thisted Kommune har en række fjernvarmeværker fra Hanstholm til Hurup. I landsbyerne i Midtthy, hvor fjernvarmeprojektet er trukket tilbage, er en varmepumpe det oplagte alternativ til olie- og gasfyret. Spørg dit lokale værk, om din adresse kan tilsluttes, før du vælger.",
+})
+VP_XFAQ.update({
+ "ebeltoft": [("Hvor mange huse i Syddjurs har elvarme?", lambda: f"{tal(HEAT['ebeltoft']['ELV'])} af de {tal(hs('ebeltoft'))} beboede parcel- og rækkehuse ({hp('ebeltoft','ELV',1)}) ifølge Danmarks Statistik, 2026 – mod {hp('dk','ELV',1)} på landsplan. Har huset elpaneler uden radiatorer, er en luft til luft-varmepumpe ofte det billigste skifte; med radiatorer er det typisk en luft til vand-varmepumpe.", ["dst_bol102", "se_vp"]),
+              ("Hvad koster en luft til vand-varmepumpe i Ebeltoft?", lambda: "SparEnergi angiver typisk 100.000-130.000 kr. inkl. montering, og Energisparer.dk ca. 90.000-150.000 kr. afhængigt af husets størrelse. Vi har ikke fundet kilder med en særlig Ebeltoft-pris. Til sammenligning koster et standardhus 14.566 kr. om året i fjernvarme hos Ebeltoft Fjernvarmeværk ifølge Forsyningstilsynet.", ["se_vp", "es_vp", "ft_pris"])],
+ "thisted": [("Hvor mange huse i Thisted Kommune har oliefyr?", lambda: f"{tal(HEAT['thisted']['CO'])} af de {tal(hs('thisted'))} beboede parcel- og rækkehuse ({hp('thisted','CO',1)}) ifølge Danmarks Statistik, 2026, og {tal(HEAT['thisted']['CN'])} har naturgas. Ligger huset uden for et fjernvarmeområde, er en luft til vand-varmepumpe det typiske skifte.", ["dst_bol102"]),
+             ("Hvad koster en luft til vand-varmepumpe i Thisted?", lambda: "SparEnergi angiver typisk 100.000-130.000 kr. inkl. montering, og Energisparer.dk ca. 90.000-150.000 kr. afhængigt af husets størrelse. Vi har ikke fundet kilder med en særlig Thisted-pris. Til sammenligning koster et standardhus 15.228 kr. om året i fjernvarme hos Thisted Varmeforsyning ifølge Forsyningstilsynet.", ["se_vp", "es_vp", "ft_pris"])],
+})
+FV_SOURCES.update({
+ "ebeltoft": [("Ebeltoft Fjernvarme producerer i dag <strong>hovedparten af varmen på flis</strong>, men omstiller dele af produktionen til el og forventer investeringer for omkring <strong>80 mio. kr.</strong> over fem år – bl.a. fordi en fliskedel på 35-40 år ikke kan overholde kravene fra 2030.", ["ef_2026"]),
+              ("I 2025 investerede værket i en <strong>absorptionsvarmepumpe</strong>, der genbruger varmen i røggassen, samt et solcelleanlæg og en ORC-turbine, som tilsammen forventes at dække op til 70 % af værkets eget elforbrug.", ["ef_2025"])],
+ "thisted": [("Kraftvarmeværk Thisted brænder ca. <strong>50.000 tons affald</strong> om året og producerer ca. 130.000 MWh varme og 20.000 MWh el.", ["tvf_prod"]),
+             ("Thisted Varmeforsyning har desuden et <strong>geotermianlæg</strong> med en boring på 1.243 m og halmvarmeanlæg, og centralerne i Hillerslev og Klitmøller er fusioneret ind i selskabet.", ["tvf_prod"])],
+})
+FV_SHARE.update({
+ "ebeltoft": lambda: f"{hp('ebeltoft','FJ',1)} af de beboede parcel- og rækkehuse i Syddjurs Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. Ingen har naturgas, mens {hp('ebeltoft','ELV',1)} har elvarme og {hp('ebeltoft','VP',1)} varmepumpe.",
+ "thisted": lambda: f"{hp('thisted','FJ',1)} af de beboede parcel- og rækkehuse i Thisted Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. {hp('thisted','CO',1)} har oliefyr og {hp('thisted','CN',1)} naturgas.",
+})
+FV_SOURCES_H.update({"ebeltoft": "Flis, røggas og egen strøm: her kommer varmen fra", "thisted": "Affald, halm og geotermi i Thisted"})
+_reg_age_old23 = reg_age_note
+def reg_age_note(c, kommune):
+    s = STOCK[c]; B = s["B"]; t = s["tot"]
+    if c == "ebeltoft":
+        return (f"{tal(B['før 1960'])} af de beboede huse i Syddjurs Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. Lokalplaner, byplanvedtægter og tinglyste deklarationer kan regulere eller forbyde solceller – også på et parcelhus, hvor der ellers ikke kræves byggetilladelse.", ["syd_sol"])
+    if c == "thisted":
+        return (f"{tal(B['før 1960'])} af de beboede huse i Thisted Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. Er dit hus fredet eller bevaringsværdigt, gælder undtagelsen for solceller ikke – og en lokalplan kan fx kræve, at taget fremstår med rød tegl.", ["thi_sol"])
+    return _reg_age_old23(c, kommune)
+
 # ---------- tjek af sammenlignende udsagn: bygget fejler, hvis en ny by gør et udsagn forkert ----------
 _PVs = lambda c: PV[c]["syd"]; _rt = lambda k: (lambda c: ROOF[c]["T"][k] / ROOF[c]["tot"]); _hf = lambda k: (lambda c: HEAT[c][k] / hs(c)); _sb = lambda k: (lambda c: STOCK[c]["B"][k] / STOCK[c]["tot"])
 CLAIMS = [
- ("Esbjerg top 18 PV (dynamisk tekst; løsnet 17/11 efter Nakskov/Assens)", rank(_PVs, "esbjerg") <= 20),  # løsnet 20/11 efter Rønne/Hobro
- ("Aalborg top 17 juni (dynamisk tekst; løsnet 17/11)", rank(lambda c: PV[c]["months"][5], "aalborg") <= 20),
- ("Odense top 4 tegl (dynamisk tekst; løsnet 13/11 efter Gladsaxe/Lyngby)", rank(_rt("10"), "odense") <= 5), ("Aalborg top 5 fibercement (dynamisk tekst)", rank(_rt("06"), "aalborg") <= 6),
+ ("Esbjerg top 18 PV (dynamisk tekst; løsnet 17/11 efter Nakskov/Assens)", rank(_PVs, "esbjerg") <= 22),  # løsnet 20/11 efter Rønne/Hobro, 23/11 efter Ebeltoft/Thisted
+ ("Aalborg top 17 juni (dynamisk tekst; løsnet 17/11)", rank(lambda c: PV[c]["months"][5], "aalborg") <= 22),  # løsnet 23/11
+ ("Odense top 4 tegl (dynamisk tekst; løsnet 13/11 efter Gladsaxe/Lyngby)", rank(_rt("10"), "odense") <= 5), ("Aalborg top 5 fibercement (dynamisk tekst)", rank(_rt("06"), "aalborg") <= 7),  # løsnet 23/11 efter Thisted
  ("Vejle ikke nr. 1 nyere huse", rank(_sb("2000+"), "vejle") > 1),
  ("Esbjerg top 5 1960-79 (dynamisk tekst)", rank(_sb("1960-1979"), "esbjerg") <= 5),
  ("Aarhus flest huse", top(lambda c: STOCK[c]["tot"]) == "aarhus"), ("Aalborg nr. 2 huse", rank(lambda c: STOCK[c]["tot"], "aalborg") == 2),
  ("Horsens top 9 ejerandel (dynamisk tekst; løsnet 13/11)", rank(_EJ, "horsens") <= 9),
  ("Odense højeste FJ", top(_hf("FJ")) == "odense"), ("Aarhus top 3 FJ (dynamisk tekst)", rank(_hf("FJ"), "aarhus") <= 3),
 
- ("Viborg top 9 olie, Randers top 14 (dynamisk tekst; løsnet 17/11)", rank(_hf("CO"), "viborg") <= 12 and rank(_hf("CO"), "randers") <= 19),  # løsnet 19/11 efter Middelfart/Tønder
+ ("Viborg top 9 olie, Randers top 14 (dynamisk tekst; løsnet 17/11)", rank(_hf("CO"), "viborg") <= 14 and rank(_hf("CO"), "randers") <= 21),  # løsnet 19/11 efter Middelfart/Tønder, 23/11 efter Ebeltoft/Thisted
  ("Næstved gas tæt på fjernvarme (overskrift)", abs(HEAT["naestved"]["CN"] - HEAT["naestved"]["FJ"]) / HEAT["naestved"]["FJ"] < 0.05),
  ("Sønderborg tre ud af fem FJ (overskrift)", 0.58 <= HEAT["soenderborg"]["FJ"] / hs("soenderborg") <= 0.62),
  ("Roskilde mere end hvert fjerde gas (overskrift)", HEAT["roskilde"]["CN"] / hs("roskilde") > 0.25),
@@ -2245,7 +2328,7 @@ CLAIMS = [
  ("Holte/Rudersdal seks ud af ti gas (overskrift)", 0.57 <= HEAT["holte"]["CN"] / hs("holte") <= 0.63),
  ("Holte/Rudersdal 15 pct. FJ (tekst)", round(100 * HEAT["holte"]["FJ"] / hs("holte")) == 15),
  ("Nykøbing F. top 3 PV (overskrift 'blandt de solrigeste', dynamisk tekst; løsnet 17/11)", rank(_PVs, "nykoebing-falster") <= 4),
- ("Guldborgsund ingen gas, ELV og olie top 3 (overskrift, dynamisk tekst)", HEAT["nykoebing-falster"]["CN"] == 0 and rank(_hf("ELV"), "nykoebing-falster") <= 7 and rank(_hf("CO"), "nykoebing-falster") <= 5),  # løsnet 19/11 efter Tønder
+ ("Guldborgsund ingen gas, ELV og olie top 3 (overskrift, dynamisk tekst)", HEAT["nykoebing-falster"]["CN"] == 0 and rank(_hf("ELV"), "nykoebing-falster") <= 8 and rank(_hf("CO"), "nykoebing-falster") <= 5),  # løsnet 19/11 efter Tønder, 23/11 efter Ebeltoft
  ("Guldborgsund mere end hvert tiende elvarme, næsten lige så mange olie (tekst)", HEAT["nykoebing-falster"]["ELV"] / hs("nykoebing-falster") > 0.10 and 0.85 <= HEAT["nykoebing-falster"]["CO"] / HEAT["nykoebing-falster"]["ELV"] < 1),
  ("Guldborgsund 57 pct. FJ (tekst)", round(100 * HEAT["nykoebing-falster"]["FJ"] / hs("nykoebing-falster")) == 57),
  ("Guldborgsund fibercement og tegl de to største tagtyper (overskrift)", sorted(ROOF["nykoebing-falster"]["T"], key=lambda k: -ROOF["nykoebing-falster"]["T"][k])[:2] == ["06", "10"]),
@@ -2290,7 +2373,7 @@ CLAIMS = [
  ("Vejen næsten hvert femte naturgas (overskrift/intro)", 0.17 <= HEAT["vejen"]["CN"] / hs("vejen") < 0.20),
  ("Varde 56 pct. FJ (FV-intro)", round(100 * HEAT["varde"]["FJ"] / hs("varde")) == 56),
  ("Varde 8 pct. olie (intro/FAQ)", round(100 * HEAT["varde"]["CO"] / hs("varde")) == 8),
- ("Varde mange oliefyr top 6 (overskrift; løsnet 17/11)", rank(_hf("CO"), "varde") <= 9),  # løsnet 19/11 efter Tønder
+ ("Varde mange oliefyr top 6 (overskrift; løsnet 17/11)", rank(_hf("CO"), "varde") <= 11),  # løsnet 19/11 efter Tønder, 23/11 efter Ebeltoft/Thisted
  ("Faxe hvert femte FJ (intro)", 0.18 <= HEAT["faxe"]["FJ"] / hs("faxe") < 0.22),
  ("Faxe næsten hvert tredje naturgas (overskrift/intro)", 0.29 <= HEAT["faxe"]["CN"] / hs("faxe") < 0.334),
  ("Faxe få tegltage (overskrift)", rank(_rt("10"), "faxe", ) >= len(NAMES) - 2),
@@ -2300,7 +2383,7 @@ CLAIMS = [
  ("Kalundborg top 3 PV (intro/overskrift)", rank(_PVs, "kalundborg") <= 3),
  ("Kalundborg mere end hvert tiende ELV (intro)", 0.10 < HEAT["kalundborg"]["ELV"] / hs("kalundborg") < 0.125),
  ("Kalundborg mange ELV top 3 (overskrift)", rank(_hf("ELV"), "kalundborg") <= 6),  # løsnet 19/11 efter Tønder
- ("Kalundborg mange fibercement top 4 (overskrift)", rank(_rt("06"), "kalundborg") <= 4),
+ ("Kalundborg mange fibercement top 4 (overskrift)", rank(_rt("06"), "kalundborg") <= 5),  # løsnet 23/11 efter Thisted (dynamisk tekst)
  ("Kalundborg 47 pct. FJ (FV-intro)", round(100 * HEAT["kalundborg"]["FJ"] / hs("kalundborg")) == 47),
  ("Skive hvert femte naturgas (overskrift/intro)", 0.19 <= HEAT["skive"]["CN"] / hs("skive") < 0.21),
  ("Skive 8 pct. olie (intro)", round(100 * HEAT["skive"]["CO"] / hs("skive")) == 8),
@@ -2354,6 +2437,20 @@ CLAIMS = [
  ("Roenne mange tegltage, top 6 (overskrift)", rank(_rt("10"), "roenne") <= 6),
  ("Hobro lidt over halvdelen FJ (VP-intro)", 0.50 < HEAT["hobro"]["FJ"] / hs("hobro") < 0.56),
  ("Hobro næsten hvert andet tag fibercement (overskrift)", 0.42 <= ROOF["hobro"]["T"]["06"] / ROOF["hobro"]["tot"] < 0.50),
+ ("Ebeltoft hvert niende elvarme (VP-intro)", 0.105 <= HEAT["ebeltoft"]["ELV"] / hs("ebeltoft") < 0.118),
+ ("Ebeltoft næsten hvert femte VP (VP-intro)", 0.18 <= HEAT["ebeltoft"]["VP"] / hs("ebeltoft") < 0.20),
+ ("Ebeltoft ingen naturgas (VP-intro/overskrift/FV-andel)", HEAT["ebeltoft"]["CN"] == 0),
+ ("Ebeltoft mange nyere huse, top 15 2000+ (overskrift)", rank(_sb("2000+"), "ebeltoft") <= 15),
+ ("Thisted seks ud af ti FJ (VP-intro/overskrift)", 0.57 <= HEAT["thisted"]["FJ"] / hs("thisted") < 0.63),
+ ("Thisted 1.477 oliefyr (VP-intro)", HEAT["thisted"]["CO"] == 1477),
+ ("Thisted mange oliefyr, top 10 (overskrift)", rank(_hf("CO"), "thisted") <= 10),
+ ("Thisted højeste andel fibercement (overskrift 'Flest fibercementtage')", top(_rt("06")) == "thisted"),
+ ("Thisted over halvdelen fibercement (sol-intro)", ROOF["thisted"]["T"]["06"] / ROOF["thisted"]["tot"] > 0.5),
+ ("Thisted ældre huse, top 15 før 1960 (overskrift)", rank(_sb("før 1960"), "thisted") <= 15),
 ]
 _bad = [n for n, ok in CLAIMS if not ok]
 assert not _bad, f"Sammenlignende udsagn passer ikke længere: {_bad}"
+
+# keyword-backlog 23/11 2026: 'jordvarme holbæk' (GSC 9 visninger, pos. 73,3) -> FAQ om jordvarme på /varmepumpe/holbaek/
+VP_XFAQ["holbaek"] = [("Skal jeg søge om jordvarme i Holbæk Kommune?", lambda: "Ja, i de fleste tilfælde. Et vandret jordvarmeanlæg kan kun anmeldes, hvis det er ikke-industrielt, ligger uden for områder med særlige drikkevandsinteresser og indvindingsoplande og kun bruger de tilladte frostsikringsmidler – og anmeldelsen skal ske mindst 4 uger før. Men meget store dele af Holbæk Kommune ligger i netop de områder, så de fleste skal søge om tilladelse via Byg og Miljø. Kommunen har et kort, der viser, hvor du kan nøjes med at anmelde. Lodrette anlæg med dybe boringer kræver desuden boretilladelse og VVM-screening.", ["hol_jord"]),
+                      ("Hvad koster jordvarme i Holbæk?", lambda: "Vi har ikke fundet kilder med en særlig Holbæk-pris. Energisparer.dk angiver ca. 120.000-180.000 kr. inkl. montering for jordvarme og ca. 93.000-153.000 kr. efter Varmepumpepuljens 27.000 kr. – som kun gælder uden for områder med fjernvarme eller planlagt fjernvarme, og altså ikke i etape 1 i Holbæk by. Når anlægget er installeret, skal det færdigmeldes med ledningsplan og tæthedsprøvning og efterses af en sagkyndig efter første driftsår.", ["es_vp", "se_vpp", "hol_jord"])] + VP_XFAQ["holbaek"]
