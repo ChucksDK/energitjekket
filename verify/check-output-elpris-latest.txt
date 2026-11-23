@@ -1,6 +1,6 @@
 Sider: 235 | interne links tjekket: 158367 (237 unikke URL) | brudte: 0
 JSON-LD blokke OK: 235 | fejl: 0 []
-Schema-typer: {'Organization': 235, 'WebPage': 233, 'WebSite': 235, 'BreadcrumbList': 234, 'FAQPage': 229, 'CollectionPage': 2, 'Service': 210, 'WebApplication': 1, 'Dataset': 1}
+Schema-typer: {'Organization': 235, 'WebPage': 233, 'WebSite': 235, 'BreadcrumbList': 234, 'CollectionPage': 2, 'FAQPage': 229, 'Service': 210, 'WebApplication': 1, 'Dataset': 1}
 Eksterne kildelinks (unikke): 612
 On-page issues: [('/404.html', 'description 18 tegn'), ('/tak/', 'description 32 tegn')]
 Interlink-krav opfyldt (104 bysider, 106 lokale undersider, 16 guides, 2 hubs)
