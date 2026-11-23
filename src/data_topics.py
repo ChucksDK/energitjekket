@@ -33,7 +33,7 @@ TOPIC_S = {
 T = {}
 
 T["/varmepumpe/jordvarme-pris/"] = {
-  "svc": "varmepumpe", "crumb": "Jordvarme pris", "updated": ("5. november 2026", "2026-11-05"),
+  "svc": "varmepumpe", "crumb": "Jordvarme pris", "updated": ("23. november 2026", "2026-11-23"),
   "kw": "jordvarme pris / jordvarme pris inkl montering",
   "title": "Jordvarme pris 2026: hvad koster jordvarme inkl. montering?",
   "desc": "Jordvarme koster typisk 120.000-200.000 kr. inkl. montering. Se drift pr. år, tilskud på 27.000 kr., krav til grunden og tilladelse fra kommunen.",
@@ -42,7 +42,8 @@ T["/varmepumpe/jordvarme-pris/"] = {
   "sections": [
    ("Hvad koster jordvarme inkl. montering?", [
      ("table", ["Kilde", "Jordvarme inkl. montering", "Til sammenligning: luft til vand"],
-      [["SparEnergi", "typisk 130.000-200.000 kr.", "typisk 100.000-130.000 kr."], ["Energisparer.dk (okt. 2026)", "ca. 120.000-180.000 kr.", "ca. 90.000-150.000 kr."]], ["se_vp", "es_vp"]),
+      [["SparEnergi", "typisk 130.000-200.000 kr.", "se prisguiden"], ["Energisparer.dk (okt. 2026)", "ca. 120.000-180.000 kr.", "se prisguiden"]], ["se_vp", "es_vp"]),
+     ("p", "Til sammenligning kan du se den typiske <a href=\"/varmepumpe/pris/\">luft til vand varmepumpe pris</a> inkl. montering, tilskud og drift.", ["se_vp", "es_vp"]),
      ("p", "Energisparer.dk forklarer prisforskellen med, at der skal graves eller bores til jordslangen. En vandret jordslange kræver et stort haveareal, mens lodrette boringer er dyrere, men fylder mindre.", ["es_vp"]),
      ("p", "Med 27.000 kr. fra Varmepumpepuljen giver Energisparer.dk's eksempel på et jordvarmeanlæg til ca. 150.000 kr. en nettopris på ca. 123.000 kr.", ["es_vp"]),
    ]),
@@ -107,7 +108,7 @@ T["/varmepumpe/luft-til-luft-pris/"] = {
    ]),
    ("Ingen tilskud fra Varmepumpepuljen", [
      ("p", "Varmepumpepuljen giver kun tilskud til luft til vand og væske til vand (jordvarme). En luft til luft-varmepumpe er ikke omfattet.", ["se_vpp"]),
-     ("p", "Har du radiatorer eller gulvvarme med vand og varmer op med olie eller gas, kan en luft til vand-varmepumpe overtage både rumvarme og varmt vand. Den er dyrere, men kan give 27.000 kr. i tilskud, hvis du opfylder kravene. Se forskellen i guiden til <a href=\"/varmepumpe/luft-til-luft/\">luft til luft varmepumpe</a>.", ["se_vp", "se_vpp"]),
+     ("p", "Har du radiatorer eller gulvvarme med vand og varmer op med olie eller gas, kan en luft til vand-varmepumpe overtage både rumvarme og varmt vand. Den er dyrere, men kan give 27.000 kr. i tilskud, hvis du opfylder kravene. Se <a href=\"/varmepumpe/pris/\">luft til vand varmepumpe pris</a> inkl. montering, og forskellen i guiden til <a href=\"/varmepumpe/luft-til-luft/\">luft til luft varmepumpe</a>.", ["se_vp", "se_vpp"]),
    ]),
    ("Krav til selve varmepumpen", [
      ("ul", [("Energimærke A+ opfylder EU's ecodesignkrav. Har kølemidlet en lav klimapåvirkning (GWP under 150), er energimærke A tilladt. SparEnergi anbefaler A+++ for den største besparelse.", ["se_l2l"]),
@@ -164,12 +165,12 @@ T["/varmepumpe/skift-oliefyr/"] = {
 }
 
 T["/varmepumpe/skift-gasfyr/"] = {
-  "svc": "varmepumpe", "crumb": "Skift gasfyr", "updated": ("16. november 2026", "2026-11-16"),
+  "svc": "varmepumpe", "crumb": "Skift gasfyr", "updated": ("23. november 2026", "2026-11-23"),
   "kw": "skift gasfyr til varmepumpe / gasfyr til varmepumpe / udskiftning af gasfyr til varmepumpe pris",
   "title": "Udskiftning af gasfyr til varmepumpe: pris, tilskud og fjernvarme",
   "desc": "Før du skifter gasfyret ud: tjek kommunens varmeplan for fjernvarme, tilskud på 27.000 kr. og gratis afkobling fra gasnettet i 2026. Se pris og besparelse.",
   "h1": "Skift gasfyr til varmepumpe: start med varmeplanen",
-  "intro": "Hvad koster udskiftning af gasfyr til varmepumpe? Typisk 90.000-150.000 kr. for en luft til vand-varmepumpe inkl. montering, før tilskud. Men mange gasområder skal have fjernvarme i de kommende år. Ligger dit hus i et af dem, kan du ikke få tilskud til en varmepumpe, og fjernvarmen kan være det billigste valg. Derfor er det første skridt at tjekke kommunens varmeplan. Her er rækkefølgen, tallene og afkoblingen fra gasnettet.",
+  "intro": "Hvad koster udskiftning af gasfyr til varmepumpe? Den typiske pris på en luft til vand-varmepumpe inkl. montering, før tilskud, står i prisguiden. Men mange gasområder skal have fjernvarme i de kommende år. Ligger dit hus i et af dem, kan du ikke få tilskud til en varmepumpe, og fjernvarmen kan være det billigste valg. Derfor er det første skridt at tjekke kommunens varmeplan. Her er rækkefølgen, tallene og afkoblingen fra gasnettet.",
   "sections": [
    ("Trin 1: Kommer der fjernvarme til din adresse?", [
      ("p", "Varmepumpepuljen kræver, at huset hverken ligger i et område med fjernvarme eller i et område, der er besluttet udlagt til fjernvarme. Status afhænger af kommunens varmeplan og ses på Plandata.dk.", ["vpp_puljer", "plandata"]),
@@ -177,8 +178,7 @@ T["/varmepumpe/skift-gasfyr/"] = {
      ("p", "Et planlagt projekt kan også blive opgivet. Næstved Fjernvarme droppede Holsted Syd, da kun 13 % af ejerne havde tilmeldt sig mod et krav på mindst 60 % tilslutning pr. kvadratmeter. Beboerne der må derfor finde en anden varmekilde. Se status for <a href=\"/varmepumpe/vejle/\">Vejle</a>, <a href=\"/varmepumpe/randers/\">Randers</a> og vores andre byer.", ["naes_fv"]),
    ]),
    ("Hvad koster udskiftning af gasfyr til varmepumpe?", [
-     ("table", ["Luft til vand-varmepumpe inkl. montering", "Pris før tilskud"],
-      [["SparEnergi", "typisk 100.000-130.000 kr."], ["Energisparer.dk (okt. 2026)", "ca. 90.000-150.000 kr."]], ["se_vp", "es_vp"]),
+     ("p", "Se den typiske <a href=\"/varmepumpe/pris/\">luft til vand varmepumpe pris</a> inkl. montering, tilskud og drift i prisguiden.", ["se_vp", "es_vp"]),
      ("p", "Med 27.000 kr. fra Varmepumpepuljen regner Energisparer.dk med en nettopris på 68.000-113.000 kr. og en tilbagebetalingstid på ca. 6-11 år fra gas. Prisen afhænger af husets størrelse og varmebehov, og om der skal skiftes radiatorer, buffertank eller eltavle, så indhent flere tilbud.", ["es_vp", "se_vpp"]),
      ("p", "Fjernvarme er ofte billigere i drift end gas, men prisen svinger meget mellem værkerne. Ligger din adresse i et planlagt fjernvarmeområde, kan du ikke få tilskud til en varmepumpe – se derfor trin 1 først.", ["ft_pris", "vpp_puljer"]),
    ]),
@@ -200,7 +200,7 @@ T["/varmepumpe/skift-gasfyr/"] = {
    ]),
   ],
   "faq": [
-   ("Hvad koster det at udskifte et gasfyr med en varmepumpe?", "En luft til vand-varmepumpe koster typisk 100.000-130.000 kr. inkl. montering ifølge SparEnergi og ca. 90.000-150.000 kr. ifølge Energisparer.dk. Efter 27.000 kr. i tilskud regner Energisparer.dk med 68.000-113.000 kr. Afkoblingen fra gasnettet kan dækkes af Afkoblingspuljen i 2026.", ["se_vp", "es_vp", "evida_afk"]),
+   ("Hvad koster det at udskifte et gasfyr med en varmepumpe?", "Se den typiske <a href=\"/varmepumpe/pris/\">luft til vand varmepumpe pris</a> inkl. montering. Efter 27.000 kr. i tilskud regner Energisparer.dk med 68.000-113.000 kr. Afkoblingen fra gasnettet kan dækkes af Afkoblingspuljen i 2026.", ["se_vp", "es_vp", "evida_afk"]),
    ("Kan jeg få tilskud til at skifte gasfyr til varmepumpe?", "Ja, 27.000 kr., hvis huset ligger uden for fjernvarme og planlagt fjernvarme, og du har tilsagn, før du skriver under. Puljen lukker senest 30. november 2026.", ["se_vpp", "vpp_faq"]),
    ("Hvad koster det at blive koblet af gasnettet?", "I 2026 kan Afkoblingspuljen dække Evidas gebyr for private husholdninger med et årligt forbrug på 100-6.000 m³. Det er den sidste pulje.", ["evida_afk"]),
    ("Hvordan ser jeg, om der kommer fjernvarme?", "Se kommunens varmeplan på Plandata.dk, eller brug SparEnergis adresseopslag, som bygger på BBR og Plandata.", ["plandata", "se_vpp"]),
@@ -317,7 +317,7 @@ T["/solceller/tilbud/"] = {
 }
 
 T["/varmepumpe/tilbud/"] = {
-  "svc": "varmepumpe", "crumb": "Tilbud", "updated": UPD, "checklist": True,
+  "svc": "varmepumpe", "crumb": "Tilbud", "updated": ("23. november 2026", "2026-11-23"), "checklist": True,
   "kw": "tilbud på varmepumpe / varmepumpe tilbud / luft til vand tilbud",
   "title": "Tilbud på varmepumpe: få et uforpligtende tilbud",
   "desc": "Få et uforpligtende tilbud på en luft til vand-varmepumpe fra en installatør i dit område. Se hvad tilbuddet skal vise, og hvornår du må skrive under.",
@@ -330,8 +330,7 @@ T["/varmepumpe/tilbud/"] = {
              ("Ligger huset i et område med fjernvarme eller planlagt fjernvarme, kan du ikke få tilskud. Se status i <a href=\"/varmepumpe/\">din by</a>.", ["se_vpp"])]),
    ]),
    ("Hvad koster det typisk?", [
-     ("p", "SparEnergi angiver typisk 100.000-130.000 kr. for en luft til vand-varmepumpe, og Energisparer.dk ca. 90.000-150.000 kr. inkl. montering. Energisparer.dk ser 20-40 % prisforskel mellem installatører på samme opgave.", ["se_vp", "es_vp"]),
-     ("p", "Se alle priser og driftsudgifter i <a href=\"/varmepumpe/pris/\">prisguiden</a>, og regn på din egen tilbagebetalingstid i <a href=\"/beregner/#varmepumpe\">beregneren</a>.", []),
+     ("p", "Energisparer.dk ser 20-40 % prisforskel mellem installatører på samme opgave. Se den typiske <a href=\"/varmepumpe/pris/\">luft til vand varmepumpe pris</a> inkl. montering, tilskud og drift i prisguiden, og regn på din egen tilbagebetalingstid i <a href=\"/beregner/#varmepumpe\">beregneren</a>.", ["se_vp", "es_vp"]),
    ]),
    ("Sådan sammenligner du tilbud", [
      ("ul", [("Sammenlign på totalpris, ikke fra-pris, og bed om en specificeret pris med el-arbejde og ekstraarbejde.", ["es_vp"]),
@@ -351,11 +350,11 @@ T["/varmepumpe/tilbud/"] = {
 UPD2 = ("31. oktober 2026", "2026-10-31")
 
 T["/varmepumpe/luft-til-luft/"] = {
-  "svc": "varmepumpe", "crumb": "Luft til luft", "updated": UPD2,
+  "svc": "varmepumpe", "crumb": "Luft til luft", "updated": ("23. november 2026", "2026-11-23"),
   "kw": "luft til luft varmepumpe (14.800/md., DataForSEO 31/10 2026)",
-  "title": "Luft til luft varmepumpe: pris, besparelse og tilbud",
-  "desc": "Hvad er en luft til luft varmepumpe, hvad koster den med montering, og hvor meget sparer du? Se forskellen til luft til vand, støjkrav og håndværkerfradrag.",
-  "h1": "Luft til luft varmepumpe – pris og hvad du sparer",
+  "title": "Luft til luft varmepumpe: hvad den kan og sparer",
+  "desc": "Luft til luft varmepumpe: hvad den kan, og hvad du sparer. Se forskellen til luft til vand, støjkrav og håndværkerfradrag.",
+  "h1": "Luft til luft varmepumpe – hvad den kan, og hvad du sparer",
   "intro": "En luft til luft varmepumpe henter varme fra udeluften og blæser den ind i huset som varm luft. Den er hurtig at sætte op og koster en brøkdel af en luft til vand-varmepumpe, men den kan ikke lave varmt vand og når sjældent hele huset. Her er hvad den er, hvad den koster, hvad du kan spare, og hvornår du hellere skal vælge luft til vand.",
   "sections": [
    ("Hvad er en luft til luft varmepumpe?", [
@@ -366,7 +365,7 @@ T["/varmepumpe/luft-til-luft/"] = {
    ]),
    ("Hvad koster den inkl. montering?", [
      ("p", "Kilderne giver forskellige spænd: SparEnergi skriver 15.000-30.000 kr. på sin side om luft til luft og typisk 30.000-40.000 kr. i sin sammenligning af varmepumpetyper. Energisparer.dk angiver ca. 12.000-25.000 kr. Forskellen skyldes især antallet af indedele (multisplit).", ["se_l2l", "se_vp", "es_vp"]),
-     ("p", "Til sammenligning koster en luft til vand-varmepumpe typisk 90.000-150.000 kr. Se alle tal og krav til energimærke i <a href=\"/varmepumpe/luft-til-luft-pris/\">prisguiden til luft til luft-varmepumper</a>.", ["es_vp"]),
+     ("p", "Til sammenligning kan du se den typiske <a href=\"/varmepumpe/pris/\">luft til vand varmepumpe pris</a> inkl. montering, tilskud og drift. De detaljerede luft til luft-priser og krav til energimærke står i <a href=\"/varmepumpe/luft-til-luft-pris/\">prisguiden til luft til luft-varmepumper</a>.", ["es_vp"]),
      ("note", "Luft til luft giver ikke tilskud fra Varmepumpepuljen. Til gengæld står luft til luft-varmepumper på Skattestyrelsens liste over håndværkerfradrag: du kan trække arbejdslønnen for installation, service og reparation fra, op til 9.000 kr. pr. person i 2026. Fradraget er værd ca. 26 %.", ["se_vpp", "hvfradrag"]),
    ]),
    ("Hvor meget sparer du på varmen?", [
@@ -376,7 +375,8 @@ T["/varmepumpe/luft-til-luft/"] = {
    ]),
    ("Luft til luft eller luft til vand?", [
      ("table", ["", "Luft til luft", "Luft til vand"],
-      [["Varmer", "Luften i ét eller få rum", "Hele huset via radiatorer eller gulvvarme, og brugsvandet"], ["Pris inkl. montering", "ca. 12.000-40.000 kr.", "ca. 90.000-150.000 kr."], ["Tilskud fra Varmepumpepuljen", "Nej", "27.000 kr. (lukker senest 30/11 2026)"], ["Besparelse ift. el eller gas", "op til 40 %", "op til 70 %"]], ["se_l2l", "se_vp", "es_vp", "se_vpp"]),
+      [["Varmer", "Luften i ét eller få rum", "Hele huset via radiatorer eller gulvvarme, og brugsvandet"], ["Pris inkl. montering", "ca. 12.000-40.000 kr.", "se prisguiden"], ["Tilskud fra Varmepumpepuljen", "Nej", "27.000 kr. (lukker senest 30/11 2026)"], ["Besparelse ift. el eller gas", "op til 40 %", "op til 70 %"]], ["se_l2l", "se_vp", "es_vp", "se_vpp"]),
+     ("p", "Den typiske <a href=\"/varmepumpe/pris/\">luft til vand varmepumpe pris</a> inkl. montering, tilskud og drift står i prisguiden.", []),
      ("p", "Har du olie- eller gasfyr og radiatorer med vand, er <a href=\"/varmepumpe/luft-til-vand/\">en luft til vand varmepumpe</a> som regel det rigtige valg, fordi den kan erstatte fyret helt. Har du elpaneler og ingen vandbåren varme, er luft til luft det billigste sted at starte.", ["se_vp", "se_l2l"]),
    ]),
    ("Støj og placering af udedelen", [
@@ -414,7 +414,7 @@ T["/varmepumpe/luft-til-vand/"] = {
      ("table", ["Boligens areal", "Typisk effekt", "Pris inkl. installation", "Efter 27.000 kr. i tilskud"],
       [["Under 130 m²", "6-8 kW", "90.000-110.000 kr.", "63.000-83.000 kr."], ["130-180 m² (fx 150 m²)", "8-12 kW", "110.000-135.000 kr.", "83.000-108.000 kr."], ["Over 180 m² (fx 200 m²)", "12-16 kW", "135.000-150.000 kr.", "108.000-123.000 kr."]], ["es_l2v"]),
      ("p", "Tabellen er Energisparer.dk's tommelfingerregel. Husets varmetab, isolering og vinduer betyder mindst lige så meget som antallet af kvadratmeter, så bed installatøren om en varmetabsberegning. SparEnergi angiver typisk 100.000-130.000 kr. for en luft til vand-varmepumpe uden at opdele efter husstørrelse.", ["es_l2v", "se_vp"]),
-     ("p", "Se hele prisoverblikket med ekstraposter og driftsudgift i guiden til <a href=\"/varmepumpe/pris/\">varmepumpe pris 2026</a>.", []),
+     ("p", "Se <a href=\"/varmepumpe/pris/\">luft til vand varmepumpe pris inkl. montering, tilskud og drift</a>.", []),
    ]),
    ("Tilskud og fradrag i 2026", [
      ("p", "Varmepumpepuljen giver 27.000 kr., når en helårsbolig, du selv ejer, skifter olie, gas, elvarme eller biokedel ud med luft til vand eller jordvarme. Huset må ikke ligge i et område med fjernvarme eller planlagt fjernvarme, og du må ikke have indgået en bindende aftale, før du har tilsagn.", ["se_vpp"]),
@@ -505,7 +505,7 @@ NAV = {
                 ("/varmepumpe/skift-gasfyr/", "Skift gasfyr til varmepumpe", "Varmeplan, tilskud og afkobling.", "flame"),
                 ("/varmepumpe/jordvarme-pris/", "Jordvarme pris", "Pris, drift, grund og tilladelse.", "pump"),
                 ("/varmepumpe/luft-til-vand/", "Luft til vand varmepumpe", "Sådan virker den, pris efter husstørrelse og støjregler.", "pump"),
-                ("/varmepumpe/luft-til-luft/", "Luft til luft varmepumpe", "Hvad den kan, pris og besparelse.", "pump"),
+                ("/varmepumpe/luft-til-luft/", "Luft til luft varmepumpe", "Hvad den kan, og hvad du sparer.", "pump"),
                 ("/varmepumpe/luft-til-luft-pris/", "Luft til luft-varmepumpe pris", "Pris, besparelse og begrænsninger.", "pump"),
                 ("/varmepumpe/tilbud/", "Tilbud på varmepumpe", "Få et uforpligtende tilbud før fristen.", "doc")],
 }
@@ -513,7 +513,7 @@ NAV = {
 # keyword-backlog 10/11 2026: 'luft til vand varmepumpe pris' (GSC 39 visninger, pos. 88,8) -> skarpere pris-H2 + kort prisopsummering
 _l2v = T["/varmepumpe/luft-til-vand/"]
 _l2v["sections"] = [(("Luft til vand varmepumpe pris for 150 og 200 m² hus" if h == "Pris for 150 og 200 m² hus" else h),
-                     ([("p", "Kort sagt: SparEnergi angiver typisk 100.000-130.000 kr. for en luft til vand varmepumpe, og Energisparer.dk ca. 90.000-150.000 kr. inkl. installation afhængigt af husets størrelse og varmetab – før et eventuelt tilskud.", ["se_vp", "es_l2v"])] + b
+                     ([("p", "Kort sagt: se den samlede <a href=\"/varmepumpe/pris/\">luft til vand varmepumpe pris</a> inkl. montering, tilskud og drift. Tabellen nedenfor viser typiske priser efter husstørrelse.", ["se_vp", "es_l2v"])] + b
                       if h == "Pris for 150 og 200 m² hus" else b)) for h, b in _l2v["sections"]]
 
 # keyword-backlog 17/11 2026: 'luft til vand varmepumpe' (GSC 28 visninger, pos. 85,2) -> skarpere H1/intro + kort faktaboks og FAQ med kilder
@@ -521,13 +521,13 @@ _l2v["h1"] = "Luft til vand varmepumpe: sådan virker den, pris og tilskud"
 _l2v["intro"] = "En luft til vand varmepumpe henter varmen i udeluften og afleverer den til husets radiatorer, gulvvarme og varme brugsvand – derfor kan den erstatte et olie- eller gasfyr helt. " + _l2v["intro"].split(". ", 1)[1]
 _l2v["sections"] = [("Luft til vand varmepumpe kort fortalt", [
     ("ul", [("<strong>Effektivitet:</strong> Energisparer.dk angiver typisk SCOP 3,5-5,1, dvs. 3,5-5,1 kWh varme for hver kWh strøm over et år.", ["es_l2v"]),
-            ("<strong>Pris:</strong> SparEnergi angiver typisk 100.000-130.000 kr.; Energisparer.dk ca. 90.000-150.000 kr. inkl. installation afhængigt af husets størrelse.", ["se_vp", "es_l2v"]),
+            ("<strong>Pris:</strong> <a href=\"/varmepumpe/pris/\">Se luft til vand varmepumpe pris inkl. montering, tilskud og drift</a>.", ["se_vp", "es_l2v"]),
             ("<strong>Tilskud:</strong> Varmepumpepuljen giver 27.000 kr. ved skift til luft til vand-varmepumpe, når kravene er opfyldt.", ["se_vpp"]),
             ("<strong>Støj:</strong> normalt højst 35 dB hos naboen om natten i parcelhus- og sommerhusområder.", ["mst_stoej"]),
             ("<strong>Udbredelse:</strong> ca. 205.500 af Danmarks ca. 1,6 mio. beboede parcel- og rækkehuse er registreret med varmepumpe (Danmarks Statistik, 2026).", ["dst_bol102"])]),
   ])] + _l2v["sections"]
 _l2v["faq"] = [("Hvad er en luft til vand varmepumpe?", "En varmepumpe, der trækker varme ud af udeluften – også i frostvejr – og afleverer den til husets vandbårne varmesystem og en varmtvandsbeholder. Den kræver radiatorer eller gulvvarme; har du elpaneler, er en luft til luft-varmepumpe ofte det billigere valg.", ["es_l2v", "se_vp"])] + _l2v["faq"]
-_l2v["updated"] = ("17. november 2026", "2026-11-17")
+_l2v["updated"] = ("23. november 2026", "2026-11-23")
 
 # keyword-backlog 20/11 2026: 'omregning træpiller til kwh' (GSC 12 visninger, pos. 22,4) -> ny guide med omregning ud fra Energistyrelsens brændværdi
 TOPIC_S.update({

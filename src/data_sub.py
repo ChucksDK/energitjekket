@@ -539,13 +539,13 @@ NATIONAL["/solceller/med-batteri/"] = {
 }
 
 NATIONAL["/varmepumpe/pris/"] = {
-  "svc": "varmepumpe", "crumb": "Pris", "updated": ("19. november 2026", "2026-11-19"),
+  "svc": "varmepumpe", "crumb": "Pris", "updated": ("23. november 2026", "2026-11-23"),
   "kw": "luft til vand varmepumpe pris / luft til vand varmepumpe pris inkl montering / pris inkl montering",
   "evidence": "Autocomplete 'luft til vand varmepumpe pris': 10 forslag (bl.a. 'inkl montering', 'inkl montering jylland', '200m2', '250 m2', '300 m2'). PAA: 'Hvad koster en varmepumpe til et hus på 150 m2?', 'Kan det betale sig at få en luft til vand varmepumpe?', 'Hvad koster en luft til vand varmepumpe om året?'. Bylokale varianter ('luft til vand varmepumpe pris odense' osv.) gav INGEN forslag i de 7 byer, så der er ingen pris-side pr. by.",
-  "title": "Luft til vand-varmepumpe pris 2026 inkl. montering",
-  "desc": "En luft til vand-varmepumpe koster typisk 90.000-150.000 kr. inkl. montering. Se driftsudgift, tilskud, ekstraposter og hvad tilbuddet skal vise.",
-  "h1": "Luft til vand-varmepumpe pris inkl. montering 2026",
-  "intro": "Prisen på en luft til vand-varmepumpe afhænger af husets varmebehov, dit varmesystem og hvor meget ekstra arbejde der skal til. Vi har ikke fundet kilder, der viser regionale prisforskelle i Nordjylland, resten af Jylland, på Fyn eller på Sjælland. Her er prisspændene fra to kilder, hvad varmen koster om året, og hvordan tilskuddet påvirker regnestykket.",
+  "title": "Luft til vand varmepumpe pris 2026 inkl. montering",
+  "desc": "Luft til vand varmepumpe pris er typisk 100.000-130.000 kr. inkl. montering (SparEnergi) eller ca. 90.000-150.000 kr. (Energisparer.dk). Se drift og tilskud.",
+  "h1": "Luft til vand varmepumpe pris inkl. montering 2026",
+  "intro": "Luft til vand varmepumpe pris afhænger af husets varmebehov, dit varmesystem og hvor meget ekstra arbejde der skal til. Vi har ikke fundet kilder, der viser regionale prisforskelle i Nordjylland, resten af Jylland, på Fyn eller på Sjælland. Her er prisspændene fra to kilder, hvad varmen koster om året, og hvordan tilskuddet påvirker regnestykket.",
   "sections": [
    ("Luft til vand-varmepumpe: pris inkl. montering før og efter tilskud", [
      ("table", ["Type", "Pris inkl. montering", "Kilde"],
