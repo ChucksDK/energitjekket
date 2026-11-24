@@ -16,8 +16,8 @@ Lighed, GAMMEL metode (hele siden minus header/footer/form/links)
   Alle guides og tilbudssider (16): lighed gns 20%, maks 52% | ord 697-1442
   Byside vs egen underside: gns 14%, maks 37%
   Nye sider (ebeltoft, thisted) mod de eksisterende sider af samme type:
-    /solceller/ebeltoft/: gns 47%, maks 57% (/solceller/helsinge/) | 1340 ord
-    /solceller/thisted/: gns 46%, maks 56% (/solceller/middelfart/) | 1335 ord
+    /solceller/ebeltoft/: gns 48%, maks 57% (/solceller/helsinge/) | 1340 ord
+    /solceller/thisted/: gns 47%, maks 56% (/solceller/middelfart/) | 1335 ord
     /solceller/ebeltoft/regler-og-byggetilladelse/: gns 36%, maks 50% (/solceller/varde/regler-og-byggetilladelse/) | 692 ord
     /solceller/thisted/regler-og-byggetilladelse/: gns 37%, maks 48% (/solceller/toender/regler-og-byggetilladelse/) | 634 ord
     /varmepumpe/ebeltoft/: gns 42%, maks 51% (/varmepumpe/roenne/) | 1240 ord
