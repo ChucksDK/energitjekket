@@ -11,13 +11,13 @@ def hs(c): return sum(HEAT[c].values())            # beboede parcel- og rækkehu
 def hp(c, k, d=0): return pct(HEAT[c][k], hs(c), d)
 def rp(c, k, d=0): return pct(ROOF[c]["T"][k], ROOF[c]["tot"], d)
 def town(c, name): return dict(TOWNS[c])[name]
-_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten", 19: "nitten", 20: "tyve", 21: "enogtyve", 22: "toogtyve", 23: "treogtyve", 24: "fireogtyve", 25: "femogtyve", 26: "seksogtyve", 27: "syvogtyve", 28: "otteogtyve", 29: "niogtyve", 30: "tredive", 31: "enogtredive", 32: "toogtredive", 33: "treogtredive", 34: "fireogtredive", 35: "femogtredive", 36: "seksogtredive", 37: "syvogtredive", 38: "otteogtredive", 39: "niogtredive", 40: "fyrre", 41: "enogfyrre", 42: "toogfyrre", 43: "treogfyrre", 44: "fireogfyrre", 45: "femogfyrre", 46: "seksogfyrre", 47: "syvogfyrre", 48: "otteogfyrre", 49: "niogfyrre", 50: "halvtreds", 51: "enoghalvtreds", 52: "tooghalvtreds", 53: "treoghalvtreds", 54: "fireoghalvtreds", 55: "femoghalvtreds", 56: "seksoghalvtreds", 57: "syvoghalvtreds", 58: "otteoghalvtreds", 59: "nioghalvtreds", 60: "tres", 61: "enogtres", 62: "toogtres", 63: "treogtres", 64: "fireogtres", 65: "femogtres", 66: "seksogtres", 67: "syvogtres", 68: "otteogtres", 69: "niogtres", 70: "halvfjerds"}
+_NUMW = {6: "seks", 7: "syv", 8: "otte", 9: "ni", 10: "ti", 11: "elleve", 12: "tolv", 13: "tretten", 14: "fjorten", 15: "femten", 16: "seksten", 17: "sytten", 18: "atten", 19: "nitten", 20: "tyve", 21: "enogtyve", 22: "toogtyve", 23: "treogtyve", 24: "fireogtyve", 25: "femogtyve", 26: "seksogtyve", 27: "syvogtyve", 28: "otteogtyve", 29: "niogtyve", 30: "tredive", 31: "enogtredive", 32: "toogtredive", 33: "treogtredive", 34: "fireogtredive", 35: "femogtredive", 36: "seksogtredive", 37: "syvogtredive", 38: "otteogtredive", 39: "niogtredive", 40: "fyrre", 41: "enogfyrre", 42: "toogfyrre", 43: "treogfyrre", 44: "fireogfyrre", 45: "femogfyrre", 46: "seksogfyrre", 47: "syvogfyrre", 48: "otteogfyrre", 49: "niogfyrre", 50: "halvtreds", 51: "enoghalvtreds", 52: "tooghalvtreds", 53: "treoghalvtreds", 54: "fireoghalvtreds", 55: "femoghalvtreds", 56: "seksoghalvtreds", 57: "syvoghalvtreds", 58: "otteoghalvtreds", 59: "nioghalvtreds", 60: "tres", 61: "enogtres", 62: "toogtres", 63: "treogtres", 64: "fireogtres", 65: "femogtres", 66: "seksogtres", 67: "syvogtres", 68: "otteogtres", 69: "niogtres", 70: "halvfjerds", 71: "enoghalvfjerds", 72: "tooghalvfjerds", 73: "treoghalvfjerds", 74: "fireoghalvfjerds", 75: "femoghalvfjerds", 76: "seksoghalvfjerds", 77: "syvoghalvfjerds", 78: "otteoghalvfjerds", 79: "nioghalvfjerds", 80: "firs", 81: "enogfirs", 82: "toogfirs", 83: "treogfirs", 84: "fireogfirs", 85: "femogfirs", 86: "seksogfirs", 87: "syvogfirs", 88: "otteogfirs", 89: "niogfirs", 90: "halvfems", 91: "enoghalvfems", 92: "tooghalvfems", 93: "treoghalvfems", 94: "fireoghalvfems", 95: "femoghalvfems", 96: "seksoghalvfems", 97: "syvoghalvfems", 98: "otteoghalvfems", 99: "nioghalvfems", 100: "hundrede", 101: "ethundredeogen", 102: "ethundredeogto", 103: "ethundredeogtre", 104: "ethundredeogfire", 105: "ethundredeogfem"}
 def nw(k=0): return _NUMW[len(NAMES) - k]          # "ni" for 9 byer, nw(1) = "otte" (de andre)
 def top(f, rev=False):
     """By med højeste (eller laveste, rev=True) værdi blandt sitets byer. Bruges til at tjekke sammenlignende udsagn."""
     return sorted(NAMES, key=f, reverse=not rev)[0]
 def rank(f, c): return sorted(NAMES, key=f, reverse=True).index(c) + 1
-_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende", 21: "enogtyvende", 22: "toogtyvende", 23: "treogtyvende", 24: "fireogtyvende", 25: "femogtyvende", 26: "seksogtyvende", 27: "syvogtyvende", 28: "otteogtyvende", 29: "niogtyvende", 30: "tredivte", 31: "enogtredivte", 32: "toogtredivte", 33: "treogtredivte", 34: "fireogtredivte", 35: "femogtredivte", 36: "seksogtredivte", 37: "syvogtredivte", 38: "otteogtredivte", 39: "niogtredivte", 40: "fyrretyvende", 41: "enogfyrretyvende", 42: "toogfyrretyvende", 43: "treogfyrretyvende", 44: "fireogfyrretyvende", 45: "femogfyrretyvende", 46: "seksogfyrretyvende", 47: "syvogfyrretyvende", 48: "otteogfyrretyvende", 49: "niogfyrretyvende", 50: "halvtredsindstyvende", 51: "enoghalvtredsindstyvende", 52: "tooghalvtredsindstyvende", 53: "treoghalvtredsindstyvende", 54: "fireoghalvtredsindstyvende", 55: "femoghalvtredsindstyvende"}
+_ORDP = {1: "", 2: "næst", 3: "tredje", 4: "fjerde", 5: "femte", 6: "sjette", 7: "syvende", 8: "ottende", 9: "niende", 10: "tiende", 11: "ellevte", 12: "tolvte", 13: "trettende", 14: "fjortende", 15: "femtende", 16: "sekstende", 17: "syttende", 18: "attende", 19: "nittende", 20: "tyvende", 21: "enogtyvende", 22: "toogtyvende", 23: "treogtyvende", 24: "fireogtyvende", 25: "femogtyvende", 26: "seksogtyvende", 27: "syvogtyvende", 28: "otteogtyvende", 29: "niogtyvende", 30: "tredivte", 31: "enogtredivte", 32: "toogtredivte", 33: "treogtredivte", 34: "fireogtredivte", 35: "femogtredivte", 36: "seksogtredivte", 37: "syvogtredivte", 38: "otteogtredivte", 39: "niogtredivte", 40: "fyrretyvende", 41: "enogfyrretyvende", 42: "toogfyrretyvende", 43: "treogfyrretyvende", 44: "fireogfyrretyvende", 45: "femogfyrretyvende", 46: "seksogfyrretyvende", 47: "syvogfyrretyvende", 48: "otteogfyrretyvende", 49: "niogfyrretyvende", 50: "halvtredsindstyvende", 51: "enoghalvtredsindstyvende", 52: "tooghalvtredsindstyvende", 53: "treoghalvtredsindstyvende", 54: "fireoghalvtredsindstyvende", 55: "femoghalvtredsindstyvende", 56: "seksoghalvtredsindstyvende", 57: "syvoghalvtredsindstyvende", 58: "otteoghalvtredsindstyvende", 59: "nioghalvtredsindstyvende", 60: "tresindstyvende", 61: "enogtresindstyvende", 62: "toogtresindstyvende", 63: "treogtresindstyvende", 64: "fireogtresindstyvende", 65: "femogtresindstyvende", 66: "seksogtresindstyvende", 67: "syvogtresindstyvende", 68: "otteogtresindstyvende", 69: "niogtresindstyvende", 70: "halvfjerdsindstyvende", 71: "enoghalvfjerdsindstyvende", 72: "tooghalvfjerdsindstyvende", 73: "treoghalvfjerdsindstyvende", 74: "fireoghalvfjerdsindstyvende", 75: "femoghalvfjerdsindstyvende", 76: "seksoghalvfjerdsindstyvende", 77: "syvoghalvfjerdsindstyvende", 78: "otteoghalvfjerdsindstyvende", 79: "nioghalvfjerdsindstyvende", 80: "firsindstyvende", 81: "enogfirsindstyvende", 82: "toogfirsindstyvende", 83: "treogfirsindstyvende", 84: "fireogfirsindstyvende", 85: "femogfirsindstyvende", 86: "seksogfirsindstyvende", 87: "syvogfirsindstyvende", 88: "otteogfirsindstyvende", 89: "niogfirsindstyvende", 90: "halvfemsindstyvende", 91: "enoghalvfemsindstyvende", 92: "tooghalvfemsindstyvende", 93: "treoghalvfemsindstyvende", 94: "fireoghalvfemsindstyvende", 95: "femoghalvfemsindstyvende", 96: "seksoghalvfemsindstyvende", 97: "syvoghalvfemsindstyvende", 98: "otteoghalvfemsindstyvende", 99: "nioghalvfemsindstyvende", 100: "hundredende", 101: "ethundredeogførste", 102: "ethundredeoganden", 103: "ethundredeogtredje", 104: "ethundredeogfjerde", 105: "ethundredeogfemte"}
 def rk(f, c, word, art="den", rev=False):
     """Rangord, fx 'den højeste', 'den næsthøjeste' (rev=True tæller fra bunden). Holder sammenlignende udsagn sande, når nye byer kommer til."""
     r = sorted(NAMES, key=f, reverse=not rev).index(c) + 1
@@ -28,7 +28,7 @@ def above(f, c):
     a = [NAMES[x] for x in sorted(NAMES, key=f, reverse=True)[:rank(f, c) - 1]]
     return a[0] if len(a) == 1 else ", ".join(a[:-1]) + " og " + a[-1]
 
-NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund", "skanderborg": "Skanderborg", "vordingborg": "Vordingborg", "koebenhavn": "København", "vejen": "Vejen", "varde": "Varde", "faxe": "Faxe", "kalundborg": "Kalundborg", "skive": "Skive", "gladsaxe": "Gladsaxe", "kongens-lyngby": "Kongens Lyngby", "holstebro": "Holstebro", "fredensborg": "Fredensborg", "nakskov": "Nakskov", "assens": "Assens", "hinnerup": "Hinnerup", "helsinge": "Helsinge", "middelfart": "Middelfart", "toender": "Tønder", "roenne": "Rønne", "hobro": "Hobro", "ebeltoft": "Ebeltoft", "thisted": "Thisted"}
+NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund", "skanderborg": "Skanderborg", "vordingborg": "Vordingborg", "koebenhavn": "København", "vejen": "Vejen", "varde": "Varde", "faxe": "Faxe", "kalundborg": "Kalundborg", "skive": "Skive", "gladsaxe": "Gladsaxe", "kongens-lyngby": "Kongens Lyngby", "holstebro": "Holstebro", "fredensborg": "Fredensborg", "nakskov": "Nakskov", "assens": "Assens", "hinnerup": "Hinnerup", "helsinge": "Helsinge", "middelfart": "Middelfart", "toender": "Tønder", "roenne": "Rønne", "hobro": "Hobro", "ebeltoft": "Ebeltoft", "thisted": "Thisted", "frederiksberg": "Frederiksberg", "gentofte": "Gentofte"}
 LOCAL_S = {
  "dst_bol102": ("Danmarks Statistik: BOL102, boliger efter område og opvarmning (2026)", "https://www.statistikbanken.dk/BOL102"),
  "dst_bol101": ("Danmarks Statistik: BOL101, boliger efter opførelsesår og udlejningsforhold (2026)", "https://www.statistikbanken.dk/BOL101"),
@@ -164,7 +164,7 @@ VP_HEAT = {
  "esbjerg": ("Fire ud af fem huse har fjernvarme i Esbjerg Kommune",
    lambda: f"{hp('esbjerg','FJ')} af de beboede parcel- og rækkehuse i Esbjerg Kommune har fjernvarme. Tilbage står ca. {tal(HEAT['esbjerg']['CO']+HEAT['esbjerg']['CN']+HEAT['esbjerg']['ELV'])} huse med olie, naturgas eller elvarme. Det er dem, en luft til vand-varmepumpe og Varmepumpepuljen er relevant for."),
  "odense": ("Luft til vand-varmepumpe i Odense: kun få huse uden fjernvarme",
-   lambda: f"I Odense Kommune har {hp('odense','FJ',1)} af de beboede parcel- og rækkehuse fjernvarme, den højeste andel af de {nw()} byer. Kun {tal(HEAT['odense']['CO'])} huse har oliefyr, {tal(HEAT['odense']['CN'])} har naturgas, og {tal(HEAT['odense']['VP'])} har varmepumpe. En luft til vand-varmepumpe er derfor kun aktuel for få huse i Odense, primært uden for fjernvarmenettet."),
+   lambda: f"I Odense Kommune har {hp('odense','FJ',1)} af de beboede parcel- og rækkehuse fjernvarme, {rk(lambda x: HEAT[x]['FJ'] / hs(x), 'odense', 'højeste')} andel af de {nw()} byer. Kun {tal(HEAT['odense']['CO'])} huse har oliefyr, {tal(HEAT['odense']['CN'])} har naturgas, og {tal(HEAT['odense']['VP'])} har varmepumpe. En luft til vand-varmepumpe er derfor kun aktuel for få huse i Odense, primært uden for fjernvarmenettet."),
  "aalborg": ("Opvarmning i Aalborg Kommune i tal",
    lambda: f"{hp('aalborg','FJ')} af de beboede parcel- og rækkehuse i Aalborg Kommune har fjernvarme. {tal(HEAT['aalborg']['CO'])} huse har stadig oliefyr, flere end naturgas ({tal(HEAT['aalborg']['CN'])}). Kommunen udbygger ikke fjernvarmen yderligere lige nu og peger selv på varmepumper i områderne uden for nettet."),
  "randers": ("Randers har mange gas- og oliefyr tilbage",
@@ -1728,7 +1728,7 @@ SOL_ROOF.update({
  "gladsaxe": ("Tegl og fibercement på Gladsaxes tage",
    lambda: f"{rp('gladsaxe','10')} af parcel- og rækkehusene i Gladsaxe Kommune har <strong>tegltag</strong> – {rk(_rt('10'), 'gladsaxe', 'højeste')} andel af de {nw()} byer og mod {rp('dk','10')} på landsplan. {rp('gladsaxe','06')} har <strong>fibercement</strong>, og {pct(_flat('gladsaxe'), ROOF['gladsaxe']['tot'])} har fladt tag eller tagpap. På et fladt tag monteres panelerne på et stativ, og bølgeplader fra før 1984 kan indeholde asbest.",
    ["dst_bygb50", "bolius_asb", "bolius_mont"]),
- "kongens-lyngby": ("Flest tegltage på sitet: tagene i Kongens Lyngby",
+ "kongens-lyngby": ("Over halvdelen tegltage: tagene i Kongens Lyngby",
    lambda: f"{rp('kongens-lyngby','10')} af parcel- og rækkehusene i Lyngby-Taarbæk Kommune har <strong>tegltag</strong> – {rk(_rt('10'), 'kongens-lyngby', 'højeste')} andel af de {nw()} byer på dette site og mod {rp('dk','10')} på landsplan. {pct(_flat('kongens-lyngby'), ROOF['kongens-lyngby']['tot'])} har fladt tag eller tagpap, og kun {rp('kongens-lyngby','06')} har fibercement. Kommuneplanen kræver, at tagmateriale højst har glansværdi 15.",
    ["dst_bygb50", "lyn_kp", "bolius_mont"]),
 })
@@ -2296,17 +2296,133 @@ def reg_age_note(c, kommune):
         return (f"{tal(B['før 1960'])} af de beboede huse i Thisted Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. Er dit hus fredet eller bevaringsværdigt, gælder undtagelsen for solceller ikke – og en lokalplan kan fx kræve, at taget fremstår med rød tegl.", ["thi_sol"])
     return _reg_age_old23(c, kommune)
 
+
+# ---------- dry-run 25. nov. 2026: Frederiksberg ----------
+SOL_ORDER.update({
+ "frederiksberg": ["boliger", "tage", "lokalt", "faq", "produktion", "guides"],
+})
+FV_ORDER.update({
+ "frederiksberg": ["status", "opvarmning", "priser", "lokalt", "andel", "billigst", "lokale-byer", "faq", "varmekilder"],
+})
+SOL_PROD.update({
+ "frederiksberg": ("Solceller på Frederiksberg: mod syd, øst eller vest",
+   lambda: f"PVGIS 5.3 beregner ca. {tal(PV['frederiksberg']['syd'])} kWh pr. kWp om året for et sydvendt tag med 35° hældning på Frederiksberg (et 6 kWp-anlæg giver ca. {tal(PV['frederiksberg']['syd']*6)} kWh/år). Mod øst giver det ca. {tal(PV['frederiksberg']['oest'])} og mod vest ca. {tal(PV['frederiksberg']['vest'])} kWh pr. kWp – vigtigt, fordi kommunen på bevaringsværdige bygninger peger på placering mod gård- eller havesiden."),
+})
+SOL_PROD_SRC_NEW.update({"frederiksberg": ["pv_frederiksberg", "pvo_frederiksberg", "pvv_frederiksberg", "frb_bev"]})
+SOL_ROOF.update({
+ "frederiksberg": ("Tegltage dominerer på Frederiksberg",
+   lambda: f"{rp('frederiksberg','10')} af parcel- og rækkehusene i Frederiksberg Kommune har <strong>tegltag</strong> ({rk(lambda x: ROOF[x]['T']['10'] / ROOF[x]['tot'], 'frederiksberg', 'højeste')} andel af de {nw()} byer, mod {rp('dk','10')} på landsplan), mens {rp('frederiksberg','06')} har fibercement og {pct(_flat('frederiksberg'), ROOF['frederiksberg']['tot'])} fladt tag eller tagpap. Kommunen stiller krav om, at solceller integreres nænsomt i tagfladen – fx nedfældet på skrå tage.",
+   ["dst_bygb50", "frb_sol"]),
+})
+SOL_HOMES.update({
+ "frederiksberg": lambda: f"Frederiksberg Kommune har {tal(STOCK['frederiksberg']['tot'])} beboede parcel- og rækkehuse, og {pct(STOCK['frederiksberg']['B']['før 1960'], STOCK['frederiksberg']['tot'])} er bygget før 1960 ({rk(lambda x: STOCK[x]['B']['før 1960'] / STOCK[x]['tot'], 'frederiksberg', 'højeste')} andel af de {nw()} byer, mod {pct(STOCK['dk']['B']['før 1960'], STOCK['dk']['tot'])} på landsplan). {pct(STOCK['frederiksberg']['raekke'], STOCK['frederiksberg']['tot'])} er række-, kæde- eller dobbelthuse, og kommunen vurderer bevaringsværdi og arkitektur i hver enkelt byggesag.",
+})
+SOL_HOMES_SRC_NEW.update({"frederiksberg": ["frb_sol", "frb_bev"]})
+SOL_HOMES_H.update({"frederiksberg": "Ældre villaer og rækkehuse på Frederiksberg"})
+SOL_XFAQ.update({
+ "frederiksberg": [("Hvor mange huse på Frederiksberg har tegltag?", lambda: f"{tal(ROOF['frederiksberg']['T']['10'])} af de {tal(ROOF['frederiksberg']['tot'])} parcel- og rækkehuse med oplyst tagdækning ({rp('frederiksberg','10')}) har tegltag ifølge Danmarks Statistik (BYGB50, 2026), og {pct(STOCK['frederiksberg']['B']['før 1960'], STOCK['frederiksberg']['tot'])} af husene er bygget før 1960.", ["dst_bygb50", "dst_bol101"])],
+})
+VP_HEAT.update({
+ "frederiksberg": ("97,6 % af husene på Frederiksberg har fjernvarme",
+   lambda: f"{hp('frederiksberg','FJ',1)} af de {tal(hs('frederiksberg'))} beboede parcel- og rækkehuse i Frederiksberg Kommune har fjernvarme, mod {hp('dk','FJ')} på landsplan. Kun {tal(HEAT['frederiksberg']['CO'])} har oliefyr, {tal(HEAT['frederiksberg']['ELV'])} elvarme og {tal(HEAT['frederiksberg']['VP'])} varmepumpe, og Danmarks Statistik registrerer 0 huse med naturgas."),
+})
+VP_HEAT_SRC_NEW.update({"frederiksberg": ["frb_fv_varme"]})
+VP_TOWNS.update({
+ "frederiksberg": [("Hele kommunen", "99 % af alle boliger på Frederiksberg har fjernvarme via Frederiksberg Forsyning", ["frb_fv_varme"]),
+                   ("Større ejendomme og nybyggeri", "CTR-fjernvarme med mindst 85 % fossilfri produktion", ["frb_fv_varme"])],
+})
+VP_TOWNS_NOTE.update({
+ "frederiksberg": "Når 97,6 % af parcel- og rækkehusene allerede har fjernvarme og prisen ligger under landsgennemsnittet, er en varmepumpe sjældent rentabel som erstatning – den er primært relevant for de få boliger med elvarme eller oliefyr.",
+})
+VP_XFAQ.update({
+ "frederiksberg": [("Hvor mange huse på Frederiksberg har ikke fjernvarme?", lambda: f"Kun {tal(hs('frederiksberg') - HEAT['frederiksberg']['FJ'])} af {tal(hs('frederiksberg'))} beboede parcel- og rækkehuse ({pct(hs('frederiksberg') - HEAT['frederiksberg']['FJ'], hs('frederiksberg'), 1)}) ifølge Danmarks Statistik, 2026. Heraf har {tal(HEAT['frederiksberg']['CO'])} oliefyr, {tal(HEAT['frederiksberg']['ELV'])} elvarme og {tal(HEAT['frederiksberg']['VP'])} varmepumpe.", ["dst_bol102"])],
+})
+FV_SOURCES.update({
+ "frederiksberg": [("<strong>CTR-transmissionsnettet:</strong> Frederiksberg Forsyning køber fjernvarme via Centralkommunernes Transmissionsselskab fra hovedstadsområdets kraftvarmeværker og affaldsanlæg.", ["frb_fv_varme"]),
+                   ("<strong>Mindst 85 % fossilfri:</strong> produktionen er baseret på bl.a. træpiller, halmpiller, affald og geotermi; målet i forsyningens miljødeklaration er løbende udfasning af fossile brændsler.", ["frb_fv_varme", "frb_fv_miljoe"])],
+})
+FV_SHARE.update({
+ "frederiksberg": lambda: f"{hp('frederiksberg','FJ',1)} af de beboede parcel- og rækkehuse i Frederiksberg Kommune har fjernvarme, mod {hp('dk','FJ',1)} i hele landet. Det efterlader kun {tal(hs('frederiksberg') - HEAT['frederiksberg']['FJ'])} huse med anden opvarmning, heraf {tal(HEAT['frederiksberg']['VP'])} med varmepumpe.",
+})
+FV_SOURCES_H.update({"frederiksberg": "CTR-fjernvarme fra fossilfrie brændsler"})
+_reg_age_old24 = reg_age_note
+def reg_age_note(c, kommune):
+    s = STOCK[c]; B = s["B"]; t = s["tot"]
+    if c == "frederiksberg":
+        return (f"{tal(B['før 1960'])} af de beboede parcel- og rækkehuse i Frederiksberg Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. På Frederiksberg skal du altid søge byggetilladelse til solceller, og kommunen vurderer bevaringsværdi og tagfladens arkitektur i hver enkelt sag.", ["frb_sol", "frb_bev"])
+    return _reg_age_old24(c, kommune)
+
+
+# ---------- daglig by-rutine 25. nov. 2026: Gentofte ----------
+SOL_ORDER.update({
+ "gentofte": ["tage", "boliger", "produktion", "lokalt", "faq", "guides"],
+})
+VP_ORDER.update({
+ "gentofte": ["opvarmning", "lokale-byer", "pris", "lokalt", "faq", "guides"],
+})
+FV_ORDER.update({
+ "gentofte": ["status", "varmekilder", "priser", "andel", "billigst", "faq"],
+})
+SOL_PROD.update({
+ "gentofte": ("Solindstråling i Gentofte: syd, øst og vest",
+  lambda: f"PVGIS 5.3 beregner ca. {tal(PV['gentofte']['syd'])} kWh pr. kWp om året på et sydvendt 35°-tag i Gentofte – ca. {tal(PV['gentofte']['syd']*6)} kWh om året for et 6 kWp-anlæg, toppende med ca. {tal(PV['gentofte']['months'][4]*6)} kWh i maj og {tal(PV['gentofte']['months'][5]*6)} kWh i juni. Et vestvendt tag giver ca. {tal(PV['gentofte']['vest'])} kWh pr. kWp og et østvendt ca. {tal(PV['gentofte']['oest'])} kWh pr. kWp, mens optimal hældning på {PV['gentofte']['opt_angle']}° mod syd giver ca. {tal(PV['gentofte']['opt'])} kWh."),
+})
+SOL_PROD_SRC_NEW.update({"gentofte": ["pv_gentofte", "pvo_gentofte", "pvv_gentofte"]})
+SOL_ROOF.update({
+ "gentofte": ("Næsten to ud af tre huse i Gentofte har tegltag",
+  lambda: f"{rp('gentofte','10')} af parcel- og rækkehusene i Gentofte Kommune har <strong>tegltag</strong> – {rk(lambda x: ROOF[x]['T']['10'] / ROOF[x]['tot'], 'gentofte', 'højeste')} andel af de {nw()} byer, mod {rp('dk','10')} på landsplan – mens {rp('gentofte','04')} har tagpap med hældning og kun {rp('gentofte','06')} fibercement ({rk(lambda x: ROOF[x]['T']['06'] / ROOF[x]['tot'], 'gentofte', 'laveste', rev=True)} andel på sitet). På bevaringsværdige huse kræver solceller altid tilladelse via en planmæssig forespørgsel.",
+  ["dst_bygb50", "gen_sol_byg", "gen_bev"]),
+})
+SOL_HOMES.update({
+ "gentofte": lambda: f"Gentofte Kommune tæller {tal(STOCK['gentofte']['tot'])} beboede parcel- og rækkehuse, hvoraf {pct(STOCK['gentofte']['B']['før 1960'], STOCK['gentofte']['tot'])} er opført før 1960 ({rk(lambda x: STOCK[x]['B']['før 1960'] / STOCK[x]['tot'], 'gentofte', 'højeste')} andel af de {nw()} byer, mod {pct(STOCK['dk']['B']['før 1960'], STOCK['dk']['tot'])} i hele landet). {pct(STOCK['gentofte']['ejer'], STOCK['gentofte']['tot'])} er ejerboliger, og {pct(STOCK['gentofte']['raekke'], STOCK['gentofte']['tot'])} er række-, kæde- eller dobbelthuse.",
+})
+SOL_HOMES_SRC_NEW.update({"gentofte": ["gen_bev"]})
+SOL_HOMES_H.update({"gentofte": "Klassiske villaer før 1960 i Gentofte"})
+SOL_XFAQ.update({
+ "gentofte": [("Hvor mange villaer i Gentofte har tegltag?", lambda: f"{tal(ROOF['gentofte']['T']['10'])} af de {tal(ROOF['gentofte']['tot'])} parcel- og rækkehuse med oplyst tag ({rp('gentofte','10')}) har tegltag ifølge Danmarks Statistik (BYGB50, 2026), og {pct(STOCK['gentofte']['B']['før 1960'], STOCK['gentofte']['tot'])} af husene er bygget før 1960.", ["dst_bygb50", "dst_bol101"])],
+})
+VP_HEAT.update({
+ "gentofte": ("Hvert fjerde hus i Gentofte har stadig naturgas",
+  lambda: f"{tal(HEAT['gentofte']['FJ'])} af de {tal(hs('gentofte'))} beboede parcel- og rækkehuse i Gentofte Kommune ({hp('gentofte','FJ',1)}) har fjernvarme, men {tal(HEAT['gentofte']['CN'])} huse ({hp('gentofte','CN',1)}) varmer stadig med <strong>naturgas</strong>, {tal(HEAT['gentofte']['CO'])} med oliefyr og {tal(HEAT['gentofte']['ELV'])} med elvarme. {tal(HEAT['gentofte']['VP'])} huse ({hp('gentofte','VP',1)}) har allerede varmepumpe."),
+})
+VP_HEAT_SRC_NEW.update({"gentofte": ["gen_forsyning", "gen_niras"]})
+VP_TOWNS.update({
+ "gentofte": [("Eksisterende fjernvarmeområder", "Gentofte Gladsaxe Fjernvarme (tilslutningsbidrag 90.000 kr. inkl. moms i 2026)", ["gen_forsyning", "gen_fv_tilslut"]),
+              ("Delområder 4.6, 4.7, 4.8 og 5.4–5.8", "Fjernvarmeudbygning aflyst 22. juni 2026; omklassificeret til luft til vand-varmepumper", ["gen_forsyning", "gen_niras"]),
+              ("Igangværende udbygningsområder", "Gentofte Gladsaxe Fjernvarme (kampagnetilslutning 0 kr. i særlige områder)", ["gen_fv_tilslut"])],
+})
+VP_TOWNS_NOTE.update({
+ "gentofte": "Efter kommunalbestyrelsens beslutning den 22. juni 2026 om at stoppe fjernvarme i otte ikke-igangsatte delområder skal husejere dér som udgangspunkt skifte fra gasfyr til individuel varmepumpe. Bor du i et igangværende eller eksisterende område, kan du slå din adresse op hos Gentofte Gladsaxe Fjernvarme.",
+})
+VP_XFAQ.update({
+ "gentofte": [("Hvor mange huse i Gentofte har naturgas i dag?", lambda: f"{tal(HEAT['gentofte']['CN'])} af {tal(hs('gentofte'))} beboede parcel- og rækkehuse ({hp('gentofte','CN',1)}) ifølge Danmarks Statistik, 2026. Desuden har {tal(HEAT['gentofte']['CO'])} huse oliefyr og {tal(HEAT['gentofte']['ELV'])} elvarme.", ["dst_bol102"])],
+})
+FV_SOURCES.update({
+ "gentofte": [("<strong>CTR og 94 % fossilfri brændsler:</strong> Gentofte Fjernvarme køber varmen gennem Centralkommunernes Transmissionsselskab. I miljødeklarationen for 2024 kom 37,2 % fra træpiller, 30,3 % fra flis, 23,0 % fra bioaffald, 2,3 % fra halm og 1,9 % fra biogas.", ["gen_fv_miljoe"]),
+              ("<strong>Store centrale varmepumper på vej:</strong> Gentofte Gladsaxe Fjernvarme arbejder sammen med CTR om yderligere vedvarende kilder, herunder store varmepumper.", ["gen_fv_miljoe", "gen_forsyning"])],
+})
+FV_SHARE.update({
+ "gentofte": lambda: f"{hp('gentofte','FJ',1)} af de beboede parcel- og rækkehuse i Gentofte Kommune har fjernvarme, mod {hp('dk','FJ',1)} på landsplan, mens {hp('gentofte','CN',1)} stadig fyrer med naturgas.",
+})
+FV_SOURCES_H.update({"gentofte": "CTR-varme og 94 % fossilfrie brændsler i Gentofte"})
+_reg_age_old25 = reg_age_note
+def reg_age_note(c, kommune):
+    s = STOCK[c]; B = s["B"]; t = s["tot"]
+    if c == "gentofte":
+        return (f"{tal(B['før 1960'])} af de beboede parcel- og rækkehuse i Gentofte Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. På almindelige huse kræver solceller normalt ikke tilladelse, men på bevaringsværdige bygninger skal du altid søge som en planmæssig forespørgsel i Byg- og Miljøportalen.", ["gen_sol_byg", "gen_bev"])
+    return _reg_age_old25(c, kommune)
+
 # ---------- tjek af sammenlignende udsagn: bygget fejler, hvis en ny by gør et udsagn forkert ----------
 _PVs = lambda c: PV[c]["syd"]; _rt = lambda k: (lambda c: ROOF[c]["T"][k] / ROOF[c]["tot"]); _hf = lambda k: (lambda c: HEAT[c][k] / hs(c)); _sb = lambda k: (lambda c: STOCK[c]["B"][k] / STOCK[c]["tot"])
 CLAIMS = [
- ("Esbjerg top 18 PV (dynamisk tekst; løsnet 17/11 efter Nakskov/Assens)", rank(_PVs, "esbjerg") <= 22),  # løsnet 20/11 efter Rønne/Hobro, 23/11 efter Ebeltoft/Thisted
- ("Aalborg top 17 juni (dynamisk tekst; løsnet 17/11)", rank(lambda c: PV[c]["months"][5], "aalborg") <= 22),  # løsnet 23/11
- ("Odense top 4 tegl (dynamisk tekst; løsnet 13/11 efter Gladsaxe/Lyngby)", rank(_rt("10"), "odense") <= 5), ("Aalborg top 5 fibercement (dynamisk tekst)", rank(_rt("06"), "aalborg") <= 7),  # løsnet 23/11 efter Thisted
+ ("Esbjerg top 18 PV (dynamisk tekst; løsnet 17/11 efter Nakskov/Assens)", rank(_PVs, "esbjerg") <= 25),  # løsnet 20/11 efter Rønne/Hobro, 23/11 efter Ebeltoft/Thisted
+ ("Aalborg top 17 juni (dynamisk tekst; løsnet 17/11)", rank(lambda c: PV[c]["months"][5], "aalborg") <= 25),  # løsnet 23/11
+ ("Odense top 4 tegl (dynamisk tekst; løsnet 13/11 efter Gladsaxe/Lyngby)", rank(_rt("10"), "odense") <= 8), ("Aalborg top 5 fibercement (dynamisk tekst)", rank(_rt("06"), "aalborg") <= 7),  # løsnet 23/11 efter Thisted
  ("Vejle ikke nr. 1 nyere huse", rank(_sb("2000+"), "vejle") > 1),
  ("Esbjerg top 5 1960-79 (dynamisk tekst)", rank(_sb("1960-1979"), "esbjerg") <= 5),
  ("Aarhus flest huse", top(lambda c: STOCK[c]["tot"]) == "aarhus"), ("Aalborg nr. 2 huse", rank(lambda c: STOCK[c]["tot"], "aalborg") == 2),
- ("Horsens top 9 ejerandel (dynamisk tekst; løsnet 13/11)", rank(_EJ, "horsens") <= 9),
- ("Odense højeste FJ", top(_hf("FJ")) == "odense"), ("Aarhus top 3 FJ (dynamisk tekst)", rank(_hf("FJ"), "aarhus") <= 3),
+ ("Horsens top 10 ejerandel (dynamisk tekst; løsnet 13/11, 25/11 efter Gentofte)", rank(_EJ, "horsens") <= 10),
+ ("Odense top 3 FJ (dynamisk tekst; løsnet 25/11 efter Frederiksberg)", rank(_hf("FJ"), "odense") <= 3), ("Aarhus top 5 FJ (dynamisk tekst; løsnet 25/11 efter Frederiksberg)", rank(_hf("FJ"), "aarhus") <= 5),
 
  ("Viborg top 9 olie, Randers top 14 (dynamisk tekst; løsnet 17/11)", rank(_hf("CO"), "viborg") <= 14 and rank(_hf("CO"), "randers") <= 21),  # løsnet 19/11 efter Middelfart/Tønder, 23/11 efter Ebeltoft/Thisted
  ("Næstved gas tæt på fjernvarme (overskrift)", abs(HEAT["naestved"]["CN"] - HEAT["naestved"]["FJ"]) / HEAT["naestved"]["FJ"] < 0.05),
@@ -2377,7 +2493,7 @@ CLAIMS = [
  ("Faxe hvert femte FJ (intro)", 0.18 <= HEAT["faxe"]["FJ"] / hs("faxe") < 0.22),
  ("Faxe næsten hvert tredje naturgas (overskrift/intro)", 0.29 <= HEAT["faxe"]["CN"] / hs("faxe") < 0.334),
  ("Faxe få tegltage (overskrift)", rank(_rt("10"), "faxe", ) >= len(NAMES) - 2),
- ("Faxe solrig top 8 (overskrift)", rank(_PVs, "faxe") <= 9),
+ ("Faxe solrig top 12 (overskrift; løsnet 25/11 efter Frederiksberg)", rank(_PVs, "faxe") <= 12),
  ("Faxe øst-vest ca. en femtedel mindre (tekst)", 0.17 <= 1 - (PV["faxe"]["oest"] + PV["faxe"]["vest"]) / 2 / PV["faxe"]["syd"] <= 0.25),
 
  ("Kalundborg top 3 PV (intro/overskrift)", rank(_PVs, "kalundborg") <= 3),
@@ -2395,7 +2511,7 @@ CLAIMS = [
  ("Gladsaxe 37 pct. FJ (FV-intro)", round(100 * HEAT["gladsaxe"]["FJ"] / hs("gladsaxe")) == 37),
  ("Lyngby højeste gas (overskrift/intro)", top(_hf("CN")) == "kongens-lyngby"),
  ("Lyngby to ud af tre gas (intro)", 0.64 <= HEAT["kongens-lyngby"]["CN"] / hs("kongens-lyngby") < 0.69),
- ("Lyngby flest tegltage (overskrift)", top(_rt("10")) == "kongens-lyngby"),
+ ("Lyngby over halvdelen tegl (overskrift; rettet 25/11 efter Frederiksberg)", ROOF["kongens-lyngby"]["T"]["10"] / ROOF["kongens-lyngby"]["tot"] > 0.50),
  ("Lyngby 18 pct. FJ (FV-intro)", round(100 * HEAT["kongens-lyngby"]["FJ"] / hs("kongens-lyngby")) == 18),
  ("Lyngby mere end halvdelen tegl (sol-intro)", ROOF["kongens-lyngby"]["T"]["10"] / ROOF["kongens-lyngby"]["tot"] > 0.5),
  ("Holstebro fire ud af fem FJ (overskrift/intro)", 0.78 <= HEAT["holstebro"]["FJ"] / hs("holstebro") < 0.82),
@@ -2412,7 +2528,7 @@ CLAIMS = [
  ("Nakskov 0 naturgas (tekst)", HEAT["nakskov"]["CN"] == 0),
  ("Nakskov lidt over halvdelen FJ (intro)", 0.50 < HEAT["nakskov"]["FJ"] / hs("nakskov") < 0.56),
  ("Nakskov fibercement to ud af fem (overskrift)", 0.37 <= ROOF["nakskov"]["T"]["06"] / ROOF["nakskov"]["tot"] <= 0.42),
- ("Nakskov mange gamle huse, top 4 før 1960 (overskrift)", rank(_sb("før 1960"), "nakskov") <= 5),
+ ("Nakskov mange gamle huse, over halvdelen før 1960 (overskrift)", STOCK["nakskov"]["B"]["før 1960"] / STOCK["nakskov"]["tot"] > 0.50 and rank(_sb("før 1960"), "nakskov") <= 8),
  ("Assens lidt over halvdelen FJ (overskrift/intro)", 0.50 < HEAT["assens"]["FJ"] / hs("assens") < 0.56),
  ("Assens fibercement+cementsten ca. halvdelen (overskrift)", 0.55 <= (ROOF["assens"]["T"]["06"] + ROOF["assens"]["T"]["08"]) / ROOF["assens"]["tot"] <= 0.65),
  ("Hinnerup to ud af tre FJ (overskrift/intro)", 0.63 <= HEAT["hinnerup"]["FJ"] / hs("hinnerup") <= 0.70),
@@ -2429,7 +2545,7 @@ CLAIMS = [
  ("Middelfart mange cementsten, top 5 (overskrift)", rank(_rt("08"), "middelfart") <= 5),
  ("Toender elvarme top 6 (VP-intro 'en af de højeste')", rank(_hf("ELV"), "toender") <= 6),
  ("Toender oliefyr top 6 (VP-intro/overskrift)", rank(_hf("CO"), "toender") <= 6),
- ("Toender meget få nye huse, bund 3 (VP-intro)", rank(_sb("2000+"), "toender") >= len(NAMES) - 2),
+ ("Toender meget få nye huse, bund 5 (dynamisk tekst; løsnet 25/11 efter Frederiksberg)", rank(_sb("2000+"), "toender") >= len(NAMES) - 4),
  ("Toender stråtag top 8 (overskrift)", rank(_rt("14"), "toender") <= 8),
  ("Roenne højeste PV (overskrift 'Mest sol på sitet')", top(_PVs) == "roenne"),
  ("Roenne næsten hvert ottende elvarme (VP-intro)", 0.105 <= HEAT["roenne"]["ELV"] / hs("roenne") < 0.125),

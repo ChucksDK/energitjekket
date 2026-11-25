@@ -2781,3 +2781,93 @@ _hfp["intro"] = "Fjernvarme i Haderslev: Haderslev Fjernvarme er blandt de billi
 _hfp["status"] = [("<strong>Haderslev Fjernvarmes priser:</strong> 665,75 kr. pr. MWh i 2026 og 680,00 kr. fra 1. januar 2027. Effektbetalingen på 16,50 kr. pr. m² BBR (op til 650 m²) og administrations-/målerbidraget på 992,50 kr. om året er uændrede (inkl. moms).", ["hfv_priser"])] + _hfp["status"]
 _hfp["faq"] = [("Hvad koster fjernvarme i Haderslev?", "Ifølge Forsyningstilsynets statistik pr. 31. januar 2026 koster et standardhus på 130 m² med 18,1 MWh 15.187 kr. om året inkl. moms hos Haderslev Fjernvarme – 905 kr. (5,6 %) mindre end i januar 2025 og 16,8 % mindre end i januar 2023. Vojens Fjernvarme ligger på 19.063 kr. og Gram Fjernvarme på 21.010 kr. Landsgennemsnittet er 16.953 kr.", ["ft_pris"]),
               ("Bliver fjernvarmen i Haderslev dyrere i 2027?", "Lidt. Haderslev Fjernvarme hæver prisen pr. MWh fra 665,75 kr. til 680,00 kr. inkl. moms 1. januar 2027, mens effektbetaling og målerbidrag er uændrede. For Forsyningstilsynets standardhus med 18,1 MWh svarer det efter vores udregning til ca. 258 kr. mere om året.", ["hfv_priser", "ft_pris"])] + _hfp["faq"][1:]
+# ---------- dry-run 25. nov. 2026: Frederiksberg ----------
+FV_PRICES["frederiksberg"] = [("Frederiksberg Fjernvarme A/S (jan. 2026)", "2000", "16.600", "728")]
+SOL_REG["frederiksberg"] = {
+  "kw": "solceller frederiksberg / byggetilladelse solceller frederiksberg kommune / frederiksberg solceller regler",
+  "evidence": "Frederiksberg Kommunes sider 'Miljø og energi', 'Sagsbehandlingstid og gebyr' og 'Fredede og bevaringsværdige bygninger' samt Bæredygtig Frederiksberg (tjekket 25/11 2026).",
+  "intro": "På Frederiksberg kræver opsætning af solceller altid byggetilladelse. Kommunen lægger vægt på arkitektur og bevaringsværdi og vurderer hver enkelt ansøgning konkret. Her er de præcise bilagskrav, sagsbehandlingstid og gebyr for 2026.",
+  "sections": [
+    ("Byggetilladelse er altid et krav", [
+      ("p", "Du skal søge byggetilladelse i Frederiksberg Kommune, før du etablerer et solcelleanlæg. Når kommunen behandler ansøgningen, ser den på både planmæssige forhold og byggeloven, herunder bevaringsværdi og byggeret. Nogle sager skal i naboorientering eller partshøring, og enkelte forelægges By- og Miljøudvalget.", ["frb_sol"]),
+    ]),
+    ("Det skal du vedlægge ansøgningen", [
+      ("ul", [("<strong>Fuldmagt</strong>, hvis du ikke selv står som ejer af ejendommen.", ["frb_sol"]),
+              ("<strong>Beskrivelse af arbejderne</strong>, bl.a. om solcellerne sættes op sammen med tagudskiftning eller facaderenovering.", ["frb_sol"]),
+              ("<strong>Situationsplan</strong> samt målfast <strong>tagplan og snittegning</strong> af både de eksisterende forhold og den ønskede placering.", ["frb_sol"]),
+              ("Kommunen kan desuden bede om statiske ingeniørberegninger, dokumentation mod refleksioner eller en brandmæssig redegørelse.", ["frb_sol"])]),
+    ]),
+    ("Arkitektur og bevaringsværdi", [
+      ("p", "Solcelleanlæg skal integreres nænsomt i bygningens arkitektur. På skrå tage skal anlægget som eksempel nedfældes i tagfladen, og paneler oven på taget skal følge tagets kanter med afskårne plader. På bevaringsværdige ejendomme peger kommunen på placering mod gård- eller havesiden, hvor den synlige tagflade mod gaden ikke brydes.", ["frb_sol", "frb_bev"]),
+    ]),
+    ("Gebyr og sagsbehandlingstid", [
+      ("p", "Sagsbehandlingstiden er cirka 7 uger fra al nødvendig dokumentation er modtaget – og helt ned til 2 uger i enkle sager. Byggesagsgebyret beregnes efter medgået tid til 1.411 kr. pr. time (for ansøgninger modtaget efter 1. januar 2024) og opkræves i to rater: ved byggetilladelsen og ved ibrugtagningstilladelsen. Gebyret opkræves også ved afslag eller hvis ansøgningen trækkes tilbage.", ["frb_gebyr"]),
+    ]),
+  ],
+  "faq": [
+    ("Skal man søge byggetilladelse til solceller på Frederiksberg?", "Ja. Frederiksberg Kommune kræver byggetilladelse til alle solcelleanlæg og vurderer både planforhold, byggelov, arkitektur og bevaringsværdi i den konkrete sag.", ["frb_sol"]),
+    ("Hvad koster sagsbehandlingen hos Frederiksberg Kommune?", "1.411 kr. pr. time i 2026 (sats gældende for ansøgninger efter 1. januar 2024), opkrævet i to rater. Gebyret gælder også ved afslag eller tilbagetrukket ansøgning.", ["frb_gebyr"]),
+    ("Hvilke tegninger kræver kommunen til solceller?", "Situationsplan samt målfast tagplan og snittegning for både eksisterende forhold og den ønskede placering, sammen med en beskrivelse af arbejderne og eventuel fuldmagt.", ["frb_sol"]),
+  ],
+}
+FV_PAGE["frederiksberg"] = {
+  "kw": "fjernvarme frederiksberg / frederiksberg forsyning priser 2026 / varmepumpe frederiksberg",
+  "evidence": "Frederiksberg Forsynings prisliste 2026, nyhed om 2026-priser (29/12 2025), side om fjernvarme og miljødeklarationer samt Forsyningstilsynets prisstatistik (tjekket 25/11 2026).",
+  "intro": "97,6 % af de beboede parcel- og rækkehuse på Frederiksberg har fjernvarme fra Frederiksberg Forsyning, og Danmarks Statistik registrerer ingen huse med naturgas. Samtidig faldt den vægtede varmepris 2,5 % i 2026. Her er priserne, tallene og sammenligningen med en varmepumpe.",
+  "status": [
+    ("<strong>Lavere MWh-pris i 2026:</strong> den vægtede årsgennemsnitspris faldt fra 640,01 kr. til 624,26 kr. pr. MWh inkl. moms (499,41 kr. ekskl. moms).", ["frb_fv_2026", "frb_fv_priser"]),
+    ("<strong>Månedlige priser:</strong> varmeprisen varierer efter årstiden fra 454,14 kr. pr. MWh i august til 728,64 kr. pr. MWh i januar inkl. moms.", ["frb_fv_priser"]),
+    ("<strong>Fast belastningsbetaling:</strong> 26,25 kr. pr. m² etageareal om året inkl. moms (21,00 kr. ekskl. moms), plus 5,31 kr. pr. MWh pr. grad ved dårlig afkøling over 50 °C retur.", ["frb_fv_priser"]),
+    ("<strong>Nyt stik:</strong> tilslutningsafgiften for det første fjernvarmestik er 8.500 kr. inkl. moms plus 2,69 kr. pr. m² for de første 10 meter dobbeltrør.", ["frb_fv_priser"]),
+  ],
+  "local_take": "Frederiksberg Forsyning ligger under landsgennemsnittet i Forsyningstilsynets statistik for januar 2026 (16.600 kr. for et 130 m² standardhus med 18,1 MWh, mod 16.953 kr. i vægtet landsgennemsnit), og i forsyningens eget eksempel for et nyere 125 m² hus med 13,4 MWh er årsprisen 11.646 kr. inkl. moms i 2026. Har du allerede fjernvarme på Frederiksberg, kan det næsten aldrig betale sig at skifte til varmepumpe.",
+  "contact": ("Frederiksberg Forsyning, kundeservice", "38 18 50 00 · ff@frb-forsyning.dk", "frb_fv_kontakt"),
+  "faq": [
+    ("Hvad koster fjernvarme på Frederiksberg i 2026?", "Den vægtede årspris er 624,26 kr. pr. MWh inkl. moms plus 26,25 kr. pr. m² etageareal om året. For en 125 m² villa med 13,4 MWh svarer det i forsyningens priseksempel til 11.646 kr. om året inkl. moms.", ["frb_fv_priser", "frb_fv_2026"]),
+    ("Hvorfor skifter fjernvarmeprisen fra måned til måned på Frederiksberg?", "Frederiksberg Forsyning afregner efter månedens faktiske produktionsomkostninger, fordi varmen er dyrere at producere om vinteren (728,64 kr./MWh i januar) end om sommeren (454,14 kr./MWh i august).", ["frb_fv_priser"]),
+    ("Hvor kommer fjernvarmen på Frederiksberg fra?", "Frederiksberg Forsyning køber varmen gennem CTR fra hovedstadsområdets kraftvarmeværker og affaldsforbrændingsanlæg. Mindst 85 % af varmen produceres på fossilfrie brændsler som træpiller, halmpiller, affald og geotermi.", ["frb_fv_varme", "frb_fv_miljoe"]),
+  ],
+}
+
+# ---------- daglig by-rutine 25. nov. 2026: Gentofte ----------
+FV_PRICES["gentofte"] = [("Gentofte Fjernvarme (aug. 2026)", "2920", "17.609", "334")]
+SOL_REG["gentofte"] = {
+  "kw": "solceller gentofte / byggetilladelse solceller gentofte kommune / bevaringsværdig gentofte",
+  "evidence": "Gentofte Kommunes sider om byggetilladelse, bevaringsværdige bygninger, byggesagsgebyr og energiguiden (tjekket 25/11 2026).",
+  "intro": "I Gentofte Kommune slipper du normalt for byggetilladelse til solceller på et almindeligt parcelhus – men over otte ud af ti huse er fra før 1960, og mange ligger i bevarende lokalplaner. Her er hvornår du skal søge, hvad sagsbehandlingen koster, og hvor lang ventetiden er.",
+  "sections": [
+    ("Almindeligt hus kontra bevaringsværdig ejendom", [
+      ("ul", [
+        ("<strong>Almindeligt hus:</strong> kræver som udgangspunkt ikke byggetilladelse, hvis opsætningen ikke medfører andre tilladelseskrævende ændringer og overholder lokalplanens bestemmelser.", ["gen_sol_byg"]),
+        ("<strong>Bevaringsværdig bygning:</strong> alle udvendige ændringer – herunder solceller på tag eller facade – kræver tilladelse. Ansøgningen sendes som <em>Planmæssig forespørgsel</em> i Byg- og Miljøportalen.", ["gen_sol_byg", "gen_bev"]),
+        ("<strong>Arkitektur og tilpasning:</strong> i ejendomme med bevaringsværdi kan sagen kræve dispensation og politisk forelæggelse, og kommunens energiguide peger på integrerede løsninger eller placering væk fra gadefacade.", ["gen_energi_pdf", "gen_bev"]),
+      ]),
+    ]),
+    ("Gebyr, formøde og ventetid", [
+      ("p", "Plan og Byg afregner byggesager efter tidsforbrug til 888 kr. pr. time inkl. moms (ren plansagsbehandling er uden gebyr). Både det første 30-minutters vejledningsmøde og et sagsforberedende møde er gratis. Forvent omkring 2 måneders ventetid, fra ansøgningen er fuldt oplyst via Byg- og Miljøportalen, til en sagsbehandler tager sagen.", ["gen_kontakt_byg", "gen_ansoeg"]),
+    ]),
+  ],
+  "faq": [
+    ("Kræver solceller byggetilladelse i Gentofte Kommune?", "Ikke på et almindeligt hus, så længe lokalplanen er overholdt og der ikke laves andre tilladelseskrævende ændringer. På bevaringsværdige ejendomme skal du altid søge tilladelse som en planmæssig forespørgsel.", ["gen_sol_byg", "gen_bev"]),
+    ("Hvad koster byggesagsbehandling i Gentofte?", "Timeprisen er 888 kr. inkl. moms for byggesager, mens plansager er gebyrfrie. Første 30-minutters vejledningsmøde er gratis.", ["gen_kontakt_byg"]),
+    ("Hvor lang er sagsbehandlingstiden i Gentofte?", "Plan og Byg oplyser ca. 2 måneders ventetid fra fuldt oplyst sag til tildeling til sagsbehandler, samt op til 20 arbejdsdage på skriftlige forespørgsler.", ["gen_kontakt_byg"]),
+  ],
+}
+FV_PAGE["gentofte"] = {
+  "kw": "fjernvarme gentofte / gentofte fjernvarme priser 2026 / varmepumpe gentofte",
+  "evidence": "Gentofte Fjernvarmes takstblad 2026, tilslutningsbidrag 2026, miljødeklaration 2024, Gentofte Kommunes forsyningsside (22/6 2026) og Forsyningstilsynet aug. 2026 (tjekket 25/11 2026).",
+  "intro": "64,4 % af parcel- og rækkehusene i Gentofte Kommune har fjernvarme, men 3.430 huse fyrer fortsat med naturgas – og den 22. juni 2026 besluttede kommunen at droppe fjernvarmeudbygningen i otte delområder. Her er priserne i 2026 og vurderingen mod varmepumpe.",
+  "status": [
+    ("<strong>Takster i 2026 (inkl. moms):</strong> variabelt bidrag 334,36 kr./MWh, fast bidrag 575,39 kr./MWh og administrationsbidrag 1.143,01 kr./år – 2,2 % lavere end i 2025 for et standardhus.", ["gen_fv_takst", "gen_fv_2026"]),
+    ("<strong>Årsudgift i 2026:</strong> 13.330 kr. inkl. moms for et nyere 125 m² standardhus (13,4 MWh) i forsyningens eget regnestykke, og 17.609 kr. i Forsyningstilsynets 130 m² standard (18,1 MWh).", ["gen_fv_2026", "ft_pris_aug26"]),
+    ("<strong>Otte udbygningsområder stoppet:</strong> 22. juni 2026 godkendte kommunalbestyrelsen aflysning af fjernvarme i områderne 4.6, 4.7, 4.8 og 5.4–5.8 til fordel for luft til vand-varmepumper.", ["gen_forsyning", "gen_niras"]),
+    ("<strong>Tilslutning og returtemperatur:</strong> nyt standardstik op til 80 kW koster 90.000 kr. inkl. moms i eksisterende net (0 kr. i kampagneområder). Incitamentstaksten afregner 5,00 kr./MWh pr. °C over/under 42 °C retur.", ["gen_fv_takst", "gen_fv_tilslut"]),
+  ],
+  "local_take": "Har huset allerede fjernvarme fra Gentofte Gladsaxe Fjernvarme, ligger årsprisen tæt på landsgennemsnittet i Forsyningstilsynets statistik for august 2026 (17.609 kr. mod 16.960 kr.), og udskiftning til varmepumpe betaler sig sjældent. For de 3.430 gashuse – især i de otte aflyste udbygningsområder – er en luft til vand-varmepumpe derimod den løsning, kommunen selv peger på.",
+  "contact": ("Gentofte Gladsaxe Fjernvarme, kundeservice", "70 20 58 50 · info@ggfjernvarme.dk", "gen_fv_kontakt"),
+  "faq": [
+    ("Hvad koster fjernvarme i Gentofte i 2026?", "Variabelt bidrag er 334,36 kr./MWh, fast bidrag 575,39 kr./MWh og administrationsbidrag 1.143,01 kr./år inkl. moms. Det giver 13.330 kr./år for et 125 m² standardhus (13,4 MWh) og 17.609 kr./år i Forsyningstilsynets 130 m²-statistik.", ["gen_fv_takst", "gen_fv_2026", "ft_pris_aug26"]),
+    ("Hvorfor blev fjernvarme aflyst i otte områder i Gentofte?", "NIRAS' samfundsøkonomiske analyse fra marts 2026 viste ca. 277 mio. kr. (19 %) lavere omkostninger over 20 år ved individuelle luft til vand-varmepumper end ved ny fjernvarmeudbygning i de otte ikke-igangsatte delområder.", ["gen_niras", "gen_forsyning"]),
+    ("Hvor kommer fjernvarmen i Gentofte fra?", "Gentofte Fjernvarme køber varmen gennem CTR. Ifølge miljødeklarationen for 2024 var 94 % af brændslerne fossilfrie – primært træpiller (37,2 %), flis (30,3 %) og bioaffald (23,0 %) samt halm og biogas.", ["gen_fv_miljoe"]),
+  ],
+}

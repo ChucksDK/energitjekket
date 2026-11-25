@@ -46,6 +46,16 @@
       "source": "/varmepumpe/koebenhavn/",
       "destination": "/varmepumpe/koebenhavn/fjernvarme-eller-varmepumpe/",
       "permanent": false
+    },
+    {
+      "source": "/varmepumpe/frederiksberg",
+      "destination": "/varmepumpe/frederiksberg/fjernvarme-eller-varmepumpe/",
+      "permanent": false
+    },
+    {
+      "source": "/varmepumpe/frederiksberg/",
+      "destination": "/varmepumpe/frederiksberg/fjernvarme-eller-varmepumpe/",
+      "permanent": false
     }
   ],
   "headers": [
