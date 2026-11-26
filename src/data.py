@@ -2112,3 +2112,89 @@ CONTACTS["gentofte"] = {
   "sol": [("Gentofte Kommune, Plan og Byg", "39 98 37 01 · Plan-byg@gentofte.dk", "gen_kontakt_byg")],
   "vp": [("Gentofte Gladsaxe Fjernvarme, kundeservice", "70 20 58 50 · info@ggfjernvarme.dk", "gen_fv_kontakt")],
 }
+# ---------- daglig by-rutine 26. nov. 2026: Hvidovre (DK2, Hvidovre Kommune, vp_page True) ----------
+S.update({
+ "hvi_sol": ("Hvidovre Kommune: Solceller og solfangere (læst 26/11 2026)", "https://www.hvidovre.dk/borger/by-bolig-og-byggeri/varme-og-energi/solceller-og-solfangere"),
+ "hvi_bygg": ("Hvidovre Kommune: Ansøg om byggetilladelse – gebyr 1.163 kr. i 2026 og sagsbehandlingstid (læst 26/11 2026)", "https://www.hvidovre.dk/borger/by-bolig-og-byggeri/byggeri-og-byggetilladelse/ansoeg-om-byggetilladelse"),
+ "hvi_bev": ("Hvidovre Kommune: Bevaringsværdige bygninger (læst 26/11 2026)", "https://www.hvidovre.dk/borger/by-bolig-og-byggeri/byplanlaegning/bevaringsvaerdige-bygninger"),
+ "hvi_lokalplan": ("Hvidovre Kommune: Lokalplaner og byplanvedtægter (læst 26/11 2026)", "https://www.hvidovre.dk/borger/by-bolig-og-byggeri/byplanlaegning/lokalplaner-og-byplanvedtaegter"),
+ "hvi_tid": ("Hvidovre Kommune: Kortere ventetid på byggesager i Hvidovre (19/3 2026)", "https://www.hvidovre.dk/om-kommunen/presse/pressemeddelelser/2026/mar/kortere-ventetid-paa-byggesager-i-hvidovre"),
+ "hvi_varmeplan": ("Hvidovre Kommune: Varmeplan, vedtaget december 2022 (læst 26/11 2026)", "https://www.hvidovre.dk/borger/by-bolig-og-byggeri/varme-og-energi/varmeplan"),
+ "hvi_groen": ("Hvidovre Kommune: Skift til grøn opvarmning (læst 26/11 2026)", "https://www.hvidovre.dk/borger/by-bolig-og-byggeri/varme-og-energi/skift-til-groen-opvarmning"),
+ "hvi_fv": ("Hvidovre Fjernvarme: forside med udbygningsområder (læst 26/11 2026)", "https://www.hvidovrefjernvarme.dk/"),
+ "hvi_fdh": ("FD Hvidovre: Takstblad 2026, priser gældende fra 1/1 2026 (PDF)", "https://www.hvidovrefjernvarme.dk/wp-content/uploads/2025/12/takstblad-2026_FDH.pdf"),
+ "hvi_ave": ("Avedøre Fjernvarme: Takstblad 2026, priser gældende fra 1/1 2026 (PDF)", "https://www.hvidovrefjernvarme.dk/wp-content/uploads/2025/12/Bilag-2.4-Takstblad-2026.pdf"),
+ "hvi_ave_om": ("Avedøre Fjernvarme: om selskabet og miljødeklarationer (læst 26/11 2026)", "https://www.hvidovrefjernvarme.dk/avedoere-fjernvarme/"),
+ "hvi_hfs": ("Hvidovre Fjernvarmeselskab: om selskabet (læst 26/11 2026)", "https://www.hvidovrefjernvarme.dk/hvidovre-fjernvarmeselskab/"),
+})
+CITIES["hvidovre"] = {
+  "name": "Hvidovre", "kommune": "Hvidovre Kommune", "updated": ("26. november 2026", "2026-11-26"),
+  "vp_page": True, "price_area": "DK2",
+  "sol_intro": "Solceller i Hvidovre: de fleste anlæg kan sættes op uden tilladelse fra kommunen, men næsten alle ejendomme ligger under en lokalplan eller byplanvedtægt, og over fire ud af ti huse er fra før 1960. Her er reglerne, byggetal og vejen til tilbud.",
+  "sol_facts": [
+    ("Solceller kan i de fleste tilfælde <strong>opsættes uden tilladelse fra kommunen</strong>, fordi de hverken udvider etagearealet eller giver en væsentlig anvendelsesændring.", ["hvi_sol"]),
+    ("Tjek altid <strong>lokalplan eller byplanvedtægt</strong> og om huset er <strong>bevaringsværdigt</strong> – næsten alle ejendomme i Hvidovre Kommune er omfattet af en lokalplan eller byplanvedtægt.", ["hvi_sol", "hvi_bygg"]),
+    ("Anlægget bliver en del af bygningen og skal derfor overholde <strong>højde- og afstandskravene</strong> i bygningsreglementets kapitel 8. Kommunen anbefaler, at du bagefter opdaterer BBR.", ["hvi_sol"]),
+    ("Skal du alligevel søge byggetilladelse, er gebyret et <strong>fast beløb på 1.163 kr. pr. sag</strong> i 2026, og sagsbehandlingen tager i gennemsnit 2–3 måneder fra sagen er fuldt oplyst.", ["hvi_bygg"]),
+  ],
+  "sol_faq": [
+    ("Skal man søge byggetilladelse til solceller i Hvidovre?", "I de fleste tilfælde ikke, ifølge kommunen, fordi solceller hverken udvider etagearealet eller ændrer anvendelsen. Men er der en lokalplan eller byplanvedtægt med regler om solceller, eller er huset bevaringsværdigt, bør du undersøge reglerne for din adresse, før du bestiller anlægget.", ["hvi_sol", "hvi_lokalplan"]),
+    ("Hvad koster byggesagsbehandling i Hvidovre?", "Et fast gebyr på 1.163 kr. pr. sag for ansøgninger indsendt i 2026 (samme beløb som i 2025). Kommunen arbejder efter enkeltsagsprincippet, så flere sagstyper på samme grund – fx nybyggeri, lovliggørelse og nedrivning – giver hver deres gebyr.", ["hvi_bygg"]),
+  ],
+  "vp_intro": "Varmepumpe i Hvidovre: kun 37 % af parcel- og rækkehusene har fjernvarme, mens næsten halvdelen stadig fyrer med naturgas. Kommunen anbefaler grøn fjernvarme frem for individuelle varmepumper i den tætte, lave bebyggelse. Her er status, priser og regler.",
+  "vp_facts": [
+    ("<strong>Kommunens anbefaling:</strong> i områder med tæt, lav bebyggelse som villaer og rækkehuse anbefaler Hvidovre Kommune grøn fjernvarme, blandt andet fordi kommunen oplever en del støjklager fra naboer til varmepumper.", ["hvi_groen"]),
+    ("<strong>Varmeplan 2022:</strong> kommunalbestyrelsen vedtog i december 2022 en varmeplan for udbredelse af fjernvarmen. Et udbygningsprojekt tager typisk 1–2 år fra start til fjernvarmen er i drift.", ["hvi_varmeplan", "hvi_groen"]),
+    ("<strong>Udbygningsområder:</strong> Hvidovre Fjernvarme nævner på sin forside Nymarken og Mågeparken, Strandmark Nord og Avedøre Landsby som områder, hvor der endnu skal lægges rør.", ["hvi_fv"]),
+    ("<strong>Varmepumpe alligevel?</strong> Kommunen henviser til Energistyrelsens vejledning om varmepumper og dens støjberegner, før du vælger placering.", ["hvi_groen"]),
+  ],
+  "vp_faq": [
+    ("Kan jeg få fjernvarme i Hvidovre?", "Det afhænger af din adresse. I eksisterende fjernvarmeområder kan du tilsluttes; i udbygningsområderne (nu Nymarken og Mågeparken, Strandmark Nord og Avedøre Landsby) skal nettet først bygges, og et projekt tager typisk 1–2 år fra start. Spørg Hvidovre Fjernvarme, før du vælger en anden løsning.", ["hvi_fv", "hvi_groen", "hvi_hfs"]),
+    ("Anbefaler Hvidovre Kommune varmepumper?", "I tæt, lav bebyggelse anbefaler kommunen grøn fjernvarme frem for individuelle varmepumper, bl.a. på grund af støjklager. Vil du alligevel have en varmepumpe, peger kommunen på Energistyrelsens vejledning og støjberegner.", ["hvi_groen"]),
+  ],
+}
+CONTACTS["hvidovre"] = {
+  "sol": [("Hvidovre Kommune, Byggesagsteamet (telefonvagt)", "36 39 35 70 · pom@hvidovre.dk", "hvi_bygg")],
+  "vp": [("Hvidovre Fjernvarme, kundeservice", "36 38 38 00", "hvi_fv")],
+}
+# ---------- daglig by-rutine 26. nov. 2026: Hørsholm (DK2, Hørsholm Kommune, vp_page True) ----------
+S.update({
+ "hsm_sol": ("Hørsholm Kommune: Solceller og varmepumper (læst 26/11 2026)", "https://www.horsholm.dk/borger/bolig-byggeri-og-veje/byggeri/jeg-skal-bygge/solceller-og-varmepumper"),
+ "hsm_gebyr": ("Hørsholm Kommune: Byggesagsgebyr – 920 kr. pr. time i 2026 (læst 26/11 2026)", "https://www.horsholm.dk/borger/bolig-byggeri-og-veje/byggeri/jeg-skal-bygge/byggesagsgebyr"),
+ "hsm_tid": ("Hørsholm Kommune: Sagsbehandlingstider (læst 26/11 2026)", "https://www.horsholm.dk/borger/bolig-byggeri-og-veje/byggeri/jeg-skal-bygge/sagsbehandlingstider"),
+ "hsm_bev": ("Hørsholm Kommune: Bevaringsværdig eller fredet bygning (læst 26/11 2026)", "https://www.horsholm.dk/borger/bolig-byggeri-og-veje/byggeri/jeg-skal-bygge/bevaringsvaerdig-eller-fredet-bygning"),
+ "hsm_disp": ("Hørsholm Kommune: Dispensationer og helhedsvurdering (læst 26/11 2026)", "https://www.horsholm.dk/borger/bolig-byggeri-og-veje/byggeri/jeg-skal-bygge/dispensationer"),
+ "hsm_kontakt": ("Hørsholm Kommune: Kontakt byggesagsvagten (læst 26/11 2026)", "https://www.horsholm.dk/borger/bolig-byggeri-og-veje/byggeri/kontakt-byggesagsvagten"),
+ "hsm_varme": ("Hørsholm Kommune: Varmeforsyning – Norfors og fjernvarme (læst 26/11 2026)", "https://www.horsholm.dk/borger/klima-og-energi/varmeforsyning"),
+ "hsm_nf": ("Norfors: Fjernvarme – tilslutning og takster (læst 26/11 2026)", "https://norfors.dk/borger/fjernvarme"),
+})
+CITIES["hoersholm"] = {
+  "name": "Hørsholm", "kommune": "Hørsholm Kommune", "updated": ("26. november 2026", "2026-11-26"),
+  "vp_page": True, "price_area": "DK2",
+  "sol_intro": "Solceller i Hørsholm: solceller kræver som udgangspunkt ikke byggetilladelse, men næsten hvert andet hus har tegltag, og bevaringsværdige huse skal have kommunens godkendelse til ydre ændringer. Her er reglerne, byggetal og vejen til tilbud.",
+  "sol_facts": [
+    ("Solceller kræver <strong>som udgangspunkt ikke byggetilladelse</strong>, hvis byggeretten i bygningsreglementets kapitel 8 er overholdt, og anlægget udføres efter de præ-accepterede brandløsninger og bygningsreglementets tekniske kapitler.", ["hsm_sol"]),
+    ("Lokalplan, byplanvedtægt eller servitut kan stille krav til solcellers fremtoning – kommunen nævner fx, at anlægget skal være en integreret del af tagfladen med en glansgrad på højst 30.", ["hsm_sol"]),
+    ("På huse udpeget som <strong>bevaringsværdige</strong> i Temalokalplan 143 eller en anden lokalplan skal kommunen godkende ændringer af husets ydre; dispensationsansøgningen sendes separat til bom-post@horsholm.dk.", ["hsm_bev"]),
+    ("Byggesagsgebyret er <strong>920 kr. pr. time</strong> i 2026 efter faktisk tidsforbrug. Kommunen oplyser 4–5 måneders gennemsnitlig sagsbehandlingstid og 2–3 måneder for enfamiliehuse, der følger plangrundlaget og byggeretten.", ["hsm_gebyr", "hsm_tid"]),
+  ],
+  "sol_faq": [
+    ("Kræver solceller byggetilladelse i Hørsholm Kommune?", "Som udgangspunkt nej, hvis byggeretten er overholdt, og anlægget følger de præ-accepterede løsninger og bygningsreglementets tekniske krav. Kan byggeretten ikke overholdes – fx solceller på et garagetag tæt på skel, der allerede er 2,5 m højt – skal kommunen lave en helhedsvurdering, og du skal søge byggetilladelse.", ["hsm_sol"]),
+    ("Hvad koster byggesagsbehandling i Hørsholm?", "Taksten er 920 kr. pr. time i 2026, beregnet efter faktisk tidsforbrug med mindste enhed på ét minut – også ved afslag eller tilbagetrukket ansøgning. Kræver sagen færdigmelding eller ibrugtagningstilladelse, opkræves gebyret i to rater.", ["hsm_gebyr"]),
+  ],
+  "vp_intro": "Varmepumpe i Hørsholm: over halvdelen af parcel- og rækkehusene fyrer med naturgas, og kun 24 % har fjernvarme fra Norfors. Norfors har trukket projektforslaget om nye fjernvarmeområder tilbage, så mange gasfyrsejere må finde en anden løsning. Her er status, priser og regler.",
+  "vp_facts": [
+    ("<strong>Nye fjernvarmeområder trukket tilbage:</strong> kommunalbestyrelsen godkendte i september 2024 et fjernvarmeprojekt fra Norfors til høring, men efter Energistyrelsens afgørelse i december 2024 om Usserødværket trak Norfors projektforslaget tilbage.", ["hsm_varme"]),
+    ("<strong>Usserødværket og stævning af staten:</strong> Norfors stævnede i slutningen af maj 2026 staten på grund af ændret lovgivning på affaldsområdet. Kommunen oplyser, at kunder med fjernvarme ikke risikerer at stå uden varme, fordi Norfors har forsyningspligt.", ["hsm_varme"]),
+    ("<strong>Ingen ny tilslutningspligt:</strong> som udgangspunkt er der ikke tilslutningspligt i Hørsholm Kommune, og der kan ikke pålægges ny tilslutningspligt i nye fjernvarmeområder.", ["hsm_varme"]),
+    ("<strong>Varmepumpe:</strong> det kræver ikke byggetilladelse at opsætte en varmepumpe, men anlægget skal overholde bygningsreglementet, og lokalplaner kan regulere placering og afskærmning. Jordvarme kræver tilladelse via Byg og Miljø.", ["hsm_sol", "hsm_varme"]),
+  ],
+  "vp_faq": [
+    ("Kan jeg få fjernvarme i Hørsholm?", "Kun hvis din adresse ligger i et eksisterende fjernvarmeområde hos Norfors. Kommunens varmeplanskort viser, om dit område er udlagt til fjernvarme, og i eksisterende områder kan du bede Norfors om et uforpligtende tilbud. Nye områder venter, efter at projektforslaget blev trukket tilbage.", ["hsm_varme", "hsm_nf"]),
+    ("Må jeg beholde mit gasfyr i Hørsholm?", "Ja, ifølge kommunen kan du fortsat varme op med olie- og gasfyr. Regeringens ønske er, at gas er udfaset af rumopvarmning i 2035, men der er endnu ikke taget stilling til, om eller hvornår gasnettet lukkes.", ["hsm_varme"]),
+  ],
+}
+CONTACTS["hoersholm"] = {
+  "sol": [("Hørsholm Kommune, byggesagsvagten", "48 49 00 24 · bom-post@horsholm.dk", "hsm_kontakt")],
+  "vp": [("Norfors, kundeservice", "45 16 05 00 · norfors@norfors.dk", "hsm_nf")],
+}

@@ -2871,3 +2871,101 @@ FV_PAGE["gentofte"] = {
     ("Hvor kommer fjernvarmen i Gentofte fra?", "Gentofte Fjernvarme køber varmen gennem CTR. Ifølge miljødeklarationen for 2024 var 94 % af brændslerne fossilfrie – primært træpiller (37,2 %), flis (30,3 %) og bioaffald (23,0 %) samt halm og biogas.", ["gen_fv_miljoe"]),
   ],
 }
+# ---------- daglig by-rutine 26. nov. 2026: Hvidovre og Hørsholm ----------
+# Forsyningstilsynet, prisstatistik januar 2026 (standardhus 130 m², 18,1 MWh): FD Hvidovre og Avedøre Fjernvarme (Hvidovre Fjernvarmeselskab er fordelingsselskab uden slutbrugere, udeladt); Norfors (priseftervisning 2024).
+FV_PRICES["hvidovre"] = [("FD Hvidovre Fjernvarme", "2650", "19.513", "477"), ("Avedøre Fjernvarme", "2650", "19.874", "470")]
+SOL_REG["hvidovre"] = {
+  "kw": "solceller hvidovre / byggetilladelse solceller hvidovre kommune / lokalplan solceller hvidovre",
+  "evidence": "Hvidovre Kommunes sider om solceller og solfangere, byggetilladelse (gebyr og sagsbehandlingstid), lokalplaner og bevaringsværdige bygninger samt kommunens pressemeddelelse om byggesagstider (tjekket 26/11 2026).",
+  "intro": "I Hvidovre Kommune kan solceller i de fleste tilfælde sættes op uden tilladelse – men næsten alle ejendomme er omfattet af en lokalplan eller byplanvedtægt, og bevaringsværdige huse har egne regler. Her er hvad du skal tjekke, hvad en byggesag koster, og hvor lang tid den tager.",
+  "sections": [
+    ("Hovedregel: ingen tilladelse, men tjek planforholdene", [
+      ("ul", [
+        ("<strong>Hovedreglen:</strong> solceller og solfangere kan i de fleste tilfælde opsættes uden tilladelse fra kommunen, fordi etableringen hverken udvider etagearealet eller medfører en væsentlig anvendelsesændring.", ["hvi_sol"]),
+        ("<strong>Lokalplan og byplanvedtægt:</strong> næsten alle ejendomme i kommunen er omfattet af en af de to, og de kan regulere solceller. Du kan slå din adresse op i kommunens kort over gældende planer.", ["hvi_lokalplan", "hvi_bygg"]),
+        ("<strong>Bevaringsværdige bygninger:</strong> en bygning er bevaringsværdig, når den er optaget i kommuneplanen eller omfattet af nedrivningsforbud i en lokalplan eller byplanvedtægt – og indtil udpegningen er sket, når den har SAVE-karakter 1–4.", ["hvi_bev"]),
+      ]),
+    ]),
+    ("Højde, afstand og BBR", [
+      ("p", "Et solcelleanlæg bliver en del af bygningen, så huset skal også efter opsætningen leve op til højde- og afstandskravene i bygningsreglementets kapitel 8. Kommunen anbefaler, at du bagefter opdaterer BBR (bbrbolig@hvidovre.dk) og spørger dit forsikringsselskab, hvilke registreringer det kræver.", ["hvi_sol"]),
+    ]),
+    ("Hvis du skal søge: gebyr og sagsbehandlingstid", [
+      ("p", "Byggetilladelse søges via Byg og Miljø. Gebyret er 1.163 kr. pr. sag for ansøgninger indsendt i 2026; kommunen arbejder efter enkeltsagsprincippet, så nybyggeri, lovliggørelse og nedrivning hver får et gebyr. Den gennemsnitlige sagsbehandlingstid er 2–3 måneder fra sagen er fuldt oplyst. Dispensation forlænger den, og politisk forelæggelse i By- og Planudvalget kan lægge op til to måneder oveni.", ["hvi_bygg"]),
+    ]),
+    ("Hvidovres byggesagstider i tal", [
+      ("p", "I en opgørelse fra KL og DI Byggeri, som kommunen omtaler i en pressemeddelelse 19. marts 2026, lå Hvidovre som nr. 16 af 98 kommuner. I 2025 tog enfamiliehuse i gennemsnit 20 dage og simple konstruktioner 23 dage mod et servicemål på 40 dage.", ["hvi_tid"]),
+    ]),
+  ],
+  "faq": [
+    ("Kræver solceller byggetilladelse i Hvidovre Kommune?", "I de fleste tilfælde ikke. Men du skal tjekke, om din adresse har en lokalplan eller byplanvedtægt med regler for solceller, og om huset er bevaringsværdigt; begge dele kan kræve dispensation eller særlig godkendelse.", ["hvi_sol", "hvi_lokalplan", "hvi_bev"]),
+    ("Hvad koster en byggesag i Hvidovre?", "1.163 kr. pr. sag i 2026 – et fast gebyr, ikke en timepris. Flere sagstyper på samme grund giver flere gebyrer.", ["hvi_bygg"]),
+    ("Hvordan kommer jeg i kontakt med byggesagsteamet?", "Via telefonvagten på 36 39 35 70, som svarer uden ventetid på en sagsbehandler: mandag 9.30–11.30 og 13.00–14.30, tirsdag 9.30–11.30 og 12.30–14.30, torsdag 12.30–15.00 og fredag 9.30–11.30. Onsdag er der lukket.", ["hvi_bygg"]),
+  ],
+}
+FV_PAGE["hvidovre"] = {
+  "kw": "fjernvarme hvidovre / hvidovre fjernvarme priser 2026 / varmepumpe hvidovre",
+  "evidence": "Takstblade 2026 fra FD Hvidovre og Avedøre Fjernvarme, Hvidovre Fjernvarmes forside og selskabssider, Hvidovre Kommunes sider om varmeplan og grøn opvarmning samt Forsyningstilsynets prisstatistik jan. 2026 (tjekket 26/11 2026).",
+  "intro": "37 % af de beboede parcel- og rækkehuse i Hvidovre Kommune har fjernvarme, mens 46 % stadig fyrer med naturgas. Fjernvarmen leveres af to andelsselskaber, FD Hvidovre og Avedøre Fjernvarme, og kommunen anbefaler grøn fjernvarme frem for individuelle varmepumper i den tætte bebyggelse. Her er priserne i 2026 og sammenligningen med en varmepumpe.",
+  "status": [
+    ("<strong>FD Hvidovre 2026 (inkl. moms):</strong> fast afgift 566,91 kr./MWh, variabel afgift 477,87 kr./MWh og abonnement 750 kr./år for et årsforbrug op til 42 MWh. Fastafgiften reduceres med 0–2 % efter normalårsforbrug.", ["hvi_fdh"]),
+    ("<strong>Avedøre Fjernvarme 2026 (inkl. moms):</strong> fast afgift 602,78 kr./MWh, variabel afgift 470,78 kr./MWh og abonnement 600 kr./år op til 42 MWh. Takstbladets vejledende sum af fast og variabel afgift er 1.073,55 kr./MWh før reduktion.", ["hvi_ave"]),
+    ("<strong>Afkøling hos FD Hvidovre:</strong> mellem 25 og 35 °C er der hverken gevinst eller afgift i den variable afgift; bedre end 35 °C giver ½ % gevinst pr. grad (højst 10 %), og under 25 °C er afgiften 1 % pr. grad (højst 10 %).", ["hvi_fdh"]),
+    ("<strong>Udbygning og pris i 2027:</strong> Hvidovre Fjernvarme nævner udbygningsområderne Nymarken og Mågeparken, Strandmark Nord og Avedøre Landsby, og FD Hvidovre melder på forsiden, at fjernvarmeprisen fastholdes i 2027.", ["hvi_fv"]),
+  ],
+  "local_take": "Både FD Hvidovre (19.513 kr.) og Avedøre Fjernvarme (19.874 kr.) ligger over landsgennemsnittet på 16.953 kr. i Forsyningstilsynets statistik for januar 2026 (standardhus på 130 m² med 18,1 MWh). Har du allerede fjernvarme, skal du regne grundigt efter, før en varmepumpe kan betale sig. Har du naturgas, peger kommunen på fjernvarme – men kun hvis dit område bliver udbygget.",
+  "contact": ("Hvidovre Fjernvarme, kundeservice", "36 38 38 00", "hvi_fv"),
+  "faq": [
+    ("Hvad koster fjernvarme i Hvidovre i 2026?", "Det afhænger af selskabet. Hos FD Hvidovre er den variable afgift 477,87 kr./MWh og fastafgiften 566,91 kr./MWh inkl. moms plus abonnement; hos Avedøre Fjernvarme er satserne 470,78 og 602,78 kr./MWh. For et standardhus på 130 m² (18,1 MWh) viser Forsyningstilsynets januarstatistik 19.513 kr. om året hos FD Hvidovre og 19.874 kr. hos Avedøre Fjernvarme.", ["hvi_fdh", "hvi_ave", "ft_pris"]),
+    ("Hvilket fjernvarmeselskab har jeg i Hvidovre?", "Hvidovre Fjernvarme dækker tre selskaber: FD Hvidovre og Avedøre Fjernvarme forsyner forbrugerne, mens Hvidovre Fjernvarmeselskab (HFS) tilslutter nye forbrugere og udbygger nettet og selv ikke har slutbrugere. Dit selskab fremgår af varmeregningen.", ["hvi_hfs", "hvi_ave_om", "hvi_fv"]),
+    ("Bliver fjernvarmen dyrere i 2027 i Hvidovre?", "FD Hvidovre skriver på forsiden af Hvidovre Fjernvarmes site, at prisen fastholdes i 2027. Vi har endnu ikke fundet et takstblad for 2027 hos hverken FD Hvidovre eller Avedøre Fjernvarme; de nyeste takstblade gælder fra 1. januar 2026.", ["hvi_fv", "hvi_fdh", "hvi_ave"]),
+  ],
+}
+FV_PRICES["hoersholm"] = [("I/S Norfors - Norfors Fjernvarme", "2970", "25.084", "937")]
+SOL_REG["hoersholm"] = {
+  "kw": "solceller hørsholm / byggetilladelse solceller hørsholm kommune / bevaringsværdig hørsholm",
+  "evidence": "Hørsholm Kommunes sider om solceller og varmepumper, byggesagsgebyr, sagsbehandlingstider, dispensationer og bevaringsværdige bygninger (tjekket 26/11 2026).",
+  "intro": "I Hørsholm Kommune kræver solceller som udgangspunkt ikke byggetilladelse – men byggeretten skal være overholdt, lokalplanen kan stille krav til udseendet, og bevaringsværdige huse har egne regler. Her er hvad du skal tjekke, hvad en sag koster, og hvor lang tid den tager i øjeblikket.",
+  "sections": [
+    ("Tre betingelser for at undgå byggetilladelse", [
+      ("ul", [
+        ("<strong>Byggeretten er overholdt</strong> (bygningsreglementets kapitel 8). Du kan fx ikke sætte solceller på en garage inden for 2,5 m fra skel, hvis garagen allerede er de tilladte 2,5 m høj; så skal kommunen lave en helhedsvurdering, og du skal søge tilladelse.", ["hsm_sol"]),
+        ("<strong>Brandsikre løsninger:</strong> anlægget skal udføres efter de præ-accepterede løsninger i bilag 1a til bygningsreglementets vejledning om brand.", ["hsm_sol"]),
+        ("<strong>Tekniske regler:</strong> anlægget skal udføres efter bygningsreglementets tekniske kapitler, byggeforskrifter og anden relevant lovgivning.", ["hsm_sol"]),
+      ]),
+    ]),
+    ("Lokalplan og bevaringsværdige huse", [
+      ("p", "Lokalplan, byplanvedtægt eller servitutter kan regulere solcellers fremtoning, fx at anlægget skal være integreret i tagfladen med en glansgrad på højst 30. Bygninger udpeget som bevaringsværdige i Temalokalplan 143 eller en anden lokalplan er underlagt regler for istandsættelse og ændringer, og kommunen skal godkende ændringer af husets ydre. Ansøgning om dispensation sendes som en separat ansøgning til bom-post@horsholm.dk.", ["hsm_sol", "hsm_bev"]),
+      ("p", "Bevaringsværdi er registreret med SAVE-værdi 1–3 i Kommuneatlasset fra 2000 og en bygningsregistrering fra 2008–2010, men juridisk er en bygning først bevaringsværdig, når den er udpeget i en lokalplan eller kommuneplanen. Kommunens GIS-kort viser lagene for Temalokalplan 143, SAVE-registreringer og kommuneplanens udpegninger.", ["hsm_bev"]),
+    ]),
+    ("Gebyr og sagsbehandlingstid", [
+      ("p", "Byggesagsgebyret er 920 kr. pr. time i 2026, beregnet efter faktisk tidsforbrug med mindste enhed på ét minut. Kræver sagen færdigmelding eller ibrugtagningstilladelse, opkræves gebyret i to rater. Ansøgning sker via Byg og Miljø.", ["hsm_gebyr"]),
+      ("p", "Kommunen har i øjeblikket forlængede sagsbehandlingstider: i gennemsnit 4–5 måneder fra ansøgningen er indsendt til tilladelse er givet. Byudviklingsudvalget har besluttet, at byggesager om enfamiliehuse i overensstemmelse med plangrundlaget og byggeretten har fast track og forventes at tage 2–3 måneder. Det vejledende servicemål for en byggetilladelse til et enfamiliehus er 9 uger fra sagen er fuldt oplyst.", ["hsm_tid"]),
+    ]),
+    ("Dispensation og helhedsvurdering", [
+      ("p", "Kan byggeretten ikke overholdes, er der ikke tale om en dispensation, men om en helhedsvurdering efter faste kriterier, som i udgangspunktet indebærer forudgående partshøring af berørte naboer. Kommunens servicemål for dispensation og helhedsvurdering er 20 uger.", ["hsm_disp", "hsm_tid"]),
+    ]),
+  ],
+  "faq": [
+    ("Kræver solceller byggetilladelse i Hørsholm?", "Som udgangspunkt ikke, hvis byggeretten er overholdt, og anlægget følger de præ-accepterede brandløsninger og bygningsreglementets tekniske regler. På bevaringsværdige huse og i områder med lokalplanbestemmelser om solceller bør du afklare reglerne med kommunen først.", ["hsm_sol", "hsm_bev"]),
+    ("Hvor lang er sagsbehandlingstiden i Hørsholm?", "I gennemsnit 4–5 måneder fra ansøgningen er indsendt, og 2–3 måneder for enfamiliehuse, der følger plangrundlaget og byggeretten (fast track). Servicemålet fra fuldt oplyst sag er 9 uger for et enfamiliehus.", ["hsm_tid"]),
+    ("Hvordan kontakter jeg byggesagen i Hørsholm?", "Ring til byggesagsvagten på 48 49 00 24 (mandag, tirsdag, torsdag og fredag 9–12.30, torsdag også 15–17), eller skriv til Team Plan og Byg på bom-post@horsholm.dk.", ["hsm_kontakt", "hsm_bev"]),
+  ],
+}
+FV_PAGE["hoersholm"] = {
+  "kw": "fjernvarme hørsholm / norfors fjernvarme hørsholm / varmepumpe hørsholm",
+  "evidence": "Norfors' takstblad 2026 og fjernvarmeside, Hørsholm Kommunes side om varmeforsyning og Forsyningstilsynets prisstatistik jan. 2026 (tjekket 26/11 2026).",
+  "intro": "24 % af de beboede parcel- og rækkehuse i Hørsholm Kommune har fjernvarme fra Norfors, og 54 % har stadig naturgas. Norfors ligger 8.131 kr. over landsgennemsnittet i Forsyningstilsynets statistik, og nye fjernvarmeområder i kommunen er ikke længere på vej. Her er priserne i 2026 og vurderingen mod varmepumpe.",
+  "status": [
+    ("<strong>Norfors' takster 2026 (inkl. moms):</strong> variabel energiafgift 937,58 kr./MWh, fast målerafgift 1.269,35 kr./år og fast arealafgift 52,66 kr. pr. m² op til 800 m² (42,12 kr. ekskl. moms); større arealer har lavere satser pr. interval.", ["nf_takst26"]),
+    ("<strong>Incitamentstarif:</strong> 3 % af energiafgiften (28,13 kr. pr. MWh pr. °C inkl. moms) opkræves, når returtemperaturen overstiger kravet. I Norfors' regneeksempel er kravet højst 45 °C retur ved 95 °C fremløb.", ["nf_takst26"]),
+    ("<strong>Tilslutning:</strong> Norfors' tilslutningsafgift består af grundafgift, arealafgift og stikledning efter aktuelle omkostninger. Prisen varierer med boligens størrelse og afstanden fra vejen til husmuren.", ["hsm_nf"]),
+    ("<strong>Nye områder trukket tilbage:</strong> Norfors har trukket projektforslaget om fjernvarme i nye områder af Hørsholm tilbage, fordi værket, der leverer varmen, har en usikker fremtid.", ["hsm_varme"]),
+  ],
+  "local_take": "Norfors ligger 8.131 kr. over landsgennemsnittet i Forsyningstilsynets statistik for januar 2026 (25.084 kr. mod 16.953 kr. for et standardhus på 130 m² med 18,1 MWh). For de mange huse uden adgang til fjernvarme er en varmepumpe den vej, kommunen peger på, og har du fjernvarme, er det værd at spørge Norfors, hvad dit hus præcist betaler, før du overvejer at skifte.",
+  "contact": ("Norfors, kundeservice", "45 16 05 00 · norfors@norfors.dk", "hsm_nf"),
+  "faq": [
+    ("Hvad koster fjernvarme hos Norfors i Hørsholm?", "Norfors opkræver 937,58 kr. pr. MWh inkl. moms i 2026 plus en fast målerafgift på 1.269,35 kr. og en arealafgift på 52,66 kr. pr. m² (op til 800 m²). Forsyningstilsynets statistik for januar 2026 viser 25.084 kr. om året for et standardhus på 130 m² med 18,1 MWh.", ["nf_takst26", "ft_pris"]),
+    ("Hvorfor kommer der ikke flere fjernvarmeområder i Hørsholm?", "Efter Energistyrelsens afgørelse i december 2024 om Usserødværket vurderede Norfors, at selskabet ikke kunne etablere et nyt område inden for de fem år fra godkendelsen, som loven kræver, og trak projektforslaget tilbage. I slutningen af maj 2026 stævnede Norfors staten på grund af ændret lovgivning på affaldsområdet.", ["hsm_varme"]),
+    ("Bliver jeg pålagt tilslutningspligt, hvis der kommer fjernvarme?", "Nej, der kan ikke pålægges ny tilslutningspligt i nye fjernvarmeområder. Tidligere pålagt tilslutnings- eller forblivelsespligt gælder fortsat, men er alene en økonomisk forpligtelse og ikke en pligt til at aftage varme.", ["hsm_varme"]),
+  ],
+}

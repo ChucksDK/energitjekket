@@ -6,6 +6,15 @@ def q(table,vars_):
     r=urllib.request.Request("https://api.statbank.dk/v1/data",data=body,headers={"Content-Type":"application/json"})
     return json.load(urllib.request.urlopen(r,timeout=60))
 def info(t): return json.load(urllib.request.urlopen(f"https://api.statbank.dk/v1/tableinfo/{t}?lang=da&format=JSON",timeout=60))
+def pvgis_get(u,tries=6):
+    """PVGIS 5.3 giver af og til SSL EOF i Python-urllib: prøv igen og fald tilbage på curl (26/11 2026)."""
+    import subprocess
+    for i in range(tries):
+        try: return json.load(urllib.request.urlopen(u,timeout=60))
+        except Exception:
+            try: return json.loads(subprocess.check_output(["curl","-sS","--max-time","60",u],stderr=subprocess.DEVNULL))
+            except Exception: time.sleep(3)
+    raise SystemExit("PVGIS fejlede efter "+str(tries)+" forsøg: "+u)
 args=[a.split(":") for a in sys.argv[1:]]
 K=[a[0] for a in args]; SL={a[0]:a[1] for a in args}
 # BOL102 (merge into dataset: rebuild full file with all codes)
@@ -62,7 +71,7 @@ for a in args:
     c,la,lo=a[1],float(a[2]),float(a[3]); res={}
     for name,extra in (("syd35","angle=35&aspect=0"),("oest_vest","angle=35&aspect=-90"),("vest","angle=35&aspect=90"),("opt","optimalangles=1")):
         u=f"https://re.jrc.ec.europa.eu/api/v5_3/PVcalc?lat={la}&lon={lo}&peakpower=1&loss=14&{extra}&outputformat=json"
-        dd=json.load(urllib.request.urlopen(u,timeout=60))
+        dd=pvgis_get(u)
         res[name]={"url":u,"E_y":dd["outputs"]["totals"]["fixed"]["E_y"],"H_y":dd["outputs"]["totals"]["fixed"]["H(i)_y"],
                    "months":[m["E_m"] for m in dd["outputs"]["monthly"]["fixed"]],"angle":dd["inputs"]["mounting_system"]["fixed"]["slope"]["value"],"db":dd["inputs"]["meteo_data"]["radiation_db"]}
         time.sleep(0.5)

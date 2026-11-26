@@ -28,7 +28,7 @@ def above(f, c):
     a = [NAMES[x] for x in sorted(NAMES, key=f, reverse=True)[:rank(f, c) - 1]]
     return a[0] if len(a) == 1 else ", ".join(a[:-1]) + " og " + a[-1]
 
-NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund", "skanderborg": "Skanderborg", "vordingborg": "Vordingborg", "koebenhavn": "København", "vejen": "Vejen", "varde": "Varde", "faxe": "Faxe", "kalundborg": "Kalundborg", "skive": "Skive", "gladsaxe": "Gladsaxe", "kongens-lyngby": "Kongens Lyngby", "holstebro": "Holstebro", "fredensborg": "Fredensborg", "nakskov": "Nakskov", "assens": "Assens", "hinnerup": "Hinnerup", "helsinge": "Helsinge", "middelfart": "Middelfart", "toender": "Tønder", "roenne": "Rønne", "hobro": "Hobro", "ebeltoft": "Ebeltoft", "thisted": "Thisted", "frederiksberg": "Frederiksberg", "gentofte": "Gentofte"}
+NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund", "skanderborg": "Skanderborg", "vordingborg": "Vordingborg", "koebenhavn": "København", "vejen": "Vejen", "varde": "Varde", "faxe": "Faxe", "kalundborg": "Kalundborg", "skive": "Skive", "gladsaxe": "Gladsaxe", "kongens-lyngby": "Kongens Lyngby", "holstebro": "Holstebro", "fredensborg": "Fredensborg", "nakskov": "Nakskov", "assens": "Assens", "hinnerup": "Hinnerup", "helsinge": "Helsinge", "middelfart": "Middelfart", "toender": "Tønder", "roenne": "Rønne", "hobro": "Hobro", "ebeltoft": "Ebeltoft", "thisted": "Thisted", "frederiksberg": "Frederiksberg", "gentofte": "Gentofte", "hvidovre": "Hvidovre", "hoersholm": "Hørsholm"}
 LOCAL_S = {
  "dst_bol102": ("Danmarks Statistik: BOL102, boliger efter område og opvarmning (2026)", "https://www.statistikbanken.dk/BOL102"),
  "dst_bol101": ("Danmarks Statistik: BOL101, boliger efter opførelsesår og udlejningsforhold (2026)", "https://www.statistikbanken.dk/BOL101"),
@@ -2412,6 +2412,89 @@ def reg_age_note(c, kommune):
         return (f"{tal(B['før 1960'])} af de beboede parcel- og rækkehuse i Gentofte Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. På almindelige huse kræver solceller normalt ikke tilladelse, men på bevaringsværdige bygninger skal du altid søge som en planmæssig forespørgsel i Byg- og Miljøportalen.", ["gen_sol_byg", "gen_bev"])
     return _reg_age_old25(c, kommune)
 
+# ---------- daglig by-rutine 26. nov. 2026: Hvidovre og Hørsholm ----------
+SOL_ORDER.update({
+ "hvidovre": ["produktion", "tage", "boliger", "lokalt", "faq", "guides"],
+ "hoersholm": ["boliger", "tage", "produktion", "lokalt", "faq", "guides"],
+})
+VP_ORDER.update({
+ "hvidovre": ["lokale-byer", "opvarmning", "pris", "lokalt", "faq", "guides"],
+ "hoersholm": ["opvarmning", "pris", "lokale-byer", "lokalt", "faq", "guides"],
+})
+FV_ORDER.update({
+ "hvidovre": ["status", "priser", "varmekilder", "andel", "billigst", "faq"],
+ "hoersholm": ["status", "varmekilder", "andel", "priser", "billigst", "faq"],
+})
+SOL_PROD.update({
+ "hvidovre": ("Hvidovres solindstråling: sydtag, øst-vest og optimal hældning",
+  lambda: f"I Hvidovre giver et sydvendt tag med 35° hældning ifølge PVGIS 5.3 ca. {tal(PV['hvidovre']['syd'])} kWh pr. kWp om året. Et 6 kWp-anlæg når dermed ca. {tal(PV['hvidovre']['syd']*6)} kWh, med ca. {tal(PV['hvidovre']['months'][4]*6)} kWh i maj og {tal(PV['hvidovre']['months'][5]*6)} kWh i juni. Vender taget mod vest, falder udbyttet til ca. {tal(PV['hvidovre']['vest'])} kWh pr. kWp, og mod øst er det ca. {tal(PV['hvidovre']['oest'])} kWh. Den optimale hældning på {PV['hvidovre']['opt_angle']}° mod syd giver ca. {tal(PV['hvidovre']['opt'])} kWh pr. kWp."),
+ "hoersholm": ("Solindstråling i Hørsholm: hvad et sydtag og et østvesttag giver",
+  lambda: f"PVGIS 5.3 beregner for Hørsholm ca. {tal(PV['hoersholm']['syd'])} kWh pr. kWp om året på et sydvendt 35°-tag, altså ca. {tal(PV['hoersholm']['syd']*6)} kWh om året for 6 kWp. Produktionen topper i maj (ca. {tal(PV['hoersholm']['months'][4]*6)} kWh) og juni (ca. {tal(PV['hoersholm']['months'][5]*6)} kWh). Et vestvendt tag giver ca. {tal(PV['hoersholm']['vest'])} kWh pr. kWp, et østvendt ca. {tal(PV['hoersholm']['oest'])} kWh, og den optimale hældning på {PV['hoersholm']['opt_angle']}° mod syd ca. {tal(PV['hoersholm']['opt'])} kWh pr. kWp."),
+})
+SOL_PROD_SRC_NEW.update({"hvidovre": ["pv_hvidovre", "pvo_hvidovre", "pvv_hvidovre"], "hoersholm": ["pv_hoersholm", "pvo_hoersholm", "pvv_hoersholm"]})
+SOL_ROOF.update({
+ "hvidovre": ("Mere end hvert fjerde hus i Hvidovre har fibercementtag",
+  lambda: f"{rp('hvidovre','06')} af parcel- og rækkehusene i Hvidovre Kommune har <strong>fibercementtag inkl. asbest</strong> mod {rp('dk','06')} på landsplan, mens {rp('hvidovre','10')} har tegl, {rp('hvidovre','08')} cementsten, {rp('hvidovre','04')} tagpap med hældning og {rp('hvidovre','02')} built-up. Har taget asbestholdig fibercement, kræver monteringen forsigtighed.",
+  ["dst_bygb50", "bolius_asb"]),
+ "hoersholm": ("Næsten hvert andet hus i Hørsholm har tegltag",
+  lambda: f"{rp('hoersholm','10')} af parcel- og rækkehusene i Hørsholm Kommune har <strong>tegltag</strong> mod {rp('dk','10')} på landsplan, {rp('hoersholm','06')} har fibercement inkl. asbest, {rp('hoersholm','02')} built-up og {rp('hoersholm','04')} tagpap med hældning. Kræver en lokalplan, at solceller er integreret i tagfladen, er tagtypen afgørende for monteringen.",
+  ["dst_bygb50", "hsm_sol"]),
+})
+SOL_HOMES.update({
+ "hvidovre": lambda: f"Hvidovre Kommune tæller {tal(STOCK['hvidovre']['tot'])} beboede parcel- og rækkehuse, hvoraf {pct(STOCK['hvidovre']['B']['før 1960'], STOCK['hvidovre']['tot'])} er opført før 1960 og {pct(STOCK['hvidovre']['B']['1960-1979'], STOCK['hvidovre']['tot'])} i 1960–79. {pct(STOCK['hvidovre']['ejer'], STOCK['hvidovre']['tot'])} er ejerboliger, og {pct(STOCK['hvidovre']['raekke'], STOCK['hvidovre']['tot'])} er række-, kæde- eller dobbelthuse mod {pct(STOCK['dk']['raekke'], STOCK['dk']['tot'])} på landsplan.",
+ "hoersholm": lambda: f"Hørsholm Kommune har {tal(STOCK['hoersholm']['tot'])} beboede parcel- og rækkehuse. {pct(STOCK['hoersholm']['B']['1960-1979'], STOCK['hoersholm']['tot'])} er opført i 1960–79, {pct(STOCK['hoersholm']['B']['før 1960'], STOCK['hoersholm']['tot'])} før 1960 og {pct(STOCK['hoersholm']['B']['1980-1999'], STOCK['hoersholm']['tot'])} i 1980–99. {pct(STOCK['hoersholm']['ejer'], STOCK['hoersholm']['tot'])} er ejerboliger, og {pct(STOCK['hoersholm']['raekke'], STOCK['hoersholm']['tot'])} er række-, kæde- eller dobbelthuse.",
+})
+SOL_HOMES_SRC_NEW.update({"hvidovre": ["hvi_bev"], "hoersholm": ["hsm_bev"]})
+SOL_HOMES_H.update({"hvidovre": "Parcel- og rækkehuse i Hvidovre: bevaringsværdi og alder", "hoersholm": "Parcelhuse fra 1960'erne og 70'erne i Hørsholm"})
+SOL_XFAQ.update({
+ "hvidovre": [("Hvor mange huse i Hvidovre har fibercementtag?", lambda: f"{tal(ROOF['hvidovre']['T']['06'])} af de {tal(ROOF['hvidovre']['tot'])} parcel- og rækkehuse med oplyst tag ({rp('hvidovre','06')}) har fibercement inkl. asbest ifølge Danmarks Statistik (BYGB50, 2026).", ["dst_bygb50"])],
+ "hoersholm": [("Hvor mange huse i Hørsholm har tegltag?", lambda: f"{tal(ROOF['hoersholm']['T']['10'])} af de {tal(ROOF['hoersholm']['tot'])} parcel- og rækkehuse med oplyst tag ({rp('hoersholm','10')}) har tegltag ifølge Danmarks Statistik (BYGB50, 2026).", ["dst_bygb50"])],
+})
+VP_HEAT.update({
+ "hvidovre": ("Næsten halvdelen af husene i Hvidovre varmes stadig med naturgas",
+  lambda: f"{tal(HEAT['hvidovre']['FJ'])} af de {tal(hs('hvidovre'))} beboede parcel- og rækkehuse i Hvidovre Kommune ({hp('hvidovre','FJ',1)}) har fjernvarme, mens {tal(HEAT['hvidovre']['CN'])} huse ({hp('hvidovre','CN',1)}) varmer med <strong>naturgas</strong>, {tal(HEAT['hvidovre']['VP'])} ({hp('hvidovre','VP',1)}) med varmepumpe, {tal(HEAT['hvidovre']['ELV'])} med elvarme og {tal(HEAT['hvidovre']['CO'])} med oliefyr."),
+ "hoersholm": ("Over halvdelen af husene i Hørsholm har stadig naturgas",
+  lambda: f"{tal(HEAT['hoersholm']['CN'])} af de {tal(hs('hoersholm'))} beboede parcel- og rækkehuse i Hørsholm Kommune ({hp('hoersholm','CN',1)}) varmer med <strong>naturgas</strong>, mens {tal(HEAT['hoersholm']['FJ'])} ({hp('hoersholm','FJ',1)}) har fjernvarme, {tal(HEAT['hoersholm']['VP'])} ({hp('hoersholm','VP',1)}) varmepumpe, {tal(HEAT['hoersholm']['ELV'])} elvarme og {tal(HEAT['hoersholm']['CO'])} oliefyr."),
+})
+VP_HEAT_SRC_NEW.update({"hvidovre": ["hvi_varmeplan", "hvi_groen"], "hoersholm": ["hsm_varme"]})
+VP_TOWNS.update({
+ "hvidovre": [("Hvidovre (kommunens del af hovedstadsområdet)", "Fjernvarme fra FD Hvidovre og Avedøre Fjernvarme; flere områder udbygges", ["hvi_fv", "hvi_hfs"]),
+              ("Nymarken og Mågeparken", "Udbygningsområde hos Hvidovre Fjernvarme (nyhedsbreve november 2026)", ["hvi_fv"]),
+              ("Strandmark Nord", "Udbygningsområde hos Hvidovre Fjernvarme (nyhedsbrev november 2026)", ["hvi_fv"]),
+              ("Avedøre Landsby", "Udbygningsområde hos Hvidovre Fjernvarme", ["hvi_fv"])],
+ "hoersholm": [("Hørsholm-byområdet (delen i Hørsholm Kommune)", "Norfors; nye områder ikke længere på vej – kommunen arbejder for at konvertere gasområder til fjernvarme inden 2035", ["hsm_varme"]),
+               ("Eksisterende Norfors-områder", "Uforpligtende tilbud hos Norfors for adresser i områder med fjernvarme", ["hsm_nf"]),
+               ("Områder uden fjernvarme", "Projektforslaget om nye områder er trukket tilbage; varmepumpe er den vej, kommunen peger på", ["hsm_varme"])],
+})
+VP_TOWNS_NOTE.update({
+ "hvidovre": "Hvidovre Kommune har kun ét byområde i Danmarks Statistiks opgørelse, så indbyggertallet gælder byområdet og opvarmningstallene hele kommunen. Hvilke veje der får fjernvarme først, afgør udbygningsplanen hos Hvidovre Fjernvarme – spørg dem, før du vælger anden varmekilde.",
+ "hoersholm": "Hørsholm-byområdet strækker sig ind i Rudersdal og Fredensborg Kommune. Danmarks Statistik opgør 48.797 indbyggere i alt, hvoraf 24.833 bor i Hørsholm Kommune. Opvarmningstallene gælder hele Hørsholm Kommune. Om din adresse er udlagt til fjernvarme, ser du på kommunens varmeplanskort.",
+})
+VP_XFAQ.update({
+ "hvidovre": [("Hvor mange huse i Hvidovre har varmepumpe?", lambda: f"{tal(HEAT['hvidovre']['VP'])} af {tal(hs('hvidovre'))} beboede parcel- og rækkehuse ({hp('hvidovre','VP',1)}) har varmepumpe ifølge Danmarks Statistik, 2026, mens {tal(HEAT['hvidovre']['CN'])} ({hp('hvidovre','CN',1)}) har naturgas.", ["dst_bol102"])],
+ "hoersholm": [("Hvor mange huse i Hørsholm har varmepumpe?", lambda: f"{tal(HEAT['hoersholm']['VP'])} af {tal(hs('hoersholm'))} beboede parcel- og rækkehuse ({hp('hoersholm','VP',1)}) har varmepumpe ifølge Danmarks Statistik, 2026, og {tal(HEAT['hoersholm']['CN'])} ({hp('hoersholm','CN',1)}) har naturgas.", ["dst_bol102"])],
+})
+FV_SOURCES.update({
+ "hvidovre": [("<strong>Fordelingsselskab:</strong> Hvidovre Fjernvarmeselskab, stiftet i 1984 og ejet af kommunen og distributionsselskaberne, tager sig af nyanlæg, finansiering og køb og salg af varme. Planen er, at hele Hvidovre konverteres til fjernvarmeområde.", ["hvi_hfs"]),
+              ("<strong>Spidslastcentral i Avedøre:</strong> Avedøre Fjernvarmes kedler på Rebslagerporten sættes i drift, når der er behov, og centralen har status som spidslastcentral for vestegnens fjernvarmeforsyning.", ["hvi_ave_om"]),
+              ("<strong>Miljødeklarationer:</strong> Avedøre Fjernvarme har offentliggjort miljødeklarationer for 2022–2025, og Hvidovre Fjernvarmeselskab har en miljødeklaration på sin side.", ["hvi_ave_om", "hvi_hfs"])],
+ "hoersholm": [("<strong>Usserødværket:</strong> værket leverer varmen til Norfors' fjernvarmeområder, og usikkerheden om værkets fremtid påvirker udrulningen af fjernvarme i Hørsholm og nabokommunerne.", ["hsm_varme"]),
+               ("<strong>Fire forsyningsområder:</strong> Norfors Fjernvarme består af sammenhængende områder i Hørsholm, Rudersdal, Fredensborg og Allerød Kommune.", ["hsm_nf"])],
+})
+FV_SHARE.update({
+ "hvidovre": lambda: f"Fjernvarme findes i {hp('hvidovre','FJ',1)} af de beboede parcel- og rækkehuse i Hvidovre Kommune (landet: {hp('dk','FJ',1)}), og {hp('hvidovre','CN',1)} fyrer stadig med naturgas.",
+ "hoersholm": lambda: f"I Hørsholm Kommune har {hp('hoersholm','FJ',1)} af de beboede parcel- og rækkehuse fjernvarme mod {hp('dk','FJ',1)} på landsplan, og {hp('hoersholm','CN',1)} bruger naturgas.",
+})
+FV_SOURCES_H.update({"hvidovre": "Fordelingsselskab og spidslast: sådan leveres varmen i Hvidovre", "hoersholm": "Usserødværket og Norfors' fire forsyningsområder"})
+_reg_age_old26 = reg_age_note
+def reg_age_note(c, kommune):
+    s = STOCK[c]; B = s["B"]; t = s["tot"]
+    if c == "hvidovre":
+        return (f"{tal(B['før 1960'])} af de beboede parcel- og rækkehuse i Hvidovre Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. Næsten alle ejendomme er omfattet af en lokalplan eller byplanvedtægt, så tjek planen for din adresse og om huset er bevaringsværdigt, før du bestiller solceller.", ["hvi_bygg", "hvi_bev"])
+    if c == "hoersholm":
+        return (f"{tal(B['før 1960'])} af de beboede parcel- og rækkehuse i Hørsholm Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. På huse udpeget som bevaringsværdige i Temalokalplan 143 skal kommunen godkende ændringer af husets ydre, så spørg kommunen, før solceller kommer på et sådant tag.", ["hsm_bev"])
+    return _reg_age_old26(c, kommune)
+
 # ---------- tjek af sammenlignende udsagn: bygget fejler, hvis en ny by gør et udsagn forkert ----------
 _PVs = lambda c: PV[c]["syd"]; _rt = lambda k: (lambda c: ROOF[c]["T"][k] / ROOF[c]["tot"]); _hf = lambda k: (lambda c: HEAT[c][k] / hs(c)); _sb = lambda k: (lambda c: STOCK[c]["B"][k] / STOCK[c]["tot"])
 CLAIMS = [
@@ -2419,17 +2502,17 @@ CLAIMS = [
  ("Aalborg top 17 juni (dynamisk tekst; løsnet 17/11)", rank(lambda c: PV[c]["months"][5], "aalborg") <= 25),  # løsnet 23/11
  ("Odense top 4 tegl (dynamisk tekst; løsnet 13/11 efter Gladsaxe/Lyngby)", rank(_rt("10"), "odense") <= 8), ("Aalborg top 5 fibercement (dynamisk tekst)", rank(_rt("06"), "aalborg") <= 7),  # løsnet 23/11 efter Thisted
  ("Vejle ikke nr. 1 nyere huse", rank(_sb("2000+"), "vejle") > 1),
- ("Esbjerg top 5 1960-79 (dynamisk tekst)", rank(_sb("1960-1979"), "esbjerg") <= 5),
+ ("Esbjerg top 6 1960-79 (dynamisk tekst; løsnet 26/11 efter Hørsholm)", rank(_sb("1960-1979"), "esbjerg") <= 6),
  ("Aarhus flest huse", top(lambda c: STOCK[c]["tot"]) == "aarhus"), ("Aalborg nr. 2 huse", rank(lambda c: STOCK[c]["tot"], "aalborg") == 2),
- ("Horsens top 10 ejerandel (dynamisk tekst; løsnet 13/11, 25/11 efter Gentofte)", rank(_EJ, "horsens") <= 10),
+ ("Horsens top 12 ejerandel (dynamisk tekst; løsnet 13/11, 25/11 efter Gentofte, 26/11 efter Hørsholm)", rank(_EJ, "horsens") <= 12),
  ("Odense top 3 FJ (dynamisk tekst; løsnet 25/11 efter Frederiksberg)", rank(_hf("FJ"), "odense") <= 3), ("Aarhus top 5 FJ (dynamisk tekst; løsnet 25/11 efter Frederiksberg)", rank(_hf("FJ"), "aarhus") <= 5),
 
  ("Viborg top 9 olie, Randers top 14 (dynamisk tekst; løsnet 17/11)", rank(_hf("CO"), "viborg") <= 14 and rank(_hf("CO"), "randers") <= 21),  # løsnet 19/11 efter Middelfart/Tønder, 23/11 efter Ebeltoft/Thisted
  ("Næstved gas tæt på fjernvarme (overskrift)", abs(HEAT["naestved"]["CN"] - HEAT["naestved"]["FJ"]) / HEAT["naestved"]["FJ"] < 0.05),
  ("Sønderborg tre ud af fem FJ (overskrift)", 0.58 <= HEAT["soenderborg"]["FJ"] / hs("soenderborg") <= 0.62),
  ("Roskilde mere end hvert fjerde gas (overskrift)", HEAT["roskilde"]["CN"] / hs("roskilde") > 0.25),
- ("Holbæk top 6 gasfyr og laveste FJ (overskrift)", rank(_hf("CN"), "holbaek") <= 6 and top(_hf("FJ"), rev=True) == "holbaek"),
- ("Køge halvdelen gas, top 3 gasfyr (overskrift, dynamisk tekst)", 0.47 <= HEAT["koege"]["CN"] / hs("koege") <= 0.53 and rank(_hf("CN"), "koege") <= 4),
+ ("Holbæk top 8 gasfyr (overskrift 'Mange gasfyr' og dynamisk tekst; løsnet 26/11 efter Hørsholm/Hvidovre) og laveste FJ (overskrift)", rank(_hf("CN"), "holbaek") <= 8 and top(_hf("FJ"), rev=True) == "holbaek"),
+ ("Køge halvdelen gas, top 5 gasfyr (overskrift, dynamisk tekst)", 0.47 <= HEAT["koege"]["CN"] / hs("koege") <= 0.53 and rank(_hf("CN"), "koege") <= 5),  # løsnet 26/11 efter Hørsholm
  ("Svendborg hvert fjerde FJ (overskrift)", 0.23 <= HEAT["svendborg"]["FJ"] / hs("svendborg") <= 0.27),
  ("Svendborg top 6 PV (dynamisk tekst; løsnet 17/11)", rank(_PVs, "svendborg") <= 7),
  ("Faaborg hvert tredje FJ (tekst)", 0.32 <= HEAT["faaborg"]["FJ"] / hs("faaborg") <= 0.36),
@@ -2550,7 +2633,7 @@ CLAIMS = [
  ("Roenne højeste PV (overskrift 'Mest sol på sitet')", top(_PVs) == "roenne"),
  ("Roenne næsten hvert ottende elvarme (VP-intro)", 0.105 <= HEAT["roenne"]["ELV"] / hs("roenne") < 0.125),
  ("Roenne næsten ingen naturgas (VP-intro/overskrift)", HEAT["roenne"]["CN"] < 10),
- ("Roenne mange tegltage, top 6 (overskrift)", rank(_rt("10"), "roenne") <= 6),
+ ("Roenne mange tegltage, top 7 (dynamisk tekst; neutral overskrift; løsnet 26/11 efter Hørsholm)", rank(_rt("10"), "roenne") <= 7),
  ("Hobro lidt over halvdelen FJ (VP-intro)", 0.50 < HEAT["hobro"]["FJ"] / hs("hobro") < 0.56),
  ("Hobro næsten hvert andet tag fibercement (overskrift)", 0.42 <= ROOF["hobro"]["T"]["06"] / ROOF["hobro"]["tot"] < 0.50),
  ("Ebeltoft hvert niende elvarme (VP-intro)", 0.105 <= HEAT["ebeltoft"]["ELV"] / hs("ebeltoft") < 0.118),
