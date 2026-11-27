@@ -4972,5 +4972,21 @@
    "223-10289 Trørød (del af flere kommuner)",
    0
   ]
+ ],
+ "ballerup": [
+  [
+   "151-01100 Ballerup (del af Hovedstadsområdet)",
+   45001
+  ],
+  [
+   "151-10223 Smørumnedre (del af flere kommuner)",
+   8663
+  ]
+ ],
+ "roedovre": [
+  [
+   "175-01100 Rødovre (del af Hovedstadsområdet)",
+   45020
+  ]
  ]
 }

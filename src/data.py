@@ -2198,3 +2198,96 @@ CONTACTS["hoersholm"] = {
   "sol": [("Hørsholm Kommune, byggesagsvagten", "48 49 00 24 · bom-post@horsholm.dk", "hsm_kontakt")],
   "vp": [("Norfors, kundeservice", "45 16 05 00 · norfors@norfors.dk", "hsm_nf")],
 }
+# ---------- daglig by-rutine 27. nov. 2026: Rødovre (DK2, Rødovre Kommune, vp_page True) ----------
+S.update({
+ "rod_sol": ("Rødovre Kommune: Vejledning til opsætning af solenergianlæg (læst 27/11 2026)", "https://rk.dk/borger/bolig-og-by/byggeri-og-byplanlaegning/byggeri/vejledning-til-opsaetning-af-solenergianlaeg"),
+ "rod_gebyr": ("Rødovre Kommune: Gebyr – byggesagsbehandling, takster 2025 og 2026 (læst 27/11 2026)", "https://rk.dk/borger/bolig-og-by/byggeri-og-byplanlaegning/byggeri/foer-du-bygger/gebyr-byggesagsbehandling"),
+ "rod_mal": ("Rødovre Kommune: Servicemål for byggesagsbehandling (læst 27/11 2026)", "https://rk.dk/borger/bolig-og-by/byggeri-og-byplanlaegning/byggeri/foer-du-bygger/servicemaal-for-byggesagsbehandling"),
+ "rod_bev": ("Rødovre Kommune: Kulturhistoriske kvaliteter – SAVE-registrering og bevaringsværdige bygninger (læst 27/11 2026)", "https://rk.dk/borger/bolig-og-by/byggeri-og-byplanlaegning/fysisk-planlaegning-i-roedovre-kommune/kulturhistoriske-kvaliteter"),
+ "rod_varme": ("Rødovre Kommune: Varmekilder – elvarme, varmepumper og fjernvarme (læst 27/11 2026)", "https://rk.dk/borger/bolig-og-by/grund-og-ejendom/varmekilder"),
+ "rkf_om": ("Rødovre Kommunale Fjernvarmeforsyning: Om os og tidslinje (læst 27/11 2026)", "https://www.rodovrefjernvarme.dk/om-os"),
+ "rkf_faq": ("Rødovre Kommunale Fjernvarmeforsyning: Spørgsmål og svar om udrulningen (læst 27/11 2026)", "https://www.rodovrefjernvarme.dk/vil-du-have-fjernvarme/spoergsmaal-og-svar"),
+ "rkf_ny": ("Rødovre Kommunale Fjernvarmeforsyning: Ændret tidsplan for udrulning af fjernvarme i Rødovre (læst 27/11 2026)", "https://www.rodovrefjernvarme.dk/nyheder/aendret-tidsplan-for-udrulning-af-fjernvarme-i-roedovre"),
+ "rkf_takst": ("Rødovre Kommunale Fjernvarmeforsyning: Takstblad 2026 inkl. moms, revision 18. august 2026 (PDF)", "https://www.rodovrefjernvarme.dk/p/R%C3%B8dovre%20Kommunale%20Fjernvarme/PDF/Takster/Takster-2026-med-moms--pr-1-januar-2026--med-udbygningstill%C3%A6g--revision-18-august-2026.pdf"),
+ "rkf_forside": ("Rødovre Kommunale Fjernvarmeforsyning: forside – varmen fra VEKS og vedvarende energi (læst 27/11 2026)", "https://www.rodovrefjernvarme.dk/"),
+ "rkf_pris": ("Rødovre Kommunale Fjernvarmeforsyning: Information om prisstigninger – varmekilder hos VEKS (læst 27/11 2026)", "https://www.rodovrefjernvarme.dk/nyheder/information-om-prisstigninger"),
+ "rkf_fors": ("Rødovre Kommunale Fjernvarmeforsyning: Forsyningsområder og kontakt (læst 27/11 2026)", "https://www.rodovrefjernvarme.dk/om-os/forsyningsomraader"),
+})
+CITIES["roedovre"] = {
+  "name": "Rødovre", "kommune": "Rødovre Kommune", "updated": ("27. november 2026", "2026-11-27"),
+  "vp_page": True, "price_area": "DK2",
+  "sol_intro": "Solceller i Rødovre: de fleste boligområder er dækket af en lokalplan eller byplanvedtægt, nyere planer kan kræve refleksfri og integrerede anlæg, og over seks ud af ti huse er fra før 1960. Her er reglerne, byggetal og vejen til tilbud.",
+  "sol_facts": [
+    ("Kommunen beder dig tjekke tre ting, før du sætter solenergianlæg op: om huset er omfattet af <strong>lokalplan, deklaration eller byplanvedtægt</strong>, om det er <strong>bevaringsværdigt eller ligger i et kulturmiljø</strong>, og om anlægget <strong>kræver byggetilladelse</strong>.", ["rod_sol"]),
+    ("De fleste boligområder i Rødovre er dækket af en lokalplan eller byplanvedtægt. Nyere planer indeholder typisk bestemmelser om, at <strong>anlæg ikke må være blanke eller reflekterende</strong>, ikke må ses fra vejen og skal godkendes af kommunen.", ["rod_sol"]),
+    ("Kommunens otte retningslinjer beder om <strong>refleksfri anlæg</strong>, der følger tagfladens hældning, sættes op som én samlet firkantet flade med mindst en halv meters afstand til kip og kanter, har samme farve som tagmaterialet og har skjulte rør og kabler.", ["rod_sol"]),
+    ("Skal du søge byggetilladelse til noget andet end en simpel konstruktion, er gebyret i 2026 <strong>999 kr. pr. medgået time</strong>. Servicemålet for énfamiliehuse er 40 dage fra sagen er tilstrækkeligt oplyst, og den første forhåndsdialog er gratis.", ["rod_gebyr", "rod_mal"]),
+  ],
+  "sol_faq": [
+    ("Skal man søge byggetilladelse til solceller i Rødovre?", "Kommunen opfordrer dig til selv at afklare det sammen med to andre ting: om huset er omfattet af lokalplan, deklaration eller byplanvedtægt, og om det er bevaringsværdigt eller ligger i et kulturmiljø. Eftersom de fleste boligområder har en lokalplan eller byplanvedtægt, bør du kontakte Byggesagsafdelingen på 36 37 70 00, før du bestiller anlægget.", ["rod_sol"]),
+    ("Hvad koster byggesagsbehandling i Rødovre?", "I 2026 koster øvrige bygningstyper som énfamiliehuse 999 kr. pr. medgået time, og simple konstruktioner som garager og carporte 1.229 kr. pr. bygning. Kommunen tager ikke gebyr for den første forhåndsdialog.", ["rod_gebyr"]),
+  ],
+  "vp_intro": "Varmepumpe i Rødovre: 55 % af parcel- og rækkehusene fyrer stadig med naturgas, og kun 29 % har fjernvarme – men kommunen udbygger fjernvarmen frem mod 2032, og elvarme er som hovedregel forbudt, mens varmepumper er undtaget. Her er status, priser og regler.",
+  "vp_facts": [
+    ("<strong>Elvarmeforbud, men ikke for varmepumper:</strong> i Rødovre er der generelt forbud mod at etablere elvarme, men varmepumper er undtaget. De kræver ikke byggetilladelse, men skal overholde bygningsreglementet og placeres, så du undgår støjgener for dig selv og naboen.", ["rod_varme"]),
+    ("<strong>Lokalplan og synlighed:</strong> en lokalplan kan fastlægge varmepumpens placering, og kommunen anbefaler, at den ikke er synlig fra vejen, og at afskærmningen tilpasses husets arkitektur og farver.", ["rod_varme"]),
+    ("<strong>Fjernvarmeudbygning:</strong> arbejdet syd for Roskildevej ventes afsluttet i 2027 og nord for Roskildevej i 2028, mens Islev og områderne nord og syd for Jyllingevej udrulles i 2026–2032 efter interesse og teknisk mulighed.", ["rkf_faq", "rkf_om"]),
+    ("<strong>Kampagnerabat:</strong> underskriver du en tilmeldingsaftale inden fristen i et udbygningsområde, føres stikledningen ind uden omkostning; efter fristen koster tilslutningen 31.250 kr. inkl. moms.", ["rkf_faq", "rkf_takst"]),
+  ],
+  "vp_faq": [
+    ("Kan jeg få fjernvarme i Rødovre?", "Det afhænger af din adresse. Rødovre Kommunale Fjernvarmeforsyning har fem separate ledningsnet og udbygger frem mod 2032. Du skal selv tilmelde dig, når tilmeldingen åbner i dit område, og du kan godt tilmelde dig, selvom området først kobles på senere. Tilmelding kan påvirke rækkefølgen i udrulningen.", ["rkf_om", "rkf_faq"]),
+    ("Må jeg få en varmepumpe i Rødovre?", "Ja. Der er generelt forbud mod elvarme i kommunen, men varmepumper er undtaget og kræver ikke byggetilladelse. Du skal overholde bygningsreglementet, undgå støjgener og følge eventuelle lokalplanbestemmelser om placering.", ["rod_varme"]),
+  ],
+}
+CONTACTS["roedovre"] = {
+  "sol": [("Rødovre Kommune, Byggesag og Erhverv", "36 37 70 00", "rod_sol")],
+  "vp": [("Rødovre Kommunale Fjernvarmeforsyning, kundeservice", "36 37 72 50 · fjernvarme@rk.dk", "rkf_fors")],
+}
+# ---------- daglig by-rutine 27. nov. 2026: Ballerup (DK2, Ballerup Kommune, vp_page True) ----------
+S.update({
+ "bal_bygg": ("Ballerup Kommune: Spørgsmål & svar om byggeri – byggetilladelse og byggesagsgebyr (læst 27/11 2026)", "https://ballerup.dk/borger/bolig-vand-varme/byggeri/spoergsmaal-svar"),
+ "bal_bev": ("Ballerup Kommune: Fredede & bevaringsværdige bygninger (læst 27/11 2026)", "https://ballerup.dk/borger/bolig-vand-varme/skal-du-bygge/fredede-bevaringsvaerdige-bygninger"),
+ "bal_skov": ("Ballerup Kommune: Bevaring i Gl. Skovlunde – vejledning til Lokalplan 104 (udgivet januar 2009, læst 27/11 2026)", "https://ballerup.dk/sites/default/files/2021-06/bevaringsvejledning_for_skovlunde_landsby.pdf"),
+ "bal_lp204": ("Ballerup Kommune: Lokalplan 204 for en del af boligbebyggelsen Bispevangen (januar 2025)", "https://ballerup.dk/sites/default/files/2025-01/LP%20204%20ENDELIG%20m.%20bilag%20-%2027jan25.pdf"),
+ "bal_sol": ("Ballerup Kommune: Solceller – gratis beregningsværktøj og solcelle-hotline (læst 27/11 2026)", "https://ballerup.dk/borger/natur-klima-miljoe/klima/solceller"),
+ "bal_tid": ("Ballerup Avis: Gennemsnitlig ventetid på byggetilladelse falder fra 82 til 75 dage (24/11 2026)", "https://ballerupavis.dk/article/gennemsnitlig-ventetid-paa-byggetilladelse-falder-fra-82-til-75-dage-64128"),
+ "bal_fv": ("Ballerup Kommune: Fjernvarme – plan for udrulning i to etaper (læst 27/11 2026)", "https://ballerup.dk/fjernvarme"),
+ "bal_vp": ("Ballerup Kommune: Varmeforsyning – plan, handlinger og anbefalinger (oplæg 30/5 2024)", "https://fugb.dk/Fil%20arkiv/Temam%C3%B8der/2024/Ball%20K%20Varmeforsyning%20opl%C3%A6g%20for%20FU%202024-05-30.pdf"),
+ "vf_bal": ("Vestforbrænding: Fjernvarme i Ballerup – plan for udbygning (læst 27/11 2026)", "https://vestfor.dk/privat/fjernvarme/fjernvarme-ballerup-kommune"),
+ "vf_pris": ("Vestforbrænding: Priser og gebyrer – takstblad (læst 27/11 2026)", "https://vestfor.dk/privat/har-fjernvarme/priser-og-gebyrer"),
+ "vf_beregn": ("Vestforbrænding: Se din fjernvarmepris – model A og B (læst 27/11 2026)", "https://vestfor.dk/privat/fjernvarme/se-din-fjernvarmepris"),
+ "vf_dekl": ("Vestforbrænding: Fjernvarmedeklaration 2025 – fjernvarme til eget net (rev. 18/6 2026, PDF)", "https://cms.vestfor.dk/media/zuvl5jy2/vestforbraending-fjernvarmedeklaration-eget-net-2025.pdf"),
+ "vf_nyhed": ("Vestforbrænding: Ved Gershøj siger farvel til gas (24/2 2025)", "https://vestfor.dk/bliv-klogere/nyheder/nyhedsoverblik/farvel-til-gas"),
+})
+CITIES["ballerup"] = {
+  "name": "Ballerup", "kommune": "Ballerup Kommune", "updated": ("27. november 2026", "2026-11-27"),
+  "vp_page": True, "price_area": "DK2",
+  "sol_intro": "Solceller i Ballerup: kommunen tager intet byggesagsgebyr, flere lokalplaner stiller krav til solceller, og over halvdelen af husene er fra 1960'erne og 70'erne. Her er reglerne, byggetal og vejen til tilbud.",
+  "sol_facts": [
+    ("Ballerup Kommune har <strong>afskaffet byggesagsgebyret</strong> for både private og virksomheder, så det koster ikke noget at søge byggetilladelse eller anmelde et byggeri.", ["bal_bygg"]),
+    ("Kommunens oversigt over byggeri, der kræver byggetilladelse, nævner nye huse, tilbygninger, inddragelse af tagetage og småbygninger over 50 m². <strong>Solceller står ikke på listen</strong>, men tjek lokalplan, byplanvedtægt og tinglyste deklarationer for din adresse.", ["bal_bygg"]),
+    ("I <strong>Gl. Skovlunde</strong> fastslår vejledningen til Lokalplan 104, at solfangere og solceller ikke må placeres på bevaringsværdige bygninger, og at anlæg skal placeres uden for syne fra sti, vej og fællesarealer. Vejledningen er fra 2009.", ["bal_skov"]),
+    ("Gennemsnitlig sagsbehandlingstid for byggesager var <strong>75 dage i oktober 2026</strong> (82 i marts). Kommunen følger nu servicemålet på 40 dage for énfamiliehuse.", ["bal_tid"]),
+    ("Kommunen tilbyder et <strong>gratis beregningsværktøj</strong> og en solcelle-hotline på 61 31 51 90 (mandag-torsdag kl. 15-17), hvor en uvildig rådgiver svarer på spørgsmål om solceller og batterier.", ["bal_sol"]),
+  ],
+  "sol_faq": [
+    ("Skal man søge byggetilladelse til solceller i Ballerup?", "Kommunens liste over byggeri, der kræver byggetilladelse, nævner ikke solceller blandt eksemplerne. Er huset fredet eller bevaringsværdigt, henviser kommunen til at søge byggetilladelse via Bygogmiljø.dk. Kontakt Center for By og Miljø på 44 77 63 70, hvis du er i tvivl om din adresse.", ["bal_bygg", "bal_bev"]),
+    ("Hvad koster en byggesag i Ballerup?", "Ingenting i gebyr. Kommunen har afskaffet byggesagsgebyret for private og virksomheder, så det er gratis at søge byggetilladelse eller anmelde byggeri.", ["bal_bygg"]),
+    ("Hvor lang tid tager en byggesag i Ballerup?", "I oktober 2026 tog en sag i gennemsnit 75 dage, mod 82 dage i marts. Kommunen følger nu de fælles servicemål, herunder 40 dage for énfamiliehuse.", ["bal_tid"]),
+  ],
+  "vp_intro": "Varmepumpe i Ballerup: 63 % af parcel- og rækkehusene fyrer med naturgas, og kun 21 % har fjernvarme – men Vestforbrænding udruller fjernvarme i to etaper frem mod 2030, og kommunen peger på varmepumper i de områder, der ikke får fjernvarme. Her er status, priser og regler.",
+  "vp_facts": [
+    ("<strong>Kommunens plan:</strong> fjernvarme udrulles til områderne i varmeplanen, og individuelle varmepumper skal være i de områder, hvor Vestforbrænding ikke kan komme ud med fjernvarme. Kommunen har som mål at udfase naturgas og oliefyr.", ["bal_vp"]),
+    ("<strong>To etaper:</strong> etape 1 giver ca. 3.300 kunder tilbud om fjernvarme frem til 2028, og etape 2 omfatter 12 energidistrikter med ca. 4.000 kunder; graveriet i etape 2 starter i andet halvår af 2026 og slutter i 2030.", ["vf_nyhed", "bal_fv"]),
+    ("<strong>Områder uden fjernvarme:</strong> kommunen skriver, at der er enkelte områder, hvor der ikke er god samfundsøkonomi i fjernvarme. Her kan du overveje at udskifte olie- eller gasfyret med en individuel løsning, og kommunen har oplevet støjklager over varmepumper og anbefaler at undersøge kølemiddel og placering.", ["bal_fv", "bal_vp"]),
+    ("<strong>Smørum Kraftvarmeværk:</strong> Bjørnekær, Smørumvej og Baneskrænten tilbydes fjernvarme fra Smørum Kraftvarmeværk senest i 2030.", ["bal_fv"]),
+  ],
+  "vp_faq": [
+    ("Kan jeg få fjernvarme i Ballerup?", "Se på Vestforbrændings adressekort, om dit energidistrikt er med i etape 1 eller etape 2. Etape 1 løber til 2028 (Skovlunde 2026-2027), etape 2 fra 2026 til 2030. Er du i et område uden udbygningsplan, kan du overveje en individuel løsning.", ["vf_bal", "bal_fv"]),
+    ("Anbefaler Ballerup Kommune varmepumper?", "Kommunens anbefaling er fjernvarme, hvor Vestforbrænding kommer. Varmepumper hører til i områder uden fjernvarme, og kommunen råder til at undersøge kølemiddel og placere varmepumpen, så naboer ikke generes af støj.", ["bal_vp", "bal_fv"]),
+  ],
+}
+CONTACTS["ballerup"] = {
+  "sol": [("Ballerup Kommune, Center for By og Miljø", "44 77 63 70 · byggesag@balk.dk", "bal_bev")],
+  "vp": [("Vestforbrænding, fjernvarme", "70 25 70 60", "bal_fv")],
+}

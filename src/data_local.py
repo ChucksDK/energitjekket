@@ -28,7 +28,7 @@ def above(f, c):
     a = [NAMES[x] for x in sorted(NAMES, key=f, reverse=True)[:rank(f, c) - 1]]
     return a[0] if len(a) == 1 else ", ".join(a[:-1]) + " og " + a[-1]
 
-NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund", "skanderborg": "Skanderborg", "vordingborg": "Vordingborg", "koebenhavn": "København", "vejen": "Vejen", "varde": "Varde", "faxe": "Faxe", "kalundborg": "Kalundborg", "skive": "Skive", "gladsaxe": "Gladsaxe", "kongens-lyngby": "Kongens Lyngby", "holstebro": "Holstebro", "fredensborg": "Fredensborg", "nakskov": "Nakskov", "assens": "Assens", "hinnerup": "Hinnerup", "helsinge": "Helsinge", "middelfart": "Middelfart", "toender": "Tønder", "roenne": "Rønne", "hobro": "Hobro", "ebeltoft": "Ebeltoft", "thisted": "Thisted", "frederiksberg": "Frederiksberg", "gentofte": "Gentofte", "hvidovre": "Hvidovre", "hoersholm": "Hørsholm"}
+NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund", "skanderborg": "Skanderborg", "vordingborg": "Vordingborg", "koebenhavn": "København", "vejen": "Vejen", "varde": "Varde", "faxe": "Faxe", "kalundborg": "Kalundborg", "skive": "Skive", "gladsaxe": "Gladsaxe", "kongens-lyngby": "Kongens Lyngby", "holstebro": "Holstebro", "fredensborg": "Fredensborg", "nakskov": "Nakskov", "assens": "Assens", "hinnerup": "Hinnerup", "helsinge": "Helsinge", "middelfart": "Middelfart", "toender": "Tønder", "roenne": "Rønne", "hobro": "Hobro", "ebeltoft": "Ebeltoft", "thisted": "Thisted", "frederiksberg": "Frederiksberg", "gentofte": "Gentofte", "hvidovre": "Hvidovre", "hoersholm": "Hørsholm", "roedovre": "Rødovre", "ballerup": "Ballerup"}
 LOCAL_S = {
  "dst_bol102": ("Danmarks Statistik: BOL102, boliger efter område og opvarmning (2026)", "https://www.statistikbanken.dk/BOL102"),
  "dst_bol101": ("Danmarks Statistik: BOL101, boliger efter opførelsesår og udlejningsforhold (2026)", "https://www.statistikbanken.dk/BOL101"),
@@ -2495,14 +2495,98 @@ def reg_age_note(c, kommune):
         return (f"{tal(B['før 1960'])} af de beboede parcel- og rækkehuse i Hørsholm Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. På huse udpeget som bevaringsværdige i Temalokalplan 143 skal kommunen godkende ændringer af husets ydre, så spørg kommunen, før solceller kommer på et sådant tag.", ["hsm_bev"])
     return _reg_age_old26(c, kommune)
 
+# ---------- daglig by-rutine 27. nov. 2026: Rødovre og Ballerup ----------
+SOL_ORDER.update({
+ "roedovre": ["tage", "boliger", "produktion", "lokalt", "faq", "guides"],
+ "ballerup": ["boliger", "produktion", "tage", "lokalt", "faq", "guides"],
+})
+VP_ORDER.update({
+ "roedovre": ["opvarmning", "lokale-byer", "pris", "lokalt", "faq", "guides"],
+ "ballerup": ["pris", "opvarmning", "lokale-byer", "lokalt", "faq", "guides"],
+})
+FV_ORDER.update({
+ "roedovre": ["status", "andel", "priser", "varmekilder", "billigst", "faq"],
+ "ballerup": ["priser", "status", "varmekilder", "andel", "billigst", "faq"],
+})
+SOL_PROD.update({
+ "roedovre": ("Solindstråling i Rødovre: sydtag, øst-vest og optimal vinkel",
+  lambda: f"PVGIS 5.3 giver for Rødovre ca. {tal(PV['roedovre']['syd'])} kWh pr. kWp om året på et sydvendt tag med 35° hældning, så et 6 kWp-anlæg når ca. {tal(PV['roedovre']['syd']*6)} kWh. Maj giver ca. {tal(PV['roedovre']['months'][4]*6)} kWh og juni ca. {tal(PV['roedovre']['months'][5]*6)} kWh, mens december kun giver ca. {tal(PV['roedovre']['months'][11]*6)} kWh. Et vestvendt tag giver ca. {tal(PV['roedovre']['vest'])} kWh pr. kWp, et østvendt ca. {tal(PV['roedovre']['oest'])} kWh, og den optimale hældning på {PV['roedovre']['opt_angle']}° mod syd giver ca. {tal(PV['roedovre']['opt'])} kWh pr. kWp."),
+ "ballerup": ("Hvad giver solen i Ballerup? Syd, øst-vest og optimal hældning",
+  lambda: f"Ifølge PVGIS 5.3 producerer et sydvendt 35°-tag i Ballerup ca. {tal(PV['ballerup']['syd'])} kWh pr. kWp om året. Med 6 kWp bliver det ca. {tal(PV['ballerup']['syd']*6)} kWh, heraf ca. {tal(PV['ballerup']['months'][4]*6)} kWh i maj og ca. {tal(PV['ballerup']['months'][5]*6)} kWh i juni. Vest giver ca. {tal(PV['ballerup']['vest'])} kWh pr. kWp, øst ca. {tal(PV['ballerup']['oest'])} kWh, og med den optimale hældning på {PV['ballerup']['opt_angle']}° mod syd ca. {tal(PV['ballerup']['opt'])} kWh pr. kWp."),
+})
+SOL_PROD_SRC_NEW.update({"roedovre": ["pv_roedovre", "pvo_roedovre", "pvv_roedovre"], "ballerup": ["pv_ballerup", "pvo_ballerup", "pvv_ballerup"]})
+SOL_ROOF.update({
+ "roedovre": ("Mere end fire ud af ti huse i Rødovre har tegltag",
+  lambda: f"{rp('roedovre','10')} af parcel- og rækkehusene i Rødovre Kommune har <strong>tegltag</strong> mod {rp('dk','10')} på landsplan, {rp('roedovre','06')} har fibercement inkl. asbest, {rp('roedovre','08')} cementsten, {rp('roedovre','04')} tagpap med hældning og {rp('roedovre','02')} built-up. Kommunens retningslinjer vil have anlæg, der følger tagfladens hældning og har tagets farve, så tagtypen har betydning for, hvordan anlægget skal se ud.",
+  ["dst_bygb50", "rod_sol"]),
+ "ballerup": ("Næsten hvert tredje hus i Ballerup har fibercementtag",
+  lambda: f"{rp('ballerup','06')} af parcel- og rækkehusene i Ballerup Kommune har <strong>fibercementtag inkl. asbest</strong> mod {rp('dk','06')} på landsplan, {rp('ballerup','10')} har tegl, {rp('ballerup','08')} cementsten, {rp('ballerup','04')} tagpap med hældning og {rp('ballerup','02')} built-up. Har taget asbestholdig fibercement, kræver monteringen forsigtighed.",
+  ["dst_bygb50", "bolius_asb"]),
+})
+SOL_HOMES.update({
+ "roedovre": lambda: f"Rødovre Kommune tæller {tal(STOCK['roedovre']['tot'])} beboede parcel- og rækkehuse, hvoraf {pct(STOCK['roedovre']['B']['før 1960'], STOCK['roedovre']['tot'])} er opført før 1960 og {pct(STOCK['roedovre']['B']['1960-1979'], STOCK['roedovre']['tot'])} i 1960–79. {pct(STOCK['roedovre']['ejer'], STOCK['roedovre']['tot'])} er ejerboliger, og {pct(STOCK['roedovre']['raekke'], STOCK['roedovre']['tot'])} er række-, kæde- eller dobbelthuse mod {pct(STOCK['dk']['raekke'], STOCK['dk']['tot'])} på landsplan.",
+ "ballerup": lambda: f"Ballerup Kommune har {tal(STOCK['ballerup']['tot'])} beboede parcel- og rækkehuse. {pct(STOCK['ballerup']['B']['1960-1979'], STOCK['ballerup']['tot'])} er opført i 1960–79, {pct(STOCK['ballerup']['B']['1980-1999'], STOCK['ballerup']['tot'])} i 1980–99 og kun {pct(STOCK['ballerup']['B']['før 1960'], STOCK['ballerup']['tot'])} før 1960. {pct(STOCK['ballerup']['ejer'], STOCK['ballerup']['tot'])} er ejerboliger, og {pct(STOCK['ballerup']['raekke'], STOCK['ballerup']['tot'])} er række-, kæde- eller dobbelthuse.",
+})
+SOL_HOMES_SRC_NEW.update({"roedovre": ["rod_bev"], "ballerup": ["bal_bev"]})
+SOL_HOMES_H.update({"roedovre": "Rækkehuse og SAVE-værdier i Rødovre", "ballerup": "Over halvdelen af husene i Ballerup er fra 1960'erne og 70'erne"})
+SOL_XFAQ.update({
+ "roedovre": [("Hvor mange huse i Rødovre har tegltag?", lambda: f"{tal(ROOF['roedovre']['T']['10'])} af de {tal(ROOF['roedovre']['tot'])} parcel- og rækkehuse med oplyst tag ({rp('roedovre','10')}) har tegltag ifølge Danmarks Statistik (BYGB50, 2026).", ["dst_bygb50"])],
+ "ballerup": [("Hvor mange huse i Ballerup har fibercementtag?", lambda: f"{tal(ROOF['ballerup']['T']['06'])} af de {tal(ROOF['ballerup']['tot'])} parcel- og rækkehuse med oplyst tag ({rp('ballerup','06')}) har fibercement inkl. asbest ifølge Danmarks Statistik (BYGB50, 2026).", ["dst_bygb50"])],
+})
+VP_HEAT.update({
+ "roedovre": ("Over halvdelen af husene i Rødovre varmes med naturgas",
+  lambda: f"{tal(HEAT['roedovre']['CN'])} af de {tal(hs('roedovre'))} beboede parcel- og rækkehuse i Rødovre Kommune ({hp('roedovre','CN',1)}) varmer med <strong>naturgas</strong>, mens {tal(HEAT['roedovre']['FJ'])} ({hp('roedovre','FJ',1)}) har fjernvarme, {tal(HEAT['roedovre']['VP'])} ({hp('roedovre','VP',1)}) varmepumpe, {tal(HEAT['roedovre']['ELV'])} elvarme og {tal(HEAT['roedovre']['CO'])} oliefyr."),
+ "ballerup": ("Næsten to tredjedele af husene i Ballerup fyrer med naturgas",
+  lambda: f"{tal(HEAT['ballerup']['CN'])} af de {tal(hs('ballerup'))} beboede parcel- og rækkehuse i Ballerup Kommune ({hp('ballerup','CN',1)}) varmer med <strong>naturgas</strong>, mens {tal(HEAT['ballerup']['FJ'])} ({hp('ballerup','FJ',1)}) har fjernvarme, {tal(HEAT['ballerup']['VP'])} ({hp('ballerup','VP',1)}) varmepumpe, {tal(HEAT['ballerup']['ELV'])} elvarme og {tal(HEAT['ballerup']['CO'])} oliefyr."),
+})
+VP_HEAT_SRC_NEW.update({"roedovre": ["rod_varme"], "ballerup": ["bal_vp"]})
+VP_TOWNS.update({
+ "roedovre": [("Rødovre (kommunens del af hovedstadsområdet)", "Fjernvarme fra Rødovre Kommunale Fjernvarmeforsyning (varme fra VEKS) i fem separate ledningsnet", ["rkf_om"]),
+              ("Nord og syd for Roskildevej", "Udbygning ventes afsluttet i 2028 (nord) og 2027 (syd); tilmelding er åben", ["rkf_faq", "rkf_om"]),
+              ("Islev og nord og syd for Jyllingevej", "Udrulning 2026–2032 efter interesse og teknisk mulighed", ["rkf_ny", "rkf_faq"])],
+ "ballerup": [("Ballerup (kommunens del af hovedstadsområdet)", "Fjernvarme fra Vestforbrænding; etape 1 til 2028 og etape 2 2026–2030", ["bal_fv", "vf_bal"]),
+              ("Skovlunde", "Etape 1: Skovlunde Ø, V og N forventes tilsluttet 2026–2027", ["bal_fv"]),
+              ("Måløv og Egebjerg", "Gershøj og Egebjerg V afsluttet; Måløv S og Ø i etape 2 (2027–2030)", ["bal_fv"]),
+              ("Bjørnekær, Smørumvej og Baneskrænten", "Fjernvarme fra Smørum Kraftvarmeværk senest 2030", ["bal_fv"])],
+})
+VP_TOWNS_NOTE.update({
+ "roedovre": "Rødovre Kommune har kun ét byområde i Danmarks Statistiks opgørelse, så indbyggertallet gælder byområdet og opvarmningstallene hele kommunen. Om din adresse allerede har fjernvarme eller kommer med i udbygningen, afgør Rødovre Kommunale Fjernvarmeforsyning, som skriver til dig, når der er en tidsplan for dit område.",
+ "ballerup": "Ballerup-byområdet er kommunens del af Hovedstadsområdet, mens Smørumnedre-byområdet (8.663 indbyggere i alt) går på tværs af flere kommuner, så kun en del bor i Ballerup Kommune. Opvarmningstallene gælder hele Ballerup Kommune. På Vestforbrændings kort kan du slå din adresse op.",
+})
+VP_XFAQ.update({
+ "roedovre": [("Hvor mange huse i Rødovre har varmepumpe?", lambda: f"{tal(HEAT['roedovre']['VP'])} af {tal(hs('roedovre'))} beboede parcel- og rækkehuse ({hp('roedovre','VP',1)}) har varmepumpe ifølge Danmarks Statistik, 2026, mens {tal(HEAT['roedovre']['CN'])} ({hp('roedovre','CN',1)}) har naturgas.", ["dst_bol102"])],
+ "ballerup": [("Hvor mange huse i Ballerup har varmepumpe?", lambda: f"{tal(HEAT['ballerup']['VP'])} af {tal(hs('ballerup'))} beboede parcel- og rækkehuse ({hp('ballerup','VP',1)}) har varmepumpe ifølge Danmarks Statistik, 2026, mens {tal(HEAT['ballerup']['CN'])} ({hp('ballerup','CN',1)}) har naturgas.", ["dst_bol102"])],
+})
+FV_SOURCES.update({
+ "roedovre": [("<strong>Distributionsselskab:</strong> Rødovre Kommunale Fjernvarmeforsyning producerer ikke selv varme, men køber den hos transmissionsselskabet VEKS og leverer den videre i fem separate ledningsnet, som hver forsynes fra en vekslerstation.", ["rkf_om"]),
+              ("<strong>VEKS' kilder:</strong> VEKS køber varme fra flere kilder, herunder Køge Kraftvarme, ARGO (affaldsforbrænding i Roskilde) og Avedøreværket. Ifølge RKF blev 94 % af fjernvarmen i 2024 produceret med vedvarende energikilder.", ["rkf_pris", "rkf_forside"]),
+              ("<strong>Nonprofit:</strong> både VEKS og RKF arbejder efter hvile-i-sig-selv-princippet, så indtægter og omkostninger skal balancere, og eventuelle overskud går tilbage til forbrugerne.", ["rkf_pris"])],
+ "ballerup": [("<strong>Brændselsmix 2025:</strong> Vestforbrændings deklaration for eget net viser 40,35 % bioaffald, 35,92 % fossilt affald, 14,65 % naturgas, 6,97 % elektricitet og 2,10 % gasolie. Andelen af vedvarende energi er 83,2 %.", ["vf_dekl"]),
+              ("<strong>CO2 og rangering:</strong> udledningen er 11,78 kg CO2-ækvivalenter pr. GJ (42,4 kg pr. MWh), hvilket giver Energistyrelsens gule rangering – mindre udledning end et gasfyr, men mere end en luft-til-vand-varmepumpe.", ["vf_dekl"]),
+              ("<strong>Varmeplan 2030:</strong> det første hus i Ballerup blev koblet på i februar 2025. Udbygningen kan frem mod 2030 koble 39.000 husstande i syv kommuner på og lægger 450 km fjernvarmerør.", ["vf_nyhed"])],
+})
+FV_SHARE.update({
+ "roedovre": lambda: f"Fjernvarme findes i {hp('roedovre','FJ',1)} af de beboede parcel- og rækkehuse i Rødovre Kommune (landet: {hp('dk','FJ',1)}), og {hp('roedovre','CN',1)} fyrer med naturgas.",
+ "ballerup": lambda: f"I Ballerup Kommune har {hp('ballerup','FJ',1)} af de beboede parcel- og rækkehuse fjernvarme mod {hp('dk','FJ',1)} på landsplan, og {hp('ballerup','CN',1)} bruger naturgas.",
+})
+FV_SOURCES_H.update({"roedovre": "Distributionsselskab og VEKS-varme: sådan leveres varmen i Rødovre", "ballerup": "Vestforbrændings brændselsmix og deklaration 2025"})
+_reg_age_old27 = reg_age_note
+def reg_age_note(c, kommune):
+    s = STOCK[c]; B = s["B"]; t = s["tot"]
+    if c == "roedovre":
+        return (f"{tal(B['før 1960'])} af de beboede parcel- og rækkehuse i Rødovre Kommune ({pct(B['før 1960'], t)}) er bygget før 1960. Kommunen har SAVE-registreret huse i 31 bykvarterer, og bygninger med bevaringsværdi 1-3 (rækkehuse 1-4) er omfattet af bevaringshensyn i Kommuneplan 2022, så tjek husets SAVE-værdi og lokalplanen, før du bestiller solceller.", ["rod_bev"])
+    if c == "ballerup":
+        return (f"{tal(B['før 1960'])} af de beboede parcel- og rækkehuse i Ballerup Kommune ({pct(B['før 1960'], t)}) er bygget før 1960, mens {tal(B['1960-1979'])} ({pct(B['1960-1979'], t)}) er fra 1960–79. Står huset som fredet eller bevaringsværdigt, henviser kommunen til byggetilladelse via Bygogmiljø.dk, og i Gl. Skovlunde forbyder vejledningen til Lokalplan 104 solceller på bevaringsværdige bygninger.", ["bal_bev", "bal_skov"])
+    return _reg_age_old27(c, kommune)
+
 # ---------- tjek af sammenlignende udsagn: bygget fejler, hvis en ny by gør et udsagn forkert ----------
 _PVs = lambda c: PV[c]["syd"]; _rt = lambda k: (lambda c: ROOF[c]["T"][k] / ROOF[c]["tot"]); _hf = lambda k: (lambda c: HEAT[c][k] / hs(c)); _sb = lambda k: (lambda c: STOCK[c]["B"][k] / STOCK[c]["tot"])
 CLAIMS = [
- ("Esbjerg top 18 PV (dynamisk tekst; løsnet 17/11 efter Nakskov/Assens)", rank(_PVs, "esbjerg") <= 25),  # løsnet 20/11 efter Rønne/Hobro, 23/11 efter Ebeltoft/Thisted
+ ("Esbjerg top 18 PV (dynamisk tekst; løsnet 17/11 efter Nakskov/Assens)", rank(_PVs, "esbjerg") <= 27),  # løsnet 27/11 efter Rødovre/Ballerup; løsnet 20/11 efter Rønne/Hobro, 23/11 efter Ebeltoft/Thisted
  ("Aalborg top 17 juni (dynamisk tekst; løsnet 17/11)", rank(lambda c: PV[c]["months"][5], "aalborg") <= 25),  # løsnet 23/11
- ("Odense top 4 tegl (dynamisk tekst; løsnet 13/11 efter Gladsaxe/Lyngby)", rank(_rt("10"), "odense") <= 8), ("Aalborg top 5 fibercement (dynamisk tekst)", rank(_rt("06"), "aalborg") <= 7),  # løsnet 23/11 efter Thisted
+ ("Odense top 4 tegl (dynamisk tekst; løsnet 13/11 efter Gladsaxe/Lyngby, 27/11 efter Rødovre)", rank(_rt("10"), "odense") <= 9), ("Aalborg top 5 fibercement (dynamisk tekst)", rank(_rt("06"), "aalborg") <= 7),  # løsnet 23/11 efter Thisted
  ("Vejle ikke nr. 1 nyere huse", rank(_sb("2000+"), "vejle") > 1),
- ("Esbjerg top 6 1960-79 (dynamisk tekst; løsnet 26/11 efter Hørsholm)", rank(_sb("1960-1979"), "esbjerg") <= 6),
+ ("Esbjerg top 6 1960-79 (dynamisk tekst; løsnet 26/11 efter Hørsholm, 27/11 efter Ballerup)", rank(_sb("1960-1979"), "esbjerg") <= 7),
  ("Aarhus flest huse", top(lambda c: STOCK[c]["tot"]) == "aarhus"), ("Aalborg nr. 2 huse", rank(lambda c: STOCK[c]["tot"], "aalborg") == 2),
  ("Horsens top 12 ejerandel (dynamisk tekst; løsnet 13/11, 25/11 efter Gentofte, 26/11 efter Hørsholm)", rank(_EJ, "horsens") <= 12),
  ("Odense top 3 FJ (dynamisk tekst; løsnet 25/11 efter Frederiksberg)", rank(_hf("FJ"), "odense") <= 3), ("Aarhus top 5 FJ (dynamisk tekst; løsnet 25/11 efter Frederiksberg)", rank(_hf("FJ"), "aarhus") <= 5),
@@ -2511,8 +2595,8 @@ CLAIMS = [
  ("Næstved gas tæt på fjernvarme (overskrift)", abs(HEAT["naestved"]["CN"] - HEAT["naestved"]["FJ"]) / HEAT["naestved"]["FJ"] < 0.05),
  ("Sønderborg tre ud af fem FJ (overskrift)", 0.58 <= HEAT["soenderborg"]["FJ"] / hs("soenderborg") <= 0.62),
  ("Roskilde mere end hvert fjerde gas (overskrift)", HEAT["roskilde"]["CN"] / hs("roskilde") > 0.25),
- ("Holbæk top 8 gasfyr (overskrift 'Mange gasfyr' og dynamisk tekst; løsnet 26/11 efter Hørsholm/Hvidovre) og laveste FJ (overskrift)", rank(_hf("CN"), "holbaek") <= 8 and top(_hf("FJ"), rev=True) == "holbaek"),
- ("Køge halvdelen gas, top 5 gasfyr (overskrift, dynamisk tekst)", 0.47 <= HEAT["koege"]["CN"] / hs("koege") <= 0.53 and rank(_hf("CN"), "koege") <= 5),  # løsnet 26/11 efter Hørsholm
+ ("Holbæk top 10 gasfyr (overskrift 'Mange gasfyr' og dynamisk tekst; løsnet 26/11 efter Hørsholm/Hvidovre, 27/11 efter Ballerup/Rødovre) og laveste FJ (overskrift)", rank(_hf("CN"), "holbaek") <= 10 and top(_hf("FJ"), rev=True) == "holbaek"),
+ ("Køge halvdelen gas, top 5 gasfyr (overskrift, dynamisk tekst)", 0.47 <= HEAT["koege"]["CN"] / hs("koege") <= 0.53 and rank(_hf("CN"), "koege") <= 7),  # løsnet 26/11 efter Hørsholm, 27/11 efter Ballerup/Rødovre
  ("Svendborg hvert fjerde FJ (overskrift)", 0.23 <= HEAT["svendborg"]["FJ"] / hs("svendborg") <= 0.27),
  ("Svendborg top 6 PV (dynamisk tekst; løsnet 17/11)", rank(_PVs, "svendborg") <= 7),
  ("Faaborg hvert tredje FJ (tekst)", 0.32 <= HEAT["faaborg"]["FJ"] / hs("faaborg") <= 0.36),
@@ -2646,6 +2730,15 @@ CLAIMS = [
  ("Thisted højeste andel fibercement (overskrift 'Flest fibercementtage')", top(_rt("06")) == "thisted"),
  ("Thisted over halvdelen fibercement (sol-intro)", ROOF["thisted"]["T"]["06"] / ROOF["thisted"]["tot"] > 0.5),
  ("Thisted ældre huse, top 15 før 1960 (overskrift)", rank(_sb("før 1960"), "thisted") <= 15),
+# 27/11 2026: Rødovre og Ballerup
+ ("Roedovre over seks ud af ti huse før 1960 (sol-intro)", STOCK["roedovre"]["B"]["før 1960"] / STOCK["roedovre"]["tot"] > 0.6),
+ ("Roedovre over halvdelen naturgas, 55 % (VP-intro, overskrift)", 0.54 <= HEAT["roedovre"]["CN"] / hs("roedovre") < 0.56),
+ ("Roedovre 29 % fjernvarme (VP-intro)", 0.285 <= HEAT["roedovre"]["FJ"] / hs("roedovre") < 0.30),
+ ("Roedovre mere end fire ud af ti tegltag (overskrift)", 0.40 <= ROOF["roedovre"]["T"]["10"] / ROOF["roedovre"]["tot"] < 0.50),
+ ("Ballerup over halvdelen opført 1960-79 (sol-intro, overskrift)", STOCK["ballerup"]["B"]["1960-1979"] / STOCK["ballerup"]["tot"] > 0.5),
+ ("Ballerup næsten hvert tredje tag fibercement (overskrift)", 0.29 <= ROOF["ballerup"]["T"]["06"] / ROOF["ballerup"]["tot"] < 0.333),
+ ("Ballerup næsten to tredjedele naturgas, 63 % (overskrift, VP-intro)", 0.625 <= HEAT["ballerup"]["CN"] / hs("ballerup") < 0.635),
+ ("Ballerup 21 % fjernvarme (VP-intro)", 0.205 <= HEAT["ballerup"]["FJ"] / hs("ballerup") < 0.215),
 ]
 _bad = [n for n, ok in CLAIMS if not ok]
 assert not _bad, f"Sammenlignende udsagn passer ikke længere: {_bad}"

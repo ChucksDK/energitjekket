@@ -2969,3 +2969,99 @@ FV_PAGE["hoersholm"] = {
     ("Bliver jeg pålagt tilslutningspligt, hvis der kommer fjernvarme?", "Nej, der kan ikke pålægges ny tilslutningspligt i nye fjernvarmeområder. Tidligere pålagt tilslutnings- eller forblivelsespligt gælder fortsat, men er alene en økonomisk forpligtelse og ikke en pligt til at aftage varme.", ["hsm_varme"]),
   ],
 }
+# ---------- daglig by-rutine 27. nov. 2026: Rødovre og Ballerup ----------
+# Forsyningstilsynet, prisstatistik januar 2026 (standardhus 130 m², 18,1 MWh): Rødovre Kommunale Fjernvarme (uændret 19.905 kr. i augustudgaven); Vestforbrænding (statistikposten I/S Vestforbrænding Glostrup; MWh-prisen 526 svarer til Vestforbrændings takstblad, som gælder alle kunder).
+FV_PRICES["roedovre"] = [("Rødovre Kommunale Fjernvarme", "2610", "19.905", "780")]
+SOL_REG["roedovre"] = {
+  "kw": "solceller rødovre / byggetilladelse solceller rødovre kommune / lokalplan solceller rødovre",
+  "evidence": "Rødovre Kommunes vejledning til opsætning af solenergianlæg, gebyr- og servicemålssider samt siden om kulturhistoriske kvaliteter og SAVE-registrering (tjekket 27/11 2026).",
+  "intro": "I Rødovre Kommune er de fleste boligområder dækket af en lokalplan eller byplanvedtægt, og kommunen har otte retningslinjer for, hvordan solenergianlæg skal se ud. Her er hvad du skal tjekke, hvad en byggesag koster, og hvad der gælder for bevaringsværdige huse.",
+  "sections": [
+    ("Tjek først: planforhold, bevaring og byggetilladelse", [
+      ("ul", [
+        ("<strong>Lokalplan, deklaration eller byplanvedtægt:</strong> de fleste boligområder er dækket af en lokalplan eller byplanvedtægt. Du kan fremsøge gældende planer via kommunens Borgergis.", ["rod_sol"]),
+        ("<strong>Bevaringsværdi eller kulturmiljø:</strong> kommunen peger på at tjekke, om huset er bevaringsværdigt eller ligger i et kulturmiljø, før du sætter anlægget op.", ["rod_sol"]),
+        ("<strong>Byggetilladelse:</strong> kommunen spørger, om anlægget kræver en byggetilladelse, og tilbyder at hjælpe med at afklare det. Byggesagsafdelingen kan kontaktes på 36 37 70 00.", ["rod_sol"]),
+      ]),
+    ]),
+    ("Kommunens otte retningslinjer", [
+      ("p", "Solenergianlæg skal i videst muligt omfang udføres refleksfrit, integreres i tagfladen i samme hældning, sættes op i ens retning som én samlet firkantet flade med mindst en halv meters afstand til tagkip og -kanter og have samme farve som tagmaterialet. På flade tage skal anlægget placeres, så det ikke ses fra vej og naboer, og rør og kabler skal være skjulte. Nyere lokalplaner kan også kræve, at anlægget skal godkendes af kommunen.", ["rod_sol"]),
+    ]),
+    ("SAVE-værdier og bevaringsværdige huse", [
+      ("p", "Rødovre har SAVE-registreret enkeltbygninger, etagehuse og rækkehuse i 31 bykvarterer, og bevaringsværdierne går fra 1 (højest) til 9. Bygninger med værdi 1-3 og rækkehuse med værdi 1-4 er med enkelte undtagelser medtaget i Kommuneplan 2022 og omfattet af bevaringshensyn. I høje bevaringsværdier og kulturmiljøer kan solenergianlæg være vanskelige at indpasse; spørg kommunen først.", ["rod_bev", "rod_sol"]),
+    ]),
+    ("Gebyr og servicemål", [
+      ("p", "I 2026 koster byggesagsbehandling 999 kr. pr. medgået time for øvrige bygningstyper (958 kr. i 2025) og 1.229 kr. pr. bygning for simple konstruktioner. Der er ikke gebyr for den første forhåndsdialog. Servicemålet for énfamiliehuse og simple konstruktioner er 40 dage, regnet fra sagen er tilstrækkeligt oplyst.", ["rod_gebyr", "rod_mal"]),
+    ]),
+  ],
+  "faq": [
+    ("Er mit hus i Rødovre omfattet af en lokalplan?", "Sandsynligvis. Kommunen oplyser, at de fleste boligområder er dækket af en lokalplan eller byplanvedtægt. Du kan fremsøge gældende planer i Borgergis eller kontakte Byggesagsafdelingen.", ["rod_sol"]),
+    ("Hvad betyder SAVE-værdi 1-3 for solceller i Rødovre?", "Huse med høj bevaringsværdi (1-3, rækkehuse 1-4) er omfattet af kommuneplanens bevaringshensyn, og kommunen skriver, at det kan være vanskeligt at indpasse solenergianlæg i områder med høje bevaringsværdier. Tjek husets SAVE-værdi i FBB-registret og kontakt kommunen, før du bestiller.", ["rod_bev", "rod_sol"]),
+    ("Hvad er servicemålet for en byggesag i Rødovre?", "40 dage for énfamiliehuse og simple konstruktioner, regnet fra den dato, hvor sagen er tilstrækkeligt oplyst.", ["rod_mal"]),
+  ],
+}
+FV_PAGE["roedovre"] = {
+  "kw": "fjernvarme rødovre / rødovre fjernvarme pris 2026 / varmepumpe rødovre",
+  "evidence": "Rødovre Kommunale Fjernvarmeforsynings takstblad 2026, om-os-, spørgsmål-og-svar- og prisstigningssider samt Rødovre Kommunes side om varmekilder og Forsyningstilsynets prisstatistik jan. 2026 (tjekket 27/11 2026).",
+  "intro": "29 % af de beboede parcel- og rækkehuse i Rødovre Kommune har fjernvarme, mens 55 % stadig fyrer med naturgas. Fjernvarmen leveres af kommunens eget forsyningsselskab, som køber varmen hos VEKS og udbygger nettet frem mod 2032. Her er priserne i 2026 og sammenligningen med en varmepumpe.",
+  "status": [
+    ("<strong>Takster 2026 (inkl. moms):</strong> variabelt bidrag 780 kr./MWh, fast bidrag for et fritliggende enfamiliehus 38,75 kr./m² for de første 130 m² boligareal og administration 750 kr./år.", ["rkf_takst"]),
+    ("<strong>Udbygningstillæg:</strong> i udbygningsområderne nord og syd for Jyllingevej og vest for M3 (Islev) kommer et tillæg på 31,25 kr./m² for de første 130 m², som opkræves i 20 hele kalenderår.", ["rkf_takst"]),
+    ("<strong>Tilslutning og abonnement:</strong> tilslutning koster 31.250 kr., men med rabat i udbygningsområderne ved underskrevet aftale inden fristen. En fjernvarmeunit på abonnement koster 312,50 kr./måned og tilbydes i udbygningsområder tilsluttet i 2023 eller senere.", ["rkf_takst"]),
+    ("<strong>Prisudvikling og tidsplan:</strong> den variable pris steg i 2025 fra 530 til 780 kr./MWh, fordi VEKS' indkøbspris steg. I april 2026 blev kunde nummer 1.500 koblet på.", ["rkf_faq", "rkf_om"]),
+  ],
+  "local_take": "Rødovres fjernvarme koster 19.905 kr. for standardhuset (130 m², 18,1 MWh) i Forsyningstilsynets statistik for januar 2026 – 2.952 kr. mere end landsgennemsnittet på 16.953 kr. Har du allerede fjernvarme, skal du regne grundigt efter, før en varmepumpe kan betale sig. Har du naturgas, afhænger fjernvarme af, om din adresse kommer med i udbygningen, og hvornår.",
+  "contact": ("Rødovre Kommunale Fjernvarmeforsyning, kundeservice", "36 37 72 50 · fjernvarme@rk.dk", "rkf_fors"),
+  "faq": [
+    ("Hvad koster fjernvarme i Rødovre i 2026?", "Variabelt bidrag 780 kr./MWh, fast bidrag 38,75 kr./m² for de første 130 m² (for et fritliggende enfamiliehus) og administration 750 kr./år, alt inkl. moms. For standardhuset på 130 m² med 18,1 MWh er årsprisen 19.905 kr. ifølge Forsyningstilsynets januarstatistik.", ["rkf_takst", "ft_pris"]),
+    ("Hvilket fjernvarmeselskab har jeg i Rødovre?", "Rødovre Kommunale Fjernvarmeforsyning (RKF), som er en del af kommunens Tekniske Forvaltning. RKF producerer ikke selv varme, men køber den hos VEKS og leverer den videre i fem separate ledningsnet.", ["rkf_om"]),
+    ("Hvad koster det at blive tilsluttet fjernvarme i Rødovre?", "Tilslutningen koster 31.250 kr. inkl. moms. I udbygningsområderne får du rabat, så stikledningen føres ind uden omkostning, hvis du underskriver en tilmeldingsaftale inden fristen. Selve fjernvarmeunitten kan købes eller lejes på abonnement til 312,50 kr./måned.", ["rkf_takst", "rkf_faq"]),
+  ],
+}
+FV_PRICES["ballerup"] = [("Vestforbrænding (Forsyningstilsynets post: I/S Vestforbrænding Glostrup)", "2600", "15.482", "526")]
+SOL_REG["ballerup"] = {
+  "kw": "solceller ballerup / byggetilladelse solceller ballerup kommune / lokalplan solceller ballerup",
+  "evidence": "Ballerup Kommunes sider om byggeri (spørgsmål og svar), fredede og bevaringsværdige bygninger og solceller, vejledningen til Lokalplan 104 og Lokalplan 204 samt Ballerup Avis' referat af sagsbehandlingstiden (tjekket 27/11 2026).",
+  "intro": "I Ballerup Kommune koster det ikke noget at søge byggetilladelse, men solceller kan være reguleret af lokalplaner, og bevaringsværdige bygninger har egne regler. Her er hvad du skal tjekke, hvad en byggesag koster, og hvor lang tid den tager.",
+  "sections": [
+    ("Tjek først: byggetilladelse og planforhold", [
+      ("ul", [
+        ("<strong>Kommunens liste over byggeri, der kræver byggetilladelse</strong> nævner nye enfamilie- og rækkehuse, tilbygninger, inddragelse af tagetage og småbygninger over 50 m². Solceller står ikke blandt eksemplerne.", ["bal_bygg"]),
+        ("<strong>Lokalplaner, byplanvedtægter og deklarationer:</strong> kommunen henviser til kortet 'Hvad gælder for din ejendom' og til tinglyste deklarationer og servitutter, som også kan stille krav til byggeriet.", ["bal_bygg"]),
+        ("<strong>Eksempel Bispevangen:</strong> Lokalplan 204 (januar 2025) tillader solcelleanlæg som en integreret del af tagfladen, og solcellerne skal være antirefleksbehandlede.", ["bal_lp204"]),
+      ]),
+    ]),
+    ("Fredede, bevaringsværdige bygninger og Gl. Skovlunde", [
+      ("p", "For fredede og bevaringsværdige bygninger henviser kommunen til at søge byggetilladelse via Bygogmiljø.dk og anbefaler at gennemgå oplysningerne på siden for at afkorte sagsbehandlingen. I Gl. Skovlunde fastslår vejledningen til Lokalplan 104, at der ikke må placeres solfangere eller solceller på bevaringsværdige bygninger, og at anlæg skal placeres uden for syne fra sti, vej og fællesarealer.", ["bal_bev", "bal_skov"]),
+    ]),
+    ("Gebyr: det er gratis", [
+      ("p", "Ballerup Kommune har afskaffet byggesagsgebyret for både private og virksomheder, så det koster ikke noget at søge byggetilladelse eller anmelde et byggeri.", ["bal_bygg"]),
+    ]),
+    ("Sagsbehandlingstid", [
+      ("p", "I oktober 2026 tog en byggesag i Ballerup i gennemsnit 75 dage, mod 82 dage i marts. Kommunen har skiftet fra et eget mål på 20 dage til de fælles servicemål (40 dage for énfamiliehuse), og i 93 % af alle ansøgninger sender den et brev om, at noget mangler.", ["bal_tid"]),
+    ]),
+  ],
+  "faq": [
+    ("Hvad koster byggesagsbehandling i Ballerup?", "Ingenting. Kommunen har afskaffet byggesagsgebyret for private og virksomheder.", ["bal_bygg"]),
+    ("Må jeg sætte solceller på et bevaringsværdigt hus i Gl. Skovlunde?", "Ifølge vejledningen til Lokalplan 104 (fra 2009) må der ikke placeres solfangere eller solceller på bevaringsværdige bygninger i Gl. Skovlunde. Kontakt kommunen for at få bekræftet, hvad der gælder for din adresse i dag.", ["bal_skov"]),
+    ("Hvordan kommer jeg i kontakt med byggesagen?", "Center for By og Miljø kan kontaktes på 44 77 63 70 eller byggesag@balk.dk. Fredede og bevaringsværdige huse søger via Bygogmiljø.dk.", ["bal_bev"]),
+  ],
+}
+FV_PAGE["ballerup"] = {
+  "kw": "fjernvarme ballerup / vestforbrænding fjernvarme pris 2026 / varmepumpe ballerup",
+  "evidence": "Vestforbrændings takstblad, udbygningsside og fjernvarmedeklaration 2025, Ballerup Kommunes side om fjernvarme og varmeforsyning samt Forsyningstilsynets prisstatistik jan. 2026 (tjekket 27/11 2026).",
+  "intro": "21 % af de beboede parcel- og rækkehuse i Ballerup Kommune har fjernvarme, mens 63 % fyrer med naturgas. Vestforbrænding leverer fjernvarmen til store dele af kommunen og udbygger nettet i to etaper frem mod 2030. Her er taksterne i 2026 og sammenligningen med en varmepumpe.",
+  "status": [
+    ("<strong>Takster (inkl. moms):</strong> fast varmepris 329,20 kr./MWh for de første 799 MWh (baseret på en prognose for forbruget) og variabel varmepris 526,19 kr./MWh inkl. affaldsvarmeafgift. For et standardhus på 18,1 MWh giver det ca. 15.482 kr. om året.", ["vf_pris"]),
+    ("<strong>Tilslutning:</strong> stikledningsbidraget er 45.000 kr. for op til 50 meter fra skel (15.000 kr. i kampagneperioden), og hver ekstra meter koster 2.500 kr. Fra 1. januar 2027 er prisen 65.000 kr.", ["vf_pris", "vf_beregn"]),
+    ("<strong>Model A og B:</strong> med abonnement (model A) ejer Vestforbrænding unitten; abonnementet er 3.500 kr./år for kunder, der er tilmeldt senest 30. november 2025, og 4.995 kr./år for senere kontrakter. Med model B køber du selv unitten, og startomkostningerne er ca. 50.000 kr.", ["vf_pris", "vf_beregn"]),
+    ("<strong>Udrulning:</strong> etape 1 giver ca. 3.300 kunder tilbud om fjernvarme frem til 2028, etape 2 omfatter ca. 4.000 kunder. Gershøj og Egebjerg V er afsluttet, og Skovlunde udrulles 2026-2027.", ["vf_nyhed", "bal_fv"]),
+  ],
+  "local_take": "Vestforbrændings takst giver 15.482 kr. for standardhuset (130 m², 18,1 MWh) i Forsyningstilsynets statistik for januar 2026 – 1.471 kr. under landsgennemsnittet på 16.953 kr. Har du allerede fjernvarme, er en varmepumpe sjældent økonomisk oplagt. Har du naturgas og bor i et område, der er med i udrulningen, bør du regne på fjernvarme, før du vælger en individuel løsning.",
+  "contact": ("Vestforbrænding, fjernvarme", "70 25 70 60", "bal_fv"),
+  "faq": [
+    ("Hvad koster fjernvarme i Ballerup i 2026?", "Vestforbrænding opkræver fast 329,20 kr./MWh og variabelt 526,19 kr./MWh inkl. moms. For et standardhus på 130 m² med 18,1 MWh er årsprisen 15.482 kr. ifølge Forsyningstilsynets januarstatistik.", ["vf_pris", "ft_pris"]),
+    ("Hvornår kan jeg få fjernvarme i Ballerup?", "Det afhænger af dit energidistrikt. Etape 1 (ca. 3.300 kunder) løber til 2028, og Skovlunde-områderne forventes tilsluttet 2026-2027. Etape 2 (ca. 4.000 kunder) graves i 2026-2030. Slå din adresse op hos Vestforbrænding eller tjek kommunens tidsplan.", ["bal_fv", "vf_bal", "vf_nyhed"]),
+    ("Hvad koster det at blive tilsluttet fjernvarme i Ballerup?", "Stikledningen koster 45.000 kr. for op til 50 meter fra skel, men 15.000 kr. i kampagneperioden; fra 2027 er prisen 65.000 kr. Hertil kommer fjernvarmeunitten: abonnement (model A) eller køb (model B, ca. 50.000 kr. i startomkostninger).", ["vf_pris", "vf_beregn"]),
+  ],
+}
