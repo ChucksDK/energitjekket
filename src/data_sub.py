@@ -805,7 +805,7 @@ SOL_REG["slagelse"] = {
 FV_PAGE["holbaek"] = {
   "kw": "fjernvarme holbæk / fors fjernvarme holbæk / varmepumpe holbæk",
   "evidence": "Holbæk Kommune har en side om fjernvarmeplaner (opdateret 25/3 2026), og Fors offentliggør tilslutningsprocenten for etape 1 i Holbæk by (senest 4/8 2026).",
-  "intro": "I Holbæk Kommune har under hvert tiende hus fjernvarme, langt den laveste andel på dette site. Fjernvarmen til Holbæk by venter på flere tilmeldinger frem til 1. maj 2027, og der er ingen planer om nye områder. Her er status, de fire værkers priser og regnestykket mod en varmepumpe.",
+  "intro": "I Holbæk Kommune har under hvert tiende hus fjernvarme, en af de laveste andele på dette site. Fjernvarmen til Holbæk by venter på flere tilmeldinger frem til 1. maj 2027, og der er ingen planer om nye områder. Her er status, de fire værkers priser og regnestykket mod en varmepumpe.",
   "status": [
    ("<strong>Holbæk by, etape 1</strong> blev godkendt i marts 2024, men gennemføres kun, hvis mindst 70 % af varmegrundlaget (m²) tilmelder sig. Tilslutningen var 12,09 % den 4. august 2026.", ["hol_fv", "fors_hol"]),
    ("Kommunalbestyrelsen besluttede 17. juni 2026 at forlænge arbejdet til <strong>1. maj 2027</strong> med fokus på boligselskaber, Holbæk Sygehus og andre store varmeforbrugere.", ["hol_ext", "fors_hol"]),
@@ -3063,5 +3063,100 @@ FV_PAGE["ballerup"] = {
     ("Hvad koster fjernvarme i Ballerup i 2026?", "Vestforbrænding opkræver fast 329,20 kr./MWh og variabelt 526,19 kr./MWh inkl. moms. For et standardhus på 130 m² med 18,1 MWh er årsprisen 15.482 kr. ifølge Forsyningstilsynets januarstatistik.", ["vf_pris", "ft_pris"]),
     ("Hvornår kan jeg få fjernvarme i Ballerup?", "Det afhænger af dit energidistrikt. Etape 1 (ca. 3.300 kunder) løber til 2028, og Skovlunde-områderne forventes tilsluttet 2026-2027. Etape 2 (ca. 4.000 kunder) graves i 2026-2030. Slå din adresse op hos Vestforbrænding eller tjek kommunens tidsplan.", ["bal_fv", "vf_bal", "vf_nyhed"]),
     ("Hvad koster det at blive tilsluttet fjernvarme i Ballerup?", "Stikledningen koster 45.000 kr. for op til 50 meter fra skel, men 15.000 kr. i kampagneperioden; fra 2027 er prisen 65.000 kr. Hertil kommer fjernvarmeunitten: abonnement (model A) eller køb (model B, ca. 50.000 kr. i startomkostninger).", ["vf_pris", "vf_beregn"]),
+  ],
+}
+FV_PRICES["taarnby"] = [("Tårnby Forsyning (Forsyningstilsynets post: TÅRNBYFORSYNING Varme A/S)", "2770", "15.449", "478")]
+SOL_REG["taarnby"] = {
+  "kw": "solceller tårnby / byggetilladelse solceller tårnby kommune / solceller kastrup",
+  "evidence": "Tårnby Kommunes sider om montering af solceller, byggeansøgning, sagsbehandlingstider og kontakt (tjekket 28/11 2026).",
+  "intro": "I Tårnby Kommune kræver solceller på enfamilie- og dobbelthuse ikke tilladelse, hvis nogle få betingelser er opfyldt. Her er hvad du skal overholde, hvornår du skal søge, og hvor lang tid en byggesag tager.",
+  "sections": [
+    ("Hvornår skal du ikke søge?", [
+      ("p", "Kommunen skriver, at du ikke skal søge om lov til at montere solcelleanlæg på enfamiliehuse og dobbelthuse, hvis du overholder en række bestemmelser. Anlægget skal følge tagets hældning, overholde bestemmelser om fx tagets udseende eller ensartet bebyggelse i lokalplaner, byplanvedtægter og tinglyste deklarationer, overholde afstands- og højdebestemmelserne i bygningsreglementet og de konstruktionsmæssige regler og anmeldes til BBR.", ["taa_sol"]),
+    ]),
+    ("Hvornår skal du søge byggetilladelse?", [
+      ("ul", [
+        ("<strong>Erhvervs- og etagebygninger</strong> kræver byggetilladelse til solceller.", ["taa_sol"]),
+        ("<strong>Fredede og bevaringsværdige bygninger</strong> kræver også byggetilladelse.", ["taa_sol"]),
+        ("<strong>Fritstående anlæg</strong> på terræn eller stativ kræver byggetilladelse. Ansøgningen sendes via Byg og Miljø, og du skal bruge MitID.", ["taa_sol", "taa_bygg"]),
+        ("<strong>Kan du ikke overholde bestemmelserne</strong>, kan du kontakte kommunen og eventuelt søge om dispensation.", ["taa_sol"]),
+      ]),
+    ]),
+    ("Gebyr", [
+      ("p", "Kræver dit projekt ingen byggesag, er der ingen sagsbehandling at betale for. Kommunens gebyroversigt for byggesagsbehandling kunne ikke åbnes, da vi tjekkede den 28/11 2026, så vi angiver ikke en sats her. Spørg byggesag, hvis du skal søge tilladelse.", ["taa_kontakt"]),
+    ]),
+    ("Sagsbehandlingstid og forhåndsdialog", [
+      ("p", "Kommunens servicemål for énfamiliehuse er 40 dage, men den gennemsnitlige sagsbehandlingstid var 120 dage i 2023. Kommunen skriver, at KL's statistik medregner alle åbne sager, og at byggesagsteamet fra oktober 2026 behandler sager modtaget primo september 2026. Før du ansøger, kan du booke et møde om forhåndsdialog; en byggetilladelse er gyldig i 1 år.", ["taa_tid", "taa_tid_ef", "taa_bygg"]),
+    ]),
+  ],
+  "faq": [
+    ("Skal jeg anmelde solceller til BBR i Tårnby?", "Ja. Kommunen angiver, at anlægget skal anmeldes til Bygnings- og Boligregistret (BBR), også når du ikke skal søge om tilladelse.", ["taa_sol"]),
+    ("Hvad gør jeg, hvis jeg ikke kan overholde bestemmelserne?", "Kontakt kommunen. Så kan du eventuelt søge om dispensation.", ["taa_sol"]),
+    ("Hvordan kontakter jeg byggesagen i Tårnby?", "Via Tårnby Rådhus på 32 47 11 11 (telefontid mandag-fredag kl. 9-11) eller ved at bestille tid hos byggesager. Byggesagen ligger på Amager Landevej 76, 2770 Kastrup.", ["taa_kontakt"]),
+  ],
+}
+FV_PAGE["taarnby"] = {
+  "kw": "fjernvarme tårnby / tårnby forsyning fjernvarme pris 2026 / varmepumpe tårnby",
+  "evidence": "Tårnby Forsynings takster, tilslutningspriser, tidsplan og fjernvarmedeklaration samt Tårnby Kommunes varmestrategiplan og Forsyningstilsynets prisstatistik jan. 2026 (tjekket 28/11 2026).",
+  "intro": "Kun 5 % af de beboede parcel- og rækkehuse i Tårnby Kommune har fjernvarme, mens 72 % fyrer med naturgas. Tårnby Forsyning udbygger nettet til gasområderne, men tidsplanen er ændret for flere af dem. Her er taksterne i 2026, tilslutningsprisen og sammenligningen med en varmepumpe.",
+  "status": [
+    ("<strong>Takster pr. 1. januar 2026 (inkl. moms):</strong> variabelt bidrag 132,81 kr./GJ, effektbidrag 120,38 kr./GJ og målerbidrag 987,99 kr./år for et standardhus (DN15). Effektbidraget beregnes det første år ud fra et standardhus på 125 m² med 13,4 MWh (48,24 GJ).", ["tf_pris"]),
+    ("<strong>Tilslutning:</strong> investeringsbidraget er 23.471,61 kr. for enfamiliehuse og 15.647,74 kr. for række- og kædehuse, men 0 kr., hvis du tilmelder dig, før der graves i dit område. Stikledningen koster 1.875 kr. pr. påbegyndt meter fra skel (højst 25 meter).", ["tf_tilsl"]),
+    ("<strong>Udbygningstillæg:</strong> nye kunder i udbygningsområderne betaler 5.400 kr. om året inkl. moms (450 kr. om måneden) i 30 år. Tilmelder du dig først efter gravestart, kommer et opgravningsbidrag på 25.000 kr. til. Udgangspunktet er et krav om 65 % tilslutning i udbygningsområderne.", ["tf_tilsl"]),
+    ("<strong>Tidsplan:</strong> områderne nord for motorvejen er udbygget efter planen, mens nogle områder får fjernvarme senere end udmeldt, og andre endnu ikke har et årstal (opdateret 26. juni 2026).", ["tf_tid"]),
+  ],
+  "local_take": "Tårnby Forsynings takst giver 15.449 kr. for standardhuset (130 m², 18,1 MWh) i Forsyningstilsynets statistik for januar 2026 – 1.504 kr. under landsgennemsnittet på 16.953 kr. Bor du i et område, der er med i udbygningen, bør du regne på fjernvarme, før du vælger en individuel løsning. Ligger dit område uden tidsplan, og har du gasfyr eller oliefyr, er en varmepumpe et realistisk alternativ, du kan vurdere nu.",
+  "contact": ("Tårnby Forsyning, kundeservice", "32 46 20 30 · kundeservice@taarnbyforsyning.dk", "tf_fv"),
+  "faq": [
+    ("Hvad koster fjernvarme i Tårnby i 2026?", "Variabelt bidrag 132,81 kr./GJ, effektbidrag 120,38 kr./GJ og målerbidrag 987,99 kr./år, alt inkl. moms. For standardhuset på 130 m² med 18,1 MWh er årsprisen 15.449 kr. ifølge Forsyningstilsynets januarstatistik.", ["tf_pris", "ft_pris"]),
+    ("Hvad koster det at blive tilsluttet fjernvarme i Tårnby?", "Investeringsbidraget er 23.471,61 kr. for et enfamiliehus, men falder til 0 kr., hvis du tilmelder dig før gravestart. Hertil kommer stikledning (1.875 kr. pr. meter, højst 25 meter) og et årligt udbygningstillæg på 5.400 kr. i 30 år.", ["tf_tilsl"]),
+    ("Hvad koster det at blive koblet fra naturgas?", "Afkobling hos Evida koster normalt 9.500 kr. (2025-priser) for kunder med måler til og med G6, men du kan få den uden beregning, hvis du får andel i den årlige afkoblingspulje.", ["tf_tilsl"]),
+  ],
+}
+FV_PRICES["fredericia"] = [("Fredericia Fjernvarme a.m.b.a. (januar 2026)", "7000", "12.432", "403")]
+SOL_REG["fredericia"] = {
+  "kw": "solceller fredericia / byggetilladelse solceller fredericia kommune / landzonetilladelse solceller",
+  "evidence": "Fredericia Kommunes sider om byggetilladelse, byggeri i landzone, bevaringsværdige bygninger, BBR, takstoversigt 2026 og sagsbehandlingstider (tjekket 28/11 2026).",
+  "intro": "Fredericia Kommune har ikke en særskilt side om solceller på tag, men henviser til bygningsreglementet for byggearbejde uden tilladelse. Her er hvad kommunen skriver, hvad en byggesag koster, og hvornår frit stående anlæg kræver landzonetilladelse.",
+  "sections": [
+    ("Tjek først: bygningsreglement og planforhold", [
+      ("ul", [
+        ("<strong>BR18, plangrundlag og deklarationer:</strong> kommunen beder dig tjekke bygningsreglementet BR-18, lokalplan eller byplanvedtægt på Plandata.dk og tinglyste deklarationer på tinglysning.dk.", ["frc_for"]),
+        ("<strong>Uden byggetilladelse:</strong> kommunen skriver, at noget byggearbejde kan foretages uden tilladelse (BR-18 § 4-6), og at du altid skal sikre, at BBR opdateres, og at lovgivningen er overholdt.", ["frc_for"]),
+        ("<strong>Gratis forhåndsdialog:</strong> kommunen anbefaler, at du og din rådgiver kommer forbi til en gratis forhåndsdialog, inden du indsender en byggeansøgning.", ["frc_for"]),
+      ]),
+    ]),
+    ("Frit stående anlæg i landzone", [
+      ("p", "Frit stående solcelleanlæg kræver landzonetilladelse. Der er intet gebyr, men det tager typisk 8-12 uger, naboer høres i ca. 3 uger, og sagen annonceres med 4 ugers klagefrist. Landzonetilladelsen er gyldig i 3 år, og først derefter kan kommunen give en byggetilladelse.", ["frc_land"]),
+    ]),
+    ("Gebyr", [
+      ("p", "Byggesagsgebyret er i 2026 783 kr. pr. time (759 kr. i 2025) for alt undtagen sekundær bebyggelse, som koster 1.114 kr. pr. sag.", ["frc_tak"]),
+    ]),
+    ("Sagsbehandlingstid", [
+      ("p", "Kommunens mål er at behandle ansøgninger inden for de nationale servicemål, som er 40 dage for énfamiliehuse. For nye énfamiliehuse uden andre godkendelser, dispensation eller naboorientering er den maksimale sagsbehandlingstid 14 kalenderdage fra sagen er fyldestgørende. Kræver sagen også landzonetilladelse eller dispensation, må du regne med længere tid.", ["frc_tid"]),
+    ]),
+  ],
+  "faq": [
+    ("Hvad koster byggesagsbehandling i Fredericia?", "783 kr. pr. time i 2026 (undtagen sekundær bebyggelse, som er 1.114 kr. pr. sag). Landzonetilladelse er uden gebyr.", ["frc_tak", "frc_land"]),
+    ("Hvor lang tid tager en landzonetilladelse i Fredericia?", "Typisk 8-12 uger, herunder ca. 3 ugers naboorientering og 4 ugers klagefrist. Tilladelsen er gyldig i 3 år.", ["frc_land"]),
+    ("Hvor finder jeg ud af, om mit hus er bevaringsværdigt?", "Kommunen har en side med de fredede og bevaringsværdige bygninger i Fredericia Kommune og deres SAVE-vurdering. Du kan også ringe på 72 10 77 17 eller 72 10 77 05.", ["frc_bev"]),
+  ],
+}
+FV_PAGE["fredericia"] = {
+  "kw": "fjernvarme fredericia / fredericia fjernvarme pris 2026 / varmepumpe fredericia",
+  "evidence": "Fredericia Fjernvarmes tarifblade 2026 og 2027, Fredericia Kommunes side om varmeforsyning og beslutning om opdatering af varmeplanen, TVIS' sider om varmeleverandører og fjernvarmeselskaber samt Forsyningstilsynets prisstatistik jan. 2026 (tjekket 28/11 2026).",
+  "intro": "86 % af de beboede parcel- og rækkehuse i Fredericia Kommune har fjernvarme, og kommunen skriver, at 9 ud af 10 ejendomme forsynes med fjernvarme. Fredericia Fjernvarme leverer til flere områder, og prisen er steget pr. 1. juli 2026. Her er taksterne, tilslutningsprisen og hvornår en varmepumpe giver mening.",
+  "status": [
+    ("<strong>Takster fra 1. juli 2026 (inkl. moms):</strong> energi 116,25 kr./GJ, abonnementsbidrag 650 kr. pr. måler om året og effektbidrag 34,50 kr./m². I første halvår var energiprisen 112,00 kr./GJ.", ["ff_jul", "ff_jan"]),
+    ("<strong>Prisstigning 1. januar 2027:</strong> energi 124,25 kr./GJ, abonnement 675 kr. og effektbidrag 38,00 kr./m². For en standardhusstand betyder det ifølge selskabet en samlet stigning på cirka 7,1 %.", ["ff_vars"]),
+    ("<strong>Tilslutning (januar 2026):</strong> stikledningsbidraget er 28.000 kr. pr. stik for enfamiliesejendomme, og investeringsbidraget er 100 kr./m² for de første 400 m² BBR-areal (50 % for bygninger efter BR18 eller renoveringsklasse 1).", ["ff_jan", "ff_tilsl"]),
+    ("<strong>Flere selskaber:</strong> kommunen skriver, at fjernvarmen leveres af Fredericia Fjernvarme eller TREFOR Varme, afhængigt af området. Taksterne her gælder Fredericia Fjernvarme.", ["frc_varme", "tvis_fvs"]),
+  ],
+  "local_take": "Fredericia Fjernvarmes takst giver 12.432 kr. for standardhuset (130 m², 18,1 MWh) i Forsyningstilsynets statistik for januar 2026 – 4.521 kr. under landsgennemsnittet på 16.953 kr. Har du allerede fjernvarme, er en varmepumpe sjældent økonomisk oplagt. En varmepumpe er et reelt valg, hvis du bor uden for fjernvarmeområdet og i dag har olie- eller elvarme.",
+  "contact": ("Fredericia Fjernvarme", "76 20 28 00 · mail@fredericia-fjv.dk", "ff_om"),
+  "faq": [
+    ("Hvad koster fjernvarme i Fredericia i 2026?", "Fra 1. juli 2026 koster energien 116,25 kr./GJ, abonnementet 650 kr. pr. måler og effektbidraget 34,50 kr./m², alt inkl. moms hos Fredericia Fjernvarme. For standardhuset på 130 m² med 18,1 MWh var årsprisen 12.432 kr. i Forsyningstilsynets januarstatistik.", ["ff_jul", "ft_pris"]),
+    ("Hvad koster det at blive tilsluttet fjernvarme i Fredericia?", "Hos Fredericia Fjernvarme er stikledningsbidraget 28.000 kr. for enfamiliesejendomme, og investeringsbidraget er 100 kr./m² for de første 400 m² BBR-areal. For et hus på 130 m² BBR-areal giver det et investeringsbidrag på 13.000 kr. (halvt for nyere bygninger efter BR18).", ["ff_jan"]),
+    ("Hvem leverer fjernvarmen i Fredericia?", "Fredericia Fjernvarme eller TREFOR Varme, afhængigt af området. Kommunens kort over kollektiv varmeforsyning viser, hvem der leverer hvor. TVIS leverer varmen til de lokale selskaber.", ["frc_varme", "tvis_fvs"]),
   ],
 }

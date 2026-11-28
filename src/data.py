@@ -1520,7 +1520,7 @@ CITIES["kongens-lyngby"] = {
     ("Må jeg sætte solceller på mit hus i Kongens Lyngby?", "Som udgangspunkt ja: kommuneplanen tillader solceller på alle bygninger. Er huset bevaringsværdigt (SAVE 1-3), må de kun sættes op, hvis det ikke påvirker bevaringsværdien, og i rækkehus- og dobbelthusområder skal de følge ensartede retningslinjer. Tjek også lokalplan og tinglyste servitutter.", ["lyn_kp", "lyn_byg"]),
     ("Hvor lang tid tager en byggesag i Lyngby-Taarbæk?", "Kommunen skriver, at du i øjeblikket skal forvente ca. 3 måneders køtid, før din sag får en byggesagsbehandler. Kræver sagen naboorientering, høring eller politisk behandling, tager det længere tid.", ["lyn_byg", "lyn_disp"]),
   ],
-  "vp_intro": "Luft til vand-varmepumpe i Kongens Lyngby: to ud af tre huse i Lyngby-Taarbæk Kommune har naturgas – den højeste andel af byerne på dette site – men Vestforbrænding ruller fjernvarme ud til ca. 8.625 adresser frem mod 2030. Bor du uden for fjernvarmeområderne, er en varmepumpe vejen væk fra gassen. Her er status, priserne og reglerne.",
+  "vp_intro": "Luft til vand-varmepumpe i Kongens Lyngby: to ud af tre huse i Lyngby-Taarbæk Kommune har naturgas – en af de højeste andele af byerne på dette site – men Vestforbrænding ruller fjernvarme ud til ca. 8.625 adresser frem mod 2030. Bor du uden for fjernvarmeområderne, er en varmepumpe vejen væk fra gassen. Her er status, priserne og reglerne.",
   "vp_facts": [
     ("Vestforbrændings udrulning i Lyngby-Taarbæk startede i oktober 2023 og skal være færdig i <strong>december 2030</strong>: 17 energidistrikter og ca. 8.625 adresser.", ["lyn_pdf"]),
     ("<strong>Spring Forbi, Raadvad, Bakken, Frederiksdal og Ny Frederiksdal</strong> samt spredt bebyggelse i det østlige Virum ved Mølleåen får ikke tilbudt fjernvarme. Her peger kommunen på varmepumpe eller termonet.", ["lyn_fvng"]),
@@ -2290,4 +2290,106 @@ CITIES["ballerup"] = {
 CONTACTS["ballerup"] = {
   "sol": [("Ballerup Kommune, Center for By og Miljø", "44 77 63 70 · byggesag@balk.dk", "bal_bev")],
   "vp": [("Vestforbrænding, fjernvarme", "70 25 70 60", "bal_fv")],
+}
+# ---------- daglig by-rutine 28. nov. 2026: Tårnby (DK2, Tårnby Kommune, vp_page True) ----------
+S.update({
+ "taa_sol": ("Tårnby Kommune: Monter solceller (læst 28/11 2026)", "https://www.taarnby.dk/borger/byg-og-bolig/vand-varme-og-el/monter-solceller/"),
+ "taa_bygg": ("Tårnby Kommune: Byg nyt hus eller byg til dit hus (læst 28/11 2026)", "https://www.taarnby.dk/borger/byg-og-bolig/byggeri/byggeansogning/"),
+ "taa_tid": ("Tårnby Kommune: Sagsbehandlingstid for byggesager – Teknik og Miljø (læst 28/11 2026)", "https://www.taarnby.dk/om-kommunen/kvalitet-og-sagsbehandling/sagsbehandlingstid/teknik-og-miljo/"),
+ "taa_tid_ef": ("Tårnby Kommune: Sagsbehandlingstid, enfamiliehuse (2023, læst 28/11 2026)", "https://www.taarnby.dk/om-kommunen/kvalitet-og-sagsbehandling/sagsbehandlingstid/teknik-og-miljo/enfamiliehuse/"),
+ "taa_kontakt": ("Tårnby Kommune: Kontakt Tårnby Kommune – byggesag (læst 28/11 2026)", "https://www.taarnby.dk/om-kommunen/kontakt/kontakt-os/"),
+ "taa_plan": ("Tårnby Kommune: Varmestrategiplan (læst 28/11 2026)", "https://www.taarnby.dk/politik/politikker-strategier-og-planer/klima-miljo-og-affald/planer/varmestrategiplan/"),
+ "taa_fv": ("Tårnby Kommune: Fjernvarme (læst 28/11 2026)", "https://www.taarnby.dk/borger/byg-og-bolig/vand-varme-og-el/fjernvarme/"),
+ "tf_tid": ("Tårnby Forsyning: Opdateret tidsplan for fjernvarmeudbygningen i Tårnby (26/6 2026)", "https://taarnbyforsyning.dk/nyheder/opdateret-tidsplan-fjernvarmeudbygningen-taarnby"),
+ "tf_pris": ("Tårnby Forsyning: Varmepriser private, takster pr. 1/1 2026 inkl. moms (læst 28/11 2026)", "https://taarnbyforsyning.dk/fjernvarme/priser-tilslutning/varmepriser-private"),
+ "tf_tilsl": ("Tårnby Forsyning: Priser for tilslutning 2026 (læst 28/11 2026)", "https://taarnbyforsyning.dk/fjernvarme/priser-tilslutning"),
+ "tf_fv": ("Tårnby Forsyning: Fjernvarme i Tårnby – kontakt og åbningstider (læst 28/11 2026)", "https://taarnbyforsyning.dk/fjernvarme"),
+ "tf_dekl": ("Tårnby Forsyning: Fjernvarmedeklaration 2024 (læst 28/11 2026)", "https://taarnbyforsyning.dk/fjernvarme/fjernvarmedeklaration-2024"),
+ "ctr_dekl": ("CTR: Fjernvarmedeklaration 2024 – gennemsnit for forbruger i CTR (PDF)", "https://www.ctr.dk/media/4kbdgdn0/fjernvarme-rangering.pdf"),
+ "tf_br": ("Tårnby Forsyning: Fordeling af brændsler ved produktion af varmt vand til fjernvarme (PDF)", "https://taarnbyforsyning.dk/sites/taarnbyforsyning.dk/files/media/document/Fordeling%20af%20br%C3%A6ndsler%20ved%20produktion%20af%20varmt%20vand%20til%20fjernvarme_0.pdf"),
+})
+CITIES["taarnby"] = {
+  "name": "Tårnby", "kommune": "Tårnby Kommune", "updated": ("28. november 2026", "2026-11-28"),
+  "vp_page": True, "price_area": "DK2",
+  "sol_intro": "Solceller i Tårnby: kommunen kræver ikke tilladelse til anlæg på enfamilie- og dobbelthuse, der følger tagets hældning, men fredede og bevaringsværdige huse og fritstående anlæg kræver byggetilladelse. Her er reglerne, byggetal og vejen til tilbud.",
+  "sol_facts": [
+    ("På <strong>enfamiliehuse og dobbelthuse</strong> skal du ikke søge om lov til at montere solceller på taget, hvis anlægget følger tagets hældning og overholder lokalplan, byplanvedtægt og tinglyste deklarationer samt bygningsreglementets afstands- og højdekrav.", ["taa_sol"]),
+    ("Du skal søge <strong>byggetilladelse</strong> til solceller på erhvervs- og etagebygninger, på fredede og bevaringsværdige bygninger og til fritstående anlæg på terræn eller stativ. Ansøgningen sendes via Byg og Miljø med MitID.", ["taa_sol", "taa_bygg"]),
+    ("Alle solcelleanlæg skal <strong>anmeldes til BBR</strong>. Kan du ikke overholde bestemmelserne, kan du kontakte kommunen og eventuelt søge dispensation.", ["taa_sol"]),
+    ("Kommunens byggesagsteam behandlede i oktober 2026 sager, der var modtaget i begyndelsen af september 2026. For énfamiliehuse var den gennemsnitlige sagsbehandlingstid <strong>120 dage i 2023</strong> mod et servicemål på 40 dage; kommunen forklarer, at KL's statistik medregner åbne sager.", ["taa_tid", "taa_tid_ef"]),
+    ("Før en egentlig byggesag kan du <strong>booke et møde om forhåndsdialog</strong> med byggesag. Fik du byggetilladelse, er den gyldig i ét år, og du skal meddele, hvornår du går i gang.", ["taa_bygg"]),
+  ],
+  "sol_faq": [
+    ("Skal man søge byggetilladelse til solceller i Tårnby?", "Ikke på enfamilie- og dobbelthuse, hvis anlægget følger tagets hældning og overholder lokalplan, deklarationer, afstands- og højdekrav. Fredede og bevaringsværdige bygninger, erhvervs- og etagebygninger og fritstående anlæg kræver byggetilladelse via Byg og Miljø.", ["taa_sol"]),
+    ("Hvor lang tid tager en byggesag i Tårnby?", "Kommunens servicemål for énfamiliehuse er 40 dage, men den gennemsnitlige sagsbehandlingstid var 120 dage i 2023. I oktober 2026 behandlede byggesagsteamet sager modtaget primo september 2026.", ["taa_tid", "taa_tid_ef"]),
+    ("Hvordan kommer jeg i kontakt med byggesagen?", "Ring til Tårnby Rådhus på 32 47 11 11 (telefontid mandag-fredag kl. 9-11), eller book tid hos byggesager. Byggesagen ligger på Amager Landevej 76 i Kastrup.", ["taa_kontakt"]),
+  ],
+  "vp_intro": "Varmepumpe i Tårnby: 72 % af parcel- og rækkehusene fyrer med naturgas, og kun 5 % har fjernvarme – men Tårnby Forsyning udbygger fjernvarmen til gasområderne, og tidsplanen er rykket for flere af dem. Her er status, priser og hvad det betyder for dit valg.",
+  "vp_facts": [
+    ("<strong>Kommunens strategi:</strong> varmestrategiplanen udvider fjernvarmenettet til de områder, der i dag forsynes med naturgas, med alle områder udbygget sideløbende fra 2024 og en forventet afslutning i 2028.", ["taa_plan"]),
+    ("<strong>Tidsplanen er ændret:</strong> Tårnby Forsyning meddelte 26. juni 2026, at nogle områder får fjernvarme senere end udmeldt, og at andre endnu ikke kan få et årstal, fordi kapaciteten i varmeinfrastrukturen er udfordret. Udbygningen nord for motorvejen er gennemført efter planen.", ["tf_tid"]),
+    ("<strong>Vestamager:</strong> Tårnby Forsyning vil med kommunen genberegne projektforslaget for Vestamager og undersøge, om fjernvarmeområde 3, 4 og 5 skal ændre status, så boligejere eventuelt kan søge tilskud til varmepumpe i 2027.", ["tf_tid"]),
+    ("<strong>Tryghedsordning:</strong> ordningen dækker reparationer af dit gas- eller oliefyr, og den kan stadig indgås ved en aftale om fjernvarme i alle områder.", ["tf_tid", "tf_fv"]),
+  ],
+  "vp_faq": [
+    ("Kan jeg få fjernvarme i Tårnby?", "Tjek din adresse på Tårnby Forsynings side. Områderne nord for motorvejen er udbygget, mens flere kommende områder har fået ny tidsplan, og for enkelte kan der endnu ikke gives et årstal. Tårnby Forsyning forventer stadig fjernvarme i alle de planlagte områder.", ["tf_tid", "tf_fv"]),
+    ("Hvad betyder udbygningen for en varmepumpe i Tårnby?", "Bor du i et planlagt fjernvarmeområde, bør du afvente status for dit område, før du vælger. Tårnby Forsyning oplyser, at status for Vestamagers område 3, 4 og 5 skal genvurderes, så boligejere eventuelt kan søge tilskud i 2027.", ["tf_tid"]),
+  ],
+}
+CONTACTS["taarnby"] = {
+  "sol": [("Tårnby Kommune, byggesag (Tårnby Rådhus)", "32 47 11 11", "taa_kontakt")],
+  "vp": [("Tårnby Forsyning, kundeservice", "32 46 20 30 · kundeservice@taarnbyforsyning.dk", "tf_fv")],
+}
+# ---------- daglig by-rutine 28. nov. 2026: Fredericia (DK1, Fredericia Kommune, vp_page True) ----------
+S.update({
+ "frc_for": ("Fredericia Kommune: Inden du søger byggetilladelse (læst 28/11 2026)", "https://www.fredericia.dk/da/inden-du-soeger-byggetilladelse"),
+ "frc_land": ("Fredericia Kommune: Byggeri i landzone (læst 28/11 2026)", "https://www.fredericia.dk/da/borger/byggeri/byggetilladelser/byggeri-i-landzone"),
+ "frc_bev": ("Fredericia Kommune: Bevaringsværdige bygninger i Fredericia Kommune (læst 28/11 2026)", "https://www.fredericia.dk/da/borger/byggeri/bevaringsvaerdige-bygninger-i-fredericia-kommune"),
+ "frc_tak": ("Fredericia Kommune: Takstoversigt 2026 (PDF, læst 28/11 2026)", "https://www.fredericia.dk/sites/default/files/edoc_files/Takstoversigt%202026%20%20.pdf"),
+ "frc_tid": ("Fredericia Kommune: Sagsbehandlingstider (læst 28/11 2026)", "https://www.fredericia.dk/da/om-kommunen/sagsbehandlingstider"),
+ "frc_bbr": ("Fredericia Kommune: BBR (læst 28/11 2026)", "https://www.fredericia.dk/da/borger/byggeri/bbr"),
+ "frc_varme": ("Fredericia Kommune: Varmeforsyning (læst 28/11 2026)", "https://www.fredericia.dk/da/borger/byggeri/varmeforsyning"),
+ "frc_vplan": ("Fredericia Kommune, Teknik- og Miljøudvalget 14/9 2026: Igangsætning af opdatering af Varmeplan 2022 (Sagsvagt)", "https://sagsvagt.dk/sag/fredericia-2026-09-14-teknik-og-miljoeudvalget-5.html"),
+ "ff_pris": ("Fredericia Fjernvarme: Priser – tarifblade 2026 og 2027 (læst 28/11 2026)", "https://fredericiafjernvarme.dk/oekonomi-miljoe/priser"),
+ "ff_jul": ("Fredericia Fjernvarme: Tarifblad gældende 1. juli – 31. december 2026 (PDF)", "https://fredericiafjernvarme.dk/p/Fredericia%20Fjernvarme/Filer/Priser/Tarifblad--Juli-2026-prisstigning.pdf"),
+ "ff_jan": ("Fredericia Fjernvarme: Tarifblad 1 – tilslutning og tarifblad 2 – afregning, pr. 1. januar 2026 (PDF)", "https://fredericiafjernvarme.dk/p/Fredericia%20Fjernvarme/Filer/Priser/Tarifblad--Januar-2026.pdf"),
+ "ff_vars": ("Fredericia Fjernvarme: Varsling om prisstigning på fjernvarme pr. 1. januar 2027 (læst 28/11 2026)", "https://fredericiafjernvarme.dk/nyheder/varsling-om-prisstigning-paa-fjernvarme"),
+ "ff_om": ("Fredericia Fjernvarme: forside og kontakt (læst 28/11 2026)", "https://fredericiafjernvarme.dk/"),
+ "ff_tilsl": ("Fredericia Fjernvarme: Ny tilslutning (læst 28/11 2026)", "https://fredericiafjernvarme.dk/oekonomi-miljoe/ny-tilslutning"),
+ "tvis_lev": ("TVIS: Varmeleverandører (læst 28/11 2026)", "https://www.tvis.net/sammen-om-varmen/varmeleverandoerer/"),
+ "tvis_fvs": ("TVIS: Fjernvarmeselskaber – de 9 selskaber i Trekantområdet (læst 28/11 2026)", "https://www.tvis.net/sammen-om-varmen/fjernvarmeselskaber/"),
+})
+CITIES["fredericia"] = {
+  "name": "Fredericia", "kommune": "Fredericia Kommune", "updated": ("28. november 2026", "2026-11-28"),
+  "vp_page": True, "price_area": "DK1",
+  "vp_title": "Varmepumpe Fredericia: luft til vand, tilskud, pris | Energitjekket",
+  "fv_title": "Fjernvarme eller varmepumpe i Fredericia? Pris 2026 | Energitjekket",
+  "sol_intro": "Solceller i Fredericia: kommunen henviser til bygningsreglementet for byggeri uden tilladelse og beder dig tjekke lokalplan og deklarationer, mens frit stående anlæg kræver landzonetilladelse. Her er reglerne, gebyret og vejen til tilbud.",
+  "sol_facts": [
+    ("Kommunen beder dig tjekke, om byggeriet overholder <strong>BR18, plangrundlaget (lokalplan, byplanvedtægt) og tinglyste deklarationer</strong>, og skriver, at noget byggearbejde kan udføres uden byggetilladelse (BR-18 § 4-6). En særskilt solcelleside fandt vi ikke på kommunens hjemmeside.", ["frc_for"]),
+    ("<strong>Frit stående solcelleanlæg</strong> kræver landzonetilladelse i landzone, og det tager typisk 8-12 uger. Tilladelsen er gyldig i 3 år, koster intet gebyr, og først derefter kan kommunen give en byggetilladelse.", ["frc_land"]),
+    ("Byggesagsgebyret er i 2026 <strong>783 kr. pr. time</strong> (759 kr. i 2025), og sekundær bebyggelse koster 1.114 kr. pr. sag.", ["frc_tak"]),
+    ("Servicemålet for énfamiliehuse er 40 dage. For nye énfamiliehuse uden andre godkendelser, dispensation eller partshøring har byrådet siden 2018 fastsat en maksimal sagsbehandlingstid på <strong>14 kalenderdage</strong> fra sagen er fyldestgørende.", ["frc_tid"]),
+    ("Fredede og bevaringsværdige bygninger med SAVE-vurdering kan slås op via kommunens side, og som ejer har du det fulde ansvar for, at <strong>BBR</strong> er korrekt og lovligt.", ["frc_bev", "frc_bbr"]),
+  ],
+  "sol_faq": [
+    ("Skal man søge byggetilladelse til solceller i Fredericia?", "Kommunen henviser til bygningsreglementet (BR-18 § 4-6) for byggearbejde, der kan udføres uden tilladelse, og beder dig tjekke BR18, lokalplan og tinglyste deklarationer. Frit stående anlæg i landzone kræver landzonetilladelse og derefter byggetilladelse. Er du i tvivl, tilbyder kommunen en gratis forhåndsdialog.", ["frc_for", "frc_land"]),
+    ("Hvad koster en byggesag i Fredericia?", "Kommunen tager 783 kr. pr. time i 2026 for byggesagsbehandling (undtagen sekundær bebyggelse, som koster 1.114 kr. pr. sag). Landzonetilladelsen er uden gebyr.", ["frc_tak", "frc_land"]),
+    ("Hvordan kommer jeg i kontakt med kommunen om byggeri?", "Fredericia Kommune kan kontaktes på 72 10 70 00 eller kommunen@fredericia.dk. Til spørgsmål om bevaringsværdige bygninger oplyser kommunen 72 10 77 17 og 72 10 77 05.", ["frc_for", "frc_bev"]),
+  ],
+  "vp_intro": "Varmepumpe i Fredericia: 86 % af parcel- og rækkehusene har fjernvarme, og næsten ingen fyrer med naturgas. En varmepumpe er derfor primært relevant uden for fjernvarmeområdet. Her er status for varmeplanen, priser og tilskud.",
+  "vp_facts": [
+    ("<strong>Ni ud af ti:</strong> kommunen oplyser, at 9 ud af 10 ejendomme forsynes med fjernvarme, og at kun ganske få boliger opvarmes via gasfyr.", ["frc_varme"]),
+    ("<strong>Varmeplan 2022:</strong> byrådet vedtog planen 21. december 2022 med det formål at udfase gas i varmeforsyningen. I Fredericia omfatter de gasforsynede områder alene erhvervsområder.", ["frc_varme", "frc_vplan"]),
+    ("<strong>Opdatering besluttet:</strong> Teknik- og Miljøudvalget godkendte 14. september 2026 at opdatere varmeplanen, fordi realiseringen af de udpegede fjernvarmeområder har været vanskeligere end forventet.", ["frc_vplan"]),
+    ("<strong>Uden for fjernvarmeområdet:</strong> kommunen peger på varmepumper, og Varmepumpepuljen gav i november 2026 27.000 kr. i tilskud til udskiftning af olie-, gas-, biokedel eller elvarme. Du må ikke udskifte et oliefyr med et nyt, hvis du bor i et område med mulighed for fjernvarme.", ["frc_varme"]),
+  ],
+  "vp_faq": [
+    ("Kan jeg få fjernvarme i Fredericia?", "Langt de fleste kan: 9 ud af 10 ejendomme i kommunen har fjernvarme. Kommunens kort viser områder udlagt til kollektiv varmeforsyning, tilslutningspligt og forsyningsselskab, og i tvivlstilfælde skal du kontakte kommunen eller forsyningsselskabet.", ["frc_varme"]),
+    ("Må jeg have elvarme i Fredericia?", "Det er forbudt at etablere elvarme som primær opvarmning i nye og eksisterende huse i områder med fjernvarme eller naturgas. Eldrevne varmepumper er som hovedregel ikke omfattet. Har du haft elvarme siden før 1988, er den ikke i strid med forbuddet.", ["frc_varme"]),
+  ],
+}
+CONTACTS["fredericia"] = {
+  "sol": [("Fredericia Kommune, byggeri og BBR", "72 10 70 00 · kommunen@fredericia.dk", "frc_for")],
+  "vp": [("Fredericia Fjernvarme", "76 20 28 00 · mail@fredericia-fjv.dk", "ff_om")],
 }

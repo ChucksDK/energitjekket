@@ -4988,5 +4988,61 @@
    "175-01100 Rødovre (del af Hovedstadsområdet)",
    45020
   ]
+ ],
+ "taarnby": [
+  [
+   "185-01100 Tårnby (del af Hovedstadsområdet)",
+   43767
+  ]
+ ],
+ "fredericia": [
+  [
+   "607-10108 Fredericia",
+   41761
+  ],
+  [
+   "607-10608 Taulov",
+   3593
+  ],
+  [
+   "607-10611 Skærbæk",
+   2645
+  ],
+  [
+   "607-10845 Egeskov",
+   649
+  ],
+  [
+   "607-18773 Trelde-Østerby",
+   637
+  ],
+  [
+   "607-10607 Pjedsted",
+   601
+  ],
+  [
+   "607-10610 Bredstrup",
+   427
+  ],
+  [
+   "607-10780 Herslev",
+   346
+  ],
+  [
+   "607-10844 Bøgeskov",
+   290
+  ],
+  [
+   "607-10669 Snoghøj",
+   0
+  ],
+  [
+   "607-10828 Østerby",
+   0
+  ],
+  [
+   "607-10846 Trelde",
+   0
+  ]
  ]
 }

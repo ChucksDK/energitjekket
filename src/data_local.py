@@ -28,7 +28,7 @@ def above(f, c):
     a = [NAMES[x] for x in sorted(NAMES, key=f, reverse=True)[:rank(f, c) - 1]]
     return a[0] if len(a) == 1 else ", ".join(a[:-1]) + " og " + a[-1]
 
-NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund", "skanderborg": "Skanderborg", "vordingborg": "Vordingborg", "koebenhavn": "København", "vejen": "Vejen", "varde": "Varde", "faxe": "Faxe", "kalundborg": "Kalundborg", "skive": "Skive", "gladsaxe": "Gladsaxe", "kongens-lyngby": "Kongens Lyngby", "holstebro": "Holstebro", "fredensborg": "Fredensborg", "nakskov": "Nakskov", "assens": "Assens", "hinnerup": "Hinnerup", "helsinge": "Helsinge", "middelfart": "Middelfart", "toender": "Tønder", "roenne": "Rønne", "hobro": "Hobro", "ebeltoft": "Ebeltoft", "thisted": "Thisted", "frederiksberg": "Frederiksberg", "gentofte": "Gentofte", "hvidovre": "Hvidovre", "hoersholm": "Hørsholm", "roedovre": "Rødovre", "ballerup": "Ballerup"}
+NAMES = {"kolding": "Kolding", "vejle": "Vejle", "esbjerg": "Esbjerg", "odense": "Odense", "aalborg": "Aalborg", "randers": "Randers", "horsens": "Horsens", "aarhus": "Aarhus", "viborg": "Viborg", "naestved": "Næstved", "silkeborg": "Silkeborg", "holbaek": "Holbæk", "slagelse": "Slagelse", "roskilde": "Roskilde", "soenderborg": "Sønderborg", "koege": "Køge", "svendborg": "Svendborg", "faaborg": "Faaborg", "aabenraa": "Aabenraa", "herning": "Herning", "greve": "Greve", "hjoerring": "Hjørring", "holte": "Holte", "nykoebing-falster": "Nykøbing Falster", "haderslev": "Haderslev", "frederikshavn": "Frederikshavn", "hedensted": "Hedensted", "ringkoebing": "Ringkøbing", "helsingoer": "Helsingør", "stenloese": "Stenløse", "frederikssund": "Frederikssund", "skanderborg": "Skanderborg", "vordingborg": "Vordingborg", "koebenhavn": "København", "vejen": "Vejen", "varde": "Varde", "faxe": "Faxe", "kalundborg": "Kalundborg", "skive": "Skive", "gladsaxe": "Gladsaxe", "kongens-lyngby": "Kongens Lyngby", "holstebro": "Holstebro", "fredensborg": "Fredensborg", "nakskov": "Nakskov", "assens": "Assens", "hinnerup": "Hinnerup", "helsinge": "Helsinge", "middelfart": "Middelfart", "toender": "Tønder", "roenne": "Rønne", "hobro": "Hobro", "ebeltoft": "Ebeltoft", "thisted": "Thisted", "frederiksberg": "Frederiksberg", "gentofte": "Gentofte", "hvidovre": "Hvidovre", "hoersholm": "Hørsholm", "roedovre": "Rødovre", "ballerup": "Ballerup", "taarnby": "Tårnby", "fredericia": "Fredericia"}
 LOCAL_S = {
  "dst_bol102": ("Danmarks Statistik: BOL102, boliger efter område og opvarmning (2026)", "https://www.statistikbanken.dk/BOL102"),
  "dst_bol101": ("Danmarks Statistik: BOL101, boliger efter opførelsesår og udlejningsforhold (2026)", "https://www.statistikbanken.dk/BOL101"),
@@ -504,7 +504,7 @@ SOL_XFAQ.update({
             ("Hvad koster solceller i Slagelse?", lambda: "Energisparer.dk ser i 2026 ca. 12.500-16.000 kr. pr. kWp for et færdigmonteret anlæg, så et typisk 6 kWp-anlæg ligger omkring 75.000-96.000 kr. inkl. montering. Vi har ikke fundet en særlig Slagelse-pris. Kræver lokalplanen røde teglsten, kan dispensation og ekstra montage påvirke prisen.", ["es_sol", "slg_adm"])],
 })
 VP_HEAT.update({
- "holbaek": ("Mange gasfyr og færrest med fjernvarme på sitet i Holbæk",
+ "holbaek": ("Mange gasfyr og meget lidt fjernvarme i Holbæk",
    lambda: f"{tal(HEAT['holbaek']['CN'])} beboede parcel- og rækkehuse i Holbæk Kommune ({hp('holbaek','CN',1)}) har naturgas, {rk(_CN, 'holbaek', 'højeste')} andel af de {nw()} byer, og kun {hp('holbaek','FJ',1)} har fjernvarme. Samtidig har {tal(HEAT['holbaek']['VP'])} huse ({hp('holbaek','VP',1)}) allerede varmepumpe, {rk(_VP, 'holbaek', 'højeste')} andel på sitet, mod {hp('dk','VP',1)} på landsplan."),
  "slagelse": ("Gas, olie og elvarme i Slagelse Kommune",
    lambda: f"{hp('slagelse','FJ',1)} af de {tal(hs('slagelse'))} beboede parcel- og rækkehuse i Slagelse Kommune har fjernvarme, mens {tal(HEAT['slagelse']['CN'])} ({hp('slagelse','CN',1)}) har naturgas, {tal(HEAT['slagelse']['CO'])} oliefyr og {tal(HEAT['slagelse']['ELV'])} elvarme. {tal(HEAT['slagelse']['VP'])} huse ({hp('slagelse','VP',1)}) har allerede varmepumpe, {rk(_VP, 'slagelse', 'højeste')} andel af de {nw()} byer."),
@@ -1745,7 +1745,7 @@ SOL_XFAQ.update({
 VP_HEAT.update({
  "gladsaxe": ("Næsten hvert andet hus har naturgas i Gladsaxe",
    lambda: f"{tal(HEAT['gladsaxe']['CN'])} af de {tal(hs('gladsaxe'))} beboede parcel- og rækkehuse i Gladsaxe Kommune ({hp('gladsaxe','CN',1)}) har naturgas, mod {hp('dk','CN',1)} på landsplan, og {tal(HEAT['gladsaxe']['FJ'])} ({hp('gladsaxe','FJ',1)}) har fjernvarme. Kun {tal(HEAT['gladsaxe']['VP'])} ({hp('gladsaxe','VP',1)}) har varmepumpe. Kommunen skriver, at fjernvarmen i dag dækker ca. 60 % af varmebehovet og skal op på næsten 100 % i 2030."),
- "kongens-lyngby": ("Flest gasfyr på sitet: varmen i Kongens Lyngby",
+ "kongens-lyngby": ("To ud af tre huse fyrer med gas: varmen i Kongens Lyngby",
    lambda: f"{tal(HEAT['kongens-lyngby']['CN'])} af de {tal(hs('kongens-lyngby'))} beboede parcel- og rækkehuse i Lyngby-Taarbæk Kommune ({hp('kongens-lyngby','CN',1)}) har naturgas – {rk(_hf('CN'), 'kongens-lyngby', 'højeste')} andel af de {nw()} byer og mod {hp('dk','CN',1)} på landsplan. Kun {hp('kongens-lyngby','FJ',1)} har fjernvarme, og {tal(HEAT['kongens-lyngby']['VP'])} ({hp('kongens-lyngby','VP',1)}) har allerede varmepumpe."),
 })
 VP_HEAT_SRC_NEW.update({"gladsaxe": ["gla_fv"], "kongens-lyngby": []})
@@ -2579,24 +2579,114 @@ def reg_age_note(c, kommune):
         return (f"{tal(B['før 1960'])} af de beboede parcel- og rækkehuse i Ballerup Kommune ({pct(B['før 1960'], t)}) er bygget før 1960, mens {tal(B['1960-1979'])} ({pct(B['1960-1979'], t)}) er fra 1960–79. Står huset som fredet eller bevaringsværdigt, henviser kommunen til byggetilladelse via Bygogmiljø.dk, og i Gl. Skovlunde forbyder vejledningen til Lokalplan 104 solceller på bevaringsværdige bygninger.", ["bal_bev", "bal_skov"])
     return _reg_age_old27(c, kommune)
 
+# ---------- daglig by-rutine 28. nov. 2026: Tårnby og Fredericia ----------
+SOL_ORDER.update({
+ "taarnby": ["lokalt", "boliger", "tage", "produktion", "faq", "guides"],
+ "fredericia": ["tage", "lokalt", "produktion", "boliger", "faq", "guides"],
+})
+VP_ORDER.update({
+ "taarnby": ["opvarmning", "pris", "lokalt", "lokale-byer", "faq", "guides"],
+ "fredericia": ["lokale-byer", "opvarmning", "pris", "lokalt", "faq", "guides"],
+})
+FV_ORDER.update({
+ "taarnby": ["status", "priser", "andel", "varmekilder", "billigst", "faq"],
+ "fredericia": ["andel", "priser", "varmekilder", "status", "billigst", "faq"],
+})
+SOL_PROD.update({
+ "taarnby": ("Solen over Amager: hvad giver et tag i Tårnby?",
+  lambda: f"PVGIS 5.3 beregner for Tårnby ca. {tal(PV['taarnby']['syd'])} kWh pr. kWp om året på et sydvendt tag med 35° hældning, så 6 kWp giver ca. {tal(PV['taarnby']['syd']*6)} kWh. Juni og juli er stærkest med ca. {tal(PV['taarnby']['months'][5]*6)} og ca. {tal(PV['taarnby']['months'][6]*6)} kWh, mens december kun giver ca. {tal(PV['taarnby']['months'][11]*6)} kWh. Øst giver ca. {tal(PV['taarnby']['oest'])} kWh pr. kWp, vest ca. {tal(PV['taarnby']['vest'])} kWh, og med {PV['taarnby']['opt_angle']}° hældning mod syd når du op på ca. {tal(PV['taarnby']['opt'])} kWh pr. kWp."),
+ "fredericia": ("Solindstråling i Fredericia: syd, øst, vest og bedste hældning",
+  lambda: f"I Fredericia giver PVGIS 5.3 ca. {tal(PV['fredericia']['syd'])} kWh pr. kWp om året for et tag mod syd med 35°, dvs. ca. {tal(PV['fredericia']['syd']*6)} kWh for et 6 kWp-anlæg. Maj når ca. {tal(PV['fredericia']['months'][4]*6)} kWh og juli ca. {tal(PV['fredericia']['months'][6]*6)} kWh, mens januar kun giver ca. {tal(PV['fredericia']['months'][0]*6)} kWh. Et østtag giver ca. {tal(PV['fredericia']['oest'])} og et vesttag ca. {tal(PV['fredericia']['vest'])} kWh pr. kWp. Optimal hældning er {PV['fredericia']['opt_angle']}° (ca. {tal(PV['fredericia']['opt'])} kWh pr. kWp)."),
+})
+SOL_PROD_SRC_NEW.update({"taarnby": ["pv_taarnby", "pvo_taarnby", "pvv_taarnby"], "fredericia": ["pv_fredericia", "pvo_fredericia", "pvv_fredericia"]})
+SOL_ROOF.update({
+ "taarnby": ("Fibercement og tegl dækker næsten to tredjedele af tagene i Tårnby",
+  lambda: f"{rp('taarnby','06')} af parcel- og rækkehusene i Tårnby Kommune har <strong>fibercementtag inkl. asbest</strong> og {rp('taarnby','10')} har tegl (landet: {rp('dk','06')} og {rp('dk','10')}). Cementsten udgør {rp('taarnby','08')}, tagpap med hældning {rp('taarnby','04')} og built-up {rp('taarnby','02')}. Kommunen kræver, at anlægget følger tagets hældning, så tagtypen afgør, hvordan monteringen skal laves.",
+  ["dst_bygb50", "taa_sol"]),
+ "fredericia": ("Cementsten, tegl og fibercement deler tagene i Fredericia",
+  lambda: f"I Fredericia Kommune har {rp('fredericia','08')} af parcel- og rækkehusene <strong>cementstenstag</strong>, {rp('fredericia','10')} tegl og {rp('fredericia','06')} fibercement inkl. asbest. Resten fordeler sig på tagpap med hældning ({rp('fredericia','04')}), built-up ({rp('fredericia','02')}) og metalplader ({rp('fredericia','12')}). Landet har {rp('dk','08')} cementsten og {rp('dk','06')} fibercement.",
+  ["dst_bygb50", "bolius_mont"]),
+})
+SOL_HOMES.update({
+ "taarnby": lambda: f"Tårnby Kommune har {tal(STOCK['taarnby']['tot'])} beboede parcel- og rækkehuse, og {pct(STOCK['taarnby']['ejer'], STOCK['taarnby']['tot'])} er ejerboliger. {pct(STOCK['taarnby']['B']['før 1960'], STOCK['taarnby']['tot'])} er fra før 1960, {pct(STOCK['taarnby']['B']['1960-1979'], STOCK['taarnby']['tot'])} fra 1960–79 og kun {pct(STOCK['taarnby']['B']['1980-1999'], STOCK['taarnby']['tot'])} fra 1980–99. {pct(STOCK['taarnby']['raekke'], STOCK['taarnby']['tot'])} er række-, kæde- eller dobbelthuse.",
+ "fredericia": lambda: f"Fredericia Kommune har {tal(STOCK['fredericia']['tot'])} beboede parcel- og rækkehuse. {pct(STOCK['fredericia']['B']['1960-1979'], STOCK['fredericia']['tot'])} er opført i 1960–79, {pct(STOCK['fredericia']['B']['før 1960'], STOCK['fredericia']['tot'])} før 1960, og {pct(STOCK['fredericia']['B']['2000+'], STOCK['fredericia']['tot'])} er fra 2000 eller senere. {pct(STOCK['fredericia']['ejer'], STOCK['fredericia']['tot'])} er ejerboliger, og {pct(STOCK['fredericia']['raekke'], STOCK['fredericia']['tot'])} er række-, kæde- eller dobbelthuse.",
+})
+SOL_HOMES_SRC_NEW.update({"taarnby": ["taa_bygg"], "fredericia": ["frc_bev"]})
+SOL_HOMES_H.update({"taarnby": "Ejerboliger og efterkrigshuse i Tårnby", "fredericia": "Mere end hvert tredje hus i Fredericia er fra 1960'erne og 70'erne"})
+SOL_XFAQ.update({
+ "taarnby": [("Hvor mange huse i Tårnby har fibercementtag?", lambda: f"{tal(ROOF['taarnby']['T']['06'])} af de {tal(ROOF['taarnby']['tot'])} parcel- og rækkehuse med oplyst tag ({rp('taarnby','06')}) har fibercement inkl. asbest ifølge Danmarks Statistik (BYGB50, 2026).", ["dst_bygb50"])],
+ "fredericia": [("Hvilket tag er mest almindeligt på husene i Fredericia?", lambda: f"Cementsten med {tal(ROOF['fredericia']['T']['08'])} af {tal(ROOF['fredericia']['tot'])} parcel- og rækkehuse med oplyst tag ({rp('fredericia','08')}), foran tegl ({rp('fredericia','10')}) og fibercement inkl. asbest ({rp('fredericia','06')}) ifølge Danmarks Statistik (BYGB50, 2026).", ["dst_bygb50"])],
+})
+VP_HEAT.update({
+ "taarnby": ("Næsten tre ud af fire huse i Tårnby fyrer med naturgas",
+  lambda: f"{tal(HEAT['taarnby']['CN'])} af de {tal(hs('taarnby'))} beboede parcel- og rækkehuse i Tårnby Kommune ({hp('taarnby','CN',1)}) varmer med <strong>naturgas</strong>. Kun {tal(HEAT['taarnby']['FJ'])} ({hp('taarnby','FJ',1)}) har fjernvarme, {tal(HEAT['taarnby']['VP'])} ({hp('taarnby','VP',1)}) har varmepumpe, {tal(HEAT['taarnby']['ELV'])} elvarme og {tal(HEAT['taarnby']['CO'])} oliefyr."),
+ "fredericia": ("Over otte ud af ti huse i Fredericia har fjernvarme",
+  lambda: f"{tal(HEAT['fredericia']['FJ'])} af de {tal(hs('fredericia'))} beboede parcel- og rækkehuse i Fredericia Kommune ({hp('fredericia','FJ',1)}) har <strong>fjernvarme</strong>. {tal(HEAT['fredericia']['VP'])} ({hp('fredericia','VP',1)}) har varmepumpe, {tal(HEAT['fredericia']['ELV'])} ({hp('fredericia','ELV',1)}) elvarme og {tal(HEAT['fredericia']['CO'])} ({hp('fredericia','CO',1)}) oliefyr, mens naturgas stort set ikke findes i boligerne."),
+})
+VP_HEAT_SRC_NEW.update({"taarnby": ["taa_fv", "taa_plan"], "fredericia": ["frc_varme"]})
+VP_TOWNS.update({
+ "taarnby": [("Tårnby (kommunens del af hovedstadsområdet)", "Fjernvarme fra Tårnby Forsyning; hovedparten af varmen leveres af CTR", ["tf_tid", "tf_dekl"]),
+             ("Nord for motorvejen", "Udbygningen er gennemført efter den tidligere udmeldte plan", ["tf_tid"]),
+             ("Vestamager (område 3, 4 og 5)", "Projektforslaget genberegnes sammen med kommunen, og områdernes status kan ændres", ["tf_tid"]),
+             ("Områder uden årstal", "Kapaciteten i varmeinfrastrukturen skal afklares, før et leveringstidspunkt kan oplyses", ["tf_tid"])],
+ "fredericia": [("Fredericia", "Fredericia Fjernvarme leverer til flere områder; selskabet blev stiftet i 1954", ["tvis_fvs"]),
+                ("Taulov", "Leverandør afgøres adresse for adresse på kommunens kort over kollektiv varmeforsyning", ["frc_varme"]),
+                ("Skærbæk", "Kommunens kort viser områder udlagt til kollektiv varmeforsyning og aktuelt forsyningsselskab", ["frc_varme"]),
+                ("Erhvervsområder med gas", "Varmeplan 2022 pegede på konvertering fra gas til fjernvarme; opdateringen blev igangsat 14/9 2026", ["frc_varme", "frc_vplan"])],
+})
+VP_TOWNS_NOTE.update({
+ "taarnby": "Tårnby Kommune har kun ét byområde i Danmarks Statistiks opgørelse, så indbyggertallet gælder byområdet og opvarmningstallene hele kommunen. Om din adresse allerede kan få fjernvarme, kan du tjekke på Tårnby Forsynings adressesøgning.",
+ "fredericia": "Indbyggertallene gælder Danmarks Statistiks byområder, mens opvarmningstallene gælder hele Fredericia Kommune. Kommunen skriver, at fjernvarmen leveres af Fredericia Fjernvarme eller TREFOR Varme, afhængigt af området, og at EWII Varme også leverer i kommunen, så tjek din adresse på kommunens kort.",
+})
+VP_XFAQ.update({
+ "taarnby": [("Hvor mange huse i Tårnby har naturgas?", lambda: f"{tal(HEAT['taarnby']['CN'])} af {tal(hs('taarnby'))} beboede parcel- og rækkehuse ({hp('taarnby','CN',1)}) har naturgas ifølge Danmarks Statistik, 2026, mens {tal(HEAT['taarnby']['VP'])} ({hp('taarnby','VP',1)}) har varmepumpe.", ["dst_bol102"])],
+ "fredericia": [("Hvor mange huse i Fredericia har varmepumpe?", lambda: f"{tal(HEAT['fredericia']['VP'])} af {tal(hs('fredericia'))} beboede parcel- og rækkehuse ({hp('fredericia','VP',1)}) har varmepumpe ifølge Danmarks Statistik, 2026, mens {tal(HEAT['fredericia']['FJ'])} ({hp('fredericia','FJ',1)}) har fjernvarme.", ["dst_bol102"])],
+})
+FV_SOURCES.update({
+ "taarnby": [("<strong>CTR leverer hovedparten:</strong> Tårnby Forsyning producerer kun en brøkdel af varmen og er afhængig af CTR I/S, som ifølge Tårnby Forsyning leverer hovedparten.", ["tf_tid", "tf_dekl"]),
+             ("<strong>CTR's brændselsmix 2024:</strong> træpiller 36,9 %, flis 30,0 %, bioaffald 22,8 %, halm 2,3 %, naturgas 3,1 % og gasolie 1,1 %. 94 % er fossilfrie brændsler, og udledningen er 3,4 kg CO2-ækvivalenter pr. GJ (grøn i Energistyrelsens rangering).", ["ctr_dekl"]),
+             ("<strong>Egen energicentral:</strong> Tårnby Forsyning kan producere 6,5 MW fjernvarme og 4,3 MW fjernkøling med renset spildevand på sin energicentral.", ["tf_br"])],
+ "fredericia": [("<strong>TVIS leverer varmen:</strong> kommunens kollektive fjernvarme er ifølge kommunen primært baseret på overskudsvarme, affaldsvarme og bæredygtig biomassevarme, og TVIS sørger for aftalerne med leverandørerne.", ["frc_varme", "tvis_lev"]),
+                ("<strong>Overskudsvarme fra raffinering:</strong> den største overskudsvarme kommer fra raffinerings- og produktionsanlæg i Fredericia og svarer ifølge TVIS til varmeforbruget i ca. 23.000 husstande. Hertil kommer biomassevarme fra Skærbækværket og affaldsvarme fra Kolding.", ["tvis_lev"]),
+                ("<strong>Spids- og reservelast:</strong> i de koldeste måneder kan lokale naturgas- og oliekedler sættes i drift, og TVIS arbejder på at udfase de fossile brændsler i spidslasten.", ["tvis_lev"])],
+})
+FV_SHARE.update({
+ "taarnby": lambda: f"Fjernvarme findes i {hp('taarnby','FJ',1)} af de beboede parcel- og rækkehuse i Tårnby Kommune (landet: {hp('dk','FJ',1)}), mens {hp('taarnby','CN',1)} fyrer med naturgas.",
+ "fredericia": lambda: f"I Fredericia Kommune har {hp('fredericia','FJ',1)} af de beboede parcel- og rækkehuse fjernvarme mod {hp('dk','FJ',1)} på landsplan, og kun {hp('fredericia','CN',1)} bruger naturgas.",
+})
+FV_SOURCES_H.update({"taarnby": "CTR's brændselsmix og Tårnby Forsynings egen energicentral", "fredericia": "Overskudsvarme, biomasse og affaldsvarme via TVIS"})
+_reg_age_old28 = reg_age_note
+def reg_age_note(c, kommune):
+    s = STOCK[c]; B = s["B"]; t = s["tot"]
+    if c == "taarnby":
+        return (f"{tal(B['før 1960'])} af de beboede parcel- og rækkehuse i Tårnby Kommune ({pct(B['før 1960'], t)}) er bygget før 1960, og {tal(B['1960-1979'])} ({pct(B['1960-1979'], t)}) er fra 1960–79. Er huset fredet eller bevaringsværdigt, kræver solceller byggetilladelse, så tjek status på kulturarv.dk og lokalplanen, før du bestiller.", ["taa_sol", "taa_bygg"])
+    if c == "fredericia":
+        return (f"{tal(B['før 1960'])} af de beboede parcel- og rækkehuse i Fredericia Kommune ({pct(B['før 1960'], t)}) er bygget før 1960, mens {tal(B['1960-1979'])} ({pct(B['1960-1979'], t)}) er fra 1960–79. Kommunen har en liste over fredede og bevaringsværdige bygninger med SAVE-vurdering, som du bør slå op, og som ejer er du ansvarlig for, at BBR er korrekt.", ["frc_bev", "frc_bbr"])
+    return _reg_age_old28(c, kommune)
+
 # ---------- tjek af sammenlignende udsagn: bygget fejler, hvis en ny by gør et udsagn forkert ----------
 _PVs = lambda c: PV[c]["syd"]; _rt = lambda k: (lambda c: ROOF[c]["T"][k] / ROOF[c]["tot"]); _hf = lambda k: (lambda c: HEAT[c][k] / hs(c)); _sb = lambda k: (lambda c: STOCK[c]["B"][k] / STOCK[c]["tot"])
 CLAIMS = [
- ("Esbjerg top 18 PV (dynamisk tekst; løsnet 17/11 efter Nakskov/Assens)", rank(_PVs, "esbjerg") <= 27),  # løsnet 27/11 efter Rødovre/Ballerup; løsnet 20/11 efter Rønne/Hobro, 23/11 efter Ebeltoft/Thisted
- ("Aalborg top 17 juni (dynamisk tekst; løsnet 17/11)", rank(lambda c: PV[c]["months"][5], "aalborg") <= 25),  # løsnet 23/11
+ ("Tårnby ca. 72 pct. gas og ca. 5 pct. FJ (vp-intro, FV-intro, overskrift 'næsten tre ud af fire')", 0.70 <= HEAT["taarnby"]["CN"] / hs("taarnby") < 0.75 and round(100 * HEAT["taarnby"]["FJ"] / hs("taarnby")) == 5 and round(100 * HEAT["taarnby"]["CN"] / hs("taarnby")) == 72),
+ ("Tårnby fibercement+tegl næsten to tredjedele (overskrift)", 0.60 <= (ROOF["taarnby"]["T"]["06"] + ROOF["taarnby"]["T"]["10"]) / ROOF["taarnby"]["tot"] < 0.67),
+ ("Fredericia 86 pct. FJ, over otte ud af ti, næsten ingen gas (vp-intro, FV-intro, overskrift)", round(100 * HEAT["fredericia"]["FJ"] / hs("fredericia")) == 86 and HEAT["fredericia"]["CN"] / hs("fredericia") < 0.01),
+ ("Fredericia mere end hvert tredje hus 1960-79 (overskrift)", STOCK["fredericia"]["B"]["1960-1979"] / STOCK["fredericia"]["tot"] > 1 / 3),
+ ("Fredericia cementsten mest almindelig (SOL_XFAQ)", max(ROOF["fredericia"]["T"], key=lambda k: ROOF["fredericia"]["T"][k]) == "08"),
+ ("Esbjerg top 18 PV (dynamisk tekst; løsnet 17/11 efter Nakskov/Assens)", rank(_PVs, "esbjerg") <= 29),  # løsnet 28/11 efter Tårnby/Fredericia; løsnet 27/11 efter Rødovre/Ballerup; løsnet 20/11 efter Rønne/Hobro, 23/11 efter Ebeltoft/Thisted
+ ("Aalborg top 17 juni (dynamisk tekst; løsnet 17/11)", rank(lambda c: PV[c]["months"][5], "aalborg") <= 27),  # løsnet 28/11 efter Tårnby/Fredericia; løsnet 23/11
  ("Odense top 4 tegl (dynamisk tekst; løsnet 13/11 efter Gladsaxe/Lyngby, 27/11 efter Rødovre)", rank(_rt("10"), "odense") <= 9), ("Aalborg top 5 fibercement (dynamisk tekst)", rank(_rt("06"), "aalborg") <= 7),  # løsnet 23/11 efter Thisted
  ("Vejle ikke nr. 1 nyere huse", rank(_sb("2000+"), "vejle") > 1),
- ("Esbjerg top 6 1960-79 (dynamisk tekst; løsnet 26/11 efter Hørsholm, 27/11 efter Ballerup)", rank(_sb("1960-1979"), "esbjerg") <= 7),
+ ("Esbjerg top 6 1960-79 (dynamisk tekst; løsnet 26/11 efter Hørsholm, 27/11 efter Ballerup, 28/11 efter Tårnby/Fredericia)", rank(_sb("1960-1979"), "esbjerg") <= 9),
  ("Aarhus flest huse", top(lambda c: STOCK[c]["tot"]) == "aarhus"), ("Aalborg nr. 2 huse", rank(lambda c: STOCK[c]["tot"], "aalborg") == 2),
- ("Horsens top 12 ejerandel (dynamisk tekst; løsnet 13/11, 25/11 efter Gentofte, 26/11 efter Hørsholm)", rank(_EJ, "horsens") <= 12),
+ ("Horsens top 12 ejerandel (dynamisk tekst; løsnet 13/11, 25/11 efter Gentofte, 26/11 efter Hørsholm, 28/11 efter Tårnby)", rank(_EJ, "horsens") <= 13),
  ("Odense top 3 FJ (dynamisk tekst; løsnet 25/11 efter Frederiksberg)", rank(_hf("FJ"), "odense") <= 3), ("Aarhus top 5 FJ (dynamisk tekst; løsnet 25/11 efter Frederiksberg)", rank(_hf("FJ"), "aarhus") <= 5),
 
  ("Viborg top 9 olie, Randers top 14 (dynamisk tekst; løsnet 17/11)", rank(_hf("CO"), "viborg") <= 14 and rank(_hf("CO"), "randers") <= 21),  # løsnet 19/11 efter Middelfart/Tønder, 23/11 efter Ebeltoft/Thisted
  ("Næstved gas tæt på fjernvarme (overskrift)", abs(HEAT["naestved"]["CN"] - HEAT["naestved"]["FJ"]) / HEAT["naestved"]["FJ"] < 0.05),
  ("Sønderborg tre ud af fem FJ (overskrift)", 0.58 <= HEAT["soenderborg"]["FJ"] / hs("soenderborg") <= 0.62),
  ("Roskilde mere end hvert fjerde gas (overskrift)", HEAT["roskilde"]["CN"] / hs("roskilde") > 0.25),
- ("Holbæk top 10 gasfyr (overskrift 'Mange gasfyr' og dynamisk tekst; løsnet 26/11 efter Hørsholm/Hvidovre, 27/11 efter Ballerup/Rødovre) og laveste FJ (overskrift)", rank(_hf("CN"), "holbaek") <= 10 and top(_hf("FJ"), rev=True) == "holbaek"),
- ("Køge halvdelen gas, top 5 gasfyr (overskrift, dynamisk tekst)", 0.47 <= HEAT["koege"]["CN"] / hs("koege") <= 0.53 and rank(_hf("CN"), "koege") <= 7),  # løsnet 26/11 efter Hørsholm, 27/11 efter Ballerup/Rødovre
+ ("Holbæk top 10 gasfyr (overskrift 'Mange gasfyr' og dynamisk tekst; løsnet 26/11 efter Hørsholm/Hvidovre, 27/11 efter Ballerup/Rødovre, 28/11 efter Tårnby) og under 10 % FJ (FV-intro 'under hvert tiende hus'; overskrift uden superlativ efter Tårnby)", rank(_hf("CN"), "holbaek") <= 11 and HEAT["holbaek"]["FJ"] / hs("holbaek") < 0.10),
+ ("Køge halvdelen gas, top 5 gasfyr (overskrift, dynamisk tekst)", 0.47 <= HEAT["koege"]["CN"] / hs("koege") <= 0.53 and rank(_hf("CN"), "koege") <= 8),  # løsnet 26/11 efter Hørsholm, 27/11 efter Ballerup/Rødovre, 28/11 efter Tårnby
  ("Svendborg hvert fjerde FJ (overskrift)", 0.23 <= HEAT["svendborg"]["FJ"] / hs("svendborg") <= 0.27),
  ("Svendborg top 6 PV (dynamisk tekst; løsnet 17/11)", rank(_PVs, "svendborg") <= 7),
  ("Faaborg hvert tredje FJ (tekst)", 0.32 <= HEAT["faaborg"]["FJ"] / hs("faaborg") <= 0.36),
@@ -2676,7 +2766,7 @@ CLAIMS = [
  ("Gladsaxe næsten halvdelen gas (overskrift/intro)", 0.46 <= HEAT["gladsaxe"]["CN"] / hs("gladsaxe") < 0.50),
  ("Gladsaxe halvdelen række/dobbelt (sol-intro)", 0.47 <= STOCK["gladsaxe"]["raekke"] / STOCK["gladsaxe"]["tot"] < 0.53),
  ("Gladsaxe 37 pct. FJ (FV-intro)", round(100 * HEAT["gladsaxe"]["FJ"] / hs("gladsaxe")) == 37),
- ("Lyngby højeste gas (overskrift/intro)", top(_hf("CN")) == "kongens-lyngby"),
+ ("Lyngby top 2 gas (overskrift/intro; dynamisk tekst; løsnet 28/11 efter Tårnby)", rank(_hf("CN"), "kongens-lyngby") <= 2),
  ("Lyngby to ud af tre gas (intro)", 0.64 <= HEAT["kongens-lyngby"]["CN"] / hs("kongens-lyngby") < 0.69),
  ("Lyngby over halvdelen tegl (overskrift; rettet 25/11 efter Frederiksberg)", ROOF["kongens-lyngby"]["T"]["10"] / ROOF["kongens-lyngby"]["tot"] > 0.50),
  ("Lyngby 18 pct. FJ (FV-intro)", round(100 * HEAT["kongens-lyngby"]["FJ"] / hs("kongens-lyngby")) == 18),
