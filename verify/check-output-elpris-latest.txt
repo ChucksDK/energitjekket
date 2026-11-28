@@ -1,29 +1,29 @@
-Sider: 258 | interne links tjekket: 190639 (260 unikke URL) | brudte: 0
-JSON-LD blokke OK: 258 | fejl: 0 []
-Schema-typer: {'Organization': 258, 'WebPage': 256, 'WebSite': 258, 'BreadcrumbList': 257, 'CollectionPage': 2, 'FAQPage': 252, 'Service': 233, 'WebApplication': 1, 'Dataset': 1}
-Eksterne kildelinks (unikke): 701
+Sider: 266 | interne links tjekket: 202411 (268 unikke URL) | brudte: 0
+JSON-LD blokke OK: 266 | fejl: 0 []
+Schema-typer: {'Organization': 266, 'WebPage': 264, 'WebSite': 266, 'BreadcrumbList': 265, 'CollectionPage': 2, 'FAQPage': 260, 'Service': 241, 'WebApplication': 1, 'Dataset': 1}
+Eksterne kildelinks (unikke): 739
 On-page issues: [('/404.html', 'description 18 tegn'), ('/tak/', 'description 32 tegn')]
-Interlink-krav opfyldt (115 bysider, 118 lokale undersider, 16 guides, 2 hubs)
+Interlink-krav opfyldt (119 bysider, 122 lokale undersider, 16 guides, 2 hubs)
 og:image+twitter+dato på alle sider: ja | billedstørrelser: {(1200, 630)} | byer uden diagrammer: ingen
-Sider uden indgående links: ingen | min. indgående for undersider: 257
-Sitemap: 256 URL | mangler: ingen
+Sider uden indgående links: ingen | min. indgående for undersider: 265
+Sitemap: 264 URL | mangler: ingen
 Lighed, GAMMEL metode (hele siden minus header/footer/form/links)
   Bysider solceller: lighed gns 46%, maks 61% | ord 1187-1518
   Undersider regler-og-byggetilladelse: lighed gns 35%, maks 58% | ord 487-1052
-  Bysider varmepumpe: lighed gns 42%, maks 56% | ord 1015-1666
+  Bysider varmepumpe: lighed gns 43%, maks 56% | ord 1015-1666
   Undersider fjernvarme-eller-varmepumpe: lighed gns 37%, maks 53% | ord 751-1933
   Guides (4 nationale): lighed gns 23%, maks 30% | ord 743-1163
   Alle guides og tilbudssider (16): lighed gns 20%, maks 52% | ord 697-1442
   Byside vs egen underside: gns 14%, maks 37%
-  Nye sider (roedovre, ballerup) mod de eksisterende sider af samme type:
-    /solceller/roedovre/: gns 44%, maks 59% (/solceller/gentofte/) | 1408 ord
-    /solceller/ballerup/: gns 43%, maks 55% (/solceller/hvidovre/) | 1432 ord
-    /solceller/roedovre/regler-og-byggetilladelse/: gns 32%, maks 40% (/solceller/skive/regler-og-byggetilladelse/) | 723 ord
-    /solceller/ballerup/regler-og-byggetilladelse/: gns 33%, maks 40% (/solceller/varde/regler-og-byggetilladelse/) | 697 ord
-    /varmepumpe/roedovre/: gns 42%, maks 56% (/varmepumpe/hoersholm/) | 1220 ord
-    /varmepumpe/ballerup/: gns 34%, maks 47% (/varmepumpe/hoersholm/) | 1259 ord
-    /varmepumpe/roedovre/fjernvarme-eller-varmepumpe/: gns 36%, maks 45% (/varmepumpe/hvidovre/fjernvarme-eller-varmepumpe/) | 988 ord
-    /varmepumpe/ballerup/fjernvarme-eller-varmepumpe/: gns 34%, maks 42% (/varmepumpe/roedovre/fjernvarme-eller-varmepumpe/) | 1048 ord
+  Nye sider (taarnby, fredericia) mod de eksisterende sider af samme type:
+    /solceller/taarnby/: gns 45%, maks 54% (/solceller/koege/) | 1393 ord
+    /solceller/fredericia/: gns 44%, maks 51% (/solceller/frederikshavn/) | 1411 ord
+    /solceller/taarnby/regler-og-byggetilladelse/: gns 35%, maks 41% (/solceller/stenloese/regler-og-byggetilladelse/) | 687 ord
+    /solceller/fredericia/regler-og-byggetilladelse/: gns 34%, maks 41% (/solceller/taarnby/regler-og-byggetilladelse/) | 639 ord
+    /varmepumpe/taarnby/: gns 42%, maks 53% (/varmepumpe/roedovre/) | 1203 ord
+    /varmepumpe/fredericia/: gns 44%, maks 56% (/varmepumpe/hvidovre/) | 1151 ord
+    /varmepumpe/taarnby/fjernvarme-eller-varmepumpe/: gns 36%, maks 45% (/varmepumpe/roedovre/fjernvarme-eller-varmepumpe/) | 995 ord
+    /varmepumpe/fredericia/fjernvarme-eller-varmepumpe/: gns 36%, maks 44% (/varmepumpe/odense/fjernvarme-eller-varmepumpe/) | 978 ord
 Lighed, NY metode (kun hovedindhold; uden nav, TOC, side-CTA, trust-linje, hero-knapper, formular, linkblok, CTA-boks, footer)
   Bysider solceller: lighed gns 30%, maks 48% | ord 868-1198
   Undersider regler-og-byggetilladelse: lighed gns 21%, maks 45% | ord 347-903
@@ -32,15 +32,15 @@ Lighed, NY metode (kun hovedindhold; uden nav, TOC, side-CTA, trust-linje, hero-
   Guides (4 nationale): lighed gns 13%, maks 18% | ord 599-1003
   Alle guides og tilbudssider (16): lighed gns 12%, maks 33% | ord 476-1295
   Byside vs egen underside: gns 9%, maks 32%
-  Nye sider (roedovre, ballerup) mod de eksisterende sider af samme type:
-    /solceller/roedovre/: gns 29%, maks 48% (/solceller/gentofte/) | 1088 ord
-    /solceller/ballerup/: gns 28%, maks 43% (/solceller/hvidovre/) | 1112 ord
-    /solceller/roedovre/regler-og-byggetilladelse/: gns 18%, maks 26% (/solceller/skive/regler-og-byggetilladelse/) | 579 ord
-    /solceller/ballerup/regler-og-byggetilladelse/: gns 18%, maks 26% (/solceller/roedovre/regler-og-byggetilladelse/) | 553 ord
-    /varmepumpe/roedovre/: gns 26%, maks 43% (/varmepumpe/hoersholm/) | 924 ord
-    /varmepumpe/ballerup/: gns 16%, maks 31% (/varmepumpe/hoersholm/) | 963 ord
-    /varmepumpe/roedovre/fjernvarme-eller-varmepumpe/: gns 25%, maks 36% (/varmepumpe/hvidovre/fjernvarme-eller-varmepumpe/) | 840 ord
-    /varmepumpe/ballerup/fjernvarme-eller-varmepumpe/: gns 24%, maks 34% (/varmepumpe/roedovre/fjernvarme-eller-varmepumpe/) | 900 ord
+  Nye sider (taarnby, fredericia) mod de eksisterende sider af samme type:
+    /solceller/taarnby/: gns 29%, maks 40% (/solceller/koege/) | 1073 ord
+    /solceller/fredericia/: gns 29%, maks 38% (/solceller/frederikshavn/) | 1092 ord
+    /solceller/taarnby/regler-og-byggetilladelse/: gns 21%, maks 27% (/solceller/stenloese/regler-og-byggetilladelse/) | 545 ord
+    /solceller/fredericia/regler-og-byggetilladelse/: gns 19%, maks 28% (/solceller/taarnby/regler-og-byggetilladelse/) | 499 ord
+    /varmepumpe/taarnby/: gns 25%, maks 39% (/varmepumpe/roedovre/) | 907 ord
+    /varmepumpe/fredericia/: gns 27%, maks 42% (/varmepumpe/hvidovre/) | 857 ord
+    /varmepumpe/taarnby/fjernvarme-eller-varmepumpe/: gns 26%, maks 36% (/varmepumpe/roedovre/fjernvarme-eller-varmepumpe/) | 847 ord
+    /varmepumpe/fredericia/fjernvarme-eller-varmepumpe/: gns 25%, maks 34% (/varmepumpe/roedovre/fjernvarme-eller-varmepumpe/) | 830 ord
 Elpris: side, links og bokse på alle bysider: ok
 Google-verifikationsfil: OK
 GATE: OK
